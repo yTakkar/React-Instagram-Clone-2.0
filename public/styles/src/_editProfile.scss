@@ -1,0 +1,178 @@
+/*EDIT PROFILE*/
+
+.edit_profile{
+  width: 100%;
+  position: relative;
+  left: 20px;
+  display: inline-block;
+  margin-bottom: 50px;
+
+  & .edit_info{
+    width: 100%;
+    position: relative;
+    margin-bottom: 15px;
+
+    & img{
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      position: relative;
+      display: inline-block;
+    }
+
+    & span{
+      position: relative;
+      top: -12px;
+      left: 8px;
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+  }
+
+  & .edit_main{
+    width: 400px;
+    float: left;
+
+    & > div{
+      margin-bottom: 15px;
+
+      &::last-of-type{
+        margin-bottom: 0px;
+      }
+
+      &.edit_email_verified span{
+        font-size: 14px;
+      }
+
+    }
+
+    & textarea{
+      width: 95%;
+      padding: 8px;
+      font-size: 14px;
+      word-break: normal;
+      height: 60px;
+    }
+
+  }
+
+  & .edit_span{
+    display: block;
+    position: relative;
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+
+  & input[type="text"],
+  & input[type="email"]{
+    padding: 8px;
+    width: 95%;
+    font-size: 14px;
+  }
+
+  .edit_sm_div {
+
+    & span {
+      position: relative;
+      font-size: 14px;
+    }
+
+    & input[type="text"] {
+      margin-bottom: 6px;
+      width: 95%;
+
+      &::last-of-type{
+        margin-bottom: 0px;
+      }
+
+    }
+
+  }
+
+  & .edit_update{
+    display: inline-block;
+    margin-top: -5px;
+
+    & a{
+      padding: 5px 15px;
+      font-size: 14px;
+      font-weight: 600;
+      border-radius: 3px;
+      cursor: pointer;
+      outline: none;
+    }
+
+    & a.resend_vl {
+      padding: 6px 15px;
+      margin-left: 7px;
+    }
+
+    & span{
+      position: relative;
+      display: inline-block;
+      top: 5px;
+      margin-right: 7px;
+      cursor: pointer;
+      color: $d_light;
+
+      &:hover{
+        color: $dark;
+      }
+
+      & i{
+        position: relative;
+        top: 2px;
+      }
+
+    }
+
+  }
+
+  & .edit_tags{
+    position: relative;
+    float: left;
+    width: 350px;
+    margin-left: 30px;
+
+    & .edit_tags_info{
+      font-size: 14px;
+      margin-bottom: 5px;
+      margin-top: 15px;
+    }
+
+    & .add_tag{
+      position: relative;
+      margin-bottom: 10px;
+
+      & input[type="text"]{
+        padding: 6px 8px;
+        width: 79.5%;
+        margin-right: 2px;
+        font-size: 14px;
+      }
+
+      & a{
+        padding: 6px 10px;
+        font-weight: 600;
+      }
+
+    }
+
+    .tags_all span{
+      padding: 5px 10px;
+      text-align: center;
+      display: inline-block;
+      margin-right: 6px;
+      margin-top: 6px;
+      cursor: no-drop;
+
+      &:hover{
+        background: $fb;
+      }
+
+    }
+
+  }
+
+}

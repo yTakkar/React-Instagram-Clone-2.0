@@ -1,0 +1,224 @@
+// CREATE GROUP
+.create_group {
+  width: 380px;
+
+  & .modal_middle {
+
+    &>div {
+      display: block;
+
+      &:first-of-type {
+        margin-bottom: 10px;
+      }
+    }
+
+    & span {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+  }
+
+}
+
+// EDIT GROUP
+.grp_edit{
+  @include inst;
+  padding: 10px;
+
+  & > div{
+    position: relative;
+    width: 100%;
+    display: block;
+    margin-bottom: 13px;
+
+    &:first-of-type{
+      margin-top: 5px;
+    }
+  }
+
+  & input[type='text']{
+    padding: 7px;
+    font-size: 14px;
+    width: 95%;
+  }
+
+  & textarea{
+    padding: 7px;
+    width: 95%;
+    height: 120px !important;
+    font-size: 14px;
+  }
+
+  & span.g_e_span{
+    font-weight: 600;
+    font-size: 14px;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  & .g_e_pri label{
+    display: block;
+    margin-bottom: 1px;
+    font-size: 14px;
+    cursor: pointer;
+
+    &::before{
+      margin-right: 3px;
+      position: relative;
+      top: 0.4px;
+    }
+  }
+
+  & .g_e_p_info{
+    font-size: 14px;
+  }
+
+  & .g_e_save {
+    display: flex;
+    justify-content: space-between;
+
+    & span.emoji_span {
+      color: $d_light;
+      height: 24px;
+      cursor: pointer;
+      position: relative;
+      top: 2px;
+
+      &:hover {
+        color: $dark;
+      }
+    }
+
+    & a{
+      padding: 4px 10px;
+      font-weight: 600;
+    }
+  }
+
+}
+
+// ADD MEMBERS
+.a_m {
+  @include inst;
+  padding: 10px;
+  height: 300px;
+  position: relative;
+
+  & .a_m_header {
+    font-size: 14px;
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+
+  & .search_followings {
+
+    & .p_add_taggings {
+      padding: 0px;
+      width: 96%;
+    }
+
+    & .p_tagging_list {
+      left: 10px;
+      margin-top: 1px;
+    }
+
+  }
+
+}
+
+// USER GROUPS
+.userGroups {
+
+  & .y_g{
+    @include inst;
+    position: relative;
+    height: 45px;
+    padding: 7px;
+    margin-bottom: 10px;
+
+    & .y_g_left {
+
+      & img{
+        width: 45px;
+        height: 45px;
+        display: inline-block;
+        border-radius: 50%;
+      }
+
+      & .y_g_content{
+        display: inline-block;
+        position: relative;
+        top: -11px;
+        margin-left: 5px;
+
+        & a{
+          display: block;
+          color: $dark;
+          font-weight: 600;
+          font-size: 15px;
+          word-break: break-all;
+
+          &:hover{
+            text-decoration: underline;
+          }
+        }
+
+        & .y_g_light{
+          display: inline-block;
+        }
+
+        & .grp_admin {
+          top: 1px !important;
+        }
+
+      }
+
+    }
+
+    & .y_g_right{
+      position: absolute;
+      right: 10px;
+      top: 17px;
+
+      & a{
+        position: relative;
+        display: inline-block;
+        padding: 4px 10px;
+        font-weight: 600;
+      }
+
+    }
+
+  }
+
+}
+
+// GROUP BIO
+.grp_bio {
+  @include inst;
+  margin-bottom: 10px;
+
+  & .grp_bio_h {
+    @include header;
+  }
+
+  & .grp_bio_main {
+    padding: 10px;
+    text-align: right;
+
+    & span{
+      font-size: 14px;
+      display: block;
+      text-align: left;
+    }
+
+    & a{
+      padding: 4px 10px;
+      font-weight: 600;
+      display: inline-block;
+      margin-top: 10px;
+    }
+  }
+
+}

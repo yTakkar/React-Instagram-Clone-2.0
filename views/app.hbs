@@ -1,0 +1,24 @@
+{{> topHeader }}
+
+<div
+  class="data"
+  id="data"
+  data-session="{{session.id}}"
+  data-username="{{session.username}}"
+  data-email-verified="{{session.email_verified}}"
+  data-loggedin="{{loggedIn}}"
+></div>
+
+<div id="root">
+  <div class='preload' >
+    <div class="preload_spinner">
+      <div class="spinner">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{> footer }}

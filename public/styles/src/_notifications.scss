@@ -1,0 +1,111 @@
+/*NOTIFICATIONS*/
+
+.notifications_div{
+  text-align: center;
+  width: 600px;
+  margin-bottom: 50px;
+  margin-left: 100px;
+  overflow: hidden;
+
+  & .notifications_header{
+    text-align: left;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+
+    & span.noti_count{
+      font-size: 16px;
+      display: inline-block;
+      position: relative;
+    }
+
+    & span.clear_noti{
+      display: inline-block;
+      height: 24px;
+      text-align: right;
+      position: relative;
+      color: $d_light;
+      padding: 0px 2px;
+      cursor: pointer;
+      border: 1px solid $fb;
+      border-radius: 2px;
+
+      &:hover{
+        border: 1px solid $ee;
+      }
+
+    }
+
+  }
+
+  & .noti {
+    font-size: 14px;
+    height: 40px;
+    padding: 10px;
+    position: relative;
+    text-align: left;
+    background: $ff;
+    border: 1px solid $header_border;
+    border-radius: 3px;
+    margin-bottom: 5px;
+
+    & img {
+      height: 40px;
+      width: 40px;
+      border-radius: 50%;
+    }
+
+    & .noti_avatar{
+      margin-right: 5px;
+    }
+
+    & .noti_left{
+      display: inline-block;
+      position: relative;
+      top: -5px;
+
+      & span.noti_time{
+        color: $d_light;
+        font-size: 13px;
+        display: block;
+      }
+
+      & .noti_bold{
+        font-size: 14px;
+        color: $dark;
+        font-weight: 600;
+        outline: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+
+    }
+
+    & .noti_right{
+      display: inline-block;
+      position: absolute;
+
+      & > a{
+        font-size: 13px;
+        padding: 4px 15px;
+        display: inline-block;
+        font-weight: 600;
+      }
+
+    }
+
+    & .action_noti_right{
+      right: 10px;
+      height: 40px;
+    }
+
+    & .follow_noti_right{
+      top: 16px;
+      right: 10px;
+    }
+
+  }
+
+}

@@ -1,0 +1,125 @@
+.m_div{
+  margin-top: 20px;
+  width: 100%;
+
+  & .m_header{
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  & .m_wrapper{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+
+    & .m_on{
+      @include inst;
+      background: $ff;
+      padding: 10px;
+      margin-bottom: 10px;
+      margin-right: 10px;
+      width: 238px;
+      position: relative;
+      cursor: default;
+
+      &:nth-of-type(3n){
+        margin-right: 0px;
+      }
+
+      & .m_top{
+        width: 100%;
+        display: inline-block;
+        margin-top: 3px;
+
+        & img{
+          width: 45px;
+          height: 45px;
+          float: left;
+          border-radius: 4px;
+        }
+
+        & .m_top_right{
+          float: left;
+          margin-left: 7px;
+          width: 75%;
+
+          & a{
+            color: $dark;
+            font-size: 14px;
+            font-weight: 600;
+            margin-right: 3px;
+
+            &:hover{
+              text-decoration: underline;
+            }
+          }
+
+          & span{
+            display: block;
+            color: $d_light;
+          }
+
+          & .grp_admin {
+            display: inline-block;
+          }
+
+        }
+
+      }
+
+      & .recommend_time{
+        position: absolute;
+        top: 5px;
+        right: 8px;
+        display: none;
+      }
+
+      & .m_bottom{
+        clear: both;
+        display: block;
+        margin-top: 3px;
+        text-align: right;
+
+        & > a{
+          padding: 3px 10px;
+          font-weight: 600;
+          display: inline-block;
+
+          &:last-of-type {
+            margin-left: 4px;
+          }
+
+        }
+
+        & .recommend_by {
+          position: absolute;
+          top: 72px;
+          left: 11px;
+
+          & a {
+            font-weight: 600;
+            color: inherit;
+
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+
+        }
+
+      }
+
+    }
+
+    & .exp_groups_m_on .m_bottom a {
+      padding: 4px 12px;
+    }
+
+  }
+
+}
+
+.m_no_div{
+  margin-top: 10px;
+}

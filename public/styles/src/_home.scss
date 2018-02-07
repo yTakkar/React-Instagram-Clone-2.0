@@ -1,0 +1,77 @@
+// HOME STYLES
+
+// POST IT TEASER
+.post_it{
+  @include inst;
+  overflow: auto;
+  padding: 5px 10px;
+  color: #bdbdbd;
+  font-size: 14px;
+
+  & img{
+    width: 40px;
+    height: 40px;
+    position: relative;
+    float: left;
+    border-radius: 50%;
+    cursor: pointer;
+
+    &:hover{
+      transform: scale(1.03);
+    }
+  }
+
+  & .post_teaser{
+    position: relative;
+    float: left;
+    left: 15px;
+    top: 1px;
+    width: 89.3%;
+    height: 33px;
+
+    &::after{
+      content: "";
+      clear: both;
+      display: block;
+    }
+
+    & span{
+      position: relative;
+      display: inline-block;
+      width: 90%;
+      height: 33px;
+      line-height: 2.7;
+      cursor: text;
+    }
+
+  }
+
+}
+
+// POSTED MESSAGE
+.home_notify{
+  @include inst;
+  margin-top: 10px;
+  padding: 13px;
+  text-align: center;
+  position: relative;
+  color: #3d464d;
+  margin-bottom: 10px;
+
+  & img{
+    height: 150px;
+  }
+
+  & span{
+    font-size: 14px;
+  }
+
+  & a{
+    padding: 4px 12px;
+    position: absolute;
+    right: 12px;
+    top: 8px;
+  }
+
+}
+

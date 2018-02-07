@@ -1,0 +1,199 @@
+// SETTINGS PAGE
+
+.settings_srajkumar{
+  width: 250px;
+  height: auto;
+
+  & .settings_nav_div{
+    background: $ff;
+    border-radius: 3px;
+    border: 1px solid $header_border;
+
+    & li {
+
+      & a {
+        display: block;
+        font-size: 14px;
+        color: #3d464d;
+        background: white;
+        padding: 10px 10px;
+        outline: none;
+
+        &:hover{
+          background: #fffafa;
+          color: $dark;
+        }
+
+        &:first-of-type{
+          border-top-left-radius: 3px;
+          border-top-right-radius: 3px;
+        }
+
+        &.settings_nav_active{
+          color: $dark !important;
+          font-weight: 600 !important;
+        }
+
+      }
+
+    }
+
+
+  }
+
+}
+
+.settings_prajkumar{
+  margin-right: 0px;
+  margin-left: 10px;
+  width: 540px;
+  position: relative;
+
+  & .spinner {
+    left: 250px;
+    top: 150px;
+  }
+
+  // CHANGE PASSWORD
+  .change_pass{
+    background: $ff;
+    width: 100%;
+    border: 1px solid $header_border;
+    border-radius: 3px;
+    padding: 15px 15px 20px 10px;
+
+    & .c_p_header{
+      position: relative;
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    & .c_p_main {
+
+      & > div {
+        margin-bottom: 20px;
+
+        & span {
+          display: block;
+          margin-bottom: 4px;
+          font-size: 14px;
+        }
+
+        & input[type='password'] {
+          padding: 7px 10px;
+          width: 325px;
+          font-size: 14px;
+        }
+
+      }
+
+      & a.c_p_btn{
+        display: inline-block;
+        padding: 5px 15px;
+        font-size: 14px;
+      }
+
+    }
+
+  }
+
+  // PROFILE SETTINGS
+  .pro_settings{
+    background: $ff;
+    padding: 10px 10px 20px 10px;
+    border: 1px solid $header_border;
+    border-radius: 3px;
+
+    & .acc_type {
+
+      & .acc_type_header{
+        font-size: 14px;
+        margin-bottom: 14px;
+
+        & .acc_type_h{
+          display: block;
+          position: relative;
+          margin-bottom: 10px;
+          font-size: 16px;
+          font-weight: 600;
+        }
+      }
+
+      & .acc_type_main {
+
+        & select{
+          padding: 3px 8px;
+          font-size: 14px;
+          display: block;
+          margin-bottom: 12px;
+        }
+
+        & > span{
+          display: block;
+          margin-bottom: 13px;
+          font-size: 14px;
+
+          &:first-of-type{
+            margin-bottom: 3px;
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+
+  // DEACTIVATE
+  & .dlt_acc{
+    @include inst;
+    padding: 10px;
+    background: $ff;
+
+    & .c_p_header{
+      display: block;
+      position: relative;
+      margin-bottom: 10px;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    & input[type="password"]{
+      display: block;
+      padding: 7px;
+      font-size: 14px;
+      width: 70%;
+    }
+
+    & input[type="submit"]{
+      padding: 7px 18px;
+      font-weight: 600;
+      margin-top: 8px;
+      font-size: 14px;
+    }
+
+    & .dlt_acc_info{
+      margin-top: 10px;
+      font-size: 14px;
+
+      & > span{
+        display: block;
+        margin-bottom: 12px;
+      }
+
+      & span:first-of-type{
+        margin-bottom: 5px;
+      }
+    }
+
+    & .dlt_acc_bold{
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+  }
+
+}
+

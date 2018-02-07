@@ -1,0 +1,72 @@
+{{> nHeader }}
+
+<div class="notes_wrapper">
+
+  <div class="log_sign">
+    <a href="/signup" class="pri_btn">Need an account?</a>
+  </div>
+
+  <div class="register cua">
+    <div class="display_text">
+      <span>Get started again</span>
+    </div>
+    <form class="form_login">
+      <input type="text" name="username" value="" class="l_username" autofocus required spellcheck="false" autocomplete='false' placeholder='Username'>
+      <input type="password" name="password" value="" class="l_password" id='l_password' required placeholder='Password'>
+      <span class="show_psswrd s_p_l">
+        <i class="fa fa-lock" aria-hidden="true"></i>
+      </span>
+      <input type="submit" name="" value="Login To Continue" class="l_submit">
+    </form>
+    <div class="forgot_psswrd">
+      <a href="forgot-password" class="a_pri" alt="Forgot your password">Forgot your password?</a>
+    </div>
+  </div>
+
+</div>
+
+<div class="quick_login">
+  {{#if options.users}}
+    <a class='sec_btn clear_all_ql' href='#'>Remove all quick logins</a>
+  {{/if}}
+
+  {{#each options.users}}
+    <div
+      class='q_l_div'
+      data-username={{this.username}}
+      data-id={{this.id}}
+    >
+      <img src='/users/{{this.id}}/avatar.jpg' />
+    </div>
+  {{/each}}
+
+</div>
+
+<div class="q_l_model">
+  <div class="q_l_m_cancel_div">
+    <span class="q_l_m_cancel"><i class="material-icons">clear</i></span>
+  </div>
+
+  <div class="q_l_m_main">
+    <div class="q_l_m_img_div">
+      <img class='q_l_m_img' src="/images/wheel.jpg" />
+      <span class="q_l_username">@username</span>
+    </div>
+
+    <form class="q_l_m_form" method="post">
+      <input type="password" value="" autocomplete="off" placeholder="Password" id="q_l_password" spellcheck="false" required maxlength="32" >
+      <input type="submit" value="Login to continue" class="q_l_submit" >
+      <span class="show_psswrd s_p_ql">
+        <i class="fa fa-lock" aria-hidden="true"></i>
+      </span>
+      <div class="q_l_m_bottom">
+        <a href="/forgot-password" class="a_pri" alt="Forgot your password">Forgot your password?</a>
+      </div>
+    </form>
+
+    <a href="#" class="sec_btn q_l_remove">Remove</a>
+  </div>
+
+</div>
+
+{{> footer }}
