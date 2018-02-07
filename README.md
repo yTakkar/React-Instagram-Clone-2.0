@@ -6,6 +6,7 @@ A reactive Instagram-Clone with some new features developed with MERN stack!!
 
 # Quick liks
 1. [Usage](#usage)
+2. [Todo](#todo)
 2. [Contribute](#contribute)
 3. [Image Copyright Claims](#image-copyright-claims)
 
@@ -48,6 +49,9 @@ A reactive Instagram-Clone with some new features developed with MERN stack!!
 6. Comment line nos. `7, 8, 9` of `/app.js` for it makes the app run slowly.
 
 7. Enjoy!!
+
+# TODO
+1. Admin Panel
 
 # Contribute
 Show your support by 🌟 the project!!
