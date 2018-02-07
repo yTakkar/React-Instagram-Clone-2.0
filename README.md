@@ -4,8 +4,6 @@ A reactive Instagram-Clone with some new features developed with MERN stack!!
 # Another Versions
 **[PHP Version](https://github.com/yTakkar/Instagram-Clone)**
 
-
-
 # Quick liks
 1. [Usage](#usage)
 2. [Todo](#todo)
