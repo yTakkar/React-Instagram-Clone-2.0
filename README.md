@@ -52,6 +52,7 @@ A reactive Instagram-Clone with some new features developed with MERN stack!!
 
 # TODO
 1. Admin Panel
+2. Search
 
 # Contribute
 Show your support by 🌟 the project!!
