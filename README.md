@@ -4,11 +4,17 @@ A reactive Instagram-Clone with some new features developed with MERN stack!!
 # Another Versions
 **[PHP Version](https://github.com/yTakkar/Instagram-Clone)**
 
+
+
 # Quick liks
 1. [Usage](#usage)
 2. [Todo](#todo)
 2. [Contribute](#contribute)
 3. [Image Copyright Claims](#image-copyright-claims)
+
+Here's a video which will take you on a tour of this project!!
+
+[![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/peuGRGGxSHI/0.jpg)](https://youtu.be/peuGRGGxSHI)
 
 # Usage
 1. Go to `/app.js` and uncomment line no. `7, 8, 9`.
