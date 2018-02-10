@@ -54,7 +54,7 @@ export default class ExpGroups extends React.Component {
               {
                 len == 0 ?
                   <div style={{ width: '100%' }} >
-                    <Nothing mssg='Sorry, no users to explore!!' />
+                    <Nothing mssg='Sorry, no groups to explore!!' />
                   </div>
                   : map_groups
               }
