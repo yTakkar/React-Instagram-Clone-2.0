@@ -5,14 +5,18 @@ A reactive Instagram-Clone with some new features developed with MERN stack!!
 **[PHP Version](https://github.com/yTakkar/Instagram-Clone)**
 
 # Quick liks
-1. [Usage](#usage)
-2. [Todo](#todo)
-2. [Contribute](#contribute)
-3. [Image Copyright Claims](#image-copyright-claims)
+1. [Requirements](#requirements)
+2. [Usage](#usage)
+3. [Todo](#todo)
+4. [Contribute](#contribute)
+5. [Image Copyright Claims](#image-copyright-claims)
 
 Here's a video which will take you on a tour of this project!!
 
 [![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/peuGRGGxSHI/0.jpg)](https://youtu.be/peuGRGGxSHI)
+
+# Requirements
+1. [GraphicsMagick](http://www.graphicsmagick.org/) for Image-processing.
 
 # Usage
 1. First install all dependencies:
