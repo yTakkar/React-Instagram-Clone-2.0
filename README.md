@@ -15,8 +15,7 @@ Here's a video which will take you on a tour of this project!!
 [![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/peuGRGGxSHI/0.jpg)](https://youtu.be/peuGRGGxSHI)
 
 # Usage
-1. Go to `/app.js` and uncomment line no. `7, 8, 9`.
-2. First install all dependencies:
+1. First install all dependencies:
     ```bash
     # with npm
     npm install
@@ -48,9 +47,9 @@ Here's a video which will take you on a tour of this project!!
 5. Now run the app
     ```javacript
     localhost:[PORT] PORT=4300 (By default)
-    ```
+    ```
 
-6. Comment line nos. `7, 8, 9` of `/app.js` for it makes the app run slowly.
+6. For front-end layer of this app to get access to `env` variables, uncomment line nos. `7, 8, 9` of `/app.js` and restart the app by typing `npm start` or `yarn start` in the terminal. Once the app is restarted and a new file `/browser-env.js` is created, comment the above mentioned lines of `/app.js`because it makes the app run slowly.
 
 7. Enjoy!!
 
