@@ -1,5 +1,5 @@
 {
-  "name": "react-instagram-clone",
+  "name": "react-instagram-clone-2.0",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yTakkar/React-Instagram-Clone.git"
+    "url": "git+https://github.com/yTakkar/React-Instagram-Clone-2.0.git"
   },
   "author": "yTakkar",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/yTakkar/React-Instagram-Clone/issues"
+    "url": "https://github.com/yTakkar/React-Instagram-Clone-2.0/issues"
   },
-  "homepage": "https://github.com/yTakkar/React-Instagram-Clone#readme",
+  "homepage": "https://github.com/yTakkar/React-Instagram-Clone-2.0#readme",
   "dependencies": {
     "animate-components": "^1.4.8",
     "axios": "^0.17.1",
