@@ -45,4 +45,42 @@ app.post('/get-mutual-users', async (req, res) => {
   res.json(mutuals)
 })
 
+// SEARCH INSTAGRAM
+app.post('/search-instagram', async (req, res) => {
+  let
+    { value } = req.body,
+    { id } = req.session,
+    _users = await db.query(
+      `SELECT id, username, firstname, surname FROM users WHERE username LIKE "%${value}%" AND id <> ? ORDER BY id DESC`,
+      [id]
+    ),
+    users = [],
+    _groups = await db.query(
+      `SELECT group_id, name FROM groups WHERE name LIKE "%${value}%" ORDER BY group_id DESC`
+    ),
+    groups = []
+
+  for (let u of _users) {
+    let mutualFollowers = await db.mutualUsers(id, u.id)
+    users.push({ ...u, mutualFollowersCount: mutualFollowers.length })
+  }
+
+  for (let g of _groups) {
+    let
+      [{ membersCount }] = await db.query(
+        'SELECT COUNT(grp_member_id) AS membersCount FROM group_members WHERE group_id=?',
+        [ g.group_id ]
+      ),
+      mutualMembers = await db.mutualGroupMembers(id, g.group_id)
+
+    groups.push({
+      ...g,
+      membersCount,
+      mutualMembersCount: mutualMembers.length
+    })
+  }
+
+  res.json({ users, groups })
+})
+
 module.exports = app

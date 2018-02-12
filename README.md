@@ -59,7 +59,6 @@ Here's a video which will take you on a tour of this project!!
 
 # TODO
 1. Admin Panel
-2. Search
 
 # Contribute
 Show your support by 🌟 the project!!

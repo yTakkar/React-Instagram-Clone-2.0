@@ -2,9 +2,8 @@ const
   app = require('express').Router(),
   db = require('../config/db'),
   root = process.cwd(),
-  { createReadStream, createWriteStream, mkdir, rmdir } = require('fs'),
-  { promisify } = require('util'),
-  { DeleteAllOfFolder } = require('handy-image-processor')
+  { createReadStream, createWriteStream, mkdir } = require('fs'),
+  { promisify } = require('util')
 
 // CREATE GROUP
 app.post('/create-group', async (req, res) => {
@@ -203,11 +202,7 @@ app.post('/get-user-groups', async (req, res) => {
 
   for (let g of _groups) {
     let joined = await db.joinedGroup(id, g.group_id)
-
-    groups.push({
-      ...g,
-      joined,
-    })
+    groups.push({ ...g, joined })
   }
 
   res.json(groups)
