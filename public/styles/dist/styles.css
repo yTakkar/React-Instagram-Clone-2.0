@@ -2941,7 +2941,8 @@ select {
           .posts .comments_div .comments .comments_content a.comments_user:hover {
             text-decoration: underline; }
         .posts .comments_div .comments .comments_content p {
-          display: block; }
+          display: block;
+          word-wrap: break-word;}
         .posts .comments_div .comments .comments_content .comments_img {
           display: block;
           width: 200px;
