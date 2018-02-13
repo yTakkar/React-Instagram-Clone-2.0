@@ -1,7 +1,7 @@
 # React-Instagram-Clone-2.0
 A reactive Instagram-Clone with some new features developed with MERN stack!! 
 
-# Another Versions
+# Another Version
 **[PHP Version](https://github.com/yTakkar/Instagram-Clone)**
 
 # Quick liks
