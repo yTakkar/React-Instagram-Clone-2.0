@@ -131,6 +131,15 @@ const favouriteOrNot = (fav_by, user) => {
   })
 }
 
+// RETURNS WHEN USER IS BLOCKED OR NOT
+const isBlocked = (block_by, user) => {
+  return new Promise((resolve, reject) => {
+    query('SELECT COUNT(block_id) AS block_count FROM blocks WHERE block_by=? AND user=?', [ block_by, user ])
+      .then(s => resolve(s[0].block_count == 1 ? true : false))
+      .catch(e => reject(e))
+  })
+}
+
 // DELETES POST
 const deletePost = async ({post, user, when}) => {
   await query('DELETE FROM likes WHERE post_id=?', [ post ])
@@ -298,6 +307,7 @@ module.exports = {
   isPostMine,
   didIShare,
   favouriteOrNot,
+  isBlocked,
   deletePost,
   deleteGroup,
   deleteCon,

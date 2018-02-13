@@ -10,6 +10,7 @@ import Post from './reducers/post-r'
 import Explore from './reducers/explore-r'
 import Group from './reducers/group-r'
 import Message from './reducers/message-r'
+import Setting from './reducers/setting-r'
 
 const reducers = combineReducers({
   User,
@@ -18,7 +19,8 @@ const reducers = combineReducers({
   Post,
   Explore,
   Group,
-  Message
+  Message,
+  Setting
 })
 
 const middlwares = applyMiddleware(promise(), thunk, logger)

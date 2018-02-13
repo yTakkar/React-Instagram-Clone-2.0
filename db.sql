@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 07, 2018 at 05:21 PM
+-- Generation Time: Feb 13, 2018 at 10:46 AM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -19,6 +19,27 @@ SET time_zone = "+00:00";
 --
 -- Database: `react-instagram-clone`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `blocks`
+--
+
+CREATE TABLE `blocks` (
+  `block_id` int(11) NOT NULL,
+  `block_by` int(11) NOT NULL,
+  `user` int(11) NOT NULL,
+  `block_time` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `blocks`
+--
+
+INSERT INTO `blocks` (`block_id`, `block_by`, `user`, `block_time`) VALUES
+(6, 30, 24, '1518512985015'),
+(7, 24, 30, '1518513885514');
 
 -- --------------------------------------------------------
 
@@ -63,7 +84,9 @@ CREATE TABLE `comments` (
 
 INSERT INTO `comments` (`comment_id`, `type`, `text`, `commentSrc`, `comment_by`, `post_id`, `comment_time`) VALUES
 (60, 'sticker', '', 'instagram_comment_1518016608385.jpg', 24, 56, '1518016608385'),
-(61, 'sticker', '', 'instagram_comment_1518016691913.jpg', 24, 56, '1518016691913');
+(61, 'sticker', '', 'instagram_comment_1518016691913.jpg', 24, 56, '1518016691913'),
+(62, 'text', 'mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm', '', 30, 57, '1518509780928'),
+(63, 'text', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', '', 30, 57, '1518509825922');
 
 -- --------------------------------------------------------
 
@@ -98,6 +121,13 @@ CREATE TABLE `favourites` (
   `fav_time` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `favourites`
+--
+
+INSERT INTO `favourites` (`fav_id`, `fav_by`, `user`, `fav_time`) VALUES
+(1, 30, 24, '1518456837902');
+
 -- --------------------------------------------------------
 
 --
@@ -128,9 +158,12 @@ INSERT INTO `follow_system` (`follow_id`, `follow_by`, `follow_by_username`, `fo
 (200, 26, 'vangogh', 24, 'takkar', '1518017855347'),
 (201, 26, 'vangogh', 25, 'voldemort', '1518017861128'),
 (202, 26, 'vangogh', 19, 'jonsnow', '1518017863361'),
-(203, 27, 'taylor_swift', 24, 'takkar', '1518018308952'),
 (204, 28, 'selena', 24, 'takkar', '1518018456093'),
-(205, 29, 'steve_jobs', 24, 'takkar', '1518018551833');
+(205, 29, 'steve_jobs', 24, 'takkar', '1518018551833'),
+(206, 24, 'takkar', 29, 'steve_jobs', '1518342254836'),
+(207, 24, 'takkar', 28, 'selena', '1518342256062'),
+(209, 30, 'doraemon', 24, 'takkar', '1518509768269'),
+(210, 24, 'takkar', 27, 'taylor_swift', '1518514784031');
 
 -- --------------------------------------------------------
 
@@ -213,7 +246,8 @@ INSERT INTO `likes` (`like_id`, `post_id`, `like_by`, `like_time`) VALUES
 (59, 39, '24', '1518016512324'),
 (61, 56, '24', '1518016672505'),
 (62, 60, '26', '1518018154859'),
-(63, 61, '27', '1518018364468');
+(63, 61, '27', '1518018364468'),
+(64, 63, '30', '1518510087356');
 
 -- --------------------------------------------------------
 
@@ -276,11 +310,17 @@ INSERT INTO `notifications` (`notify_id`, `notify_by`, `notify_to`, `post_id`, `
 (357, 26, 25, 0, 0, 'follow', 0, '1518017861197', 'unread'),
 (358, 26, 19, 0, 0, 'follow', 0, '1518017863411', 'unread'),
 (361, 26, 19, 60, 0, 'tag', 0, '1518018147273', 'unread'),
-(363, 27, 24, 0, 0, 'follow', 0, '1518018309085', 'unread'),
-(364, 27, 24, 61, 0, 'tag', 0, '1518018359586', 'unread'),
-(365, 27, 24, 61, 0, 'share', 0, '1518018368819', 'unread'),
-(366, 28, 24, 0, 0, 'follow', 0, '1518018456498', 'unread'),
-(367, 29, 24, 0, 0, 'follow', 0, '1518018551970', 'unread');
+(368, 24, 29, 0, 0, 'follow', 0, '1518342254957', 'unread'),
+(370, 24, 27, 0, 0, 'follow', 0, '1518342257732', 'unread'),
+(371, 30, 24, 0, 0, 'favourites', 0, '1518456838037', 'read'),
+(372, 30, 24, 0, 0, 'follow', 0, '1518509768477', 'read'),
+(373, 30, 24, 57, 0, 'comment', 0, '1518509781117', 'read'),
+(374, 30, 24, 57, 0, 'comment', 0, '1518509826115', 'read'),
+(375, 24, 18, 0, 0, 'recommend', 30, '1518513518878', 'unread'),
+(376, 24, 27, 0, 0, 'recommend', 30, '1518513536529', 'unread'),
+(377, 24, 30, 0, 0, 'favourites', 0, '1518514021640', 'unread'),
+(378, 24, 30, 0, 0, 'favourites', 0, '1518514649384', 'unread'),
+(379, 24, 27, 0, 0, 'follow', 0, '1518514784128', 'unread');
 
 -- --------------------------------------------------------
 
@@ -331,7 +371,8 @@ INSERT INTO `posts` (`post_id`, `user`, `description`, `imgSrc`, `filter`, `loca
 (58, 26, 'me...', 'instagram_1518017819873.jpg', 'normal', '', 'user', 0, '1518017819873'),
 (60, 26, '', 'instagram_1518018146496.jpg', 'normal', '', 'user', 0, '1518018146496'),
 (61, 27, '', 'instagram_1518018358758.jpg', 'normal', 'Progresive Building, 90 Feet Road, Dharavi, Mumbai, Maharashtra 400017, India', 'user', 0, '1518018358758'),
-(62, 28, '', 'instagram_1518018452185.jpg', 'normal', '', 'user', 0, '1518018452185');
+(62, 28, '', 'instagram_1518018452185.jpg', 'normal', '', 'user', 0, '1518018452185'),
+(63, 30, 'mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm', 'instagram_1518510077635.jpg', 'normal', '', 'user', 0, '1518510077635');
 
 -- --------------------------------------------------------
 
@@ -375,7 +416,27 @@ INSERT INTO `profile_views` (`view_id`, `view_by`, `view_to`, `view_time`) VALUE
 (64, 7, 8, '1515919685209'),
 (129, 8, 7, '1516289109364'),
 (134, 11, 12, '1516524331307'),
-(214, 17, 12, '1517245217599');
+(214, 17, 12, '1517245217599'),
+(215, 30, 24, '1518454700846'),
+(216, 30, 24, '1518455184176'),
+(217, 30, 24, '1518455376510'),
+(218, 30, 24, '1518455682363'),
+(219, 30, 24, '1518455906011'),
+(220, 30, 24, '1518456281600'),
+(221, 30, 24, '1518456458857'),
+(222, 30, 24, '1518456667371'),
+(223, 30, 24, '1518456821996'),
+(224, 30, 24, '1518509763525'),
+(225, 30, 24, '1518512974289'),
+(226, 24, 30, '1518513031554'),
+(227, 24, 30, '1518513512507'),
+(228, 24, 30, '1518513877073'),
+(229, 24, 27, '1518513894932'),
+(230, 24, 30, '1518514177877'),
+(231, 24, 27, '1518514384042'),
+(232, 24, 27, '1518514537230'),
+(233, 24, 28, '1518514630544'),
+(234, 24, 30, '1518514644447');
 
 -- --------------------------------------------------------
 
@@ -390,6 +451,14 @@ CREATE TABLE `recommendations` (
   `recommend_of` int(11) NOT NULL,
   `recommend_time` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `recommendations`
+--
+
+INSERT INTO `recommendations` (`recommend_id`, `recommend_by`, `recommend_to`, `recommend_of`, `recommend_time`) VALUES
+(1, 24, 18, 30, '1518513518719'),
+(2, 24, 27, 30, '1518513536449');
 
 -- --------------------------------------------------------
 
@@ -481,11 +550,18 @@ INSERT INTO `users` (`id`, `username`, `firstname`, `surname`, `email`, `passwor
 (26, 'vangogh', 'Van_', 'Gogh', 'vangogh@gmail.com', '$2a$10$ZvTdbyGWECg7sSuQGeVqvuB5ydA2RNZ7OsuxudJu7E9SL3Hx/kigS', '', '1518017724523', 'no', 'public', '', '', '', '', '', ''),
 (27, 'taylor_swift', 'taylor', 'swift', 'taylor_swift@gmail.com', '$2a$10$rnQRsp0iWCdV8b6AD24mJ.7rL5XQ31ejULlOQMVkBpjxD7RlRxqKK', '', '1518018283428', 'no', 'public', '', '', '', '', '', ''),
 (28, 'selena', 'selena', 'gomez', 'selenagomez@gmail.com', '$2a$10$.ifdYlKQdt/acrXtn09NLuENJylSfZIJq2U4tqzZNqeRWaUG0nnQq', '', '1518018409165', 'no', 'public', '', '', '', '', '', ''),
-(29, 'steve_jobs', 'steve', 'jobs', 'steve_jobs@gmail.com', '$2a$10$B05HNF3/pnK.8fU7kCJHpuaU5LpVxwao9Wmkn3Md2sAPc5GINiU6O', '', '1518018498672', 'no', 'public', '', '', '', '', '', '');
+(29, 'steve_jobs', 'steve', 'jobs', 'steve_jobs@gmail.com', '$2a$10$B05HNF3/pnK.8fU7kCJHpuaU5LpVxwao9Wmkn3Md2sAPc5GINiU6O', '', '1518018498672', 'no', 'public', '', '', '', '', '', ''),
+(30, 'doraemon', 'iam_', 'doraemon', 'doraemon@gmail.com', '$2a$10$OjZg/mosNPOT297skkotUetzYL7mIEFDVxVPP2lsBAv4F0LSyK18m', '', '1518454660501', 'no', 'public', '', '', '', '', '', '');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `blocks`
+--
+ALTER TABLE `blocks`
+  ADD PRIMARY KEY (`block_id`);
 
 --
 -- Indexes for table `bookmarks`
@@ -594,6 +670,11 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `blocks`
+--
+ALTER TABLE `blocks`
+  MODIFY `block_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+--
 -- AUTO_INCREMENT for table `bookmarks`
 --
 ALTER TABLE `bookmarks`
@@ -602,7 +683,7 @@ ALTER TABLE `bookmarks`
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
+  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 --
 -- AUTO_INCREMENT for table `conversations`
 --
@@ -612,12 +693,12 @@ ALTER TABLE `conversations`
 -- AUTO_INCREMENT for table `favourites`
 --
 ALTER TABLE `favourites`
-  MODIFY `fav_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `fav_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `follow_system`
 --
 ALTER TABLE `follow_system`
-  MODIFY `follow_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=206;
+  MODIFY `follow_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=211;
 --
 -- AUTO_INCREMENT for table `groups`
 --
@@ -632,7 +713,7 @@ ALTER TABLE `group_members`
 -- AUTO_INCREMENT for table `likes`
 --
 ALTER TABLE `likes`
-  MODIFY `like_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
+  MODIFY `like_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 --
 -- AUTO_INCREMENT for table `messages`
 --
@@ -642,12 +723,12 @@ ALTER TABLE `messages`
 -- AUTO_INCREMENT for table `notifications`
 --
 ALTER TABLE `notifications`
-  MODIFY `notify_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=368;
+  MODIFY `notify_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=380;
 --
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
+  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 --
 -- AUTO_INCREMENT for table `post_tags`
 --
@@ -657,12 +738,12 @@ ALTER TABLE `post_tags`
 -- AUTO_INCREMENT for table `profile_views`
 --
 ALTER TABLE `profile_views`
-  MODIFY `view_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=223;
+  MODIFY `view_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=235;
 --
 -- AUTO_INCREMENT for table `recommendations`
 --
 ALTER TABLE `recommendations`
-  MODIFY `recommend_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `recommend_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `shares`
 --
@@ -677,7 +758,7 @@ ALTER TABLE `tags`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -34,6 +34,7 @@ const
   groupR = require('./routes/group-routes'),
   avatarR = require('./routes/avatar-routes'),
   messageR = require('./routes/message-routes'),
+  settingsR = require('./routes/settings-routes'),
   apiR = require('./routes/api-routes'),
   mainR = require('./routes/main-routes')
 
@@ -76,6 +77,7 @@ app.use('/api', exploreR)
 app.use('/api', groupR)
 app.use('/api', avatarR)
 app.use('/api', messageR)
+app.use('/api', settingsR)
 app.use('/api', apiR)
 app.use('/', mainR)
 

@@ -6,7 +6,7 @@ import { getUnreadNotifications } from '../../store/actions/notification-a'
 import { getUnreadMessages } from '../../store/actions/message-a'
 
 import ChangePassword from './sections/change-password'
-import ProfileSettings from './sections/profile-settings'
+import ProfileSettings from './sections/profile-settings/profile-settings'
 import Deactivate from './sections/deactivate'
 
 @connect(store => {

@@ -13,6 +13,7 @@ import ToolTip from 'react-tooltip'
 import { PORT } from '../../../../../browser-env'
 import RecommendUsers from '../others/recommend/recommend-users'
 import { toggleFollow } from '../../store/actions/follow_a'
+import Prompt from '../others/prompt'
 
 @connect(store => {
   return {
@@ -27,7 +28,8 @@ export default class Banner extends React.Component {
   state = {
     changeAvatar: false,
     viewAvatar: false,
-    recommendUser: false
+    recommendUser: false,
+    blockUser: false
   }
 
   toggleOptions = when => {
@@ -81,15 +83,15 @@ export default class Banner extends React.Component {
     this._toggle('changeAvatar')
   }
 
-  _toggle = what => {
+  _toggle = (e, what) => {
+    e ? e.preventDefault() : null
     this.setState({
       [what]: !this.state[what]
     })
   }
 
   showRecommendUsers = e => {
-    e.preventDefault()
-    this._toggle('recommendUser')
+    this._toggle(e, 'recommendUser')
     this.toggleOptions('options')
   }
 
@@ -100,6 +102,14 @@ export default class Banner extends React.Component {
     fn.addToFavourites(id)
   }
 
+  block = async e => {
+    e.preventDefault()
+    let { User: { user_details } } = this.props
+    this.toggleOptions('options')
+    fn.block(user_details.id)
+    this._toggle(null, 'blockUser')
+  }
+
   render() {
     let
       {
@@ -107,7 +117,7 @@ export default class Banner extends React.Component {
         Follow: { isFollowing, followers, followings, profile_views, favourites, recommendations },
         posts
       } = this.props,
-      { changeAvatar, viewAvatar, recommendUser } = this.state,
+      { changeAvatar, viewAvatar, recommendUser, blockUser } = this.state,
       url = `/profile/${username}`,
       tags_len = tags.length,
       map_tags = tags.map(t => <NavLink to='/' key={t.tag} className='tags'>{t.tag}</NavLink>)
@@ -123,6 +133,7 @@ export default class Banner extends React.Component {
           </div>
           <div className='options pro_banner_options' style={{ display: 'none' }} >
             <ul>
+              { !fn.Me(id) ? <li><a href='#' className='pro_block' onClick={e => this._toggle(e, 'blockUser')} >Block</a></li> : null }
               { !fn.Me(id) ? <li><a href='#' className='pro_recommend' onClick={this.showRecommendUsers} >Recommend</a></li> : null }
               { !fn.Me(id) ? <li><a href='#' className='add_fav' onClick={this.addToFavourites} >Add to favourites</a></li> : null }
               { !fn.Me(id) ? <li><Link to='/messages' className='add_fav'>Message</Link></li> : null }
@@ -148,8 +159,8 @@ export default class Banner extends React.Component {
         >
           <img src={ id ? `/users/${id}/avatar.jpg` : '/images/spacecraft.jpg' } alt='avatar' />
           <div className='pro_avatar_ch_teaser' style={{ display: 'none' }} >
-            <span className='view_avatar_span' onClick={() => this._toggle('viewAvatar')} >View</span>
-            { fn.Me(id) ? <span className='change_pro' onClick={() => this._toggle('changeAvatar')} >Change</span> : null }
+            <span className='view_avatar_span' onClick={() => this._toggle(null, 'viewAvatar')} >View</span>
+            { fn.Me(id) ? <span className='change_pro' onClick={() => this._toggle(null, 'changeAvatar')} >Change</span> : null }
           </div>
         </div>
 
@@ -222,7 +233,7 @@ export default class Banner extends React.Component {
             <div>
               <Overlay/>
               <Avatars
-                back={() => this._toggle('changeAvatar')}
+                back={() => this._toggle(null, 'changeAvatar')}
                 of='user'
               />
             </div>
@@ -234,7 +245,7 @@ export default class Banner extends React.Component {
             <div>
               <Overlay
                 close_on_click={true}
-                close={() => this._toggle('viewAvatar')}
+                close={() => this._toggle(null, 'viewAvatar')}
                 opacity={0.9}
               />
               <ViewAvatar imgSrc={`/users/${id}/avatar.jpg`} />
@@ -247,7 +258,22 @@ export default class Banner extends React.Component {
             <div>
               <Overlay/>
               <RecommendUsers
-                back={() => this._toggle('recommendUser')}
+                back={() => this._toggle(null, 'recommendUser')}
+              />
+            </div>
+            : null
+        }
+
+        {
+          blockUser ?
+            <div>
+              <Overlay/>
+              <Prompt
+                title={`Block ${username}`}
+                content={`${username} will no longer be able to follow, message, comment, recommend or add you in any group. Instagram won't let ghalib know you blocked him/her. You can unblock from settings.`}
+                actionText= 'Block'
+                action={this.block}
+                back={() => this._toggle(null, 'blockUser')}
               />
             </div>
             : null

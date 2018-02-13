@@ -54,8 +54,21 @@
     top: 150px;
   }
 
+  & .set_header {
+    font-size: 14px;
+    margin-bottom: 14px;
+
+    & .acc_type_h{
+      display: block;
+      position: relative;
+      margin-bottom: 10px;
+      font-size: 16px;
+      font-weight: 600;
+    }
+  }
+
   // CHANGE PASSWORD
-  .change_pass{
+  & .change_pass{
     background: $ff;
     width: 100%;
     border: 1px solid $header_border;
@@ -99,27 +112,13 @@
   }
 
   // PROFILE SETTINGS
-  .pro_settings{
+  & .pro_settings{
     background: $ff;
     padding: 10px 10px 20px 10px;
     border: 1px solid $header_border;
     border-radius: 3px;
 
     & .acc_type {
-
-      & .acc_type_header{
-        font-size: 14px;
-        margin-bottom: 14px;
-
-        & .acc_type_h{
-          display: block;
-          position: relative;
-          margin-bottom: 10px;
-          font-size: 16px;
-          font-weight: 600;
-        }
-      }
-
       & .acc_type_main {
 
         & select{
@@ -136,6 +135,64 @@
 
           &:first-of-type{
             margin-bottom: 3px;
+          }
+
+        }
+
+      }
+
+    }
+
+    // BLOCKED USERS
+    & .blocking {
+      margin-top: 35px;
+
+      & .blocked_users {
+        padding: 0px;
+        height: 40px;
+        margin-bottom: 10px;
+        position: relative;
+
+        & img{
+          width: 40px;
+          height: 40px;
+          display: inline-block;
+          border-radius: 3px;
+        }
+
+        & .blocked_u_content{
+          display: inline-block;
+          top: -6px;
+          position: relative;
+          width: 90%;
+
+          & .blocked_info{
+            display: inline-block;
+            width: 80%;
+            position: relative;
+            left: 4px;
+
+            & .blocked_username{
+              font-weight: 600;
+              color: #3d464d;
+
+              &:hover{
+                text-decoration: underline;
+              }
+            }
+
+            & .blocked_mutual {
+              display: block;
+            }
+          }
+
+          & .unblock{
+            display: inline-block;
+            padding: 3px 10px;
+            font-weight: 600;
+            position: absolute;
+            right: 0px;
+            top: 5px;
           }
 
         }

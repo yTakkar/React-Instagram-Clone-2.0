@@ -3086,6 +3086,15 @@ select {
   .settings_prajkumar .spinner {
     left: 250px;
     top: 150px; }
+  .settings_prajkumar .set_header {
+    font-size: 14px;
+    margin-bottom: 14px; }
+    .settings_prajkumar .set_header .acc_type_h {
+      display: block;
+      position: relative;
+      margin-bottom: 10px;
+      font-size: 16px;
+      font-weight: 600; }
   .settings_prajkumar .change_pass {
     background: #fff;
     width: 100%;
@@ -3116,15 +3125,6 @@ select {
     padding: 10px 10px 20px 10px;
     border: 1px solid #f7f5f5;
     border-radius: 3px; }
-    .settings_prajkumar .pro_settings .acc_type .acc_type_header {
-      font-size: 14px;
-      margin-bottom: 14px; }
-      .settings_prajkumar .pro_settings .acc_type .acc_type_header .acc_type_h {
-        display: block;
-        position: relative;
-        margin-bottom: 10px;
-        font-size: 16px;
-        font-weight: 600; }
     .settings_prajkumar .pro_settings .acc_type .acc_type_main select {
       padding: 3px 8px;
       font-size: 14px;
@@ -3136,6 +3136,42 @@ select {
       font-size: 14px; }
       .settings_prajkumar .pro_settings .acc_type .acc_type_main > span:first-of-type {
         margin-bottom: 3px; }
+    .settings_prajkumar .pro_settings .blocking {
+      margin-top: 35px; }
+      .settings_prajkumar .pro_settings .blocking .blocked_users {
+        padding: 0px;
+        height: 40px;
+        margin-bottom: 10px;
+        position: relative; }
+        .settings_prajkumar .pro_settings .blocking .blocked_users img {
+          width: 40px;
+          height: 40px;
+          display: inline-block;
+          border-radius: 3px; }
+        .settings_prajkumar .pro_settings .blocking .blocked_users .blocked_u_content {
+          display: inline-block;
+          top: -6px;
+          position: relative;
+          width: 90%; }
+          .settings_prajkumar .pro_settings .blocking .blocked_users .blocked_u_content .blocked_info {
+            display: inline-block;
+            width: 80%;
+            position: relative;
+            left: 4px; }
+            .settings_prajkumar .pro_settings .blocking .blocked_users .blocked_u_content .blocked_info .blocked_username {
+              font-weight: 600;
+              color: #3d464d; }
+              .settings_prajkumar .pro_settings .blocking .blocked_users .blocked_u_content .blocked_info .blocked_username:hover {
+                text-decoration: underline; }
+            .settings_prajkumar .pro_settings .blocking .blocked_users .blocked_u_content .blocked_info .blocked_mutual {
+              display: block; }
+          .settings_prajkumar .pro_settings .blocking .blocked_users .blocked_u_content .unblock {
+            display: inline-block;
+            padding: 3px 10px;
+            font-weight: 600;
+            position: absolute;
+            right: 0px;
+            top: 5px; }
   .settings_prajkumar .dlt_acc {
     border: 1px solid #f7f5f5;
     color: #1b2733;

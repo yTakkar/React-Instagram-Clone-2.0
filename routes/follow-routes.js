@@ -19,6 +19,7 @@ app.post('/follow', async (req, res) => {
     { user, username } = req.body,
     { id: session, username: session_username } = req.session,
     isFollowing = await db.isFollowing(session, user),
+    isBlocked = await db.isBlocked(user, session),
     insert = {
       follow_by: session,
       follow_by_username: session_username,
@@ -27,31 +28,37 @@ app.post('/follow', async (req, res) => {
       follow_time: new Date().getTime()
     }
 
-  if (!isFollowing) {
-    let
-      { insertId } = await db.query('INSERT INTO follow_system SET ?', insert),
-      firstname = await db.getWhat('firstname', session),
-      surname = await db.getWhat('surname', session)
+  if(!isBlocked) {
+    if (!isFollowing) {
+      let
+        { insertId } = await db.query('INSERT INTO follow_system SET ?', insert),
+        firstname = await db.getWhat('firstname', session),
+        surname = await db.getWhat('surname', session)
 
-    res.json({
-      mssg: `Followed ${username}!!`,
-      success: true,
-      ff: {
-        follow_id: insertId,
-        follow_by: session,
-        username: session_username,
-        firstname,
-        surname,
-        follow_to: user,
-        follow_time: insert.follow_time
-      }
-    })
+      res.json({
+        mssg: `Followed ${username}!!`,
+        success: true,
+        ff: {
+          follow_id: insertId,
+          follow_by: session,
+          username: session_username,
+          firstname,
+          surname,
+          follow_to: user,
+          follow_time: insert.follow_time
+        }
+      })
+    } else {
+      res.json({
+        mssg: `Already followed ${username}!!`,
+        success: false
+      })
+    }
+
   } else {
-    res.json({
-      mssg: `Already followed ${username}!!`,
-      success: false
-    })
+    res.json({ mssg: `Could not follow ${username}!!` })
   }
+
 
 })
 
@@ -167,7 +174,7 @@ app.post('/search-followings', async (req, res) => {
   let
     { id } = req.session,
     data = await db.query(
-      'SELECT DISTINCT follow_to, follow_to_username FROM follow_system WHERE follow_by=?',
+      'SELECT DISTINCT follow_to, follow_to_username FROM follow_system WHERE follow_by=? ORDER BY follow_time DESC',
       [ id ]
     )
   res.json(data)
@@ -180,23 +187,26 @@ app.post('/add-to-favourites', async (req, res) => {
     { id } = req.session,
     username = await db.getWhat('username', user),
     favourite = await db.favouriteOrNot(id, user),
+    isBlocked = await db.isBlocked(user, id),
     fav = {
       fav_by: id,
       user,
       fav_time: new Date().getTime()
     }
 
-  if (!favourite) {
-    await db.query('INSERT INTO favourites SET ?', fav)
-    res.json({
-      mssg: `Added ${username} to favourites!!`,
-      success: true
-    })
+  if (!isBlocked) {
+    if (!favourite) {
+      await db.query('INSERT INTO favourites SET ?', fav)
+      res.json({
+        mssg: `Added ${username} to favourites!!`,
+        success: true
+      })
+    } else {
+      res.json({ mssg: `Already added ${username} to favourites!!`, })
+    }
+
   } else {
-    res.json({
-      mssg: `Already added ${username} to favourites!!`,
-      success: false
-    })
+    res.json({ mssg: 'Could not add to favourites!!' })
   }
 
 })
@@ -228,14 +238,21 @@ app.post('/recommend-user', async (req, res) => {
   let
     { user, recommend_to } = req.body,
     { id: recommend_by } = req.session,
+    isBlocked = await db.isBlocked(user, recommend_by),
+    isBlockedTwo = await db.isBlocked(recommend_to, recommend_by),
     recommend = {
       recommend_by,
       recommend_to,
       recommend_of: user,
       recommend_time: new Date().getTime()
     }
-  await db.query('INSERT INTO recommendations SET ?', recommend)
-  res.json('Hello, World!!')
+
+  if (!isBlocked && !isBlockedTwo) {
+    await db.query('INSERT INTO recommendations SET ?', recommend)
+    res.json({ success: true })
+  } else {
+    res.json({ success: false })
+  }
 })
 
 // REMOVE RECOMMENDATION

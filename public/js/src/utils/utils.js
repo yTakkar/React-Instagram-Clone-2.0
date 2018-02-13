@@ -621,6 +621,12 @@ export const addToFavourites = async user => {
   Notify({ value: mssg })
 }
 
+/** BLOCK USER */
+export const block = async user => {
+  let { data: { mssg } } = await post('/api/block', { user })
+  Notify({ value: mssg })
+}
+
 /** JOIN GROUP */
 export const joinGroup = async options => {
   let
