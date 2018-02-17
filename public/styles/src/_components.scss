@@ -836,7 +836,7 @@
 .search_div {
   position: fixed;
   background: $ff;
-  width: 630px;
+  width: 850px;
   max-height: 500px;
   top: 48px;
   left: 85px;
@@ -846,6 +846,7 @@
   display: flex;
   justify-content: space-between;
   box-shadow: 0px 0px 25px 1px rgba(0,0,0,.1);
+  overflow: hidden;
 
   &:hover {
     background: $ff;
@@ -915,6 +916,14 @@
       }
 
     }
+
+    & .h_d_p{
+      height: 19px;
+      font-weight: 600;
+      font-size: 14px;
+      margin-bottom: 2px;
+    }
+
   }
 
 }

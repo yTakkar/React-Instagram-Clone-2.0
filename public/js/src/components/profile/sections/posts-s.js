@@ -9,6 +9,7 @@ import Suggested from '../../others/suggested/suggested'
 import Recommend from '../../others/recommend/recommend'
 import AddToFavourites from '../../others/addToFavourites'
 import MutualUsers from '../mutual-users'
+import UserHashtags from '../../hashtag/user-hashtags'
 
 @connect(store => {
   return {
@@ -21,7 +22,7 @@ export default class Posts extends React.Component {
 
   render() {
     let
-      { posts, ud: { id, username } } = this.props,
+      { posts, ud: { id, username }, param } = this.props,
       len = posts.length,
       map_posts = posts.map(p =>
         <Post key={p.post_id} {...p} when='userPosts' />
@@ -36,6 +37,7 @@ export default class Posts extends React.Component {
             <div className='srajkumar'>
               { !Me(id) ? <MutualUsers username={username} /> : null }
               <Suggested when='profile' />
+              <UserHashtags param={param} />
               { !Me(id) ? <Recommend username={username} /> : null }
               { !Me(id) ? <AddToFavourites user={id} username={username} /> : null }
 

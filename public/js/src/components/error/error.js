@@ -10,8 +10,7 @@ export default class Error extends React.Component{
     let
       username = $('.data').data('username'),
       { params: { what } } = this.props.match,
-      title,
-      desc
+      title, desc
 
     if (what == 'user_nf') {
       title = 'User not found'

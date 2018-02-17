@@ -35,6 +35,7 @@ const
   avatarR = require('./routes/avatar-routes'),
   messageR = require('./routes/message-routes'),
   settingsR = require('./routes/settings-routes'),
+  hashtagR = require('./routes/hashtag-routes'),
   apiR = require('./routes/api-routes'),
   mainR = require('./routes/main-routes')
 
@@ -78,6 +79,7 @@ app.use('/api', groupR)
 app.use('/api', avatarR)
 app.use('/api', messageR)
 app.use('/api', settingsR)
+app.use('/api', hashtagR)
 app.use('/api', apiR)
 app.use('/', mainR)
 

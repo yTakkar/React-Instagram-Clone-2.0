@@ -11,6 +11,7 @@ import Explore from './reducers/explore-r'
 import Group from './reducers/group-r'
 import Message from './reducers/message-r'
 import Setting from './reducers/setting-r'
+import Hashtag from './reducers/hashtag-r'
 
 const reducers = combineReducers({
   User,
@@ -20,7 +21,8 @@ const reducers = combineReducers({
   Explore,
   Group,
   Message,
-  Setting
+  Setting,
+  Hashtag,
 })
 
 const middlwares = applyMiddleware(promise(), thunk, logger)

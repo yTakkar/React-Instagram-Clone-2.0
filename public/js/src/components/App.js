@@ -2,6 +2,7 @@ import React from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { getUnreadNotifications } from '../store/actions/notification-a'
+import { getUnreadMessages } from '../store/actions/message-a'
 
 import Header from './others/header'
 import NotiSpeak from './others/noti-speak'
@@ -16,8 +17,8 @@ import Explore from './explore/explore'
 import Settings from './settings/settings'
 import Group from './group/group'
 import Messages from './messages/messages'
+import Hashtag from './hashtag/hashtag'
 import Error from './error/error'
-import { getUnreadMessages } from '../store/actions/message-a'
 
 @connect(store => {
   return {
@@ -59,6 +60,7 @@ export default class App extends React.Component {
               <Route path='/settings' component={Settings} />
               <Route path='/group/:grp_id' component={Group} />
               <Route path='/messages' component={Messages} />
+              <Route path='/hashtag/:hashtag' component={Hashtag} />
               <Route component={Error} />
             </Switch>
           </div>

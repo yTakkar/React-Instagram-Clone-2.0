@@ -21,6 +21,7 @@ import $ from 'jquery'
 import CommentPost from './comment/comment-post'
 import Stickers from '../others/stickers'
 import Comment from './comment/comment'
+import ToHashtag from '../others/toHashtag'
 
 @connect(store => {
   return {
@@ -62,9 +63,7 @@ export default class Post extends React.Component {
     if (what == 'options') {
       fn.toggle(this.opt)
     } else {
-      this.setState({
-        [what]: !this.state[what]
-      })
+      this.setState({ [what]: !this.state[what] })
     }
   }
 
@@ -174,6 +173,7 @@ export default class Post extends React.Component {
           decrementComments={() => this.setState({ comments_count: --comments_count })}
         />
       ) : null
+      // hashes = fn.toHashtag(description)
 
     return (
       <div className='posts' >
@@ -242,7 +242,7 @@ export default class Post extends React.Component {
         <div className='p_o'>
           <div className='p_actual' spellCheck='false'>
             <div className='p_abt' style={{ marginBottom: description ? '10px' : null }} >
-              <p>{description}</p>
+              <p><ToHashtag str={`${description}`} /></p>
             </div>
             <img
               src={`/posts/${imgSrc}`}

@@ -38,6 +38,8 @@ app.post('/post-it', upload.single('image'), async (req, res) => {
     firstname = await db.getWhat('firstname', id),
     surname = await db.getWhat('surname', id)
 
+  await db.toHashtag(desc, id, insertId)
+
   res.json({
     post_id: insertId,
     firstname,
@@ -59,31 +61,6 @@ app.post('/tag-post', (req, res) => {
   res.json(null)
 })
 
-const getCounts = async (post_id, group_id) => {
-  return new Promise(async (resolve, reject) => {
-    try {
-      let
-        [{ tags_count }] = await db.query('SELECT COUNT(post_tag_id) AS tags_count FROM post_tags WHERE post_id=?', [post_id]),
-        [{ likes_count }] = await db.query('SELECT COUNT(like_id) AS likes_count FROM likes WHERE post_id=?', [ post_id ]),
-        [{ shares_count }] = await db.query('SELECT COUNT(share_id) AS shares_count FROM shares WHERE post_id=?', [ post_id ]),
-        [{ comments_count }] = await db.query('SELECT COUNT(comment_id) AS comments_count FROM comments WHERE post_id=?', [ post_id ]),
-        gn = await db.query('SELECT name FROM groups WHERE group_id=?', [group_id])
-
-      resolve({
-        tags_count,
-        likes_count,
-        shares_count,
-        comments_count,
-        group_name: group_id != 0 && group_id != null ? gn[0].name : ''
-      })
-
-    } catch (error) {
-      reject(error)
-    }
-
-  })
-}
-
 // GET USER POSTS
 app.post('/get-user-posts', async (req, res) => {
   let
@@ -96,7 +73,7 @@ app.post('/get-user-posts', async (req, res) => {
     posts = []
 
   for (let p of _posts) {
-    let { tags_count, likes_count, shares_count, comments_count } = await getCounts(p.post_id, null)
+    let { tags_count, likes_count, shares_count, comments_count } = await db.getCounts(p.post_id, null)
 
     posts.push({
       ...p,
@@ -121,7 +98,7 @@ app.post('/get-bookmarked-posts', async (req, res) => {
     posts = []
 
   for (let p of _posts) {
-    let { tags_count, likes_count, shares_count, comments_count, group_name } = await getCounts(p.post_id, p.group_id)
+    let { tags_count, likes_count, shares_count, comments_count, group_name } = await db.getCounts(p.post_id, p.group_id)
 
     posts.push({
       ...p,
@@ -147,7 +124,7 @@ app.post('/get-tagged-posts', async (req, res) => {
     posts = []
 
   for (let p of _posts) {
-    let { tags_count, likes_count, shares_count, comments_count, group_name } = await getCounts(p.post_id, p.group_id)
+    let { tags_count, likes_count, shares_count, comments_count, group_name } = await db.getCounts(p.post_id, p.group_id)
 
     posts.push({
       ...p,
@@ -175,7 +152,7 @@ app.post('/get-shared-posts', async (req, res) => {
   for (let p of _posts) {
     let
       share_by_username = await db.getWhat('username', p.share_by),
-      { tags_count, likes_count, shares_count, comments_count, group_name } = await getCounts(p.post_id, p.group_id)
+      { tags_count, likes_count, shares_count, comments_count, group_name } = await db.getCounts(p.post_id, p.group_id)
 
     posts.push({
       ...p,
@@ -214,7 +191,7 @@ app.post('/get-feed', async (req, res) => {
     posts = []
 
   for (let p of _posts) {
-    let { tags_count, likes_count, shares_count, comments_count, group_name } = await getCounts(p.post_id, p.group_id)
+    let { tags_count, likes_count, shares_count, comments_count, group_name } = await db.getCounts(p.post_id, p.group_id)
 
     posts.push({
       ...p,
@@ -240,7 +217,7 @@ app.post('/get-group-posts', async (req, res) => {
     posts = []
 
   for (let p of _posts) {
-    let { tags_count, likes_count, shares_count, comments_count } = await getCounts(p.post_id, null)
+    let { tags_count, likes_count, shares_count, comments_count } = await db.getCounts(p.post_id, null)
 
     posts.push({
       ...p,
@@ -276,7 +253,7 @@ app.post('/get-post', async (req, res) => {
     ),
     {
       tags_count, likes_count, shares_count, comments_count, group_name
-    } = await getCounts(post_id, _post.length != 0 ? _post[0].group_id : 0),
+    } = await db.getCounts(post_id, _post.length != 0 ? _post[0].group_id : 0),
     comments = await db.query(
       'SELECT comments.comment_id, comments.type, comments.text, comments.commentSrc, comments.comment_by, users.username AS comment_by_username, comments.post_id, comments.comment_time FROM comments, users WHERE comments.post_id = ? AND comments.comment_by = users.id ORDER BY comments.comment_time DESC',
       [ post_id ]
@@ -301,6 +278,8 @@ app.post('/edit-post', async (req, res) => {
     { post, description } = req.body,
     { id } = req.session
   await db.query('UPDATE posts SET description=? WHERE post_id=? AND user=?', [ description, post, id ])
+  await db.query('DELETE FROM hashtags WHERE post_id=?', [ post ])
+  await db.toHashtag(description, id, post)
   res.json('Hello, World!!')
 })
 

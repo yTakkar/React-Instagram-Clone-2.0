@@ -349,6 +349,7 @@ app.post('/user/deactivate-account', mw.LoggedIn, async (req, res) => {
       'DELETE FROM recommendations WHERE recommend_by=? OR recommend_to=? OR recommend_of=?',
       [ id, id, id ]
     )
+    await db.query('DELETE FROM hashtags WHERE user=?', [ id ])
 
     await DeleteAllOfFolder(`${dir}/public/users/${id}/`)
     await dltDir(`${dir}/public/users/${id}`)

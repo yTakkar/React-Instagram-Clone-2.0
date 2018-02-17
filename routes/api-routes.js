@@ -58,7 +58,10 @@ app.post('/search-instagram', async (req, res) => {
     _groups = await db.query(
       `SELECT group_id, name FROM groups WHERE name LIKE "%${value}%" ORDER BY group_id DESC`
     ),
-    groups = []
+    groups = [],
+    hashtags = await db.query(
+      `SELECT hashtag_id, hashtag FROM hashtags WHERE hashtag LIKE "%${value}%" ORDER BY hashtag_time DESC`
+    )
 
   for (let u of _users) {
     let mutualFollowers = await db.mutualUsers(id, u.id)
@@ -80,7 +83,7 @@ app.post('/search-instagram', async (req, res) => {
     })
   }
 
-  res.json({ users, groups })
+  res.json({ users, groups, hashtags })
 })
 
 module.exports = app

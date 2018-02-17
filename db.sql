@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 13, 2018 at 10:46 AM
+-- Generation Time: Feb 17, 2018 at 10:04 AM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -86,7 +86,8 @@ INSERT INTO `comments` (`comment_id`, `type`, `text`, `commentSrc`, `comment_by`
 (60, 'sticker', '', 'instagram_comment_1518016608385.jpg', 24, 56, '1518016608385'),
 (61, 'sticker', '', 'instagram_comment_1518016691913.jpg', 24, 56, '1518016691913'),
 (62, 'text', 'mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm', '', 30, 57, '1518509780928'),
-(63, 'text', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', '', 30, 57, '1518509825922');
+(63, 'text', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', '', 30, 57, '1518509825922'),
+(64, 'text', '#Hello', '', 24, 57, '1518710983444');
 
 -- --------------------------------------------------------
 
@@ -217,6 +218,30 @@ INSERT INTO `group_members` (`grp_member_id`, `group_id`, `member`, `added_by`, 
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `hashtags`
+--
+
+CREATE TABLE `hashtags` (
+  `hashtag_id` int(11) NOT NULL,
+  `hashtag` varchar(1000) NOT NULL,
+  `post_id` int(11) NOT NULL,
+  `user` int(11) NOT NULL,
+  `hashtag_time` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `hashtags`
+--
+
+INSERT INTO `hashtags` (`hashtag_id`, `hashtag`, `post_id`, `user`, `hashtag_time`) VALUES
+(13, 'nice', 69, 24, '1518854776646'),
+(14, 'travel', 69, 24, '1518854776646'),
+(15, 'travel', 70, 24, '1518854819017'),
+(16, 'travel', 71, 24, '1518857913750');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `likes`
 --
 
@@ -247,7 +272,9 @@ INSERT INTO `likes` (`like_id`, `post_id`, `like_by`, `like_time`) VALUES
 (61, 56, '24', '1518016672505'),
 (62, 60, '26', '1518018154859'),
 (63, 61, '27', '1518018364468'),
-(64, 63, '30', '1518510087356');
+(64, 63, '30', '1518510087356'),
+(65, 57, '24', '1518515315123'),
+(66, 70, '24', '1518857527960');
 
 -- --------------------------------------------------------
 
@@ -372,7 +399,10 @@ INSERT INTO `posts` (`post_id`, `user`, `description`, `imgSrc`, `filter`, `loca
 (60, 26, '', 'instagram_1518018146496.jpg', 'normal', '', 'user', 0, '1518018146496'),
 (61, 27, '', 'instagram_1518018358758.jpg', 'normal', 'Progresive Building, 90 Feet Road, Dharavi, Mumbai, Maharashtra 400017, India', 'user', 0, '1518018358758'),
 (62, 28, '', 'instagram_1518018452185.jpg', 'normal', '', 'user', 0, '1518018452185'),
-(63, 30, 'mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm', 'instagram_1518510077635.jpg', 'normal', '', 'user', 0, '1518510077635');
+(63, 30, 'mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm', 'instagram_1518510077635.jpg', 'normal', '', 'user', 0, '1518510077635'),
+(69, 24, 'That''s a #nice place to #travel', 'instagram_1518854775824.jpg', 'normal', '', 'user', 0, '1518854775824'),
+(70, 24, '#travel', 'instagram_1518854818666.jpg', 'normal', '', 'user', 0, '1518854818666'),
+(71, 24, '#travel', 'instagram_1518857912246.jpg', 'normal', '', 'group', 11, '1518857912246');
 
 -- --------------------------------------------------------
 
@@ -436,7 +466,9 @@ INSERT INTO `profile_views` (`view_id`, `view_by`, `view_to`, `view_time`) VALUE
 (231, 24, 27, '1518514384042'),
 (232, 24, 27, '1518514537230'),
 (233, 24, 28, '1518514630544'),
-(234, 24, 30, '1518514644447');
+(234, 24, 30, '1518514644447'),
+(235, 24, 25, '1518705076980'),
+(236, 24, 13, '1518708220016');
 
 -- --------------------------------------------------------
 
@@ -606,6 +638,12 @@ ALTER TABLE `group_members`
   ADD PRIMARY KEY (`grp_member_id`);
 
 --
+-- Indexes for table `hashtags`
+--
+ALTER TABLE `hashtags`
+  ADD PRIMARY KEY (`hashtag_id`);
+
+--
 -- Indexes for table `likes`
 --
 ALTER TABLE `likes`
@@ -683,7 +721,7 @@ ALTER TABLE `bookmarks`
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
+  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 --
 -- AUTO_INCREMENT for table `conversations`
 --
@@ -710,10 +748,15 @@ ALTER TABLE `groups`
 ALTER TABLE `group_members`
   MODIFY `grp_member_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 --
+-- AUTO_INCREMENT for table `hashtags`
+--
+ALTER TABLE `hashtags`
+  MODIFY `hashtag_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+--
 -- AUTO_INCREMENT for table `likes`
 --
 ALTER TABLE `likes`
-  MODIFY `like_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
+  MODIFY `like_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 --
 -- AUTO_INCREMENT for table `messages`
 --
@@ -728,7 +771,7 @@ ALTER TABLE `notifications`
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
+  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
 --
 -- AUTO_INCREMENT for table `post_tags`
 --
@@ -738,7 +781,7 @@ ALTER TABLE `post_tags`
 -- AUTO_INCREMENT for table `profile_views`
 --
 ALTER TABLE `profile_views`
-  MODIFY `view_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=235;
+  MODIFY `view_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=237;
 --
 -- AUTO_INCREMENT for table `recommendations`
 --

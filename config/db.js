@@ -140,6 +140,32 @@ const isBlocked = (block_by, user) => {
   })
 }
 
+// RETURNS TAGS COUNT, LIKES COUNT, ...
+const getCounts = async (post_id, group_id) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      let
+        [{ tags_count }] = await query('SELECT COUNT(post_tag_id) AS tags_count FROM post_tags WHERE post_id=?', [post_id]),
+        [{ likes_count }] = await query('SELECT COUNT(like_id) AS likes_count FROM likes WHERE post_id=?', [ post_id ]),
+        [{ shares_count }] = await query('SELECT COUNT(share_id) AS shares_count FROM shares WHERE post_id=?', [ post_id ]),
+        [{ comments_count }] = await query('SELECT COUNT(comment_id) AS comments_count FROM comments WHERE post_id=?', [ post_id ]),
+        gn = await query('SELECT name FROM groups WHERE group_id=?', [group_id])
+
+      resolve({
+        tags_count,
+        likes_count,
+        shares_count,
+        comments_count,
+        group_name: group_id != 0 && group_id != null ? gn[0].name : ''
+      })
+
+    } catch (error) {
+      reject(error)
+    }
+
+  })
+}
+
 // DELETES POST
 const deletePost = async ({post, user, when}) => {
   await query('DELETE FROM likes WHERE post_id=?', [ post ])
@@ -147,6 +173,7 @@ const deletePost = async ({post, user, when}) => {
   await query('DELETE FROM shares WHERE post_id=?', [ post ])
   await query('DELETE FROM bookmarks WHERE post_id=?', [ post ])
   await query('DELETE FROM notifications WHERE post_id=?', [ post ])
+  await query('DELETE FROM hashtags WHERE post_id=?', [ post ])
 
   let
     [{ imgSrc }] = await query('SELECT imgSrc FROM posts WHERE post_id=?', [ post ]),
@@ -293,6 +320,24 @@ const getLastMssg = con_id => {
   })
 }
 
+// GET AND INSERT HASHTAGS
+const toHashtag = async (str, user, post) => {
+  let hashtags = str.match(/[^|\s]?#[\d\w]+/g)
+
+  for (let h of hashtags) {
+    let hash = h.slice(1)
+    if (hash.substr(0, 1) !== '#') {
+      let newHashtag = {
+        hashtag: hash,
+        post_id: post,
+        user: user,
+        hashtag_time: new Date().getTime()
+      }
+      await db.query('INSERT INTO hashtags SET ?', newHashtag)
+    }
+  }
+}
+
 module.exports = {
   query,
   c_validator,
@@ -308,6 +353,7 @@ module.exports = {
   didIShare,
   favouriteOrNot,
   isBlocked,
+  getCounts,
   deletePost,
   deleteGroup,
   deleteCon,
@@ -316,4 +362,5 @@ module.exports = {
   mutualGroupMembers,
   getLastMssgTime,
   getLastMssg,
+  toHashtag,
 }

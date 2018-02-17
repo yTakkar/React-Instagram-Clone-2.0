@@ -99,7 +99,7 @@ export default class Profile extends React.Component {
                 <Nav url={url} />
                 <div className='hmm'>
                   <Switch>
-                    <Route path={`${url}`} exact component={Posts} />
+                    <Route path={`${url}`} exact component={() => <Posts param={username} />} />
                     <Route path={`${url}/tagged`} component={() => <Tagged param={username} />} />
                     <Route path={`${url}/shared`} component={() => <Shared param={username} />} />
                     <Route path={`${url}/gallery`} component={() => <Gallery param={username} />} />

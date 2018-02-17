@@ -11,6 +11,7 @@ import { getMutualAndNewestMembers } from '../../../store/actions/group-a'
 import MutualMembers from '../mutual-members'
 import NewestMembers from '../newest-members'
 import CreateGroup from '../create-group/create-group'
+import GroupHashtags from '../../hashtag/group-hashtags'
 
 @connect(store => {
   return {
@@ -58,6 +59,7 @@ export default class GroupPosts extends React.Component {
 
               <NewestMembers group={group_id} />
               <MutualMembers group={group_id} />
+              <GroupHashtags group={group_id} />
               <CreateGroup/>
 
               <div className='recomm_teaser'>

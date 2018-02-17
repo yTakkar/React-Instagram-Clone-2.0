@@ -4,7 +4,7 @@ import Title from '../others/title'
 import { getUnreadNotifications } from '../../store/actions/notification-a'
 import { connect } from 'react-redux'
 import $ from 'jquery'
-import { getFeed } from '../../store/actions/post-a'
+import { getFeed, togglePosted } from '../../store/actions/post-a'
 import Loading from '../others/loading'
 import Nothing from '../others/nothing'
 import Post from '../post/post'
@@ -14,6 +14,7 @@ import Suggested from '../others/suggested/suggested'
 import CreateGroup from '../group/create-group/create-group'
 import PostItTeaser from '../post/post-it/post-it-teaser'
 import { getUnreadMessages } from '../../store/actions/message-a'
+import PopularHashtags from '../hashtag/popular-hashtags'
 
 @connect(store => {
   return {
@@ -31,6 +32,7 @@ export default class Home extends React.Component {
   componentDidMount = () => {
     let { dispatch } = this.props
     dispatch(getFeed())
+    dispatch(togglePosted(false))
     dispatch(getUnreadNotifications())
     dispatch(getUnreadMessages())
   }
@@ -90,6 +92,7 @@ export default class Home extends React.Component {
 
             <div className='srajkumar'>
               <Suggested when='home' />
+              <PopularHashtags/>
               <CreateGroup/>
             </div>
 

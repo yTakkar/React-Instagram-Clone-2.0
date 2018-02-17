@@ -200,6 +200,10 @@ li {
       -webkit-animation: bounce 1s ease-in-out 0.66s infinite;
       animation: bounce 1s ease-in-out 0.66s infinite; }
 
+.hashtag {
+  color: #3d464d;
+  font-weight: 600; }
+
 @-webkit-keyframes bounce {
   0%, 75%, 100% {
     -webkit-transform: translateY(0px);
@@ -1842,7 +1846,7 @@ select {
 .search_div {
   position: fixed;
   background: #fff;
-  width: 630px;
+  width: 850px;
   max-height: 500px;
   top: 48px;
   left: 85px;
@@ -1856,7 +1860,8 @@ select {
   -ms-flex-pack: justify;
   justify-content: space-between;
   -webkit-box-shadow: 0px 0px 25px 1px rgba(0, 0, 0, 0.1);
-  box-shadow: 0px 0px 25px 1px rgba(0, 0, 0, 0.1); }
+  box-shadow: 0px 0px 25px 1px rgba(0, 0, 0, 0.1);
+  overflow: hidden; }
   .search_div:hover {
     background: #fff; }
   .search_div .spinner {
@@ -1901,6 +1906,11 @@ select {
         .search_div .s_d_peo .s_d_p .s_d_c span:last-of-type {
           color: lightslategrey;
           font-size: 13px; }
+    .search_div .s_d_peo .h_d_p {
+      height: 19px;
+      font-weight: 600;
+      font-size: 14px;
+      margin-bottom: 2px; }
 
 /*PROFILE PAGE*/
 .pro_banner {
@@ -2942,7 +2952,7 @@ select {
             text-decoration: underline; }
         .posts .comments_div .comments .comments_content p {
           display: block;
-          word-wrap: break-word;}
+          word-wrap: break-word; }
         .posts .comments_div .comments .comments_content .comments_img {
           display: block;
           width: 200px;
@@ -3696,6 +3706,23 @@ select {
             -webkit-transform: scale(1.03);
             -ms-transform: scale(1.03);
             transform: scale(1.03); }
+
+.user-hashtags {
+  margin-top: 10px; }
+  .user-hashtags .recomm_top span {
+    margin-right: 0px;
+    font-size: 14px; }
+  .user-hashtags .recomm_main {
+    padding: 10px;
+    margin-top: 0px; }
+    .user-hashtags .recomm_main .uh_link {
+      display: block;
+      font-weight: 600;
+      color: lightslategray;
+      margin-bottom: 2px;
+      font-size: 14px; }
+      .user-hashtags .recomm_main .uh_link:hover {
+        text-decoration: underline; }
 
 .preload {
   width: 100%;
