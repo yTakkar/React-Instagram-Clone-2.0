@@ -84,6 +84,14 @@
     "@types/express-serve-static-core" "*"
     "@types/serve-static" "*"
 
+"@types/history@*":
+  version "4.6.2"
+  resolved "https://registry.yarnpkg.com/@types/history/-/history-4.6.2.tgz#12cfaba693ba20f114ed5765467ff25fdf67ddb0"
+
+"@types/jquery@^3.3.0":
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/@types/jquery/-/jquery-3.3.0.tgz#6316ac20a1a13c5d521a2dc661befc7184f73f5b"
+
 "@types/mime@*":
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/@types/mime/-/mime-2.0.0.tgz#5a7306e367c539b9f6543499de8dd519fac37a8b"
@@ -91,6 +99,32 @@
 "@types/node@*":
   version "8.5.2"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-8.5.2.tgz#83b8103fa9a2c2e83d78f701a9aa7c9539739aa5"
+
+"@types/react-redux@^5.0.15":
+  version "5.0.15"
+  resolved "https://registry.yarnpkg.com/@types/react-redux/-/react-redux-5.0.15.tgz#420af2c702ac7aab321cf45bb7d3cb2503dd24d5"
+  dependencies:
+    "@types/react" "*"
+    redux "^3.6.0"
+
+"@types/react-router-dom@^4.2.4":
+  version "4.2.4"
+  resolved "https://registry.yarnpkg.com/@types/react-router-dom/-/react-router-dom-4.2.4.tgz#02c43274129ffe0ac42b348f7c8c4a9a4e127c8a"
+  dependencies:
+    "@types/history" "*"
+    "@types/react" "*"
+    "@types/react-router" "*"
+
+"@types/react-router@*":
+  version "4.0.22"
+  resolved "https://registry.yarnpkg.com/@types/react-router/-/react-router-4.0.22.tgz#2b97336eddfdf5886973539539b8ce7037cf629b"
+  dependencies:
+    "@types/history" "*"
+    "@types/react" "*"
+
+"@types/react@*", "@types/react@^16.0.38":
+  version "16.0.38"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-16.0.38.tgz#76617433ea10274505f60bb86eddfdd0476ffdc2"
 
 "@types/serve-static@*":
   version "1.13.1"
@@ -2513,7 +2547,7 @@ redux-thunk@^2.2.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/redux-thunk/-/redux-thunk-2.2.0.tgz#e615a16e16b47a19a515766133d1e3e99b7852e5"
 
-redux@^3.7.2:
+redux@^3.6.0, redux@^3.7.2:
   version "3.7.2"
   resolved "https://registry.yarnpkg.com/redux/-/redux-3.7.2.tgz#06b73123215901d25d065be342eb026bc1c8537b"
   dependencies:
