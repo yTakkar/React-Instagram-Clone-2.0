@@ -100,7 +100,7 @@ export default class Messages extends React.Component {
                   <SearchFollowings
                     placeholder='Search to message'
                     when='new_con'
-                    newConUser={(user, username) =>
+                    done={(user, username) =>
                       this.createConversation(user, username)
                     }
                   />

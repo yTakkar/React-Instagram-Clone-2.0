@@ -2,7 +2,7 @@ import React from 'react'
 import { post } from 'axios'
 import $ from 'jquery'
 import { uniqBy } from 'lodash'
-import { replacer, joinGroup } from '../../utils/utils'
+import { replacer } from '../../utils/utils'
 import { FadeIn } from 'animate-components'
 
 export default class SearchFollowings extends React.Component {
@@ -33,8 +33,7 @@ export default class SearchFollowings extends React.Component {
   selectUser = async (user, username) => {
     let
       { selected } = this.state,
-      { setState, when, group, newConUser } = this.props,
-      session = $('.data').data('session')
+      { when, done } = this.props
 
     selected.unshift({ user, username })
     this.setState({ selected })
@@ -45,16 +44,11 @@ export default class SearchFollowings extends React.Component {
     this.setState({ selected: f_users })
 
     if (when == 'tag') {
-      setState(f_users)
+      done(f_users)
     } else if (when == 'add_grp_members') {
-      joinGroup({
-        user,
-        added_by: session,
-        group: group,
-        when: 'add_grp_member'
-      })
+      done(user)
     } else if (when == 'new_con') {
-      newConUser(user, username)
+      done(user, username)
     }
 
   }
@@ -78,9 +72,7 @@ export default class SearchFollowings extends React.Component {
       )
 
     return (
-      <div
-        className='search_followings'
-      >
+      <div className='search_followings' >
 
         <div className='p_add_taggings' >
           <input
@@ -111,4 +103,9 @@ export default class SearchFollowings extends React.Component {
       </div>
     )
   }
+}
+
+SearchFollowings.defaulProps = {
+  placeholder: 'Search',
+  disabled: false
 }

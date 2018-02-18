@@ -337,9 +337,9 @@ export default class PostIt extends React.Component {
                 <SearchFollowings
                   when='tag'
                   placeholder='Search to tag'
-                  setState={data => {
+                  done={data =>
                     this.setState({ tags: data })
-                  }}
+                  }
                 />
                 : null
             }

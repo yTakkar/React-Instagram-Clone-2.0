@@ -4,7 +4,8 @@ import Title from '../../others/title'
 import { Link } from 'react-router-dom'
 import SearchFollowings from '../../others/search-followings'
 import { connect } from 'react-redux'
-import { Me } from '../../../utils/utils'
+import { Me, joinGroup } from '../../../utils/utils'
+import $ from 'jquery'
 
 @connect(store => {
   return {
@@ -13,6 +14,18 @@ import { Me } from '../../../utils/utils'
 })
 
 export default class AddGroupMembers extends React.Component {
+
+  addMember = user => {
+    let
+      session = $('.data').data('session'),
+      { gd } = this.props
+    joinGroup({
+      user,
+      added_by: session,
+      group: gd.group_id,
+      when: 'add_grp_member'
+    })
+  }
 
   render() {
     let { gd } = this.props
@@ -49,8 +62,10 @@ export default class AddGroupMembers extends React.Component {
                   <SearchFollowings
                     placeholder='Seach to add'
                     when='add_grp_members'
-                    group={gd.group_id}
                     disabled={!Me(gd.admin)}
+                    done={user =>
+                      this.addMember(user)
+                    }
                   />
                 </div>
               </div>
