@@ -39,6 +39,7 @@ app.post('/post-it', upload.single('image'), async (req, res) => {
     surname = await db.getWhat('surname', id)
 
   await db.toHashtag(desc, id, insertId)
+  await db.mentionUsers(desc, id, insertId, 'post')
 
   res.json({
     post_id: insertId,
@@ -528,6 +529,7 @@ app.post('/comment-text', async (req, res) => {
       comment_time: new Date().getTime()
     },
     { insertId } = await db.query('INSERT INTO comments SET ?', comment)
+  await db.mentionUsers(text, id, post, 'comment')
 
   res.json({ comment_id: insertId })
 })

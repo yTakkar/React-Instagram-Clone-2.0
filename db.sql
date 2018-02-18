@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 17, 2018 at 10:04 AM
+-- Generation Time: Feb 18, 2018 at 10:28 AM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -87,7 +87,8 @@ INSERT INTO `comments` (`comment_id`, `type`, `text`, `commentSrc`, `comment_by`
 (61, 'sticker', '', 'instagram_comment_1518016691913.jpg', 24, 56, '1518016691913'),
 (62, 'text', 'mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm', '', 30, 57, '1518509780928'),
 (63, 'text', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', '', 30, 57, '1518509825922'),
-(64, 'text', '#Hello', '', 24, 57, '1518710983444');
+(64, 'text', '#Hello', '', 24, 57, '1518710983444'),
+(66, 'text', 'wooo @takkar', '', 7, 88, '1518945524771');
 
 -- --------------------------------------------------------
 
@@ -313,7 +314,7 @@ CREATE TABLE `notifications` (
   `notify_to` int(11) NOT NULL,
   `post_id` int(11) NOT NULL,
   `group_id` int(11) NOT NULL,
-  `type` enum('follow','tag','like','share','shared_your_post','comment','favourites','recommend','add_grp_member','invite','change_admin','new_con') NOT NULL,
+  `type` enum('follow','tag','like','share','shared_your_post','comment','favourites','recommend','add_grp_member','invite','change_admin','new_con','mention_post','mention_comment') NOT NULL,
   `user` int(11) NOT NULL,
   `notify_time` varchar(100) NOT NULL,
   `status` enum('read','unread') NOT NULL DEFAULT 'unread'
@@ -339,15 +340,15 @@ INSERT INTO `notifications` (`notify_id`, `notify_by`, `notify_to`, `post_id`, `
 (361, 26, 19, 60, 0, 'tag', 0, '1518018147273', 'unread'),
 (368, 24, 29, 0, 0, 'follow', 0, '1518342254957', 'unread'),
 (370, 24, 27, 0, 0, 'follow', 0, '1518342257732', 'unread'),
-(371, 30, 24, 0, 0, 'favourites', 0, '1518456838037', 'read'),
-(372, 30, 24, 0, 0, 'follow', 0, '1518509768477', 'read'),
-(373, 30, 24, 57, 0, 'comment', 0, '1518509781117', 'read'),
-(374, 30, 24, 57, 0, 'comment', 0, '1518509826115', 'read'),
 (375, 24, 18, 0, 0, 'recommend', 30, '1518513518878', 'unread'),
 (376, 24, 27, 0, 0, 'recommend', 30, '1518513536529', 'unread'),
 (377, 24, 30, 0, 0, 'favourites', 0, '1518514021640', 'unread'),
 (378, 24, 30, 0, 0, 'favourites', 0, '1518514649384', 'unread'),
-(379, 24, 27, 0, 0, 'follow', 0, '1518514784128', 'unread');
+(379, 24, 27, 0, 0, 'follow', 0, '1518514784128', 'unread'),
+(382, 24, 7, 88, 0, 'mention_post', 0, '1518945386480', 'read'),
+(383, 7, 24, 88, 0, 'comment', 0, '1518945447485', 'read'),
+(384, 7, 24, 88, 0, 'mention_comment', 0, '1518945524869', 'read'),
+(385, 7, 24, 88, 0, 'comment', 0, '1518945525010', 'read');
 
 -- --------------------------------------------------------
 
@@ -402,7 +403,8 @@ INSERT INTO `posts` (`post_id`, `user`, `description`, `imgSrc`, `filter`, `loca
 (63, 30, 'mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm', 'instagram_1518510077635.jpg', 'normal', '', 'user', 0, '1518510077635'),
 (69, 24, 'That''s a #nice place to #travel', 'instagram_1518854775824.jpg', 'normal', '', 'user', 0, '1518854775824'),
 (70, 24, '#travel', 'instagram_1518854818666.jpg', 'normal', '', 'user', 0, '1518854818666'),
-(71, 24, '#travel', 'instagram_1518857912246.jpg', 'normal', '', 'group', 11, '1518857912246');
+(71, 24, '#travel', 'instagram_1518857912246.jpg', 'normal', '', 'group', 11, '1518857912246'),
+(88, 24, 'Hello, @ghalib @takkar @@checkout', 'instagram_1518945386167.jpg', 'normal', '', 'user', 0, '1518945386167');
 
 -- --------------------------------------------------------
 
@@ -468,7 +470,8 @@ INSERT INTO `profile_views` (`view_id`, `view_by`, `view_to`, `view_time`) VALUE
 (233, 24, 28, '1518514630544'),
 (234, 24, 30, '1518514644447'),
 (235, 24, 25, '1518705076980'),
-(236, 24, 13, '1518708220016');
+(236, 24, 13, '1518708220016'),
+(237, 24, 7, '1518941917187');
 
 -- --------------------------------------------------------
 
@@ -721,7 +724,7 @@ ALTER TABLE `bookmarks`
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
+  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 --
 -- AUTO_INCREMENT for table `conversations`
 --
@@ -751,7 +754,7 @@ ALTER TABLE `group_members`
 -- AUTO_INCREMENT for table `hashtags`
 --
 ALTER TABLE `hashtags`
-  MODIFY `hashtag_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `hashtag_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT for table `likes`
 --
@@ -766,12 +769,12 @@ ALTER TABLE `messages`
 -- AUTO_INCREMENT for table `notifications`
 --
 ALTER TABLE `notifications`
-  MODIFY `notify_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=380;
+  MODIFY `notify_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=386;
 --
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
+  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
 --
 -- AUTO_INCREMENT for table `post_tags`
 --
@@ -781,7 +784,7 @@ ALTER TABLE `post_tags`
 -- AUTO_INCREMENT for table `profile_views`
 --
 ALTER TABLE `profile_views`
-  MODIFY `view_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=237;
+  MODIFY `view_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=238;
 --
 -- AUTO_INCREMENT for table `recommendations`
 --

@@ -21,7 +21,7 @@ import $ from 'jquery'
 import CommentPost from './comment/comment-post'
 import Stickers from '../others/stickers'
 import Comment from './comment/comment'
-import ToHashtag from '../others/toHashtag'
+import ToHashtag from '../others/toTag'
 
 @connect(store => {
   return {

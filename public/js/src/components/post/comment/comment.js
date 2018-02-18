@@ -10,7 +10,7 @@ import { post } from 'axios'
 import Notify from 'handy-notification'
 import Prompt from '../../others/prompt'
 import EditComment from './edit-comment'
-import ToHashtag from '../../others/toHashtag'
+import ToHashtag from '../../others/toTag'
 
 @connect(store => {
   return {

@@ -27,7 +27,7 @@ export default class PostItTeaser extends React.Component {
         <div className='post_it inst' style={{ marginBottom: type == 'group' ? 10 : null }} >
           <img src={`/users/${id}/avatar.jpg`} alt='Your avatar' />
           <div className='post_teaser'>
-            <span className='p_whats_new' onClick={this.togglePostIt} >What's new with you, @{username}?</span>
+            <span className='p_whats_new' onClick={this.togglePostIt} >What's new with you, @{username}? #cool</span>
           </div>
         </div>
 

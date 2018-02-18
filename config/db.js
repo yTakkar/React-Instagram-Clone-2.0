@@ -324,18 +324,53 @@ const getLastMssg = con_id => {
 const toHashtag = async (str, user, post) => {
   let hashtags = str.match(/[^|\s]?#[\d\w]+/g)
 
-  for (let h of hashtags) {
-    let hash = h.slice(1)
-    if (hash.substr(0, 1) !== '#') {
-      let newHashtag = {
-        hashtag: hash,
-        post_id: post,
-        user: user,
-        hashtag_time: new Date().getTime()
+  if (hashtags) {
+    for (let h of hashtags) {
+      let hash = h.slice(1)
+      if (hash.substr(0, 1) !== '#') {
+        let newHashtag = {
+          hashtag: hash,
+          post_id: post,
+          user: user,
+          hashtag_time: new Date().getTime()
+        }
+        await db.query('INSERT INTO hashtags SET ?', newHashtag)
       }
-      await db.query('INSERT INTO hashtags SET ?', newHashtag)
     }
   }
+
+}
+
+// MENTION USERS
+const mentionUsers = async (str, session, post, when) => {
+  let users = str.match(/[^|\s]?@[\d\w]+/g)
+
+  if (users) {
+    for (let h of users) {
+      let hash = h.slice(1)
+      if (hash.substr(0, 1) !== '@') {
+        let [{ userCount }] = await query('SELECT COUNT(id) AS userCount FROM users WHERE username=?', [ hash ])
+
+        if (userCount == 1) {
+          let
+            id = await getId(hash),
+            notify = {
+              notify_by: session,
+              notify_to: id,
+              post_id: post,
+              type: when == 'post' ? 'mention_post' : 'mention_comment',
+              notify_time: new Date().getTime(),
+            }
+
+          if (id != session) {
+            await query('INSERT INTO notifications SET ?', notify)
+          }
+        }
+
+      }
+    }
+  }
+
 }
 
 module.exports = {
@@ -363,4 +398,5 @@ module.exports = {
   getLastMssgTime,
   getLastMssg,
   toHashtag,
+  mentionUsers,
 }
