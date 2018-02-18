@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 18, 2018 at 10:28 AM
+-- Generation Time: Feb 18, 2018 at 10:32 AM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -238,7 +238,8 @@ INSERT INTO `hashtags` (`hashtag_id`, `hashtag`, `post_id`, `user`, `hashtag_tim
 (13, 'nice', 69, 24, '1518854776646'),
 (14, 'travel', 69, 24, '1518854776646'),
 (15, 'travel', 70, 24, '1518854819017'),
-(16, 'travel', 71, 24, '1518857913750');
+(16, 'travel', 71, 24, '1518857913750'),
+(18, 'checkout', 88, 24, '1518946312842');
 
 -- --------------------------------------------------------
 
@@ -404,7 +405,7 @@ INSERT INTO `posts` (`post_id`, `user`, `description`, `imgSrc`, `filter`, `loca
 (69, 24, 'That''s a #nice place to #travel', 'instagram_1518854775824.jpg', 'normal', '', 'user', 0, '1518854775824'),
 (70, 24, '#travel', 'instagram_1518854818666.jpg', 'normal', '', 'user', 0, '1518854818666'),
 (71, 24, '#travel', 'instagram_1518857912246.jpg', 'normal', '', 'group', 11, '1518857912246'),
-(88, 24, 'Hello, @ghalib @takkar @@checkout', 'instagram_1518945386167.jpg', 'normal', '', 'user', 0, '1518945386167');
+(88, 24, 'Hello, @ghalib @takkar #checkout', 'instagram_1518945386167.jpg', 'normal', '', 'user', 0, '1518945386167');
 
 -- --------------------------------------------------------
 
@@ -754,7 +755,7 @@ ALTER TABLE `group_members`
 -- AUTO_INCREMENT for table `hashtags`
 --
 ALTER TABLE `hashtags`
-  MODIFY `hashtag_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `hashtag_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 --
 -- AUTO_INCREMENT for table `likes`
 --
