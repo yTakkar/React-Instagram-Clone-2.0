@@ -14,23 +14,28 @@ export default class ToHashtag extends React.Component {
     } else {
 
       hh = hashes.map(elem => {
-        let hash = elem.slice(1)
+        let
+          hash = elem.slice(1),
+          h = {
+            key: elem,
+            className: 'hashtag'
+          }
 
         if (elem.charAt(0) == '#') {
           if (hash.substring(0, 1) !== '#') {
             return <Link
-              key={elem}
+              key={h.key}
               to={`/hashtag/${hash}`}
-              className='hashtag'
+              className={h.className}
             >{ `${elem} ` }</Link>
           }
 
         } else if (elem.charAt(0) == '@') {
           if (hash.substring(0, 1) !== '@') {
             return <Link
-              key={elem}
+              key={h.key}
               to={`/profile/${hash}`}
-              className='hashtag'
+              className={h.className}
             >{ `${elem} ` }</Link>
           }
         }
