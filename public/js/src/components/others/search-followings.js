@@ -24,7 +24,9 @@ export default class SearchFollowings extends React.Component {
     let
       value = e.target.value.trim(),
       { data } = this.state,
-      ff = !value ? [] : data.filter(f => f.follow_to_username.toLowerCase().includes(value))
+      ff = !value ? [] : data.filter(f =>
+        f.follow_to_username.toLowerCase().includes(value)
+      )
     await this.setState({ value, followings: ff })
   }
 
