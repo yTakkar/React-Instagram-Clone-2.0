@@ -28,8 +28,12 @@ export default class Hashtag extends React.Component {
     dispatch(getHashtagPosts(hashtag))
   }
 
-  componentWillReceiveProps = () =>
+  componentWillReceiveProps = ({ match, dispatch }) => {
+    if (this.props.match.url != match.url) {
+      dispatch(getHashtagPosts(match.params.hashtag))
+    }
     this.setState({ loading: false })
+  }
 
   render() {
     let
