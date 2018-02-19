@@ -21,7 +21,7 @@ import $ from 'jquery'
 import CommentPost from './comment/comment-post'
 import Stickers from '../others/stickers'
 import Comment from './comment/comment'
-import ToHashtag from '../others/toTag'
+import ToTags from '../hashtag/toTags'
 
 @connect(store => {
   return {
@@ -242,7 +242,7 @@ export default class Post extends React.Component {
         <div className='p_o'>
           <div className='p_actual' spellCheck='false'>
             <div className='p_abt' style={{ marginBottom: description ? '10px' : null }} >
-              <p><ToHashtag str={`${description}`} /></p>
+              <p><ToTags str={`${description}`} /></p>
             </div>
             <img
               src={`/posts/${imgSrc}`}

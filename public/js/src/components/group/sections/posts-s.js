@@ -12,6 +12,7 @@ import MutualMembers from '../mutual-members'
 import NewestMembers from '../newest-members'
 import CreateGroup from '../create-group/create-group'
 import GroupHashtags from '../../hashtag/group-hashtags'
+import ToTags from '../../hashtag/toTags'
 
 @connect(store => {
   return {
@@ -50,9 +51,9 @@ export default class GroupPosts extends React.Component {
                   <span>Group's bio</span>
                 </div>
                 <div className='grp_bio_main'>
-                  <span>{bio}</span>
+                  <span><ToTags str={`${bio}`} /></span>
                   {
-                    Me(admin) ? <Link to={`/group/${group_id}/edit`} className='sec_btn'>Not satisfied</Link> : null
+                    Me(admin) ? <Link to={`/group/${group_id}/edit`} className='sec_btn grp_ns'>Not satisfied</Link> : null
                   }
                 </div>
               </div>

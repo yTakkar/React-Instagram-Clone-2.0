@@ -10,6 +10,7 @@ import Notify from 'handy-notification'
 import { deleteMssg } from '../../../store/actions/message-a'
 import { connect } from 'react-redux'
 import ImageTheatre from '../../others/image-theatre'
+import ToTags from '../../hashtag/toTags'
 
 @connect(store => {
   return {
@@ -59,7 +60,7 @@ export default class Message extends React.Component {
         >
           <div className='m_m' title={TimeAgo(message_time)} >
             {
-              type == 'text' ? message
+              type == 'text' ? <ToTags str={`${message}`} />
                 : type == 'image' ? <img src={`/messages/${message}`} className='m_m_img' onClick={() => this._toggle('showImage')} />
                   : type == 'sticker' ? <img src={`/messages/${message}`} className='m_m_sticker' />
                     : null

@@ -10,7 +10,7 @@ import { post } from 'axios'
 import Notify from 'handy-notification'
 import Prompt from '../../others/prompt'
 import EditComment from './edit-comment'
-import ToHashtag from '../../others/toTag'
+import ToTags from '../../hashtag/toTags'
 
 @connect(store => {
   return {
@@ -73,7 +73,7 @@ export default class Comment extends React.Component {
             <a href='#' className='comments_user'>{ comment_by_username }</a>
 
             {
-              type == 'text' ? <p className='ce' ><ToHashtag str={text} /></p>
+              type == 'text' ? <p className='ce' ><ToTags str={text} /></p>
                 : type == 'image' ? <img className='comments_img' onClick={() => this._toggle('openImage')} src={`/comments/${commentSrc}`} />
                   : type == 'sticker' ? <img className='comments_sticker' src={`/comments/${commentSrc}`} />
                     : null

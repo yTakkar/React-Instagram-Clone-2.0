@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
-export default class ToHashtag extends React.Component {
+export default class ToTags extends React.Component {
   render() {
     let
       { str } = this.props,
@@ -16,6 +16,7 @@ export default class ToHashtag extends React.Component {
       hh = hashes.map(elem => {
         let
           hash = elem.slice(1),
+          filtered = hash.replace(/[^a-z0-9A-Z_]/, ''),
           h = {
             key: elem,
             className: 'hashtag'
@@ -25,7 +26,7 @@ export default class ToHashtag extends React.Component {
           if (hash.substring(0, 1) !== '#') {
             return <Link
               key={h.key}
-              to={`/hashtag/${hash}`}
+              to={`/hashtag/${filtered}`}
               className={h.className}
             >{ `${elem} ` }</Link>
           }
@@ -34,7 +35,7 @@ export default class ToHashtag extends React.Component {
           if (hash.substring(0, 1) !== '@') {
             return <Link
               key={h.key}
-              to={`/profile/${hash}`}
+              to={`/profile/${filtered}`}
               className={h.className}
             >{ `${elem} ` }</Link>
           }

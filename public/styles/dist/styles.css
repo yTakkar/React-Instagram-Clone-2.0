@@ -3365,7 +3365,7 @@ select {
       font-size: 14px;
       display: block;
       text-align: left; }
-    .grp_bio .grp_bio_main a {
+    .grp_bio .grp_bio_main .grp_ns {
       padding: 4px 10px;
       font-weight: 600;
       display: inline-block;
@@ -3568,6 +3568,8 @@ select {
                 width: 200px; }
               .messages_senapati .mssg_right .mssg_messages .m_m_wrapper .m_m_main .m_m_divs .m_m .m_m_sticker {
                 width: 64px; }
+              .messages_senapati .mssg_right .mssg_messages .m_m_wrapper .m_m_main .m_m_divs .m_m .hashtag {
+                color: #fff; }
             .messages_senapati .mssg_right .mssg_messages .m_m_wrapper .m_m_main .m_m_divs .mssg_sr_toggle {
               background: #fbfbfb;
               -webkit-animation: pro_active 0.1s ease-in-out;

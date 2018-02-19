@@ -14,6 +14,7 @@ import { PORT } from '../../../../../browser-env'
 import RecommendUsers from '../others/recommend/recommend-users'
 import { toggleFollow } from '../../store/actions/follow_a'
 import Prompt from '../others/prompt'
+import ToTags from '../hashtag/toTags'
 
 @connect(store => {
   return {
@@ -172,7 +173,7 @@ export default class Banner extends React.Component {
             <span>{firstname} {surname}</span>
           </div>
           <div className='pro_bio'>
-            <span>{bio}</span>
+            <span><ToTags str={`${bio}`} /></span>
           </div>
         </div>
 
