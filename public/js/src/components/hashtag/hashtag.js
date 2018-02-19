@@ -10,6 +10,7 @@ import { getHashtagPosts } from '../../store/actions/hashtag-a'
 import Loading from '../others/loading'
 import Post from '../post/post'
 import Nothing from '../others/nothing'
+import { humanReadable } from '../../utils/utils'
 
 @connect(store => {
   return {
@@ -57,7 +58,13 @@ export default class Hashtag extends React.Component {
 
           { loading ? <Loading/> : null }
 
+          <div className='hashtag_info'>
+            <span>#{hashtag}</span>
+            <span className='no_of_tag_peop'>{ humanReadable(len, 'post') }</span>
+          </div>
+
           <div className={`senapati ${loading ? 'cLoading' : ''}`} >
+
             <div className='prajkumar'>
               {
                 len == 0 ?

@@ -60,7 +60,7 @@ app.post('/search-instagram', async (req, res) => {
     ),
     groups = [],
     hashtags = await db.query(
-      `SELECT hashtag_id, hashtag FROM hashtags WHERE hashtag LIKE "%${value}%" ORDER BY hashtag_time DESC`
+      `SELECT DISTINCT hashtag FROM hashtags WHERE hashtag LIKE "%${value}%" ORDER BY hashtag_time DESC`
     )
 
   for (let u of _users) {

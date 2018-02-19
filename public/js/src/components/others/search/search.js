@@ -16,27 +16,35 @@ export default class Search extends React.Component {
     }
   }
 
+  hide = () =>
+    this.setState({ search: { users: [], groups: [], hashtags: [] } })
+
   search = async ({ target: { value } }) => {
     this.setState({ value })
     if(value.trim() != '') {
       let { data } = await post('/api/search-instagram', { value })
       this.setState({ search: data })
     } else {
-      this.setState({ search: { users: [], groups: [], hashtags: [] } })
+      this.hide()
     }
+  }
+
+  clicked = () => {
+    this.setState({ value: '' })
+    this.hide()
   }
 
   render() {
     let
       { value, search: { users, groups, hashtags } } = this.state,
       map_users = users.map(u =>
-        <UserSearch key={u.id} {...u} />
+        <UserSearch key={u.id} {...u} clicked={this.clicked} />
       ),
       map_groups = groups.map(g =>
-        <GroupSearch key={g.group_id} {...g} />
+        <GroupSearch key={g.group_id} {...g} clicked={this.clicked} />
       ),
       map_hashtags = hashtags.map(h =>
-        <HashtagSearch key={h.hashtag_id} {...h} />
+        <HashtagSearch key={h.hashtag} {...h} clicked={this.clicked} />
       )
 
     return (

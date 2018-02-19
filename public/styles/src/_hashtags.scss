@@ -26,3 +26,23 @@
   }
 
 }
+
+// HASHTAG PAGE INFO
+.hashtag_info{
+  @include inst;
+  background: $ff;
+  color: $dark;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 3px;
+
+  & span:first-of-type{
+    font-weight: 600;
+  }
+
+  & .no_of_tag_peop{
+    position: absolute;
+    right: 20px;
+    font-size: 14px;
+  }
+}

@@ -8,6 +8,7 @@ import Nothing from '../../../others/nothing'
 import { getUserGroups } from '../../../../store/actions/group-a'
 import GroupList from './group-list'
 import End from '../../../others/end'
+import CreateGroup from '../../../group/create-group/create-group'
 
 @connect(store => {
   return {
@@ -67,9 +68,14 @@ export default class UserGroups extends React.Component {
           </div>
 
           {
-            len == 0
-              ? <div>
-                <Nothing mssg={Me(id) ? 'You\'re not a member of any group!!' : `${username} is not a member of any group!!`} />
+            len == 0 ?
+              <div className='senapati' >
+                <div className='srajkumar' style={{ marginTop: -8 }} >
+                  <CreateGroup/>
+                </div>
+                <div className='prajkumar' >
+                  <Nothing mssg={Me(id) ? 'You\'re not a member of any group!!' : `${username} is not a member of any group!!`} />
+                </div>
               </div>
               : <End/>
           }
