@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 18, 2018 at 06:01 PM
+-- Generation Time: Feb 19, 2018 at 09:57 AM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -195,7 +195,7 @@ CREATE TABLE `groups` (
 --
 
 INSERT INTO `groups` (`group_id`, `name`, `bio`, `admin`, `group_type`, `created`) VALUES
-(11, 'a group', 'random group', 24, 'private', '1518016737587'),
+(11, 'a group', '#random group', 24, 'private', '1518016737587'),
 (12, 'nmnmnmnm', '', 7, 'public', '1518973077594');
 
 -- --------------------------------------------------------
@@ -249,7 +249,8 @@ INSERT INTO `hashtags` (`hashtag_id`, `hashtag`, `post_id`, `user`, `hashtag_tim
 (15, 'travel', 70, 24, '1518854819017'),
 (16, 'travel', 71, 24, '1518857913750'),
 (18, 'checkout', 88, 24, '1518946312842'),
-(19, 'checkout', 89, 24, '1518972815567');
+(22, 'checkout', 89, 24, '1519030064291'),
+(23, 'dd', 89, 24, '1519030064291');
 
 -- --------------------------------------------------------
 
@@ -321,7 +322,8 @@ INSERT INTO `messages` (`message_id`, `con_id`, `mssg_by`, `mssg_to`, `message`,
 (75, 24, 24, 7, 'instagram_message_1518972961638.jpg', 'sticker', 'read', '1518972961638'),
 (76, 24, 24, 7, 'instagram_message_1518972971352.jpg', 'sticker', 'read', '1518972971352'),
 (77, 25, 24, 27, 'hello', 'text', 'unread', '1518973001479'),
-(78, 24, 7, 24, 'eoghghg', 'text', 'unread', '1518973051916');
+(78, 24, 7, 24, 'eoghghg', 'text', 'read', '1518973051916'),
+(79, 25, 24, 27, '@takkar', 'text', 'unread', '1519028471421');
 
 -- --------------------------------------------------------
 
@@ -367,9 +369,6 @@ INSERT INTO `notifications` (`notify_id`, `notify_by`, `notify_to`, `post_id`, `
 (378, 24, 30, 0, 0, 'favourites', 0, '1518514649384', 'unread'),
 (379, 24, 27, 0, 0, 'follow', 0, '1518514784128', 'unread'),
 (382, 24, 7, 88, 0, 'mention_post', 0, '1518945386480', 'read'),
-(383, 7, 24, 88, 0, 'comment', 0, '1518945447485', 'read'),
-(384, 7, 24, 88, 0, 'mention_comment', 0, '1518945524869', 'read'),
-(385, 7, 24, 88, 0, 'comment', 0, '1518945525010', 'read'),
 (387, 24, 30, 89, 0, 'mention_post', 0, '1518972815643', 'unread'),
 (388, 24, 18, 89, 0, 'tag', 0, '1518972815728', 'unread'),
 (389, 24, 28, 89, 0, 'tag', 0, '1518972815732', 'unread'),
@@ -379,10 +378,6 @@ INSERT INTO `notifications` (`notify_id`, `notify_by`, `notify_to`, `post_id`, `
 (393, 24, 27, 0, 11, 'invite', 0, '1518972885048', 'unread'),
 (394, 24, 7, 88, 0, 'mention_comment', 0, '1518972932790', 'read'),
 (395, 24, 27, 0, 0, 'new_con', 0, '1518972996782', 'unread'),
-(396, 7, 24, 88, 0, 'comment', 0, '1518973041257', 'unread'),
-(397, 7, 24, 88, 0, 'like', 0, '1518973043051', 'unread'),
-(398, 7, 24, 0, 0, 'follow', 0, '1518973062529', 'unread'),
-(399, 7, 24, 0, 12, 'add_grp_member', 0, '1518973105285', 'unread'),
 (400, 7, 8, 0, 12, 'add_grp_member', 0, '1518973109986', 'unread');
 
 -- --------------------------------------------------------
@@ -440,7 +435,7 @@ INSERT INTO `posts` (`post_id`, `user`, `description`, `imgSrc`, `filter`, `loca
 (70, 24, '#travel', 'instagram_1518854818666.jpg', 'normal', '', 'user', 0, '1518854818666'),
 (71, 24, '#travel', 'instagram_1518857912246.jpg', 'normal', '', 'group', 11, '1518857912246'),
 (88, 24, 'Hello, @ghalib @takkar #checkout', 'instagram_1518945386167.jpg', 'normal', '', 'user', 0, '1518945386167'),
-(89, 24, 'hey @nobita @doraemon #checkout', 'instagram_1518972814710.jpg', 'filter-ashby', 'A-301, 90 Feet Road, Dharavi, Mumbai, Maharashtra 400017, India', 'user', 0, '1518972814710');
+(89, 24, 'hey @nobita, @doraemon #checkout, #dd', 'instagram_1518972814710.jpg', 'filter-ashby', 'A-301, 90 Feet Road, Dharavi, Mumbai, Maharashtra 400017, India', 'user', 0, '1518972814710');
 
 -- --------------------------------------------------------
 
@@ -624,7 +619,7 @@ INSERT INTO `users` (`id`, `username`, `firstname`, `surname`, `email`, `passwor
 (18, 'ragnar', 'Ragnar', 'Lothbrok', 'ragnar@gmail.com', '$2a$10$M7lx4wF.PUhAjSJVxb7bW.nk2G6zxeCjhXBnKTyFz3JNq8NQbQQ8m', '', '1516525343645', 'no', 'public', '', '', '', '', '', ''),
 (19, 'jonsnow', 'jon_', 'snow', 'jonsnow@gmail.com', '$2a$10$9Nb4hFjgg.MKKLLTeXMuWehralT21UCoeWsPq3./VWMkUnu19JpzS', '', '1516527326858', 'no', 'public', '', '', '', '', '', ''),
 (20, 'gian', 'Takeshi', 'Gauda', 'gian@gmail.com', '$2a$10$K3ijpio/4HIOKJhQ5yq3DOQ4IW5Oee4O5hwogEQtB/FBuNJRvd9T2', '', '1516527534985', 'no', 'public', '', '', '', '', '', ''),
-(24, 'takkar', 'iam_', 'takkar', 'takkar@gmail.com', '$2a$10$m2CrL8Y/iJxXraNm2VsIcOqnJul3A.jo2JmFiMWv6McIxrQ4W5Wki', '', '1518016437193', 'no', 'private', '', '', '', '', '', ''),
+(24, 'takkar', 'iam_', 'takkar', 'takkar@gmail.com', '$2a$10$m2CrL8Y/iJxXraNm2VsIcOqnJul3A.jo2JmFiMWv6McIxrQ4W5Wki', 'Hello #world', '1518016437193', 'no', 'private', '', '', '', '', '', ''),
 (25, 'voldemort', 'Lord', 'Voldemort', 'voldemort@gmail.com', '$2a$10$.pMJpz3RqFiq4LyWY7I/mu06sfIN/pukOSsaV.XjgOeq10WMjff06', '', '1518017424230', 'no', 'public', '', '', '', '', '', ''),
 (26, 'vangogh', 'Van_', 'Gogh', 'vangogh@gmail.com', '$2a$10$ZvTdbyGWECg7sSuQGeVqvuB5ydA2RNZ7OsuxudJu7E9SL3Hx/kigS', '', '1518017724523', 'no', 'public', '', '', '', '', '', ''),
 (27, 'taylor_swift', 'taylor', 'swift', 'taylor_swift@gmail.com', '$2a$10$rnQRsp0iWCdV8b6AD24mJ.7rL5XQ31ejULlOQMVkBpjxD7RlRxqKK', '', '1518018283428', 'no', 'public', '', '', '', '', '', ''),
@@ -798,7 +793,7 @@ ALTER TABLE `group_members`
 -- AUTO_INCREMENT for table `hashtags`
 --
 ALTER TABLE `hashtags`
-  MODIFY `hashtag_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `hashtag_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 --
 -- AUTO_INCREMENT for table `likes`
 --
@@ -808,7 +803,7 @@ ALTER TABLE `likes`
 -- AUTO_INCREMENT for table `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `message_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
+  MODIFY `message_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
 --
 -- AUTO_INCREMENT for table `notifications`
 --
@@ -818,7 +813,7 @@ ALTER TABLE `notifications`
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
+  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
 --
 -- AUTO_INCREMENT for table `post_tags`
 --
