@@ -2,11 +2,11 @@ import React from 'react'
 import { Scrollbars } from 'react-custom-scrollbars'
 import { post } from 'axios'
 import $ from 'jquery'
-import Spinner from './spinner'
+import Spinner from '../spinner'
 import Notify from 'handy-notification'
-import Overlay from './overlay'
+import Overlay from '../overlay'
 import PreviewAvatar from './preview-avatar'
-import { upload_avatar } from '../../utils/utils'
+import { upload_avatar } from '../../../utils/utils'
 
 export default class Avatars extends React.Component {
 
