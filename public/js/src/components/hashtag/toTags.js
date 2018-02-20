@@ -17,6 +17,7 @@ export default class ToTags extends React.Component {
         let
           hash = elem.slice(1),
           filtered = hash.replace(/[^a-z0-9A-Z_]/, ''),
+          isLink = elem.match(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,4}\b([-a-zA-Z0-9@:%_+.~#?&//=]*)/),
           h = {
             key: elem,
             className: 'hashtag'
@@ -39,6 +40,14 @@ export default class ToTags extends React.Component {
               className={h.className}
             >{ `${elem} ` }</Link>
           }
+
+        } else if (isLink) {
+          return <a
+            key={h.key}
+            target='_blank'
+            href={elem}
+            className={h.className}
+          >{ `${elem} ` }</a>
         }
 
         return `${elem} `
