@@ -68,7 +68,9 @@ export default class Hashtag extends React.Component {
             <div className='prajkumar'>
               {
                 len == 0 ?
-                  <Nothing mssg={`No post with #${hashtag} tag found!!`} />
+                  <div style={{ marginTop: 10 }} >
+                    <Nothing mssg={`No post with #${hashtag} tag found!!`} />
+                  </div>
                   : map_posts
               }
               { len != 0 ? <End/> : null }
