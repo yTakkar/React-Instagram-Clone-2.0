@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
+import { uniq } from '../../utils/utils'
 
 export default class ToTags extends React.Component {
   render() {
@@ -17,36 +18,32 @@ export default class ToTags extends React.Component {
         let
           hash = elem.slice(1),
           filtered = hash.replace(/[^a-z0-9A-Z_]/, ''),
-          isLink = elem.match(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,4}\b([-a-zA-Z0-9@:%_+.~#?&//=]*)/),
-          h = {
-            key: elem,
-            className: 'hashtag'
-          }
+          isLink = elem.match(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,4}\b([-a-zA-Z0-9@:%_+.~#?&//=]*)/)
 
         if (elem.charAt(0) == '#') {
-          if (hash.substring(0, 1) !== '#') {
+          if (hash.charAt(0) !== '#') {
             return <Link
-              key={h.key}
+              key={uniq()}
               to={`/hashtag/${filtered}`}
-              className={h.className}
+              className='hashtag'
             >{ `${elem} ` }</Link>
           }
 
         } else if (elem.charAt(0) == '@') {
-          if (hash.substring(0, 1) !== '@') {
+          if (hash.charAt(0) !== '@') {
             return <Link
-              key={h.key}
+              key={uniq()}
               to={`/profile/${filtered}`}
-              className={h.className}
+              className='hashtag'
             >{ `${elem} ` }</Link>
           }
 
         } else if (isLink) {
           return <a
-            key={h.key}
+            key={uniq()}
             target='_blank'
             href={elem}
-            className={h.className}
+            className='hashtag'
           >{ `${elem} ` }</a>
         }
 

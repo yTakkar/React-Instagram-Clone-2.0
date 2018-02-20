@@ -16,6 +16,10 @@ export const shortener = (elem, length) => {
   return (len >= parse) ? `${elem.substr(0, length - 2)}..` : (len < parse) ? elem : null
 }
 
+/** RETURNS UNIQUE STRING */
+export const uniq = () =>
+  Math.random().toString(5).slice(2)
+
 /** FUNCTION FOR HUMAN-READABLE */
 export const humanReadable = (value, text) => {
   let hr =
