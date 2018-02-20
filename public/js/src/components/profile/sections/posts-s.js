@@ -57,7 +57,7 @@ export default class Posts extends React.Component {
                   ? <Nothing
                     mssg={Me(id) ? 'You have no posts!!' : `${username} has no posts!!`}
                   />
-                  : map_posts
+                  : <FadeIn duration='500ms'>{ map_posts }</FadeIn>
               }
             </div>
 

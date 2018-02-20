@@ -63,7 +63,7 @@ export default class Tagged extends React.Component {
                   ? <Nothing
                     mssg={Me(id) ? 'You are not tagged in any post!!' : `${username} is not tagged in any post!!`}
                   />
-                  : map_posts
+                  : <FadeIn duration='500ms'>{ map_posts }</FadeIn>
               }
             </div>
 

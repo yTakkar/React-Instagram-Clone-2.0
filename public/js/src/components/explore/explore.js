@@ -9,7 +9,7 @@ import $ from 'jquery'
 import ExpUsers from './users/exp-users'
 import ExpPhotos from './photos/exp-photos'
 import ExpGroups from './groups/exp-groups'
-import { getUsersToExplore, getPhotosToExplore, getGroupsToExplore } from '../../store/actions/explore-a';
+import { getUsersToExplore, getPhotosToExplore, getGroupsToExplore } from '../../store/actions/explore-a'
 
 @connect(store => {
   return {

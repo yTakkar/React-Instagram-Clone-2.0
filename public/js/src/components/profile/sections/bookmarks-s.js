@@ -63,7 +63,7 @@ export default class Bookmarks extends React.Component {
                   ? <Nothing
                     mssg={Me(id) ? 'You have no bookmarked posts!!' : `${username} has no bookmarked posts!!`}
                   />
-                  : map_posts
+                  : <FadeIn duration='500ms'>{ map_posts }</FadeIn>
               }
             </div>
 

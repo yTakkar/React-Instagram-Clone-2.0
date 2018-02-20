@@ -71,7 +71,7 @@ export default class Hashtag extends React.Component {
                   <div style={{ marginTop: 10 }} >
                     <Nothing mssg={`No post with #${hashtag} tag found!!`} />
                   </div>
-                  : map_posts
+                  : <FadeIn duration='500ms'>{ map_posts }</FadeIn>
               }
               { len != 0 ? <End/> : null }
             </div>

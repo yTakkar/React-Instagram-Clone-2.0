@@ -63,7 +63,7 @@ export default class Shared extends React.Component {
                   ? <Nothing
                     mssg={`No one shared posts with ${Me(id) ? 'you' : username}!!`}
                   />
-                  : map_posts
+                  : <FadeIn duration='500ms'>{ map_posts }</FadeIn>
               }
             </div>
 
