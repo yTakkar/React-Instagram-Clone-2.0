@@ -5,7 +5,6 @@ import { getUnreadNotifications } from '../../store/actions/notification-a'
 import { connect } from 'react-redux'
 import $ from 'jquery'
 import { getFeed, togglePosted } from '../../store/actions/post-a'
-import Loading from '../others/loading'
 import Nothing from '../others/nothing'
 import Post from '../post/post'
 import End from '../others/end'
@@ -15,6 +14,7 @@ import CreateGroup from '../group/create-group/create-group'
 import PostItTeaser from '../post/post-it/post-it-teaser'
 import { getUnreadMessages } from '../../store/actions/message-a'
 import PopularHashtags from '../hashtag/popular-hashtags'
+import { Instagram } from 'react-content-loader'
 
 @connect(store => {
   return {
@@ -57,11 +57,12 @@ export default class Home extends React.Component {
 
         <FadeIn duration='300ms'>
 
-          { loading ? <Loading/> : null }
-
-          <div className={`senapati home_senapati ${loading ? 'cLoading' : ''}`} >
+          <div className='senapati home_senapati' >
 
             <div className='prajkumar'>
+
+              { loading ? <Instagram/> : null }
+
               <PostItTeaser type='user' />
 
               <div
