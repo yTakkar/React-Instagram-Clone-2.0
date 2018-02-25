@@ -1,13 +1,5 @@
 require('dotenv').config()
 
-// RUN BELOW PIECE OF CODE ONCE ONLY, OTHERWISE IT WILL MAKE APP RUN SLOWLY.
-// IT ALLOWS FRONT-END LAYER TO GET ACCESS TO ENVIRONMENT VARIABLES.
-// UNCOMMENT, RUN AND COMMENT IT ONCE AGAIN IF .ENV FILE IS MODIFIED.
-
-// require('browser-env-vars').generate({
-//   outFile: 'browser-env.js'
-// })
-
 // Require Dependencies
 const
   express = require('express'),

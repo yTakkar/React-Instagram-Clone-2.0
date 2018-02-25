@@ -1044,12 +1044,6 @@ brace-expansion@^1.1.7:
     balanced-match "^1.0.0"
     concat-map "0.0.1"
 
-browser-env-vars@^1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/browser-env-vars/-/browser-env-vars-1.1.1.tgz#4db4adadec09ce3e9eb0c7863873ed84db79fca2"
-  dependencies:
-    dotenv "^4.0.0"
-
 browserslist@^2.1.2:
   version "2.10.0"
   resolved "https://registry.yarnpkg.com/browserslist/-/browserslist-2.10.0.tgz#bac5ee1cc69ca9d96403ffb8a3abdc5b6aed6346"
