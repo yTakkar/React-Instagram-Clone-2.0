@@ -56,6 +56,13 @@ export const getGroupPosts = group => {
   }
 }
 
+export const addUserPost = post => {
+  return {
+    type: 'ADD_USER_POST',
+    payload: post
+  }
+}
+
 export const addGroupPost = post => {
   return {
     type: 'ADD_GROUP_POST',
@@ -164,12 +171,5 @@ export const editComment = comment => {
   return {
     type: 'EDIT_COMMENT',
     payload: comment
-  }
-}
-
-export const togglePosted = p => {
-  return {
-    type: 'TOGGLE_POSTED',
-    payload: p
   }
 }

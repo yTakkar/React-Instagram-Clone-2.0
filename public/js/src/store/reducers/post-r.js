@@ -57,6 +57,10 @@ export default (state=post_def, action) => {
       return { ...state, viewPost: py }
       break
 
+    case 'ADD_USER_POST':
+      return { ...state, feed: addPost(state.feed, py) }
+      break
+
     case 'ADD_GROUP_POST':
       return { ...state, posts: addPost(state.posts, py) }
       break
@@ -107,10 +111,6 @@ export default (state=post_def, action) => {
 
     case 'EDIT_COMMENT':
       return { ...state, viewPost: editComment(state.viewPost, py) }
-      break
-
-    case 'TOGGLE_POSTED':
-      return { ...state, posted: py }
       break
   }
 

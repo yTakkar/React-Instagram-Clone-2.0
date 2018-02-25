@@ -3,12 +3,10 @@ import { FadeIn } from 'animate-components'
 import Title from '../others/title'
 import { getUnreadNotifications } from '../../store/actions/notification-a'
 import { connect } from 'react-redux'
-import $ from 'jquery'
-import { getFeed, togglePosted } from '../../store/actions/post-a'
+import { getFeed } from '../../store/actions/post-a'
 import Nothing from '../others/nothing'
 import Post from '../post/post'
 import End from '../others/end'
-import MessageNotify from '../others/message-notify'
 import Suggested from '../others/suggested/suggested'
 import CreateGroup from '../group/create-group/create-group'
 import PostItTeaser from '../post/post-it/post-it-teaser'
@@ -18,8 +16,7 @@ import { Instagram } from 'react-content-loader'
 
 @connect(store => {
   return {
-    feed: store.Post.feed,
-    posted: store.Post.posted
+    feed: store.Post.feed
   }
 })
 
@@ -32,7 +29,6 @@ export default class Home extends React.Component {
   componentDidMount = () => {
     let { dispatch } = this.props
     dispatch(getFeed())
-    dispatch(togglePosted(false))
     dispatch(getUnreadNotifications())
     dispatch(getUnreadMessages())
   }
@@ -42,9 +38,8 @@ export default class Home extends React.Component {
 
   render() {
     let
-      username = $('.data').data('username'),
       { loading } = this.state,
-      { feed, posted } = this.props,
+      { feed } = this.props,
       len = feed.length,
       map_feed = feed.map(f =>
         <Post key={f.post_id} {...f} when='feed' />
@@ -61,24 +56,18 @@ export default class Home extends React.Component {
 
             <div className='prajkumar'>
 
-              { loading ? <Instagram/> : null }
-
               <PostItTeaser type='user' />
+
+              {
+                loading ?
+                  <div style={{ marginTop: 20 }} ><Instagram/></div>
+                  : null
+              }
 
               <div
                 className='posts_div'
                 style={{ marginTop: len == 0 ? 10 : 0 }}
               >
-
-                {
-                  posted ?
-                    <MessageNotify
-                      url={`/profile/${username}`}
-                      btnText='Checkout'
-                      message='Checkout your profile page to see your recent post!!'
-                    />
-                    : null
-                }
 
                 {
                   len == 0 ?

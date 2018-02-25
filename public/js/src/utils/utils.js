@@ -3,7 +3,7 @@ import { post } from 'axios'
 import Notify from 'handy-notification'
 import { getUserDetails, addTag, getMutualUsers } from '../store/actions/user-a'
 import * as follow_action from '../store/actions/follow_a'
-import { getUserPosts, getGroupPosts, togglePosted, addGroupPost, comment } from '../store/actions/post-a'
+import { getUserPosts, getGroupPosts, addGroupPost, comment, addUserPost } from '../store/actions/post-a'
 import { getGroupDetails, joinedGroup, leftGroup } from '../store/actions/group-a'
 import { conversationAdded, messaged, changeLastMssg, unsendAllMessages } from '../store/actions/message-a'
 
@@ -516,28 +516,38 @@ export const addPost = async options => {
     })
   })
 
+  let newPost = {
+    key: post_id,
+    comments_count: 0,
+    likes_count: 0,
+    shares_count: 0,
+    tags_count: 0,
+    user,
+    username,
+    firstname,
+    surname,
+    description: desc,
+    filter,
+    imgSrc: filename,
+    location,
+    post_time: new Date().getTime(),
+    post_id,
+    group_id: 0,
+    group_name: '',
+    type: 'user',
+  }
+
   type == 'user'
-    ? dispatch(togglePosted(true))
+    ? dispatch(addUserPost({
+      ...newPost,
+      when: 'feed'
+    }))
     : dispatch(addGroupPost({
-      key: post_id,
-      comments_count: 0,
-      likes_count: 0,
-      shares_count: 0,
-      tags_count: 0,
-      user,
-      username,
-      firstname,
-      surname,
-      description: desc,
-      filter,
-      imgSrc: filename,
-      location,
-      type: 'group',
-      post_time: new Date().getTime(),
+      ...newPost,
       group_id: group,
       group_name,
-      post_id,
-      when: 'groupPosts',
+      type: 'group',
+      when: 'groupPosts'
     }))
 
   Notify({ value: 'Posted!!' })
