@@ -48,15 +48,15 @@ Here's a video which will take you on a tour of this project!!
     npm start [OR] yarn start
     ```
 
-5. Now run the app
+5. For front-end layer of this app to get access to `env` variables defined in `.env`, run
+    ```bash
+    yarn env
+    ```
+
+6. Now run the app
     ```javacript
     localhost:[PORT] PORT=4300 (By default)
     ```
-
-6. For front-end layer of this app to get access to `env` variables defined in `.env`, run
-```bash
-yarn env
-```
 
 7. Enjoy!!
 
