@@ -54,7 +54,7 @@ Here's a video which will take you on a tour of this project!!
 
 6. Now run the app
     ```javacript
-    localhost:[PORT] PORT=4300 (By default)
+    localhost:[PORT]
     ```
 
 7. Enjoy!!
