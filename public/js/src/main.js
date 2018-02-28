@@ -1,9 +1,8 @@
-/* eslint no-unused-vars: 0 */
-
 // USER SYSTEM (FOR NOT LOGGEDIN USER)
 import './user-system/user-system'
 
 // FOR LOGGEDIN USER
+// eslint-disable-next-line no-unused-vars
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'

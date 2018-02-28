@@ -1,5 +1,4 @@
-/* eslint no-unused-vars:0 */
-
+// eslint-disable-next-line no-unused-vars
 import React from 'react'
 
 const Overlay = ({ type, close_on_click, close, opacity }) => {
