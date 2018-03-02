@@ -1,17 +1,10 @@
 import React from 'react'
 import { FadeIn } from 'animate-components'
 import $ from 'jquery'
-import { connect } from 'react-redux'
 import ToolTip from 'react-tooltip'
 import Emojis from '../../others/emojis'
 import { post } from 'axios'
 import Notify from 'handy-notification'
-
-@connect(store => {
-  return {
-    store
-  }
-})
 
 export default class EditMessage extends React.Component {
 

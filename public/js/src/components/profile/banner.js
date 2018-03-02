@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { toggle } from '../../utils/utils'
 import $ from 'jquery'
 import { connect } from 'react-redux'
@@ -231,43 +231,43 @@ export default class Banner extends React.Component {
 
         {
           changeAvatar ?
-            <div>
+            <Fragment>
               <Overlay/>
               <Avatars
                 back={() => this._toggle(null, 'changeAvatar')}
                 of='user'
               />
-            </div>
+            </Fragment>
             : null
         }
 
         {
           viewAvatar ?
-            <div>
+            <Fragment>
               <Overlay
                 close_on_click={true}
                 close={() => this._toggle(null, 'viewAvatar')}
                 opacity={0.9}
               />
               <ViewAvatar imgSrc={`/users/${id}/avatar.jpg`} />
-            </div>
+            </Fragment>
             : null
         }
 
         {
           recommendUser ?
-            <div>
+            <Fragment>
               <Overlay/>
               <RecommendUsers
                 back={() => this._toggle(null, 'recommendUser')}
               />
-            </div>
+            </Fragment>
             : null
         }
 
         {
           blockUser ?
-            <div>
+            <Fragment>
               <Overlay/>
               <Prompt
                 title={`Block ${username}`}
@@ -276,7 +276,7 @@ export default class Banner extends React.Component {
                 action={this.block}
                 back={() => this._toggle(null, 'blockUser')}
               />
-            </div>
+            </Fragment>
             : null
         }
 

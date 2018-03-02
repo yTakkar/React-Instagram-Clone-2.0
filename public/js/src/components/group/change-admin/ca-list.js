@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { Link } from 'react-router-dom'
 import Notify from 'handy-notification'
 import { insta_notify } from '../../../utils/utils'
@@ -60,7 +60,7 @@ export default class ChangeAdminList extends React.Component {
 
         {
           change ?
-            <div>
+            <Fragment>
               <Overlay/>
               <Prompt
                 title='Transfer admin position'
@@ -70,7 +70,7 @@ export default class ChangeAdminList extends React.Component {
                 back={() => this.setState({ change: false })}
                 blurred={true}
               />
-            </div>
+            </Fragment>
             : null
         }
 

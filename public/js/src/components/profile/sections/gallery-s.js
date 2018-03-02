@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { FadeIn } from 'animate-components'
 import Title from '../../others/title'
 import Nothing from '../../others/nothing'
@@ -97,7 +97,7 @@ export default class Gallery extends React.Component {
 
         {
           showImage ?
-            <div>
+            <Fragment>
               <Overlay
                 close_on_click={true}
                 close={() => this.setState({ showImage: false })}
@@ -110,7 +110,7 @@ export default class Gallery extends React.Component {
                 time={time}
                 link={link}
               />
-            </div>
+            </Fragment>
             : null
         }
 

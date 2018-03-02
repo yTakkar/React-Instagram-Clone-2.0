@@ -28,7 +28,6 @@ export default class Explore extends React.Component {
   refresh = e => {
     e.preventDefault()
     let { location: { pathname }, dispatch } = this.props
-    console.log(pathname)
 
     if(pathname == '/explore') {
       dispatch(getUsersToExplore())

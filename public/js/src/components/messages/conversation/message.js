@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { Me, toggle } from '../../../utils/utils'
 import TimeAgo from 'handy-timeago'
 import ToolTip from 'react-tooltip'
@@ -88,7 +88,7 @@ export default class Message extends React.Component {
 
         {
           editMessage ?
-            <div>
+            <Fragment>
               <Overlay/>
               <EditMessage
                 back={() => this._toggle('editMessage')}
@@ -98,13 +98,13 @@ export default class Message extends React.Component {
                   this.setState({ message })
                 }
               />
-            </div>
+            </Fragment>
             : null
         }
 
         {
           deleteMessage ?
-            <div>
+            <Fragment>
               <Overlay/>
               <Prompt
                 title='Delete message'
@@ -113,13 +113,13 @@ export default class Message extends React.Component {
                 action={this.deleteMessage}
                 back={() => this._toggle('deleteMessage')}
               />
-            </div>
+            </Fragment>
             : null
         }
 
         {
           showImage?
-            <div>
+            <Fragment>
               <Overlay
                 close_on_click={true}
                 close={() => this._toggle('showImage')}
@@ -129,7 +129,7 @@ export default class Message extends React.Component {
                 imgSrc={`/messages/${message}`}
                 showInfo={false}
               />
-            </div>
+            </Fragment>
             : null
         }
 

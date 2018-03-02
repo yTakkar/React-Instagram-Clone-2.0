@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { FadeIn } from 'animate-components'
 import Title from '../../others/title'
 import { post } from 'axios'
@@ -81,7 +81,7 @@ export default class Deactivate extends React.Component {
 
         {
           showPrompt ?
-            <div>
+            <Fragment>
               <Overlay/>
               <Prompt
                 title='Deactivate account'
@@ -91,7 +91,7 @@ export default class Deactivate extends React.Component {
                 back={() => this.setState({ showPrompt: false })}
                 blurred={true}
               />
-            </div>
+            </Fragment>
             : null
         }
 

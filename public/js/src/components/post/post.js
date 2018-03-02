@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import * as fn from '../../utils/utils'
 import ToolTip from 'react-tooltip'
 import TimeAgo from 'handy-timeago'
@@ -368,7 +368,7 @@ export default class Post extends React.Component {
 
         {
           showImage ?
-            <div>
+            <Fragment>
               <Overlay
                 close_on_click={true}
                 close={() => this._toggle('showImage')}
@@ -381,38 +381,38 @@ export default class Post extends React.Component {
                 time={post_time}
                 link={`/post/${post_id}`}
               />
-            </div>
+            </Fragment>
             : null
         }
 
         {
           showLikes ?
-            <div>
+            <Fragment>
               <Overlay/>
               <Likes
                 post={post_id}
                 back={() => this._toggle('showLikes')}
               />
-            </div>
+            </Fragment>
             : null
         }
 
         {
           showTags ?
-            <div>
+            <Fragment>
               <Overlay/>
               <Tags
                 post={post_id}
                 back={() => this._toggle('showTags')}
                 decrementTags={() => this.setState({ tags_count: --tags_count })}
               />
-            </div>
+            </Fragment>
             : null
         }
 
         {
           showShare ?
-            <div>
+            <Fragment>
               <Overlay/>
               <Share
                 post={post_id}
@@ -421,26 +421,26 @@ export default class Post extends React.Component {
                 incrementShares={() => this.setState({ shares_count: ++shares_count })}
                 decrementShares={() => this.setState({ shares_count: --shares_count })}
               />
-            </div>
+            </Fragment>
             : null
         }
 
         {
           showSharers ?
-            <div>
+            <Fragment>
               <Overlay/>
               <Sharers
                 post={post_id}
                 back={() => this._toggle('showSharers')}
                 decrementShares={() => this.setState({ shares_count: --shares_count })}
               />
-            </div>
+            </Fragment>
             : null
         }
 
         {
           editPost ?
-            <div>
+            <Fragment>
               <Overlay/>
               <EditPost
                 post={post_id}
@@ -450,13 +450,13 @@ export default class Post extends React.Component {
                   this.setState({ description: value })
                 }
               />
-            </div>
+            </Fragment>
             : null
         }
 
         {
           deletePost ?
-            <div>
+            <Fragment>
               <Overlay/>
               <Prompt
                 title='Delete post'
@@ -465,13 +465,13 @@ export default class Post extends React.Component {
                 action={this.deletePost}
                 back={() => this._toggle('deletePost')}
               />
-            </div>
+            </Fragment>
             : null
         }
 
         {
           commentPost ?
-            <div>
+            <Fragment>
               <Overlay/>
               <CommentPost
                 post={post_id}
@@ -480,13 +480,13 @@ export default class Post extends React.Component {
                 incrementComments={() => this.setState({ comments_count: ++comments_count })}
                 when={when}
               />
-            </div>
+            </Fragment>
             : null
         }
 
         {
           showStickers ?
-            <div>
+            <Fragment>
               <Overlay/>
               <Stickers
                 back={() => this._toggle('showStickers')}
@@ -496,7 +496,7 @@ export default class Post extends React.Component {
                 postOwner={user}
                 stickerComment={sticker => this.stickerComment(sticker)}
               />
-            </div>
+            </Fragment>
             : null
         }
 

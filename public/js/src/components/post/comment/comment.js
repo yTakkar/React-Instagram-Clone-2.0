@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import TimeAgo from 'handy-timeago'
 import { Me } from '../../../utils/utils'
 import ImageTheatre from '../../others/image-theatre'
@@ -106,7 +106,7 @@ export default class Comment extends React.Component {
 
         {
           openImage ?
-            <div>
+            <Fragment>
               <Overlay
                 close_on_click={true}
                 close={() => this._toggle('openImage')}
@@ -116,13 +116,13 @@ export default class Comment extends React.Component {
                 imgSrc={`/comments/${commentSrc}`}
                 showInfo={false}
               />
-            </div>
+            </Fragment>
             : null
         }
 
         {
           deleteComment ?
-            <div>
+            <Fragment>
               <Overlay/>
               <Prompt
                 title='Delete comment'
@@ -131,13 +131,13 @@ export default class Comment extends React.Component {
                 action={this.deleteComment}
                 back={() => this._toggle('deleteComment')}
               />
-            </div>
+            </Fragment>
             : null
         }
 
         {
           editComment ?
-            <div>
+            <Fragment>
               <Overlay/>
               <EditComment
                 comment={text}
@@ -145,7 +145,7 @@ export default class Comment extends React.Component {
                 updateComment={value => this.setState({ text: value }) }
                 comment_id={comment_id}
               />
-            </div>
+            </Fragment>
             : null
         }
 

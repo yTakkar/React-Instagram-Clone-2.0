@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { FadeIn } from 'animate-components'
 import { Scrollbars } from 'react-custom-scrollbars'
 import ToolTip from 'react-tooltip'
@@ -224,20 +224,20 @@ export default class Conversation extends React.Component {
 
         {
           showStickers ?
-            <div>
+            <Fragment>
               <Overlay/>
               <Stickers
                 back={() => this._toggle(null, 'showStickers')}
                 type='message'
                 stickerMessage={sticker => this.stickerMessage(sticker)}
               />
-            </div>
+            </Fragment>
             : null
         }
 
         {
           deleteCon ?
-            <div>
+            <Fragment>
               <Overlay/>
               <Prompt
                 title='Delete conversation'
@@ -246,13 +246,13 @@ export default class Conversation extends React.Component {
                 action={this.deleteConversation}
                 back={() => this._toggle(null, 'deleteCon')}
               />
-            </div>
+            </Fragment>
             : null
         }
 
         {
           unsendMssgs ?
-            <div>
+            <Fragment>
               <Overlay/>
               <Prompt
                 title='Unsend all your messages'
@@ -261,13 +261,13 @@ export default class Conversation extends React.Component {
                 action={this.unsendAllMssgs}
                 back={() => this._toggle(null, 'unsendMssgs')}
               />
-            </div>
+            </Fragment>
             : null
         }
 
         {
           showMore ?
-            <div>
+            <Fragment>
               <Overlay/>
               <AboutConversation
                 back={() => this._toggle(null, 'showMore')}
@@ -280,7 +280,7 @@ export default class Conversation extends React.Component {
                   mutualFollowersCount,
                 }}
               />
-            </div>
+            </Fragment>
             : null
         }
 

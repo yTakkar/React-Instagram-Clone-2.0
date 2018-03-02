@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { toggle, Me, joinGroup, leaveGroup } from '../../utils/utils'
 import { connect } from 'react-redux'
 import { Link, Redirect } from 'react-router-dom'
@@ -190,57 +190,57 @@ export default class GroupBanner extends React.Component {
 
         {
           viewAvatar ?
-            <div>
+            <Fragment>
               <Overlay
                 close_on_click={true}
                 close={() => this._toggle('viewAvatar')}
                 opacity={0.9}
               />
               <ViewAvatar imgSrc={`/groups/${group_id}/avatar.jpg`} />
-            </div>
+            </Fragment>
             : null
         }
 
         {
           changeAvatar ?
-            <div>
+            <Fragment>
               <Overlay/>
               <Avatars
                 back={() => this._toggle('changeAvatar')}
                 of='group'
                 group={group_id}
               />
-            </div>
+            </Fragment>
             : null
         }
 
         {
           invite ?
-            <div>
+            <Fragment>
               <Overlay/>
               <Invite
                 back={this.toggleInvite}
                 group={group_id}
               />
-            </div>
+            </Fragment>
             : null
         }
 
         {
           changeAdmin ?
-            <div>
+            <Fragment>
               <Overlay/>
               <ChangeAdmin
                 back={this.toggleChangeAdmin}
                 group={group_id}
               />
-            </div>
+            </Fragment>
             : null
         }
 
         {
           deleteGroup ?
-            <div>
+            <Fragment>
               <Overlay/>
               <Prompt
                 title='Delete group'
@@ -249,7 +249,7 @@ export default class GroupBanner extends React.Component {
                 action={this.delete}
                 back={() => this._toggle('deleteGroup')}
               />
-            </div>
+            </Fragment>
             : null
         }
 
