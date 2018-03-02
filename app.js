@@ -52,7 +52,7 @@ app.use(express.static(
 app.use(session({
   cookieName: 'session',
   secret: SESSION_SECRET_LETTER,
-  duration: 2 * 60 * 60 * 1000,
+  duration: 24 * 60 * 60 * 1000,
   activeDuration: 5 * 60 * 1000
 }))
 app.use(cookieParser())
