@@ -60,7 +60,11 @@ export default class Home extends React.Component {
 
               {
                 loading ?
-                  <div style={{ marginTop: 20 }} ><Instagram/></div>
+                  <div style={{ marginTop: 20 }} >
+                    <Instagram/>
+                    <Instagram/>
+                    <Instagram/>
+                  </div>
                   : null
               }
 
