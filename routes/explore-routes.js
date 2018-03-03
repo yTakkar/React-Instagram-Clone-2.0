@@ -1,7 +1,7 @@
 const
   app = require('express').Router(),
   db = require('../config/db'),
-  lodash = require('lodash')
+  _ = require('lodash')
 
 // USERS TO EXPLORE
 app.post('/get-users-to-explore', async (req, res) => {
@@ -32,7 +32,9 @@ app.post('/get-users-to-explore', async (req, res) => {
 
   }
 
-  res.json(users)
+  let orderByMutualUsers = _.orderBy(users, ['mutualUsersCount'], ['desc'])
+
+  res.json(orderByMutualUsers)
 })
 
 // PHOTOS TO EXPLORE
@@ -99,8 +101,7 @@ app.post('/get-suggested-users', async (req, res) => {
       : null
   }
 
-  let orderByMutualUsers
-    = lodash.orderBy(users.slice(0, 5), ['mutualUsersCount'], ['desc'])
+  let orderByMutualUsers = _.orderBy(users.slice(0, 5), ['mutualUsersCount'], ['desc'])
 
   res.json(orderByMutualUsers)
 })
