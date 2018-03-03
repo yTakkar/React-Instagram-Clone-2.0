@@ -6,6 +6,10 @@ module.exports = {
     path: path.join(__dirname, '/public/js/dist/'),
     filename: 'bundle.js'
   },
+  mode: 'development',
+  performance: {
+    hints: false,
+  },
   module: {
     rules: [
       {
