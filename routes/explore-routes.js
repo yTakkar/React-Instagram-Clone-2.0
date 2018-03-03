@@ -75,7 +75,9 @@ app.post('/get-groups-to-explore', async (req, res) => {
       : []
   }
 
-  res.json(groups)
+  let orderByMutualMembers = _.orderBy(groups, ['mutualMembersCount'], ['desc'])
+
+  res.json(orderByMutualMembers)
 })
 
 // GET SUGGESTED USERS
