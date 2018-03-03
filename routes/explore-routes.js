@@ -1,6 +1,7 @@
 const
   app = require('express').Router(),
-  db = require('../config/db')
+  db = require('../config/db'),
+  lodash = require('lodash')
 
 // USERS TO EXPLORE
 app.post('/get-users-to-explore', async (req, res) => {
@@ -98,7 +99,10 @@ app.post('/get-suggested-users', async (req, res) => {
       : null
   }
 
-  res.json(users.slice(0, 5))
+  let orderByMutualUsers
+    = lodash.orderBy(users.slice(0, 5), ['mutualUsersCount'], ['desc'])
+
+  res.json(orderByMutualUsers)
 })
 
 module.exports = app
