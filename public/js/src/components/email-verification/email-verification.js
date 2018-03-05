@@ -2,8 +2,8 @@ import React from 'react'
 import Title from '../others/title'
 import { FadeIn } from 'animate-components'
 
-export default class EmailVerification extends React.Component{
-  render(){
+export default class EmailVerification extends React.Component {
+  render() {
 
     let
       { params: { is } } = this.props.match,

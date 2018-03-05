@@ -12,11 +12,9 @@ import { getUnreadMessages } from '../../store/actions/message-a'
 import Suggested from '../others/suggested/suggested'
 import CreateGroup from '../group/create-group/create-group'
 
-@connect(store => {
-  return {
-    post: store.Post.viewPost
-  }
-})
+@connect(store => (
+  { post: store.Post.viewPost }
+))
 
 export default class ViewPost extends React.Component {
 

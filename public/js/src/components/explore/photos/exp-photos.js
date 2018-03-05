@@ -10,11 +10,9 @@ import Overlay from '../../others/overlay'
 import ImageTheatre from '../../others/image-theatre'
 import $ from 'jquery'
 
-@connect(store => {
-  return {
-    photos: store.Explore.photos
-  }
-})
+@connect(store => (
+  { photos: store.Explore.photos }
+))
 
 export default class ExpPhotos extends React.Component {
 

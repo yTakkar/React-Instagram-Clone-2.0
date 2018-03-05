@@ -7,11 +7,9 @@ import { connect } from 'react-redux'
 import { Me, joinGroup } from '../../../utils/utils'
 import $ from 'jquery'
 
-@connect(store => {
-  return {
-    gd: store.Group.group_details
-  }
-})
+@connect(store => (
+  { gd: store.Group.group_details }
+))
 
 export default class AddGroupMembers extends React.Component {
 

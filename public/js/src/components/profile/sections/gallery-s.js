@@ -11,12 +11,12 @@ import Overlay from '../../others/overlay'
 import ImageTheatre from '../../others/image-theatre'
 import End from '../../others/end'
 
-@connect(store => {
-  return {
+@connect(store => (
+  {
     ud: store.User.user_details,
     photos: store.Post.photos
   }
-})
+))
 
 export default class Gallery extends React.Component {
 

@@ -3,11 +3,9 @@ import { Link } from 'react-router-dom'
 import ToolTip from 'react-tooltip'
 import { connect } from 'react-redux'
 
-@connect(store => {
-  return {
-    newestMembers: store.Group.newestMembers
-  }
-})
+@connect(store => (
+  { newestMembers: store.Group.newestMembers }
+))
 
 export default class NewestMembers extends React.Component {
   render() {

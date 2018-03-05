@@ -3,11 +3,9 @@ import { Link } from 'react-router-dom'
 import ToolTip from 'react-tooltip'
 import { connect } from 'react-redux'
 
-@connect(store => {
-  return {
-    mutualMembers: store.Group.mutualMembers
-  }
-})
+@connect(store => (
+  { mutualMembers: store.Group.mutualMembers }
+))
 
 export default class MutualMembers extends React.Component {
   render() {

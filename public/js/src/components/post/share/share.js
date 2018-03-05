@@ -9,11 +9,9 @@ import { getUserToShare } from '../../../store/actions/post-a'
 import { connect } from 'react-redux'
 import { llr } from '../../../utils/utils'
 
-@connect(store => {
-  return {
-    users: store.Post.usersToShare
-  }
-})
+@connect(store => (
+  { users: store.Post.usersToShare }
+))
 
 export default class Share extends React.Component {
 

@@ -12,11 +12,9 @@ import { humanReadable, newConversation } from '../../utils/utils'
 import Conversation from './conversation/conversation'
 import $ from 'jquery'
 
-@connect(store => {
-  return {
-    conversations: store.Message.conversations,
-  }
-})
+@connect(store => (
+  { conversations: store.Message.conversations }
+))
 
 export default class Messages extends React.Component {
 

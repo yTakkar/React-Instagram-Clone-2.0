@@ -4,11 +4,9 @@ import ToolTip from 'react-tooltip'
 import { connect } from 'react-redux'
 import { humanReadable } from '../../utils/utils'
 
-@connect(store => {
-  return {
-    _mutuals: store.User.mutualUsers
-  }
-})
+@connect(store => (
+  { _mutuals: store.User.mutualUsers }
+))
 
 export default class MutualUsers extends React.Component {
   render() {

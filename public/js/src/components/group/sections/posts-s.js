@@ -14,13 +14,13 @@ import CreateGroup from '../create-group/create-group'
 import GroupHashtags from '../../hashtag/group-hashtags'
 import ToTags from '../../hashtag/toTags'
 
-@connect(store => {
-  return {
+@connect(store => (
+  {
     gd: store.Group.group_details,
     joined: store.Group.joined,
     posts: store.Post.posts
   }
-})
+))
 
 export default class GroupPosts extends React.Component {
 

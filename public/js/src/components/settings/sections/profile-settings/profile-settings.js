@@ -11,12 +11,12 @@ import { getBlockedUsers } from '../../../../store/actions/settings-a'
 import Nothing from '../../../others/nothing'
 import BlockedUser from './blocked-user'
 
-@connect(store => {
-  return {
+@connect(store => (
+  {
     ud: store.User.user_details,
     blockedUsers: store.Setting.blockedUsers
   }
-})
+))
 
 export default class ProfileSettings extends React.Component {
 

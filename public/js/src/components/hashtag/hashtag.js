@@ -12,11 +12,9 @@ import Nothing from '../others/nothing'
 import { humanReadable } from '../../utils/utils'
 import { Instagram } from 'react-content-loader'
 
-@connect(store => {
-  return {
-    posts: store.Hashtag.hashtagPosts
-  }
-})
+@connect(store => (
+  { posts: store.Hashtag.hashtagPosts }
+))
 
 export default class Hashtag extends React.Component {
 

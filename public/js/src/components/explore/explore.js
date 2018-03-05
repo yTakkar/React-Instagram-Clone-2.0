@@ -11,11 +11,9 @@ import ExpPhotos from './photos/exp-photos'
 import ExpGroups from './groups/exp-groups'
 import { getUsersToExplore, getPhotosToExplore, getGroupsToExplore } from '../../store/actions/explore-a'
 
-@connect(store => {
-  return {
-    store
-  }
-})
+@connect(store => (
+  { store }
+))
 
 export default class Explore extends React.Component {
 

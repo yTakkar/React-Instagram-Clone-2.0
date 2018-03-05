@@ -10,12 +10,12 @@ import { Me, profile_scroll } from '../../../utils/utils'
 import Title from '../../others/title'
 import Suggested from '../../others/suggested/suggested'
 
-@connect(store => {
-  return {
+@connect(store => (
+  {
     ud: store.User.user_details,
     shared: store.Post.shared
   }
-})
+))
 
 export default class Shared extends React.Component {
 

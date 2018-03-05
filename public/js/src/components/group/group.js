@@ -19,12 +19,12 @@ import EditGroup from './sections/edit-s'
 import GroupMembers from './sections/members/members-s'
 import AddGroupMembers from './sections/add-members-s'
 
-@connect(store => {
-  return {
+@connect(store => (
+  {
     gd: store.Group.group_details,
     joined: store.Group.joined
   }
-})
+))
 
 export default class Group extends React.Component {
 

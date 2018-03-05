@@ -8,12 +8,12 @@ import { Me, humanReadable } from '../../../../utils/utils'
 import PeopleYouKnowList from './puk-list'
 import { Redirect } from 'react-router-dom'
 
-@connect(store => {
-  return {
+@connect(store => (
+  {
     ud: store.User.user_details,
     mutuals: store.User.mutualUsers
   }
-})
+))
 
 export default class PeopleYouKnow extends React.Component {
 

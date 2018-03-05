@@ -10,12 +10,12 @@ import Post from '../../post/post'
 import Title from '../../others/title'
 import Suggested from '../../others/suggested/suggested'
 
-@connect(store => {
-  return {
+@connect(store => (
+  {
     bookmarks: store.Post.bookmarks,
     ud: store.User.user_details
   }
-})
+))
 
 export default class Bookmarks extends React.Component {
 

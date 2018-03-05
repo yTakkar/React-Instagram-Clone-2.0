@@ -1,3 +1,4 @@
+/* eslint indent:0 */
 import React from 'react'
 import TimeAgo from 'handy-timeago'
 import { follow, unfollow } from '../../utils/utils'
@@ -51,20 +52,20 @@ export default class Notification extends React.Component {
           <span>
             {
               type == 'follow' ? ' started following you'
-                : type == 'tag' ? ' tagged you in a post'
-                  : type == 'like' ? ' liked your post'
-                    : type == 'share' ? ' shared you a post'
-                      : type == 'shared_your_post' ? ' shared your post'
-                        : type == 'comment' ? ' commented on your post'
-                          : type == 'favourites' ? ' added you to favourites'
-                            : type == 'recommend' ? ` recommended ${user_username} to you`
-                              : type == 'add_grp_member' ? ' added you to a group'
-                                : type == 'invite' ? ' invited to a group'
-                                  : type == 'change_admin' ? ' made you admin of a group'
-                                    : type == 'new_con' ? ' created a conversation with you'
-                                      : type == 'mention_post' ? ' mentioned you in a post'
-                                        : type == 'mention_comment' ? ' mentioned you in a comment'
-                                          : null
+              : type == 'tag' ? ' tagged you in a post'
+              : type == 'like' ? ' liked your post'
+              : type == 'share' ? ' shared you a post'
+              : type == 'shared_your_post' ? ' shared your post'
+              : type == 'comment' ? ' commented on your post'
+              : type == 'favourites' ? ' added you to favourites'
+              : type == 'recommend' ? ` recommended ${user_username} to you`
+              : type == 'add_grp_member' ? ' added you to a group'
+              : type == 'invite' ? ' invited to a group'
+              : type == 'change_admin' ? ' made you admin of a group'
+              : type == 'new_con' ? ' created a conversation with you'
+              : type == 'mention_post' ? ' mentioned you in a post'
+              : type == 'mention_comment' ? ' mentioned you in a comment'
+              : null
             }
           </span>
           <span className='noti_time'>{ TimeAgo(notify_time) }</span>
@@ -72,11 +73,13 @@ export default class Notification extends React.Component {
         <div className='noti_right follow_noti_right'>
           {
             type == 'follow' || type == 'favourites' ? isFollowing ? unfollow : follow
-              : type == 'tag' || type == 'like' || type == 'share' || type == 'shared_your_post' || type == 'comment' || type == 'mention_post' || type == 'mention_comment' ? post
-                : type == 'recommend' ? profile
-                  : type == 'add_grp_member' || type == 'invite' || type == 'change_admin' ? group
-                    : type == 'new_con' ? con
-                      : null
+
+            : type == 'tag' || type == 'like' || type == 'share' || type == 'shared_your_post' || type == 'comment' || type == 'mention_post' || type == 'mention_comment' ? post
+
+            : type == 'recommend' ? profile
+            : type == 'add_grp_member' || type == 'invite' || type == 'change_admin' ? group
+            : type == 'new_con' ? con
+            : null
           }
         </div>
       </div>

@@ -16,13 +16,13 @@ import { toggleFollow } from '../../store/actions/follow_a'
 import Prompt from '../others/prompt'
 import ToTags from '../hashtag/toTags'
 
-@connect(store => {
-  return {
+@connect(store => (
+  {
     User: store.User,
     Follow: store.Follow,
     posts: store.Post.posts
   }
-})
+))
 
 export default class Banner extends React.Component {
 

@@ -11,11 +11,9 @@ import Loading from '../others/loading'
 import ToolTip from 'react-tooltip'
 import { getUnreadMessages } from '../../store/actions/message-a'
 
-@connect(store => {
-  return {
-    notifications: store.Notification.notifications
-  }
-})
+@connect(store => (
+  { notifications: store.Notification.notifications }
+))
 
 export default class Notifications extends React.Component {
 

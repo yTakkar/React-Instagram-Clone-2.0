@@ -8,12 +8,12 @@ import { getUsersToRecommend } from '../../../store/actions/follow_a'
 import RecommendUsersList from './ru-list'
 import { llr } from '../../../utils/utils'
 
-@connect(store => {
-  return {
+@connect(store => (
+  {
     users: store.Follow.usersToRecommend,
     ud: store.User.user_details
   }
-})
+))
 
 export default class RecommendUsers extends React.Component {
 

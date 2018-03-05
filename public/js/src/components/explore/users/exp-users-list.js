@@ -3,11 +3,9 @@ import { toggle, Me, humanReadable, follow, unfollow } from '../../../utils/util
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 
-@connect(store => {
-  return {
-    store
-  }
-})
+@connect(store => (
+  { store }
+))
 
 export default class ExploreUsersList extends React.Component {
 

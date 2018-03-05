@@ -9,11 +9,9 @@ import Spinner from '../../others/spinner'
 import { llr } from '../../../utils/utils'
 import TagItems from './tag-list'
 
-@connect(store => {
-  return {
-    Tags: store.Post
-  }
-})
+@connect(store => (
+  { Tags: store.Post }
+))
 
 export default class Tags extends React.Component {
 

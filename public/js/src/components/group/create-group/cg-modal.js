@@ -8,11 +8,9 @@ import { post } from 'axios'
 import Notify from 'handy-notification'
 import { Redirect } from 'react-router-dom'
 
-@connect(store => {
-  return {
-    store
-  }
-})
+@connect(store => (
+  { store }
+))
 
 export default class CreateGroupModal extends React.Component {
 

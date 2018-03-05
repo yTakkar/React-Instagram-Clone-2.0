@@ -3,11 +3,9 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { Me, follow, unfollow, humanReadable } from '../../../utils/utils'
 
-@connect(store => {
-  return {
-    ud: store.User.user_details
-  }
-})
+@connect(store => (
+  { ud: store.User.user_details }
+))
 
 export default class SuggestedList extends React.Component {
 

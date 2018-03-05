@@ -7,11 +7,9 @@ import { post } from 'axios'
 import { removeFavourites } from '../../../../store/actions/follow_a'
 import Notify from 'handy-notification'
 
-@connect(store => {
-  return {
-    ud: store.User.user_details
-  }
-})
+@connect(store => (
+  { ud: store.User.user_details }
+))
 
 export default class FavList extends React.Component {
 

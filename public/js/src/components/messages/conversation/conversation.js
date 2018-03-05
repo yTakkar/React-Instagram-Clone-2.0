@@ -19,11 +19,9 @@ import Notify from 'handy-notification'
 import Prompt from '../../others/prompt'
 import AboutConversation from './about-con'
 
-@connect(store => {
-  return {
-    messages: store.Message.messages
-  }
-})
+@connect(store => (
+  { messages: store.Message.messages }
+))
 
 export default class Conversation extends React.Component {
 

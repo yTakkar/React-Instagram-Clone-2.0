@@ -3,11 +3,9 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { getGroupHashtags } from '../../store/actions/hashtag-a'
 
-@connect(store => {
-  return {
-    hashtags: store.Hashtag.groupHashtags
-  }
-})
+@connect(store => (
+  { hashtags: store.Hashtag.groupHashtags }
+))
 
 export default class GroupHashtags extends React.Component {
 

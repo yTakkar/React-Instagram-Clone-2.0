@@ -8,11 +8,9 @@ import Notify from 'handy-notification'
 import ToolTip from 'react-tooltip'
 import Emojis from '../others/emojis'
 
-@connect(store => {
-  return {
-    store
-  }
-})
+@connect(store => (
+  { store }
+))
 
 export default class EditPost extends React.Component {
 

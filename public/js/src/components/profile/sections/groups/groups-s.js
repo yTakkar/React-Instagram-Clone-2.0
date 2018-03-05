@@ -10,12 +10,12 @@ import GroupList from './group-list'
 import End from '../../../others/end'
 import CreateGroup from '../../../group/create-group/create-group'
 
-@connect(store => {
-  return {
+@connect(store => (
+  {
     groups: store.Group.userGroups,
     ud: store.User.user_details
   }
-})
+))
 
 export default class UserGroups extends React.Component {
 

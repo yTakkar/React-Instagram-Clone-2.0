@@ -3,11 +3,9 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { getPopularHashtags } from '../../store/actions/hashtag-a'
 
-@connect(store => {
-  return {
-    hashtags: store.Hashtag.popularHashtags
-  }
-})
+@connect(store => (
+  { hashtags: store.Hashtag.popularHashtags }
+))
 
 export default class PopularHashtags extends React.Component {
 

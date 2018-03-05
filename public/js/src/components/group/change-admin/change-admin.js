@@ -9,11 +9,9 @@ import InviteList from './ca-list'
 import { getUsersToMakeAdmin } from '../../../store/actions/group-a'
 import $ from 'jquery'
 
-@connect(store => {
-  return {
-    members: store.Group.usersToMakeAdmin
-  }
-})
+@connect(store => (
+  { members: store.Group.usersToMakeAdmin }
+))
 
 export default class ChangeAdmin extends React.Component {
 

@@ -12,11 +12,9 @@ import Prompt from '../../others/prompt'
 import EditComment from './edit-comment'
 import ToTags from '../../hashtag/toTags'
 
-@connect(store => {
-  return {
-    store
-  }
-})
+@connect(store => (
+  { store }
+))
 
 export default class Comment extends React.Component {
 

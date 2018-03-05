@@ -7,12 +7,12 @@ import End from '../../../others/end'
 import { Me, humanReadable } from '../../../../utils/utils'
 import FavList from './fav-list'
 
-@connect(store => {
-  return {
+@connect(store => (
+  {
     ud: store.User.user_details,
     favourites: store.Follow.favourites
   }
-})
+))
 
 export default class Favourites extends React.Component {
 

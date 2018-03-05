@@ -5,11 +5,9 @@ import { post } from 'axios'
 import Notify from 'handy-notification'
 import { insta_notify } from '../../../utils/utils'
 
-@connect(store => {
-  return {
-    ud: store.User.user_details
-  }
-})
+@connect(store => (
+  { ud: store.User.user_details }
+))
 
 export default class RecommendUsersList extends React.Component {
 

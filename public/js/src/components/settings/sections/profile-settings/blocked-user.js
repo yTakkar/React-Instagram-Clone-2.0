@@ -6,11 +6,9 @@ import { unblockUser } from '../../../../store/actions/settings-a'
 import Notify from 'handy-notification'
 import { post } from 'axios'
 
-@connect(store => {
-  return {
-    store
-  }
-})
+@connect(store => (
+  { store }
+))
 
 export default class BlockedUser extends React.Component {
 

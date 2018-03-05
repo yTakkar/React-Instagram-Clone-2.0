@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom'
 import { FadeIn } from 'animate-components'
 import Title from '../others/title'
 
-export default class Error extends React.Component{
-  render(){
+export default class Error extends React.Component {
+  render() {
 
     let
       username = $('.data').data('username'),

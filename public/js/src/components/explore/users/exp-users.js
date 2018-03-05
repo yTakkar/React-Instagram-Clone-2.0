@@ -7,11 +7,9 @@ import { getUsersToExplore } from '../../../store/actions/explore-a'
 import ExploreUsersList from './exp-users-list'
 import Nothing from '../../others/nothing'
 
-@connect(store => {
-  return {
-    users: store.Explore.users
-  }
-})
+@connect(store => (
+  { users: store.Explore.users }
+))
 
 export default class ExpUsers extends React.Component {
 

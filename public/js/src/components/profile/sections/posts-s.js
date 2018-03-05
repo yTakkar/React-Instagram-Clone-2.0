@@ -11,12 +11,12 @@ import AddToFavourites from '../../others/addToFavourites'
 import MutualUsers from '../mutual-users'
 import UserHashtags from '../../hashtag/user-hashtags'
 
-@connect(store => {
-  return {
+@connect(store => (
+  {
     posts: store.Post.posts,
     ud: store.User.user_details
   }
-})
+))
 
 export default class Posts extends React.Component {
 

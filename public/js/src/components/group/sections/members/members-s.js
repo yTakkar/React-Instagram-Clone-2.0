@@ -9,12 +9,12 @@ import { getGroupMembers } from '../../../../store/actions/group-a'
 import Spinner from '../../../others/spinner'
 import MembersList from './members-list'
 
-@connect(store => {
-  return {
+@connect(store => (
+  {
     members: store.Group.members,
     gd: store.Group.group_details
   }
-})
+))
 
 export default class GroupMembers extends React.Component {
 

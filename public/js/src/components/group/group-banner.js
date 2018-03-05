@@ -16,11 +16,9 @@ import ChangeAdmin from './change-admin/change-admin'
 import Prompt from '../others/prompt'
 import { post } from 'axios'
 
-@connect(store => {
-  return {
-    Group: store.Group
-  }
-})
+@connect(store => (
+  { Group: store.Group }
+))
 
 export default class GroupBanner extends React.Component {
 

@@ -9,12 +9,12 @@ import { Me, humanReadable } from '../../../../utils/utils'
 import { getFollowings } from '../../../../store/actions/follow_a'
 import Spinner from '../../../others/spinner'
 
-@connect(store => {
-  return {
+@connect(store => (
+  {
     ud: store.User.user_details,
     followings: store.Follow.followings
   }
-})
+))
 
 export default class Followings extends React.Component {
 

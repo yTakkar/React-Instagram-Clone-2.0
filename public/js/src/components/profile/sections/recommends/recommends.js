@@ -7,12 +7,12 @@ import End from '../../../others/end'
 import { Me, humanReadable } from '../../../../utils/utils'
 import RecommendList from './recommend-list'
 
-@connect(store => {
-  return {
+@connect(store => (
+  {
     ud: store.User.user_details,
     recommends: store.Follow.recommendations
   }
-})
+))
 
 export default class Recommendations extends React.Component {
 

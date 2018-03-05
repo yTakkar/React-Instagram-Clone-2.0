@@ -6,11 +6,9 @@ import { Link } from 'react-router-dom'
 import Spinner from '../spinner'
 import SuggestedList from './suggested-list'
 
-@connect(store => {
-  return {
-    suggested: store.Explore.suggested
-  }
-})
+@connect(store => (
+  { suggested: store.Explore.suggested }
+))
 
 export default class Suggested extends React.Component {
 

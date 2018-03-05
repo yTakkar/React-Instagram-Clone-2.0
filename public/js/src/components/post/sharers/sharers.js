@@ -9,11 +9,9 @@ import { getPostSharers } from '../../../store/actions/post-a'
 import SharerList from './sharers-list'
 import { llr } from '../../../utils/utils'
 
-@connect(store => {
-  return {
-    sharers: store.Post.sharers
-  }
-})
+@connect(store => (
+  { sharers: store.Post.sharers }
+))
 
 export default class Sharers extends React.Component {
 

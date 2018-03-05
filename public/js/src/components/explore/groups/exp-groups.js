@@ -7,11 +7,9 @@ import { getGroupsToExplore } from '../../../store/actions/explore-a'
 import Nothing from '../../others/nothing'
 import ExploreGroupsList from './exp-groups-list'
 
-@connect(store => {
-  return {
-    groups: store.Explore.groups
-  }
-})
+@connect(store => (
+  { groups: store.Explore.groups }
+))
 
 export default class ExpGroups extends React.Component {
 

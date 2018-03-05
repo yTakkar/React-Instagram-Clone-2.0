@@ -9,11 +9,9 @@ import Notify from 'handy-notification'
 import { comment } from '../../../store/actions/post-a'
 import { Me, insta_notify } from '../../../utils/utils'
 
-@connect(store => {
-  return {
-    store
-  }
-})
+@connect(store => (
+  { store }
+))
 
 export default class CommentPost extends React.Component {
 

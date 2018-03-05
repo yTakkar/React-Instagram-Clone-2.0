@@ -6,12 +6,12 @@ import { post } from 'axios'
 import { untag } from '../../../store/actions/post-a'
 import Notify from 'handy-notification'
 
-@connect(store => {
-  return {
+@connect(store => (
+  {
     isPostMine: store.Post.isPostMine,
     ud: store.User.user_details
   }
-})
+))
 
 export default class TagItems extends React.Component {
 

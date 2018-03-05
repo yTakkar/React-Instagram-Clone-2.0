@@ -5,11 +5,9 @@ import { Link } from 'react-router-dom'
 import $ from 'jquery'
 import { connect } from 'react-redux'
 
-@connect(store => {
-  return {
-    store
-  }
-})
+@connect(store => (
+  { store }
+))
 
 export default class GroupList extends React.Component {
 

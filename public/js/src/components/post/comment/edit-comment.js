@@ -8,11 +8,9 @@ import { editComment } from '../../../store/actions/post-a'
 import { post } from 'axios'
 import Notify from 'handy-notification'
 
-@connect(store => {
-  return {
-    store
-  }
-})
+@connect(store => (
+  { store }
+))
 
 export default class EditComment extends React.Component {
 

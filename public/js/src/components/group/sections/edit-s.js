@@ -10,11 +10,9 @@ import { updateGroup } from '../../../store/actions/group-a'
 import { Me } from '../../../utils/utils'
 import Emojis from '../../others/emojis'
 
-@connect(store => {
-  return {
-    gd: store.Group.group_details
-  }
-})
+@connect(store => (
+  { gd: store.Group.group_details }
+))
 
 export default class EditGroup extends React.Component {
 

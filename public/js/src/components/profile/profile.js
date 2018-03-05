@@ -25,13 +25,13 @@ import PeopleYouKnow from './sections/people-you-know/puk'
 import UserGroups from './sections/groups/groups-s'
 import { getUnreadMessages } from '../../store/actions/message-a'
 
-@connect(store => {
-  return {
+@connect(store => (
+  {
     ud: store.User.user_details,
     mutuals: store.User.mutualUsers,
     isFollowing: store.Follow.isFollowing
   }
-})
+))
 
 export default class Profile extends React.Component {
 

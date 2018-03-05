@@ -5,11 +5,9 @@ import { connect } from 'react-redux'
 import { post } from 'axios'
 import { removeShare } from '../../../store/actions/post-a'
 
-@connect(store => {
-  return {
-    ud: store.User.user_details
-  }
-})
+@connect(store => (
+  { ud: store.User.user_details }
+))
 
 export default class SharerList extends React.Component {
 

@@ -4,11 +4,9 @@ import { Link } from 'react-router-dom'
 import { Me, follow, unfollow } from '../../../utils/utils'
 import { connect } from 'react-redux'
 
-@connect(store => {
-  return {
-    ud: store.User.user_details
-  }
-})
+@connect(store => (
+  { ud: store.User.user_details }
+))
 
 export default class LikeList extends React.Component {
 

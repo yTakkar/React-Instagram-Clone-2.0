@@ -20,12 +20,12 @@ import Messages from './messages/messages'
 import Hashtag from './hashtag/hashtag'
 import Error from './error/error'
 
-@connect(store => {
-  return {
+@connect(store => (
+  {
     unreadNotifications: store.Notification.unreadNotifications,
     unreadMessages: store.Message.unreadMessages
   }
-})
+))
 
 export default class App extends React.Component {
 

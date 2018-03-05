@@ -11,11 +11,9 @@ import SearchFollowings from '../../others/search-followings'
 import Overlay from '../../others/overlay'
 import { connect } from 'react-redux'
 
-@connect(store => {
-  return {
-    gd: store.Group.group_details
-  }
-})
+@connect(store => (
+  { gd: store.Group.group_details }
+))
 
 export default class PostIt extends React.Component {
 

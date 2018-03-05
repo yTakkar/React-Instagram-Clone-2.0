@@ -14,11 +14,9 @@ import { getUnreadMessages } from '../../store/actions/message-a'
 import PopularHashtags from '../hashtag/popular-hashtags'
 import { Instagram } from 'react-content-loader'
 
-@connect(store => {
-  return {
-    feed: store.Post.feed
-  }
-})
+@connect(store => (
+  { feed: store.Post.feed }
+))
 
 export default class Home extends React.Component {
 

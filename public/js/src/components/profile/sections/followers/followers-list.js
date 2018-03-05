@@ -5,11 +5,9 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { post } from 'axios'
 
-@connect(store => {
-  return {
-    ud: store.User.user_details
-  }
-})
+@connect(store => (
+  { ud: store.User.user_details }
+))
 
 export default class FollowersList extends React.Component {
 

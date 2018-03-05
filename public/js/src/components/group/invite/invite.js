@@ -9,11 +9,9 @@ import InviteList from './invite-list'
 import { getUsersToInvite } from '../../../store/actions/group-a'
 import $ from 'jquery'
 
-@connect(store => {
-  return {
-    users: store.Group.usersToInvite
-  }
-})
+@connect(store => (
+  { users: store.Group.usersToInvite }
+))
 
 export default class Invite extends React.Component {
 

@@ -9,11 +9,9 @@ import Spinner from '../../others/spinner'
 import LikeList from './like-list'
 import { llr } from '../../../utils/utils'
 
-@connect(store => {
-  return {
-    likes: store.Post.likes
-  }
-})
+@connect(store => (
+  { likes: store.Post.likes }
+))
 
 export default class Likes extends React.Component {
 

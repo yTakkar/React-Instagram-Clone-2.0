@@ -11,12 +11,12 @@ import Emojis from '../others/emojis'
 import ToolTip from 'react-tooltip'
 import { getUnreadMessages } from '../../store/actions/message-a'
 
-@connect(store => {
-  return {
+@connect(store => (
+  {
     ud: store.User.user_details,
     tags: store.User.tags
   }
-})
+))
 
 export default class EditProfile extends React.Component {
 

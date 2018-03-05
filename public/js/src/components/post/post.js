@@ -23,11 +23,9 @@ import Stickers from '../others/stickers'
 import Comment from './comment/comment'
 import ToTags from '../hashtag/toTags'
 
-@connect(store => {
-  return {
-    ud: store.User.user_details
-  }
-})
+@connect(store => (
+  { ud: store.User.user_details }
+))
 
 export default class Post extends React.Component {
 

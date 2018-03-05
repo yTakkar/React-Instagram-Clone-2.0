@@ -9,11 +9,9 @@ import ChangePassword from './sections/change-password'
 import ProfileSettings from './sections/profile-settings/profile-settings'
 import Deactivate from './sections/deactivate'
 
-@connect(store => {
-  return {
-    store
-  }
-})
+@connect(store => (
+  { store }
+))
 
 export default class Settings extends React.Component {
 

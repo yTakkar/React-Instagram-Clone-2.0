@@ -7,11 +7,9 @@ import { profile_scroll, toggle } from '../../../utils/utils'
 import ToolTip from 'react-tooltip'
 import TimeAgo from 'handy-timeago'
 
-@connect(store => {
-  return {
-    gd: store.Group.group_details
-  }
-})
+@connect(store => (
+  { gd: store.Group.group_details }
+))
 
 export default class AboutGroup extends React.Component {
 

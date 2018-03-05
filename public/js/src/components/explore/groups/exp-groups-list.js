@@ -5,11 +5,9 @@ import { connect } from 'react-redux'
 import TimeAgo from 'handy-timeago'
 import $ from 'jquery'
 
-@connect(store => {
-  return {
-    store
-  }
-})
+@connect(store => (
+  { store }
+))
 
 export default class ExploreGroupsList extends React.Component {
 

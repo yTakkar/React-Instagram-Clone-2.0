@@ -12,11 +12,9 @@ import { connect } from 'react-redux'
 import ImageTheatre from '../../others/image-theatre'
 import ToTags from '../../hashtag/toTags'
 
-@connect(store => {
-  return {
-    store
-  }
-})
+@connect(store => (
+  { store }
+))
 
 export default class Message extends React.Component {
 

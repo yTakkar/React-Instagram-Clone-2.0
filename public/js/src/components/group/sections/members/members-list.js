@@ -9,11 +9,9 @@ import Notify from 'handy-notification'
 import Prompt from '../../../others/prompt'
 import Overlay from '../../../others/overlay'
 
-@connect(store => {
-  return {
-    gd: store.Group.group_details
-  }
-})
+@connect(store => (
+  { gd: store.Group.group_details }
+))
 
 export default class MembersList extends React.Component {
 

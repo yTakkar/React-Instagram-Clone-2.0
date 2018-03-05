@@ -3,11 +3,9 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { getUserHashtags } from '../../store/actions/hashtag-a'
 
-@connect(store => {
-  return {
-    hashtags: store.Hashtag.userHashtags
-  }
-})
+@connect(store => (
+  { hashtags: store.Hashtag.userHashtags }
+))
 
 export default class UserHashtags extends React.Component {
 

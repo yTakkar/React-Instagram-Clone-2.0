@@ -7,11 +7,9 @@ import TimeAgo from 'handy-timeago'
 import { profile_scroll, toggle } from '../../../utils/utils'
 import ToolTip from 'react-tooltip'
 
-@connect(store => {
-  return {
-    ud: store.User.user_details
-  }
-})
+@connect(store => (
+  { ud: store.User.user_details }
+))
 
 export default class About extends React.Component {
 

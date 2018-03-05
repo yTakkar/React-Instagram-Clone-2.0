@@ -9,11 +9,9 @@ import { humanReadable, Me } from '../../../utils/utils'
 import TimeAgo from 'handy-timeago'
 import Nothing from '../../others/nothing'
 
-@connect(store => {
-  return {
-    conDetails: store.Message.conDetails
-  }
-})
+@connect(store => (
+  { conDetails: store.Message.conDetails }
+))
 
 export default class AboutConversation extends React.Component {
 
