@@ -7,7 +7,8 @@ const
   }),
   { ProcessImage, DeleteAllOfFolder } = require('handy-image-processor'),
   { createReadStream, createWriteStream, unlink } = require('fs'),
-  { promisify } = require('util')
+  { promisify } = require('util'),
+  { orderBy } = require('lodash')
 
 // CREATE A CONVERSATION
 app.post('/create-new-conversation', async (req, res) => {
@@ -89,7 +90,8 @@ app.post('/get-conversations', async (req, res) => {
     })
   }
 
-  res.json(cons)
+  let orderedCons = orderBy(cons, ['unreadMssgs'], ['desc'])
+  res.json(orderedCons)
 })
 
 // GET CONVERSATION MESSAGES
