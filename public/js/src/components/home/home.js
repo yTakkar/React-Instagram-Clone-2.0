@@ -56,7 +56,7 @@ export default class Home extends React.Component {
 
             <div className='prajkumar'>
 
-              <PostItTeaser type='user' />
+              <PostItTeaser type='user' disabled={loading} />
 
               {
                 loading ?
@@ -87,7 +87,7 @@ export default class Home extends React.Component {
             <div className='srajkumar'>
               <Suggested when='home' />
               <PopularHashtags/>
-              <CreateGroup/>
+              { !loading ? <CreateGroup/> : null }
             </div>
 
           </div>

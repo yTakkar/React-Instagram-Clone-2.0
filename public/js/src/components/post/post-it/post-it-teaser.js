@@ -19,7 +19,7 @@ export default class PostItTeaser extends React.Component {
       id = $('.data').data('session'),
       username = $('.data').data('username'),
       { postIt } = this.state,
-      { type, group } = this.props
+      { type, group, disabled } = this.props
 
     return (
       <div>
@@ -27,7 +27,10 @@ export default class PostItTeaser extends React.Component {
         <div className='post_it inst' style={{ marginBottom: type == 'group' ? 10 : null }} >
           <img src={`/users/${id}/avatar.jpg`} alt='Your avatar' />
           <div className='post_teaser'>
-            <span className='p_whats_new' onClick={this.togglePostIt} >What's new with you, @{username}? #cool</span>
+            <span
+              className='p_whats_new'
+              onClick={disabled ? null : this.togglePostIt}
+            >What's new with you, @{username}? #cool</span>
           </div>
         </div>
 
@@ -47,4 +50,8 @@ export default class PostItTeaser extends React.Component {
       </div>
     )
   }
+}
+
+PostItTeaser.defaultProps = {
+  disabled: false
 }

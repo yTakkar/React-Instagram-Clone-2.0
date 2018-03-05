@@ -75,4 +75,6 @@ app.use('/api', hashtagR)
 app.use('/api', apiR)
 app.use('/', mainR)
 
-app.listen(PORT, () => rainbow('App running..'))
+app.listen(PORT, () =>
+  rainbow('App running..')
+)
