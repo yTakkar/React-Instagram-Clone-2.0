@@ -746,7 +746,9 @@ export const textMessage = async options => {
   if (!message) {
     Notify({ value: 'Comment field is empty!!' })
   } else {
-    let { data: { message_id } } = await post('/api/text-message', { message, con_id, grp_con_id, con_with })
+    let {
+      data: { message_id }
+    } = await post('/api/text-message', { message, con_id, grp_con_id, con_with })
 
     dispatch(messaged({
       con_id,
@@ -772,7 +774,6 @@ export const textMessage = async options => {
   }
 
   messageScroll()
-  Notify({ value: 'Messaged!!' })
   overlay2.hide()
   btn
     .attr('value', 'Send')
