@@ -1,11 +1,20 @@
 // eslint-disable-next-line no-unused-vars
 import React from 'react'
 import Helmet from 'react-helmet'
+import { connect } from 'react-redux'
 
-const Title = ({ value }) => (
-  <Helmet>
-    <title>{`${value}`} • Instagram</title>
-  </Helmet>
-)
+@connect(store => (
+  { un: store.Notification.unreadNotifications }
+))
 
-export default Title
+export default class Title extends React.Component {
+  render() {
+    let { value, un } = this.props
+
+    return (
+      <Helmet>
+        <title>{ un ? `(${un})` : '' } {`${value}`} • Instagram</title>
+      </Helmet>
+    )
+  }
+}
