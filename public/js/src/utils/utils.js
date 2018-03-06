@@ -580,6 +580,7 @@ export const imageComment = async options => {
     file = await imageCompressor(commentFile)
 
   $('.overlay-2').show()
+  Notify({ value: 'Please wait..' })
 
   form.append('commentImage', file)
   form.append('post', post_id)
@@ -807,6 +808,7 @@ export const imageMessage = async options => {
     file = await imageCompressor(messageFile)
 
   $('.overlay-2').show()
+  Notify({ value: 'Please wait..' })
 
   form.append('messageFile', file)
   form.append('con_id', con_id)
