@@ -70,7 +70,11 @@ export default (state=post_def, action) => {
       break
 
     case 'DELETE_POST':
-      return { ...state, posts: deletePost(state.posts, py) }
+      return {
+        ...state,
+        posts: deletePost(state.posts, py),
+        feed: deletePost(state.feed, py)
+      }
       break
 
     case 'GET_POST_LIKES':
