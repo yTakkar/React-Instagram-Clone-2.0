@@ -5,6 +5,7 @@ import { getUnreadNotifications } from '../../store/actions/notification-a'
 import { getUnreadMessages } from '../../store/actions/message-a'
 import { Route, Switch, Redirect, NavLink } from 'react-router-dom'
 import $ from 'jquery'
+import ToolTip from 'react-tooltip'
 
 import ExpUsers from './users/exp-users'
 import ExpPhotos from './photos/exp-photos'
@@ -59,8 +60,8 @@ export default class Explore extends React.Component {
               </li>
             </ul>
 
-            <a className='tir_btn exp_refresh' href='#' onClick={this.refresh} >
-              <i className='fa fa-refresh' aria-hidden='true'></i> Refresh
+            <a className='exp_refresh' data-tip='Refresh' href='#' onClick={this.refresh} >
+              <i className='fa fa-refresh' aria-hidden='true'></i>
             </a>
           </div>
 
@@ -74,6 +75,8 @@ export default class Explore extends React.Component {
           </div>
 
         </FadeIn>
+
+        <ToolTip/>
 
       </div>
     )

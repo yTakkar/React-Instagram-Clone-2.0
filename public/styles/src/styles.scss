@@ -542,13 +542,14 @@
 
   & .exp_refresh {
     position: absolute;
-    right: 0;
+    right: 7px;
+    top: 7px;
     display: inline-block;
-    top: 3px;
-    padding: 6px 18px;
+    color: $d_light;
+    font-size: 16px;
 
-    & i {
-      margin-right: 2px;
+    &:hover {
+      color: $dark;
     }
   }
 
