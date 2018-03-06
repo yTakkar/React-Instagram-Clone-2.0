@@ -6,6 +6,7 @@ import * as follow_action from '../store/actions/follow_a'
 import { getUserPosts, getGroupPosts, addGroupPost, comment, addUserPost } from '../store/actions/post-a'
 import { getGroupDetails, joinedGroup, leftGroup } from '../store/actions/group-a'
 import { conversationAdded, messaged, changeLastMssg, unsendAllMessages } from '../store/actions/message-a'
+import Compress from 'image-compressor.js'
 
 /** SHORTENS GIVEN STRING BY GIVEN LENGTH */
 export const shortener = (elem, length) => {
@@ -217,6 +218,19 @@ const quickLoginSubmit = username => {
 
   }
 }
+
+/** IMAGE PROCESSOR */
+const imageCompressor = file => {
+  return new Promise(resolve => {
+    new Compress(file, {
+      quality: .6,
+      success: file => resolve(file),
+      error: err => console.log(err.message)
+    })
+  })
+}
+
+exports.imageCompressor = imageCompressor
 
 /** FOR PROFILE */
 export const forProfile = async options => {
@@ -442,8 +456,10 @@ export const resend_vl = async () => {
 }
 
 /** UPLOAD AVATAR */
-export const upload_avatar = async ({ file, of, group }) => {
-  let form = new FormData()
+export const upload_avatar = async ({ file: userFile, of, group }) => {
+  let
+    form = new FormData(),
+    file = await imageCompressor(userFile)
 
   if (file.size > 6000000) {
     Notify({ value: 'Image should be less than 4MB!!' })
@@ -496,10 +512,11 @@ export const addPost = async options => {
     { dispatch, desc, targetFile, filter, location, type, group, group_name, tags } = options,
     user = $('.data').data('session'),
     username = $('.data').data('username'),
-    form = new FormData()
+    form = new FormData(),
+    file = await imageCompressor(targetFile)
 
   form.append('desc', desc)
-  form.append('image', targetFile)
+  form.append('image', file)
   form.append('filter', filter)
   form.append('location', location)
   form.append('type', type)
@@ -556,10 +573,11 @@ export const addPost = async options => {
 /** IMAGE COMMENT */
 export const imageComment = async options => {
   let
-    { post_id, dispatch, when, user, file } = options,
+    { post_id, dispatch, when, user, file: commentFile } = options,
     session = $('.data').data('session'),
     username = $('.data').data('username'),
-    form = new FormData()
+    form = new FormData(),
+    file = await imageCompressor(commentFile)
 
   $('.overlay-2').show()
 
@@ -783,9 +801,10 @@ export const textMessage = async options => {
 /** IMAGE COMMENT */
 export const imageMessage = async options => {
   let
-    { file, con_id, grp_con_id, con_with, dispatch } = options,
+    { file: messageFile, con_id, grp_con_id, con_with, dispatch } = options,
     session = $('.data').data('session'),
-    form = new FormData()
+    form = new FormData(),
+    file = await imageCompressor(messageFile)
 
   $('.overlay-2').show()
 
