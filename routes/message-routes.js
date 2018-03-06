@@ -167,7 +167,7 @@ app.post('/sticker-message', async (req, res) => {
       message_time: new Date().getTime()
     }
 
-  createReadStream(`${root}/public/images/stickers/${sticker}`)
+  await createReadStream(`${root}/public/images/stickers/${sticker}`)
     .pipe(createWriteStream(`${root}/public/messages/${filename}`))
 
   let { insertId } = await db.query('INSERT INTO messages SET ?', message)

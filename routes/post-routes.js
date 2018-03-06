@@ -577,7 +577,7 @@ app.post('/comment-sticker', async (req, res) => {
       comment_time: new Date().getTime()
     }
 
-  createReadStream(`${root}/public/images/stickers/${sticker}`)
+  await createReadStream(`${root}/public/images/stickers/${sticker}`)
     .pipe(createWriteStream(`${root}/public/comments/${filename}`))
 
   let { insertId } = await db.query('INSERT INTO comments SET ?', comment)
