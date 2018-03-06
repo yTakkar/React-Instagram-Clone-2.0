@@ -73,7 +73,7 @@ export default class Stickers extends React.Component {
             { loading ? <Spinner/> : null }
 
             <div className={`modal_main ${loading ? 'cLoading' : ''}`}>
-              { map_stickers }
+              <FadeIn duration='300ms'>{ map_stickers }</FadeIn>
             </div>
 
           </Scrollbars>
