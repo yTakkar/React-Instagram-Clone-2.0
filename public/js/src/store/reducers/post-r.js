@@ -73,7 +73,7 @@ export default (state=post_def, action) => {
       return {
         ...state,
         posts: deletePost(state.posts, py),
-        feed: deletePost(state.feed, py)
+        feed:  deletePost(state.feed, py)
       }
       break
 
