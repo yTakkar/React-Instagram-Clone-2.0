@@ -213,10 +213,8 @@ app.post('/add-to-favourites', async (req, res) => {
 
 // REMOVE FROM FAVOURITES
 app.post('/remove-favourites', async (req, res) => {
-  let
-    { user } = req.body,
-    { id } = req.session
-  await db.query('DELETE FROM favourites WHERE fav_by=? AND user=?', [ id, user ])
+  let { fav_id } = req.body
+  await db.query('DELETE FROM favourites WHERE fav_id=?', [ fav_id ])
   res.json('Hello, World!!')
 })
 
@@ -257,11 +255,8 @@ app.post('/recommend-user', async (req, res) => {
 
 // REMOVE RECOMMENDATION
 app.post('/remove-recommendation', async (req, res) => {
-  let { recommend_by, recommend_to, recommend_of } = req.body
-  await db.query(
-    'DELETE FROM recommendations WHERE recommend_by=? AND recommend_to=? AND recommend_of=?',
-    [ recommend_by, recommend_to, recommend_of ]
-  )
+  let { recommend_id } = req.body
+  await db.query('DELETE FROM recommendations WHERE recommend_id=?', [ recommend_id ])
   res.json('Hello, World!!')
 })
 

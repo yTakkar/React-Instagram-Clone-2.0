@@ -286,10 +286,8 @@ app.post('/edit-post', async (req, res) => {
 
 // DELETE POST
 app.post('/delete-post', async (req, res) => {
-  let
-    { post } = req.body,
-    { id } = req.session
-  await db.deletePost({ post, user: id, when: 'user' })
+  let { post } = req.body
+  await db.deletePost({ post, when: 'user' })
   res.json('Hello, World!!')
 })
 

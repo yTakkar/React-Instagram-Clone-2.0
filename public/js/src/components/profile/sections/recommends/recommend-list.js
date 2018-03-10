@@ -17,8 +17,8 @@ export default class RecommendList extends React.Component {
 
   remRecommendation = async e => {
     e.preventDefault()
-    let { recommend_of, recommend_by, recommend_to, recommend_id, dispatch } = this.props
-    await post('/api/remove-recommendation', { recommend_of, recommend_by, recommend_to })
+    let { recommend_id, dispatch } = this.props
+    await post('/api/remove-recommendation', { recommend_id })
     dispatch(removeRecommendation(recommend_id))
     Notify({ value: 'Removed recommendation!!' })
   }

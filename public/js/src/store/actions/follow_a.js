@@ -67,10 +67,10 @@ export const Unfollowing = unfollowing => {
   }
 }
 
-export const removeFavourites = user => {
+export const removeFavourites = fav_id => {
   return {
     type: 'REMOVE_FAVOURITES',
-    payload: user
+    payload: fav_id
   }
 }
 

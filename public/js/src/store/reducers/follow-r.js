@@ -88,8 +88,8 @@ const following = (followings, n) => {
 const unfollowing = (followings, n) =>
   followings.filter(ff => ff.follow_to !== parseInt(n))
 
-const remFav = (favs, user) =>
-  favs.filter(f => f.user != user)
+const remFav = (favs, fav_id) =>
+  favs.filter(f => f.fav_id != fav_id)
 
 const remRec = (recommends, recommend_id) =>
   recommends.filter(r => r.recommend_id != parseInt(recommend_id))

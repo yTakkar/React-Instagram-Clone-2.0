@@ -56,9 +56,9 @@ export default class FavList extends React.Component {
 
   removeFav = async e => {
     e.preventDefault()
-    let { user, username, dispatch } = this.props
-    await post('/api/remove-favourites', { user })
-    dispatch(removeFavourites(user))
+    let { fav_id, username, dispatch } = this.props
+    await post('/api/remove-favourites', { fav_id })
+    dispatch(removeFavourites(fav_id))
     Notify({ value: `Removed ${username} from favourites!!` })
   }
 

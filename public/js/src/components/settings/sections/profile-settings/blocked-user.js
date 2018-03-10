@@ -14,8 +14,8 @@ export default class BlockedUser extends React.Component {
 
   unblock = async e => {
     e.preventDefault()
-    let { block_id, user, username, dispatch } = this.props
-    await post('/api/unblock-user', { user })
+    let { block_id, username, dispatch } = this.props
+    await post('/api/unblock-user', { block_id })
     dispatch(unblockUser(block_id))
     Notify({ value: `Unblocked ${username}!!` })
   }

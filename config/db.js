@@ -167,7 +167,7 @@ const getCounts = async (post_id, group_id) => {
 }
 
 // DELETES POST
-const deletePost = async ({post, user, when}) => {
+const deletePost = async ({post, when}) => {
   await query('DELETE FROM likes WHERE post_id=?', [ post ])
   await query('DELETE FROM post_tags WHERE post_id=?', [ post ])
   await query('DELETE FROM shares WHERE post_id=?', [ post ])
@@ -190,7 +190,7 @@ const deletePost = async ({post, user, when}) => {
   await query('DELETE FROM comments WHERE post_id=?', [ post ])
 
   if (when == 'user') {
-    await query('DELETE FROM posts WHERE post_id=? AND user=?', [ post, user ])
+    await query('DELETE FROM posts WHERE post_id=?', [ post ])
   } else {
     await query('DELETE FROM posts WHERE post_id=?', [ post ])
   }
