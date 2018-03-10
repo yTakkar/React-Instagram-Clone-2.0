@@ -134,10 +134,16 @@ export default class Banner extends React.Component {
           </div>
           <div className='options pro_banner_options' style={{ display: 'none' }} >
             <ul>
-              { !fn.Me(id) ? <li><a href='#' className='pro_block' onClick={e => this._toggle(e, 'blockUser')} >Block</a></li> : null }
-              { !fn.Me(id) ? <li><a href='#' className='pro_recommend' onClick={this.showRecommendUsers} >Recommend</a></li> : null }
-              { !fn.Me(id) ? <li><a href='#' className='add_fav' onClick={this.addToFavourites} >Add to favourites</a></li> : null }
-              { !fn.Me(id) ? <li><Link to='/messages' className='add_fav'>Message</Link></li> : null }
+              {
+                isFollowing ?
+                  <Fragment>
+                    { !fn.Me(id) ? <li><a href='#' className='pro_block' onClick={e => this._toggle(e, 'blockUser')} >Block</a></li> : null }
+                    { !fn.Me(id) ? <li><a href='#' className='pro_recommend' onClick={this.showRecommendUsers} >Recommend</a></li> : null }
+                    { !fn.Me(id) ? <li><a href='#' className='add_fav' onClick={this.addToFavourites} >Add to favourites</a></li> : null }
+                    { !fn.Me(id) ? <li><Link to='/messages' className='add_fav'>Message</Link></li> : null }
+                  </Fragment>
+                  : null
+              }
               <li><a href='#' className='p_copy_link' onClick={this.copyLink} >Copy profile link</a></li>
             </ul>
           </div>
