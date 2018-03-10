@@ -47,11 +47,11 @@ export default class UserGroups extends React.Component {
 
         <Title value={`@${username}'s groups`} />
 
-        <FadeIn duration='300ms'>
+        { loading ? <Spinner/> : null }
 
-          { loading ? <Spinner/> : null }
+        <FadeIn duration='300ms' className={loading ? 'cLoading' : ''}>
 
-          <div className={`senapati pro_senapati ${loading ? 'cLoading' : ''}`} >
+          <div className='senapati pro_senapati' >
             <div className={ len != 0 ? 'm_div' : 'm_no_div' } >
 
               {
