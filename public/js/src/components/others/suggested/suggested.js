@@ -16,12 +16,16 @@ export default class Suggested extends React.Component {
     loading: true
   }
 
-  componentDidMount = () =>
-    this.props.dispatch(getSuggestedUsers())
+  componentDidMount = () => {
+    // params: if user is on a profile of eg. noddy, then noddy won't appear on suggestions
+    let { dispatch, params } = this.props
+    dispatch(getSuggestedUsers(params))
+  }
 
   updateUsers = e => {
     e.preventDefault()
-    this.props.dispatch(getSuggestedUsers())
+    let { dispatch, params } = this.props
+    dispatch(getSuggestedUsers(params))
   }
 
   componentWillReceiveProps = () =>

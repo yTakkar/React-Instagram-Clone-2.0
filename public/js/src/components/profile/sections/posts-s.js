@@ -36,7 +36,7 @@ export default class Posts extends React.Component {
 
             <div className='srajkumar'>
               { !Me(id) ? <MutualUsers username={username} /> : null }
-              <Suggested when='profile' />
+              <Suggested when='profile' params={username} />
               <UserHashtags param={param} />
               { !Me(id) ? <Recommend username={username} /> : null }
               { !Me(id) ? <AddToFavourites user={id} username={username} /> : null }

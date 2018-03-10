@@ -83,6 +83,7 @@ app.post('/get-groups-to-explore', async (req, res) => {
 // GET SUGGESTED USERS
 app.post('/get-suggested-users', async (req, res) => {
   let
+    { user } = req.body,
     { id } = req.session,
     _users = await db.query(
       'SELECT users.id, users.username, users.firstname, users.surname FROM users WHERE users.id <> ? ORDER BY RAND() DESC LIMIT 10',
@@ -103,7 +104,9 @@ app.post('/get-suggested-users', async (req, res) => {
       : null
   }
 
-  let orderByMutualUsers = _.orderBy(users.slice(0, 5), ['mutualUsersCount'], ['desc'])
+  let
+    filter = user ? users.filter(u => u.username != user ) : users,
+    orderByMutualUsers = _.orderBy(filter.slice(0, 5), ['mutualUsersCount'], ['desc'])
 
   res.json(orderByMutualUsers)
 })

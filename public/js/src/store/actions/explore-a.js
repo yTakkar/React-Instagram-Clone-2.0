@@ -24,9 +24,9 @@ export const getGroupsToExplore = () => {
   }
 }
 
-export const getSuggestedUsers = () => {
+export const getSuggestedUsers = user => {
   return dispatch => {
-    post('/api/get-suggested-users')
+    post('/api/get-suggested-users', { user })
       .then(p => dispatch({ type: 'GET_SUGGESTED_USERS', payload: p.data }))
       .catch(e => console.log(e))
   }
