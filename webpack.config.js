@@ -1,9 +1,9 @@
-const path = require('path')
+const { join } = require('path')
 
 module.exports = {
   entry: './public/js/src/main.js',
   output: {
-    path: path.join(__dirname, '/public/js/dist/'),
+    path: join(__dirname, '/public/js/dist/'),
     filename: 'bundle.js'
   },
   mode: 'development',
@@ -20,7 +20,12 @@ module.exports = {
           'presets': [
             'env', 'react', 'stage-0'
           ],
-          'plugins': ['react-html-attrs', 'transform-class-properties', 'transform-decorators-legacy', 'transform-react-jsx-source']
+          'plugins': [
+            'react-html-attrs',
+            'transform-class-properties',
+            'transform-decorators-legacy',
+            'transform-react-jsx-source',
+          ]
         }
       }
     ]
