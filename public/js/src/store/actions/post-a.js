@@ -108,6 +108,14 @@ export const getPostLikes = post_id => {
   }
 }
 
+export const removeLike = like_id => {
+  return dispatch => {
+    post('/api/remove-like', { like_id })
+      .then(() => dispatch({ type: 'REMOVE_LIKE', payload: like_id }))
+      .catch(e => console.log(e))
+  }
+}
+
 export const getPostTags = post_id => {
   return dispatch => {
     post('/api/get-post-tags', { post: post_id })

@@ -18,7 +18,9 @@ Here's a video which will take you on a tour of this project!!
 1. [GraphicsMagick](http://www.graphicsmagick.org/) for Image-processing.
 
 # Usage
-1. First install all dependencies:
+1. Fork the repo and then clone it.
+
+2. First install all dependencies:
     ```bash
     # with npm
     npm install
@@ -27,8 +29,8 @@ Here's a video which will take you on a tour of this project!!
     yarn
     ```
 
-2. Open PHPMyAdmin, create a DB & import `db.sql` file.
-3. Create a `.env` file and insert the following code. Replace values with yours!!
+3. Open PHPMyAdmin, create a DB & import `db.sql` file.
+4. Create a `.env` file and insert the following code. Replace values with yours!!
 
     ```javascript
     PORT=YOUR_PORT
@@ -40,24 +42,23 @@ Here's a video which will take you on a tour of this project!!
     MAIL="your-email-for-sending email-verification-link"
     MAIL_PASSWORD="password-for-email"
     GOOGLE_GEOLOCATION_KEY='google-geolocation-key'
+    ADMIN_PASSWORD='password-for-admin'
     ```
 
-4. Start the server
+5. Start the server
     ```javascript
     npm start [OR] yarn start
     ```
 
-5. For front-end layer of this app to get access to `env` variables defined in `.env`, run
+6. For front-end layer of this app to get access to `env` variables defined in `.env`, run
     ```bash
     yarn env
     ```
 
-6. Now run the app
+7. Now run the app
     ```javacript
     localhost:[PORT]
     ```
-
-7. Enjoy!!
 
 # Contribute
 Show your support by 🌟 the project!!

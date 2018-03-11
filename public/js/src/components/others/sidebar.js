@@ -1,7 +1,9 @@
 import React from 'react'
-import { toggle } from '../../utils/utils'
-import { NavLink } from 'react-router-dom'
+import { toggle, isAdmin } from '../../utils/utils'
+import { NavLink, Link } from 'react-router-dom'
 import $ from 'jquery'
+import { post } from 'axios'
+import Notify from 'handy-notification'
 
 export default class SideBar extends React.Component {
 
@@ -11,10 +13,20 @@ export default class SideBar extends React.Component {
     toggle(ele)
   }
 
+  adminLogout = async e => {
+    e.preventDefault()
+    await post('/api/admin-logout')
+    Notify({
+      value: 'Logged out as admin',
+      done: () => location.reload()
+    })
+  }
+
   render() {
     let
       username = $('.data').data('username'),
-      { un, uc } = this.props
+      { un, uc } = this.props,
+      { pathname } = location
 
     return (
       <div className='m_n_wrapper'>
@@ -115,6 +127,13 @@ export default class SideBar extends React.Component {
           <ul>
             <li><a href='/about'>About</a></li>
             <li><a href='/developer'>Developer</a></li>
+            <li>
+              {
+                isAdmin() ?
+                  <a href='#' onClick={this.adminLogout} >Log out as admin</a>
+                  : <Link to={`/admin-login?to=${pathname}`} >Are you admin?</Link>
+              }
+            </li>
           </ul>
         </div>
 

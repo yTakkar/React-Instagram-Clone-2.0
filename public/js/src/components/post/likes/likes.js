@@ -37,10 +37,14 @@ export default class Likes extends React.Component {
   render() {
     let
       { loading } = this.state,
-      { likes } = this.props,
+      { likes, decrementLikes } = this.props,
       len = likes.length,
       map_likes = likes.map(l =>
-        <LikeList key={l.like_id} {...l} />
+        <LikeList
+          key={l.like_id}
+          {...l}
+          decrementLikes={decrementLikes}
+        />
       )
 
     return (

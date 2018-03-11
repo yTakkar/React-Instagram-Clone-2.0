@@ -1,6 +1,6 @@
 import React from 'react'
 import TimeAgo from 'handy-timeago'
-import { toggle, Me, follow, unfollow, humanReadable } from '../../../../utils/utils'
+import { toggle, Me, follow, unfollow, humanReadable, isAdmin } from '../../../../utils/utils'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { post } from 'axios'
@@ -116,7 +116,7 @@ export default class MembersList extends React.Component {
 
           {
             Me(member) ? <Link to={`/profile/${username}`} className='sec_btn' >Profile</Link>
-              : Me(gd.admin) ? <a href='#' className='sec_btn' onClick={this.removePrompt} >Remove</a>
+              : Me(gd.admin) || isAdmin() ? <a href='#' className='sec_btn' onClick={this.removePrompt} >Remove {isAdmin() ? 'as admin' : null}</a>
                 : isFollowing
                   ? <a href='#' className='pri_btn unfollow' onClick={this.unfollow} >Unfollow</a>
                   : <a href='#' className='pri_btn follow' onClick={this.follow} >Follow</a>

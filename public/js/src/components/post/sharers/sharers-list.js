@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Me, follow, unfollow } from '../../../utils/utils'
+import { Me, follow, unfollow, isAdmin } from '../../../utils/utils'
 import { connect } from 'react-redux'
 import { post } from 'axios'
 import { removeShare } from '../../../store/actions/post-a'
@@ -76,8 +76,8 @@ export default class SharerList extends React.Component {
 
   removeShare = async e => {
     e.preventDefault()
-    let { share_id, share_by, post: post_id, dispatch, decrementShares } = this.props
-    await post('/api/remove-share', { share_by, post: post_id })
+    let { share_id, dispatch, decrementShares } = this.props
+    await post('/api/remove-share', { share_id })
     decrementShares()
     dispatch(removeShare(share_id))
   }
@@ -101,9 +101,14 @@ export default class SharerList extends React.Component {
           </div>
           <div className='modal_ff'>
             {
-              Me(share_by) ? <Link to={`/profile/${share_by_username}`} className='pri_btn follow' >Profile</Link>
-                : Me(share_to) ? <a href='#' className='rem_share sec_btn' onClick={this.removeShare} >Remove share</a>
+              Me(share_by) ?
+                <Link to={`/profile/${share_by_username}`} className='pri_btn follow' >Profile</Link>
+
+                : Me(share_to) || isAdmin() ?
+                  <a href='#' className='rem_share sec_btn' onClick={this.removeShare} >Remove {isAdmin() ? 'as admin' : 'share'}</a>
+
                   : isFollowing ? <a href='#' className='pri_btn unfollow' onClick={this.unfollow} >Unfollow</a>
+
                     : <a href='#' className='pri_btn follow' onClick={this.follow} >Follow</a>
             }
           </div>

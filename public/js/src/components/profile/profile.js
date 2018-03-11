@@ -2,7 +2,7 @@ import React from 'react'
 import { FadeIn } from 'animate-components'
 import Title from '../others/title'
 import { connect } from 'react-redux'
-import { forProfile, isPrivate, humanReadable } from '../../utils/utils'
+import { forProfile, isPrivate, humanReadable, isAdmin } from '../../utils/utils'
 import { Redirect, Route, Switch } from 'react-router-dom'
 import { getUnreadNotifications } from '../../store/actions/notification-a'
 import Banner from './banner'
@@ -87,14 +87,7 @@ export default class Profile extends React.Component {
         <FadeIn duration='300ms' className={loading ? 'cLoading' : ''} >
           <Banner />
           {
-            isPrivate(ud.id, isFollowing, ud.account_type) ?
-              <div style={{ marginTop: 85 }} >
-                <Nothing
-                  mssg={`Account is private. Follow to connect with ${username}!!`}
-                  secondMssg={`${ mutuals.length != 0 ? humanReadable(mutuals.length, 'mutual follower') : '' }`}
-                />
-              </div>
-              :
+            !isPrivate(ud.id, isFollowing, ud.account_type) || isAdmin() ?
               <div>
                 <Nav url={url} />
                 <div className='hmm'>
@@ -114,6 +107,13 @@ export default class Profile extends React.Component {
                     <Redirect to='/error' />
                   </Switch>
                 </div>
+              </div>
+              :
+              <div style={{ marginTop: 85 }} >
+                <Nothing
+                  mssg={`Account is private. Follow to connect with ${username}!!`}
+                  secondMssg={`${ mutuals.length != 0 ? humanReadable(mutuals.length, 'mutual follower') : '' }`}
+                />
               </div>
           }
         </FadeIn>

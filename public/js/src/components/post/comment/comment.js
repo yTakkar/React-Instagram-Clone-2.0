@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import TimeAgo from 'handy-timeago'
-import { Me } from '../../../utils/utils'
+import { Me, isAdmin } from '../../../utils/utils'
 import ImageTheatre from '../../others/image-theatre'
 import Overlay from '../../others/overlay'
 import ToolTip from 'react-tooltip'
@@ -39,10 +39,10 @@ export default class Comment extends React.Component {
   }
 
   showTools = () =>
-    Me(this.props.comment_by) ? this.ct.style.display = 'block' : null
+    this.ct ? this.ct.style.display = 'block' : null
 
   hideTools = () =>
-    Me(this.props.comment_by) ? this.ct.style.display = 'none' : null
+    this.ct ? this.ct.style.display = 'none' : null
 
   deleteComment = async e => {
     e.preventDefault()
@@ -80,17 +80,18 @@ export default class Comment extends React.Component {
             <div className='comments_bottom'>
               <span className='comments_time'>{ TimeAgo(comment_time) }</span>
             </div>
+
             {
-              Me(comment_by) ?
+              Me(comment_by) || isAdmin() ?
                 <div className='comment_tools' ref={r => this.ct = r} >
                   {
                     type == 'text' ?
-                      <span className='comment_edit' data-tip='Edit' onClick={() => this._toggle('editComment')} >
+                      <span className='comment_edit' data-tip={`Edit ${isAdmin() ? 'as admin' : ''}`} onClick={() => this._toggle('editComment')} >
                         <i className='material-icons'>mode_edit</i>
                       </span>
                       : null
                   }
-                  <span className='comment_delete' data-tip='Delete' onClick={() => this._toggle('deleteComment')} >
+                  <span className='comment_delete' data-tip={`Delete ${isAdmin() ? 'as admin' : ''}`} onClick={() => this._toggle('deleteComment')} >
                     <i className='material-icons'>delete</i>
                   </span>
                 </div>

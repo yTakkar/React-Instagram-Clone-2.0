@@ -18,6 +18,8 @@ import Settings from './settings/settings'
 import Group from './group/group'
 import Messages from './messages/messages'
 import Hashtag from './hashtag/hashtag'
+import AdminLogin from './admin/admin-login'
+import IsAdmin from './admin/is-admin'
 import Error from './error/error'
 
 @connect(store => (
@@ -61,6 +63,8 @@ export default class App extends React.Component {
               <Route path='/group/:grp_id' component={Group} />
               <Route path='/messages' component={Messages} />
               <Route path='/hashtag/:hashtag' component={Hashtag} />
+              <Route path='/admin-login' component={AdminLogin} />
+              <Route path='/is-admin' component={IsAdmin} />
               <Route component={Error} />
             </Switch>
           </div>

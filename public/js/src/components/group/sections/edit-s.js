@@ -7,7 +7,7 @@ import { post } from 'axios'
 import Notify from 'handy-notification'
 import $ from 'jquery'
 import { updateGroup } from '../../../store/actions/group-a'
-import { Me } from '../../../utils/utils'
+import { Me, isAdmin } from '../../../utils/utils'
 import Emojis from '../../others/emojis'
 
 @connect(store => (
@@ -78,7 +78,8 @@ export default class EditGroup extends React.Component {
   render() {
     let
       { name, bio, isPrivate, emojis } = this.state,
-      { gd: { admin } } = this.props
+      { gd: { admin } } = this.props,
+      disabled = !Me(admin) && !isAdmin()
 
     return (
       <div>
@@ -102,7 +103,7 @@ export default class EditGroup extends React.Component {
                     spellCheck='false'
                     autoFocus
                     className='gen_text'
-                    disabled={!Me(admin)}
+                    disabled={disabled}
                     value={name}
                     onChange={e => this.changeValue('name', e)}
                   />
@@ -114,7 +115,7 @@ export default class EditGroup extends React.Component {
                     placeholder='Group bio..'
                     spellCheck='false'
                     className='gen_bio'
-                    disabled={!Me(admin)}
+                    disabled={disabled}
                     value={bio}
                     onChange={e => this.changeValue('bio', e)}
                   ></textarea>
@@ -125,7 +126,7 @@ export default class EditGroup extends React.Component {
                     type='checkbox'
                     className='inst_checkbox'
                     id='grp_private'
-                    disabled={!Me(admin)}
+                    disabled={disabled}
                     checked={isPrivate}
                     onChange={e => this.changeValue('isPrivate', e)}
                   />
@@ -136,7 +137,7 @@ export default class EditGroup extends React.Component {
                 <div className='g_e_save'>
                   <div>
                     {
-                      Me(admin) ?
+                      Me(admin) || isAdmin() ?
                         <div>
                           <span
                             className='emoji_span'
@@ -153,7 +154,7 @@ export default class EditGroup extends React.Component {
 
                   <a
                     href='#'
-                    className={`sec_btn g_e_save_btn ${!name || !bio || !Me(admin) ? 'sec_btn_disabled' : ''}`}
+                    className={`sec_btn g_e_save_btn ${!name || !bio || !Me(admin) && !isAdmin() ? 'sec_btn_disabled' : ''}`}
                     onClick={this.update}
                   >Update</a>
                 </div>

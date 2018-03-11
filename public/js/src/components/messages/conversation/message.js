@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import { Me, toggle } from '../../../utils/utils'
+import { Me, toggle, isAdmin } from '../../../utils/utils'
 import TimeAgo from 'handy-timeago'
 import ToolTip from 'react-tooltip'
 import Overlay from '../../others/overlay'
@@ -11,6 +11,7 @@ import { deleteMssg } from '../../../store/actions/message-a'
 import { connect } from 'react-redux'
 import ImageTheatre from '../../others/image-theatre'
 import ToTags from '../../hashtag/toTags'
+import { FadeIn } from 'animate-components'
 
 @connect(store => (
   { store }
@@ -69,16 +70,16 @@ export default class Message extends React.Component {
 
           <div className='m_m_tools' style={{ display: 'none' }} ref={r => this.tools = r} >
             {
-              Me(mssg_by) ?
-                <div>
-                  <span data-tip='Delete'  onClick={() => this._toggle('deleteMessage')}><i className='material-icons'>delete</i></span>
+              Me(mssg_by) || isAdmin() ?
+                <FadeIn duration='300ms'>
+                  <span data-tip={`Delete ${isAdmin() ? 'as admin' : ''}`}  onClick={() => this._toggle('deleteMessage')}><i className='material-icons'>delete</i></span>
                   {
                     type == 'text' ?
-                      <span data-tip='Edit' onClick={() => this._toggle('editMessage')} ><i className='material-icons'>mode_edit</i></span>
+                      <span data-tip={`Edit ${isAdmin() ? 'as admin' : ''}`} onClick={() => this._toggle('editMessage')} ><i className='material-icons'>mode_edit</i></span>
                       : null
                   }
                   <ToolTip/>
-                </div>
+                </FadeIn>
                 : null
             }
           </div>

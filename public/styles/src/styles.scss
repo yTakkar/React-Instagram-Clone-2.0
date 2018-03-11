@@ -356,12 +356,8 @@
 
   & .nav_options{
     position: fixed;
-    left: 103px;
+    left: 85px;
     bottom: 65px;
-
-    & a {
-      width: 75px;
-    }
 
     &::after{
       content: "";
@@ -670,4 +666,18 @@
 
   }
 
+}
+
+// ADMIN
+.are-you-admin {
+  position: relative;
+  margin: 0 auto;
+  top: 160px;
+  left: 50px;
+  transform: translate(0%, 0%);
+
+  & .show_psswrd {
+    bottom: 55px;
+    right: 16px;
+  }
 }

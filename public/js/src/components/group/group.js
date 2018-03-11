@@ -4,7 +4,7 @@ import Title from '../others/title'
 import { connect } from 'react-redux'
 import { getUnreadNotifications } from '../../store/actions/notification-a'
 import { getUnreadMessages } from '../../store/actions/message-a'
-import { forGroup, Me } from '../../utils/utils'
+import { forGroup, Me, isAdmin } from '../../utils/utils'
 import { Redirect, Route, Switch } from 'react-router-dom'
 import GroupBanner from './group-banner'
 import Loading from '../others/loading'
@@ -79,11 +79,7 @@ export default class Group extends React.Component {
         <FadeIn duration='300ms' className={loading ? 'cLoading' : ''} >
           <GroupBanner/>
           {
-            !Me(gd.admin) && gd.group_type == 'private' && !joined ?
-              <div style={{ marginTop: 85 }}>
-                <Nothing mssg={`${gd.name} group is private. Join to connect!!`} />
-              </div>
-              :
+            (Me(gd.admin) || gd.group_type == 'public' || joined) || isAdmin() ?
               <div>
                 <GroupNav url={url} admin={gd.admin} />
                 <div className='hmm'>
@@ -97,6 +93,10 @@ export default class Group extends React.Component {
                     <Redirect to='/error' />
                   </Switch>
                 </div>
+              </div>
+              :
+              <div style={{ marginTop: 85 }}>
+                <Nothing mssg={`${gd.name} group is private. Join to connect!!`} />
               </div>
           }
         </FadeIn>

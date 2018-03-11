@@ -1,6 +1,6 @@
 import React from 'react'
 import TimeAgo from 'handy-timeago'
-import { toggle, Me, follow, unfollow } from '../../../../utils/utils'
+import { toggle, Me, follow, unfollow, isAdmin } from '../../../../utils/utils'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { post } from 'axios'
@@ -89,7 +89,11 @@ export default class FavList extends React.Component {
         >{TimeAgo(fav_time)}</span>
 
         <div className='m_bottom'>
-          { Me(id) ? <a href='#' className='sec_btn' onClick={this.removeFav} >Remove</a> : null }
+          {
+            Me(id) || isAdmin() ?
+              <a href='#' className='sec_btn' onClick={this.removeFav} >Remove {isAdmin() ? 'as admin' : ''}</a>
+              : null
+          }
           {
             Me(user)
               ? <Link to={`/profile/${username}`} className='sec_btn '>Profile</Link>

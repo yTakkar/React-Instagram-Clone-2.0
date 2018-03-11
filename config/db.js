@@ -231,6 +231,56 @@ const deleteCon = async con_id => {
   await query('DELETE FROM conversations WHERE con_id=?', [ con_id ])
 }
 
+// DEACTIVATES USER
+const deactivate = async (user, req, res) => {
+  let
+    posts = await query('SELECT post_id FROM posts WHERE user=?', [ user ]),
+    groups = await query('SELECT group_id FROM groups WHERE admin=?', [ user ]),
+    cons = await query('SELECT con_id FROM conversations WHERE user_one=? OR user_two=?', [ user, user ]),
+    dltDir = promisify(rmdir),
+    QLusers = JSON.parse(req.cookies.users),
+    filtered = QLusers.filter(u => u.id != user )
+
+  // DELETE ALL POSTS
+  posts.map(async p => {
+    await deletePost({
+      post: p.post_id,
+      user,
+      when: 'user'
+    })
+  })
+
+  // DELETE ALL GROUPS
+  groups.map(async g => {
+    await deleteGroup(g.group_id)
+  })
+  await query('DELETE FROM group_members WHERE member=? OR added_by=?', [ user, user ])
+
+  // DELETE ALL CONVERSATIONS
+  cons.map(async c => {
+    await deleteCon(c.con_id)
+  })
+
+  await query('DELETE FROM tags WHERE user=?', [ user ])
+  await query('DELETE FROM favourites WHERE fav_by=? OR user=?', [ user, user ])
+  await query('DELETE FROM follow_system WHERE follow_by=? OR follow_to=?', [ user, user ])
+  await query('DELETE FROM notifications WHERE notify_by=? OR notify_to=? OR user=?', [ user, user, user ])
+  await query('DELETE FROM profile_views WHERE view_by=? OR view_to=?', [ user, user ])
+  await query(
+    'DELETE FROM recommendations WHERE recommend_by=? OR recommend_to=? OR recommend_of=?',
+    [ user, user, user ]
+  )
+  await query('DELETE FROM hashtags WHERE user=?', [ user ])
+
+  await DeleteAllOfFolder(`${root}/public/users/${user}/`)
+  await dltDir(`${root}/public/users/${user}`)
+
+  await query('DELETE FROM users WHERE id=?', [ user ])
+
+  res.cookie('users', `${JSON.stringify(filtered)}`)
+  req.session.reset()
+}
+
 // RETURNS MUTUAL USERS
 const mutualUsers = async (session, user) => {
   return new Promise(async (resolve, reject) => {
@@ -334,7 +384,7 @@ const toHashtag = async (str, user, post) => {
           user: user,
           hashtag_time: new Date().getTime()
         }
-        await db.query('INSERT INTO hashtags SET ?', newHashtag)
+        await query('INSERT INTO hashtags SET ?', newHashtag)
       }
     }
   }
@@ -392,6 +442,7 @@ module.exports = {
   deletePost,
   deleteGroup,
   deleteCon,
+  deactivate,
   mutualUsers,
   joinedGroup,
   mutualGroupMembers,
