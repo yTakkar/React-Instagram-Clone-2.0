@@ -18,7 +18,7 @@ Here's a video which will take you on a tour of this project!!
 1. [GraphicsMagick](http://www.graphicsmagick.org/) for Image-processing.
 
 # Usage
-1. Fork the repo and then clone it.
+1. Fork the repo and then clone it or download it.
 
 2. First install all dependencies:
     ```bash
@@ -50,7 +50,7 @@ Here's a video which will take you on a tour of this project!!
     npm start [OR] yarn start
     ```
 
-6. For front-end layer of this app to get access to `env` variables defined in `.env`, run
+6. For front-end layer of this app to get access to `env` variables defined in `.env` file, run
     ```bash
     yarn env
     ```
