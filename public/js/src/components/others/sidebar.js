@@ -1,6 +1,6 @@
 import React from 'react'
 import { toggle, isAdmin } from '../../utils/utils'
-import { NavLink, Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import $ from 'jquery'
 import { post } from 'axios'
 import Notify from 'handy-notification'
@@ -112,6 +112,13 @@ export default class SideBar extends React.Component {
                 <span className='m_n_new'></span>
               </NavLink>
             </li>
+            <li>
+              {
+                isAdmin() ?
+                  <a href='#' onClick={this.adminLogout} >Log out as admin</a>
+                  : <NavLink to={`/admin-login?to=${pathname}`} className='m_n_a_admin' >Are you admin?</NavLink>
+              }
+            </li>
           </ul>
         </div>
 
@@ -127,13 +134,6 @@ export default class SideBar extends React.Component {
           <ul>
             <li><a href='/about'>About</a></li>
             <li><a href='/developer'>Developer</a></li>
-            <li>
-              {
-                isAdmin() ?
-                  <a href='#' onClick={this.adminLogout} >Log out as admin</a>
-                  : <Link to={`/admin-login?to=${pathname}`} >Are you admin?</Link>
-              }
-            </li>
           </ul>
         </div>
 

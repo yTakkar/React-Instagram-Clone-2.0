@@ -17,8 +17,13 @@ export default class AdminLogin extends Component {
   changeValue = (what, e) =>
     this.setState({ [what]: e.target.value })
 
-  componentDidMount = () =>
+  componentDidMount = () => {
     $('.nav_options').hide()
+    $('.m_n_a_admin').addClass('sidebar_active')
+  }
+
+  componentWillUnmount = () =>
+    $('.m_n_a_admin').removeClass('sidebar_active')
 
   toggleViewPassword = () => {
     viewPassword({
