@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import { toggle, Me, joinGroup, leaveGroup } from '../../utils/utils'
+import { toggle, Me, joinGroup, leaveGroup, isAdmin } from '../../utils/utils'
 import { connect } from 'react-redux'
 import { Link, Redirect } from 'react-router-dom'
 import Copy from 'handy-copy'
@@ -140,8 +140,8 @@ export default class GroupBanner extends React.Component {
                   : null
               }
               {
-                Me(admin) ?
-                  <li><a href='#' className='p_copy_link' onClick={this.toggleDeleteGroup} >Delete group</a></li>
+                Me(admin) || isAdmin() ?
+                  <li><a href='#' className='p_copy_link' onClick={this.toggleDeleteGroup} >Delete group { isAdmin() ? 'as admin' : null }</a></li>
                   : null
               }
               <li><a href='#' className='p_copy_link' onClick={this.copyLink} >Copy profile link</a></li>

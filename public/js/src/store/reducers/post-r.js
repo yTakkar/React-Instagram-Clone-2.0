@@ -81,6 +81,10 @@ export default (state=post_def, action) => {
       return { ...state, likes: py.likes, isPostMine: py.isPostMine }
       break
 
+    case 'REMOVE_LIKE':
+      return { ...state, likes: removeLike(state.likes, py) }
+      break
+
     case 'GET_POST_TAGS':
       return { ...state, tags: py.tags, isPostMine: py.isPostMine }
       break
@@ -170,8 +174,8 @@ const editComment = (post, { comment_id, comment }) => {
     return c
   })
 
-  return {
-    ...post,
-    comments
-  }
+  return { ...post, comments }
 }
+
+const removeLike = (likes, like_id) =>
+  likes.filter(l => l.like_id != like_id)

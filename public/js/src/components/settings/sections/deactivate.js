@@ -32,15 +32,19 @@ export default class Deactivate extends React.Component {
     btn.addClass('a_disabled').text('Deactivating..')
     o.show()
 
-    let { data, data: { mssg, success } } = await post('/user/deactivate-account', { password })
-    console.log(data)
+    let { data: { mssg, success } } = await post('/user/deactivate-account', { password })
 
     btn.removeClass('a_disabled').text('Deactivated')
     o.hide()
 
     Notify({
       value: mssg,
-      done: () => success ? location.href = '/login': null
+      done: () => {
+        success ?
+          location.href = '/login'
+          : this.setState({ showPrompt: false })
+      }
+
     })
   }
 

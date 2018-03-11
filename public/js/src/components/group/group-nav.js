@@ -1,6 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import { Me } from '../../utils/utils'
+import { Me, isAdmin } from '../../utils/utils'
 
 export default class GroupNav extends React.Component {
   render() {
@@ -29,7 +29,7 @@ export default class GroupNav extends React.Component {
               className="inst_nav">gallery</NavLink>
           </li>
           {
-            Me(admin) ?
+            Me(admin) || isAdmin() ?
               <li>
                 <NavLink
                   to={`${url}/edit`}

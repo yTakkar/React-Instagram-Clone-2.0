@@ -7,8 +7,7 @@ const
   { promisify } = require('util'),
   { success } = require('handy-log'),
   mw = require('../config/middlewares'),
-  { uniqBy } = require('lodash'),
-  { DeleteAllOfFolder } = require('handy-image-processor')
+  { uniqBy } = require('lodash')
 
 app.get('/login', mw.NotLoggedIn, (req, res) => {
   let
@@ -150,6 +149,7 @@ app.post('/user/login', async (req, res) => {
         session.id = id
         session.username = rusername
         session.email_verified = email_verified
+        session.isadmin = false
 
         res.json({
           mssg: `Welcome ${rusername}!!`,
@@ -294,7 +294,7 @@ app.post('/user/change-password', async (req, res) => {
 })
 
 // DEACTIVATE ACCOUNT
-app.post('/user/deactivate-account', mw.LoggedIn, async (req, res) => {
+app.post('/user/deactivate-account', async (req, res) => {
   let
     { id } = req.session,
     userPassword = await db.getWhat('password', id),
@@ -312,52 +312,7 @@ app.post('/user/deactivate-account', mw.LoggedIn, async (req, res) => {
     res.json({ mssg: 'Wrong password!!' })
   } else {
 
-    let
-      posts = await db.query('SELECT post_id FROM posts WHERE user=?', [ id ]),
-      groups = await db.query('SELECT group_id FROM groups WHERE admin=?', [ id ]),
-      cons = await db.query('SELECT con_id FROM conversations WHERE user_one=? OR user_two=?', [ id, id ]),
-      dltDir = promisify(fs.rmdir),
-      QLusers = JSON.parse(req.cookies.users),
-      filtered = QLusers.filter(u => u.id != id )
-
-    // DELETE ALL POSTS
-    posts.map(async p => {
-      await db.deletePost({
-        post: p.post_id,
-        user: id,
-        when: 'user'
-      })
-    })
-
-    // DELETE ALL GROUPS
-    groups.map(async g => {
-      await db.deleteGroup(g.group_id)
-    })
-    await db.query('DELETE FROM group_members WHERE member=? OR added_by=?', [ id, id ])
-
-    // DELETE ALL CONVERSATIONS
-    cons.map(async c => {
-      await db.deleteCon(c.con_id)
-    })
-
-    await db.query('DELETE FROM tags WHERE user=?', [ id ])
-    await db.query('DELETE FROM favourites WHERE fav_by=? OR user=?', [ id, id ])
-    await db.query('DELETE FROM follow_system WHERE follow_by=? OR follow_to=?', [ id, id ])
-    await db.query('DELETE FROM notifications WHERE notify_by=? OR notify_to=? OR user=?', [ id, id, id ])
-    await db.query('DELETE FROM profile_views WHERE view_by=? OR view_to=?', [ id, id ])
-    await db.query(
-      'DELETE FROM recommendations WHERE recommend_by=? OR recommend_to=? OR recommend_of=?',
-      [ id, id, id ]
-    )
-    await db.query('DELETE FROM hashtags WHERE user=?', [ id ])
-
-    await DeleteAllOfFolder(`${dir}/public/users/${id}/`)
-    await dltDir(`${dir}/public/users/${id}`)
-
-    await db.query('DELETE FROM users WHERE id=?', [ id ])
-
-    res.cookie('users', `${JSON.stringify(filtered)}`)
-    req.session.reset()
+    await db.deactivate(id, req, res)
 
     res.json({
       mssg: 'Deactivated your account successfully!!',
@@ -366,6 +321,19 @@ app.post('/user/deactivate-account', mw.LoggedIn, async (req, res) => {
 
   }
 
+})
+
+// REMOVES USER
+app.post('/user/remove-user', async (req, res) => {
+  let
+    { user } = req.body,
+    username = await db.getWhat('username', user)
+
+  await db.deactivate(user, req, res)
+  res.json({
+    mssg: `Removed ${username}`,
+    success: true
+  })
 })
 
 // REMOVE QUICK LOGIN
@@ -382,6 +350,30 @@ app.post('/api/remove-quick-login', (req, res) => {
 // CLEAR ALL QUICK LOGINS
 app.post('/api/clear-all-quick-logins', (req, res) => {
   res.clearCookie('users')
+  res.json('Hello, World!!')
+})
+
+// CHECK IF USER IS THE ADMIN
+app.post('/api/check-is-admin', async (req, res) => {
+  let
+    { password } = req.body,
+    { ADMIN_PASSWORD } = process.env
+
+  if (password != ADMIN_PASSWORD) {
+    res.json({ mssg: 'Wrong password!!' })
+  } else {
+    req.session.isadmin = true
+    res.json({
+      mssg: 'Hello admin!!',
+      success: true
+    })
+  }
+
+})
+
+// ADMIN LOGOUT
+app.post('/api/admin-logout', async (req, res) => {
+  req.session.isadmin = false
   res.json('Hello, World!!')
 })
 

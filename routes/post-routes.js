@@ -278,9 +278,11 @@ app.post('/edit-post', async (req, res) => {
   let
     { post, description } = req.body,
     { id } = req.session
-  await db.query('UPDATE posts SET description=? WHERE post_id=? AND user=?', [ description, post, id ])
+
+  await db.query('UPDATE posts SET description=? WHERE post_id=?', [ description, post ])
   await db.query('DELETE FROM hashtags WHERE post_id=?', [ post ])
   await db.toHashtag(description, id, post)
+
   res.json('Hello, World!!')
 })
 
@@ -358,10 +360,8 @@ app.post('/bookmark-post', async (req, res) => {
 
 // UNBOOKMARK POST
 app.post('/unbookmark-post', async (req, res) => {
-  let
-    { post } = req.body,
-    { id } = req.session
-  await db.query('DELETE FROM bookmarks WHERE post_id=? AND bkmrk_by=?', [ post, id ])
+  let { post, user } = req.body
+  await db.query('DELETE FROM bookmarks WHERE post_id=? AND bkmrk_by=?', [ post, user ])
   res.json('Hello, World!!')
 })
 
@@ -387,6 +387,13 @@ app.post('/get-post-likes', async (req, res) => {
     likes: array,
     isPostMine: await db.isPostMine(id, post)
   })
+})
+
+// REMOVE LIKE
+app.post('/remove-like', async (req, res) => {
+  let { like_id } = req.body
+  await db.query('DELETE FROM likes WHERE like_id=?', [ like_id ])
+  res.json('Hello, World!!')
 })
 
 // GET POST TAGS
@@ -481,10 +488,8 @@ app.post('/unshare-post', async (req, res) => {
 
 // REMOVE SHARE
 app.post('/remove-share', async (req, res) => {
-  let
-    { share_by, post } = req.body,
-    { id } = req.session
-  await db.query('DELETE FROM shares WHERE share_by=? AND share_to=? AND post_id=?', [ share_by, id, post ])
+  let { share_id } = req.body
+  await db.query('DELETE FROM shares WHERE share_id=?', [ share_id ] )
   res.json('Hello, World!!')
 })
 

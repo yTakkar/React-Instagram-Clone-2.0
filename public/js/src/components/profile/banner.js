@@ -15,6 +15,7 @@ import RecommendUsers from '../others/recommend/recommend-users'
 import { toggleFollow } from '../../store/actions/follow_a'
 import Prompt from '../others/prompt'
 import ToTags from '../hashtag/toTags'
+import { post } from 'axios'
 
 @connect(store => (
   {
@@ -111,6 +112,23 @@ export default class Banner extends React.Component {
     this._toggle(null, 'blockUser')
   }
 
+  removeUser = async e => {
+    e.preventDefault()
+    let
+      o = $('.overlay-2'),
+      { id } = this.props.User.user_details
+
+    o.show()
+
+    let { data: { mssg, success } } = await post('/user/remove-user', { user: id })
+    o.hide()
+
+    Notify({
+      value: mssg,
+      done: () => success ? location.href = '/login': null
+    })
+  }
+
   render() {
     let
       {
@@ -144,6 +162,7 @@ export default class Banner extends React.Component {
                   </Fragment>
                   : null
               }
+              { fn.isAdmin() ? <li><a href='#' className='rem_user' onClick={this.removeUser} >Remove as admin</a></li> : null }
               <li><a href='#' className='p_copy_link' onClick={this.copyLink} >Copy profile link</a></li>
             </ul>
           </div>

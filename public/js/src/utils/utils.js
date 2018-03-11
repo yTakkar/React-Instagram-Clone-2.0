@@ -99,6 +99,10 @@ export const isPrivate = (user, isFollowing, accountType) => {
   return sprivate
 }
 
+/** FOR CHECKING IF USER IS ADMIN */
+export const isAdmin = () =>
+  $('.data').data('isadmin')
+
 /** FOR USERNAME CHECKER */
 export const username_checker = el => {
   let uc = $('.username_checker')

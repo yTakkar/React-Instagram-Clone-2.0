@@ -43,6 +43,7 @@ export default class EditPost extends React.Component {
     let
       { description } = this.state,
       { dispatch, post: post_id, back } = this.props
+
     await post('/api/edit-post', { description, post: post_id })
     dispatch(editPost({ post_id, description }))
     back()

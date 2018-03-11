@@ -120,8 +120,11 @@ export default class Post extends React.Component {
   }
 
   unbookmark = async () => {
-    let { post_id, when, dispatch, ud: { id } } = this.props
-    await post('/api/unbookmark-post', { post: post_id })
+    let
+      { post_id, when, dispatch, ud: { id } } = this.props,
+      session = $('.data').data('session')
+
+    await post('/api/unbookmark-post', { post: post_id, user: session })
     this.setState({ bookmarked: false })
     if (when == 'bookmarks' && fn.Me(id)) {
       dispatch(unbookmark(post_id))
@@ -159,6 +162,14 @@ export default class Post extends React.Component {
     this.setState({ comments_count: ++comments_count })
   }
 
+  remBookmarkAsAdmin = async e => {
+    e.preventDefault()
+    let { post_id, dispatch, ud: { id } } = this.props
+    await post('/api/unbookmark-post', { post: post_id, user: id })
+    dispatch(unbookmark(post_id))
+    Notify({ value: 'Post unbookmarked as admin!!' })
+  }
+
   render() {
     let
       { post_id, user, username, firstname, surname, location, filter, imgSrc, type, group_id, group_name, post_time, when, share_by_username, share_time, comments } = this.props,
@@ -171,7 +182,6 @@ export default class Post extends React.Component {
           decrementComments={() => this.setState({ comments_count: --comments_count })}
         />
       ) : null
-      // hashes = fn.toHashtag(description)
 
     return (
       <div className='posts' >
@@ -230,8 +240,21 @@ export default class Post extends React.Component {
           >
             <ul>
               { when != 'viewPost' ? <li><Link to={`/post/${post_id}`} >Open</Link></li> : null }
-              { fn.Me(user) ? <li><a href='#' className='edit_post' onClick={this.showEditPost} >Edit post</a></li> : null }
-              { fn.Me(user) ? <li><a href='#' className='delete_post' onClick={this.showDeletePost} >Delete post</a></li> : null }
+              {
+                fn.Me(user) || fn.isAdmin() ?
+                  <li><a href='#' className='edit_post' onClick={this.showEditPost} >Edit post {fn.isAdmin() ? 'as admin' : null}</a></li>
+                  : null
+              }
+              {
+                fn.Me(user) || fn.isAdmin() ?
+                  <li><a href='#' className='delete_post' onClick={this.showDeletePost} >Delete post {fn.isAdmin() ? 'as admin' : null}</a></li>
+                  : null
+              }
+              {
+                when == 'bookmarks' && fn.isAdmin() ?
+                  <li><a href='#' onClick={this.remBookmarkAsAdmin} >Remove bookmark as admin</a></li>
+                  : null
+              }
               <li><a href='#' className='p_copy_link' onClick={this.copyLink} >Copy link</a></li>
             </ul>
           </div>
@@ -390,6 +413,7 @@ export default class Post extends React.Component {
               <Likes
                 post={post_id}
                 back={() => this._toggle('showLikes')}
+                decrementLikes={() => this.setState({ likes_count: --likes_count })}
               />
             </Fragment>
             : null

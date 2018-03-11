@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { Me, follow, unfollow } from '../../../utils/utils'
+import { Me, follow, unfollow, isAdmin } from '../../../utils/utils'
 import { post } from 'axios'
 import { untag } from '../../../store/actions/post-a'
 import Notify from 'handy-notification'
@@ -104,7 +104,7 @@ export default class TagItems extends React.Component {
           </div>
           <div className='modal_ff'>
             {
-              isPostMine ? <a href='#' className='sec_btn' onClick={e => this.untag(e, user)} >Untag</a>
+              isPostMine || isAdmin() ? <a href='#' className='sec_btn' onClick={e => this.untag(e, user)} >Untag {isAdmin() ? 'as admin' : null}</a>
                 : Me(user) ? <a href='#' className='sec_btn' onClick={e => this.untag(e, user)} >Untag</a>
                   : isFollowing ? <a href='#' className='pri_btn unfollow' onClick={this.unfollow} >Unfollow</a>
                     : <a href='#' className='pri_btn follow' onClick={this.follow} >Follow</a>
