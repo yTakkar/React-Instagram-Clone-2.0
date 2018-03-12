@@ -44,15 +44,15 @@ Here's a video which will take you on a tour of this project!!
     GOOGLE_GEOLOCATION_KEY='google-geolocation-key'
     ADMIN_PASSWORD='password-for-admin'
     ```
-
-5. Start the server
-    ```javascript
-    npm start [OR] yarn start
-    ```
-
-6. For front-end layer of this app to get access to `env` variables defined in `.env` file, run
+    
+5. For front-end layer of this app to get access to `env` variables defined in `.env` file, run
     ```bash
     yarn env
+    ```
+
+6. Start the server
+    ```javascript
+    npm start [OR] yarn start
     ```
 
 7. Now run the app
