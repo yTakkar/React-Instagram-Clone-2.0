@@ -1,6 +1,8 @@
 const
   app = require('express').Router(),
   db = require('../config/db'),
+  User = require('../config/User'),
+  Group = require('../config/Group'),
   _ = require('lodash')
 
 // USERS TO EXPLORE
@@ -15,12 +17,12 @@ app.post('/get-users-to-explore', async (req, res) => {
 
   for (let u of _users) {
     let
-      isFollowing = await db.isFollowing(id, u.id),
+      isFollowing = await User.isFollowing(id, u.id),
       [{ followers_count }] = await db.query(
         'SELECT COUNT(follow_id) AS followers_count FROM follow_system WHERE follow_to=?',
         [ u.id ]
       ),
-      mutualUsers = await db.mutualUsers(id, u.id)
+      mutualUsers = await User.mutualUsers(id, u.id)
 
     !isFollowing ?
       users.push({
@@ -62,8 +64,8 @@ app.post('/get-groups-to-explore', async (req, res) => {
         'SELECT COUNT(grp_member_id) AS membersCount FROM group_members WHERE group_id=?',
         [ g.group_id ]
       ),
-      mutualMembers = await db.mutualGroupMembers(id, g.group_id),
-      joined = await db.joinedGroup(id, g.group_id)
+      mutualMembers = await Group.mutualGroupMembers(id, g.group_id),
+      joined = await Group.joinedGroup(id, g.group_id)
 
     !joined ?
       groups.push({
@@ -93,8 +95,8 @@ app.post('/get-suggested-users', async (req, res) => {
 
   for (let u of _users) {
     let
-      isFollowing = await db.isFollowing(id, u.id),
-      mutualUsers = await db.mutualUsers(id, u.id)
+      isFollowing = await User.isFollowing(id, u.id),
+      mutualUsers = await User.mutualUsers(id, u.id)
 
     !isFollowing ?
       users.push({

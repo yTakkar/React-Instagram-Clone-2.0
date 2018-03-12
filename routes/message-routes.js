@@ -1,6 +1,8 @@
 const
   app = require('express').Router(),
   db = require('../config/db'),
+  User = require('../config/User'),
+  Mssg = require('../config/Message'),
   root = process.cwd(),
   upload = require('multer')({
     dest: `${root}/public/temp/`
@@ -33,7 +35,7 @@ app.post('/create-new-conversation', async (req, res) => {
 
     let
       { insertId } = await db.query('INSERT INTO conversations SET ?', conversation),
-      mutualFollowers = await db.mutualUsers(id, user)
+      mutualFollowers = await User.mutualUsers(id, user)
 
     res.json({
       mssg: `Conversation with ${username} created!!`,
@@ -65,13 +67,13 @@ app.post('/get-conversations', async (req, res) => {
       con_with_username = await db.getWhat('username', con_with),
       con_with_firstname = await db.getWhat('firstname', con_with),
       con_with_surname = await db.getWhat('surname', con_with),
-      lastMssgTime = await db.getLastMssgTime(c.con_id),
-      mutualFollowers = await db.mutualUsers(id, con_with),
+      lastMssgTime = await Mssg.getLastMssgTime(c.con_id),
+      mutualFollowers = await User.mutualUsers(id, con_with),
       [{ unreadMssgs }] = await db.query(
         'SELECT COUNT(message_id) AS unreadMssgs FROM messages WHERE con_id=? AND mssg_to=? AND status=?',
         [ c.con_id, id, 'unread' ]
       ),
-      lastMssg = await db.getLastMssg(c.con_id)
+      lastMssg = await Mssg.getLastMssg(c.con_id)
 
     cons.push({
       ...c,
@@ -222,7 +224,7 @@ app.post('/unsend-all-mssgs', async (req, res) => {
 // DELETE CONVERSATION
 app.post('/delete-conversation', async (req, res) => {
   let { con_id } = req.body
-  await db.deleteCon(con_id)
+  await Mssg.deleteCon(con_id)
   res.json('Hello, World!!')
 })
 

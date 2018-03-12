@@ -1,6 +1,8 @@
 const
   app = require('express').Router(),
-  db = require('../config/db')
+  db = require('../config/db'),
+  User = require('../config/User'),
+  Group = require('../config/Group')
 
 // FOR CHECKING IF IT'S A VALID USER
 app.post('/is-user-valid', async (req, res) => {
@@ -34,11 +36,11 @@ app.post('/get-mutual-users', async (req, res) => {
     { username } = req.body,
     user = await db.getId(username),
     { id } = req.session,
-    _mutuals = await db.mutualUsers(id, user),
+    _mutuals = await User.mutualUsers(id, user),
     mutuals = []
 
   for (let m of _mutuals) {
-    let mutualUsers = await db.mutualUsers(id, m.user)
+    let mutualUsers = await User.mutualUsers(id, m.user)
     mutuals.push({ ...m, mutualUsersCount: mutualUsers.length })
   }
 
@@ -64,7 +66,7 @@ app.post('/search-instagram', async (req, res) => {
     )
 
   for (let u of _users) {
-    let mutualFollowers = await db.mutualUsers(id, u.id)
+    let mutualFollowers = await User.mutualUsers(id, u.id)
     users.push({ ...u, mutualFollowersCount: mutualFollowers.length })
   }
 
@@ -74,7 +76,7 @@ app.post('/search-instagram', async (req, res) => {
         'SELECT COUNT(grp_member_id) AS membersCount FROM group_members WHERE group_id=?',
         [ g.group_id ]
       ),
-      mutualMembers = await db.mutualGroupMembers(id, g.group_id)
+      mutualMembers = await Group.mutualGroupMembers(id, g.group_id)
 
     groups.push({
       ...g,

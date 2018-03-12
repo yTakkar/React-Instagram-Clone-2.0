@@ -1,6 +1,7 @@
 const
   app = require('express').Router(),
-  db = require('../config/db')
+  db = require('../config/db'),
+  Post = require('../config/Post')
 
 // GET USERS HASHTAGS
 app.post('/get-users-hashtags', async (req, res) => {
@@ -53,7 +54,9 @@ app.post('/get-hashtag-posts', async (req, res) => {
     posts = []
 
   for (let p of _posts) {
-    let { tags_count, likes_count, shares_count, comments_count, group_name } = await db.getCounts(p.post_id, p.group_id)
+    let {
+      tags_count, likes_count, shares_count, comments_count, group_name
+    } = await Post.getCounts(p.post_id, p.group_id)
 
     posts.push({
       ...p,

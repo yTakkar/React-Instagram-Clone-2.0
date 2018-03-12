@@ -1,6 +1,8 @@
 const
   app = require('express').Router(),
   db = require('../config/db'),
+  Group = require('../config/Group'),
+  User = require('../config/User'),
   root = process.cwd(),
   { createReadStream, createWriteStream, mkdir } = require('fs'),
   { promisify } = require('util')
@@ -103,7 +105,7 @@ app.post('/joined-group', async (req, res) => {
   let
     { group } = req.body,
     { id } = req.session,
-    joined = await db.joinedGroup(id, group)
+    joined = await Group.joinedGroup(id, group)
   res.json(joined)
 })
 
@@ -112,7 +114,7 @@ app.post('/join-group', async (req, res) => {
   let
     { user, added_by, group, when } = req.body,
     username = await db.getWhat('username', user),
-    joined = await db.joinedGroup(user, group),
+    joined = await Group.joinedGroup(user, group),
     member = {
       group_id: group,
       member: user,
@@ -153,7 +155,7 @@ app.post('/get-group-members', async (req, res) => {
   for (let m of _members) {
     let
       added_by_username = await db.getWhat('username', m.added_by),
-      mutualUsers = await db.mutualUsers(id, m.member)
+      mutualUsers = await User.mutualUsers(id, m.member)
 
     members.push({
       ...m,
@@ -177,7 +179,7 @@ app.post('/get-mutual-newest-members', async (req, res) => {
   let
     { id: session } = req.session,
     { grp_id } = req.body,
-    mutualMembers = await db.mutualGroupMembers(session, grp_id),
+    mutualMembers = await Group.mutualGroupMembers(session, grp_id),
     grpMembers = await db.query(
       'SELECT group_members.member AS user, users.username AS username FROM group_members, users WHERE group_id = ? AND group_members.member = users.id ORDER BY group_members.joined_group DESC',
       [ grp_id ]
@@ -201,7 +203,7 @@ app.post('/get-user-groups', async (req, res) => {
     groups = []
 
   for (let g of _groups) {
-    let joined = await db.joinedGroup(id, g.group_id)
+    let joined = await Group.joinedGroup(id, g.group_id)
     groups.push({ ...g, joined })
   }
 
@@ -242,7 +244,7 @@ app.post('/get-users-to-make-admin', async (req, res) => {
 // DELET GROUP
 app.post('/delete-group', async (req, res) => {
   let { group } = req.body
-  await db.deleteGroup(group)
+  await Group.deleteGroup(group)
   res.json('Hello, World!!')
 })
 

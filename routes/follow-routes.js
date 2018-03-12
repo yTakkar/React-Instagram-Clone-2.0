@@ -1,6 +1,7 @@
 const
   app = require('express').Router(),
-  db = require('../config/db')
+  db = require('../config/db'),
+  User = require('../config/User')
 
 // TO CHECK IF SESSION FOLLOWING USER
 app.post('/is-following', async (req, res) => {
@@ -9,7 +10,7 @@ app.post('/is-following', async (req, res) => {
       session: { id: session }
     } = req,
     id = await db.getId(username),
-    is = await db.isFollowing(session, id)
+    is = await User.isFollowing(session, id)
   res.json(is)
 })
 
@@ -18,8 +19,8 @@ app.post('/follow', async (req, res) => {
   let
     { user, username } = req.body,
     { id: session, username: session_username } = req.session,
-    isFollowing = await db.isFollowing(session, user),
-    isBlocked = await db.isBlocked(user, session),
+    isFollowing = await User.isFollowing(session, user),
+    isBlocked = await User.isBlocked(user, session),
     insert = {
       follow_by: session,
       follow_by_username: session_username,
@@ -186,8 +187,8 @@ app.post('/add-to-favourites', async (req, res) => {
     { user } = req.body,
     { id } = req.session,
     username = await db.getWhat('username', user),
-    favourite = await db.favouriteOrNot(id, user),
-    isBlocked = await db.isBlocked(user, id),
+    favourite = await User.favouriteOrNot(id, user),
+    isBlocked = await User.isBlocked(user, id),
     fav = {
       fav_by: id,
       user,
@@ -236,8 +237,8 @@ app.post('/recommend-user', async (req, res) => {
   let
     { user, recommend_to } = req.body,
     { id: recommend_by } = req.session,
-    isBlocked = await db.isBlocked(user, recommend_by),
-    isBlockedTwo = await db.isBlocked(recommend_to, recommend_by),
+    isBlocked = await User.isBlocked(user, recommend_by),
+    isBlockedTwo = await User.isBlocked(recommend_to, recommend_by),
     recommend = {
       recommend_by,
       recommend_to,

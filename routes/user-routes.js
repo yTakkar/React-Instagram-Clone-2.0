@@ -2,7 +2,8 @@ const
   app = require('express').Router(),
   db = require('../config/db'),
   dir = process.cwd(),
-  mail = require('../config/mail'),
+  mail = require('../config/Mail'),
+  User = require('../config/User'),
   fs = require('fs'),
   { promisify } = require('util'),
   { success } = require('handy-log'),
@@ -72,7 +73,7 @@ app.post('/user/signup', async (req, res) => {
           joined: new Date().getTime(),
           email_verified: 'no'
         },
-        { insertId, affectedRows } = await db.create_user(newUser),
+        { insertId, affectedRows } = await User.create_user(newUser),
         mkdir = promisify(fs.mkdir)
 
       if (affectedRows == 1){
@@ -141,7 +142,7 @@ app.post('/user/login', async (req, res) => {
     if (userCount == 0){
       res.json({ mssg: 'User not found!!' })
     } else {
-      let same = await db.comparePassword(rpassword, password)
+      let same = await User.comparePassword(rpassword, password)
       if (!same) {
         res.json({ mssg: 'Wrong password!!' })
       } else {
@@ -269,14 +270,14 @@ app.post('/user/change-password', async (req, res) => {
     errors.array().forEach(e => array.push(e.msg))
     res.json({ mssg: array })
   } else {
-    let same = await db.comparePassword(old, user_pass)
+    let same = await User.comparePassword(old, user_pass)
 
     if (!same) {
       res.json({ mssg: 'Incorrect password!!' })
     } else if (new_ != new_a) {
       res.json({ mssg: 'New passwords don\'t match' })
     } else {
-      let done = await db.change_password({ id, password: new_ })
+      let done = await User.change_password({ id, password: new_ })
 
       if (done) {
         res.json({
@@ -299,7 +300,7 @@ app.post('/user/deactivate-account', async (req, res) => {
     { id } = req.session,
     userPassword = await db.getWhat('password', id),
     { password } = req.body,
-    samePassword = await db.comparePassword(password, userPassword)
+    samePassword = await User.comparePassword(password, userPassword)
 
   req.checkBody('password', 'Password is empty!!').notEmpty()
 
@@ -312,7 +313,7 @@ app.post('/user/deactivate-account', async (req, res) => {
     res.json({ mssg: 'Wrong password!!' })
   } else {
 
-    await db.deactivate(id, req, res)
+    await User.deactivate(id, req, res)
 
     res.json({
       mssg: 'Deactivated your account successfully!!',
@@ -329,7 +330,7 @@ app.post('/user/remove-user', async (req, res) => {
     { user } = req.body,
     username = await db.getWhat('username', user)
 
-  await db.deactivate(user, req, res)
+  await User.deactivate(user, req, res)
   res.json({
     mssg: `Removed ${username}`,
     success: true

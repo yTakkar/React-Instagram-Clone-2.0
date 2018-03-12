@@ -1,6 +1,8 @@
 const
   app = require('express').Router(),
   db = require('../config/db'),
+  Post = require('../config/Post'),
+  User = require('../config/User'),
   root = process.cwd(),
   upload = require('multer')({
     dest: `${root}/public/temp/`
@@ -74,7 +76,9 @@ app.post('/get-user-posts', async (req, res) => {
     posts = []
 
   for (let p of _posts) {
-    let { tags_count, likes_count, shares_count, comments_count } = await db.getCounts(p.post_id, null)
+    let {
+      tags_count, likes_count, shares_count, comments_count
+    } = await Post.getCounts(p.post_id, null)
 
     posts.push({
       ...p,
@@ -99,7 +103,9 @@ app.post('/get-bookmarked-posts', async (req, res) => {
     posts = []
 
   for (let p of _posts) {
-    let { tags_count, likes_count, shares_count, comments_count, group_name } = await db.getCounts(p.post_id, p.group_id)
+    let {
+      tags_count, likes_count, shares_count, comments_count, group_name
+    } = await Post.getCounts(p.post_id, p.group_id)
 
     posts.push({
       ...p,
@@ -125,7 +131,9 @@ app.post('/get-tagged-posts', async (req, res) => {
     posts = []
 
   for (let p of _posts) {
-    let { tags_count, likes_count, shares_count, comments_count, group_name } = await db.getCounts(p.post_id, p.group_id)
+    let {
+      tags_count, likes_count, shares_count, comments_count, group_name
+    } = await Post.getCounts(p.post_id, p.group_id)
 
     posts.push({
       ...p,
@@ -153,7 +161,9 @@ app.post('/get-shared-posts', async (req, res) => {
   for (let p of _posts) {
     let
       share_by_username = await db.getWhat('username', p.share_by),
-      { tags_count, likes_count, shares_count, comments_count, group_name } = await db.getCounts(p.post_id, p.group_id)
+      {
+        tags_count, likes_count, shares_count, comments_count, group_name
+      } = await Post.getCounts(p.post_id, p.group_id)
 
     posts.push({
       ...p,
@@ -192,7 +202,9 @@ app.post('/get-feed', async (req, res) => {
     posts = []
 
   for (let p of _posts) {
-    let { tags_count, likes_count, shares_count, comments_count, group_name } = await db.getCounts(p.post_id, p.group_id)
+    let {
+      tags_count, likes_count, shares_count, comments_count, group_name
+    } = await Post.getCounts(p.post_id, p.group_id)
 
     posts.push({
       ...p,
@@ -218,7 +230,7 @@ app.post('/get-group-posts', async (req, res) => {
     posts = []
 
   for (let p of _posts) {
-    let { tags_count, likes_count, shares_count, comments_count } = await db.getCounts(p.post_id, null)
+    let { tags_count, likes_count, shares_count, comments_count } = await Post.getCounts(p.post_id, null)
 
     posts.push({
       ...p,
@@ -254,7 +266,7 @@ app.post('/get-post', async (req, res) => {
     ),
     {
       tags_count, likes_count, shares_count, comments_count, group_name
-    } = await db.getCounts(post_id, _post.length != 0 ? _post[0].group_id : 0),
+    } = await Post.getCounts(post_id, _post.length != 0 ? _post[0].group_id : 0),
     comments = await db.query(
       'SELECT comments.comment_id, comments.type, comments.text, comments.commentSrc, comments.comment_by, users.username AS comment_by_username, comments.post_id, comments.comment_time FROM comments, users WHERE comments.post_id = ? AND comments.comment_by = users.id ORDER BY comments.comment_time DESC',
       [ post_id ]
@@ -289,7 +301,7 @@ app.post('/edit-post', async (req, res) => {
 // DELETE POST
 app.post('/delete-post', async (req, res) => {
   let { post } = req.body
-  await db.deletePost({ post, when: 'user' })
+  await Post.deletePost({ post, when: 'user' })
   res.json('Hello, World!!')
 })
 
@@ -298,7 +310,7 @@ app.post('/liked-or-not', async (req, res) => {
   let
     { post } = req.body,
     { id } = req.session,
-    liked = await db.likedOrNot(id, post)
+    liked = await Post.likedOrNot(id, post)
   res.json(liked)
 })
 
@@ -307,7 +319,7 @@ app.post('/like-post', async (req, res) => {
   let
     { post } = req.body,
     { id } = req.session,
-    liked = await db.likedOrNot(id, post),
+    liked = await Post.likedOrNot(id, post),
     insert = {
       post_id: post,
       like_by: id,
@@ -335,7 +347,7 @@ app.post('/bookmarked-or-not', async (req, res) => {
   let
     { post } = req.body,
     { id } = req.session,
-    bookmarked = await db.bookmarkedOrNot(id, post)
+    bookmarked = await Post.bookmarkedOrNot(id, post)
   res.json(bookmarked)
 })
 
@@ -344,7 +356,7 @@ app.post('/bookmark-post', async (req, res) => {
   let
     { post } = req.body,
     { id } = req.session,
-    bookmarked = await db.bookmarkedOrNot(id, post),
+    bookmarked = await Post.bookmarkedOrNot(id, post),
     insert = {
       bkmrk_by: id,
       post_id: post,
@@ -379,13 +391,13 @@ app.post('/get-post-likes', async (req, res) => {
   for (let l of likes) {
     array.unshift({
       ...l,
-      isFollowing: await db.isFollowing(id, l.like_by)
+      isFollowing: await User.isFollowing(id, l.like_by)
     })
   }
 
   res.json({
     likes: array,
-    isPostMine: await db.isPostMine(id, post)
+    isPostMine: await Post.isPostMine(id, post)
   })
 })
 
@@ -410,13 +422,13 @@ app.post('/get-post-tags', async (req, res) => {
   for (let t of tags) {
     array.push({
       ...t,
-      isFollowing: await db.isFollowing(id, t.user),
+      isFollowing: await User.isFollowing(id, t.user),
     })
   }
 
   res.json({
     tags: array,
-    isPostMine: await db.isPostMine(id, post)
+    isPostMine: await Post.isPostMine(id, post)
   })
 })
 
@@ -439,7 +451,7 @@ app.post('/get-users-to-share', async (req, res) => {
     share = []
 
   for (let f of followings) {
-    let didIShare = await db.didIShare(post, id, f.follow_to)
+    let didIShare = await Post.didIShare(post, id, f.follow_to)
     share.push({
       ...f,
       didIShare
@@ -455,7 +467,7 @@ app.post('/share-post', async (req, res) => {
     { share_to, post } = req.body,
     username = await db.getWhat('username', share_to),
     { id } = req.session,
-    shared = await db.didIShare(post, id, share_to),
+    shared = await Post.didIShare(post, id, share_to),
     insert = {
       share_by: id,
       share_to,
@@ -507,7 +519,7 @@ app.post('/get-post-sharers', async (req, res) => {
   for (let s of _sharers) {
     let
       share_to_username = await db.getWhat('username', s.share_to),
-      isFollowing = await db.isFollowing(id, s.share_by)
+      isFollowing = await User.isFollowing(id, s.share_by)
 
     sharers.push({
       ...s,
