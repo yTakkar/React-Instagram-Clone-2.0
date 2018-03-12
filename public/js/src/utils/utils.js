@@ -542,7 +542,7 @@ export const addPost = async options => {
     comments_count: 0,
     likes_count: 0,
     shares_count: 0,
-    tags_count: 0,
+    tags_count: tags.length,
     user,
     username,
     firstname,
