@@ -1,3 +1,5 @@
+// HANDY METHODS FOR GROUP ROUTES
+
 const
   db = require('./db'),
   { rmdir } = require('fs'),
@@ -7,7 +9,10 @@ const
   { DeleteAllOfFolder } = require('handy-image-processor'),
   { intersectionBy } = require('lodash')
 
-// DELETES GROUP
+/**
+ * Deletes group
+ * @param {Number} group GroupID
+ */
 const deleteGroup = async group => {
   let
     posts = await db.query('SELECT post_id FROM posts WHERE group_id=?', [ group ]),
@@ -25,7 +30,11 @@ const deleteGroup = async group => {
   await dltDir(`${root}/public/groups/${group}`)
 }
 
-// FUNCTION TO RETURN WHETHER I JOINED GROUP
+/**
+ * Returns whether user joined group
+ * @param {Number} user UserID
+ * @param {Number} group GroupID
+ */
 const joinedGroup = (user, group) => {
   return new Promise((resolve, reject) => {
     db.query('SELECT COUNT(grp_member_id) AS joined FROM group_members WHERE member=? AND group_id=? LIMIT 1', [user, group])
@@ -34,7 +43,11 @@ const joinedGroup = (user, group) => {
   })
 }
 
-// RETURNS MUTUAL USERS
+/**
+ * Returns mutual users of group members and user
+ * @param {Number} user UserID
+ * @param {Number} group GroupID
+ */
 const mutualGroupMembers = async (user, group) => {
   return new Promise(async (resolve, reject) => {
     try {

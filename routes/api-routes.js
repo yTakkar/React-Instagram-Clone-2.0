@@ -1,10 +1,12 @@
+// REST API ROUTES ARE HANDLED BY THIS FILE
+
 const
   app = require('express').Router(),
   db = require('../config/db'),
   User = require('../config/User'),
   Group = require('../config/Group')
 
-// FOR CHECKING IF IT'S A VALID USER
+// FOR CHECKING IF IT'S A VALID USER [REQ = USERNAME]
 app.post('/is-user-valid', async (req, res) => {
   let
     { username } = req.body,
@@ -12,7 +14,7 @@ app.post('/is-user-valid', async (req, res) => {
   res.json(userCount == 1 ? true : false)
 })
 
-// GETTING USER DETAILS
+// GETTING USER DETAILS [REQ = USERNAME]
 app.post('/get-user-details', async (req, res) => {
   let
     { username } = req.body,
@@ -30,7 +32,7 @@ app.post('/get-user-details', async (req, res) => {
 
 })
 
-// GETTING MUTUAL USERS
+// GETTING MUTUAL USERS [REQ = USERNAME]
 app.post('/get-mutual-users', async (req, res) => {
   let
     { username } = req.body,
@@ -47,7 +49,7 @@ app.post('/get-mutual-users', async (req, res) => {
   res.json(mutuals)
 })
 
-// SEARCH INSTAGRAM
+// SEARCH INSTAGRAM [REQ = VALUE]
 app.post('/search-instagram', async (req, res) => {
   let
     { value } = req.body,

@@ -1,9 +1,12 @@
+// ALL EDIT PROFILE-RELATED ROUTES ARE HANDLED BY THIS FILE
+
 const
   app = require('express').Router(),
   db = require('../config/db'),
   mail = require('../config/mail')
 
-// FOR GETTING THE COUNT OF GIVEN FIELD
+// RETURNS THE COUNT OF A GIVEN FIELD SUCH.
+// EG. POST('/api/what-exists', { what: 'username', value: 'Takkar' })
 app.post('/what-exists', (req, res) => {
   let { what, value } = req.body
   db.query(`SELECT COUNT(${what}) AS count FROM users WHERE ${what}=?`, [ value ])
@@ -11,7 +14,7 @@ app.post('/what-exists', (req, res) => {
     .catch(e => res.json(e))
 })
 
-// EDIT PROFILE
+// EDIT PROFILE [REQ = ...]
 app.post('/edit-profile', async (req, res) => {
   let
     { username, firstname, surname, email, bio, twitter, instagram, facebook, github, website, phone, tags } = req.body,
@@ -81,7 +84,7 @@ app.post('/resend_vl', async (req, res) => {
 
 })
 
-// CHANGE ACCOUNT TYPE
+// CHANGE ACCOUNT TYPE [REQ = TYPE]
 app.post('/change-account-type', async (req, res) => {
   let
     { type } = req.body,

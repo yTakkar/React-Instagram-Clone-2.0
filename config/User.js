@@ -1,3 +1,5 @@
+// HANDY METHODS FOR USER ROUTES
+
 const
   db = require('./db'),
   bcrypt = require('bcrypt-nodejs'),
@@ -10,7 +12,10 @@ const
   { DeleteAllOfFolder } = require('handy-image-processor'),
   { intersectionBy } = require('lodash')
 
-// CREATES A NEW USER
+/**
+ * creates a new user
+ * @param {Object} User User details
+ */
 const create_user = user => {
   return new Promise((resolve, reject) => {
     bcrypt.hash(user.password, null, null, (error, hash) => {
@@ -22,7 +27,9 @@ const create_user = user => {
   })
 }
 
-// CHANGES PASSWORD
+/**
+ * changes password
+ */
 const change_password = async ({ password, id }) => {
   return new Promise((resolve, reject) => {
     bcrypt.hash(password, null, null, (error, hash) => {
@@ -33,7 +40,12 @@ const change_password = async ({ password, id }) => {
   })
 }
 
-// COMPARES PASSWORD
+/**
+ * compares password
+ * @param {String} password Password
+ * @param {String} hash Hash to be compared with password
+ * @returns {Boolean} Boolean
+ */
 const comparePassword = (password, hash) => {
   return new Promise((resolve, reject) => {
     bcrypt.compare(password, hash, (err, res) => {
@@ -42,7 +54,12 @@ const comparePassword = (password, hash) => {
   })
 }
 
-// FUNCTION TO RETURN WHETHER I AM FOLLOWING USER
+/**
+ * Returns whether session is following user
+ * @param {Number} session Session ID
+ * @param {Number} user User
+ * @returns {Boolean} Boolean
+ */
 const isFollowing = (session, user) => {
   return new Promise((resolve, reject) => {
     db.query('SELECT COUNT(follow_id) AS is_following FROM follow_system WHERE follow_by=? AND follow_to=? LIMIT 1', [session, user])
@@ -51,7 +68,11 @@ const isFollowing = (session, user) => {
   })
 }
 
-// RETURNS WHEN USER IS MY FAVOURITE OR NOT
+/**
+ * Returns whether User is fav_by's favorite
+ * @param {Number} fav_by Favorite By
+ * @param {Number} user User ID
+ */
 const favouriteOrNot = (fav_by, user) => {
   return new Promise((resolve, reject) => {
     db.query('SELECT COUNT(fav_id) AS fav_count FROM favourites WHERE fav_by=? AND user=?', [ fav_by, user ])
@@ -60,7 +81,11 @@ const favouriteOrNot = (fav_by, user) => {
   })
 }
 
-// RETURNS WHEN USER IS BLOCKED OR NOT
+/**
+ * Returns whether User is blocked by user
+ * @param {Number} block_by Block By
+ * @param {Number} user User ID
+ */
 const isBlocked = (block_by, user) => {
   return new Promise((resolve, reject) => {
     db.query('SELECT COUNT(block_id) AS block_count FROM blocks WHERE block_by=? AND user=?', [ block_by, user ])
@@ -69,7 +94,12 @@ const isBlocked = (block_by, user) => {
   })
 }
 
-// DEACTIVATES USER
+/**
+ * Deactivates user
+ * @param {user} user User to deactivate
+ * @param {Object} req Express' Req object
+ * @param {Object} res Express' Res Object
+ */
 const deactivate = async (user, req, res) => {
   let
     posts = await db.query('SELECT post_id FROM posts WHERE user=?', [ user ]),
@@ -120,6 +150,11 @@ const deactivate = async (user, req, res) => {
 }
 
 // RETURNS MUTUAL USERS
+/**
+ * Returns mutual users of session & user
+ * @param {Number} session Session ID
+ * @param {Number} user User ID
+ */
 const mutualUsers = async (session, user) => {
   return new Promise(async (resolve, reject) => {
     try {

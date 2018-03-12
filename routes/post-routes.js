@@ -1,3 +1,5 @@
+// ALL POST-RELATED ROUTES ARE HANDLED BY THIS FILE
+
 const
   app = require('express').Router(),
   db = require('../config/db'),
@@ -11,7 +13,7 @@ const
   { unlink, createReadStream, createWriteStream } = require('fs'),
   { promisify } = require('util')
 
-// POST IMAGE
+// POST [REQ = DESC, FILTER, LOCATION, TYPE, GROUP, IMAGE(FILE) ]
 app.post('/post-it', upload.single('image'), async (req, res) => {
   let
     { id } = req.session,
@@ -51,7 +53,7 @@ app.post('/post-it', upload.single('image'), async (req, res) => {
   })
 })
 
-// POST TAGS
+// TAGS USERS FOR A POST [REQ = TAGS, POST_ID]
 app.post('/tag-post', (req, res) => {
   let { tags, post_id } = req.body
   tags.forEach(async t => {
@@ -64,7 +66,7 @@ app.post('/tag-post', (req, res) => {
   res.json(null)
 })
 
-// GET USER POSTS
+// GET USER POSTS [REQ = USERNAME]
 app.post('/get-user-posts', async (req, res) => {
   let
     { username } = req.body,
@@ -92,7 +94,7 @@ app.post('/get-user-posts', async (req, res) => {
   res.json(posts)
 })
 
-// GET BOOKMARKED POSTS
+// GET BOOKMARKED POSTS [REQ = USER]
 app.post('/get-bookmarked-posts', async (req, res) => {
   let
     { user } = req.body,
@@ -120,7 +122,7 @@ app.post('/get-bookmarked-posts', async (req, res) => {
   res.json(posts)
 })
 
-// GET TAGGED POSTS
+// GET TAGGED POSTS [REQ = USER]
 app.post('/get-tagged-posts', async (req, res) => {
   let
     { user } = req.body,
@@ -148,7 +150,7 @@ app.post('/get-tagged-posts', async (req, res) => {
   res.json(posts)
 })
 
-// GET SHARED POSTS
+// GET SHARED POSTS [REQ = USER]
 app.post('/get-shared-posts', async (req, res) => {
   let
     { user } = req.body,
@@ -179,7 +181,7 @@ app.post('/get-shared-posts', async (req, res) => {
   res.json(posts)
 })
 
-// GET PHOTOS
+// GET PHOTOS [REQ = USER]
 app.post('/get-photos', async (req, res) => {
   let
     { user } = req.body,
@@ -219,7 +221,7 @@ app.post('/get-feed', async (req, res) => {
   res.json(posts)
 })
 
-// GET GROUP POSTS
+// GET GROUP POSTS [REQ = GROUP]
 app.post('/get-group-posts', async (req, res) => {
   let
     { group } = req.body,
@@ -244,7 +246,7 @@ app.post('/get-group-posts', async (req, res) => {
   res.json(posts)
 })
 
-// GET GROUP PHOTOS
+// GET GROUP PHOTOS [REQ = GROUP]
 app.post('/get-group-photos', async (req, res) => {
   let
     { group } = req.body,
@@ -256,7 +258,7 @@ app.post('/get-group-photos', async (req, res) => {
   res.json(_photos)
 })
 
-// GET POST BY POST_ID
+// GET POST BY [REQ = POST_ID]
 app.post('/get-post', async (req, res) => {
   let
     { post_id } = req.body,
@@ -285,7 +287,7 @@ app.post('/get-post', async (req, res) => {
   res.json(post)
 })
 
-// EDIT POST
+// EDIT POST [REQ = POST, DESCRIPTION]
 app.post('/edit-post', async (req, res) => {
   let
     { post, description } = req.body,
@@ -298,14 +300,14 @@ app.post('/edit-post', async (req, res) => {
   res.json('Hello, World!!')
 })
 
-// DELETE POST
+// DELETE POST [REQ = POST]
 app.post('/delete-post', async (req, res) => {
   let { post } = req.body
   await Post.deletePost({ post, when: 'user' })
   res.json('Hello, World!!')
 })
 
-// POST LIKED OR NOT
+// POST LIKED OR NOT [REQ = POST]
 app.post('/liked-or-not', async (req, res) => {
   let
     { post } = req.body,
@@ -314,7 +316,7 @@ app.post('/liked-or-not', async (req, res) => {
   res.json(liked)
 })
 
-// LIKE POST
+// LIKE POST [REQ = POST]
 app.post('/like-post', async (req, res) => {
   let
     { post } = req.body,
@@ -333,7 +335,7 @@ app.post('/like-post', async (req, res) => {
   res.json('Hello, World!!')
 })
 
-// UNLIKE POST
+// UNLIKE POST [REQ = POST]
 app.post('/unlike-post', async (req, res) => {
   let
     { post } = req.body,
@@ -342,7 +344,7 @@ app.post('/unlike-post', async (req, res) => {
   res.json('Hello, World!!')
 })
 
-// BOOKMARKED OR NOT
+// BOOKMARKED OR NOT [REQ = POST]
 app.post('/bookmarked-or-not', async (req, res) => {
   let
     { post } = req.body,
@@ -351,7 +353,7 @@ app.post('/bookmarked-or-not', async (req, res) => {
   res.json(bookmarked)
 })
 
-// BOOKMARK POST
+// BOOKMARK POST [REQ = POST]
 app.post('/bookmark-post', async (req, res) => {
   let
     { post } = req.body,
@@ -370,14 +372,14 @@ app.post('/bookmark-post', async (req, res) => {
   res.json('Hello, World!!')
 })
 
-// UNBOOKMARK POST
+// UNBOOKMARK POST [REQ = POST, USER]
 app.post('/unbookmark-post', async (req, res) => {
   let { post, user } = req.body
   await db.query('DELETE FROM bookmarks WHERE post_id=? AND bkmrk_by=?', [ post, user ])
   res.json('Hello, World!!')
 })
 
-// GET POST LIKES
+// GET POST LIKES [REQ = POST]
 app.post('/get-post-likes', async (req, res) => {
   let
     { post } = req.body,
@@ -401,14 +403,14 @@ app.post('/get-post-likes', async (req, res) => {
   })
 })
 
-// REMOVE LIKE
+// REMOVE LIKE [REQ = LIKE_ID]
 app.post('/remove-like', async (req, res) => {
   let { like_id } = req.body
   await db.query('DELETE FROM likes WHERE like_id=?', [ like_id ])
   res.json('Hello, World!!')
 })
 
-// GET POST TAGS
+// GET POST TAGS [REQ = POST]
 app.post('/get-post-tags', async (req, res) => {
   let
     { post } = req.body,
@@ -432,14 +434,14 @@ app.post('/get-post-tags', async (req, res) => {
   })
 })
 
-// UNTAG
+// UNTAG [REQ = POST, USER]
 app.post('/untag', async (req, res) => {
   let { user, post } = req.body
   await db.query('DELETE FROM post_tags WHERE post_id=? AND user=?', [ post, user ])
   res.json('Hello, World!!')
 })
 
-// GET USERS TO SHARE
+// GET USERS TO SHARE [REQ = POST]
 app.post('/get-users-to-share', async (req, res) => {
   let
     { id } = req.session,
@@ -461,7 +463,7 @@ app.post('/get-users-to-share', async (req, res) => {
   res.json(share)
 })
 
-// SHARE POST
+// SHARE POST [REQ = POST, SHARE_TO]
 app.post('/share-post', async (req, res) => {
   let
     { share_to, post } = req.body,
@@ -489,7 +491,7 @@ app.post('/share-post', async (req, res) => {
   res.json({ mssg, success })
 })
 
-// UNSHARE POST
+// UNSHARE POST [REQ = POST, UNSHARE_TO]
 app.post('/unshare-post', async (req, res) => {
   let
     { post, unshare_to } = req.body,
@@ -498,14 +500,14 @@ app.post('/unshare-post', async (req, res) => {
   res.json('Hello, World!!')
 })
 
-// REMOVE SHARE
+// REMOVE SHARE [REQ = SHARE_ID]
 app.post('/remove-share', async (req, res) => {
   let { share_id } = req.body
   await db.query('DELETE FROM shares WHERE share_id=?', [ share_id ] )
   res.json('Hello, World!!')
 })
 
-// POST SHARED BY
+// POST SHARED BY [REQ = POST]
 app.post('/get-post-sharers', async (req, res) => {
   let
     { post } = req.body,
@@ -531,7 +533,7 @@ app.post('/get-post-sharers', async (req, res) => {
   res.json(sharers)
 })
 
-// COMMENT TEXT
+// COMMENT TEXT [REQ = POST, TEST]
 app.post('/comment-text', async (req, res) => {
   let
     { post, text } = req.body,
@@ -549,7 +551,7 @@ app.post('/comment-text', async (req, res) => {
   res.json({ comment_id: insertId })
 })
 
-// COMMENT IMAGE
+// COMMENT IMAGE [REQ = POST, COMMENTIMAGE(FILE)]
 app.post('/comment-image', upload.single('commentImage'), async (req, res) => {
   let
     { id } = req.session,
@@ -578,7 +580,7 @@ app.post('/comment-image', upload.single('commentImage'), async (req, res) => {
   })
 })
 
-// COMMENT STICKER
+// COMMENT STICKER [REQ = POST, STICKER]
 app.post('/comment-sticker', async (req, res) => {
   let
     { sticker, post } = req.body,
@@ -603,7 +605,7 @@ app.post('/comment-sticker', async (req, res) => {
   })
 })
 
-// DELETE COMMENT
+// DELETE COMMENT [REQ = COMMENT_ID, TYPE, COMMENTSRC]
 app.post('/delete-comment', async (req, res) => {
   let
     { comment_id, type, commentSrc } = req.body,
@@ -618,7 +620,7 @@ app.post('/delete-comment', async (req, res) => {
   res.json('H')
 })
 
-// EDIT COMMENT
+// EDIT COMMENT [REQ = COMMENT_ID, COMMENT]
 app.post('/edit-comment', async (req, res) => {
   let { comment_id, comment } = req.body
   await db.query('UPDATE comments SET text=? WHERE comment_id=?', [ comment, comment_id ])

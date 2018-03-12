@@ -1,10 +1,17 @@
+// HANDY METHODS FOR POST ROUTES
+
 const
   db = require('./db'),
   { unlink } = require('fs'),
   { promisify } = require('util'),
   root = process.cwd()
 
-// FUNCTION TO RETURN WHETHER I LIKED THE POST
+/**
+ * Returns whther user liked the post
+ * @param {Number} user User ID
+ * @param {Number} post Post ID
+ * @returns {Boolean} Boolean
+ */
 const likedOrNot = (user, post) => {
   return new Promise((resolve, reject) => {
     db.query('SELECT COUNT(like_id) AS l FROM likes WHERE like_by=? AND post_id=?', [ user, post ])
@@ -13,7 +20,12 @@ const likedOrNot = (user, post) => {
   })
 }
 
-// FUNCTION TO RETURN WHETHER I LIKED THE POST
+/**
+ * Returns whether user bookmarked the post
+ * @param {Number} user User ID
+ * @param {Number} post Post ID
+ * @returns {Boolean} Boolean
+ */
 const bookmarkedOrNot = (user, post) => {
   return new Promise((resolve, reject) => {
     db.query('SELECT COUNT(bkmrk_id) AS b FROM bookmarks WHERE bkmrk_by=? AND post_id=?', [ user, post ])
@@ -22,7 +34,12 @@ const bookmarkedOrNot = (user, post) => {
   })
 }
 
-// FUNCTION TO RETURN WHETHER I'M THE OWNER OF A GIVEN POST
+/**
+ * Returns whether session is the owner of post
+ * @param {Number} session Session ID
+ * @param {Number} post Post ID
+ * @returns {Boolean} Boolean
+ */
 const isPostMine = (session, post) => {
   return new Promise((resolve, reject) => {
     db.query('SELECT user FROM posts WHERE post_id=?', [ post ])
@@ -31,7 +48,13 @@ const isPostMine = (session, post) => {
   })
 }
 
-// FUNCTION TO RETURN WHETHER I SHARED POST TO A USER
+/**
+ * Returns whether session shares post to user
+ * @param {Number} post Post ID
+ * @param {Number} session Session ID [share_by]
+ * @param {User} user User ID [share_to]
+ * @returns {Boolean} Boolean
+ */
 const didIShare = (post, session, user) => {
   return new Promise((resolve, reject) => {
     db.query(
@@ -43,7 +66,12 @@ const didIShare = (post, session, user) => {
   })
 }
 
-// RETURNS TAGS COUNT, LIKES COUNT, ...
+/**
+ * Returns tags count, likes count, ...
+ * @param {Number} post_id Post ID
+ * @param {Number} group_id Group ID
+ * @returns {Object} Tags Count, Likes Count, ...
+ */
 const getCounts = async (post_id, group_id) => {
   return new Promise(async (resolve, reject) => {
     try {
@@ -69,7 +97,9 @@ const getCounts = async (post_id, group_id) => {
   })
 }
 
-// DELETES POST
+/**
+ * Deletes a post
+ */
 const deletePost = async ({post, when}) => {
   await db.query('DELETE FROM likes WHERE post_id=?', [ post ])
   await db.query('DELETE FROM post_tags WHERE post_id=?', [ post ])

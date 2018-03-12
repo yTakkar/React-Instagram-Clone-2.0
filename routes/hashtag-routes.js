@@ -1,9 +1,11 @@
+// ALL HASHTAG-RELATED ROUTES ARE HANDLED BY THIS FILE
+
 const
   app = require('express').Router(),
   db = require('../config/db'),
   Post = require('../config/Post')
 
-// GET USERS HASHTAGS
+// GET USERS HASHTAGS [REQ = USERNAME]
 app.post('/get-users-hashtags', async (req, res) => {
   let
     { username } = req.body,
@@ -15,10 +17,10 @@ app.post('/get-users-hashtags', async (req, res) => {
   res.json(hashtags)
 })
 
-// GET GROUP HASHTAGS
+// GET GROUP HASHTAGS [REQ = GROUP_ID]
 app.post('/get-group-hashtags', async (req, res) => {
   let
-    group_id = 11,
+    { group_id } = req.body,
     groupPosts = await db.query(
       'SELECT post_id FROM posts WHERE group_id=? ORDER BY post_time DESC LIMIT 20',
       [ group_id ]
@@ -43,7 +45,7 @@ app.post('/get-popular-hashtags', async (req, res) => {
   res.json(hashtags)
 })
 
-// GET HASHTAG POSTS
+// GET HASHTAG POSTS [REQ = HASHTAG]
 app.post('/get-hashtag-posts', async (req, res) => {
   let
     { hashtag } = req.body,

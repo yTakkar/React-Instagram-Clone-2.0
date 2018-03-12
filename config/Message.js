@@ -1,9 +1,14 @@
+// HANDY METHODS FOR MESSAGE ROUTES
+
 const
   db = require('./db'),
   { promisify } = require('util'),
   { unlink } = require('fs')
 
-// GET LAST MESSAGE TIME
+/**
+ * Returns last message time of a comversation
+ * @param {Number} con_id Conversation ID
+ */
 const getLastMssgTime = con_id => {
   return new Promise((resolve, reject) => {
     db.query(
@@ -15,7 +20,10 @@ const getLastMssgTime = con_id => {
   })
 }
 
-// GET LAST MESSAGE
+/**
+ * Returns last message of a comversation
+ * @param {Number} con_id Conversation ID
+ */
 const getLastMssg = con_id => {
   return new Promise((resolve, reject) => {
     db.query(
@@ -35,7 +43,10 @@ const getLastMssg = con_id => {
   })
 }
 
-// DELETES CONVERSATION
+/**
+ * Deletes a conversation
+ * @param {Number} con_id Conversation ID
+ */
 const deleteCon = async con_id => {
   let
     messages = await db.query('SELECT message, type FROM messages WHERE con_id=?', [ con_id ]),

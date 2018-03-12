@@ -1,3 +1,6 @@
+// MAIN ENTRY OF OUR APP
+
+// Initializes dotenv
 require('dotenv').config()
 
 // Require Dependencies
@@ -75,6 +78,7 @@ app.use('/api', hashtagR)
 app.use('/api', apiR)
 app.use('/', mainR)
 
+// Listening to PORT
 app.listen(PORT, () =>
   rainbow('App running..')
 )

@@ -1,3 +1,5 @@
+// ALL MESSAGES/CONVERSATIONS-RELATED ROUTES ARE HANDLED BY THIS FILE
+
 const
   app = require('express').Router(),
   db = require('../config/db'),
@@ -12,7 +14,7 @@ const
   { promisify } = require('util'),
   { orderBy } = require('lodash')
 
-// CREATE A CONVERSATION
+// CREATES A CONVERSATION [REQ = USER]
 app.post('/create-new-conversation', async (req, res) => {
   let
     { id } = req.session,
@@ -51,7 +53,7 @@ app.post('/create-new-conversation', async (req, res) => {
 
 })
 
-// GET CONVERSATIONS
+// GET CONVERSATIONS OF THE SESSION USER
 app.post('/get-conversations', async (req, res) => {
   let
     { id } = req.session,
@@ -96,7 +98,7 @@ app.post('/get-conversations', async (req, res) => {
   res.json(orderedCons)
 })
 
-// GET CONVERSATION MESSAGES
+// GET CONVERSATION MESSAGES [REQ = CON_ID]
 app.post('/get-conversation-messages', async (req, res) => {
   let
     { con_id } = req.body,
@@ -107,7 +109,7 @@ app.post('/get-conversation-messages', async (req, res) => {
   res.json(messages)
 })
 
-// TEXT MESSAGE
+// TEXT MESSAGE [REQ = MESSAGE, CON_ID, CON_WITH]
 app.post('/text-message', async (req, res) => {
   let
     { message, con_id, con_with } = req.body,
@@ -124,7 +126,7 @@ app.post('/text-message', async (req, res) => {
   res.json({ message_id: insertId })
 })
 
-// IMAGE MESSAGE
+// IMAGE MESSAGE [REQ = CON_ID, CON_WITH, MESSAGEFILE(FILE)]
 app.post('/image-message', upload.single('messageFile'), async (req, res) => {
   let
     { id } = req.session,
@@ -154,7 +156,7 @@ app.post('/image-message', upload.single('messageFile'), async (req, res) => {
   })
 })
 
-// COMMENT STICKER
+// COMMENT STICKER [REQ = CON_ID, STICKER, CON_WITH]
 app.post('/sticker-message', async (req, res) => {
   let
     { sticker, con_id, con_with } = req.body,
@@ -180,14 +182,14 @@ app.post('/sticker-message', async (req, res) => {
   })
 })
 
-// EDIT MESSAGE
+// EDIT MESSAGE [REQ = MESSAGE, MESSAGE_ID]
 app.post('/edit-message', async (req, res) => {
   let { message, message_id } = req.body
   await db.query('UPDATE messages SET message=? WHERE message_id=?', [ message, message_id ])
   res.json('Hello, World!!')
 })
 
-// DELETE MESSAGE
+// DELETE MESSAGE [REQ = MESSAGE_ID, TYPE, MESSAGE]
 app.post('/delete-message', async (req, res) => {
   let
     { message_id, type, message } = req.body,
@@ -202,7 +204,7 @@ app.post('/delete-message', async (req, res) => {
   res.json('H')
 })
 
-// UNSEND ALL MESSAGES
+// UNSEND ALL MESSAGES [REQ = CON_ID]
 app.post('/unsend-all-mssgs', async (req, res) => {
   let
     { con_id } = req.body,
@@ -221,14 +223,14 @@ app.post('/unsend-all-mssgs', async (req, res) => {
   res.json('Hello, World!!')
 })
 
-// DELETE CONVERSATION
+// DELETE CONVERSATION [REQ = CON_ID]
 app.post('/delete-conversation', async (req, res) => {
   let { con_id } = req.body
   await Mssg.deleteCon(con_id)
   res.json('Hello, World!!')
 })
 
-// GET CONVERSATION DETAILS
+// GET CONVERSATION DETAILS [REQ = CON_ID]
 app.post('/get-conversion-details', async (req, res) => {
   let
     { con_id } = req.body,
@@ -259,7 +261,7 @@ app.post('/get-unread-messages', async (req, res) => {
   res.json(unreads)
 })
 
-// READ MESSAGES OF A CONVERSATION
+// READ MESSAGES OF A CONVERSATION [REQ = CON_ID]
 app.post('/read-conversation', async (req, res) => {
   let
     { id } = req.session,

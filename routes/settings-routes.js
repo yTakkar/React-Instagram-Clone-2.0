@@ -1,3 +1,5 @@
+// ALL SETTINGS-RELATED ROUTES ARE HANDLED BY THIS FILE
+
 const
   app = require('express').Router(),
   db = require('../config/db')

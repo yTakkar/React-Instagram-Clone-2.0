@@ -1,9 +1,11 @@
+// ALL FOLLOWE-RELATED ROUTES ARE HANDLED BY THIS FILE
+
 const
   app = require('express').Router(),
   db = require('../config/db'),
   User = require('../config/User')
 
-// TO CHECK IF SESSION FOLLOWING USER
+// TO CHECK IF SESSION FOLLOWING USER [REQ = USERNAME]
 app.post('/is-following', async (req, res) => {
   let {
       body: { username },
@@ -14,7 +16,7 @@ app.post('/is-following', async (req, res) => {
   res.json(is)
 })
 
-// FOLLOW
+// FOLLOW USER [REQ = USER, USERNAME]
 app.post('/follow', async (req, res) => {
   let
     { user, username } = req.body,
@@ -63,14 +65,14 @@ app.post('/follow', async (req, res) => {
 
 })
 
-// UNFOLLOW
+// UNFOLLOW USER [REQ = USER]
 app.post('/unfollow', async (req, res) => {
   let { session, body } = req
   await db.query('DELETE FROM follow_system WHERE follow_by=? AND follow_to=?', [ session.id, body.user ])
   res.json({ mssg: 'Unfollowed!!' })
 })
 
-// VIEW PROFILE
+// VIEW PROFILE [REQ = USERNAME]
 app.post('/view-profile', async (req, res) => {
   let
     { username } = req.body,
@@ -115,7 +117,7 @@ const getFollowings = user => {
   })
 }
 
-// GET USER STATS [FOLLOWERS/FOLLOWINGS/ETC..]
+// GET USER STATS [FOLLOWERS/FOLLOWINGS/ETC..] [REQ = USERNAME]
 app.post('/get-user-stats', async (req, res) => {
   let
     { username } = req.body,
@@ -154,7 +156,7 @@ app.post('/get-user-stats', async (req, res) => {
   })
 })
 
-// GET FOLLOWERS
+// GET FOLLOWERS [REQ = USER]
 app.post('/get-followers', async (req, res) => {
   let
     { user } = req.body,
@@ -162,7 +164,7 @@ app.post('/get-followers', async (req, res) => {
   res.json(followers)
 })
 
-// GET FOLLOWINGS
+// GET FOLLOWINGS [REQ = USER]
 app.post('/get-followings', async (req, res) => {
   let
     { user } = req.body,
@@ -181,7 +183,7 @@ app.post('/search-followings', async (req, res) => {
   res.json(data)
 })
 
-// ADD TO FAVOURITES
+// ADD TO FAVOURITES [REQ = USER]
 app.post('/add-to-favourites', async (req, res) => {
   let
     { user } = req.body,
@@ -212,14 +214,14 @@ app.post('/add-to-favourites', async (req, res) => {
 
 })
 
-// REMOVE FROM FAVOURITES
+// REMOVE FROM FAVOURITES [REQ = FAV_ID]
 app.post('/remove-favourites', async (req, res) => {
   let { fav_id } = req.body
   await db.query('DELETE FROM favourites WHERE fav_id=?', [ fav_id ])
   res.json('Hello, World!!')
 })
 
-// USERS TO RECOMMEND
+// USERS TO RECOMMEND [REQ = USER]
 app.post('/get-users-to-recommend', async (req, res) => {
   let
     { user } = req.body,
@@ -232,7 +234,7 @@ app.post('/get-users-to-recommend', async (req, res) => {
   res.json(users)
 })
 
-// RECOMMEND USER
+// RECOMMEND USER [REQ = USER, RECOMMEND_TO]
 app.post('/recommend-user', async (req, res) => {
   let
     { user, recommend_to } = req.body,
@@ -254,7 +256,7 @@ app.post('/recommend-user', async (req, res) => {
   }
 })
 
-// REMOVE RECOMMENDATION
+// REMOVE RECOMMENDATION [REQ = RECOMMEND_ID]
 app.post('/remove-recommendation', async (req, res) => {
   let { recommend_id } = req.body
   await db.query('DELETE FROM recommendations WHERE recommend_id=?', [ recommend_id ])

@@ -1,3 +1,5 @@
+// ALL GROUP-RELATED ROUTES ARE HANDLED BY THIS FILE
+
 const
   app = require('express').Router(),
   db = require('../config/db'),
@@ -7,7 +9,7 @@ const
   { createReadStream, createWriteStream, mkdir } = require('fs'),
   { promisify } = require('util')
 
-// CREATE GROUP
+// CREATE GROUP [REQ = NAME, BIO]
 app.post('/create-group', async (req, res) => {
   let
     { name, bio } = req.body,
@@ -62,7 +64,7 @@ app.post('/create-group', async (req, res) => {
 
 })
 
-// EDIT GROUP
+// EDIT GROUP [REQ = NAME, BIO, GROUP_TYPE, GROUP]
 app.post('/edit-group', async (req, res) => {
   let { name, bio, group_type, group } = req.body
   await db.query(
@@ -72,7 +74,7 @@ app.post('/edit-group', async (req, res) => {
   res.json('Hello, World!!')
 })
 
-// CHECK IF GROUP IS VALID
+// CHECK IF GROUP IS VALID [REQ = GRP_ID]
 app.post('/is-group-valid', async (req, res) => {
   let
     { grp_id } = req.body,
@@ -83,7 +85,7 @@ app.post('/is-group-valid', async (req, res) => {
   res.json(groupCount == 1 ? true : false)
 })
 
-// GET GROUP DETAILS
+// GET GROUP DETAILS [REQ = GRP_ID]
 app.post('/get-group-details', async (req, res) => {
   let
     { grp_id } = req.body,
@@ -100,7 +102,7 @@ app.post('/get-group-details', async (req, res) => {
   res.json(details)
 })
 
-// JOINED GROUP OR NOT
+// JOINED GROUP OR NOT [REQ = GROUP]
 app.post('/joined-group', async (req, res) => {
   let
     { group } = req.body,
@@ -109,7 +111,7 @@ app.post('/joined-group', async (req, res) => {
   res.json(joined)
 })
 
-// JOIN GROUP
+// JOIN GROUP [REQ = USER, ADDED_BY, GROUP_WHEN]
 app.post('/join-group', async (req, res) => {
   let
     { user, added_by, group, when } = req.body,
@@ -134,14 +136,14 @@ app.post('/join-group', async (req, res) => {
 
 })
 
-// LEAVE GROUP
+// LEAVE GROUP [REQ = USER, GROUP]
 app.post('/leave-group', async (req, res) => {
   let { user, group } = req.body
   await db.query('DELETE FROM group_members WHERE member=? AND group_id=?', [ user, group ])
   res.json({ mssg: 'Left!!' })
 })
 
-// GET GROUP MEMBERS
+// GET GROUP MEMBERS [REQ = GRP_ID]
 app.post('/get-group-members', async (req, res) => {
   let
     { grp_id } = req.body,
@@ -167,14 +169,14 @@ app.post('/get-group-members', async (req, res) => {
   res.json(members)
 })
 
-// REMOVE MEMBER
+// REMOVE MEMBER [REQ = MEMBER, GROUP_ID]
 app.post('/remove-group-member', async (req, res) => {
   let { member, group_id } = req.body
   await db.query('DELETE FROM group_members WHERE member=? AND group_id=?', [ member, group_id ])
   res.json('Hello, World!!')
 })
 
-// GET MUTUAL GROUP MEMBERS
+// GET MUTUAL GROUP MEMBERS [REQ = GRP_ID]
 app.post('/get-mutual-newest-members', async (req, res) => {
   let
     { id: session } = req.session,
@@ -191,7 +193,7 @@ app.post('/get-mutual-newest-members', async (req, res) => {
   })
 })
 
-// GET USER GROUPS
+// GET USER GROUPS [REQ = USER]
 app.post('/get-user-groups', async (req, res) => {
   let
     { user } = req.body,
@@ -222,14 +224,14 @@ app.post('/get-users-to-invite', async (req, res) => {
   res.json(users)
 })
 
-// CHANGE ADMIN
+// CHANGE ADMIN [REQ = USER, GROUP]
 app.post('/change-admin', async (req, res) => {
   let { user, group } = req.body
   await db.query('UPDATE groups SET admin=? WHERE group_id=?', [ user, group ])
   res.json('Hello, World!!')
 })
 
-// GET USERS TO MAKE ADMIN
+// GET USERS TO MAKE ADMIN [REQ = GRP_ID]
 app.post('/get-users-to-make-admin', async (req, res) => {
   let
     { grp_id } = req.body,
@@ -241,7 +243,7 @@ app.post('/get-users-to-make-admin', async (req, res) => {
   res.json(members)
 })
 
-// DELET GROUP
+// DELET GROUP [REQ = GROUP]
 app.post('/delete-group', async (req, res) => {
   let { group } = req.body
   await Group.deleteGroup(group)

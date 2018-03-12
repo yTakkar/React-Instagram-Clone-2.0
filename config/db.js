@@ -1,6 +1,13 @@
+// HANDY FUNCTIONS FOR MYSQL
+
 const db = require('./mysql')
 
-// FUNCTION TO QUERY MYSQL AND RETURN IT AS A PROMISE
+/**
+ * Query MySQL as a promise
+ * @param {String} q MySQL Query
+ * @param {Object} data Data needed by the query
+ * @returns {<Promise>} Promise
+ */
 const query = (q, data) => {
   return new Promise((resolve, reject) => {
     db.query(q, data, (err, res) => {
@@ -9,7 +16,11 @@ const query = (q, data) => {
   })
 }
 
-// COMMON VALIDATOR
+/**
+ * Common validators esp. in signup, edit-profile
+ * @param {String} field
+ * @param {Object} req
+ */
 const c_validator = (field, req) => {
   let i = field.charAt(0).toUpperCase() + field.substr(1)
   req.checkBody(field, `${i} is empty!!`).notEmpty()
@@ -17,7 +28,11 @@ const c_validator = (field, req) => {
   req.checkBody(field, `${i} must be less than 32`).isLength({ max: 32 })
 }
 
-// FUNCTION TO GET ID FROM USERNAME
+/**
+ * Returns ID from user
+ * @param {String} username Username
+ * @returns {Number} ID
+ */
 const getId = username => {
   return new Promise((resolve, reject) => {
     query('SELECT id FROM users WHERE username=? LIMIT 1', [username])
@@ -26,7 +41,14 @@ const getId = username => {
   })
 }
 
-// RETURNS [WHAT] OF ID
+/**
+ * Returns [what] of ID
+ *
+ * eq. getWhat('username', id) => id's username
+ *
+ * @param {String} what Eq. Username
+ * @param {String} id ID to be used to return [what]
+ */
 const getWhat = (what, id) => {
   return new Promise((resolve, reject) => {
     query(`SELECT ${what} FROM users WHERE id=? LIMIT 1`, [ id ])
@@ -35,7 +57,12 @@ const getWhat = (what, id) => {
   })
 }
 
-// GET AND INSERT HASHTAGS
+/**
+ * Insert hashtags when post is created
+ * @param {String} str Text which will be used to get hashtags
+ * @param {Number} user UserID
+ * @param {Number} post PostID
+ */
 const toHashtag = async (str, user, post) => {
   let hashtags = str.match(/[^|\s]?#[\d\w]+/g)
 
@@ -56,7 +83,13 @@ const toHashtag = async (str, user, post) => {
 
 }
 
-// MENTION USERS
+/**
+ * Mention users
+ * @param {String} str Text which will be used to get mentioned users
+ * @param {Number} session sessionID
+ * @param {Number} post PostID
+ * @param {String} when For fn to have knowledge when users were mentioned
+ */
 const mentionUsers = async (str, session, post, when) => {
   let users = str.match(/[^|\s]?@[\d\w]+/g)
 

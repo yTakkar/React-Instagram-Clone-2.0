@@ -1,3 +1,5 @@
+// ALL THE AVATAR/IMAGE-RELATED ROUTES ARE HANDLED BY THIS FILE
+
 const
   app = require('express').Router(),
   fs = require('fs'),
@@ -24,7 +26,7 @@ app.post('/get-stickers', async (req, res) => {
   res.json(stickers)
 })
 
-// CHANGE AVATAR
+// CHANGE AVATAR [REQ = AVATAR, OF, GROUP]
 app.post('/change-avatar', async (req, res) => {
   let
     { avatar, of, group } = req.body,
@@ -44,7 +46,7 @@ app.post('/change-avatar', async (req, res) => {
   res.json({ mssg: 'Avatar Changed!!' })
 })
 
-// UPLOAD AVATAR
+// UPLOAD AVATAR [REQ = OF, GROUP, AVATAR(FILE)]
 app.post('/upload-avatar', upload.single('avatar'), async (req, res) => {
   let
     { file, session, body: { of, group } } = req,

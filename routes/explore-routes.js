@@ -1,3 +1,5 @@
+// ALL EXPLORE-RELATED ROUTES ARE HANDLED BY THIS FILE
+
 const
   app = require('express').Router(),
   db = require('../config/db'),
@@ -82,7 +84,7 @@ app.post('/get-groups-to-explore', async (req, res) => {
   res.json(orderByMutualMembers)
 })
 
-// GET SUGGESTED USERS
+// GET SUGGESTED USERS [REQ = USER]
 app.post('/get-suggested-users', async (req, res) => {
   let
     { user } = req.body,

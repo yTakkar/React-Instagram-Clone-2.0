@@ -1,3 +1,5 @@
+// ALL THE USER-RELATED ROUTES ARE HANDLED BY THIS FILE
+
 const
   app = require('express').Router(),
   db = require('../config/db'),
@@ -10,6 +12,7 @@ const
   mw = require('../config/middlewares'),
   { uniqBy } = require('lodash')
 
+// USER LOGIN GET ROUTE
 app.get('/login', mw.NotLoggedIn, (req, res) => {
   let
     options = {
@@ -19,11 +22,13 @@ app.get('/login', mw.NotLoggedIn, (req, res) => {
   res.render('login', { options })
 })
 
+// USER SIGNUP GET ROUTE
 app.get('/signup', mw.NotLoggedIn, (req, res) => {
   let options = { title: 'Signup For Free' }
   res.render('signup', { options })
 })
 
+// CHECKS IF USERNAME EXISTS WHEN REGISTERING
 app.post('/user/username-checker', async (req, res) => {
   let
     { value } = req.body,
@@ -31,7 +36,7 @@ app.post('/user/username-checker', async (req, res) => {
   res.json(count)
 })
 
-// USER SIGNUP
+// REGISTERS A USER
 app.post('/user/signup', async (req, res) => {
   let {
     body: { username, firstname, surname, email, password },
@@ -120,7 +125,7 @@ app.post('/user/signup', async (req, res) => {
 
 })
 
-// USER LOGIN
+// LOGS THE USER IN
 app.post('/user/login', async (req, res) => {
   let {
     body: { username: rusername, password: rpassword },
@@ -163,7 +168,7 @@ app.post('/user/login', async (req, res) => {
   }
 })
 
-// USER LOGOUT
+// LOGS USER OUT
 app.get('/logout', mw.LoggedIn, (req, res) => {
   let
     { id, username } = req.session,
@@ -294,7 +299,7 @@ app.post('/user/change-password', async (req, res) => {
 
 })
 
-// DEACTIVATE ACCOUNT
+// USER DEACTIVATE ACCOUNT
 app.post('/user/deactivate-account', async (req, res) => {
   let
     { id } = req.session,
@@ -324,7 +329,7 @@ app.post('/user/deactivate-account', async (req, res) => {
 
 })
 
-// REMOVES USER
+// REMOVES USER [ACTION DONE BY THE ADMIN]
 app.post('/user/remove-user', async (req, res) => {
   let
     { user } = req.body,
@@ -337,6 +342,7 @@ app.post('/user/remove-user', async (req, res) => {
   })
 })
 
+// QUICK LOGIN = USER ONLY HAVE TO PROVIDE PASSWORD, USERNAME IS STORED IN COOKIE
 // REMOVE QUICK LOGIN
 app.post('/api/remove-quick-login', (req, res) => {
   let
@@ -354,7 +360,7 @@ app.post('/api/clear-all-quick-logins', (req, res) => {
   res.json('Hello, World!!')
 })
 
-// CHECK IF USER IS THE ADMIN
+// CHECKS IF USER IS THE ADMIN
 app.post('/api/check-is-admin', async (req, res) => {
   let
     { password } = req.body,

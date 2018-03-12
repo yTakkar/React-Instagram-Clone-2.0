@@ -1,3 +1,5 @@
+// FOR MAILING
+
 const
   nodemailer = require('nodemailer'),
   { MAIL, MAIL_PASSWORD } = process.env
@@ -10,6 +12,14 @@ let transporter = nodemailer.createTransport({
   }
 })
 
+/**
+ * Mails to specified eMail address
+ * @param {Object} options
+ * @param {String} options.to
+ * @param {String} options.subject
+ * @param {String} options.html
+ * @returns {<Promise>} Promise
+ */
 let mail = options => {
   return new Promise((resolve, reject) => {
     let o = {
