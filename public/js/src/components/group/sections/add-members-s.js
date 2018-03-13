@@ -4,7 +4,8 @@ import Title from '../../others/title'
 import { Link } from 'react-router-dom'
 import SearchFollowings from '../../others/search-followings'
 import { connect } from 'react-redux'
-import { Me, joinGroup } from '../../../utils/utils'
+import { Me } from '../../../utils/utils'
+import { joinGroup } from '../../../utils/user-interact-utils'
 import $ from 'jquery'
 
 @connect(store => (

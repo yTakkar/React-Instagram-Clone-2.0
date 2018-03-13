@@ -1,5 +1,6 @@
 import $ from 'jquery'
 import * as fn from '../utils/utils'
+import * as User from '../utils/user-system-utils'
 import Notify from 'handy-notification'
 import axios from 'axios'
 
@@ -31,7 +32,7 @@ fn.replacer([
 ], 'normal')
 
 // Username checker
-fn.username_checker($('.s_username'))
+User.username_checker($('.s_username'))
 
 // User Signup
 $('form.form_register').submit(e => {
@@ -62,7 +63,7 @@ $('form.form_register').submit(e => {
       redirect: '/registered',
       defBtnValue: 'Signup For Free',
     }
-    fn.commonLogin(signupOpt)
+    User.commonLogin(signupOpt)
 
   }
 
@@ -91,7 +92,7 @@ $('form.form_login').submit(e => {
       redirect: '/',
       defBtnValue: 'Login To Continue',
     }
-    fn.commonLogin(loginOpt)
+    User.commonLogin(loginOpt)
 
   }
 
@@ -100,7 +101,7 @@ $('form.form_login').submit(e => {
 // QUICK LOGIN
 $('.q_l_div').on('click', e => {
   let { id, username } = e.currentTarget.dataset
-  fn.quickLogin({ id, username })
+  User.quickLogin({ id, username })
 })
 
 // CLOSE QUICK MODAL
@@ -137,7 +138,7 @@ $('form.form_fp').submit(async e => {
       redirect: '/',
       defBtnValue: 'Retrieve',
     }
-    fn.commonLogin(fpOpt)
+    User.commonLogin(fpOpt)
 
   }
 

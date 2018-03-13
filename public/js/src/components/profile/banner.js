@@ -5,7 +5,8 @@ import { connect } from 'react-redux'
 import { Link, NavLink } from 'react-router-dom'
 import Copy from 'handy-copy'
 import Notify from 'handy-notification'
-import * as fn from '../../utils/utils'
+import { Me, isAdmin } from '../../utils/utils'
+import { follow, unfollow, addToFavourites, block } from '../../utils/user-interact-utils'
 import Avatars from '../others/avatar/avatars'
 import Overlay from '../others/overlay'
 import ViewAvatar from '../others/avatar/viewAvatar'
@@ -60,7 +61,7 @@ export default class Banner extends React.Component {
   follow = e => {
     e.preventDefault()
     let { dispatch, User: { user_details: { id, username } } } = this.props
-    fn.follow({
+    follow({
       user: id,
       username,
       dispatch,
@@ -72,7 +73,7 @@ export default class Banner extends React.Component {
   unfollow = e => {
     e.preventDefault()
     let { dispatch, User: { user_details: { id } } } = this.props
-    fn.unfollow({
+    unfollow({
       user: id,
       dispatch,
       update_followers: true,
@@ -101,14 +102,14 @@ export default class Banner extends React.Component {
     e.preventDefault()
     let { User: { user_details: { id } } } = this.props
     this.toggleOptions('options')
-    fn.addToFavourites(id)
+    addToFavourites(id)
   }
 
   block = async e => {
     e.preventDefault()
     let { User: { user_details } } = this.props
     this.toggleOptions('options')
-    fn.block(user_details.id)
+    block(user_details.id)
     this._toggle(null, 'blockUser')
   }
 
@@ -155,20 +156,20 @@ export default class Banner extends React.Component {
               {
                 isFollowing ?
                   <Fragment>
-                    { !fn.Me(id) ? <li><a href='#' className='pro_block' onClick={e => this._toggle(e, 'blockUser')} >Block</a></li> : null }
-                    { !fn.Me(id) ? <li><a href='#' className='pro_recommend' onClick={this.showRecommendUsers} >Recommend</a></li> : null }
-                    { !fn.Me(id) ? <li><a href='#' className='add_fav' onClick={this.addToFavourites} >Add to favourites</a></li> : null }
-                    { !fn.Me(id) ? <li><Link to='/messages' className='add_fav'>Message</Link></li> : null }
+                    { !Me(id) ? <li><a href='#' className='pro_block' onClick={e => this._toggle(e, 'blockUser')} >Block</a></li> : null }
+                    { !Me(id) ? <li><a href='#' className='pro_recommend' onClick={this.showRecommendUsers} >Recommend</a></li> : null }
+                    { !Me(id) ? <li><a href='#' className='add_fav' onClick={this.addToFavourites} >Add to favourites</a></li> : null }
+                    { !Me(id) ? <li><Link to='/messages' className='add_fav'>Message</Link></li> : null }
                   </Fragment>
                   : null
               }
-              { fn.isAdmin() ? <li><a href='#' className='rem_user' onClick={this.removeUser} >Remove as admin</a></li> : null }
+              { isAdmin() ? <li><a href='#' className='rem_user' onClick={this.removeUser} >Remove as admin</a></li> : null }
               <li><a href='#' className='p_copy_link' onClick={this.copyLink} >Copy profile link</a></li>
             </ul>
           </div>
           <div className='pro_ff' >
             {
-              fn.Me(id)
+              Me(id)
                 ? <Link to='/edit-profile' className='pri_btn ff'>Edit profile</Link>
                 : isFollowing
                   ? <a href='#' className='pri_btn unfollow' onClick={this.unfollow} >Unfollow</a>
@@ -186,7 +187,7 @@ export default class Banner extends React.Component {
           <img src={ id ? `/users/${id}/avatar.jpg` : '/images/spacecraft.jpg' } alt='avatar' />
           <div className='pro_avatar_ch_teaser' style={{ display: 'none' }} >
             <span className='view_avatar_span' onClick={() => this._toggle(null, 'viewAvatar')} >View</span>
-            { fn.Me(id) ? <span className='change_pro' onClick={() => this._toggle(null, 'changeAvatar')} >Change</span> : null }
+            { Me(id) ? <span className='change_pro' onClick={() => this._toggle(null, 'changeAvatar')} >Change</span> : null }
           </div>
         </div>
 
@@ -210,9 +211,9 @@ export default class Banner extends React.Component {
           {
             tags_len != 0
               ? map_tags
-              : `${fn.Me(id) ? 'You' : username} have no tags!!`
+              : `${Me(id) ? 'You' : username} have no tags!!`
           }
-          { tags_len == 0 && fn.Me(id) ? <NavLink to='/edit-profile' className='add_tags'>add</NavLink> : null }
+          { tags_len == 0 && Me(id) ? <NavLink to='/edit-profile' className='add_tags'>add</NavLink> : null }
         </div>
 
         <hr/>
@@ -231,7 +232,7 @@ export default class Banner extends React.Component {
             <span className='pro_nhg'>Following</span>
           </Link>
           {
-            fn.Me(id) ?
+            Me(id) ?
               <Link to={`${url}/recommendations`} className='pro_recomm'>
                 <span className='pro_hg'>{recommendations.length}</span>
                 <span className='pro_nhg'>Recommendations</span>
@@ -239,7 +240,7 @@ export default class Banner extends React.Component {
               : null
           }
           {
-            !fn.Me(id) ?
+            !Me(id) ?
               <Link to={`${url}/favourites`} className='pro_fav'>
                 <span className='pro_hg'>{ favourites.length }</span>
                 <span className='pro_nhg'>Favourites</span>

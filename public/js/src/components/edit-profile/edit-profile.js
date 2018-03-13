@@ -2,7 +2,8 @@ import React from 'react'
 import Title from '../others/title'
 import { FadeIn } from 'animate-components'
 import $ from 'jquery'
-import * as fn from '../../utils/utils'
+import { replacer, hide_h_options, e_v } from '../../utils/utils'
+import * as Edit from '../../utils/edit-profile-utils'
 import { connect } from 'react-redux'
 import { getUserDetails, deleteTag } from '../../store/actions/user-a'
 import { getUnreadNotifications } from '../../store/actions/notification-a'
@@ -39,7 +40,7 @@ export default class EditProfile extends React.Component {
   }
 
   componentDidMount = () => {
-    fn.hide_h_options()
+    hide_h_options()
     let
       username = $('.data').data('username'),
       { dispatch } = this.props
@@ -65,7 +66,7 @@ export default class EditProfile extends React.Component {
     let
       { addTag: value } = this.state,
       { ud: { id: user }, dispatch } = this.props
-    fn.addUserTags({ value, user, dispatch })
+    Edit.addUserTags({ value, user, dispatch })
     this.setState({ addTag: '' })
   }
 
@@ -75,12 +76,12 @@ export default class EditProfile extends React.Component {
   editProfile = e => {
     e.preventDefault()
     let { ud: { username: susername, email: semail } } = this.props
-    fn.editProfile({ susername, semail, values: this.state })
+    Edit.editProfile({ susername, semail, values: this.state })
   }
 
   resend_vl = e => {
     e.preventDefault()
-    fn.resend_vl()
+    Edit.resend_vl()
   }
 
   toggleEmojis = () =>
@@ -97,14 +98,14 @@ export default class EditProfile extends React.Component {
       )
 
     // filtering compulsory inputs
-    fn.replacer([
+    replacer([
       $('.edit_un_text'),
       $('.edit_fn_text'),
       $('.edit_sn_text')
     ], 'normal')
 
     // filtering bio
-    fn.replacer([$('.edit_ta')], 'bio')
+    replacer([$('.edit_ta')], 'bio')
 
     return (
       <div>
@@ -196,7 +197,7 @@ export default class EditProfile extends React.Component {
                 ><i className='material-icons'>sentiment_very_satisfied</i></span>
                 <a href='#' className='pri_btn edit_done' onClick={this.editProfile} >Update profile</a>
                 {
-                  !fn.e_v()
+                  !e_v()
                     ? <a href='#' className='sec_btn resend_vl' onClick={this.resend_vl} >Resend verification link</a>
                     : null
                 }

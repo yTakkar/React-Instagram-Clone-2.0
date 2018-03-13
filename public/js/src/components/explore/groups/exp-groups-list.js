@@ -1,5 +1,6 @@
 import React from 'react'
-import { toggle, humanReadable, joinGroup, leaveGroup } from '../../../utils/utils'
+import { toggle, humanReadable } from '../../../utils/utils'
+import { joinGroup, leaveGroup } from '../../../utils/user-interact-utils'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import TimeAgo from 'handy-timeago'

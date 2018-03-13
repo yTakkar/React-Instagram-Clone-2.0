@@ -1,7 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { Me, follow, unfollow, humanReadable } from '../../../utils/utils'
+import { Me, humanReadable } from '../../../utils/utils'
+import { follow, unfollow } from '../../../utils/user-interact-utils'
 
 @connect(store => (
   { ud: store.User.user_details }

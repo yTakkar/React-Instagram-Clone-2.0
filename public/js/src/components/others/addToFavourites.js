@@ -1,5 +1,5 @@
 import React from 'react'
-import { addToFavourites } from '../../utils/utils'
+import { addToFavourites } from '../../utils/user-interact-utils'
 import $ from 'jquery'
 
 export default class AddToFavourites extends React.Component {

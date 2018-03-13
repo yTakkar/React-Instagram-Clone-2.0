@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react'
 import * as fn from '../../utils/utils'
+import { imageComment, stickerComment } from '../../utils/post-utils'
 import ToolTip from 'react-tooltip'
 import TimeAgo from 'handy-timeago'
 import { Link } from 'react-router-dom'
@@ -150,7 +151,7 @@ export default class Post extends React.Component {
       { post_id, dispatch, when, user } = this.props,
       { comments_count } = this.state
     this.setState({ commentFile: e.target.value })
-    fn.imageComment({ post_id, dispatch, when, user, file: e.target.files[0] })
+    imageComment({ post_id, dispatch, when, user, file: e.target.files[0] })
     this.setState({ comments_count: ++comments_count })
   }
 
@@ -158,7 +159,7 @@ export default class Post extends React.Component {
     let
       { post_id, dispatch, when, user } = this.props,
       { comments_count } = this.state
-    fn.stickerComment({ sticker, post_id, user, when, dispatch })
+    stickerComment({ sticker, post_id, user, when, dispatch })
     this.setState({ comments_count: ++comments_count })
   }
 

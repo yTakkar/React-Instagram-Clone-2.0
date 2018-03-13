@@ -1,6 +1,7 @@
 import React from 'react'
 import TimeAgo from 'handy-timeago'
-import { toggle, Me, joinGroup, leaveGroup } from '../../../../utils/utils'
+import { toggle, Me, } from '../../../../utils/utils'
+import { joinGroup, leaveGroup } from '../../../../utils/user-interact-utils'
 import { Link } from 'react-router-dom'
 import $ from 'jquery'
 import { connect } from 'react-redux'

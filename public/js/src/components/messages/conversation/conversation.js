@@ -2,7 +2,8 @@ import React, { Fragment } from 'react'
 import { FadeIn } from 'animate-components'
 import { Scrollbars } from 'react-custom-scrollbars'
 import ToolTip from 'react-tooltip'
-import * as fn from '../../../utils/utils'
+import { toggle } from '../../../utils/utils'
+import { deleteYourMssgs } from '../../../utils/message-utils'
 import Message from './message'
 import $ from 'jquery'
 import { humanReadable, textMessage, messageScroll, imageMessage, stickerMessage } from '../../../utils/utils'
@@ -66,7 +67,7 @@ export default class Conversation extends React.Component {
     })
   }
 
-  toggleOptions = () => fn.toggle(this.opt)
+  toggleOptions = () => toggle(this.opt)
 
   textMessage = e => {
     e.preventDefault()
@@ -100,7 +101,7 @@ export default class Conversation extends React.Component {
     e.preventDefault()
     this.toggleOptions()
     let { dispatch, conDetails: { con_id } } = this.props
-    fn.deleteYourMssgs({ con_id, dispatch })
+    deleteYourMssgs({ con_id, dispatch })
     this._toggle(e, 'unsendMssgs')
   }
 

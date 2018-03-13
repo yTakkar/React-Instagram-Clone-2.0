@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Me, follow, unfollow, isAdmin } from '../../../utils/utils'
+import { Me, isAdmin } from '../../../utils/utils'
+import { follow, unfollow } from '../../../utils/user-interact-utils'
 import { connect } from 'react-redux'
 import { post } from 'axios'
 import { removeShare } from '../../../store/actions/post-a'

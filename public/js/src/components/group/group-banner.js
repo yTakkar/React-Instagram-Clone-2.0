@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react'
-import { toggle, Me, joinGroup, leaveGroup, isAdmin } from '../../utils/utils'
+import { toggle, Me, isAdmin } from '../../utils/utils'
+import { joinGroup, leaveGroup } from '../../utils/user-interact-utils'
 import { connect } from 'react-redux'
 import { Link, Redirect } from 'react-router-dom'
 import Copy from 'handy-copy'

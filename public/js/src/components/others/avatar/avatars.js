@@ -6,7 +6,7 @@ import Spinner from '../spinner'
 import Notify from 'handy-notification'
 import Overlay from '../overlay'
 import PreviewAvatar from './preview-avatar'
-import { upload_avatar } from '../../../utils/utils'
+import { upload_avatar } from '../../../utils/edit-profile-utils'
 
 export default class Avatars extends React.Component {
 

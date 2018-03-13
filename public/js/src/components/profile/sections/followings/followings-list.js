@@ -1,6 +1,7 @@
 import React from 'react'
 import TimeAgo from 'handy-timeago'
-import { toggle, Me, follow, unfollow } from '../../../../utils/utils'
+import { toggle, Me } from '../../../../utils/utils'
+import { follow, unfollow } from '../../../../utils/user-interact-utils'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { post } from 'axios'

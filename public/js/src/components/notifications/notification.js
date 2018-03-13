@@ -1,7 +1,7 @@
 /* eslint indent:0 */
 import React from 'react'
 import TimeAgo from 'handy-timeago'
-import { follow, unfollow } from '../../utils/utils'
+import { follow, unfollow } from '../../utils/user-interact-utils'
 import { Link } from 'react-router-dom'
 
 export default class Notification extends React.Component {

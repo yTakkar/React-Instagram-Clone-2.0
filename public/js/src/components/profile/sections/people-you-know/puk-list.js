@@ -1,5 +1,6 @@
 import React from 'react'
-import { Me, follow, unfollow, humanReadable } from '../../../../utils/utils'
+import { Me, humanReadable } from '../../../../utils/utils'
+import { follow, unfollow } from '../../../../utils/user-interact-utils'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { post } from 'axios'
