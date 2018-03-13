@@ -1,9 +1,5 @@
-// USER SYSTEM (FOR NOT LOGGEDIN USER)
-import './user-system/user-system'
-
 // FOR LOGGEDIN USER
-// eslint-disable-next-line no-unused-vars
-import React from 'react'
+import React from 'react' // eslint-disable-line no-unused-vars
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import store from './store/store'
@@ -17,4 +13,9 @@ if (element) {
     </Provider>,
     element
   )
+} else {
+
+  // USER SYSTEM (FOR NOT LOGGEDIN USER)
+  require('./user-system/user-system')
+
 }
