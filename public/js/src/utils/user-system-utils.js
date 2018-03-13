@@ -1,0 +1,124 @@
+import $ from 'jquery'
+import { post } from 'axios'
+import Notify from 'handy-notification'
+import { viewPassword } from './utils'
+
+/** FOR USERNAME CHECKER */
+export const username_checker = el => {
+  let uc = $('.username_checker')
+  el.on('keyup', async () => {
+    let value = el.val()
+    uc.show()
+
+    if (value) {
+      let
+        { data: count } = await post('/user/username-checker', { value: el.val() }),
+        html = count == 0
+          ? '<span class=\'checker_text\'>username is available</span><span class=\'checker_icon\'><i class=\'fa fa-smile-o\' aria-hidden=\'true\'></i></span>'
+          : '<span class=\'checker_text\'>username already taken</span><span class=\'checker_icon\'><i class=\'fa fa-frown-o\' aria-hidden=\'true\'></i></span>'
+
+      uc.html(html)
+    } else {
+      uc.hide()
+    }
+
+  })
+  el.on('blur', () => uc.hide() )
+}
+
+/** FUNCTION FOR LOGIN AND SIGNUP */
+export const commonLogin = options => {
+  let
+    { data, btn, url, redirect, defBtnValue } = options,
+    overlay2 = $('.overlay-2')
+
+  btn
+    .attr('value', 'Please wait..')
+    .addClass('a_disabled')
+  overlay2.show()
+
+  post(url, data)
+    .then(s => {
+      let { data: { mssg, success } } = s
+      if (success) {
+        Notify({
+          value: mssg,
+          done: () => location.href = redirect
+        })
+        btn.attr('value', 'Redirecting..')
+        overlay2.show()
+      } else {
+        Notify({
+          value: typeof(mssg) == 'object' ? mssg.length > 1 ? mssg[0] : mssg : mssg
+        })
+        btn
+          .attr('value', defBtnValue)
+          .removeClass('a_disabled')
+        overlay2.hide()
+      }
+      btn.blur()
+    })
+    .catch(e => console.log(e))
+}
+
+/** FUNCTION FOR QUICK LOGIN */
+export const quickLogin = ({ id, username }) => {
+  let
+    usernameDiv = $('.q_l_username'),
+    imgDiv = $('.q_l_m_img')
+
+  $('.overlay-2-black').show()
+  $('.q_l_model').fadeIn('fast')
+  $('#q_l_password').focus()
+
+  usernameDiv.text(`@${username}`)
+  imgDiv.attr('src', `/users/${id}/avatar.jpg`)
+
+  // QUICK LOGIN SUBMIT
+  $('.q_l_m_form').submit(e => {
+    e.preventDefault()
+    quickLoginSubmit(username)
+  })
+
+  // CLEAR QUICK LOGIN
+  $('.q_l_remove').on('click', async e => {
+    e.preventDefault()
+    await post('/api/remove-quick-login', { id })
+    Notify({
+      value: `Removed ${username} from quick login!!`,
+      done: () => location.reload()
+    })
+  })
+
+  // TOGGLE VIEW PASSWORD
+  $('.s_p_ql').on('click', () => {
+    viewPassword({
+      input: document.getElementById('q_l_password'),
+      icon: $('.s_p_ql')
+    })
+  })
+
+}
+
+/** QUICK LOGIN SUBMIT */
+const quickLoginSubmit = username => {
+  let password = $('#q_l_password').val()
+  if (!password) {
+    Notify({ value: 'Password is missing!!' })
+  } else {
+
+    let loginOpt = {
+      data: {
+        username,
+        password
+      },
+      when: 'login',
+      btn: $('.q_l_submit'),
+      url: '/user/login',
+      redirect: '/',
+      defBtnValue: 'Login To Continue',
+    }
+    commonLogin(loginOpt)
+
+  }
+}
