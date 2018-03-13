@@ -4,7 +4,10 @@ import Notify from 'handy-notification'
 import { conversationAdded, messaged, changeLastMssg, unsendAllMessages } from '../store/actions/message-a'
 import { insta_notify, messageScroll, imageCompressor } from './utils'
 
-/** CREATE CONVERSATION */
+/**
+ * Creates a new conversation
+ * @param {{ user: Number, username: String, dispatch: Function, done: Function }} options Options for creating a conversation
+ */
 export const newConversation = async options => {
   let
     { user, username, dispatch, done } = options,
@@ -43,7 +46,10 @@ export const newConversation = async options => {
   Notify({ value: mssg })
 }
 
-/** TEXT MESSAGE */
+/**
+ * Test message
+ * @param {{ message: String, con_id: Number, grp_con_id: Number, con_with: Number, dispatch: Function }} options Options for test messaging
+ */
 export const textMessage = async options => {
   let
     { message, con_id, grp_con_id, con_with, dispatch, } = options,
@@ -93,7 +99,10 @@ export const textMessage = async options => {
     .removeClass('a_disabled')
 }
 
-/** IMAGE COMMENT */
+/**
+ * Image message
+ * @param {{ file: File, con_id: Number, grp_con_id: Number, con_with: Number, dispatch: Function }} options Options for image messaging
+ */
 export const imageMessage = async options => {
   let
     { file: messageFile, con_id, grp_con_id, con_with, dispatch } = options,
@@ -137,7 +146,10 @@ export const imageMessage = async options => {
   Notify({ value: 'Commented!!' })
 }
 
-/** STICKER MESSAGE */
+/**
+ * Sticker message
+ * @param {{ con_id: Number, grp_con_id: Number, con_with: Number, sticker: String, dispatch: Function }} options Options for sticker messaging
+ */
 export const stickerMessage = async options => {
   let
     { con_id, grp_con_id, con_with, sticker, dispatch } = options,
@@ -169,7 +181,9 @@ export const stickerMessage = async options => {
   messageScroll()
 }
 
-/** UNSEND ALL MSSGS */
+/** Unsend all messages
+ * @param {{ con_id: Number, dispatch: Function }} options Options for deleting all messages of session user
+ */
 export const deleteYourMssgs = async options => {
   let
     { con_id, dispatch } = options,

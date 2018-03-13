@@ -7,8 +7,12 @@ import { getUserPosts, getGroupPosts, } from '../store/actions/post-a'
 import { getGroupDetails, joinedGroup } from '../store/actions/group-a'
 import Compress from 'image-compressor.js'
 
-/** SHORTENS GIVEN STRING BY GIVEN LENGTH */
-export const shortener = (elem, length) => {
+/**
+ *  Shortens what with string length
+ * @param {String} what
+ * @param {Number} length
+ */
+export const shortener = (what, length) => {
   let
     parse = parseInt(length),
     len = elem.length
@@ -16,11 +20,18 @@ export const shortener = (elem, length) => {
   return (len >= parse) ? `${elem.substr(0, length - 2)}..` : (len < parse) ? elem : null
 }
 
-/** RETURNS UNIQUE STRING */
+/**
+ * Returns unique string, useful for key
+ */
 export const uniq = () =>
   Math.random().toString(5).slice(2)
 
-/** FUNCTION FOR HUMAN-READABLE */
+/**
+ * Returns human-readable text
+ *
+ * @param {Number} value
+ * @param {String} text
+ */
 export const humanReadable = (value, text) => {
   let hr =
     value == 0 ? `No ${text}s`
@@ -29,17 +40,25 @@ export const humanReadable = (value, text) => {
   return hr
 }
 
-/** FUNCTION TO TOGGLE */
+/**
+ * Toggles the element
+ * @param {HTMLElement} el element to toggle
+ */
 export const toggle = el => {
   let style = el.style.display
   style === 'none' ? el.style.display = 'block' : el.style.display = 'none'
 }
 
-/* FUNCTION TO CAPITALIZE FIRST LETTER OF A WORD */
+/**
+ * Capitalizes str
+ * @param {String} str
+ */
 export const c_first = str =>
   str.charAt(0).toUpperCase() + str.substr(1)
 
-/** TO REMOVE LINE OF LAST ELEMENT */
+/**
+ * Removes hr of last element of modal
+ */
 export const llr = () => {
   let
     f = $('.modal_main').children(),
@@ -47,7 +66,9 @@ export const llr = () => {
   f.eq(s).find('hr').remove()
 }
 
-/** FOR SHOW PASSWORD FUNCTIONALTITY */
+/**
+ * TToggle show password
+ */
 export const viewPassword = ({ input, icon }) => {
   if (input.type == 'password') {
     input.type = 'text'
@@ -61,13 +82,17 @@ export const viewPassword = ({ input, icon }) => {
   input.focus()
 }
 
-/** TOGGLE HEADER OPTIONS */
+/**
+ * Removes header options
+ */
 export const hide_h_options = () => {
   let element = document.querySelector('.sp_options')
   element.style.display = 'none'
 }
 
-/** FOR REPLACING ILLEGAL CHARACTERS */
+/**
+ * For replacing illegal characters
+ */
 export const replacer = (elements, filter) => {
   let regex =
     filter == 'normal' ? /[^a-z0-9_.@$#]/i
@@ -82,27 +107,38 @@ export const replacer = (elements, filter) => {
   }
 }
 
-/** FUNCTION TO CHECK WHETHER ITS ME OR NOT */
+/**
+ * Returns whether it's me
+ */
 export const Me = user =>
   user == $('.data').data('session') ? true : false
 
-/** FUNCTION TO CHECK WHETHER EMAIL IS ACTIVATED ON NOT */
+/**
+ * Returns whether email is verified
+ */
 export const e_v = () => {
   let ea = $('.data').data('email-verified')
   return ea == 'yes' ? true : false
 }
 
-/** FUNCTION TO CHECK WHETHER USER IS PRIVATE */
+/**
+ * Returns whether user is private
+ */
 export const isPrivate = (user, isFollowing, accountType) => {
   let sprivate = !Me(user) && !isFollowing && accountType == 'private' ? true : false
   return sprivate
 }
 
-/** FOR CHECKING IF USER IS ADMIN */
+/**
+ * Returns if user is the admin
+ */
 export const isAdmin = () =>
   $('.data').data('isadmin')
 
-/** IMAGE PROCESSOR */
+/**
+ * Compresses and returns file
+ * @param {File} file
+ */
 const imageCompressor = file => {
   return new Promise(resolve => {
     new Compress(file, {
@@ -115,7 +151,9 @@ const imageCompressor = file => {
 
 exports.imageCompressor = imageCompressor
 
-/** FOR PROFILE */
+/**
+ * For profile
+ */
 export const forProfile = async options => {
   let
     { username, dispatch, invalidUser } = options,
@@ -140,7 +178,9 @@ export const forProfile = async options => {
 
 }
 
-/** FOR GROUP */
+/**
+ * For group
+ */
 export const forGroup = async options => {
   let
     { grp_id, dispatch, invalidGroup } = options,
@@ -156,18 +196,30 @@ export const forGroup = async options => {
 
 }
 
-/** SCROLLS TO 380 */
+/**
+ * Scrolls to 380
+ */
 export const profile_scroll = () => {
   $('html, body').animate({
     scrollTop: 380
   }, 'slow')
 }
 
-/** MESSAGE SCROLL */
+/**
+ * Scrolls messages to the bottom
+ */
 export const messageScroll = () =>
   document.querySelector('.mssg_end').scrollIntoView({ behavior: 'smooth' })
 
-/** NOTIFY */
+/**
+ * Notifies user [on the notification page]
+ * @param {Object} options
+ * @param {Number} options.to
+ * @param {String} options.type
+ * @param {Number} options.post_id
+ * @param {Number} options.group_id
+ * @param {Number} options.user
+ */
 export const insta_notify = async options => {
   let
     defaults = {
@@ -183,7 +235,11 @@ export const insta_notify = async options => {
   await post('/api/notify', { to, type, post_id, group_id, user })
 }
 
-/** GEOLOCATION */
+/**
+ * Geolocation setup
+ * @param {Function} success Success function
+ * @param {Function} error Error function
+ */
 export const geolocation = (success, error) => {
   if (navigator.geolocation) {
     navigator.geolocation.watchPosition(success, error)
@@ -192,7 +248,9 @@ export const geolocation = (success, error) => {
   }
 }
 
-/** GEOLOCATION ERROR */
+/**
+ * Geolocation error
+ */
 export const geolocationError = ({ code }) => {
   let mssg
 

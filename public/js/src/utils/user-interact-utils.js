@@ -5,7 +5,21 @@ import * as follow_action from '../store/actions/follow_a'
 import { leftGroup } from '../store/actions/group-a'
 import { insta_notify } from './utils'
 
-/** FOLLOW */
+/**
+ * Follow user
+ *
+ * user, username & done properties must be provided.
+ *
+ * @param {Object} options Options for following user
+ * @param {Number} options.user
+ * @param {String} options.username
+ * @param {firstname} options.firstname
+ * @param {surname} options.surname
+ * @param {Boolean} options.update_followers
+ * @param {Boolean} options.update_followings
+ * @param {Function} options.dispatch
+ * @param {Function} options.done
+ */
 export const follow = async options => {
   let
     defaults = {
@@ -57,7 +71,18 @@ export const follow = async options => {
 
 }
 
-/** UNFOLLOW */
+/**
+ * Unfollow user
+ *
+ * user & done properties must be provided.
+ *
+ * @param {Object} options Options for unfollowing user
+ * @param {Number} options.user
+ * @param {Boolean} options.update_followers
+ * @param {Boolean} options.update_followings
+ * @param {Function} options.dispatch
+ * @param {Function} options.done
+ */
 export const unfollow = async options => {
   let
     defaults = {
@@ -87,7 +112,10 @@ export const unfollow = async options => {
 
 }
 
-/** ADD TO FAVOURITES LIST */
+/**
+ * Add user to favorites
+ * @param {Number} user User to add to favorites
+ */
 export const addToFavourites = async user => {
   let { data: { mssg } } = await post('/api/add-to-favourites', { user })
   insta_notify({
@@ -97,13 +125,26 @@ export const addToFavourites = async user => {
   Notify({ value: mssg })
 }
 
-/** BLOCK USER */
+/**
+ * Block user
+ * @param {Number} user User to block
+ */
 export const block = async user => {
   let { data: { mssg } } = await post('/api/block', { user })
   Notify({ value: mssg })
 }
 
-/** JOIN GROUP */
+/**
+ * Join group
+ *
+ * user, group, when & done properties must be provided
+ * @param {Object} options Options for joining group
+ * @param {Number} options.user
+ * @param {Number} options.added_by
+ * @param {Number} options.group
+ * @param {String} options.when
+ * @param {Function} options.done
+ */
 export const joinGroup = async options => {
   let
     defaults = {
@@ -132,7 +173,17 @@ export const joinGroup = async options => {
   Notify({ value: mssg })
 }
 
-/** LEAVE GROUP */
+/**
+ * Leave group
+ *
+ * user, group & done properties must be provided
+ * @param {Object} options Options for leaving group
+ * @param {Number} options.user
+ * @param {Number} options.group
+ * @param {Boolean} options.updateGroups
+ * @param {Function} options.dispatch
+ * @param {Function} options.done
+ */
 export const leaveGroup = async options => {
   let
     defaults = {

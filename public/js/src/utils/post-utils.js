@@ -4,7 +4,21 @@ import Notify from 'handy-notification'
 import { addGroupPost, comment, addUserPost } from '../store/actions/post-a'
 import { imageCompressor, insta_notify, Me } from './utils'
 
-/** ADDPOST */
+/**
+ * Add post
+ * @param {Object} options Options for creating a new post
+ * @param {Function} options.dispatch
+ * @param {String} options.desc
+ * @param {String} options.targetFile
+ * @param {String} options.filter
+ * @param {String} options.location
+ * @param {String} options.type
+ * @param {Number} options.group
+ * @param {String} options.group_name
+ * @param {Object[]} options.tags
+ * @param {Number} options.tags.user
+ * @param {String} options.tags.username
+ */
 export const addPost = async options => {
   let
     { dispatch, desc, targetFile, filter, location, type, group, group_name, tags } = options,
@@ -68,7 +82,10 @@ export const addPost = async options => {
   Notify({ value: 'Posted!!' })
 }
 
-/** IMAGE COMMENT */
+/**
+ * Image comment
+ * @param {{ post_id: Number, dispatch: Function, when: String, user: Number, file: File }} options Options for image commenting
+ */
 export const imageComment = async options => {
   let
     { post_id, dispatch, when, user, file: commentFile } = options,
@@ -109,7 +126,10 @@ export const imageComment = async options => {
   Notify({ value: 'Commented!!' })
 }
 
-/** STICKER COMMENT */
+/**
+ * Sticker comment
+ * @param {{ sticker: String, post_id: Number, user: Number, when: String, dispatch: Function }} options Options for sticker commenting
+ */
 export const stickerComment = async options => {
   let
     { sticker, post_id, user, when, dispatch } = options,

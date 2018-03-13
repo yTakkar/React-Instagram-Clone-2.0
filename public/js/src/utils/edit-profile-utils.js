@@ -4,7 +4,10 @@ import Notify from 'handy-notification'
 import { addTag } from '../store/actions/user-a'
 import { imageCompressor } from './utils'
 
-/** ADD USER TAGS */
+/**
+ * Add user tags
+ * @param {{ value: String, user: Number, dispatch: Function }} options Options for adding tags to the user
+ */
 export const addUserTags = options => {
   let { value, user, dispatch } = options
   if (value) {
@@ -17,7 +20,10 @@ export const addUserTags = options => {
   }
 }
 
-/** EDIT PROFILE */
+/**
+ * Edit profile
+ * @param {{ susername: String, semail: String, values: { username: String, email: String } }} options Options for editing profile
+ */
 export const editProfile = async options => {
   let
     { susername, semail, values, values: { username, email } } = options,
@@ -77,7 +83,9 @@ export const resend_vl = async () => {
   o.hide()
 }
 
-/** UPLOAD AVATAR */
+/** Upload avatar
+ * @param {{ file: File, of: String, group: Number }}
+ */
 export const upload_avatar = async ({ file: userFile, of, group }) => {
   let
     form = new FormData(),

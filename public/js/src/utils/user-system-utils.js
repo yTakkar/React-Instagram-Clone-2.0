@@ -3,7 +3,10 @@ import { post } from 'axios'
 import Notify from 'handy-notification'
 import { viewPassword } from './utils'
 
-/** FOR USERNAME CHECKER */
+/**
+ * For username checker
+ * @param {jQuery} el
+ */
 export const username_checker = el => {
   let uc = $('.username_checker')
   el.on('keyup', async () => {
@@ -26,7 +29,16 @@ export const username_checker = el => {
   el.on('blur', () => uc.hide() )
 }
 
-/** FUNCTION FOR LOGIN AND SIGNUP */
+/**
+ * Common function for login & signup
+ *
+ * @param {Object} options Options
+ * @param {Object} options.data
+ * @param {jQuery} options.btn
+ * @param {String} options.url
+ * @param {String} options.redirect
+ * @param {String} options.defBtnValue
+ */
 export const commonLogin = options => {
   let
     { data, btn, url, redirect, defBtnValue } = options,
@@ -61,7 +73,9 @@ export const commonLogin = options => {
     .catch(e => console.log(e))
 }
 
-/** FUNCTION FOR QUICK LOGIN */
+/**
+ * Quick login
+ */
 export const quickLogin = ({ id, username }) => {
   let
     usernameDiv = $('.q_l_username'),
@@ -100,7 +114,10 @@ export const quickLogin = ({ id, username }) => {
 
 }
 
-/** QUICK LOGIN SUBMIT */
+/**
+ * Quick login submit
+ * @param {String} username Username for submitting
+ */
 const quickLoginSubmit = username => {
   let password = $('#q_l_password').val()
   if (!password) {
