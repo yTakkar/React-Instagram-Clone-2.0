@@ -27,9 +27,7 @@ const create_user = user => {
   })
 }
 
-/**
- * changes password
- */
+/** changes password */
 const change_password = async ({ password, id }) => {
   return new Promise((resolve, reject) => {
     bcrypt.hash(password, null, null, (error, hash) => {
@@ -149,8 +147,8 @@ const deactivate = async (user, req, res) => {
   req.session.reset()
 }
 
-// RETURNS MUTUAL USERS
 /**
+ * Returns mutual users
  * Returns mutual users of session & user
  * @param {Number} session Session ID
  * @param {Number} user User ID

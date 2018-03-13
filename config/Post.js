@@ -97,9 +97,7 @@ const getCounts = async (post_id, group_id) => {
   })
 }
 
-/**
- * Deletes a post
- */
+/** Deletes a post */
 const deletePost = async ({post, when}) => {
   await db.query('DELETE FROM likes WHERE post_id=?', [ post ])
   await db.query('DELETE FROM post_tags WHERE post_id=?', [ post ])
