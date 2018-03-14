@@ -16,6 +16,7 @@ Here's a video which will take you on a tour of this project!!
 
 # Requirements
 1. [GraphicsMagick](http://www.graphicsmagick.org/) for Image-processing.
+2. [Handy-Client-Env](https://github.com/yTakkar/Handy-Client-Env) for front-side to access `.env`'s environment variables.
 
 # Usage
 1. Fork the repo and then clone it or download it.
