@@ -7,7 +7,10 @@
     "start": "nodemon app.js",
     "dev": "webpack -d --watch",
     "prod": "webpack -p --watch",
-    "env": "handy-client-env"
+    "env": "handy-client-env",
+    "test": "jest",
+    "test:watch": "jest --watchAll",
+    "test:coverage": "jest --coverage"
   },
   "repository": {
     "type": "git",
@@ -78,6 +81,7 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
     "eslint": "^4.13.0",
-    "eslint-plugin-react": "^7.5.1"
+    "eslint-plugin-react": "^7.5.1",
+    "jest": "^22.4.2"
   }
 }

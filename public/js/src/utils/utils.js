@@ -67,7 +67,7 @@ export const llr = () => {
 }
 
 /**
- * TToggle show password
+ * Toggle show password
  */
 export const viewPassword = ({ input, icon }) => {
   if (input.type == 'password') {
