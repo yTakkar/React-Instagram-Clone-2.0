@@ -15,9 +15,9 @@ import Compress from 'image-compressor.js'
 export const shortener = (what, length) => {
   let
     parse = parseInt(length),
-    len = elem.length
+    len = what.length
   if (!parse) { return }
-  return (len >= parse) ? `${elem.substr(0, length - 2)}..` : (len < parse) ? elem : null
+  return (len >= parse) ? `${what.substr(0, length - 2)}..` : (len < parse) ? what : null
 }
 
 /**
