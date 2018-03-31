@@ -7,8 +7,9 @@ A reactive Single-Page Instagram-Clone with some new features developed with MER
 # Quick liks
 1. [Requirements](#requirements)
 2. [Usage](#usage)
-3. [Contribute](#contribute)
-4. [Image Copyright Claims](#image-copyright-claims)
+3. [Todo](#todo)
+4. [Contribute](#contribute)
+5. [Image Copyright Claims](#image-copyright-claims)
 
 Here's a video which will take you on a tour of this project!!
 
@@ -60,6 +61,9 @@ Here's a video which will take you on a tour of this project!!
     ```javacript
     localhost:[PORT]
     ```
+    
+# Todo
+1. Story feature
 
 # Contribute
 Show your support by 🌟 the project!!
