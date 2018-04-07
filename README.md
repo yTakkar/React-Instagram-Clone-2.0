@@ -59,11 +59,24 @@ Here's a video which will take you on a tour of this project!!
 
 7. Now run the app
     ```javacript
-    localhost:[PORT]
+    localhost:[PORT] (PORT=defined in .env)
     ```
     
 # Todo
-1. Story feature
+- [x] More filters
+- [x] Search
+- [x] Block members
+- [x] Hashtag feature
+- [x] Mention members
+- [x] JSDoc & comments
+- [x] Admin system
+- [ ] Show if member is online
+- [ ] Catch errors in async fns more effeciently.
+- [ ] Description with react-helmet for SEO.
+- [ ] Show mutual likes, comments & shares count. 
+- [ ] Story feature
+- [ ] Upload video
+- [ ] Upload multiple
 
 # Contribute
 Show your support by 🌟 the project!!

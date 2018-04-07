@@ -1,4 +1,5 @@
 {
     "editor.tabSize": 2,
-    "editor.autoIndent": false
+    "editor.autoIndent": false,
+    "instantmarkdown.autoOpenBrowser": false
   }
