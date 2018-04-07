@@ -77,6 +77,7 @@ Here's a video which will take you on a tour of this project!!
 - [ ] Story feature
 - [ ] Upload video
 - [ ] Upload multiple
+- [ ] Cache files, icons & fonts with ServiceWorker API.
 
 # Contribute
 Show your support by 🌟 the project!!
