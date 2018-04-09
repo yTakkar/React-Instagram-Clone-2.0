@@ -59,7 +59,10 @@ app.post('/user/signup', async (req, res) => {
   } else {
 
     let
-      [{ usernameCount }] = await db.query('SELECT COUNT(username) as usernameCount from users WHERE username=?', [ username ]),
+      [{ usernameCount }] = await db.query(
+        'SELECT COUNT(username) as usernameCount from users WHERE username=?',
+        [ username ]
+      ),
       [{ emailCount }] = await db.query('SELECT COUNT(email) as emailCount from users WHERE email=?', [ email ])
 
     if (usernameCount == 1) {
@@ -76,7 +79,8 @@ app.post('/user/signup', async (req, res) => {
           email,
           password,
           joined: new Date().getTime(),
-          email_verified: 'no'
+          email_verified: 'no',
+          isOnline: 'true'
         },
         { insertId, affectedRows } = await User.create_user(newUser),
         mkdir = promisify(fs.mkdir)
@@ -142,7 +146,12 @@ app.post('/user/login', async (req, res) => {
     res.json({ mssg: array })
   } else {
 
-    let [{ userCount, id, password, email_verified }] = await db.query('SELECT COUNT(id) as userCount, id, password, email_verified from users WHERE username=? LIMIT 1', [ rusername ])
+    let [{
+      userCount, id, password, email_verified
+    }] = await db.query(
+      'SELECT COUNT(id) as userCount, id, password, email_verified from users WHERE username=? LIMIT 1',
+      [ rusername ]
+    )
 
     if (userCount == 0){
       res.json({ mssg: 'User not found!!' })
@@ -157,6 +166,8 @@ app.post('/user/login', async (req, res) => {
         session.email_verified = email_verified
         session.isadmin = false
 
+        await db.query('UPDATE users SET isOnline=? WHERE id=?', [ 'true', id ])
+
         res.json({
           mssg: `Welcome ${rusername}!!`,
           success: true
@@ -169,7 +180,7 @@ app.post('/user/login', async (req, res) => {
 })
 
 // LOGS USER OUT
-app.get('/logout', mw.LoggedIn, (req, res) => {
+app.get('/logout', mw.LoggedIn, async (req, res) => {
   let
     { id, username } = req.session,
     user = { id, username },
@@ -179,6 +190,7 @@ app.get('/logout', mw.LoggedIn, (req, res) => {
   oldUsers.map(o => users.push(o) )
   let final = uniqBy([ user, ...users ], 'id')
   res.cookie('users', `${JSON.stringify(final)}`)
+  await db.query('UPDATE users SET isOnline=? WHERE id=?', [ 'false', id ])
 
   let url = req.session.reset() ? '/login' : '/'
   res.redirect(url)

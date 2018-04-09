@@ -26,7 +26,10 @@ app.post('/get-user-details', async (req, res) => {
     tags = await db.query('SELECT user, tag FROM tags WHERE user=?', [ id ])
 
   res.json({
-    details: details[0],
+    details: {
+      ...details[0],
+      isOnline: await db.getWhat('isOnline', id) == 'true' ? true : false
+    },
     tags
   })
 

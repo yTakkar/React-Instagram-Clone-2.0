@@ -75,7 +75,8 @@ app.post('/get-conversations', async (req, res) => {
         'SELECT COUNT(message_id) AS unreadMssgs FROM messages WHERE con_id=? AND mssg_to=? AND status=?',
         [ c.con_id, id, 'unread' ]
       ),
-      lastMssg = await Mssg.getLastMssg(c.con_id)
+      lastMssg = await Mssg.getLastMssg(c.con_id),
+      isOnline = await db.getWhat('isOnline', con_with)
 
     cons.push({
       ...c,
@@ -90,7 +91,8 @@ app.post('/get-conversations', async (req, res) => {
         lastMessage: lastMssg ? lastMssg.message : '',
         lastMssgType: lastMssg ? lastMssg.type : '',
         lastMssgBy: lastMssg ? lastMssg.mssg_by : ''
-      }
+      },
+      isOnline: isOnline == 'true' ? true : false,
     })
   }
 
@@ -231,23 +233,26 @@ app.post('/delete-conversation', async (req, res) => {
 })
 
 // GET CONVERSATION DETAILS [REQ = CON_ID]
-app.post('/get-conversion-details', async (req, res) => {
+app.post('/get-conversation-details', async (req, res) => {
   let
     { con_id } = req.body,
-    [{ mssgsCount }] = await db.query('SELECT COUNT(message_id) AS mssgsCount FROM messages WHERE con_id=?', [ con_id ]),
-    _media = await db.query(
+    [{ mssgsCount }] = await db.query(
+      'SELECT COUNT(message_id) AS mssgsCount FROM messages WHERE con_id=?',
+      [ con_id ]
+    ),
+    media = await db.query(
       'SELECT message AS imgSrc, mssg_by FROM messages WHERE con_id=? AND type=? ORDER BY message_time DESC',
       [ con_id, 'image' ]
     ),
-    media = [],
+    details = [],
     [{ con_time }] = await db.query('SELECT con_time FROM conversations WHERE con_id=?', [ con_id ])
 
-  for (let m of _media) {
+  for (let m of media) {
     let mssg_by_username = await db.getWhat('username', m.mssg_by)
-    media.push({ ...m, mssg_by_username })
+    details.push({ ...m, mssg_by_username })
   }
 
-  res.json({ mssgsCount, media, con_time })
+  res.json({ mssgsCount, details, con_time })
 })
 
 // GET UNREAD MESSAGES

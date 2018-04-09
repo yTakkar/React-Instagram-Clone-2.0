@@ -230,6 +230,27 @@
     border-top: 1px solid #f5eded;
   }
 
+  & .user_online {
+    position: absolute;
+    bottom: 81px;
+    right: 12px;
+    top: initial;
+    padding: 2px 8px 3px 8px;
+    border-radius: 3px;
+    font-size: 13px;
+
+    & .user_online_circle {
+      position: relative;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #5fcc5f;
+      top: 2px;
+      display: inline-block;
+      margin-right: 3px;
+    }
+  }
+
   & .pro_bottom{
     text-align: center;
 

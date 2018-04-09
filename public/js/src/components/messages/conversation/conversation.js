@@ -117,9 +117,13 @@ export default class Conversation extends React.Component {
 
   render() {
     let
-      { loading, message, emojis, showStickers, deleteCon, showMore, unsendMssgs } = this.state,
       {
-        conDetails: { con_id, con_with, con_with_username, con_with_firstname, con_with_surname, mutualFollowersCount },
+        loading, message, emojis, showStickers, deleteCon, showMore, unsendMssgs
+      } = this.state,
+      {
+        conDetails: {
+          con_id, con_with, con_with_username, con_with_firstname, con_with_surname, mutualFollowersCount, isOnline
+        },
         messages
       } = this.props,
       len = messages.length,
@@ -142,9 +146,10 @@ export default class Conversation extends React.Component {
                   <Link to={`/profile/${con_with_username}`} className='con_name' >{ con_with_username }</Link>
                   <span className='m_m_t_useless'>
                     {
-                      mutualFollowersCount == 0
-                        ? `${con_with_firstname} ${con_with_surname}`
-                        : humanReadable(mutualFollowersCount, 'mutual follower')
+                      isOnline ? 'online'
+                        : mutualFollowersCount == 0
+                          ? `${con_with_firstname} ${con_with_surname}`
+                          : humanReadable(mutualFollowersCount, 'mutual follower')
                     }
                   </span>
                 </div>

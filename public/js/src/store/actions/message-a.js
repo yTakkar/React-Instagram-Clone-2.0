@@ -61,7 +61,7 @@ export const deleteCon = con_id => {
 
 export const getConDetails = con_id => {
   return dispatch => {
-    post('/api/get-conversion-details', { con_id })
+    post('/api/get-conversation-details', { con_id })
       .then(p => dispatch({ type: 'GET_CONVERSATION_DETAILS', payload: p.data }))
       .catch(e => console.log(e))
   }

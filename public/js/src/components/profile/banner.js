@@ -133,7 +133,7 @@ export default class Banner extends React.Component {
   render() {
     let
       {
-        User: { user_details: { id, username, firstname, surname, bio }, tags },
+        User: { user_details: { id, username, firstname, surname, bio, isOnline }, tags },
         Follow: { isFollowing, followers, followings, profile_views, favourites, recommendations },
         posts
       } = this.props,
@@ -251,6 +251,15 @@ export default class Banner extends React.Component {
         </div>
 
         <hr/>
+
+        {
+          !Me(id) && isOnline ?
+            <span className='grp_admin user_online'>
+              <span className='user_online_circle'></span>
+              <span>online</span>
+            </span>
+            : null
+        }
 
         <div className='pro_bottom'>
           <div className='pro_post stat_disabled'>
