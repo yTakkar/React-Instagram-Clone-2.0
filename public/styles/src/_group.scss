@@ -207,13 +207,17 @@
     padding: 10px;
     text-align: right;
 
-    & span{
+    & span {
       font-size: 14px;
       display: block;
       text-align: left;
     }
 
-    & .grp_ns{
+    & .no_grp_bio {
+      font-style: italic;
+    }
+
+    & .grp_ns {
       padding: 4px 10px;
       font-weight: 600;
       display: inline-block;

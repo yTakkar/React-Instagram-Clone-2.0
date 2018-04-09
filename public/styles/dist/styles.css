@@ -3366,6 +3366,8 @@ select {
       font-size: 14px;
       display: block;
       text-align: left; }
+    .grp_bio .grp_bio_main .no_grp_bio {
+      font-style: italic; }
     .grp_bio .grp_bio_main .grp_ns {
       padding: 4px 10px;
       font-weight: 600;

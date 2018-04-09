@@ -51,7 +51,11 @@ export default class GroupPosts extends React.Component {
                   <span>Group's bio</span>
                 </div>
                 <div className='grp_bio_main'>
-                  <span><ToTags str={`${bio}`} /></span>
+                  {
+                    bio
+                      ? <span><ToTags str={bio} /></span>
+                      : <span className='no_grp_bio' >Group has no bio</span>
+                  }
                   {
                     Me(admin)
                       ? <Link to={`/group/${group_id}/edit`} className='sec_btn grp_ns'>Not satisfied</Link>
