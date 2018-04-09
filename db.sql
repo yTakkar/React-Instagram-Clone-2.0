@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 11, 2018 at 12:09 PM
+-- Generation Time: Apr 09, 2018 at 05:35 PM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -156,11 +156,13 @@ INSERT INTO `follow_system` (`follow_id`, `follow_by`, `follow_by_username`, `fo
 (199, 24, 'takkar', 18, 'ragnar', '1518016714400'),
 (205, 29, 'steve_jobs', 24, 'takkar', '1518018551833'),
 (206, 24, 'takkar', 29, 'steve_jobs', '1518342254836'),
-(210, 24, 'takkar', 27, 'taylor_swift', '1518514784031'),
 (211, 7, 'ghalib', 24, 'takkar', '1518973062269'),
 (212, 24, 'takkar', 28, 'selena', '1520263510726'),
 (215, 30, 'doraemon', 24, 'takkar', '1520705816856'),
-(218, 28, 'selena', 10, 'noddy', '1520759245687');
+(218, 28, 'selena', 10, 'noddy', '1520759245687'),
+(219, 28, 'selena', 24, 'takkar', '1520846090627'),
+(220, 24, 'takkar', 27, 'taylor_swift', '1521657605442'),
+(221, 27, 'taylor_swift', 24, 'takkar', '1523203587834');
 
 -- --------------------------------------------------------
 
@@ -210,7 +212,8 @@ INSERT INTO `group_members` (`grp_member_id`, `group_id`, `member`, `added_by`, 
 (36, 12, 7, 7, '1518973077690'),
 (37, 12, 24, 7, '1518973105166'),
 (38, 12, 8, 7, '1518973109895'),
-(48, 11, 28, 28, '1520758383955');
+(48, 11, 28, 28, '1520758383955'),
+(49, 12, 28, 28, '1520846126331');
 
 -- --------------------------------------------------------
 
@@ -303,9 +306,9 @@ INSERT INTO `messages` (`message_id`, `con_id`, `mssg_by`, `mssg_to`, `message`,
 (74, 24, 24, 7, 'instagram_message_1518972953049.jpg', 'image', 'read', '1518972953049'),
 (75, 24, 24, 7, 'instagram_message_1518972961638.jpg', 'sticker', 'read', '1518972961638'),
 (76, 24, 24, 7, 'instagram_message_1518972971352.jpg', 'sticker', 'read', '1518972971352'),
-(77, 25, 24, 27, 'hello', 'text', 'unread', '1518973001479'),
+(77, 25, 24, 27, 'hello', 'text', 'read', '1518973001479'),
 (78, 24, 7, 24, 'eo', 'text', 'read', '1518973051916'),
-(79, 25, 24, 27, '@takkar', 'text', 'unread', '1519028471421');
+(79, 25, 24, 27, '@takkar', 'text', 'read', '1519028471421');
 
 -- --------------------------------------------------------
 
@@ -341,19 +344,12 @@ INSERT INTO `notifications` (`notify_id`, `notify_by`, `notify_to`, `post_id`, `
 (353, 24, 8, 0, 11, 'add_grp_member', 0, '1518016765339', 'unread'),
 (354, 24, 18, 0, 11, 'add_grp_member', 0, '1518016769963', 'unread'),
 (368, 24, 29, 0, 0, 'follow', 0, '1518342254957', 'unread'),
-(370, 24, 27, 0, 0, 'follow', 0, '1518342257732', 'unread'),
 (375, 24, 18, 0, 0, 'recommend', 30, '1518513518878', 'unread'),
-(376, 24, 27, 0, 0, 'recommend', 30, '1518513536529', 'unread'),
-(379, 24, 27, 0, 0, 'follow', 0, '1518514784128', 'unread'),
 (382, 24, 7, 88, 0, 'mention_post', 0, '1518945386480', 'read'),
 (388, 24, 18, 89, 0, 'tag', 0, '1518972815728', 'unread'),
 (389, 24, 28, 89, 0, 'tag', 0, '1518972815732', 'read'),
-(390, 24, 27, 89, 0, 'tag', 0, '1518972815735', 'unread'),
-(391, 24, 27, 89, 0, 'share', 0, '1518972828997', 'unread'),
 (392, 24, 7, 89, 0, 'share', 0, '1518972830237', 'read'),
-(393, 24, 27, 0, 11, 'invite', 0, '1518972885048', 'unread'),
 (394, 24, 7, 88, 0, 'mention_comment', 0, '1518972932790', 'read'),
-(395, 24, 27, 0, 0, 'new_con', 0, '1518972996782', 'unread'),
 (400, 7, 8, 0, 12, 'add_grp_member', 0, '1518973109986', 'unread'),
 (401, 24, 28, 0, 0, 'follow', 0, '1520263510890', 'read'),
 (402, 24, 20, 0, 0, 'favourites', 0, '1520682122270', 'unread'),
@@ -362,7 +358,9 @@ INSERT INTO `notifications` (`notify_id`, `notify_by`, `notify_to`, `post_id`, `
 (405, 24, 28, 0, 0, 'recommend', 10, '1520682338643', 'read'),
 (406, 24, 28, 0, 0, 'recommend', 15, '1520682354281', 'read'),
 (410, 30, 8, 0, 0, 'follow', 0, '1520705825470', 'unread'),
-(412, 28, 10, 0, 0, 'follow', 0, '1520759245830', 'unread');
+(412, 28, 10, 0, 0, 'follow', 0, '1520759245830', 'unread'),
+(413, 28, 24, 0, 0, 'follow', 0, '1520846090935', 'read'),
+(417, 27, 24, 0, 0, 'follow', 0, '1523203587956', 'read');
 
 -- --------------------------------------------------------
 
@@ -530,7 +528,20 @@ INSERT INTO `profile_views` (`view_id`, `view_by`, `view_to`, `view_time`) VALUE
 (282, 24, 28, '1520763632558'),
 (283, 24, 10, '1520763822416'),
 (284, 24, 7, '1520763829919'),
-(285, 24, 7, '1520764803286');
+(285, 24, 7, '1520764803286'),
+(286, 24, 27, '1520768683384'),
+(287, 24, 30, '1520768744688'),
+(288, 28, 24, '1520768767061'),
+(289, 28, 24, '1520846088071'),
+(290, 24, 27, '1521657597271'),
+(291, 24, 10, '1523203299143'),
+(292, 24, 27, '1523203694321'),
+(293, 24, 7, '1523285826149'),
+(294, 7, 24, '1523285900611'),
+(295, 7, 24, '1523286823165'),
+(296, 7, 19, '1523286832523'),
+(297, 7, 24, '1523287444850'),
+(298, 7, 24, '1523287634357');
 
 -- --------------------------------------------------------
 
@@ -619,32 +630,33 @@ CREATE TABLE `users` (
   `facebook` varchar(500) COLLATE utf8mb4_bin NOT NULL,
   `github` varchar(500) COLLATE utf8mb4_bin NOT NULL,
   `website` varchar(500) COLLATE utf8mb4_bin NOT NULL,
-  `phone` varchar(20) COLLATE utf8mb4_bin NOT NULL
+  `phone` varchar(20) COLLATE utf8mb4_bin NOT NULL,
+  `isOnline` enum('true','false') COLLATE utf8mb4_bin NOT NULL DEFAULT 'false'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `firstname`, `surname`, `email`, `password`, `bio`, `joined`, `email_verified`, `account_type`, `instagram`, `twitter`, `facebook`, `github`, `website`, `phone`) VALUES
-(7, 'ghalib', 'Mirza', 'Ghalib', 'ghalib@gmail.com', '$2a$10$E3ZgkSwaa6rUopG1CBUm8OoCMKVqzSwv79bfuUrICV0eLOqTlqR/m', '', '1514718748562', 'yes', 'private', '', '', '', '', '', ''),
-(8, 'coldplay', 'cold', 'play', 'coldplay@gmail.com', '$2a$10$zVPMDJKlOY00UnSlrLEUfuaeTwXkZ.VD4ixp.q1x2RjX/LbezoqPO', '', '1515918435853', 'no', 'public', '', '', '', '', '', ''),
-(10, 'noddy', 'your', 'noddy', 'noddy@gmail.com', '$2a$10$/FlxKj904j7TnMo.9gJJTe5cwFakoJc4/w9kba3LeAdP0hTWGCzCG', '', '1516454412744', 'no', 'public', '', '', '', '', '', ''),
-(11, 'nobita', 'nobita', 'nobi', 'nobita@gmail.com', '$2a$10$nzMI2G054StCufuo4fzkEOWhpwUWKqZwV67jbPqaqqSNDNnF5led2', '', '1516522466189', 'no', 'public', '', '', '', '', '', ''),
-(12, 'pikachu', 'your', 'pikachu', 'pikachu@gmail.com', '$2a$10$j/buNE/iwJquKzzyBsOhLe4dEVVXKs56KTet8E4arAjcjsQ87BZt2', '', '1516522598741', 'no', 'public', '', '', '', '', '', ''),
-(13, 'iamsrk', 'Shahrukh', 'Khan', 'iamsrk@gmail.com', '$2a$10$Xn99377.3Ns8.QoneTP4qeMuERyvNR2Ki86eRjpmHCsj01xvFoFIq', '', '1516523593107', 'no', 'public', '', '', '', '', '', ''),
-(14, 'kinkade', 'Thomas', 'Kinkade', 'kinkade@gmail.com', '$2a$10$IvK3CBxFh/dnkWZtRMh9k.S2/WIdQbd6adF78Bb16.G.62nrSUgcG', '', '1516523852488', 'no', 'public', '', '', '', '', '', ''),
-(15, 'suniyo', 'suniyo', 'honekawa', 'suniyo@gmail.com', '$2a$10$60TUnK2JiH8RoloKA/IdB.ZG07o.bc8FpHqu9Euc2kEXc28PslceS', '', '1516524667640', 'no', 'public', '', '', '', '', '', ''),
-(16, 'zayn', 'Zayn', 'Malik', 'zayn@gmail.com', '$2a$10$ktjq/vo/8nBxlOnixyTpQuN6gyXc5vN4.rslSVRt4eM6vhq7ftaxS', '', '1516525072573', 'no', 'private', '', '', '', '', '', ''),
-(17, 'nfak', 'Nusratfateh', 'Alikhan', 'nfak@gmail.com', '$2a$10$TAzl3pUYIs/HRb8LPhvZdOclk/TSfnmicUVgHEGyUwnUxm7j7Z.Ie', '', '1516525201164', 'no', 'public', '', '', '', '', '', ''),
-(18, 'ragnar', 'Ragnar', 'Lothbrok', 'ragnar@gmail.com', '$2a$10$M7lx4wF.PUhAjSJVxb7bW.nk2G6zxeCjhXBnKTyFz3JNq8NQbQQ8m', '', '1516525343645', 'no', 'public', '', '', '', '', '', ''),
-(19, 'jonsnow', 'jon_', 'snow', 'jonsnow@gmail.com', '$2a$10$9Nb4hFjgg.MKKLLTeXMuWehralT21UCoeWsPq3./VWMkUnu19JpzS', '', '1516527326858', 'no', 'public', '', '', '', '', '', ''),
-(20, 'gian', 'Takeshi', 'Gauda', 'gian@gmail.com', '$2a$10$K3ijpio/4HIOKJhQ5yq3DOQ4IW5Oee4O5hwogEQtB/FBuNJRvd9T2', '', '1516527534985', 'no', 'public', '', '', '', '', '', ''),
-(24, 'takkar', 'iam_', 'takkar', 'takkar@gmail.com', '$2a$10$m2CrL8Y/iJxXraNm2VsIcOqnJul3A.jo2JmFiMWv6McIxrQ4W5Wki', 'Hello #world', '1518016437193', 'no', 'private', '', '', '', '', '', ''),
-(27, 'taylor_swift', 'taylor', 'swift', 'taylor_swift@gmail.com', '$2a$10$rnQRsp0iWCdV8b6AD24mJ.7rL5XQ31ejULlOQMVkBpjxD7RlRxqKK', '', '1518018283428', 'no', 'public', '', '', '', '', '', ''),
-(28, 'selena', 'selena', 'gomez', 'selenagomez@gmail.com', '$2a$10$.ifdYlKQdt/acrXtn09NLuENJylSfZIJq2U4tqzZNqeRWaUG0nnQq', '', '1518018409165', 'no', 'public', '', '', '', '', '', ''),
-(29, 'steve_jobs', 'steve', 'jobs', 'steve_jobs@gmail.com', '$2a$10$B05HNF3/pnK.8fU7kCJHpuaU5LpVxwao9Wmkn3Md2sAPc5GINiU6O', '', '1518018498672', 'no', 'public', '', '', '', '', '', ''),
-(30, 'doraemon', 'iam_', 'doraemon', 'doraemon@gmail.com', '$2a$10$OjZg/mosNPOT297skkotUetzYL7mIEFDVxVPP2lsBAv4F0LSyK18m', '', '1518454660501', 'no', 'public', '', '', '', '', '', '');
+INSERT INTO `users` (`id`, `username`, `firstname`, `surname`, `email`, `password`, `bio`, `joined`, `email_verified`, `account_type`, `instagram`, `twitter`, `facebook`, `github`, `website`, `phone`, `isOnline`) VALUES
+(7, 'ghalib', 'Mirza', 'Ghalib', 'ghalib@gmail.com', '$2a$10$E3ZgkSwaa6rUopG1CBUm8OoCMKVqzSwv79bfuUrICV0eLOqTlqR/m', '', '1514718748562', 'yes', 'private', '', '', '', '', '', '', 'false'),
+(8, 'coldplay', 'cold', 'play', 'coldplay@gmail.com', '$2a$10$zVPMDJKlOY00UnSlrLEUfuaeTwXkZ.VD4ixp.q1x2RjX/LbezoqPO', '', '1515918435853', 'no', 'public', '', '', '', '', '', '', 'false'),
+(10, 'noddy', 'your', 'noddy', 'noddy@gmail.com', '$2a$10$/FlxKj904j7TnMo.9gJJTe5cwFakoJc4/w9kba3LeAdP0hTWGCzCG', '', '1516454412744', 'no', 'public', '', '', '', '', '', '', 'false'),
+(11, 'nobita', 'nobita', 'nobi', 'nobita@gmail.com', '$2a$10$nzMI2G054StCufuo4fzkEOWhpwUWKqZwV67jbPqaqqSNDNnF5led2', '', '1516522466189', 'no', 'public', '', '', '', '', '', '', 'false'),
+(12, 'pikachu', 'your', 'pikachu', 'pikachu@gmail.com', '$2a$10$j/buNE/iwJquKzzyBsOhLe4dEVVXKs56KTet8E4arAjcjsQ87BZt2', '', '1516522598741', 'no', 'public', '', '', '', '', '', '', 'false'),
+(13, 'iamsrk', 'Shahrukh', 'Khan', 'iamsrk@gmail.com', '$2a$10$Xn99377.3Ns8.QoneTP4qeMuERyvNR2Ki86eRjpmHCsj01xvFoFIq', '', '1516523593107', 'no', 'public', '', '', '', '', '', '', 'false'),
+(14, 'kinkade', 'Thomas', 'Kinkade', 'kinkade@gmail.com', '$2a$10$IvK3CBxFh/dnkWZtRMh9k.S2/WIdQbd6adF78Bb16.G.62nrSUgcG', '', '1516523852488', 'no', 'public', '', '', '', '', '', '', 'false'),
+(15, 'suniyo', 'suniyo', 'honekawa', 'suniyo@gmail.com', '$2a$10$60TUnK2JiH8RoloKA/IdB.ZG07o.bc8FpHqu9Euc2kEXc28PslceS', '', '1516524667640', 'no', 'public', '', '', '', '', '', '', 'false'),
+(16, 'zayn', 'Zayn', 'Malik', 'zayn@gmail.com', '$2a$10$ktjq/vo/8nBxlOnixyTpQuN6gyXc5vN4.rslSVRt4eM6vhq7ftaxS', '', '1516525072573', 'no', 'private', '', '', '', '', '', '', 'false'),
+(17, 'nfak', 'Nusratfateh', 'Alikhan', 'nfak@gmail.com', '$2a$10$TAzl3pUYIs/HRb8LPhvZdOclk/TSfnmicUVgHEGyUwnUxm7j7Z.Ie', '', '1516525201164', 'no', 'public', '', '', '', '', '', '', 'false'),
+(18, 'ragnar', 'Ragnar', 'Lothbrok', 'ragnar@gmail.com', '$2a$10$M7lx4wF.PUhAjSJVxb7bW.nk2G6zxeCjhXBnKTyFz3JNq8NQbQQ8m', '', '1516525343645', 'no', 'public', '', '', '', '', '', '', 'false'),
+(19, 'jonsnow', 'jon_', 'snow', 'jonsnow@gmail.com', '$2a$10$9Nb4hFjgg.MKKLLTeXMuWehralT21UCoeWsPq3./VWMkUnu19JpzS', '', '1516527326858', 'no', 'public', '', '', '', '', '', '', 'false'),
+(20, 'gian', 'Takeshi', 'Gauda', 'gian@gmail.com', '$2a$10$K3ijpio/4HIOKJhQ5yq3DOQ4IW5Oee4O5hwogEQtB/FBuNJRvd9T2', '', '1516527534985', 'no', 'public', '', '', '', '', '', '', 'false'),
+(24, 'takkar', 'iam_', 'takkar', 'takkar@gmail.com', '$2a$10$m2CrL8Y/iJxXraNm2VsIcOqnJul3A.jo2JmFiMWv6McIxrQ4W5Wki', 'Hello #world', '1518016437193', 'no', 'private', '', '', '', '', '', '', 'false'),
+(27, 'taylor_swift', 'taylor', 'swift', 'taylor_swift@gmail.com', '$2a$10$rnQRsp0iWCdV8b6AD24mJ.7rL5XQ31ejULlOQMVkBpjxD7RlRxqKK', '', '1518018283428', 'no', 'public', '', '', '', '', '', '', 'false'),
+(28, 'selena', 'selena', 'gomez', 'selenagomez@gmail.com', '$2a$10$.ifdYlKQdt/acrXtn09NLuENJylSfZIJq2U4tqzZNqeRWaUG0nnQq', '', '1518018409165', 'no', 'public', '', '', '', '', '', '', 'false'),
+(29, 'steve_jobs', 'steve', 'jobs', 'steve_jobs@gmail.com', '$2a$10$B05HNF3/pnK.8fU7kCJHpuaU5LpVxwao9Wmkn3Md2sAPc5GINiU6O', '', '1518018498672', 'no', 'public', '', '', '', '', '', '', 'false'),
+(30, 'doraemon', 'iam_', 'doraemon', 'doraemon@gmail.com', '$2a$10$OjZg/mosNPOT297skkotUetzYL7mIEFDVxVPP2lsBAv4F0LSyK18m', '', '1518454660501', 'no', 'public', '', '', '', '', '', '', 'false');
 
 --
 -- Indexes for dumped tables
@@ -777,12 +789,12 @@ ALTER TABLE `blocks`
 -- AUTO_INCREMENT for table `bookmarks`
 --
 ALTER TABLE `bookmarks`
-  MODIFY `bkmrk_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `bkmrk_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=87;
+  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
 --
 -- AUTO_INCREMENT for table `conversations`
 --
@@ -792,12 +804,12 @@ ALTER TABLE `conversations`
 -- AUTO_INCREMENT for table `favourites`
 --
 ALTER TABLE `favourites`
-  MODIFY `fav_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `fav_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `follow_system`
 --
 ALTER TABLE `follow_system`
-  MODIFY `follow_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=219;
+  MODIFY `follow_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=222;
 --
 -- AUTO_INCREMENT for table `groups`
 --
@@ -807,7 +819,7 @@ ALTER TABLE `groups`
 -- AUTO_INCREMENT for table `group_members`
 --
 ALTER TABLE `group_members`
-  MODIFY `grp_member_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `grp_member_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 --
 -- AUTO_INCREMENT for table `hashtags`
 --
@@ -817,22 +829,22 @@ ALTER TABLE `hashtags`
 -- AUTO_INCREMENT for table `likes`
 --
 ALTER TABLE `likes`
-  MODIFY `like_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
+  MODIFY `like_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
 --
 -- AUTO_INCREMENT for table `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `message_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
+  MODIFY `message_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
 --
 -- AUTO_INCREMENT for table `notifications`
 --
 ALTER TABLE `notifications`
-  MODIFY `notify_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=413;
+  MODIFY `notify_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=418;
 --
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=94;
+  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
 --
 -- AUTO_INCREMENT for table `post_tags`
 --
@@ -842,12 +854,12 @@ ALTER TABLE `post_tags`
 -- AUTO_INCREMENT for table `profile_views`
 --
 ALTER TABLE `profile_views`
-  MODIFY `view_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=286;
+  MODIFY `view_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=299;
 --
 -- AUTO_INCREMENT for table `recommendations`
 --
 ALTER TABLE `recommendations`
-  MODIFY `recommend_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `recommend_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `shares`
 --
@@ -862,7 +874,7 @@ ALTER TABLE `tags`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
