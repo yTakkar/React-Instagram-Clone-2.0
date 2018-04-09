@@ -277,9 +277,6 @@
                 width: 64px;
               }
 
-              & .hashtag {
-                color: $ff;
-              }
             }
 
             & .mssg_sr_toggle{
@@ -343,6 +340,10 @@
                 right: -7px;
                 top: 11px;
                 transform: rotate(45deg);
+              }
+
+              & .hashtag {
+                color: $ff;
               }
             }
 
