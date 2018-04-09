@@ -15,7 +15,12 @@ export default class MutualUsers extends React.Component {
       mutuals = _mutuals.slice(0, 10),
       len = mutuals.length,
       map_mutuals = mutuals.map(u =>
-        <Link key={u.follow_id} to={`/profile/${u.username}`} data-tip={u.username} className='mutual_links'>
+        <Link
+          key={u.follow_id}
+          to={`/profile/${u.username}`}
+          data-tip={u.username}
+          className='mutual_links'
+        >
           <img src={`/users/${u.user}/avatar.jpg`} />
         </Link>
       )

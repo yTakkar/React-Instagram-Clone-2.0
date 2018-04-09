@@ -60,8 +60,16 @@ export default class Message extends React.Component {
           <div className='m_m' title={TimeAgo(message_time)} >
             {
               type == 'text' ? <ToTags str={`${message}`} />
-                : type == 'image' ? <img src={`/messages/${message}`} className='m_m_img' onClick={() => this._toggle('showImage')} />
+
+                : type == 'image'
+                  ? <img
+                    src={`/messages/${message}`}
+                    className='m_m_img'
+                    onClick={() => this._toggle('showImage')}
+                  />
+
                   : type == 'sticker' ? <img src={`/messages/${message}`} className='m_m_sticker' />
+
                     : null
             }
           </div>
@@ -72,10 +80,16 @@ export default class Message extends React.Component {
             {
               Me(mssg_by) || isAdmin() ?
                 <FadeIn duration='300ms'>
-                  <span data-tip={`Delete ${isAdmin() ? 'as admin' : ''}`}  onClick={() => this._toggle('deleteMessage')}><i className='material-icons'>delete</i></span>
+                  <span
+                    data-tip={`Delete ${isAdmin() ? 'as admin' : ''}`}
+                    onClick={() => this._toggle('deleteMessage')}
+                  ><i className='material-icons'>delete</i></span>
                   {
                     type == 'text' ?
-                      <span data-tip={`Edit ${isAdmin() ? 'as admin' : ''}`} onClick={() => this._toggle('editMessage')} ><i className='material-icons'>mode_edit</i></span>
+                      <span
+                        data-tip={`Edit ${isAdmin() ? 'as admin' : ''}`}
+                        onClick={() => this._toggle('editMessage')}
+                      ><i className='material-icons'>mode_edit</i></span>
                       : null
                   }
                   <ToolTip/>

@@ -70,8 +70,12 @@ export default class GroupList extends React.Component {
 
         <div className='m_bottom'>
           {
-            Me(admin) ? <Link to={`/group/${group_id}`} className='pri_btn' >View group</Link>
-              : joined ? <a href='#' className='pri_btn unfollow' onClick={this.leaveGroup} >Leave group</a>
+            Me(admin) ?
+              <Link to={`/group/${group_id}`} className='pri_btn' >View group</Link>
+
+              : joined ?
+                <a href='#' className='pri_btn unfollow' onClick={this.leaveGroup} >Leave group</a>
+
                 : <a href='#' className='pri_btn follow' onClick={this.joinGroup} >Join group</a>
           }
         </div>

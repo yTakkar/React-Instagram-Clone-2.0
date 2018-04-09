@@ -68,9 +68,7 @@ export default class GroupMembers extends React.Component {
 
           {
             !loading && len == 0
-              ? <div>
-                <Nothing mssg={`${name} group has no members!!` } />
-              </div>
+              ? <div><Nothing mssg={`${name} group has no members!!` } /></div>
               : !loading && len != 0 ? <End/>
                 : null
           }

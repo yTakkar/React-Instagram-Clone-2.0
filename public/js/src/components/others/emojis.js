@@ -20,7 +20,6 @@ export default class Emojis extends React.Component {
       e.target.classList.add('emoji_toggle')
 
       setState(finalText)
-
     })
   }
 

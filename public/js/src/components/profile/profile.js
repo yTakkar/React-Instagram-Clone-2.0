@@ -102,8 +102,8 @@ export default class Profile extends React.Component {
                     <Route path={`${url}/followers`} component={() => <Followers param={username} />} />
                     <Route path={`${url}/followings`} component={() => <Followings param={username} />} />
                     <Route path={`${url}/favourites`} component={() => <Favourites param={username} />} />
-                    <Route path={`${url}/recommendations`} component={() => <Recommendations param={username} />} />
-                    <Route path={`${url}/people-you-know`} component={() => <PeopleYouKnow param={username} />} />
+                    <Route path={`${url}/recommendations`} component={() => <Recommendations param={username}/> } />
+                    <Route path={`${url}/people-you-know`} component={() => <PeopleYouKnow param={username} /> } />
                     <Redirect to='/error' />
                   </Switch>
                 </div>

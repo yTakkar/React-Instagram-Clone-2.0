@@ -72,8 +72,20 @@ export default class Comment extends React.Component {
 
             {
               type == 'text' ? <p className='ce' ><ToTags str={text} /></p>
-                : type == 'image' ? <img className='comments_img' onClick={() => this._toggle('openImage')} src={`/comments/${commentSrc}`} />
-                  : type == 'sticker' ? <img className='comments_sticker' src={`/comments/${commentSrc}`} />
+
+                : type == 'image' ?
+                  <img
+                    className='comments_img'
+                    onClick={() => this._toggle('openImage')}
+                    src={`/comments/${commentSrc}`}
+                  />
+
+                  : type == 'sticker' ?
+                    <img
+                      className='comments_sticker'
+                      src={`/comments/${commentSrc}`}
+                    />
+
                     : null
             }
 
@@ -86,12 +98,20 @@ export default class Comment extends React.Component {
                 <div className='comment_tools' ref={r => this.ct = r} >
                   {
                     type == 'text' ?
-                      <span className='comment_edit' data-tip={`Edit ${isAdmin() ? 'as admin' : ''}`} onClick={() => this._toggle('editComment')} >
+                      <span
+                        className='comment_edit'
+                        data-tip={`Edit ${isAdmin() ? 'as admin' : ''}`}
+                        onClick={() => this._toggle('editComment')}
+                      >
                         <i className='material-icons'>mode_edit</i>
                       </span>
                       : null
                   }
-                  <span className='comment_delete' data-tip={`Delete ${isAdmin() ? 'as admin' : ''}`} onClick={() => this._toggle('deleteComment')} >
+                  <span
+                    className='comment_delete'
+                    data-tip={`Delete ${isAdmin() ? 'as admin' : ''}`}
+                    onClick={() => this._toggle('deleteComment')}
+                  >
                     <i className='material-icons'>delete</i>
                   </span>
                 </div>

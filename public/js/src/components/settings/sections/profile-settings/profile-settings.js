@@ -82,8 +82,8 @@ export default class ProfileSettings extends React.Component {
                 <span class='acc_type_h'>Your blocked members</span>
               </div>
               {
-                len == 0 ?
-                  <Nothing mssg='No blocked members' />
+                len == 0
+                  ? <Nothing mssg='No blocked members' />
                   : map_users
               }
             </div>

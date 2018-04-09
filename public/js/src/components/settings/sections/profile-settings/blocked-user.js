@@ -31,8 +31,8 @@ export default class BlockedUser extends React.Component {
             <Link to={`/profile/${username}`} className='blocked_username'>{ username }</Link>
             <span className='blocked_mutual'>
               {
-                mutualFollowersCount == 0 ?
-                  `${firstname} ${surname}`
+                mutualFollowersCount == 0
+                  ? `${firstname} ${surname}`
                   : humanReadable(mutualFollowersCount, 'mutual follower')
               }
             </span>

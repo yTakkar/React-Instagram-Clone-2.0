@@ -100,7 +100,11 @@ export default class CommentPost extends React.Component {
                 <i className='material-icons'>sentiment_very_satisfied</i>
               </span>
               <a href='#' className='e_p_cancel sec_btn' onClick={this.back} >Back</a>
-              <a href='#' className={`e_p_update pri_btn ${!text ? 'a_disabled' : ''}`} onClick={this.comment} >Comment</a>
+              <a
+                href='#'
+                className={`e_p_update pri_btn ${!text ? 'a_disabled' : ''}`}
+                onClick={this.comment}
+              >Comment</a>
             </div>
           </FadeIn>
         </div>

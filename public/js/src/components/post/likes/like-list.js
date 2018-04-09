@@ -103,9 +103,15 @@ export default class LikeList extends React.Component {
           </div>
           <div className='modal_ff'>
             {
-              isAdmin() ? <a href='#' className='sec_btn' onClick={this.remLikeAsAdmin} >Remove as admin</a>
-                : Me(like_by) ? <Link to={`/profile/${username}`} className='pri_btn follow' >Profile</Link>
-                  : isFollowing ? <a href='#' className='pri_btn unfollow' onClick={this.unfollow} >Unfollow</a>
+              isAdmin() ?
+                <a href='#' className='sec_btn' onClick={this.remLikeAsAdmin} >Remove as admin</a>
+
+                : Me(like_by) ?
+                  <Link to={`/profile/${username}`} className='pri_btn follow' >Profile</Link>
+
+                  : isFollowing ?
+                    <a href='#' className='pri_btn unfollow' onClick={this.unfollow} >Unfollow</a>
+
                     : <a href='#' className='pri_btn follow' onClick={this.follow} >Follow</a>
             }
           </div>

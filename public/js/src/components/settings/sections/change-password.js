@@ -28,7 +28,9 @@ export default class ChangePassword extends React.Component {
         .text('Changing password..')
       overlay2.show()
 
-      let { data: { mssg, success } } = await post('/user/change-password', { old, new_, new_a })
+      let {
+        data: { mssg, success }
+      } = await post('/user/change-password', { old, new_, new_a })
 
       if (success) {
         Notify({

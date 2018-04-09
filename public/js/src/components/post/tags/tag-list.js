@@ -105,9 +105,19 @@ export default class TagItems extends React.Component {
           </div>
           <div className='modal_ff'>
             {
-              isPostMine || isAdmin() ? <a href='#' className='sec_btn' onClick={e => this.untag(e, user)} >Untag {isAdmin() ? 'as admin' : null}</a>
-                : Me(user) ? <a href='#' className='sec_btn' onClick={e => this.untag(e, user)} >Untag</a>
-                  : isFollowing ? <a href='#' className='pri_btn unfollow' onClick={this.unfollow} >Unfollow</a>
+              isPostMine || isAdmin() ?
+                <a
+                  href='#'
+                  className='sec_btn'
+                  onClick={e => this.untag(e, user)}
+                >Untag {isAdmin() ? 'as admin' : null}</a>
+
+                : Me(user) ?
+                  <a href='#' className='sec_btn' onClick={e => this.untag(e, user)} >Untag</a>
+
+                  : isFollowing ?
+                    <a href='#' className='pri_btn unfollow' onClick={this.unfollow} >Unfollow</a>
+
                     : <a href='#' className='pri_btn follow' onClick={this.follow} >Follow</a>
             }
           </div>

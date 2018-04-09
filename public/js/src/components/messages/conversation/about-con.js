@@ -71,7 +71,8 @@ export default class AboutConversation extends React.Component {
                       <Link to={`/profile/${username}`} >{username}</Link>
                       <span className='sli_w'>
                         {
-                          mutualFollowersCount == 0 ? `${firstname} ${surname}`
+                          mutualFollowersCount == 0
+                            ? `${firstname} ${surname}`
                             : humanReadable(mutualFollowersCount, 'mutual follower')
                         }
                       </span>
@@ -92,8 +93,8 @@ export default class AboutConversation extends React.Component {
                 <div className='sli_media'>
                   <span className='sli_label'>Media</span>
                   {
-                    media ?
-                      media.length == 0 ? <Nothing whenMessage={true} showMssg={false} /> : map_media
+                    media
+                      ? media.length == 0 ? <Nothing whenMessage={true} showMssg={false} /> : map_media
                       : null
                   }
                 </div>

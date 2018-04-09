@@ -74,7 +74,9 @@ export default class UserGroups extends React.Component {
                   <CreateGroup/>
                 </div>
                 <div className='prajkumar' >
-                  <Nothing mssg={Me(id) ? 'You\'re not a member of any group!!' : `${username} is not a member of any group!!`} />
+                  <Nothing
+                    mssg={Me(id) ? 'You\'re not a member of any group!!' : `${username} is not a member of any group!!`}
+                  />
                 </div>
               </div>
               : <End/>

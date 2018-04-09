@@ -56,7 +56,11 @@ export default class ExploreUsersList extends React.Component {
           <div className='m_top_right'>
             <Link to={`/profile/${username}`} >{username}</Link>
             <span>
-              { mutualUsersCount == 0 ? `${firstname} ${surname}` : humanReadable(mutualUsersCount, 'mutual follower') }
+              {
+                mutualUsersCount == 0 ?
+                  `${firstname} ${surname}`
+                  : humanReadable(mutualUsersCount, 'mutual follower')
+              }
             </span>
           </div>
         </div>

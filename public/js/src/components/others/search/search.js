@@ -17,7 +17,9 @@ export default class Search extends React.Component {
   }
 
   hide = () =>
-    this.setState({ search: { users: [], groups: [], hashtags: [] } })
+    this.setState({
+      search: { users: [], groups: [], hashtags: [] }
+    })
 
   search = async ({ target: { value } }) => {
     this.setState({ value })

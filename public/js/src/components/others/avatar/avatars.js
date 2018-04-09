@@ -119,7 +119,10 @@ export default class Avatars extends React.Component {
           </form>
           <div className='pro_ava_bottom_act'>
             <a href='#' className='sec_btn' onClick={this.back} >Cancel</a>
-            <a href='#' className={`pri_btn btn_select_avatar ${loading ? 'a_disabled' : ''}`} onClick={this.changeAvatar} >Apply</a>
+            <a
+              href='#'
+              className={`pri_btn btn_select_avatar ${loading ? 'a_disabled' : ''}`}
+              onClick={this.changeAvatar} >Apply</a>
           </div>
         </div>
 

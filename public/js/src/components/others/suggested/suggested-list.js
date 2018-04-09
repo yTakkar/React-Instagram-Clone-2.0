@@ -76,7 +76,11 @@ export default class SuggestedList extends React.Component {
         <div className='recomms_cont'>
           <Link to={`/profile/${username}`} className='recomms_username' >{username}</Link>
           <span>
-            { mutualUsersCount == 0 ? `${firstname} ${surname}` : humanReadable(mutualUsersCount, 'mutual follower') }
+            {
+              mutualUsersCount == 0
+                ? `${firstname} ${surname}`
+                : humanReadable(mutualUsersCount, 'mutual follower')
+            }
           </span>
         </div>
         <div className='recomms_ff' >

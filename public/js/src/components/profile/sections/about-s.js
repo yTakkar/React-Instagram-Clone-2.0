@@ -29,9 +29,9 @@ export default class About extends React.Component {
 
   render() {
     let
-      {
-        ud: { username, firstname, surname, email, joined, bio, facebook, twitter, github, instagram, website, phone }
-      } = this.props,
+      { ud: {
+        username, firstname, surname, email, joined, bio, facebook, twitter, github, instagram, website, phone
+      }} = this.props,
       { title } = this.state,
       editLink = text => <Link to='/edit-profile' >{text}</Link>
 
@@ -116,7 +116,7 @@ export default class About extends React.Component {
                   <span className='a_label'>Facebook</span>
                   {
                     facebook
-                      ?  <a className='a_info' href={facebook} target='_blank'>{facebook}</a>
+                      ? <a className='a_info' href={facebook} target='_blank'>{facebook}</a>
                       : editLink('Add Facebook account')
                   }
                 </div>

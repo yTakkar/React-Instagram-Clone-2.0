@@ -49,7 +49,9 @@ export default class Recommendations extends React.Component {
 
           {
             len == 0
-              ? <Nothing mssg={ Me(id) ? 'You have no recommendations!!' : `${username} have no recommendations!!` } />
+              ? <Nothing
+                mssg={ Me(id) ? 'You have no recommendations!!' : `${username} have no recommendations!!` }
+              />
               : <End/>
           }
 

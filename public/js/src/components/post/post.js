@@ -173,8 +173,14 @@ export default class Post extends React.Component {
 
   render() {
     let
-      { post_id, user, username, firstname, surname, location, filter, imgSrc, type, group_id, group_name, post_time, when, share_by_username, share_time, comments } = this.props,
-      { description, liked, bookmarked, likes_count, tags_count, shares_count, comments_count, showImage, showLikes, showTags, showShare, showSharers, editPost, deletePost, commentPost, commentFile, showStickers } = this.state,
+      {
+        post_id, user, username, firstname, surname, location, filter, imgSrc, type, group_id, group_name, post_time, when, share_by_username, share_time, comments
+      } = this.props,
+
+      {
+        description, liked, bookmarked, likes_count, tags_count, shares_count, comments_count, showImage, showLikes, showTags, showShare, showSharers, editPost, deletePost, commentPost, commentFile, showStickers
+      } = this.state,
+
       session = $('.data').data('session'),
       map_comments = typeof(comments) != 'undefined' ? comments.map(c =>
         <Comment
@@ -241,21 +247,38 @@ export default class Post extends React.Component {
           >
             <ul>
               { when != 'viewPost' ? <li><Link to={`/post/${post_id}`} >Open</Link></li> : null }
+
               {
                 fn.Me(user) || fn.isAdmin() ?
-                  <li><a href='#' className='edit_post' onClick={this.showEditPost} >Edit post {fn.isAdmin() ? 'as admin' : null}</a></li>
+                  <li>
+                    <a
+                      href='#'
+                      className='edit_post' onClick={this.showEditPost}
+                    >Edit post {fn.isAdmin() ? 'as admin' : null}</a>
+                  </li>
                   : null
               }
+
               {
                 fn.Me(user) || fn.isAdmin() ?
-                  <li><a href='#' className='delete_post' onClick={this.showDeletePost} >Delete post {fn.isAdmin() ? 'as admin' : null}</a></li>
+                  <li>
+                    <a
+                      href='#'
+                      className='delete_post'
+                      onClick={this.showDeletePost}
+                    >Delete post {fn.isAdmin() ? 'as admin' : null}</a>
+                  </li>
                   : null
               }
+
               {
                 when == 'bookmarks' && fn.isAdmin() ?
-                  <li><a href='#' onClick={this.remBookmarkAsAdmin} >Remove bookmark as admin</a></li>
+                  <li>
+                    <a href='#' onClick={this.remBookmarkAsAdmin} >Remove bookmark as admin</a>
+                  </li>
                   : null
               }
+
               <li><a href='#' className='p_copy_link' onClick={this.copyLink} >Copy link</a></li>
             </ul>
           </div>
@@ -345,7 +368,10 @@ export default class Post extends React.Component {
 
         <hr />
 
-        <Link to={`/post/${post_id}`} className='p_comments' >{ fn.humanReadable(comments_count, 'comment') }</Link>
+        <Link
+          to={`/post/${post_id}`}
+          className='p_comments' >{ fn.humanReadable(comments_count, 'comment') }
+        </Link>
 
         <div className='p_cit'>
           <div className='p_cit_img'>

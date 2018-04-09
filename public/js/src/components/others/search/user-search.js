@@ -14,8 +14,8 @@ export default class UserSearch extends React.Component {
             <span className='s_d_username'>{username}</span>
             <span>
               {
-                mutualFollowersCount == 0 ?
-                  `${firstname} ${surname}`
+                mutualFollowersCount == 0
+                  ? `${firstname} ${surname}`
                   : humanReadable(mutualFollowersCount, 'mutual follower')
               }
             </span>

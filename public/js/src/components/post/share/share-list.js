@@ -63,8 +63,8 @@ export default class ShareList extends React.Component {
           </div>
           <div className='modal_ff'>
             {
-              didIShare ?
-                <a href='#' className='share_btn sec_btn' onClick={this.unshare} >Unshare</a>
+              didIShare
+                ? <a href='#' className='share_btn sec_btn' onClick={this.unshare} >Unshare</a>
                 : <a href='#' className='share_btn pri_btn' onClick={this.share} >Share</a>
             }
           </div>

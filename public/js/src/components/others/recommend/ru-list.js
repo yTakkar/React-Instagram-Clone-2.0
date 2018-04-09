@@ -13,8 +13,13 @@ export default class RecommendUsersList extends React.Component {
 
   recommend = async e => {
     e.preventDefault()
-    let { ud: { id, username: getUsername }, follow_to, username, back } = this.props
-    let { data: { success } } = await post('/api/recommend-user', { user: id, recommend_to: follow_to })
+    let {
+      ud: { id, username: getUsername },
+      follow_to, username, back
+    } = this.props
+    let {
+      data: { success }
+    } = await post('/api/recommend-user', { user: id, recommend_to: follow_to })
 
     if (success) {
       insta_notify({

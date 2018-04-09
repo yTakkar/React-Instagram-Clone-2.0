@@ -21,9 +21,7 @@ export default class ViewAvatar extends React.Component {
           <div class='v_a_img'>
             <img
               src={imgSrc} alt=''
-              style={{
-                width: `${range}px`
-              }}
+              style={{ width: `${range}px` }}
             />
           </div>
 

@@ -73,7 +73,9 @@ export default class Home extends React.Component {
 
                 {
                   len == 0 ?
-                    <Nothing mssg="Looks like you're new, Follow some to fill up your feed or post from above options!!" />
+                    <Nothing
+                      mssg="Looks like you're new, Follow some to fill up your feed or post from above options!!"
+                    />
                     : <FadeIn duration='500ms'>{ map_feed }</FadeIn>
                 }
               </div>

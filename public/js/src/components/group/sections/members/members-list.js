@@ -75,7 +75,9 @@ export default class MembersList extends React.Component {
 
   render() {
     let
-      { member, username, firstname, surname, added_by, added_by_username, mutualUsersCount, joined_group, gd } = this.props,
+      {
+        member, username, firstname, surname, added_by, added_by_username, mutualUsersCount, joined_group, gd
+      } = this.props,
       { isFollowing, remove } = this.state
 
     return (
@@ -93,7 +95,8 @@ export default class MembersList extends React.Component {
             <span>
               {
                 !Me(member)
-                  ? mutualUsersCount == 0 ? `${firstname} ${surname}` : humanReadable(mutualUsersCount, 'mutual follower')
+                  ? mutualUsersCount == 0
+                    ? `${firstname} ${surname}` : humanReadable(mutualUsersCount, 'mutual follower')
                   : `${firstname} ${surname}`
               }
             </span>

@@ -51,7 +51,11 @@ export default class RecommendList extends React.Component {
           <span className='recommend_by' >by
             <Link to={`/profile/${recommend_by_username}`} > {recommend_by_username}</Link>
           </span>
-          { Me(id) ? <a href='#' className='sec_btn' onClick={this.remRecommendation} >Remove</a> : null }
+          {
+            Me(id)
+              ? <a href='#' className='sec_btn' onClick={this.remRecommendation} >Remove</a>
+              : null
+          }
         </div>
 
       </div>

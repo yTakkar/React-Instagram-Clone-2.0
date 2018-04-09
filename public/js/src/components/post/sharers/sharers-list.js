@@ -106,9 +106,14 @@ export default class SharerList extends React.Component {
                 <Link to={`/profile/${share_by_username}`} className='pri_btn follow' >Profile</Link>
 
                 : Me(share_to) || isAdmin() ?
-                  <a href='#' className='rem_share sec_btn' onClick={this.removeShare} >Remove {isAdmin() ? 'as admin' : 'share'}</a>
+                  <a
+                    href='#'
+                    className='rem_share sec_btn'
+                    onClick={this.removeShare}
+                  >Remove {isAdmin() ? 'as admin' : 'share'}</a>
 
-                  : isFollowing ? <a href='#' className='pri_btn unfollow' onClick={this.unfollow} >Unfollow</a>
+                  : isFollowing ?
+                    <a href='#' className='pri_btn unfollow' onClick={this.unfollow} >Unfollow</a>
 
                     : <a href='#' className='pri_btn follow' onClick={this.follow} >Follow</a>
             }

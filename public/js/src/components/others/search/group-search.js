@@ -14,8 +14,8 @@ export default class GroupSearch extends React.Component {
             <span className='s_d_username'>{ name }</span>
             <span>
               {
-                mutualMembersCount == 0 ?
-                  humanReadable(membersCount, 'member')
+                mutualMembersCount == 0
+                  ? humanReadable(membersCount, 'member')
                   : humanReadable(mutualMembersCount, 'mutual member')
               }
             </span>

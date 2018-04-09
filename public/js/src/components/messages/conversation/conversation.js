@@ -142,8 +142,8 @@ export default class Conversation extends React.Component {
                   <Link to={`/profile/${con_with_username}`} className='con_name' >{ con_with_username }</Link>
                   <span className='m_m_t_useless'>
                     {
-                      mutualFollowersCount == 0 ?
-                        `${con_with_firstname} ${con_with_surname}`
+                      mutualFollowersCount == 0
+                        ? `${con_with_firstname} ${con_with_surname}`
                         : humanReadable(mutualFollowersCount, 'mutual follower')
                     }
                   </span>
@@ -167,8 +167,12 @@ export default class Conversation extends React.Component {
                       <label for='mssg_add_img' className='mssg_img'>Send image</label>
                     </form>
                   </li>
-                  <li><a href='#' className='mssg_sticker' onClick={e => this._toggle(e, 'showStickers')} >Send sticker</a></li>
-                  <li><a href='#' className='m_m_info' onClick={e => this._toggle(e, 'showMore')} >More</a></li>
+                  <li>
+                    <a href='#' className='mssg_sticker' onClick={e => this._toggle(e, 'showStickers')} >Send sticker</a>
+                  </li>
+                  <li>
+                    <a href='#' className='m_m_info' onClick={e => this._toggle(e, 'showMore')} >More</a>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -177,7 +181,8 @@ export default class Conversation extends React.Component {
               <div className='m_m_main'>
 
                 {
-                  len == 0 ? <Nothing showMssg={false} />
+                  len == 0
+                    ? <Nothing showMssg={false} />
                     : <FadeIn duration='300ms'>{ map_messages }</FadeIn>
                 }
                 <div className='mssg_end' ></div>
@@ -196,7 +201,11 @@ export default class Conversation extends React.Component {
                   value={message}
                   onChange={e => this.changeValue('message', e)}
                 ></textarea>
-                <span className='mssg_emoji_btn' data-tip='Add emojis' onClick={() => this._toggle(null, 'emojis')} >
+                <span
+                  className='mssg_emoji_btn'
+                  data-tip='Add emojis'
+                  onClick={() => this._toggle(null, 'emojis')}
+                >
                   <i className='material-icons'>sentiment_very_satisfied</i>
                 </span>
                 <input type='submit' name='' value='Send' className='pri_btn mssg_send' />

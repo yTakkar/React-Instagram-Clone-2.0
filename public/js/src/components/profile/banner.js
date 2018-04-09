@@ -156,14 +156,40 @@ export default class Banner extends React.Component {
               {
                 isFollowing ?
                   <Fragment>
-                    { !Me(id) ? <li><a href='#' className='pro_block' onClick={e => this._toggle(e, 'blockUser')} >Block</a></li> : null }
-                    { !Me(id) ? <li><a href='#' className='pro_recommend' onClick={this.showRecommendUsers} >Recommend</a></li> : null }
-                    { !Me(id) ? <li><a href='#' className='add_fav' onClick={this.addToFavourites} >Add to favourites</a></li> : null }
+
+                    {
+                      !Me(id) ?
+                        <li>
+                          <a href='#' className='pro_block' onClick={e => this._toggle(e, 'blockUser')} >Block</a>
+                        </li>
+                        : null
+                    }
+                    {
+                      !Me(id) ?
+                        <li>
+                          <a href='#' className='pro_recommend' onClick={this.showRecommendUsers} >Recommend</a>
+                        </li>
+                        : null
+                    }
+                    {
+                      !Me(id) ?
+                        <li>
+                          <a href='#' className='add_fav' onClick={this.addToFavourites} >Add to favourites</a></li>
+                        : null
+                    }
                     { !Me(id) ? <li><Link to='/messages' className='add_fav'>Message</Link></li> : null }
+
                   </Fragment>
                   : null
               }
-              { isAdmin() ? <li><a href='#' className='rem_user' onClick={this.removeUser} >Remove as admin</a></li> : null }
+
+              {
+                isAdmin() ?
+                  <li>
+                    <a href='#' className='rem_user' onClick={this.removeUser} >Remove as admin</a>
+                  </li>
+                  : null
+              }
               <li><a href='#' className='p_copy_link' onClick={this.copyLink} >Copy profile link</a></li>
             </ul>
           </div>
@@ -187,7 +213,11 @@ export default class Banner extends React.Component {
           <img src={ id ? `/users/${id}/avatar.jpg` : '/images/spacecraft.jpg' } alt='avatar' />
           <div className='pro_avatar_ch_teaser' style={{ display: 'none' }} >
             <span className='view_avatar_span' onClick={() => this._toggle(null, 'viewAvatar')} >View</span>
-            { Me(id) ? <span className='change_pro' onClick={() => this._toggle(null, 'changeAvatar')} >Change</span> : null }
+            {
+              Me(id) ?
+                <span className='change_pro' onClick={() => this._toggle(null, 'changeAvatar')} >Change</span>
+                : null
+            }
           </div>
         </div>
 
@@ -213,7 +243,11 @@ export default class Banner extends React.Component {
               ? map_tags
               : `${Me(id) ? 'You' : username} have no tags!!`
           }
-          { tags_len == 0 && Me(id) ? <NavLink to='/edit-profile' className='add_tags'>add</NavLink> : null }
+          {
+            tags_len == 0 && Me(id)
+              ? <NavLink to='/edit-profile' className='add_tags'>add</NavLink>
+              : null
+          }
         </div>
 
         <hr/>

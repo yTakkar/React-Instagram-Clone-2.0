@@ -16,7 +16,12 @@ export default class ConversationTeaser extends React.Component {
         <div className='m_sr_content'>
           <span className='m_sr_username'>{con_with_username}</span>
           <span className='m_sr_light'>
-            { Me(lastMssgBy) ? <span className='mssg_sent'><i className='material-icons'>done_all</i></span> : null }
+            {
+              Me(lastMssgBy)
+                ? <span className='mssg_sent'><i className='material-icons'>done_all</i></span>
+                : null
+            }
+
             {
               lastMessage ?
 
@@ -38,8 +43,8 @@ export default class ConversationTeaser extends React.Component {
         </span>
 
         {
-          unreadMssgs != 0 ?
-            <span className='m_sr_unread'>{ unreadMssgs > 9 ? '+' : unreadMssgs }</span>
+          unreadMssgs != 0
+            ? <span className='m_sr_unread'>{ unreadMssgs > 9 ? '+' : unreadMssgs }</span>
             : null
         }
 

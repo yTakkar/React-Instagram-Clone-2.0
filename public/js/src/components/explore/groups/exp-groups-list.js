@@ -64,7 +64,8 @@ export default class ExploreGroupsList extends React.Component {
             <Link to={`/group/${group_id}`} >{name}</Link>
             <span>
               {
-                mutualMembersCount == 0 ? humanReadable(membersCount, 'member')
+                mutualMembersCount == 0
+                  ? humanReadable(membersCount, 'member')
                   : humanReadable(mutualMembersCount, 'mutual member')
               }
             </span>

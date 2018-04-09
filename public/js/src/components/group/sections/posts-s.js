@@ -53,7 +53,9 @@ export default class GroupPosts extends React.Component {
                 <div className='grp_bio_main'>
                   <span><ToTags str={`${bio}`} /></span>
                   {
-                    Me(admin) ? <Link to={`/group/${group_id}/edit`} className='sec_btn grp_ns'>Not satisfied</Link> : null
+                    Me(admin)
+                      ? <Link to={`/group/${group_id}/edit`} className='sec_btn grp_ns'>Not satisfied</Link>
+                      : null
                   }
                 </div>
               </div>
@@ -75,8 +77,8 @@ export default class GroupPosts extends React.Component {
                   <PostItTeaser
                     type='group'
                     group={group_id}
-                  />:
-                  null
+                  />
+                  : null
               }
               {
                 len == 0 ?
