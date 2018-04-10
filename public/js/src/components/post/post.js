@@ -3,7 +3,7 @@ import * as fn from '../../utils/utils'
 import { imageComment, stickerComment } from '../../utils/post-utils'
 import ToolTip from 'react-tooltip'
 import TimeAgo from 'handy-timeago'
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import Copy from 'handy-copy'
 import { PORT } from '../../../../../env'
 import Notify from 'handy-notification'
@@ -47,7 +47,8 @@ export default class Post extends React.Component {
     deletePost: false,
     commentPost: false,
     commentFile: '',
-    showStickers: false
+    showStickers: false,
+    redirectToProfile: false, // when deleting post on view_post page
   }
 
   componentDidMount = async () => {
@@ -136,13 +137,10 @@ export default class Post extends React.Component {
   deletePost = async e => {
     e.preventDefault()
     $('.prompt-done').addClass('a_disabled')
-    let
-      { post_id, dispatch, when } = this.props,
-      username = $('.data').data('username')
-
+    let { post_id, dispatch, when } = this.props
     await post('/api/delete-post', { post: post_id })
     dispatch(deletePost(post_id))
-    when == 'viewPost' ? location.href = `/profile/${username}` : null
+    when == 'viewPost' ? this.setState({ redirectToProfile: true }) : null
     Notify({ value: 'Post deleted!!' })
   }
 
@@ -178,11 +176,11 @@ export default class Post extends React.Component {
       } = this.props,
 
       {
-        description, liked, bookmarked, likes_count, tags_count, shares_count, comments_count, showImage, showLikes, showTags, showShare, showSharers, editPost, deletePost, commentPost, commentFile, showStickers
+        description, liked, bookmarked, likes_count, tags_count, shares_count, comments_count, showImage, showLikes, showTags, showShare, showSharers, editPost, deletePost, commentPost, commentFile, showStickers, redirectToProfile
       } = this.state,
 
       session = $('.data').data('session'),
-      map_comments = typeof(comments) != 'undefined' ? comments.map(c =>
+      map_comments = comments ? comments.map(c =>
         <Comment
           key={c.comment_id}
           {...c}
@@ -192,6 +190,8 @@ export default class Post extends React.Component {
 
     return (
       <div className='posts' >
+
+        { redirectToProfile ? <Redirect to='/' /> : null }
 
         {
           when == 'shared' ?
@@ -228,7 +228,7 @@ export default class Post extends React.Component {
           </div>
           <div className='p_i_2'>
             <div className='p_time'>
-              <span>{ post_time ? TimeAgo(post_time).replace(' ago', '') : null }</span>
+              <span>{ post_time ? TimeAgo(post_time).replace(/\Wago/g, '') : null }</span>
             </div>
             <div className='p_h_opt' >
               <span className='exp_p_menu' onClick={() => this._toggle('options')} >
