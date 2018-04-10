@@ -1,12 +1,7 @@
-import { post } from 'axios'
+import { dispatchHelper } from '../../utils/utils'
 
-export const getUserDetails = username => {
-  return dispatch => {
-    post('/api/get-user-details', { username })
-      .then(s => dispatch({ type: 'GET_USER_DETAILS', payload: s.data }) )
-      .catch(e => console.log(e))
-  }
-}
+export const getUserDetails = username =>
+  dispatchHelper('GET_USER_DETAILS', 'get-user-details', { username })
 
 export const deleteTag = tag => {
   return {
@@ -22,10 +17,5 @@ export const addTag = tag => {
   }
 }
 
-export const getMutualUsers = username => {
-  return dispatch => {
-    post('/api/get-mutual-users', { username })
-      .then(s => dispatch({ type: 'GET_MUTUAL_USERS', payload: s.data }) )
-      .catch(e => console.log(e))
-  }
-}
+export const getMutualUsers = username =>
+  dispatchHelper('GET_MUTUAL_USERS', 'get-mutual-users', { username })

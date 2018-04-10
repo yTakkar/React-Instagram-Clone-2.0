@@ -1,12 +1,7 @@
-import { post } from 'axios'
+import { dispatchHelper } from '../../utils/utils'
 
-export const getBlockedUsers = () => {
-  return dispatch => {
-    post('/api/get-blocked-users')
-      .then(n => dispatch({ type: 'GET_BLOCKED_USERS', payload: n.data }) )
-      .catch(e => console.log(e) )
-  }
-}
+export const getBlockedUsers = () =>
+  dispatchHelper('GET_BLOCKED_USERS', 'get-blocked-users')
 
 export const unblockUser = block_id => {
   return {

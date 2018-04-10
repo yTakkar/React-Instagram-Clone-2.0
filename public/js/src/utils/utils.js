@@ -139,7 +139,7 @@ export const isAdmin = () =>
  * Compresses and returns file
  * @param {File} file
  */
-const imageCompressor = file => {
+export const imageCompressor = file => {
   return new Promise(resolve => {
     new Compress(file, {
       quality: .6,
@@ -148,8 +148,6 @@ const imageCompressor = file => {
     })
   })
 }
-
-exports.imageCompressor = imageCompressor
 
 /**
  * For profile
@@ -263,3 +261,15 @@ export const geolocationError = ({ code }) => {
 
   Notify({ value: mssg })
 }
+
+/**
+ * Dispatcher helper for dispatching data retrieved from URL
+ * @param {String} type Dispatch type
+ * @param {String} url /api/URL to get data from
+ * @param {Object} data data requested with the url
+ */
+export const dispatchHelper = (type, url, data={}) =>
+  dispatch =>
+    post(`/api/${url}`, data)
+      .then(p => dispatch({ type, payload: p.data }))
+      .catch(e => console.log(e))

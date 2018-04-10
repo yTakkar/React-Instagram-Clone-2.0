@@ -1,60 +1,25 @@
-import { post } from 'axios'
+import { dispatchHelper } from '../../utils/utils'
 
-export const getUserPosts = username => {
-  return dispatch => {
-    post('/api/get-user-posts', { username })
-      .then(p => dispatch({ type: 'GET_USER_POSTS', payload: p.data }))
-      .catch(e => console.log(e))
-  }
-}
+export const getUserPosts = username =>
+  dispatchHelper('GET_USER_POSTS', 'get-user-posts', { username })
 
-export const getBookmarkedPosts = user => {
-  return dispatch => {
-    post('/api/get-bookmarked-posts', { user })
-      .then(p => dispatch({ type: 'GET_BOOKMARKED_POSTS', payload: p.data }))
-      .catch(e => console.log(e))
-  }
-}
+export const getBookmarkedPosts = user =>
+  dispatchHelper('GET_BOOKMARKED_POSTS', 'get-bookmarked-posts', { user })
 
-export const getTaggedPosts = user => {
-  return dispatch => {
-    post('/api/get-tagged-posts', { user })
-      .then(p => dispatch({ type: 'GET_TAGGED_POSTS', payload: p.data }))
-      .catch(e => console.log(e))
-  }
-}
+export const getTaggedPosts = user =>
+  dispatchHelper('GET_TAGGED_POSTS', 'get-tagged-posts', { user })
 
-export const getSharedPosts = user => {
-  return dispatch => {
-    post('/api/get-shared-posts', { user })
-      .then(p => dispatch({ type: 'GET_SHARED_POSTS', payload: p.data }))
-      .catch(e => console.log(e))
-  }
-}
+export const getSharedPosts = user =>
+  dispatchHelper('GET_SHARED_POSTS', 'get-shared-posts', { user })
 
-export const getPhotos = user => {
-  return dispatch => {
-    post('/api/get-photos', { user })
-      .then(p => dispatch({ type: 'GET_PHOTOS', payload: p.data }))
-      .catch(e => console.log(e))
-  }
-}
+export const getPhotos = user =>
+  dispatchHelper('GET_PHOTOS', 'get-photos', { user })
 
-export const getFeed = () => {
-  return dispatch => {
-    post('/api/get-feed')
-      .then(p => dispatch({ type: 'GET_FEED', payload: p.data }))
-      .catch(e => console.log(e))
-  }
-}
+export const getFeed = () =>
+  dispatchHelper('GET_FEED', 'get-feed')
 
-export const getGroupPosts = group => {
-  return dispatch => {
-    post('/api/get-group-posts', { group })
-      .then(p => dispatch({ type: 'GET_GROUP_POSTS', payload: p.data }))
-      .catch(e => console.log(e))
-  }
-}
+export const getGroupPosts = group =>
+  dispatchHelper('GET_GROUP_POSTS', 'get-group-posts', { group })
 
 export const addUserPost = post => {
   return {
@@ -70,21 +35,11 @@ export const addGroupPost = post => {
   }
 }
 
-export const getGroupPhotos = group => {
-  return dispatch => {
-    post('/api/get-group-photos', { group })
-      .then(p => dispatch({ type: 'GET_GROUP_PHOTOS', payload: p.data }))
-      .catch(e => console.log(e))
-  }
-}
+export const getGroupPhotos = group =>
+  dispatchHelper('GET_GROUP_PHOTOS', 'get-group-photos', { group })
 
-export const getPost = post_id => {
-  return dispatch => {
-    post('/api/get-post', { post_id })
-      .then(p => dispatch({ type: 'GET_POST', payload: p.data }))
-      .catch(e => console.log(e))
-  }
-}
+export const getPost = post_id =>
+  dispatchHelper('GET_POST', 'get-post', { post_id })
 
 export const editPost = post_d => {
   return {
@@ -100,29 +55,14 @@ export const deletePost = post => {
   }
 }
 
-export const getPostLikes = post_id => {
-  return dispatch => {
-    post('/api/get-post-likes', { post: post_id })
-      .then(p => dispatch({ type: 'GET_POST_LIKES', payload: p.data }))
-      .catch(e => console.log(e))
-  }
-}
+export const getPostLikes = post_id =>
+  dispatchHelper('GET_POST_LIKES', 'get-post-likes', { post_id })
 
-export const removeLike = like_id => {
-  return dispatch => {
-    post('/api/remove-like', { like_id })
-      .then(() => dispatch({ type: 'REMOVE_LIKE', payload: like_id }))
-      .catch(e => console.log(e))
-  }
-}
+export const removeLike = like_id =>
+  dispatchHelper('REMOVE_LIKE', 'remove-like', { like_id })
 
-export const getPostTags = post_id => {
-  return dispatch => {
-    post('/api/get-post-tags', { post: post_id })
-      .then(p => dispatch({ type: 'GET_POST_TAGS', payload: p.data }))
-      .catch(e => console.log(e))
-  }
-}
+export const getPostTags = post_id =>
+  dispatchHelper('GET_POST_TAGS', 'get-post-tags', { post_id })
 
 export const untag = user => {
   return {
@@ -131,21 +71,11 @@ export const untag = user => {
   }
 }
 
-export const getUserToShare = post_id => {
-  return dispatch => {
-    post('/api/get-users-to-share', { post: post_id })
-      .then(p => dispatch({ type: 'GET_USERS_TO_SHARE', payload: p.data }))
-      .catch(e => console.log(e))
-  }
-}
+export const getUserToShare = post_id =>
+  dispatchHelper('GET_USERS_TO_SHARE', 'get-users-to-share', { post_id })
 
-export const getPostSharers = post_id => {
-  return dispatch => {
-    post('/api/get-post-sharers', { post: post_id })
-      .then(p => dispatch({ type: 'GET_POST_SHARERS', payload: p.data }))
-      .catch(e => console.log(e))
-  }
-}
+export const getPostSharers = post_id =>
+  dispatchHelper('GET_POST_SHARERS', 'get-post-sharers', { post_id })
 
 export const unbookmark = post => {
   return {

@@ -1,20 +1,10 @@
-import { post } from 'axios'
+import { dispatchHelper } from '../../utils/utils'
 
-export const getGroupDetails = grp_id => {
-  return dispatch => {
-    post('/api/get-group-details', { grp_id })
-      .then(p => dispatch({ type: 'GET_GROUP_DETAILS', payload: p.data }))
-      .catch(e => console.log(e))
-  }
-}
+export const getGroupDetails = grp_id =>
+  dispatchHelper('GET_GROUP_DETAILS', 'get-group-details', { grp_id })
 
-export const joinedGroup = group => {
-  return dispatch => {
-    post('/api/joined-group', { group })
-      .then(p => dispatch({ type: 'JOINED_GROUP', payload: p.data }))
-      .catch(e => console.log(e))
-  }
-}
+export const joinedGroup = group =>
+  dispatchHelper('JOINED_GROUP', 'joined-group', { group })
 
 export const toggleJoinGroup = j => {
   return {
@@ -30,13 +20,8 @@ export const updateGroup = gd => {
   }
 }
 
-export const getGroupMembers = grp_id => {
-  return dispatch => {
-    post('/api/get-group-members', { grp_id })
-      .then(p => dispatch({ type: 'GET_GROUP_MEMBERS', payload: p.data }))
-      .catch(e => console.log(e))
-  }
-}
+export const getGroupMembers = grp_id =>
+  dispatchHelper('GET_GROUP_MEMBERS', 'get-group-members', { grp_id })
 
 export const removeMember = member_id => {
   return {
@@ -45,21 +30,11 @@ export const removeMember = member_id => {
   }
 }
 
-export const getMutualAndNewestMembers = grp_id => {
-  return dispatch => {
-    post('/api/get-mutual-newest-members', { grp_id })
-      .then(p => dispatch({ type: 'GET_MUTUAL_AND_NEWEST_MEMBERS', payload: p.data }))
-      .catch(e => console.log(e))
-  }
-}
+export const getMutualAndNewestMembers = grp_id =>
+  dispatchHelper('GET_MUTUAL_AND_NEWEST_MEMBERS', 'get-mutual-newest-members', { grp_id })
 
-export const getUserGroups = user => {
-  return dispatch => {
-    post('/api/get-user-groups', { user })
-      .then(p => dispatch({ type: 'GET_USER_GROUPS', payload: p.data }))
-      .catch(e => console.log(e))
-  }
-}
+export const getUserGroups = user =>
+  dispatchHelper('GET_USER_GROUPS', 'get-user-groups', { user })
 
 export const leftGroup = group_id => {
   return {
@@ -68,18 +43,8 @@ export const leftGroup = group_id => {
   }
 }
 
-export const getUsersToInvite = () => {
-  return dispatch => {
-    post('/api/get-users-to-invite')
-      .then(p => dispatch({ type: 'GET_USERS_TO_INVITE', payload: p.data }))
-      .catch(e => console.log(e))
-  }
-}
+export const getUsersToInvite = () =>
+  dispatchHelper('GET_USERS_TO_INVITE', 'get-users-to-invite')
 
-export const getUsersToMakeAdmin = grp_id => {
-  return dispatch => {
-    post('/api/get-users-to-make-admin', { grp_id })
-      .then(p => dispatch({ type: 'GET_USERS_TO_MAKE_ADMIN', payload: p.data }))
-      .catch(e => console.log(e))
-  }
-}
+export const getUsersToMakeAdmin = grp_id =>
+  dispatchHelper('GET_USERS_TO_MAKE_ADMIN', 'get-users-to-make-admin', { grp_id })

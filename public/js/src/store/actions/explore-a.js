@@ -1,33 +1,13 @@
-import { post } from 'axios'
+import { dispatchHelper } from '../../utils/utils'
 
-export const getUsersToExplore = () => {
-  return dispatch => {
-    post('/api/get-users-to-explore')
-      .then(p => dispatch({ type: 'GET_USERS_TO_EXPLORE', payload: p.data }))
-      .catch(e => console.log(e))
-  }
-}
+export const getUsersToExplore = () =>
+  dispatchHelper('GET_USERS_TO_EXPLORE', 'get-users-to-explore')
 
-export const getPhotosToExplore = () => {
-  return dispatch => {
-    post('/api/get-photos-to-explore')
-      .then(p => dispatch({ type: 'GET_PHOTOS_TO_EXPLORE', payload: p.data }))
-      .catch(e => console.log(e))
-  }
-}
+export const getPhotosToExplore = () =>
+  dispatchHelper('GET_PHOTOS_TO_EXPLORE', 'get-photos-to-explore')
 
-export const getGroupsToExplore = () => {
-  return dispatch => {
-    post('/api/get-groups-to-explore')
-      .then(p => dispatch({ type: 'GET_GROUPS_TO_EXPLORE', payload: p.data }))
-      .catch(e => console.log(e))
-  }
-}
+export const getGroupsToExplore = () =>
+  dispatchHelper('GET_GROUPS_TO_EXPLORE', 'get-groups-to-explore')
 
-export const getSuggestedUsers = user => {
-  return dispatch => {
-    post('/api/get-suggested-users', { user })
-      .then(p => dispatch({ type: 'GET_SUGGESTED_USERS', payload: p.data }))
-      .catch(e => console.log(e))
-  }
-}
+export const getSuggestedUsers = user =>
+  dispatchHelper('GET_SUGGESTED_USERS', 'get-suggested-users', { user })

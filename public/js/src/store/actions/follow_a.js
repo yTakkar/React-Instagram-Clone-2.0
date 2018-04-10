@@ -1,36 +1,16 @@
-import { post } from 'axios'
+import { dispatchHelper } from '../../utils/utils'
 
-export const isFollowing = username => {
-  return dispatch => {
-    post('/api/is-following', { username })
-      .then(s => dispatch({ type: 'IS_FOLLOWING', payload: s.data }) )
-      .catch(e => console.log(e))
-  }
-}
+export const isFollowing = username =>
+  dispatchHelper('IS_FOLLOWING', 'is-following', { username })
 
-export const getUserStats = username => {
-  return dispatch => {
-    post('/api/get-user-stats', { username })
-      .then(s => dispatch({ type: 'GET_USER_STATS', payload: s.data }) )
-      .catch(e => console.log(e))
-  }
-}
+export const getUserStats = username =>
+  dispatchHelper('GET_USER_STATS', 'get-user-stats', { username })
 
-export const getFollowers = user => {
-  return dispatch => {
-    post('/api/get-followers', { user })
-      .then(s => dispatch({ type: 'GET_FOLLOWERS', payload: s.data }) )
-      .catch(e => console.log(e))
-  }
-}
+export const getFollowers = user =>
+  dispatchHelper('GET_FOLLOWERS', 'get-followers', { user })
 
-export const getFollowings = user => {
-  return dispatch => {
-    post('/api/get-followings', { user })
-      .then(s => dispatch({ type: 'GET_FOLLOWINGS', payload: s.data }) )
-      .catch(e => console.log(e))
-  }
-}
+export const getFollowings = user =>
+  dispatchHelper('GET_FOLLOWINGS', 'get-followings', { user })
 
 export const toggleFollow = f => {
   return {
@@ -74,13 +54,8 @@ export const removeFavourites = fav_id => {
   }
 }
 
-export const getUsersToRecommend = user => {
-  return dispatch => {
-    post('/api/get-users-to-recommend', { user })
-      .then(s => dispatch({ type: 'USERS_TO_RECOMMEND', payload: s.data }) )
-      .catch(e => console.log(e))
-  }
-}
+export const getUsersToRecommend = user =>
+  dispatchHelper('USERS_TO_RECOMMEND', 'get-users-to-recommend', { user })
 
 export const removeRecommendation = recommend_id => {
   return {

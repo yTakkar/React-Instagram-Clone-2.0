@@ -1,12 +1,8 @@
 import { post } from 'axios'
+import { dispatchHelper } from '../../utils/utils'
 
-export const getConversations = () => {
-  return dispatch => {
-    post('/api/get-conversations')
-      .then(p => dispatch({ type: 'GET_CONVERSATIONS', payload: p.data }))
-      .catch(e => console.log(e))
-  }
-}
+export const getConversations = () =>
+  dispatchHelper('GET_CONVERSATIONS', 'get-conversations')
 
 export const conversationAdded = conversation => {
   return {
@@ -15,13 +11,8 @@ export const conversationAdded = conversation => {
   }
 }
 
-export const getConversationMessages = (con_id, when) => {
-  return dispatch => {
-    post('/api/get-conversation-messages', { con_id, when })
-      .then(p => dispatch({ type: 'GET_CONVERSATION_MESSAGES', payload: p.data }))
-      .catch(e => console.log(e))
-  }
-}
+export const getConversationMessages = (con_id, when) =>
+  dispatchHelper('GET_CONVERSATION_MESSAGES', 'get-conversation-messages', { con_id, when })
 
 export const messaged = message => {
   return {
@@ -36,7 +27,6 @@ export const changeLastMssg = lastMssg => {
     payload: lastMssg
   }
 }
-
 
 export const deleteMssg = message_id => {
   return {
@@ -59,21 +49,11 @@ export const deleteCon = con_id => {
   }
 }
 
-export const getConDetails = con_id => {
-  return dispatch => {
-    post('/api/get-conversation-details', { con_id })
-      .then(p => dispatch({ type: 'GET_CONVERSATION_DETAILS', payload: p.data }))
-      .catch(e => console.log(e))
-  }
-}
+export const getConDetails = con_id =>
+  dispatchHelper('GET_CONVERSATION_DETAILS', 'get-conversation-details', { con_id })
 
-export const getUnreadMessages = () => {
-  return dispatch => {
-    post('/api/get-unread-messages')
-      .then(p => dispatch({ type: 'GET_UNREAD_MESSAGES', payload: p.data }))
-      .catch(e => console.log(e))
-  }
-}
+export const getUnreadMessages = () =>
+  dispatchHelper('GET_UNREAD_MESSAGES', 'get-unread-messages')
 
 export const readConversation = (con_id, unreadMssgs) => {
   return dispatch => {
