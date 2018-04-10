@@ -264,6 +264,7 @@ export const geolocationError = ({ code }) => {
 
 /**
  * Dispatcher helper for dispatching data retrieved from URL
+ *
  * @param {String} type Dispatch type
  * @param {String} url /api/URL to get data from
  * @param {Object} data data requested with the url
