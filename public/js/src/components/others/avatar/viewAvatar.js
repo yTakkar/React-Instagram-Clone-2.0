@@ -1,5 +1,6 @@
 import React from 'react'
 import { FadeIn } from 'animate-components'
+import PropTypes from 'prop-types'
 
 export default class ViewAvatar extends React.Component {
 
@@ -43,4 +44,8 @@ export default class ViewAvatar extends React.Component {
 
 ViewAvatar.defaultProps = {
   imgSrc: '/images/spacecraft.jpg'
+}
+
+ViewAvatar.propTypes = {
+  imgSrc: PropTypes.string.isRequired,
 }

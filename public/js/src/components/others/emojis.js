@@ -2,6 +2,7 @@ import React from 'react'
 import '../../utils/emoji-script'
 import { Scrollbars } from 'react-custom-scrollbars'
 import $ from 'jquery'
+import PropTypes from 'prop-types'
 
 export default class Emojis extends React.Component {
 
@@ -816,5 +817,13 @@ Emojis.defaultProps = {
     top: 0,
     left: 0
   },
+}
 
+Emojis.propTypes = {
+  position: PropTypes.shape({
+    top: PropTypes.number,
+    left: PropTypes.number
+  }).isRequired,
+  setState: PropTypes.func.isRequired,
+  textArea: PropTypes.instanceOf($).isRequired,
 }

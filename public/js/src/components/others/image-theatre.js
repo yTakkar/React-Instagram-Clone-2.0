@@ -3,6 +3,7 @@ import { FadeIn } from 'animate-components'
 import { Link } from 'react-router-dom'
 import ToolTip from 'react-tooltip'
 import TimeAgo from 'handy-timeago'
+import PropTypes from 'prop-types'
 
 export default class ImageTheatre extends React.Component {
   render() {
@@ -37,6 +38,16 @@ export default class ImageTheatre extends React.Component {
 }
 
 ImageTheatre.defaultProps = {
+  showInfo: true,
   imgSrc: '/images/location.jpg',
-  showInfo: true
+  filter: ''
+}
+
+ImageTheatre.propTypes = {
+  showInfo: PropTypes.bool,
+  imgSrc: PropTypes.string.isRequired,
+  filter: PropTypes.string,
+  username: PropTypes.string,
+  link: PropTypes.string,
+  time: PropTypes.string
 }

@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom'
 import $ from 'jquery'
 import { post } from 'axios'
 import Notify from 'handy-notification'
+import PropTypes from 'prop-types'
 
 export default class SideBar extends React.Component {
 
@@ -141,4 +142,9 @@ export default class SideBar extends React.Component {
 
     )
   }
+}
+
+SideBar.propTypes = {
+  un: PropTypes.number.isRequired,
+  uc: PropTypes.number.isRequired
 }

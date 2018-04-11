@@ -2,6 +2,7 @@
 
 import React from 'react'
 import { FadeIn } from 'animate-components'
+import PropTypes from 'prop-types'
 
 const PreviewAvatar = ({ previewAvatar, back, upload }) => {
   return (
@@ -20,6 +21,12 @@ const PreviewAvatar = ({ previewAvatar, back, upload }) => {
       </FadeIn>
     </div>
   )
+}
+
+PreviewAvatar.propTypes = {
+  previewAvatar: PropTypes.string.isRequired,
+  back: PropTypes.func.isRequired,
+  upload: PropTypes.func.isRequired
 }
 
 export default PreviewAvatar

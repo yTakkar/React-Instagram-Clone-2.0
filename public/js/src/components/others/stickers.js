@@ -4,6 +4,7 @@ import { Scrollbars } from 'react-custom-scrollbars'
 import Spinner from './spinner'
 import { post } from 'axios'
 import $ from 'jquery'
+import PropTypes from 'prop-types'
 
 export default class Stickers extends React.Component {
 
@@ -91,4 +92,11 @@ export default class Stickers extends React.Component {
       </div>
     )
   }
+}
+
+Stickers.propTypes = {
+  type: PropTypes.string,
+  back: PropTypes.func,
+  stickerMessage: PropTypes.func,
+  stickerComment: PropTypes.func
 }

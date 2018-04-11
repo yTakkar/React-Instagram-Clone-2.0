@@ -5,6 +5,7 @@ import { getSuggestedUsers } from '../../../store/actions/explore-a'
 import { Link } from 'react-router-dom'
 import Spinner from '../spinner'
 import SuggestedList from './suggested-list'
+import PropTypes from 'prop-types'
 
 @connect(store => (
   { suggested: store.Explore.suggested }
@@ -70,4 +71,8 @@ export default class Suggested extends React.Component {
       </div>
     )
   }
+}
+
+Suggested.propTypes = {
+  params: PropTypes.string
 }

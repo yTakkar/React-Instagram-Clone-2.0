@@ -16,15 +16,15 @@ const Nothing = ({ mssg, showMssg, secondMssg, whenMessage }) => {
 }
 
 Nothing.defaultProps = {
-  showMssg: true,
   mssg: 'Hello, a message for you!!',
+  showMssg: true,
   secondMssg: '',
   whenMessage: false
 }
 
 Nothing.propTypes = {
-  showMssg: PropTypes.bool,
   mssg: PropTypes.string,
+  showMssg: PropTypes.bool,
   secondMssg: PropTypes.string,
   whenMessage: PropTypes.bool
 }

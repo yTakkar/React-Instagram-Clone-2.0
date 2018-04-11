@@ -7,6 +7,7 @@ import Notify from 'handy-notification'
 import Overlay from '../overlay'
 import PreviewAvatar from './preview-avatar'
 import { upload_avatar } from '../../../utils/edit-profile-utils'
+import PropTypes from 'prop-types'
 
 export default class Avatars extends React.Component {
 
@@ -142,4 +143,10 @@ export default class Avatars extends React.Component {
       </div>
     )
   }
+}
+
+Avatars.propTypes = {
+  back: PropTypes.func.isRequired,
+  of: PropTypes.oneOf([ 'user', 'group' ]).isRequired,
+  group: PropTypes.number
 }

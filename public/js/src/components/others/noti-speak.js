@@ -2,6 +2,7 @@ import React from 'react'
 import { FadeIn } from 'animate-components'
 import $ from 'jquery'
 import { humanReadable } from '../../utils/utils'
+import PropTypes from 'prop-types'
 
 export default class NotiSpeak extends React.Component {
   render() {
@@ -27,4 +28,8 @@ export default class NotiSpeak extends React.Component {
       </div>
     )
   }
+}
+
+NotiSpeak.propTypes = {
+  un: PropTypes.number.isRequired
 }

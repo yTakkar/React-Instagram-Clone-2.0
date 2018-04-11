@@ -1,6 +1,7 @@
 import React from 'react'
 import RecommendUsers from './recommend-users'
 import Overlay from '../overlay'
+import PropTypes from 'prop-types'
 
 export default class Recommend extends React.Component {
 
@@ -43,4 +44,8 @@ export default class Recommend extends React.Component {
       </div>
     )
   }
+}
+
+Recommend.propTypes = {
+  username: PropTypes.string
 }

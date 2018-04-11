@@ -52,18 +52,18 @@ export default class Prompt extends React.Component {
 
 Prompt.defaultProps = {
   title: 'Title',
-  content: 'Main content goes here. Content should be of 2 lines to avoid the blur that Chrome creates!!',
+  content: 'Main content goes here',
   actionText: 'Action',
   action: () => { return },
   back: () => { return },
-  blurred: false
+  blurred: false // chrome blures it, if blurred, set it true to remove it
 }
 
 Prompt.propTypes = {
-  title: PropTypes.string,
-  content: PropTypes.string,
-  actionText: PropTypes.string,
-  action: PropTypes.func,
-  back: PropTypes.func,
+  title: PropTypes.string.isRequired,
+  content: PropTypes.string.isRequired,
+  actionText: PropTypes.string.isRequired,
+  action: PropTypes.func.isRequired,
+  back: PropTypes.func.isRequired,
   blurred: PropTypes.bool
 }

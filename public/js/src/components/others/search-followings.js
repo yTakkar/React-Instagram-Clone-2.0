@@ -4,6 +4,7 @@ import $ from 'jquery'
 import { uniqBy } from 'lodash'
 import { replacer } from '../../utils/utils'
 import { FadeIn } from 'animate-components'
+import PropTypes from 'prop-types'
 
 export default class SearchFollowings extends React.Component {
 
@@ -108,4 +109,9 @@ export default class SearchFollowings extends React.Component {
 SearchFollowings.defaulProps = {
   placeholder: 'Search',
   disabled: false
+}
+
+SearchFollowings.propTypes = {
+  when: PropTypes.oneOf([ 'tag', 'add_grp_members', 'new_con' ]).isRequired,
+  done: PropTypes.func.isRequired
 }

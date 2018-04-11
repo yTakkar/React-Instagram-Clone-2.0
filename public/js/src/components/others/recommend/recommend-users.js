@@ -7,6 +7,7 @@ import Spinner from '../../others/spinner'
 import { getUsersToRecommend } from '../../../store/actions/follow_a'
 import RecommendUsersList from './ru-list'
 import { llr } from '../../../utils/utils'
+import PropTypes from 'prop-types'
 
 @connect(store => (
   {
@@ -75,4 +76,8 @@ export default class RecommendUsers extends React.Component {
       </div>
     )
   }
+}
+
+RecommendUsers.propTypes = {
+  back: PropTypes.func.isRequired
 }
