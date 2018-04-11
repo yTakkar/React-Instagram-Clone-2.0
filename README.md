@@ -71,6 +71,7 @@ Here's a video which will take you on a tour of this project!!
 - [x] JSDoc & comments
 - [x] Admin system
 - [x] Show if member is online
+- [ ] Show all online members(whome you've followed).
 - [ ] Catch errors in async fns more effeciently.
 - [ ] Description with react-helmet for SEO.
 - [ ] Show mutual likes, comments & shares count. 
@@ -78,7 +79,6 @@ Here's a video which will take you on a tour of this project!!
 - [ ] Upload video
 - [ ] Upload multiple
 - [ ] Cache files, icons & fonts with ServiceWorker API.
-- [ ] Show all online members(whome you've followed).
 
 # Contribute
 Show your support by 🌟 the project!!
