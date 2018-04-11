@@ -5,7 +5,7 @@ import Title from '../../others/title'
 import Spinner from '../../others/spinner'
 import Nothing from '../../others/nothing'
 import ShareList from './share-list'
-import { getUserToShare } from '../../../store/actions/post-a'
+import { getUsersToShare } from '../../../store/actions/post-a'
 import { connect } from 'react-redux'
 import { llr } from '../../../utils/utils'
 
@@ -21,7 +21,7 @@ export default class Share extends React.Component {
 
   componentDidMount = () => {
     let { post, dispatch } = this.props
-    dispatch(getUserToShare(post))
+    dispatch(getUsersToShare(post))
   }
 
   componentWillReceiveProps = () =>

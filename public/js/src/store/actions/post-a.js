@@ -41,10 +41,10 @@ export const getGroupPhotos = group =>
 export const getPost = post_id =>
   dispatchHelper('GET_POST', 'get-post', { post_id })
 
-export const editPost = post_d => {
+export const editPost = post_details => {
   return {
     type: 'EDIT_POST',
-    payload: post_d
+    payload: post_details
   }
 }
 
@@ -55,14 +55,14 @@ export const deletePost = post => {
   }
 }
 
-export const getPostLikes = post_id =>
-  dispatchHelper('GET_POST_LIKES', 'get-post-likes', { post_id })
+export const getPostLikes = post =>
+  dispatchHelper('GET_POST_LIKES', 'get-post-likes', { post })
 
 export const removeLike = like_id =>
   dispatchHelper('REMOVE_LIKE', 'remove-like', { like_id })
 
-export const getPostTags = post_id =>
-  dispatchHelper('GET_POST_TAGS', 'get-post-tags', { post_id })
+export const getPostTags = post =>
+  dispatchHelper('GET_POST_TAGS', 'get-post-tags', { post })
 
 export const untag = user => {
   return {
@@ -71,11 +71,11 @@ export const untag = user => {
   }
 }
 
-export const getUserToShare = post_id =>
-  dispatchHelper('GET_USERS_TO_SHARE', 'get-users-to-share', { post_id })
+export const getUsersToShare = post =>
+  dispatchHelper('GET_USERS_TO_SHARE', 'get-users-to-share', { post })
 
-export const getPostSharers = post_id =>
-  dispatchHelper('GET_POST_SHARERS', 'get-post-sharers', { post_id })
+export const getPostSharers = post =>
+  dispatchHelper('GET_POST_SHARERS', 'get-post-sharers', { post })
 
 export const unbookmark = post => {
   return {

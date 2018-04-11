@@ -132,7 +132,7 @@ const addPost = (posts, post) => {
 
 const editPost = (posts, { post_id, description }) => {
   return posts.map(p => {
-    if(p.post_id == post_id) {
+    if (p.post_id == post_id) {
       p.description = description
     }
     return p
