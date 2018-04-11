@@ -71,7 +71,7 @@ const toHashtag = async (str, user, post) => {
       let hash = h.slice(1)
       if (hash.substr(0, 1) !== '#') {
         let newHashtag = {
-          hashtag: hash,
+          hashtag: h,
           post_id: post,
           user: user,
           hashtag_time: new Date().getTime()

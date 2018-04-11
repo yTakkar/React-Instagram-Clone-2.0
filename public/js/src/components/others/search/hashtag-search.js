@@ -8,7 +8,7 @@ export default class HashtagSearch extends React.Component {
     return (
       <div className='s_d_peo' onClick={clicked} >
         <Link className='s_d_p h_d_p' to={`/hashtag/${hashtag}`} >
-          <span className='s_d_username'>#{hashtag}</span>
+          <span className='s_d_username'>{hashtag}</span>
         </Link>
       </div>
     )
