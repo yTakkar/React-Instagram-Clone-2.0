@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { FadeIn } from 'animate-components'
 import Title from '../others/title'
 import { connect } from 'react-redux'
@@ -12,6 +12,8 @@ import { humanReadable } from '../../utils/utils'
 import { newConversation } from '../../utils/message-utils'
 import Conversation from './conversation/conversation'
 import $ from 'jquery'
+import OnlineUsers from './online-users/onlineUsers'
+import Overlay from '../others/overlay'
 
 @connect(store => (
   { conversations: store.Message.conversations }
@@ -23,6 +25,7 @@ export default class Messages extends React.Component {
     loading: true,
     getUsersForNewCon: false,
     showConversation: false,
+    showOnlineUsers: false,
     conDetails: {},
   }
 
@@ -64,7 +67,7 @@ export default class Messages extends React.Component {
 
   render() {
     let
-      { getUsersForNewCon, loading, showConversation, conDetails, } = this.state,
+      { getUsersForNewCon, loading, showConversation, conDetails, showOnlineUsers } = this.state,
       { conversations } = this.props,
       conLen = conversations.length,
       map_conversations = conversations.map(c =>
@@ -90,6 +93,10 @@ export default class Messages extends React.Component {
               <a href='#' className='pri_btn' onClick={e => this._toggle(e, 'getUsersForNewCon')} >
                 <i className='fa fa-plus' aria-hidden='true' ></i>
                 <span>New conversation</span>
+              </a>
+              <a href='#' className='pri_btn' onClick={e => this._toggle(e, 'showOnlineUsers')} >
+                <i className='fa fa-globe' aria-hidden='true'></i>
+                <span>Online users</span>
               </a>
             </div>
 
@@ -138,6 +145,17 @@ export default class Messages extends React.Component {
           </div>
 
         </FadeIn>
+
+        {
+          showOnlineUsers ?
+            <Fragment>
+              <Overlay />
+              <OnlineUsers
+                back={() => this.setState({ showOnlineUsers: false })}
+              />
+            </Fragment>
+            : null
+        }
 
       </div>
     )

@@ -20,7 +20,7 @@ app.post('/get-user-details', async (req, res) => {
     { username } = req.body,
     id = await db.getId(username),
     details = await db.query(
-      'SELECT id, username, firstname, surname, email, bio, joined, email_verified, account_type, instagram, twitter, facebook, github, website, phone FROM users WHERE username=?',
+      'SELECT id, username, firstname, surname, email, bio, joined, email_verified, account_type, instagram, twitter, facebook, github, website, phone, lastOnline FROM users WHERE username=?',
       [ username ]
     ),
     tags = await db.query('SELECT user, tag FROM tags WHERE user=?', [ id ])
@@ -28,7 +28,7 @@ app.post('/get-user-details', async (req, res) => {
   res.json({
     details: {
       ...details[0],
-      isOnline: await db.getWhat('isOnline', id) == 'true' ? true : false
+      isOnline: await db.getWhat('isOnline', id) == 'yes' ? true : false
     },
     tags
   })

@@ -251,6 +251,13 @@
     }
   }
 
+  & .last_online {
+    position: absolute;
+    bottom: 81px;
+    right: 12px;
+    font-style: italic;
+  }
+
   & .pro_bottom{
     text-align: center;
 

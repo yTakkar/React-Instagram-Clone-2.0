@@ -49,8 +49,8 @@ export const deleteCon = con_id => {
   }
 }
 
-export const getConDetails = con_id =>
-  dispatchHelper('GET_CONVERSATION_DETAILS', 'get-conversation-details', { con_id })
+export const getConDetails = (con_id, user) =>
+  dispatchHelper('GET_CONVERSATION_DETAILS', 'get-conversation-details', { con_id, user })
 
 export const getUnreadMessages = () =>
   dispatchHelper('GET_UNREAD_MESSAGES', 'get-unread-messages')
@@ -67,3 +67,6 @@ export const readConversation = (con_id, unreadMssgs) => {
       .catch(e => console.log(e) )
   }
 }
+
+export const getOnlineUsers = () =>
+  dispatchHelper('GET_ONLINE_USERS', 'get-online-users')

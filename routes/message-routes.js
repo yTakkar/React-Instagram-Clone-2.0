@@ -12,7 +12,8 @@ const
   { ProcessImage, DeleteAllOfFolder } = require('handy-image-processor'),
   { createReadStream, createWriteStream, unlink } = require('fs'),
   { promisify } = require('util'),
-  { orderBy } = require('lodash')
+  { orderBy } = require('lodash'),
+  UserConfig = require('../config/User')
 
 // CREATES A CONVERSATION [REQ = USER]
 app.post('/create-new-conversation', async (req, res) => {
@@ -70,13 +71,13 @@ app.post('/get-conversations', async (req, res) => {
       con_with_firstname = await db.getWhat('firstname', con_with),
       con_with_surname = await db.getWhat('surname', con_with),
       lastMssgTime = await Mssg.getLastMssgTime(c.con_id),
-      mutualFollowers = await User.mutualUsers(id, con_with),
       [{ unreadMssgs }] = await db.query(
         'SELECT COUNT(message_id) AS unreadMssgs FROM messages WHERE con_id=? AND mssg_to=? AND status=?',
         [ c.con_id, id, 'unread' ]
       ),
       lastMssg = await Mssg.getLastMssg(c.con_id),
-      isOnline = await db.getWhat('isOnline', con_with)
+      isOnline = await db.getWhat('isOnline', con_with),
+      lastOnline = await db.getWhat('lastOnline', con_with)
 
     cons.push({
       ...c,
@@ -84,7 +85,6 @@ app.post('/get-conversations', async (req, res) => {
       con_with_username,
       con_with_firstname,
       con_with_surname,
-      mutualFollowersCount: mutualFollowers.length,
       unreadMssgs,
       lastMssg: {
         lastMssgTime,
@@ -92,7 +92,8 @@ app.post('/get-conversations', async (req, res) => {
         lastMssgType: lastMssg ? lastMssg.type : '',
         lastMssgBy: lastMssg ? lastMssg.mssg_by : ''
       },
-      isOnline: isOnline == 'true' ? true : false,
+      isOnline: isOnline == 'yes' ? true : false,
+      lastOnline,
     })
   }
 
@@ -235,7 +236,8 @@ app.post('/delete-conversation', async (req, res) => {
 // GET CONVERSATION DETAILS [REQ = CON_ID]
 app.post('/get-conversation-details', async (req, res) => {
   let
-    { con_id } = req.body,
+    { con_id, user } = req.body,
+    { id } = req.session,
     [{ mssgsCount }] = await db.query(
       'SELECT COUNT(message_id) AS mssgsCount FROM messages WHERE con_id=?',
       [ con_id ]
@@ -245,14 +247,20 @@ app.post('/get-conversation-details', async (req, res) => {
       [ con_id, 'image' ]
     ),
     media = [],
-    [{ con_time }] = await db.query('SELECT con_time FROM conversations WHERE con_id=?', [ con_id ])
+    [{ con_time }] = await db.query('SELECT con_time FROM conversations WHERE con_id=?', [ con_id ]),
+    mutualFollowers = await User.mutualUsers(id, user)
 
   for (let m of _media) {
     let mssg_by_username = await db.getWhat('username', m.mssg_by)
-    media.push({ ...m, mssg_by_username })
+    media.push({ ...m, mssg_by_username, })
   }
 
-  res.json({ mssgsCount, media, con_time })
+  res.json({
+    mssgsCount,
+    media,
+    con_time,
+    mutualFollowersCount: mutualFollowers.length
+  })
 })
 
 // GET UNREAD MESSAGES
@@ -276,6 +284,24 @@ app.post('/read-conversation', async (req, res) => {
     [ 'read', con_id, id ]
   )
   res.json('Hello, World!!')
+})
+
+// GET ONLINE USERS
+app.post('/get-online-users', async (req, res) => {
+  let
+    { id } = req.session,
+    _onlineUsers = await db.query(
+      'SELECT follow_system.follow_to AS user, users.username, users.firstname, users.surname FROM follow_system, users WHERE follow_system.follow_by=? AND follow_system.follow_to = users.id AND users.isOnline = "yes"',
+      [ id ]
+    ),
+    onlineUsers = []
+
+  for (let u of _onlineUsers) {
+    let mutualUsers = await UserConfig.mutualUsers(id, u.user)
+    onlineUsers.push({ ...u, mutualUsersCount: mutualUsers.length })
+  }
+
+  res.json(onlineUsers)
 })
 
 module.exports = app

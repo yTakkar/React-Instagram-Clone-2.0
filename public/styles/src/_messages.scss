@@ -12,15 +12,19 @@
     & .mssg_new{
       margin-bottom: 10px;
       text-align: left;
+      text-align: center;
 
       & a{
         display: inline-block;
         padding: 5px 15px 5px 15px;
         font-size: 14px;
-        margin-left: 2px;
 
         & i{
           margin-right: 6px;
+        }
+
+        &:first-of-type {
+          margin-right: 4px;
         }
       }
 

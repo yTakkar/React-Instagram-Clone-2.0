@@ -5,7 +5,8 @@ const message_def = {
   conversations: [],
   messages: [],
   conDetails: {},
-  unreadMessages: 0
+  unreadMessages: 0,
+  onlineUsers: [],
 }
 
 export default (state=message_def, action) => {
@@ -58,6 +59,10 @@ export default (state=message_def, action) => {
 
     case 'UPDATE_UNREAD_CONVERSATIONS':
       return { ...state, unreadMessages: state.unreadMessages - py }
+      break
+
+    case 'GET_ONLINE_USERS':
+      return { ...state, onlineUsers: py }
       break
   }
   return state

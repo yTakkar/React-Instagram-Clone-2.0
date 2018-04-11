@@ -17,6 +17,7 @@ import { toggleFollow } from '../../store/actions/follow_a'
 import Prompt from '../others/prompt'
 import ToTags from '../hashtag/toTags'
 import { post } from 'axios'
+import TimeAgo from 'handy-timeago'
 
 @connect(store => (
   {
@@ -133,7 +134,7 @@ export default class Banner extends React.Component {
   render() {
     let
       {
-        User: { user_details: { id, username, firstname, surname, bio, isOnline }, tags },
+        User: { user_details: { id, username, firstname, surname, bio, isOnline, lastOnline }, tags },
         Follow: { isFollowing, followers, followings, profile_views, favourites, recommendations },
         posts
       } = this.props,
@@ -258,6 +259,12 @@ export default class Banner extends React.Component {
               <span className='user_online_circle'></span>
               <span>online</span>
             </span>
+            : null
+        }
+
+        {
+          !Me(id) && !isOnline && lastOnline ?
+            <span className='last_online' >Last active {TimeAgo(lastOnline)}</span>
             : null
         }
 

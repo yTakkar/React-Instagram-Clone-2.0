@@ -2092,6 +2092,11 @@ select {
       top: 2px;
       display: inline-block;
       margin-right: 3px; }
+  .pro_banner .last_online {
+    position: absolute;
+    bottom: 81px;
+    right: 12px;
+    font-style: italic; }
   .pro_banner .pro_bottom {
     text-align: center; }
     .pro_banner .pro_bottom > div,
@@ -3405,14 +3410,16 @@ select {
     position: relative; }
     .messages_senapati .mssg_left .mssg_new {
       margin-bottom: 10px;
-      text-align: left; }
+      text-align: left;
+      text-align: center; }
       .messages_senapati .mssg_left .mssg_new a {
         display: inline-block;
         padding: 5px 15px 5px 15px;
-        font-size: 14px;
-        margin-left: 2px; }
+        font-size: 14px; }
         .messages_senapati .mssg_left .mssg_new a i {
           margin-right: 6px; }
+        .messages_senapati .mssg_left .mssg_new a:first-of-type {
+          margin-right: 4px; }
     .messages_senapati .mssg_left .search_followings input[type='text'] {
       width: 95%;
       border-radius: 3px; }

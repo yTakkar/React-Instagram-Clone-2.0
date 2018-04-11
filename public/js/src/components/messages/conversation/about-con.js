@@ -20,8 +20,8 @@ export default class AboutConversation extends React.Component {
   }
 
   componentDidMount = () => {
-    let { dispatch, con_id } = this.props
-    dispatch(getConDetails(con_id))
+    let { dispatch, con_id, conWith: { user } } = this.props
+    dispatch(getConDetails(con_id, user))
   }
 
   componentWillReceiveProps = () =>
@@ -36,8 +36,8 @@ export default class AboutConversation extends React.Component {
     let
       { loading } = this.state,
       {
-        conWith: { user, username, firstname, surname, mutualFollowersCount },
-        conDetails: { con_time, mssgsCount, media },
+        conWith: { user, username, firstname, surname },
+        conDetails: { con_time, mssgsCount, media, mutualFollowersCount },
       } = this.props,
       map_media = media ? media.map(m =>
         <img

@@ -4,7 +4,7 @@ import { Scrollbars } from 'react-custom-scrollbars'
 import ToolTip from 'react-tooltip'
 import Message from './message'
 import $ from 'jquery'
-import { humanReadable, messageScroll, toggle } from '../../../utils/utils'
+import { messageScroll, toggle } from '../../../utils/utils'
 import { textMessage, imageMessage, stickerMessage, deleteYourMssgs } from '../../../utils/message-utils'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
@@ -18,6 +18,7 @@ import { post } from 'axios'
 import Notify from 'handy-notification'
 import Prompt from '../../others/prompt'
 import AboutConversation from './about-con'
+import TimeAgo from 'handy-timeago'
 
 @connect(store => (
   { messages: store.Message.messages }
@@ -122,7 +123,8 @@ export default class Conversation extends React.Component {
       } = this.state,
       {
         conDetails: {
-          con_id, con_with, con_with_username, con_with_firstname, con_with_surname, mutualFollowersCount, isOnline
+          con_id, con_with, con_with_username, con_with_firstname, con_with_surname, isOnline,
+          lastOnline
         },
         messages
       } = this.props,
@@ -147,9 +149,8 @@ export default class Conversation extends React.Component {
                   <span className='m_m_t_useless'>
                     {
                       isOnline ? 'online'
-                        : mutualFollowersCount == 0
-                          ? `${con_with_firstname} ${con_with_surname}`
-                          : humanReadable(mutualFollowersCount, 'mutual follower')
+                        : lastOnline ? `Last active ${TimeAgo(lastOnline)}`
+                          : `${con_with_firstname} ${con_with_surname}`
                     }
                   </span>
                 </div>
@@ -289,7 +290,6 @@ export default class Conversation extends React.Component {
                   username: con_with_username,
                   firstname: con_with_firstname,
                   surname: con_with_surname,
-                  mutualFollowersCount,
                 }}
               />
             </Fragment>

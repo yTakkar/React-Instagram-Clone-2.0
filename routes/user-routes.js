@@ -80,7 +80,7 @@ app.post('/user/signup', async (req, res) => {
           password,
           joined: new Date().getTime(),
           email_verified: 'no',
-          isOnline: 'true'
+          isOnline: 'yes'
         },
         { insertId, affectedRows } = await User.create_user(newUser),
         mkdir = promisify(fs.mkdir)
@@ -166,7 +166,7 @@ app.post('/user/login', async (req, res) => {
         session.email_verified = email_verified
         session.isadmin = false
 
-        await db.query('UPDATE users SET isOnline=? WHERE id=?', [ 'true', id ])
+        await db.query('UPDATE users SET isOnline=? WHERE id=?', [ 'yes', id ])
 
         res.json({
           mssg: `Welcome ${rusername}!!`,
@@ -190,7 +190,12 @@ app.get('/logout', mw.LoggedIn, async (req, res) => {
   oldUsers.map(o => users.push(o) )
   let final = uniqBy([ user, ...users ], 'id')
   res.cookie('users', `${JSON.stringify(final)}`)
-  await db.query('UPDATE users SET isOnline=? WHERE id=?', [ 'false', id ])
+
+  let u = {
+    isOnline: 'no',
+    lastOnline: new Date().getTime()
+  }
+  await db.query('UPDATE users SET ? WHERE id=?', [ u, id ])
 
   let url = req.session.reset() ? '/login' : '/'
   res.redirect(url)
