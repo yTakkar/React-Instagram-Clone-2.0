@@ -240,19 +240,19 @@ app.post('/get-conversation-details', async (req, res) => {
       'SELECT COUNT(message_id) AS mssgsCount FROM messages WHERE con_id=?',
       [ con_id ]
     ),
-    media = await db.query(
+    _media = await db.query(
       'SELECT message AS imgSrc, mssg_by FROM messages WHERE con_id=? AND type=? ORDER BY message_time DESC',
       [ con_id, 'image' ]
     ),
-    details = [],
+    media = [],
     [{ con_time }] = await db.query('SELECT con_time FROM conversations WHERE con_id=?', [ con_id ])
 
-  for (let m of media) {
+  for (let m of _media) {
     let mssg_by_username = await db.getWhat('username', m.mssg_by)
-    details.push({ ...m, mssg_by_username })
+    media.push({ ...m, mssg_by_username })
   }
 
-  res.json({ mssgsCount, details, con_time })
+  res.json({ mssgsCount, media, con_time })
 })
 
 // GET UNREAD MESSAGES
