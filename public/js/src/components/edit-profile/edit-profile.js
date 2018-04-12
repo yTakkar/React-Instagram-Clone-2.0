@@ -110,7 +110,10 @@ export default class EditProfile extends React.Component {
     return (
       <div>
 
-        <Title value='Edit profile' />
+        <Title
+          value='Edit profile'
+          desc='Edit your profile, add tags and links'
+        />
 
         { loading ? <Loading/> : null }
 

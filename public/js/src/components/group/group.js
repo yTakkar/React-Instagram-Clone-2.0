@@ -66,7 +66,10 @@ export default class Group extends React.Component {
 
         { invalidGroup ? <Redirect to='/error/group_nf' /> : null }
 
-        <Title value={title} />
+        <Title
+          value={title}
+          desc={`View ${title}'s posts, members and much more..`}
+        />
 
         <div
           className='group_details'

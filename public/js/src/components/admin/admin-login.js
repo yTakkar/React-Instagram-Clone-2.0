@@ -64,7 +64,10 @@ export default class AdminLogin extends Component {
 
         { isAdmin() ? <Redirect to='/is-admin' /> : null }
 
-        <Title value='Are you the admin?' />
+        <Title
+          value='Are you the admin?'
+          desc='Verify you are admin with the admin password'
+        />
 
         <FadeIn duration='300ms'>
 

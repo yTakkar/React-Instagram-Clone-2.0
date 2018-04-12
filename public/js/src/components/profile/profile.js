@@ -29,7 +29,10 @@ import { getUnreadMessages } from '../../store/actions/message-a'
   {
     ud: store.User.user_details,
     mutuals: store.User.mutualUsers,
-    isFollowing: store.Follow.isFollowing
+    isFollowing: store.Follow.isFollowing,
+    followers: store.Follow.followers.length,
+    followings: store.Follow.followings.length,
+    posts: store.Post.posts.length
   }
 ))
 
@@ -66,14 +69,21 @@ export default class Profile extends React.Component {
   render() {
     let
       { invalidUser, loading, name } = this.state,
-      { match: { url, params: { username } }, ud, isFollowing, mutuals } = this.props
+      {
+        match: { url, params: { username } },
+        isFollowing, followers, followings,
+        posts, ud, mutuals
+      } = this.props
 
     return (
       <div>
 
         { invalidUser ? <Redirect to='/error/user_nf' /> : null }
 
-        <Title value={`@${username} ${name}`} />
+        <Title
+          value={`@${username} ${name}`}
+          desc={`${posts} posts, ${followers} followers, ${followings} followings - Connect with ${username}'s profile`}
+        />
 
         <div
           class='profile-data'

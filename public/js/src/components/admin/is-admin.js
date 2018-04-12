@@ -16,7 +16,10 @@ export default class IsAdmin extends Component {
 
         { !isAdmin() ? <Redirect to='/admin-login' /> : null }
 
-        <Title value='You are the admin' />
+        <Title
+          value='You are the admin'
+          desc='You can now remove and edit any post, comment, user, group, message, etc. as an admin'
+        />
 
         <FadeIn duration='300ms'>
           <div className='registered email_verification' >

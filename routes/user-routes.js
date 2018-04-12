@@ -14,11 +14,10 @@ const
 
 // USER LOGIN GET ROUTE
 app.get('/login', mw.NotLoggedIn, (req, res) => {
-  let
-    options = {
-      title: 'Login To Continue',
-      users: req.cookies.users ? JSON.parse(req.cookies.users).slice(0, 15) : []
-    }
+  let options = {
+    title: 'Login To Continue',
+    users: req.cookies.users ? JSON.parse(req.cookies.users).slice(0, 15) : []
+  }
   res.render('login', { options })
 })
 

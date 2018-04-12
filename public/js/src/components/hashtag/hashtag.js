@@ -50,7 +50,10 @@ export default class Hashtag extends React.Component {
     return (
       <div>
 
-        <Title value={`#${hashtag}`} />
+        <Title
+          value={`#${hashtag}`}
+          desc={`View posts with #${hashtag}`}
+        />
 
         <FadeIn duration='300ms'>
 
