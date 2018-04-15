@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import { toggle } from '../../utils/utils'
 import $ from 'jquery'
 import { connect } from 'react-redux'
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, Redirect } from 'react-router-dom'
 import Copy from 'handy-copy'
 import Notify from 'handy-notification'
 import { Me, isAdmin } from '../../utils/utils'
@@ -18,6 +18,7 @@ import Prompt from '../others/prompt'
 import ToTags from '../hashtag/toTags'
 import { post } from 'axios'
 import TimeAgo from 'handy-timeago'
+import { newConversation } from '../../utils/message-utils'
 
 @connect(store => (
   {
@@ -33,7 +34,20 @@ export default class Banner extends React.Component {
     changeAvatar: false,
     viewAvatar: false,
     recommendUser: false,
-    blockUser: false
+    blockUser: false,
+    messagedUser: false,
+  }
+
+  _toggle = (e, what) => {
+    e ? e.preventDefault() : null
+    this.setState({
+      [what]: !this.state[what]
+    })
+  }
+
+  toggleAvatars = e => {
+    e ? e.preventDefault() : null
+    this._toggle('changeAvatar')
   }
 
   toggleOptions = when => {
@@ -45,7 +59,8 @@ export default class Banner extends React.Component {
     toggle(element)
   }
 
-  toggleTags = () => $('.pro_tags').slideToggle('fast')
+  toggleTags = () =>
+    $('.pro_tags').slideToggle('fast')
 
   copyLink = e => {
     e.preventDefault()
@@ -82,18 +97,6 @@ export default class Banner extends React.Component {
     })
   }
 
-  toggleAvatars = e => {
-    e ? e.preventDefault() : null
-    this._toggle('changeAvatar')
-  }
-
-  _toggle = (e, what) => {
-    e ? e.preventDefault() : null
-    this.setState({
-      [what]: !this.state[what]
-    })
-  }
-
   showRecommendUsers = e => {
     this._toggle(e, 'recommendUser')
     this.toggleOptions('options')
@@ -121,7 +124,6 @@ export default class Banner extends React.Component {
       { id } = this.props.User.user_details
 
     o.show()
-
     let { data: { mssg, success } } = await post('/user/remove-user', { user: id })
     o.hide()
 
@@ -131,6 +133,21 @@ export default class Banner extends React.Component {
     })
   }
 
+  messageUser = e => {
+    e.preventDefault()
+    let {
+      User: { user_details: { id, username } },
+      dispatch
+    } = this.props
+    newConversation({
+      user: id,
+      username,
+      dispatch,
+      done: () => this._toggle(null, 'messagedUser')
+    })
+    this.toggleOptions('options')
+  }
+
   render() {
     let
       {
@@ -138,13 +155,15 @@ export default class Banner extends React.Component {
         Follow: { isFollowing, followers, followings, profile_views, favourites, recommendations },
         posts
       } = this.props,
-      { changeAvatar, viewAvatar, recommendUser, blockUser } = this.state,
+      { changeAvatar, viewAvatar, recommendUser, blockUser, messagedUser } = this.state,
       url = `/profile/${username}`,
       tags_len = tags.length,
       map_tags = tags.map(t => <NavLink to='/' key={t.tag} className='tags'>{t.tag}</NavLink>)
 
     return (
       <div className='pro_banner'>
+
+        { messagedUser ? <Redirect to='/messages' /> : null }
 
         <div className='pro_top'>
           <div className='pro_more'>
@@ -178,7 +197,7 @@ export default class Banner extends React.Component {
                           <a href='#' className='add_fav' onClick={this.addToFavourites} >Add to favourites</a></li>
                         : null
                     }
-                    { !Me(id) ? <li><Link to='/messages' className='add_fav'>Message</Link></li> : null }
+                    { !Me(id) ? <li><a href='#' onClick={this.messageUser} >Message</a></li> : null }
 
                   </Fragment>
                   : null
