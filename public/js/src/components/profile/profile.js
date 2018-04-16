@@ -39,12 +39,12 @@ import { getUnreadMessages } from '../../store/actions/message-a'
 export default class Profile extends React.Component {
 
   state = {
-    invalidUser: false,
     loading: true,
     name: '',        // for name not to be undefined in the title
   }
 
-  inv_user = () => this.setState({ invalidUser: true })
+  inv_user = () =>
+    this.props.history.push('/error/group_nf')
 
   componentDidMount = () => {
     let {
@@ -68,7 +68,7 @@ export default class Profile extends React.Component {
 
   render() {
     let
-      { invalidUser, loading, name } = this.state,
+      { loading, name } = this.state,
       {
         match: { url, params: { username } },
         isFollowing, followers, followings,
@@ -77,9 +77,6 @@ export default class Profile extends React.Component {
 
     return (
       <div>
-
-        { invalidUser ? <Redirect to='/error/user_nf' /> : null }
-
         <Title
           value={`@${username} ${name}`}
           desc={`${posts} posts, ${followers} followers, ${followings} followings - Connect with ${username}'s profile`}
@@ -112,8 +109,14 @@ export default class Profile extends React.Component {
                     <Route path={`${url}/followers`} component={() => <Followers param={username} />} />
                     <Route path={`${url}/followings`} component={() => <Followings param={username} />} />
                     <Route path={`${url}/favourites`} component={() => <Favourites param={username} />} />
-                    <Route path={`${url}/recommendations`} component={() => <Recommendations param={username}/> } />
-                    <Route path={`${url}/people-you-know`} component={() => <PeopleYouKnow param={username} /> } />
+                    <Route
+                      path={`${url}/recommendations`}
+                      component={() => <Recommendations param={username}/> }
+                    />
+                    <Route
+                      path={`${url}/people-you-know`}
+                      component={() => <PeopleYouKnow param={username} /> }
+                    />
                     <Redirect to='/error' />
                   </Switch>
                 </div>

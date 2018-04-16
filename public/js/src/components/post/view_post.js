@@ -3,7 +3,6 @@ import { FadeIn } from 'animate-components'
 import Title from '../others/title'
 import { connect } from 'react-redux'
 import { getPost } from '../../store/actions/post-a'
-import { Redirect } from 'react-router-dom'
 import Post from './post'
 import End from '../others/end'
 import Loading from '../others/loading'
@@ -19,7 +18,6 @@ import CreateGroup from '../group/create-group/create-group'
 export default class ViewPost extends React.Component {
 
   state = {
-    invalidPost: false,
     loading: true
   }
 
@@ -30,22 +28,19 @@ export default class ViewPost extends React.Component {
     post_id ? dispatch(getPost(post_id)) : null
   }
 
-  componentWillReceiveProps = ({ post: { post_id } }) => {
+  componentWillReceiveProps = ({ post: { post_id }, history }) => {
     !post_id
-      ? this.setState({ invalidPost: true })
+      ? history.push('/error/post_nf')
       : this.setState({ loading: false })
   }
 
   render() {
     let
-      { invalidPost, loading } = this.state,
+      { loading } = this.state,
       { post } = this.props
 
     return (
       <div>
-
-        { invalidPost ? <Redirect to='/error/post_nf' /> : null }
-
         <Title value='View post' />
 
         <FadeIn duration='300ms'>

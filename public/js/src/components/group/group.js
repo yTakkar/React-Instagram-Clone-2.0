@@ -29,12 +29,12 @@ import AddGroupMembers from './sections/add-members-s'
 export default class Group extends React.Component {
 
   state = {
-    invalidGroup: false,
     loading: true,
     title: ''
   }
 
-  inv_grp = () => this.setState({ invalidGroup: true })
+  inv_grp = () =>
+    this.props.history.push('/error/group_nf')
 
   componentDidMount = () => {
     let {
@@ -50,6 +50,7 @@ export default class Group extends React.Component {
     if (this.props.match.url != match.url) {
       forGroup({ grp_id: match.params.grp_id, dispatch, invalidGroup: this.inv_grp })
     }
+
     this.setState({
       loading: false,
       title: gd.name
@@ -58,13 +59,11 @@ export default class Group extends React.Component {
 
   render() {
     let
-      { invalidGroup, loading, title } = this.state,
+      { loading, title } = this.state,
       { gd, joined, match: { url, params: { grp_id } } } = this.props
 
     return (
       <div>
-
-        { invalidGroup ? <Redirect to='/error/group_nf' /> : null }
 
         <Title
           value={title}
