@@ -5,12 +5,14 @@ import $ from 'jquery'
 import { replacer, hide_h_options, e_v } from '../../utils/utils'
 import * as Edit from '../../utils/edit-profile-utils'
 import { connect } from 'react-redux'
-import { getUserDetails, deleteTag } from '../../store/actions/user-a'
+import { getUserDetails } from '../../store/actions/user-a'
 import { getUnreadNotifications } from '../../store/actions/notification-a'
 import Loading from '../others/loading'
 import Emojis from '../others/emojis'
 import ToolTip from 'react-tooltip'
 import { getUnreadMessages } from '../../store/actions/message-a'
+import SocialInputs from './social-inputs'
+import EditTags from './edit-tags'
 
 @connect(store => (
   {
@@ -54,24 +56,13 @@ export default class EditProfile extends React.Component {
       username, firstname, surname, email, bio, instagram, twitter, facebook, github, website, phone
     } = ud
     this.setState({ loading: false })
-    this.setState({ username, firstname, surname, email, bio, instagram, twitter, facebook, github, website, phone, tags })
+    this.setState({
+      username, firstname, surname, email, bio, instagram, twitter, facebook, github, website, phone, tags
+    })
   }
 
   change = (what, { target: { value } }) =>
     this.setState({ [what]: value })
-
-  addTag = e => {
-    e.preventDefault()
-    $('.add_tag_text').focus()
-    let
-      { addTag: value } = this.state,
-      { ud: { id: user }, dispatch } = this.props
-    Edit.addUserTags({ value, user, dispatch })
-    this.setState({ addTag: '' })
-  }
-
-  deleteTag = tag =>
-    this.props.dispatch(deleteTag(tag))
 
   editProfile = e => {
     e.preventDefault()
@@ -90,12 +81,9 @@ export default class EditProfile extends React.Component {
   render() {
     let
       {
-        username, firstname, surname, email, bio, instagram, twitter, github, facebook, website, phone, tags, addTag, loading, showEmojis
+        username, firstname, surname, email, bio, loading, showEmojis, instagram, github, twitter, website, facebook, phone, addTag, tags
       } = this.state,
-      { ud: { id } } = this.props,
-      map_tags = tags.map(t =>
-        <span key={t.tag} onClick={() => this.deleteTag(t.tag)} className='tir_btn t_a_tag'>{t.tag}</span>
-      )
+      { ud: { id } } = this.props
 
     // filtering compulsory inputs
     replacer([
@@ -201,89 +189,29 @@ export default class EditProfile extends React.Component {
                 <a href='#' className='pri_btn edit_done' onClick={this.editProfile} >Update profile</a>
                 {
                   !e_v()
-                    ? <a href='#' className='sec_btn resend_vl' onClick={this.resend_vl} >Resend verification link</a>
+                    ? <a
+                      href='#'
+                      className='sec_btn resend_vl'
+                      onClick={this.resend_vl}
+                    >Resend verification link</a>
                     : null
                 }
               </div>
             </div>
 
             <div className='edit_tags'>
-              <div className='edit_sm_div'>
-                <span className='edit_span'>Connections</span>
-                <input
-                  type='text'
-                  className='edit_em_instagram sm'
-                  placeholder='Instagram'
-                  spellCheck='false'
-                  maxLength='255'
-                  value={instagram}
-                  onChange={e => this.change('instagram', e)}
-                />
-                <input
-                  type='text'
-                  className='edit_em_github sm'
-                  placeholder='GitHub'
-                  spellCheck='false'
-                  maxLength='255'
-                  value={github}
-                  onChange={e => this.change('github', e)}
-                />
-                <input
-                  type='text'
-                  className='edit_em_facebook sm'
-                  placeholder='Facebook'
-                  spellCheck='false'
-                  maxLength='255'
-                  value={facebook}
-                  onChange={e => this.change('facebook', e)}
-                />
-                <input
-                  type='text'
-                  className='edit_em_twitter sm'
-                  placeholder='Twitter'
-                  spellCheck='false'
-                  maxLength='255'
-                  value={twitter}
-                  onChange={e => this.change('twitter', e)}
-                />
-                <input
-                  type='text'
-                  className='edit_em_website sm'
-                  placeholder='Website'
-                  spellCheck='false'
-                  maxLength='255'
-                  value={website}
-                  onChange={e => this.change('website', e)}
-                />
-                <input
-                  type='text'
-                  className='edit_em_mobile'
-                  placeholder='Phone'
-                  spellCheck='false'
-                  maxLength='20'
-                  value={phone}
-                  onChange={e => this.change('phone', e)}
-                />
-              </div>
-              <div className='edit_tags_info'>
-                <span>Edit tags (click tags to remove)</span>
-              </div>
-              <div className='add_tag'>
-                <input
-                  type='text'
-                  name='add_tag_text'
-                  className='add_tag_text'
-                  placeholder='Add a tag'
-                  maxLength='250'
-                  spellCheck='false'
-                  value={addTag}
-                  onChange={e => this.change('addTag', e)}
-                />
-                <a href='#' className='sec_btn add_tag_add' onClick={this.addTag} >Add</a>
-              </div>
-              <div className='tags_all'>
-                {map_tags}
-              </div>
+              <SocialInputs
+                inputs={{
+                  instagram, github, twitter, facebook, website, phone
+                }}
+                change={this.change}
+              />
+              <EditTags
+                newTag={addTag}
+                change={this.change}
+                tags={tags}
+                updateState={() => this.setState({ addTag: '' })}
+              />
             </div>
 
           </div>

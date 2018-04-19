@@ -82,7 +82,10 @@ export default class EditComment extends React.Component {
                 <i className='material-icons'>sentiment_very_satisfied</i>
               </span>
               <a href='#' className='e_p_cancel sec_btn' onClick={this.back} >Back</a>
-              <a href='#' className={`e_p_update pri_btn ${!comment ? 'a_disabled' : ''}`} onClick={this.updateComment} >Update</a>
+              <a
+                href='#'
+                className={`e_p_update pri_btn ${!comment ? 'a_disabled' : ''}`}
+                onClick={this.updateComment} >Update</a>
             </div>
 
           </FadeIn>

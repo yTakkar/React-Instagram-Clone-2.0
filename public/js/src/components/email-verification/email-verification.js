@@ -7,15 +7,12 @@ export default class EmailVerification extends React.Component {
 
     let
       { params: { is } } = this.props.match,
-      mssg
-
-    if (is == 'yes') {
-      mssg = 'You email has been verified successfully!'
-    } else if (is == 'alr') {
-      mssg = 'Email already verified!'
-    } else {
-      mssg = 'Something went wrong!'
-    }
+      mssg =
+      /* eslint-disable indent */
+      is == 'yes' ? 'You email has been verified successfully!'
+      : is == 'alr' ? 'Email already verified!'
+      : 'Something went wrong!'
+      /* eslint-enable */
 
     return (
       <div>

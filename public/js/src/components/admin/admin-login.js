@@ -42,7 +42,10 @@ export default class AdminLogin extends Component {
     if (!password) {
       Notify({ value: 'Password field is missing!!' })
     } else {
-      $('.al_submit').addClass('a_disabled').attr('value', 'Please wait..')
+      $('.al_submit')
+        .addClass('a_disabled')
+        .attr('value', 'Please wait..')
+
       let
         { data: { mssg, success } } = await post('/api/check-is-admin', { password }),
         to = toURL.to ? toURL.to : '/is-admin'
@@ -51,7 +54,10 @@ export default class AdminLogin extends Component {
         value: mssg,
         done: () => success ? location.href = to : null
       })
-      $('.al_submit').removeClass('a_disabled').attr('value', 'Continue as admin')
+
+      $('.al_submit')
+        .removeClass('a_disabled')
+        .attr('value', 'Continue as admin')
     }
 
   }

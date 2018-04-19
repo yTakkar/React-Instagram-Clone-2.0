@@ -71,8 +71,11 @@ export default class Comment extends React.Component {
             <a href='#' className='comments_user'>{ comment_by_username }</a>
 
             {
-              type == 'text' ? <p className='ce' ><ToTags str={text} /></p>
+              // if text comment
+              type == 'text'
+                ? <p className='ce' ><ToTags str={text} /></p>
 
+                // if image comment
                 : type == 'image' ?
                   <img
                     className='comments_img'
@@ -80,12 +83,14 @@ export default class Comment extends React.Component {
                     src={`/comments/${commentSrc}`}
                   />
 
+                  // if sticker comment
                   : type == 'sticker' ?
                     <img
                       className='comments_sticker'
                       src={`/comments/${commentSrc}`}
                     />
 
+                    // else nothing
                     : null
             }
 

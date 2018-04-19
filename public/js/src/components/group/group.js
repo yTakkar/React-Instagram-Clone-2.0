@@ -81,7 +81,7 @@ export default class Group extends React.Component {
         <FadeIn duration='300ms' className={loading ? 'cLoading' : ''} >
           <GroupBanner/>
           {
-            (Me(gd.admin) || gd.group_type == 'public' || joined) || isAdmin() ?
+            Me(gd.admin) || gd.group_type == 'public' || joined || isAdmin() ?
               <div>
                 <GroupNav url={url} admin={gd.admin} />
                 <div className='hmm'>

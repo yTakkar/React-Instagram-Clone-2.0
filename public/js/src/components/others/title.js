@@ -12,7 +12,7 @@ export default class Title extends React.Component {
   render() {
     let { value, desc, un } = this.props
 
-    // for removing description in the topHeader.hbs
+    // for removing description in the topHeader.hbs to avoid two meta tags with description name
     let element = $('meta[data-desc-src="hbs"]')
     element.remove()
 

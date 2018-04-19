@@ -72,13 +72,22 @@ export default class Notification extends React.Component {
         </div>
         <div className='noti_right follow_noti_right'>
           {
+            // show follow button if..
             type == 'follow' || type == 'favourites' ? isFollowing ? unfollow : follow
 
+            // show post button if..
             : type == 'tag' || type == 'like' || type == 'share' || type == 'shared_your_post' || type == 'comment' || type == 'mention_post' || type == 'mention_comment' ? post
 
+            // show profile button if..
             : type == 'recommend' ? profile
+
+            // show group button if..
             : type == 'add_grp_member' || type == 'invite' || type == 'change_admin' ? group
+
+            // show conversation button if..
             : type == 'new_con' ? con
+
+            // else null
             : null
           }
         </div>

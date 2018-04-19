@@ -106,6 +106,7 @@ export default class CommentPost extends React.Component {
                 onClick={this.comment}
               >Comment</a>
             </div>
+
           </FadeIn>
         </div>
 
