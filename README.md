@@ -74,6 +74,7 @@ Here's a video which will take you on a tour of this project!!
 - [x] Description with react-helmet for SEO
 - [ ] Likes comments
 - [ ] Story feature
+- [ ] Catch errors more effeciently
 - [ ] Upload video
 - [ ] Upload multiple
 - [ ] Show mutual likes, comments & shares count
