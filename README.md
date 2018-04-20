@@ -70,13 +70,14 @@ Here's a video which will take you on a tour of this project!!
 - [x] JSDoc & comments
 - [x] Admin system
 - [x] Show if member is online
-- [x] Show all online members(whome you've followed).
-- [x] Description with react-helmet for SEO.
-- [ ] Show mutual likes, comments & shares count. 
+- [x] Show all online members(whome you've followed)
+- [x] Description with react-helmet for SEO
+- [ ] Likes comments
 - [ ] Story feature
 - [ ] Upload video
 - [ ] Upload multiple
-- [ ] Cache files, icons & fonts with ServiceWorker API.
+- [ ] Show mutual likes, comments & shares count
+- [ ] Cache files, icons & fonts with ServiceWorker API
 
 # Contribute
 Show your support by 🌟 the project!!
