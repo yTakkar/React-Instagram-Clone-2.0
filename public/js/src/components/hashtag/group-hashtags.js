@@ -22,8 +22,8 @@ export default class GroupHashtags extends React.Component {
         <Link
           key={h.hashtag}
           className='uh_link'
-          to={`/hashtag/${h.hashtag}`}
-        >#{h.hashtag}</Link>
+          to={`/hashtag/${h.hashtag.slice(1)}`}
+        >{h.hashtag}</Link>
       )
 
     return (
@@ -33,7 +33,7 @@ export default class GroupHashtags extends React.Component {
           len != 0 ?
             <div className='recomm user-hashtags'>
               <div className='recomm_top'>
-                <span>Your recent hashtags</span>
+                <span>Group recent hashtags</span>
               </div>
 
               <div className='recomm_main' >

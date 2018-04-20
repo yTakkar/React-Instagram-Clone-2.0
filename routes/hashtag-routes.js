@@ -51,7 +51,7 @@ app.post('/get-hashtag-posts', async (req, res) => {
     { hashtag } = req.body,
     _posts = await db.query(
       'SELECT posts.post_id, posts.user, users.username, users.firstname, users.surname, posts.description, posts.imgSrc, posts.filter, posts.location, posts.type, posts.group_id, posts.post_time FROM posts, users, hashtags WHERE hashtags.hashtag = ? AND posts.user = users.id AND hashtags.post_id = posts.post_id ORDER BY hashtags.hashtag_time DESC',
-      [ hashtag ]
+      [ `#${hashtag}` ]
     ),
     posts = []
 

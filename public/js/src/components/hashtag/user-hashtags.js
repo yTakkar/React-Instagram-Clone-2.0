@@ -22,8 +22,8 @@ export default class UserHashtags extends React.Component {
         <Link
           key={h.hashtag}
           className='uh_link'
-          to={`/hashtag/${h.hashtag}`}
-        >#{h.hashtag}</Link>
+          to={`/hashtag/${h.hashtag.slice(1)}`}
+        >{h.hashtag}</Link>
       )
 
     return (
