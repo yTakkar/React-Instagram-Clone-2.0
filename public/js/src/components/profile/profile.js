@@ -58,7 +58,11 @@ export default class Profile extends React.Component {
 
   componentWillReceiveProps = ({ dispatch, match, ud }) => {
     if (this.props.match.url != match.url) {
-      forProfile({ dispatch, username: match.params.username, invalidUser: this.inv_user })
+      forProfile({
+        dispatch,
+        username: match.params.username,
+        invalidUser: this.inv_user
+      })
     }
     this.setState({
       loading: false,

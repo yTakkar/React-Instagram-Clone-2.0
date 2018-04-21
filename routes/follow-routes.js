@@ -78,7 +78,10 @@ app.post('/view-profile', async (req, res) => {
     { username } = req.body,
     { id: session } = req.session,
     id = await db.getId(username),
-    [{ time: dtime }] = await db.query('SELECT MAX(view_time) as time FROM profile_views WHERE view_by=? AND view_to=?', [session, id]),
+    [{ time: dtime }] = await db.query(
+      'SELECT MAX(view_time) as time FROM profile_views WHERE view_by=? AND view_to=?',
+      [session, id]
+    ),
     time = parseInt(new Date().getTime() - parseInt(dtime))
 
   if (time >= 150000 || !dtime) {    // 120000 = 2.5 minutes

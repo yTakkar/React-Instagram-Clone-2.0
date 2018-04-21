@@ -60,7 +60,10 @@ app.post('/clear-notifications', async (req, res) => {
 app.post('/get-unread-notifications', async (req, res) => {
   let
     { id } = req.session,
-    [{ count }] = await db.query('SELECT COUNT(notify_id) AS count FROM notifications WHERE notify_to=? AND status=?', [ id, 'unread' ])
+    [{ count }] = await db.query(
+      'SELECT COUNT(notify_id) AS count FROM notifications WHERE notify_to=? AND status=?',
+      [ id, 'unread' ]
+    )
   res.json(count)
 })
 

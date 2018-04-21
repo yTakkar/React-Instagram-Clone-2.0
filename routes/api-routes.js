@@ -10,7 +10,10 @@ const
 app.post('/is-user-valid', async (req, res) => {
   let
     { username } = req.body,
-    [{ userCount }] = await db.query('SELECT COUNT(id) AS userCount FROM users WHERE username=? LIMIT 1', [username])
+    [{ userCount }] = await db.query(
+      'SELECT COUNT(id) AS userCount FROM users WHERE username=? LIMIT 1',
+      [username]
+    )
   res.json(userCount == 1 ? true : false)
 })
 

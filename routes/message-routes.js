@@ -222,7 +222,6 @@ app.post('/unsend-all-mssgs', async (req, res) => {
   }
 
   await db.query('DELETE FROM messages WHERE con_id=? AND mssg_by=?', [ con_id, id ])
-
   res.json('Hello, World!!')
 })
 
