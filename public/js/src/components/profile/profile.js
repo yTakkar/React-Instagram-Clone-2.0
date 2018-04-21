@@ -44,7 +44,7 @@ export default class Profile extends React.Component {
   }
 
   inv_user = () =>
-    this.props.history.push('/error/group_nf')
+    this.props.history.push('/error/user_nf')
 
   componentDidMount = () => {
     let {
