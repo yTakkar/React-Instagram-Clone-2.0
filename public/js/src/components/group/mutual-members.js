@@ -28,7 +28,7 @@ export default class MutualMembers extends React.Component {
               <div className='mutual_info'>
                 <span>Members you know</span>
                 <Link to={`/group/${group}/members`} data-tip='view all' className='view_all_yk'>
-                  <i className='fa fa-chevron-right' aria-hidden='true'></i>
+                  <i className='fas fa-chevron-right'></i>
                 </Link>
               </div>
               <div className='mutual_main'>

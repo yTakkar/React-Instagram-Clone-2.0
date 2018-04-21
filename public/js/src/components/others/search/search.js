@@ -64,7 +64,7 @@ export default class Search extends React.Component {
             onChange={e => this.search(e)}
           />
           <span className='search_icon'>
-            <i className='fa fa-search' aria-hidden='true'></i>
+            <i className='fas fa-search'></i>
           </span>
         </div>
 

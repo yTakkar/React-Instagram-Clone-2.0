@@ -91,11 +91,11 @@ export default class Messages extends React.Component {
 
             <div className='mssg_new'>
               <a href='#' className='pri_btn' onClick={e => this._toggle(e, 'getUsersForNewCon')} >
-                <i className='fa fa-plus' aria-hidden='true' ></i>
+                <i className='fas fa-plus'></i>
                 <span>New conversation</span>
               </a>
               <a href='#' className='pri_btn' onClick={e => this._toggle(e, 'showOnlineUsers')} >
-                <i className='fa fa-globe' aria-hidden='true'></i>
+                <i className='fas fa-globe'></i>
                 <span>Online users</span>
               </a>
             </div>

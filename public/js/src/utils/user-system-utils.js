@@ -9,16 +9,29 @@ import { viewPassword } from './utils'
  */
 export const username_checker = el => {
   let uc = $('.username_checker')
+
   el.on('keyup', async () => {
     let value = el.val()
     uc.show()
 
     if (value) {
       let
-        { data: count } = await post('/user/username-checker', { value: el.val() }),
-        html = count == 0
-          ? '<span class=\'checker_text\'>username is available</span><span class=\'checker_icon\'><i class=\'fa fa-smile-o\' aria-hidden=\'true\'></i></span>'
-          : '<span class=\'checker_text\'>username already taken</span><span class=\'checker_icon\'><i class=\'fa fa-frown-o\' aria-hidden=\'true\'></i></span>'
+        { data: count } = await post('/user/username-checker', { value }),
+        html
+
+      if (count == 0) {
+        html = '<span class="checker_text">username is available</span><span class="checker_icon"><i class="far fa-smile"></i></span>'
+        uc.css({
+          width: '160px',
+          right: '-188px'
+        })
+      } else {
+        html = '<span class="checker_text">username already taken</span><span class="checker_icon"><i class="far fa-frown"></i></span>'
+        uc.css({
+          width: '167px',
+          right: '-194px'
+        })
+      }
 
       uc.html(html)
     } else {

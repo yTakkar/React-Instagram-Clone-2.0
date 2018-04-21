@@ -48,10 +48,10 @@ export default class Suggested extends React.Component {
           <div className='recomm_top'>
             <span>Suggested</span>
             <a href='#' className='recomm_refresh' data-tip='refresh' onClick={this.updateUsers} >
-              <i className='fa fa-refresh' aria-hidden='true'></i>
+              <i className='fas fa-sync-alt'></i>
             </a>
             <Link to='/explore' className='recomm_all' data-tip='view all' >
-              <i className='fa fa-chevron-right' aria-hidden='true'></i>
+              <i className='fas fa-chevron-right'></i>
             </Link>
           </div>
 

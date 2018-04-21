@@ -179,8 +179,8 @@ export default class GroupBanner extends React.Component {
           <div className='pro_name'>
             {
               group_type == 'public' ?
-                <span><i class='fa fa-globe' aria-hidden='true'></i> Public group</span>
-                : <span><i class='fa fa-lock' aria-hidden='true'></i> Private group</span>
+                <span><i className='fas fa-globe'></i> Public group</span>
+                : <span><i className='fas fa-lock'></i> Private group</span>
             }
           </div>
         </div>

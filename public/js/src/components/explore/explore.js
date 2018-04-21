@@ -61,7 +61,7 @@ export default class Explore extends React.Component {
             </ul>
 
             <a className='exp_refresh' data-tip='Refresh' href='#' onClick={this.refresh} >
-              <i className='fa fa-refresh' aria-hidden='true'></i>
+              <i className='fas fa-sync-alt'></i>
             </a>
           </div>
 

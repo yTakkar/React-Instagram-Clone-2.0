@@ -3414,12 +3414,12 @@ select {
       text-align: center; }
       .messages_senapati .mssg_left .mssg_new a {
         display: inline-block;
-        padding: 5px 15px 5px 15px;
+        padding: 5px 14px 5px 14px;
         font-size: 14px; }
         .messages_senapati .mssg_left .mssg_new a i {
           margin-right: 6px; }
         .messages_senapati .mssg_left .mssg_new a:first-of-type {
-          margin-right: 4px; }
+          margin-right: 3px; }
     .messages_senapati .mssg_left .search_followings input[type='text'] {
       width: 95%;
       border-radius: 3px; }

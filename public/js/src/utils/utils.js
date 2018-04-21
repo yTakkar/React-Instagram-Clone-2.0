@@ -72,11 +72,11 @@ export const llr = () => {
 export const viewPassword = ({ input, icon }) => {
   if (input.type == 'password') {
     input.type = 'text'
-    icon.html('<i class="fa fa-unlock-alt" aria-hidden="true"></i>')
+    icon.html('<i class="fas fa-unlock-alt"></i>')
     icon.css('color', '#e91e63')
   } else {
     input.type = 'password'
-    icon.html('<i class="fa fa-lock" aria-hidden="true"></i>')
+    icon.html('<i class="fas fa-lock"></i>')
     icon.css('color', 'darkturquoise')
   }
   input.focus()

@@ -39,7 +39,7 @@ export default class MutualUsers extends React.Component {
               <div className='mutual_info'>
                 <span>{ humanReadable(len, 'follower') } you might know</span>
                 <Link to={`/profile/${username}/people-you-know`} data-tip='view all' className='view_all_yk'>
-                  <i className='fa fa-chevron-right' aria-hidden='true'></i>
+                  <i className='fas fa-chevron-right'></i>
                 </Link>
               </div>
               <div className='mutual_main'>

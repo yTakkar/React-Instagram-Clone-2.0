@@ -26,11 +26,11 @@ export default class ConversationTeaser extends React.Component {
               lastMessage ?
 
                 lastMssgType == 'text' ? shortener(lastMessage, 15)
-                  : lastMssgType == 'image' ? <span className='camera' >
-                    <i className='fa fa-camera retro' aria-hidden='true'></i>Image</span>
+                  : lastMssgType == 'image' ?
+                    <span className='camera' ><i className='fas fa-camera'></i></span>
 
-                    : lastMssgType == 'sticker' ? <span className='camera' >
-                      <i className='fa fa-gift retro' aria-hidden='true'></i>Sticker</span>
+                    : lastMssgType == 'sticker' ?
+                      <span className='camera' ><i className='fas fa-gift'></i></span>
 
                       : null
 

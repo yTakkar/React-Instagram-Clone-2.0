@@ -92,7 +92,7 @@ export default class AdminLogin extends Component {
                 onChange={e => this.changeValue('password', e)}
               />
               <span className='show_psswrd s_p_l' onClick={this.toggleViewPassword} >
-                <i className='fa fa-lock' aria-hidden='true'></i>
+                <i className='fas fa-lock'></i>
               </span>
               <input type='submit' value='Continue as admin' className='al_submit' />
             </form>

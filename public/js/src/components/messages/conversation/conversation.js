@@ -38,7 +38,6 @@ export default class Conversation extends React.Component {
   }
 
   componentDidMount = () => {
-    $('.send_mssg').focus()
     let { dispatch, conDetails: { unreadMssgs, con_id } } = this.props
     dispatch(getConversationMessages(con_id))
     dispatch(readConversation(con_id, unreadMssgs))
@@ -46,9 +45,9 @@ export default class Conversation extends React.Component {
   }
 
   componentWillReceiveProps = async ({ dispatch, conDetails: { unreadMssgs, con_id } }) => {
-    $('.send_mssg').focus()
     let { conDetails: cd } = this.props
     if (con_id != cd.con_id) {
+      $('.send_mssg').focus()
       dispatch(getConversationMessages(con_id))
       dispatch(readConversation(con_id, unreadMssgs))
     }
