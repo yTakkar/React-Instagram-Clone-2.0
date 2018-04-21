@@ -13,7 +13,7 @@ import Nothing from '../others/nothing'
 // sections
 import Posts from './sections/posts-s'
 import Tagged from './sections/tagged-s'
-import About from './sections/about-s'
+import About from './sections/about/about-s'
 import Shared from './sections/shared-s'
 import Gallery from './sections/gallery-s'
 import Bookmarks from './sections/bookmarks-s'
