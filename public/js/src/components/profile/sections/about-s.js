@@ -6,6 +6,7 @@ import { connect } from 'react-redux'
 import TimeAgo from 'handy-timeago'
 import { profile_scroll, toggle } from '../../../utils/utils'
 import ToolTip from 'react-tooltip'
+import ToTags from '../../hashtag/toTags'
 
 @connect(store => (
   { ud: store.User.user_details }
@@ -113,7 +114,7 @@ export default class About extends React.Component {
 
                 <div className='a_bio'>
                   <span className='a_label'>Bio</span>
-                  <span className='a_info'>{bio}</span>
+                  <span className='a_info'><ToTags str={`${bio}`} /></span>
                 </div>
 
                 <div className='a_facebook'>
