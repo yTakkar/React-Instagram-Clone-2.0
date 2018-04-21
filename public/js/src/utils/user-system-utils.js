@@ -92,11 +92,16 @@ export const commonLogin = options => {
 export const quickLogin = ({ id, username }) => {
   let
     usernameDiv = $('.q_l_username'),
-    imgDiv = $('.q_l_m_img')
+    imgDiv = $('.q_l_m_img'),
+    icon = $('.s_p_ql')
 
   $('.overlay-2-black').show()
   $('.q_l_model').fadeIn('fast')
   $('#q_l_password').focus()
+
+  $('#q_l_password').attr('type', 'password')
+  icon.html('<i class="fas fa-lock"></i>')
+  icon.css('color', 'darkturquoise')
 
   usernameDiv.text(`@${username}`)
   imgDiv.attr('src', `/users/${id}/avatar.jpg`)
@@ -121,7 +126,7 @@ export const quickLogin = ({ id, username }) => {
   $('.s_p_ql').on('click', () => {
     viewPassword({
       input: document.getElementById('q_l_password'),
-      icon: $('.s_p_ql')
+      icon
     })
   })
 
