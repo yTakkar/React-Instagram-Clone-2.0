@@ -54,33 +54,37 @@ export default class About extends React.Component {
                   </div>
                 </div>
 
-                <div className='social_div inst'>
-                  {
-                    instagram
-                      ? <a href={instagram} target='_blank'><i className='fab fa-instagram'></i></a>
-                      : null
-                  }
-                  {
-                    facebook
-                      ? <a href={facebook} target='_blank'><i className='fab fa-facebook'></i></a>
-                      : null
-                  }
-                  {
-                    github
-                      ? <a href={github} target='_blank'><i className='fab fa-github'></i></a>
-                      : null
-                  }
-                  {
-                    twitter
-                      ? <a href={twitter} target='_blank'><i className='fab fa-twitter'></i></a>
-                      : null
-                  }
-                  {
-                    website
-                      ? <a href={website} target='_blank'><i className='fas fa-globe'></i></a>
-                      : null
-                  }
-                </div>
+                {
+                  instagram || facebook || github || twitter || website ?
+                    <div className='social_div inst'>
+                      {
+                        instagram
+                          ? <a href={instagram} target='_blank'><i className='fab fa-instagram'></i></a>
+                          : null
+                      }
+                      {
+                        facebook
+                          ? <a href={facebook} target='_blank'><i className='fab fa-facebook'></i></a>
+                          : null
+                      }
+                      {
+                        github
+                          ? <a href={github} target='_blank'><i className='fab fa-github'></i></a>
+                          : null
+                      }
+                      {
+                        twitter
+                          ? <a href={twitter} target='_blank'><i className='fab fa-twitter'></i></a>
+                          : null
+                      }
+                      {
+                        website
+                          ? <a href={website} target='_blank'><i className='fas fa-globe'></i></a>
+                          : null
+                      }
+                    </div>
+                    : null
+                }
               </div>
 
               <div
