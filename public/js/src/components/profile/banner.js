@@ -160,8 +160,6 @@ export default class Banner extends React.Component {
       tags_len = tags.length,
       map_tags = tags.map(t => <NavLink to='/' key={t.tag} className='tags'>{t.tag}</NavLink>)
 
-    console.log(Me(id))
-
     return (
       <div className='pro_banner'>
 

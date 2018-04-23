@@ -145,7 +145,7 @@ app.post('/image-message', upload.single('messageFile'), async (req, res) => {
     }
 
   await ProcessImage(obj)
-  await DeleteAllOfFolder(`${root}/public/temp/`)
+  DeleteAllOfFolder(`${root}/public/temp/`)
 
   let { insertId } = await db.query('INSERT INTO messages SET ?', message)
 

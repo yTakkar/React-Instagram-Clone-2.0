@@ -26,7 +26,7 @@ const deleteGroup = async group => {
   await db.query('DELETE FROM group_members WHERE group_id=?', [ group ])
   await db.query('DELETE FROM groups WHERE group_id=?', [ group ])
 
-  await DeleteAllOfFolder(`${root}/public/groups/${group}/`)
+  DeleteAllOfFolder(`${root}/public/groups/${group}/`)
   await dltDir(`${root}/public/groups/${group}`)
 }
 

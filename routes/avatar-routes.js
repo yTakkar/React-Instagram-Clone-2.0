@@ -52,7 +52,7 @@ app.post('/upload-avatar', upload.single('avatar'), async (req, res) => {
     }
 
   await ProcessImage(obj)
-  await DeleteAllOfFolder(`${root}/public/temp/`)
+  DeleteAllOfFolder(`${root}/public/temp/`)
 
   res.json({ mssg: 'Avatar changed!!' })
 })

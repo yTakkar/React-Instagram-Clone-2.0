@@ -35,7 +35,7 @@
     "express-handlebars": "^3.0.0",
     "express-validator": "^4.3.0",
     "handy-copy": "^1.0.9",
-    "handy-image-processor": "^1.0.1",
+    "handy-image-processor": "^1.0.6",
     "handy-log": "^1.0.3",
     "handy-notification": "^1.0.26",
     "handy-timeago": "^1.0.1",

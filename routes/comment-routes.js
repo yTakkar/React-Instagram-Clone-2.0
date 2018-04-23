@@ -47,7 +47,7 @@ app.post('/comment-image', upload.single('commentImage'), async (req, res) => {
     }
 
   await ProcessImage(obj)
-  await DeleteAllOfFolder(`${root}/public/temp/`)
+  DeleteAllOfFolder(`${root}/public/temp/`)
 
   let { insertId } = await db.query('INSERT INTO comments SET ?', insert)
 

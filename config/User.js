@@ -129,7 +129,7 @@ const deactivate = async (user, req, res) => {
   )
   await db.query('DELETE FROM hashtags WHERE user=?', [ user ])
 
-  await DeleteAllOfFolder(`${root}/public/users/${user}/`)
+  DeleteAllOfFolder(`${root}/public/users/${user}/`)
   await dltDir(`${root}/public/users/${user}`)
 
   await db.query('DELETE FROM users WHERE id=?', [ user ])
