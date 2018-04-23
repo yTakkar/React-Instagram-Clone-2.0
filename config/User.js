@@ -10,31 +10,27 @@ const
   { promisify } = require('util'),
   { rmdir } = require('fs'),
   { DeleteAllOfFolder } = require('handy-image-processor'),
-  { intersectionBy } = require('lodash')
+  { intersectionBy } = require('lodash'),
+  catchify = require('catchify')
 
 /**
  * creates a new user
  * @param {Object} User User details
  */
-const create_user = user => {
-  return new Promise((resolve, reject) => {
-    bcrypt.hash(user.password, null, null, (error, hash) => {
-      user.password = hash
-      db.query('INSERT INTO users SET ?', user)
-        .then(s => resolve(s))
-        .catch(e => reject(e))
-    })
-  })
+const create_user = async user => {
+  let hash = bcrypt.hashSync(user.password)
+  user.password = hash
+  let [e, s] = await catchify(db.query('INSERT INTO users SET ?', user))
+  e ? console.log(e) : null
+  return s
 }
 
 /** changes password */
 const change_password = async ({ password, id }) => {
-  return new Promise((resolve, reject) => {
-    bcrypt.hash(password, null, null, (error, hash) => {
-      db.query('UPDATE users SET password=? WHERE id=?', [ hash, id ])
-        .then(() => resolve(true))
-        .catch(() => reject(false))
-    })
+  return new Promise(async (resolve, reject) => {
+    let hash = bcrypt.hashSync(password)
+    let [e] = await catchify(db.query('UPDATE users SET password=? WHERE id=?', [ hash, id ]))
+    e ? reject(false) : resolve(true)
   })
 }
 
@@ -45,25 +41,20 @@ const change_password = async ({ password, id }) => {
  * @returns {Boolean} Boolean
  */
 const comparePassword = (password, hash) => {
-  return new Promise((resolve, reject) => {
-    bcrypt.compare(password, hash, (err, res) => {
-      err ? reject(err) : resolve(res)
-    })
-  })
+  let comp = bcrypt.compareSync(password, hash)
+  return comp
 }
 
 /**
  * Returns whether session is following user
  * @param {Number} session Session ID
  * @param {Number} user User
- * @returns {Boolean} Boolean
  */
-const isFollowing = (session, user) => {
-  return new Promise((resolve, reject) => {
-    db.query('SELECT COUNT(follow_id) AS is_following FROM follow_system WHERE follow_by=? AND follow_to=? LIMIT 1', [session, user])
-      .then(is => resolve((is[0].is_following == 1) ? true : false))
-      .catch(e => reject(e))
-  })
+const isFollowing = async (session, user) => {
+  let is = await db.query(
+    'SELECT COUNT(follow_id) AS is_following FROM follow_system WHERE follow_by=? AND follow_to=? LIMIT 1', [session, user]
+  )
+  return db.tf(is[0].is_following)
 }
 
 /**
@@ -71,12 +62,12 @@ const isFollowing = (session, user) => {
  * @param {Number} fav_by Favorite By
  * @param {Number} user User ID
  */
-const favouriteOrNot = (fav_by, user) => {
-  return new Promise((resolve, reject) => {
-    db.query('SELECT COUNT(fav_id) AS fav_count FROM favourites WHERE fav_by=? AND user=?', [ fav_by, user ])
-      .then(s => resolve(s[0].fav_count == 1 ? true : false))
-      .catch(e => reject(e))
-  })
+const favouriteOrNot = async (fav_by, user) => {
+  let s = await db.query(
+    'SELECT COUNT(fav_id) AS fav_count FROM favourites WHERE fav_by=? AND user=?',
+    [fav_by, user]
+  )
+  return db.tf(s[0].fav_count)
 }
 
 /**
@@ -84,12 +75,12 @@ const favouriteOrNot = (fav_by, user) => {
  * @param {Number} block_by Block By
  * @param {Number} user User ID
  */
-const isBlocked = (block_by, user) => {
-  return new Promise((resolve, reject) => {
-    db.query('SELECT COUNT(block_id) AS block_count FROM blocks WHERE block_by=? AND user=?', [ block_by, user ])
-      .then(s => resolve(s[0].block_count == 1 ? true : false))
-      .catch(e => reject(e))
-  })
+const isBlocked = async (block_by, user) => {
+  let s = await db.query(
+    'SELECT COUNT(block_id) AS block_count FROM blocks WHERE block_by=? AND user=?',
+    [ block_by, user ]
+  )
+  return db.tf(s[0].block_count)
 }
 
 /**
@@ -154,26 +145,18 @@ const deactivate = async (user, req, res) => {
  * @param {Number} user User ID
  */
 const mutualUsers = async (session, user) => {
-  return new Promise(async (resolve, reject) => {
-    try {
-      let
-        myFollowings = await db.query(
-          'SELECT follow_system.follow_id, follow_system.follow_to AS user, follow_system.follow_to_username AS username, users.firstname, users.surname FROM follow_system, users WHERE follow_system.follow_by=? AND follow_system.follow_to = users.id',
-          [ session ]
-        ),
-        userFollowers = await db.query(
-          'SELECT follow_system.follow_id, follow_system.follow_by AS user, follow_system.follow_by_username AS username, users.firstname, users.surname FROM follow_system, users WHERE follow_system.follow_to=? AND follow_system.follow_by = users.id',
-          [ user ]
-        ),
-        mutuals = intersectionBy(myFollowings, userFollowers, 'user')
+  let
+    myFollowings = await db.query(
+      'SELECT follow_system.follow_id, follow_system.follow_to AS user, follow_system.follow_to_username AS username, users.firstname, users.surname FROM follow_system, users WHERE follow_system.follow_by=? AND follow_system.follow_to = users.id',
+      [ session ]
+    ),
+    userFollowers = await db.query(
+      'SELECT follow_system.follow_id, follow_system.follow_by AS user, follow_system.follow_by_username AS username, users.firstname, users.surname FROM follow_system, users WHERE follow_system.follow_to=? AND follow_system.follow_by = users.id',
+      [ user ]
+    ),
+    mutuals = intersectionBy(myFollowings, userFollowers, 'user')
 
-      resolve(mutuals)
-
-    } catch (error) {
-      reject(error)
-    }
-
-  })
+  return mutuals
 }
 
 module.exports = {

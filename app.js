@@ -25,6 +25,9 @@ const
   notifyR = require('./routes/notification-routes'),
   editR = require('./routes/edit-routes'),
   postR = require('./routes/post-routes'),
+  commentR = require('./routes/comment-routes'),
+  shareR = require('./routes/share-routes'),
+  likesR = require('./routes/likes-routes'),
   exploreR = require('./routes/explore-routes'),
   groupR = require('./routes/group-routes'),
   avatarR = require('./routes/avatar-routes'),
@@ -69,6 +72,9 @@ app.use('/api', followR)
 app.use('/api', notifyR)
 app.use('/api', editR)
 app.use('/api', postR)
+app.use('/api', commentR)
+app.use('/api', shareR)
+app.use('/api', likesR)
 app.use('/api', exploreR)
 app.use('/api', groupR)
 app.use('/api', avatarR)

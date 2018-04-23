@@ -8,8 +8,7 @@ const
 // GET USERS HASHTAGS [REQ = USERNAME]
 app.post('/get-users-hashtags', async (req, res) => {
   let
-    { username } = req.body,
-    id = await db.getId(username),
+    id = await db.getId(req.body.username),
     hashtags = await db.query(
       'SELECT DISTINCT hashtag FROM hashtags WHERE user=? ORDER BY hashtag_time LIMIT 20',
       [ id ]
@@ -20,10 +19,9 @@ app.post('/get-users-hashtags', async (req, res) => {
 // GET GROUP HASHTAGS [REQ = GROUP_ID]
 app.post('/get-group-hashtags', async (req, res) => {
   let
-    { group_id } = req.body,
     groupPosts = await db.query(
       'SELECT post_id FROM posts WHERE group_id=? ORDER BY post_time DESC LIMIT 20',
-      [ group_id ]
+      [ req.body.group_id ]
     ),
     hashtags = []
 
@@ -48,10 +46,9 @@ app.post('/get-popular-hashtags', async (req, res) => {
 // GET HASHTAG POSTS [REQ = HASHTAG]
 app.post('/get-hashtag-posts', async (req, res) => {
   let
-    { hashtag } = req.body,
     _posts = await db.query(
       'SELECT posts.post_id, posts.user, users.username, users.firstname, users.surname, posts.description, posts.imgSrc, posts.filter, posts.location, posts.type, posts.group_id, posts.post_time FROM posts, users, hashtags WHERE hashtags.hashtag = ? AND posts.user = users.id AND hashtags.post_id = posts.post_id ORDER BY hashtags.hashtag_time DESC',
-      [ `#${hashtag}` ]
+      [ `#${req.body.hashtag}` ]
     ),
     posts = []
 

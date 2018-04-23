@@ -103,12 +103,10 @@ app.post('/get-conversations', async (req, res) => {
 
 // GET CONVERSATION MESSAGES [REQ = CON_ID]
 app.post('/get-conversation-messages', async (req, res) => {
-  let
-    { con_id } = req.body,
-    messages = await db.query(
-      'SELECT * FROM messages WHERE con_id = ? ORDER BY message_time',
-      [ con_id ]
-    )
+  let messages = await db.query(
+    'SELECT * FROM messages WHERE con_id = ? ORDER BY message_time',
+    [ req.body.con_id ]
+  )
   res.json(messages)
 })
 
@@ -116,10 +114,9 @@ app.post('/get-conversation-messages', async (req, res) => {
 app.post('/text-message', async (req, res) => {
   let
     { message, con_id, con_with } = req.body,
-    { id } = req.session,
     newMessage = {
       con_id,
-      mssg_by: id,
+      mssg_by: req.session.id,
       mssg_to: con_with,
       message,
       type: 'text',
@@ -132,7 +129,6 @@ app.post('/text-message', async (req, res) => {
 // IMAGE MESSAGE [REQ = CON_ID, CON_WITH, MESSAGEFILE(FILE)]
 app.post('/image-message', upload.single('messageFile'), async (req, res) => {
   let
-    { id } = req.session,
     { con_id, con_with } = req.body,
     filename = `instagram_message_${new Date().getTime()}.jpg`,
     obj = {
@@ -141,7 +137,7 @@ app.post('/image-message', upload.single('messageFile'), async (req, res) => {
     },
     message = {
       con_id,
-      mssg_by: id,
+      mssg_by: req.session.id,
       mssg_to: con_with,
       message: filename,
       type: 'image',
@@ -163,11 +159,10 @@ app.post('/image-message', upload.single('messageFile'), async (req, res) => {
 app.post('/sticker-message', async (req, res) => {
   let
     { sticker, con_id, con_with } = req.body,
-    { id } = req.session,
     filename = `instagram_message_${new Date().getTime()}.jpg`,
     message = {
       con_id,
-      mssg_by: id,
+      mssg_by: req.session.id,
       mssg_to: con_with,
       message: filename,
       type: 'sticker',
@@ -227,8 +222,7 @@ app.post('/unsend-all-mssgs', async (req, res) => {
 
 // DELETE CONVERSATION [REQ = CON_ID]
 app.post('/delete-conversation', async (req, res) => {
-  let { con_id } = req.body
-  await Mssg.deleteCon(con_id)
+  await Mssg.deleteCon(req.body.con_id)
   res.json('Hello, World!!')
 })
 
@@ -236,7 +230,6 @@ app.post('/delete-conversation', async (req, res) => {
 app.post('/get-conversation-details', async (req, res) => {
   let
     { con_id, user } = req.body,
-    { id } = req.session,
     [{ mssgsCount }] = await db.query(
       'SELECT COUNT(message_id) AS mssgsCount FROM messages WHERE con_id=?',
       [ con_id ]
@@ -247,7 +240,7 @@ app.post('/get-conversation-details', async (req, res) => {
     ),
     media = [],
     [{ con_time }] = await db.query('SELECT con_time FROM conversations WHERE con_id=?', [ con_id ]),
-    mutualFollowers = await User.mutualUsers(id, user)
+    mutualFollowers = await User.mutualUsers(req.session.id, user)
 
   for (let m of _media) {
     let mssg_by_username = await db.getWhat('username', m.mssg_by)
@@ -265,22 +258,18 @@ app.post('/get-conversation-details', async (req, res) => {
 // GET UNREAD MESSAGES
 app.post('/get-unread-messages', async (req, res) => {
   let
-    { id } = req.session,
     [{ unreads }] = await db.query(
       'SELECT COUNT(message_id) AS unreads FROM messages WHERE mssg_to=? AND status=?',
-      [ id, 'unread' ]
+      [ req.session.id, 'unread' ]
     )
   res.json(unreads)
 })
 
 // READ MESSAGES OF A CONVERSATION [REQ = CON_ID]
 app.post('/read-conversation', async (req, res) => {
-  let
-    { id } = req.session,
-    { con_id } = req.body
   await db.query(
     'UPDATE messages SET status=? WHERE con_id=? AND mssg_to=?',
-    [ 'read', con_id, id ]
+    [ 'read', req.body.con_id, req.session.id ]
   )
   res.json('Hello, World!!')
 })

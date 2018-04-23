@@ -14,7 +14,7 @@ app.post('/is-user-valid', async (req, res) => {
       'SELECT COUNT(id) AS userCount FROM users WHERE username=? LIMIT 1',
       [username]
     )
-  res.json(userCount == 1 ? true : false)
+  res.json(db.tf(userCount))
 })
 
 // GETTING USER DETAILS [REQ = USERNAME]

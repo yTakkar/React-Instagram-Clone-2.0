@@ -3,7 +3,6 @@
 const
   app = require('express').Router(),
   fs = require('fs'),
-  { promisify } = require('util'),
   root = process.cwd(),
   upload = require('multer')({
     dest: `${root}/public/temp/`
@@ -11,18 +10,14 @@ const
   { ProcessImage, DeleteAllOfFolder } = require('handy-image-processor')
 
 // GET AVATARS
-app.post('/get-avatars', async (req, res) => {
-  let
-    readDir = promisify(fs.readdir),
-    avatars = await readDir(`${root}/public/images/avatars`)
+app.post('/get-avatars', (req, res) => {
+  let avatars = fs.readdirSync(`${root}/public/images/avatars`)
   res.json(avatars)
 })
 
 // GET STICKERS
 app.post('/get-stickers', async (req, res) => {
-  let
-    readDir = promisify(fs.readdir),
-    stickers = await readDir(`${root}/public/images/stickers`)
+  let stickers = fs.readdirSync(`${root}/public/images/stickers`)
   res.json(stickers)
 })
 
@@ -32,13 +27,9 @@ app.post('/change-avatar', async (req, res) => {
     { avatar, of, group } = req.body,
     { id } = req.session,
     src = `${root}/public/images/avatars/${avatar}`,
-    dest
-
-  if (of == 'user') {
-    dest = `${root}/public/users/${id}/avatar.jpg`
-  } else {
-    dest = `${root}/public/groups/${group}/avatar.jpg`
-  }
+    dest = of == 'user'
+      ? `${root}/public/users/${id}/avatar.jpg`
+      : `${root}/public/groups/${group}/avatar.jpg`
 
   await fs.createReadStream(src)
     .pipe(fs.createWriteStream(dest))
@@ -52,8 +43,7 @@ app.post('/upload-avatar', upload.single('avatar'), async (req, res) => {
     { file, session, body: { of, group } } = req,
     dest =
       of == 'user' ? `${root}/public/users/${session.id}/avatar.jpg`
-        : of == 'group' ? `${root}/public/groups/${group}/avatar.jpg`
-          : null,
+        : `${root}/public/groups/${group}/avatar.jpg`,
     obj = {
       srcFile: file.path,
       width: 200,

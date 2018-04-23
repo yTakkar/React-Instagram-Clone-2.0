@@ -37,7 +37,6 @@ app.post('/get-users-to-explore', async (req, res) => {
   }
 
   let orderByMutualUsers = _.orderBy(users, ['mutualUsersCount'], ['desc'])
-
   res.json(orderByMutualUsers)
 })
 
@@ -80,7 +79,6 @@ app.post('/get-groups-to-explore', async (req, res) => {
   }
 
   let orderByMutualMembers = _.orderBy(groups, ['mutualMembersCount'], ['desc'])
-
   res.json(orderByMutualMembers)
 })
 

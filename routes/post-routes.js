@@ -9,9 +9,7 @@ const
   upload = require('multer')({
     dest: `${root}/public/temp/`
   }),
-  { ProcessImage, DeleteAllOfFolder } = require('handy-image-processor'),
-  { unlink, createReadStream, createWriteStream } = require('fs'),
-  { promisify } = require('util')
+  { ProcessImage, DeleteAllOfFolder } = require('handy-image-processor')
 
 // POST [REQ = DESC, FILTER, LOCATION, TYPE, GROUP, IMAGE(FILE) ]
 app.post('/post-it', upload.single('image'), async (req, res) => {
@@ -69,8 +67,7 @@ app.post('/tag-post', (req, res) => {
 // GET USER POSTS [REQ = USERNAME]
 app.post('/get-user-posts', async (req, res) => {
   let
-    { username } = req.body,
-    id = await db.getId(username),
+    id = await db.getId(req.body.username),
     _posts = await db.query(
       'SELECT posts.post_id, posts.user, users.username, users.firstname, users.surname, posts.description, posts.imgSrc, posts.filter, posts.location, posts.type, posts.post_time FROM posts, users WHERE posts.user=? AND posts.user = users.id AND posts.type=? ORDER BY posts.post_time DESC',
       [ id, 'user' ]
@@ -97,10 +94,9 @@ app.post('/get-user-posts', async (req, res) => {
 // GET BOOKMARKED POSTS [REQ = USER]
 app.post('/get-bookmarked-posts', async (req, res) => {
   let
-    { user } = req.body,
     _posts = await db.query(
       'SELECT posts.post_id, posts.user, users.username, users.firstname, users.surname, posts.description, posts.imgSrc, posts.filter, posts.location, posts.type, posts.group_id, posts.post_time FROM posts, users, bookmarks WHERE bookmarks.bkmrk_by=? AND posts.user = users.id AND bookmarks.post_id = posts.post_id ORDER BY bookmarks.bkmrk_time DESC',
-      [ user ]
+      [ req.body.user ]
     ),
     posts = []
 
@@ -125,10 +121,9 @@ app.post('/get-bookmarked-posts', async (req, res) => {
 // GET TAGGED POSTS [REQ = USER]
 app.post('/get-tagged-posts', async (req, res) => {
   let
-    { user } = req.body,
     _posts = await db.query(
       'SELECT posts.post_id, posts.user, users.username, users.firstname, users.surname, posts.description, posts.imgSrc, posts.filter, posts.location, posts.type, posts.group_id, posts.post_time FROM post_tags, posts, users WHERE post_tags.user = ? AND post_tags.post_id = posts.post_id AND posts.user = users.id ORDER BY posts.post_time DESC',
-      [ user ]
+      [ req.body.user ]
     ),
     posts = []
 
@@ -153,10 +148,9 @@ app.post('/get-tagged-posts', async (req, res) => {
 // GET SHARED POSTS [REQ = USER]
 app.post('/get-shared-posts', async (req, res) => {
   let
-    { user } = req.body,
     _posts = await db.query(
       'SELECT posts.post_id, shares.share_id, posts.user, users.username, users.firstname, users.surname, shares.share_by, posts.description, posts.imgSrc, posts.filter, posts.location, posts.type, posts.group_id, posts.post_time, shares.share_time FROM shares, posts, users WHERE shares.share_to = ? AND shares.post_id = posts.post_id AND posts.user = users.id ORDER BY shares.share_time DESC',
-      [ user ]
+      [ req.body.user ]
     ),
     posts = []
 
@@ -184,10 +178,9 @@ app.post('/get-shared-posts', async (req, res) => {
 // GET PHOTOS [REQ = USER]
 app.post('/get-photos', async (req, res) => {
   let
-    { user } = req.body,
     _photos = await db.query(
       'SELECT posts.post_id, posts.user, users.username, users.firstname, users.surname, posts.imgSrc AS imgsrc, posts.filter, posts.post_time FROM posts, users WHERE posts.user = ? AND posts.user = users.id AND posts.type = ? ORDER BY posts.post_time DESC',
-      [ user, 'user' ]
+      [ req.body.user, 'user' ]
     )
 
   res.json(_photos)
@@ -196,10 +189,9 @@ app.post('/get-photos', async (req, res) => {
 // GET FEED
 app.post('/get-feed', async (req, res) => {
   let
-    { id } = req.session,
     _posts = await db.query(
       'SELECT posts.post_id, posts.user, users.username, users.firstname, users.surname, posts.description, posts.imgSrc, posts.filter, posts.location, posts.type, posts.group_id, posts.post_time FROM posts, users, follow_system WHERE follow_system.follow_by = ? AND follow_system.follow_to = posts.user AND posts.user = users.id ORDER BY posts.post_time DESC',
-      [ id ]
+      [ req.session.id ]
     ),
     posts = []
 
@@ -224,15 +216,16 @@ app.post('/get-feed', async (req, res) => {
 // GET GROUP POSTS [REQ = GROUP]
 app.post('/get-group-posts', async (req, res) => {
   let
-    { group } = req.body,
     _posts = await db.query(
       'SELECT posts.post_id, posts.user, users.username, users.firstname, users.surname, posts.description, posts.imgSrc, posts.filter, posts.location, posts.type, posts.group_id, groups.name AS group_name, posts.post_time FROM posts, groups, users WHERE posts.group_id=? AND posts.user = users.id AND posts.group_id = groups.group_id AND posts.type=? ORDER BY posts.post_time DESC',
-      [ group, 'group' ]
+      [ req.body.group, 'group' ]
     ),
     posts = []
 
   for (let p of _posts) {
-    let { tags_count, likes_count, shares_count, comments_count } = await Post.getCounts(p.post_id, null)
+    let {
+      tags_count, likes_count, shares_count, comments_count
+    } = await Post.getCounts(p.post_id, null)
 
     posts.push({
       ...p,
@@ -248,14 +241,12 @@ app.post('/get-group-posts', async (req, res) => {
 
 // GET GROUP PHOTOS [REQ = GROUP]
 app.post('/get-group-photos', async (req, res) => {
-  let
-    { group } = req.body,
-    _photos = await db.query(
-      'SELECT posts.post_id, posts.user, users.username, users.firstname, users.surname, posts.imgSrc AS imgsrc, posts.filter, posts.post_time FROM posts, users WHERE posts.group_id = ? AND posts.user = users.id ORDER BY posts.post_time DESC',
-      [ group ]
-    )
+  let photos = await db.query(
+    'SELECT posts.post_id, posts.user, users.username, users.firstname, users.surname, posts.imgSrc AS imgsrc, posts.filter, posts.post_time FROM posts, users WHERE posts.group_id = ? AND posts.user = users.id ORDER BY posts.post_time DESC',
+    [ req.body.group ]
+  )
 
-  res.json(_photos)
+  res.json(photos)
 })
 
 // GET POST BY [REQ = POST_ID]
@@ -300,116 +291,6 @@ app.post('/edit-post', async (req, res) => {
   res.json('Hello, World!!')
 })
 
-// DELETE POST [REQ = POST]
-app.post('/delete-post', async (req, res) => {
-  let { post } = req.body
-  await Post.deletePost({ post, when: 'user' })
-  res.json('Hello, World!!')
-})
-
-// POST LIKED OR NOT [REQ = POST]
-app.post('/liked-or-not', async (req, res) => {
-  let
-    { post } = req.body,
-    { id } = req.session,
-    liked = await Post.likedOrNot(id, post)
-  res.json(liked)
-})
-
-// LIKE POST [REQ = POST]
-app.post('/like-post', async (req, res) => {
-  let
-    { post } = req.body,
-    { id } = req.session,
-    liked = await Post.likedOrNot(id, post),
-    insert = {
-      post_id: post,
-      like_by: id,
-      like_time: new Date().getTime()
-    }
-
-  if(!liked) {
-    await db.query('INSERT INTO likes SET ?', insert)
-  }
-
-  res.json('Hello, World!!')
-})
-
-// UNLIKE POST [REQ = POST]
-app.post('/unlike-post', async (req, res) => {
-  let
-    { post } = req.body,
-    { id } = req.session
-  await db.query('DELETE FROM likes WHERE post_id=? AND like_by=?', [ post, id ])
-  res.json('Hello, World!!')
-})
-
-// BOOKMARKED OR NOT [REQ = POST]
-app.post('/bookmarked-or-not', async (req, res) => {
-  let
-    { post } = req.body,
-    { id } = req.session,
-    bookmarked = await Post.bookmarkedOrNot(id, post)
-  res.json(bookmarked)
-})
-
-// BOOKMARK POST [REQ = POST]
-app.post('/bookmark-post', async (req, res) => {
-  let
-    { post } = req.body,
-    { id } = req.session,
-    bookmarked = await Post.bookmarkedOrNot(id, post),
-    insert = {
-      bkmrk_by: id,
-      post_id: post,
-      bkmrk_time: new Date().getTime()
-    }
-
-  if(!bookmarked) {
-    await db.query('INSERT INTO bookmarks SET ?', insert)
-  }
-
-  res.json('Hello, World!!')
-})
-
-// UNBOOKMARK POST [REQ = POST, USER]
-app.post('/unbookmark-post', async (req, res) => {
-  let { post, user } = req.body
-  await db.query('DELETE FROM bookmarks WHERE post_id=? AND bkmrk_by=?', [ post, user ])
-  res.json('Hello, World!!')
-})
-
-// GET POST LIKES [REQ = POST]
-app.post('/get-post-likes', async (req, res) => {
-  let
-    { post } = req.body,
-    { id } = req.session,
-    likes = await db.query(
-      'SELECT likes.like_id, likes.like_by, users.username, users.firstname, users.surname, likes.post_id, likes.like_time FROM likes, users WHERE likes.post_id = ? AND likes.like_by = users.id ORDER BY likes.like_time',
-      [ post ]
-    ),
-    array = []
-
-  for (let l of likes) {
-    array.unshift({
-      ...l,
-      isFollowing: await User.isFollowing(id, l.like_by)
-    })
-  }
-
-  res.json({
-    likes: array,
-    isPostMine: await Post.isPostMine(id, post)
-  })
-})
-
-// REMOVE LIKE [REQ = LIKE_ID]
-app.post('/remove-like', async (req, res) => {
-  let { like_id } = req.body
-  await db.query('DELETE FROM likes WHERE like_id=?', [ like_id ])
-  res.json('Hello, World!!')
-})
-
 // GET POST TAGS [REQ = POST]
 app.post('/get-post-tags', async (req, res) => {
   let
@@ -438,192 +319,6 @@ app.post('/get-post-tags', async (req, res) => {
 app.post('/untag', async (req, res) => {
   let { user, post } = req.body
   await db.query('DELETE FROM post_tags WHERE post_id=? AND user=?', [ post, user ])
-  res.json('Hello, World!!')
-})
-
-// GET USERS TO SHARE [REQ = POST]
-app.post('/get-users-to-share', async (req, res) => {
-  let
-    { id } = req.session,
-    { post } = req.body,
-    followings = await db.query(
-      'SELECT follow_system.follow_id, follow_system.follow_to, follow_system.follow_to_username AS username, users.firstname, users.surname FROM follow_system, users WHERE follow_system.follow_by=? AND follow_system.follow_to = users.id ORDER BY follow_system.follow_time DESC',
-      [ id ]
-    ),
-    share = []
-
-  for (let f of followings) {
-    let didIShare = await Post.didIShare(post, id, f.follow_to)
-    share.push({
-      ...f,
-      didIShare
-    })
-  }
-
-  res.json(share)
-})
-
-// SHARE POST [REQ = POST, SHARE_TO]
-app.post('/share-post', async (req, res) => {
-  let
-    { share_to, post } = req.body,
-    username = await db.getWhat('username', share_to),
-    { id } = req.session,
-    shared = await Post.didIShare(post, id, share_to),
-    insert = {
-      share_by: id,
-      share_to,
-      post_id: post,
-      share_time: new Date().getTime()
-    },
-    mssg = '',
-    success = false
-
-  if (!shared) {
-    await db.query('INSERT INTO shares SET ?', insert)
-    mssg = `Shared to ${username}!!`
-    success = true
-  } else {
-    mssg = 'Already shared!!'
-    success = false
-  }
-
-  res.json({ mssg, success })
-})
-
-// UNSHARE POST [REQ = POST, UNSHARE_TO]
-app.post('/unshare-post', async (req, res) => {
-  let
-    { post, unshare_to } = req.body,
-    { id } = req.session
-  await db.query('DELETE FROM shares WHERE share_by=? AND share_to=? AND post_id=?', [ id, unshare_to, post ])
-  res.json('Hello, World!!')
-})
-
-// REMOVE SHARE [REQ = SHARE_ID]
-app.post('/remove-share', async (req, res) => {
-  let { share_id } = req.body
-  await db.query('DELETE FROM shares WHERE share_id=?', [ share_id ] )
-  res.json('Hello, World!!')
-})
-
-// POST SHARED BY [REQ = POST]
-app.post('/get-post-sharers', async (req, res) => {
-  let
-    { post } = req.body,
-    { id } = req.session,
-    _sharers = await db.query(
-      'SELECT shares.share_id, shares.share_by, users.username AS share_by_username, users.firstname AS follow_by_firstname, users.surname AS follow_by_surname, shares.share_to, shares.post_id, shares.share_time FROM shares, users WHERE shares.post_id=? AND shares.share_by = users.id ORDER BY shares.share_id DESC',
-      [ post ]
-    ),
-    sharers = []
-
-  for (let s of _sharers) {
-    let
-      share_to_username = await db.getWhat('username', s.share_to),
-      isFollowing = await User.isFollowing(id, s.share_by)
-
-    sharers.push({
-      ...s,
-      isFollowing,
-      share_to_username
-    })
-  }
-
-  res.json(sharers)
-})
-
-// COMMENT TEXT [REQ = POST, TEST]
-app.post('/comment-text', async (req, res) => {
-  let
-    { post, text } = req.body,
-    { id } = req.session,
-    comment = {
-      type: 'text',
-      text,
-      comment_by: id,
-      post_id: post,
-      comment_time: new Date().getTime()
-    },
-    { insertId } = await db.query('INSERT INTO comments SET ?', comment)
-  await db.mentionUsers(text, id, post, 'comment')
-
-  res.json({ comment_id: insertId })
-})
-
-// COMMENT IMAGE [REQ = POST, COMMENTIMAGE(FILE)]
-app.post('/comment-image', upload.single('commentImage'), async (req, res) => {
-  let
-    { id } = req.session,
-    { post } = req.body,
-    filename = `instagram_comment_${new Date().getTime()}.jpg`,
-    obj = {
-      srcFile: req.file.path,
-      destFile: `${root}/public/comments/${filename}`
-    },
-    insert = {
-      type: 'image',
-      commentSrc: filename,
-      comment_by: id,
-      post_id: post,
-      comment_time: new Date().getTime()
-    }
-
-  await ProcessImage(obj)
-  await DeleteAllOfFolder(`${root}/public/temp/`)
-
-  let { insertId } = await db.query('INSERT INTO comments SET ?', insert)
-
-  res.json({
-    comment_id: insertId,
-    filename
-  })
-})
-
-// COMMENT STICKER [REQ = POST, STICKER]
-app.post('/comment-sticker', async (req, res) => {
-  let
-    { sticker, post } = req.body,
-    { id } = req.session,
-    filename = `instagram_comment_${new Date().getTime()}.jpg`,
-    comment = {
-      type: 'sticker',
-      commentSrc: filename,
-      comment_by: id,
-      post_id: post,
-      comment_time: new Date().getTime()
-    }
-
-  await createReadStream(`${root}/public/images/stickers/${sticker}`)
-    .pipe(createWriteStream(`${root}/public/comments/${filename}`))
-
-  let { insertId } = await db.query('INSERT INTO comments SET ?', comment)
-
-  res.json({
-    comment_id: insertId,
-    filename
-  })
-})
-
-// DELETE COMMENT [REQ = COMMENT_ID, TYPE, COMMENTSRC]
-app.post('/delete-comment', async (req, res) => {
-  let
-    { comment_id, type, commentSrc } = req.body,
-    deleteCommentFile = promisify(unlink)
-
-  await db.query('DELETE FROM comments WHERE comment_id=?', [ comment_id ])
-
-  if (type == 'image' || type == 'sticker') {
-    deleteCommentFile(`${root}/public/comments/${commentSrc}`)
-  }
-
-  res.json('H')
-})
-
-// EDIT COMMENT [REQ = COMMENT_ID, COMMENT]
-app.post('/edit-comment', async (req, res) => {
-  let { comment_id, comment } = req.body
-  await db.query('UPDATE comments SET text=? WHERE comment_id=?', [ comment, comment_id ])
   res.json('Hello, World!!')
 })
 

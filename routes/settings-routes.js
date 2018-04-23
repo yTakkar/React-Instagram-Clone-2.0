@@ -30,8 +30,7 @@ app.post('/block', async (req, res) => {
 
 // UNBLOCK USER
 app.post('/unblock-user', async (req, res) => {
-  let { block_id } = req.body
-  await db.query('DELETE FROM blocks WHERE block_id=?', [ block_id ])
+  await db.query('DELETE FROM blocks WHERE block_id=?', [ req.body.block_id ])
   res.json('Hello, World!!')
 })
 

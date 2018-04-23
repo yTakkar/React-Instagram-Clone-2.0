@@ -27,6 +27,7 @@
     "axios": "^0.17.1",
     "bcrypt-nodejs": "^0.0.3",
     "body-parser": "^1.18.2",
+    "catchify": "^2.6.1",
     "client-sessions": "^0.8.0",
     "cookie-parser": "^1.4.3",
     "dotenv": "^4.0.0",

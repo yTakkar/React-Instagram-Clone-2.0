@@ -7,17 +7,18 @@ const
 
 // RETURNS THE COUNT OF A GIVEN FIELD SUCH.
 // EG. POST('/api/what-exists', { what: 'username', value: 'Takkar' })
-app.post('/what-exists', (req, res) => {
+app.post('/what-exists', async (req, res) => {
   let { what, value } = req.body
-  db.query(`SELECT COUNT(${what}) AS count FROM users WHERE ${what}=?`, [ value ])
-    .then(s => res.json(s[0].count))
-    .catch(e => res.json(e))
+  let s = await db.query(`SELECT COUNT(${what}) AS count FROM users WHERE ${what}=?`, [ value ])
+  res.json(s[0].count)
 })
 
 // EDIT PROFILE [REQ = ...]
 app.post('/edit-profile', async (req, res) => {
   let
-    { username, firstname, surname, email, bio, twitter, instagram, facebook, github, website, phone, tags } = req.body,
+    {
+      username, firstname, surname, email, bio, twitter, instagram, facebook, github, website, phone, tags
+    } = req.body,
     { id } = req.session
 
   db.c_validator('username', req)

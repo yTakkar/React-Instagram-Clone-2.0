@@ -1396,6 +1396,10 @@ caseless@~0.12.0:
   version "0.12.0"
   resolved "https://registry.yarnpkg.com/caseless/-/caseless-0.12.0.tgz#1b681c21ff84033c826543090689420d187151dc"
 
+catchify@^2.6.1:
+  version "2.6.1"
+  resolved "https://registry.yarnpkg.com/catchify/-/catchify-2.6.1.tgz#c5eae8ccab3658a6c0a7fd757293bf88f21fb8c5"
+
 center-align@^0.1.1:
   version "0.1.3"
   resolved "https://registry.yarnpkg.com/center-align/-/center-align-0.1.3.tgz#aa0d32629b6ee972200411cbd4461c907bc2b7ad"

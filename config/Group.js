@@ -35,12 +35,12 @@ const deleteGroup = async group => {
  * @param {Number} user UserID
  * @param {Number} group GroupID
  */
-const joinedGroup = (user, group) => {
-  return new Promise((resolve, reject) => {
-    db.query('SELECT COUNT(grp_member_id) AS joined FROM group_members WHERE member=? AND group_id=? LIMIT 1', [user, group])
-      .then(is => resolve((is[0].joined == 1) ? true : false))
-      .catch(e => reject(e))
-  })
+const joinedGroup = async (user, group) => {
+  let is = await db.query(
+    'SELECT COUNT(grp_member_id) AS joined FROM group_members WHERE member=? AND group_id=? LIMIT 1',
+    [ user, group ]
+  )
+  return db.tf(is[0].joined)
 }
 
 /**
@@ -49,26 +49,18 @@ const joinedGroup = (user, group) => {
  * @param {Number} group GroupID
  */
 const mutualGroupMembers = async (user, group) => {
-  return new Promise(async (resolve, reject) => {
-    try {
-      let
-        myFollowings = await db.query(
-          'SELECT follow_system.follow_to AS user, follow_system.follow_to_username AS username FROM follow_system WHERE follow_system.follow_by=?',
-          [ user ]
-        ),
-        grpMembers = await db.query(
-          'SELECT group_members.member AS user, users.username AS username FROM group_members, users WHERE group_id = ? AND group_members.member = users.id ORDER BY group_members.joined_group DESC',
-          [ group ]
-        ),
-        mutuals = intersectionBy(myFollowings, grpMembers, 'user')
+  let
+    myFollowings = await db.query(
+      'SELECT follow_system.follow_to AS user, follow_system.follow_to_username AS username FROM follow_system WHERE follow_system.follow_by=?',
+      [ user ]
+    ),
+    grpMembers = await db.query(
+      'SELECT group_members.member AS user, users.username AS username FROM group_members, users WHERE group_id = ? AND group_members.member = users.id ORDER BY group_members.joined_group DESC',
+      [ group ]
+    ),
+    mutuals = intersectionBy(myFollowings, grpMembers, 'user')
 
-      resolve(mutuals)
-
-    } catch (error) {
-      reject(error)
-    }
-
-  })
+  return mutuals
 }
 
 module.exports = {

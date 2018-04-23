@@ -26,9 +26,9 @@ let mail = options => {
       from: `Instagram <${MAIL}>`,
       ...options
     }
-    transporter.sendMail(o, err => {
+    transporter.sendMail(o, err =>
       err ? reject(err) : resolve('Mail Sent!!')
-    })
+    )
   })
 }
 

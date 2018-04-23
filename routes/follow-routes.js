@@ -97,27 +97,21 @@ app.post('/view-profile', async (req, res) => {
 })
 
 // RETURNS FOLLOWERS OF A USER
-const getFollowers = user => {
-  return new Promise((resolve, reject) => {
-    db.query(
-      'SELECT follow_system.follow_id, follow_system.follow_to, follow_system.follow_by, follow_system.follow_by_username AS username, users.firstname, users.surname, follow_system.follow_time FROM follow_system, users WHERE follow_system.follow_to=? AND follow_system.follow_by = users.id ORDER BY follow_system.follow_time DESC',
-      [ user ]
-    )
-      .then(s => resolve(s))
-      .catch(e => reject(e))
-  })
+const getFollowers = async user => {
+  let s = await db.query(
+    'SELECT follow_system.follow_id, follow_system.follow_to, follow_system.follow_by, follow_system.follow_by_username AS username, users.firstname, users.surname, follow_system.follow_time FROM follow_system, users WHERE follow_system.follow_to=? AND follow_system.follow_by = users.id ORDER BY follow_system.follow_time DESC',
+    [ user ]
+  )
+  return s
 }
 
 // RETURNS FOLLOWINGS OF A USER
-const getFollowings = user => {
-  return new Promise((resolve, reject) => {
-    db.query(
-      'SELECT follow_system.follow_id, follow_system.follow_to, follow_system.follow_by, follow_system.follow_to_username AS username, users.firstname, users.surname, follow_system.follow_time FROM follow_system, users WHERE follow_system.follow_by=? AND follow_system.follow_to = users.id ORDER BY follow_system.follow_time DESC',
-      [ user ]
-    )
-      .then(s => resolve(s))
-      .catch(e => reject(e))
-  })
+const getFollowings = async user => {
+  let s = await db.query(
+    'SELECT follow_system.follow_id, follow_system.follow_to, follow_system.follow_by, follow_system.follow_to_username AS username, users.firstname, users.surname, follow_system.follow_time FROM follow_system, users WHERE follow_system.follow_by=? AND follow_system.follow_to = users.id ORDER BY follow_system.follow_time DESC',
+    [ user ]
+  )
+  return s
 }
 
 // GET USER STATS [FOLLOWERS/FOLLOWINGS/ETC..] [REQ = USERNAME]
@@ -128,7 +122,10 @@ app.post('/get-user-stats', async (req, res) => {
 
     followers = await getFollowers(id),
     followings = await getFollowings(id),
-    [{ views_count }] = await db.query('SELECT COUNT(view_id) AS views_count FROM profile_views WHERE view_to=?', [ id ]),
+    [{ views_count }] = await db.query(
+      'SELECT COUNT(view_id) AS views_count FROM profile_views WHERE view_to=?',
+      [ id ]
+    ),
 
     // favourites
     favourites = await db.query(
@@ -161,28 +158,22 @@ app.post('/get-user-stats', async (req, res) => {
 
 // GET FOLLOWERS [REQ = USER]
 app.post('/get-followers', async (req, res) => {
-  let
-    { user } = req.body,
-    followers = await getFollowers(user)
+  let followers = await getFollowers(req.body.user)
   res.json(followers)
 })
 
 // GET FOLLOWINGS [REQ = USER]
 app.post('/get-followings', async (req, res) => {
-  let
-    { user } = req.body,
-    followings = await getFollowings(user)
+  let followings = await getFollowings(req.body.user)
   res.json(followings)
 })
 
 // SEARCH FOLLOWINGS
 app.post('/search-followings', async (req, res) => {
-  let
-    { id } = req.session,
-    data = await db.query(
-      'SELECT DISTINCT follow_to, follow_to_username FROM follow_system WHERE follow_by=? ORDER BY follow_time DESC',
-      [ id ]
-    )
+  let data = await db.query(
+    'SELECT DISTINCT follow_to, follow_to_username FROM follow_system WHERE follow_by=? ORDER BY follow_time DESC',
+    [ req.session.id ]
+  )
   res.json(data)
 })
 
@@ -201,6 +192,7 @@ app.post('/add-to-favourites', async (req, res) => {
     }
 
   if (!isBlocked) {
+
     if (!favourite) {
       await db.query('INSERT INTO favourites SET ?', fav)
       res.json({
@@ -219,21 +211,16 @@ app.post('/add-to-favourites', async (req, res) => {
 
 // REMOVE FROM FAVOURITES [REQ = FAV_ID]
 app.post('/remove-favourites', async (req, res) => {
-  let { fav_id } = req.body
-  await db.query('DELETE FROM favourites WHERE fav_id=?', [ fav_id ])
+  await db.query('DELETE FROM favourites WHERE fav_id=?', [ req.body.fav_id ])
   res.json('Hello, World!!')
 })
 
 // USERS TO RECOMMEND [REQ = USER]
 app.post('/get-users-to-recommend', async (req, res) => {
-  let
-    { user } = req.body,
-    { id } = req.session,
-    users = await db.query(
-      'SELECT follow_system.follow_id, follow_system.follow_to, follow_system.follow_to_username AS username, users.firstname, users.surname FROM follow_system, users WHERE follow_system.follow_by=? AND follow_system.follow_to = users.id AND follow_system.follow_to <> ? ORDER BY follow_system.follow_time DESC',
-      [ id, user ]
-    )
-
+  let users = await db.query(
+    'SELECT follow_system.follow_id, follow_system.follow_to, follow_system.follow_to_username AS username, users.firstname, users.surname FROM follow_system, users WHERE follow_system.follow_by=? AND follow_system.follow_to = users.id AND follow_system.follow_to <> ? ORDER BY follow_system.follow_time DESC',
+    [ req.session.id, req.body.user ]
+  )
   res.json(users)
 })
 
@@ -261,8 +248,7 @@ app.post('/recommend-user', async (req, res) => {
 
 // REMOVE RECOMMENDATION [REQ = RECOMMEND_ID]
 app.post('/remove-recommendation', async (req, res) => {
-  let { recommend_id } = req.body
-  await db.query('DELETE FROM recommendations WHERE recommend_id=?', [ recommend_id ])
+  await db.query('DELETE FROM recommendations WHERE recommend_id=?', [ req.body.recommend_id ])
   res.json('Hello, World!!')
 })
 

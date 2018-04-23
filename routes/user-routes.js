@@ -16,7 +16,9 @@ const
 app.get('/login', mw.NotLoggedIn, (req, res) => {
   let options = {
     title: 'Login To Continue',
-    users: req.cookies.users ? JSON.parse(req.cookies.users).slice(0, 15) : []
+    users: req.cookies.users
+      ? JSON.parse(req.cookies.users).slice(0, 15)
+      : []
   }
   res.render('login', { options })
 })
@@ -29,9 +31,10 @@ app.get('/signup', mw.NotLoggedIn, (req, res) => {
 
 // CHECKS IF USERNAME EXISTS WHEN REGISTERING
 app.post('/user/username-checker', async (req, res) => {
-  let
-    { value } = req.body,
-    [{ count }] = await db.query('SELECT COUNT(username) AS count FROM users WHERE username=?', [ value ])
+  let [{ count }] = await db.query(
+    'SELECT COUNT(username) AS count FROM users WHERE username=?',
+    [ req.body.value ]
+  )
   res.json(count)
 })
 
@@ -155,7 +158,7 @@ app.post('/user/login', async (req, res) => {
     if (userCount == 0){
       res.json({ mssg: 'User not found!!' })
     } else {
-      let same = await User.comparePassword(rpassword, password)
+      let same = User.comparePassword(rpassword, password)
       if (!same) {
         res.json({ mssg: 'Wrong password!!' })
       } else {
@@ -362,9 +365,8 @@ app.post('/user/remove-user', async (req, res) => {
 // REMOVE QUICK LOGIN
 app.post('/api/remove-quick-login', (req, res) => {
   let
-    { id } = req.body,
     users = JSON.parse(req.cookies.users),
-    filtered = users.filter(u => u.id != id )
+    filtered = users.filter(u => u.id != req.body.id )
 
   res.cookie('users', `${JSON.stringify(filtered)}`)
   res.json('Hello, World!!')

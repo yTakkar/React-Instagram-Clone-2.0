@@ -9,38 +9,19 @@ const
  * Returns last message time of a comversation
  * @param {Number} con_id Conversation ID
  */
-const getLastMssgTime = con_id => {
-  return new Promise((resolve, reject) => {
-    db.query(
-      'SELECT MAX(message_time) AS ti FROM messages WHERE con_id = ?',
-      [ con_id ]
-    )
-      .then(s => resolve(s[0].ti))
-      .catch(e => reject(e))
-  })
+const getLastMssgTime = async con_id => {
+  let s = await db.query('SELECT MAX(message_time) AS ti FROM messages WHERE con_id = ?', [con_id])
+  return s[0].ti
 }
 
 /**
  * Returns last message of a comversation
  * @param {Number} con_id Conversation ID
  */
-const getLastMssg = con_id => {
-  return new Promise((resolve, reject) => {
-    db.query(
-      'SELECT MAX(message_id) AS last FROM messages WHERE con_id = ?',
-      [ con_id ]
-    )
-      .then(s => {
-        let [{ last }] = s
-
-        db.query('SELECT message, type, mssg_by FROM messages WHERE message_id=?', [ last ])
-          .then(l => resolve(l[0]))
-          .catch(e => reject(e))
-
-      })
-      .catch(e => reject(e))
-
-  })
+const getLastMssg = async con_id => {
+  let [{ last }] = await db.query('SELECT MAX(message_id) AS last FROM messages WHERE con_id = ?', [con_id])
+  let l = await db.query('SELECT message, type, mssg_by FROM messages WHERE message_id=?', [ last ])
+  return l[0]
 }
 
 /**

@@ -76,12 +76,10 @@ app.post('/edit-group', async (req, res) => {
 
 // CHECK IF GROUP IS VALID [REQ = GRP_ID]
 app.post('/is-group-valid', async (req, res) => {
-  let
-    { grp_id } = req.body,
-    [{ groupCount }] = await db.query(
-      'SELECT COUNT(group_id) AS groupCount FROM groups WHERE group_id=? LIMIT 1',
-      [ grp_id ]
-    )
+  let [{ groupCount }] = await db.query(
+    'SELECT COUNT(group_id) AS groupCount FROM groups WHERE group_id=? LIMIT 1',
+    [ req.body.grp_id ]
+  )
   res.json(groupCount == 1 ? true : false)
 })
 
@@ -93,21 +91,20 @@ app.post('/get-group-details', async (req, res) => {
       'SELECT groups.group_id, groups.name, groups.bio, groups.admin, users.username AS admin_username, groups.group_type, groups.created FROM groups, users WHERE groups.group_id=? AND groups.admin = users.id',
       [ grp_id ]
     ),
-    [{ postsCount }] = await db.query('SELECT COUNT(post_id) AS postsCount FROM posts WHERE group_id=?', [ grp_id ]),
-    details = {
-      ..._details[0],
-      postsCount
-    }
+    [{ postsCount }] = await db.query(
+      'SELECT COUNT(post_id) AS postsCount FROM posts WHERE group_id=?',
+      [ grp_id ]
+    )
 
-  res.json(details)
+  res.json({
+    ..._details[0],
+    postsCount
+  })
 })
 
 // JOINED GROUP OR NOT [REQ = GROUP]
 app.post('/joined-group', async (req, res) => {
-  let
-    { group } = req.body,
-    { id } = req.session,
-    joined = await Group.joinedGroup(id, group)
+  let joined = await Group.joinedGroup(req.session.id, req.body.group)
   res.json(joined)
 })
 
@@ -115,6 +112,7 @@ app.post('/joined-group', async (req, res) => {
 app.post('/join-group', async (req, res) => {
   let
     { user, added_by, group, when } = req.body,
+    { id: session } = req.session,
     username = await db.getWhat('username', user),
     joined = await Group.joinedGroup(user, group),
     member = {
@@ -131,7 +129,9 @@ app.post('/join-group', async (req, res) => {
       success: true
     })
   } else {
-    res.json({ mssg: `${username} already joined the group!!` })
+    res.json({
+      mssg: `${session == user ? 'You' : username} already joined the group!!`
+    })
   }
 
 })
@@ -139,7 +139,10 @@ app.post('/join-group', async (req, res) => {
 // LEAVE GROUP [REQ = USER, GROUP]
 app.post('/leave-group', async (req, res) => {
   let { user, group } = req.body
-  await db.query('DELETE FROM group_members WHERE member=? AND group_id=?', [ user, group ])
+  await db.query(
+    'DELETE FROM group_members WHERE member=? AND group_id=?',
+    [ user, group ]
+  )
   res.json({ mssg: 'Left!!' })
 })
 
@@ -172,16 +175,18 @@ app.post('/get-group-members', async (req, res) => {
 // REMOVE MEMBER [REQ = MEMBER, GROUP_ID]
 app.post('/remove-group-member', async (req, res) => {
   let { member, group_id } = req.body
-  await db.query('DELETE FROM group_members WHERE member=? AND group_id=?', [ member, group_id ])
+  await db.query(
+    'DELETE FROM group_members WHERE member=? AND group_id=?',
+    [ member, group_id ]
+  )
   res.json('Hello, World!!')
 })
 
 // GET MUTUAL GROUP MEMBERS [REQ = GRP_ID]
 app.post('/get-mutual-newest-members', async (req, res) => {
   let
-    { id: session } = req.session,
     { grp_id } = req.body,
-    mutualMembers = await Group.mutualGroupMembers(session, grp_id),
+    mutualMembers = await Group.mutualGroupMembers(req.session.id, grp_id),
     grpMembers = await db.query(
       'SELECT group_members.member AS user, users.username AS username FROM group_members, users WHERE group_id = ? AND group_members.member = users.id ORDER BY group_members.joined_group DESC',
       [ grp_id ]
@@ -196,16 +201,14 @@ app.post('/get-mutual-newest-members', async (req, res) => {
 // GET USER GROUPS [REQ = USER]
 app.post('/get-user-groups', async (req, res) => {
   let
-    { user } = req.body,
-    { id } = req.session,
     _groups = await db.query(
       'SELECT groups.group_id, groups.name, groups.admin, group_members.member, group_members.joined_group FROM group_members, groups WHERE group_members.member = ? AND group_members.group_id = groups.group_id ORDER BY groups.created DESC',
-      [ user ]
+      [ req.body.user ]
     ),
     groups = []
 
   for (let g of _groups) {
-    let joined = await Group.joinedGroup(id, g.group_id)
+    let joined = await Group.joinedGroup(req.session.id, g.group_id)
     groups.push({ ...g, joined })
   }
 
@@ -214,13 +217,10 @@ app.post('/get-user-groups', async (req, res) => {
 
 // GET USERS TO INVITE
 app.post('/get-users-to-invite', async (req, res) => {
-  let
-    { id } = req.session,
-    users = await db.query(
-      'SELECT follow_system.follow_id, follow_system.follow_to, follow_system.follow_to_username AS username, users.firstname, users.surname FROM follow_system, users WHERE follow_system.follow_by=? AND follow_system.follow_to = users.id ORDER BY follow_system.follow_time DESC',
-      [ id ]
-    )
-
+  let users = await db.query(
+    'SELECT follow_system.follow_id, follow_system.follow_to, follow_system.follow_to_username AS username, users.firstname, users.surname FROM follow_system, users WHERE follow_system.follow_by=? AND follow_system.follow_to = users.id ORDER BY follow_system.follow_time DESC',
+    [ req.session.id ]
+  )
   res.json(users)
 })
 
@@ -233,20 +233,16 @@ app.post('/change-admin', async (req, res) => {
 
 // GET USERS TO MAKE ADMIN [REQ = GRP_ID]
 app.post('/get-users-to-make-admin', async (req, res) => {
-  let
-    { grp_id } = req.body,
-    { id } = req.session,
-    members = await db.query(
-      'SELECT group_members.grp_member_id, group_members.member, users.username, users.firstname, users.surname FROM group_members, users WHERE group_members.group_id = ? AND group_members.member = users.id AND group_members.member <> ?',
-      [ grp_id, id ]
-    )
+  let members = await db.query(
+    'SELECT group_members.grp_member_id, group_members.member, users.username, users.firstname, users.surname FROM group_members, users WHERE group_members.group_id = ? AND group_members.member = users.id AND group_members.member <> ?',
+    [ req.body.grp_id, req.session.id ]
+  )
   res.json(members)
 })
 
 // DELET GROUP [REQ = GROUP]
 app.post('/delete-group', async (req, res) => {
-  let { group } = req.body
-  await Group.deleteGroup(group)
+  await Group.deleteGroup(req.body.group)
   res.json('Hello, World!!')
 })
 

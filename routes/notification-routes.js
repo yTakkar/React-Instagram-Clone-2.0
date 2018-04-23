@@ -9,9 +9,8 @@ const
 app.post('/notify', async (req, res) => {
   let
     { to, type, post_id, group_id, user } = req.body,
-    { id } = req.session,
     insert = {
-      notify_by: id,
+      notify_by: req.session.id,
       notify_to: to,
       type,
       notify_time: new Date().getTime(),
@@ -51,26 +50,23 @@ app.post('/get-notifications', async (req, res) => {
 
 // CLEARS ALL THE NOTIFICATIONS
 app.post('/clear-notifications', async (req, res) => {
-  let { id } = req.session
-  db.query('DELETE FROM notifications WHERE notify_to=?', [ id ])
+  db.query('DELETE FROM notifications WHERE notify_to=?', [ req.session.id ])
   res.json('Hello, World!!')
 })
 
 // RETURNS THE COUNT OF USER'S UNREAD NOTIFICATIONS
 app.post('/get-unread-notifications', async (req, res) => {
   let
-    { id } = req.session,
     [{ count }] = await db.query(
       'SELECT COUNT(notify_id) AS count FROM notifications WHERE notify_to=? AND status=?',
-      [ id, 'unread' ]
+      [ req.session.id, 'unread' ]
     )
   res.json(count)
 })
 
 // MAKES UNREAD NOTIFICATIONS OF A USER READ
 app.post('/read-notifications', async (req, res) => {
-  let { id } = req.session
-  await db.query('UPDATE notifications SET status=? WHERE notify_to=?', [ 'read', id ])
+  await db.query('UPDATE notifications SET status=? WHERE notify_to=?', [ 'read', req.session.id ])
   res.json('Hello, World!!')
 })
 
