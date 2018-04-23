@@ -127,7 +127,7 @@ app.post('/get-tagged-posts', async (req, res) => {
   let
     { user } = req.body,
     _posts = await db.query(
-      'SELECT posts.post_id, posts.user, users.username, users.firstname, users.surname, posts.description, posts.imgSrc, posts.filter, posts.location, posts.type, posts.group_id, posts.post_time FROM post_tags, posts, users WHERE post_tags.user = ? AND post_tags.post_id = posts.post_id AND post_tags.user = users.id ORDER BY posts.post_time DESC',
+      'SELECT posts.post_id, posts.user, users.username, users.firstname, users.surname, posts.description, posts.imgSrc, posts.filter, posts.location, posts.type, posts.group_id, posts.post_time FROM post_tags, posts, users WHERE post_tags.user = ? AND post_tags.post_id = posts.post_id AND posts.user = users.id ORDER BY posts.post_time DESC',
       [ user ]
     ),
     posts = []
@@ -155,7 +155,7 @@ app.post('/get-shared-posts', async (req, res) => {
   let
     { user } = req.body,
     _posts = await db.query(
-      'SELECT posts.post_id, shares.share_id, posts.user, users.username, users.firstname, users.surname, shares.share_by, posts.description, posts.imgSrc, posts.filter, posts.location, posts.type, posts.group_id, posts.post_time, shares.share_time FROM shares, posts, users WHERE shares.share_to = ? AND shares.post_id = posts.post_id AND shares.share_to = users.id ORDER BY shares.share_time DESC',
+      'SELECT posts.post_id, shares.share_id, posts.user, users.username, users.firstname, users.surname, shares.share_by, posts.description, posts.imgSrc, posts.filter, posts.location, posts.type, posts.group_id, posts.post_time, shares.share_time FROM shares, posts, users WHERE shares.share_to = ? AND shares.post_id = posts.post_id AND posts.user = users.id ORDER BY shares.share_time DESC',
       [ user ]
     ),
     posts = []
