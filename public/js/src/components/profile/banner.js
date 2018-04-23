@@ -160,6 +160,8 @@ export default class Banner extends React.Component {
       tags_len = tags.length,
       map_tags = tags.map(t => <NavLink to='/' key={t.tag} className='tags'>{t.tag}</NavLink>)
 
+    console.log(Me(id))
+
     return (
       <div className='pro_banner'>
 
@@ -174,32 +176,28 @@ export default class Banner extends React.Component {
           <div className='options pro_banner_options' style={{ display: 'none' }} >
             <ul>
               {
-                isFollowing ?
-                  <Fragment>
-
-                    {
-                      !Me(id) ?
-                        <li>
-                          <a href='#' className='pro_block' onClick={e => this._toggle(e, 'blockUser')} >Block</a>
-                        </li>
-                        : null
-                    }
-                    {
-                      !Me(id) ?
-                        <li>
-                          <a href='#' className='pro_recommend' onClick={this.showRecommendUsers} >Recommend</a>
-                        </li>
-                        : null
-                    }
-                    {
-                      !Me(id) ?
-                        <li>
-                          <a href='#' className='add_fav' onClick={this.addToFavourites} >Add to favourites</a></li>
-                        : null
-                    }
-                    { !Me(id) ? <li><a href='#' onClick={this.messageUser} >Message</a></li> : null }
-
-                  </Fragment>
+                !Me(id) ?
+                  <li>
+                    <a href='#' className='pro_block' onClick={e => this._toggle(e, 'blockUser')} >Block</a>
+                  </li>
+                  : null
+              }
+              {
+                !Me(id) ?
+                  <li>
+                    <a href='#' className='pro_recommend' onClick={this.showRecommendUsers} >Recommend</a>
+                  </li>
+                  : null
+              }
+              {
+                !Me(id) ?
+                  <li>
+                    <a href='#' className='add_fav' onClick={this.addToFavourites} >Add to favourites</a></li>
+                  : null
+              }
+              {
+                isFollowing && !Me(id)
+                  ? <li><a href='#' onClick={this.messageUser} >Message</a></li>
                   : null
               }
 
