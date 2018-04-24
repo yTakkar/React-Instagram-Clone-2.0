@@ -2,14 +2,15 @@
 
 const
   app = require('express').Router(),
-  db = require('../config/db')
+  db = require('../config/db'),
+  User = require('../config/User')
 
 // BLOCK USER
 app.post('/block', async (req, res) => {
   let
     { user } = req.body,
     { id } = req.session,
-    username = await db.getWhat('username', user),
+    username = await User.getWhat('username', user),
     isBlocked = await db.isBlocked(id, user),
     blocked = {
       block_by: id,

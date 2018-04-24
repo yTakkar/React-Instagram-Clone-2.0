@@ -11,7 +11,7 @@ app.post('/is-following', async (req, res) => {
       body: { username },
       session: { id: session }
     } = req,
-    id = await db.getId(username),
+    id = await User.getId(username),
     is = await User.isFollowing(session, id)
   res.json(is)
 })
@@ -35,8 +35,8 @@ app.post('/follow', async (req, res) => {
     if (!isFollowing) {
       let
         { insertId } = await db.query('INSERT INTO follow_system SET ?', insert),
-        firstname = await db.getWhat('firstname', session),
-        surname = await db.getWhat('surname', session)
+        firstname = await User.getWhat('firstname', session),
+        surname = await User.getWhat('surname', session)
 
       res.json({
         mssg: `Followed ${username}!!`,
@@ -77,7 +77,7 @@ app.post('/view-profile', async (req, res) => {
   let
     { username } = req.body,
     { id: session } = req.session,
-    id = await db.getId(username),
+    id = await User.getId(username),
     [{ time: dtime }] = await db.query(
       'SELECT MAX(view_time) as time FROM profile_views WHERE view_by=? AND view_to=?',
       [session, id]
@@ -118,7 +118,7 @@ const getFollowings = async user => {
 app.post('/get-user-stats', async (req, res) => {
   let
     { username } = req.body,
-    id = await db.getId(username),
+    id = await User.getId(username),
 
     followers = await getFollowers(id),
     followings = await getFollowings(id),
@@ -143,7 +143,7 @@ app.post('/get-user-stats', async (req, res) => {
   for (let r of _recommendations) {
     recommendations.push({
       ...r,
-      recommend_by_username: await db.getWhat('username', r.recommend_by)
+      recommend_by_username: await User.getWhat('username', r.recommend_by)
     })
   }
 
@@ -182,7 +182,7 @@ app.post('/add-to-favourites', async (req, res) => {
   let
     { user } = req.body,
     { id } = req.session,
-    username = await db.getWhat('username', user),
+    username = await User.getWhat('username', user),
     favourite = await User.favouriteOrNot(id, user),
     isBlocked = await User.isBlocked(user, id),
     fav = {

@@ -21,7 +21,7 @@ app.post('/is-user-valid', async (req, res) => {
 app.post('/get-user-details', async (req, res) => {
   let
     { username } = req.body,
-    id = await db.getId(username),
+    id = await User.getId(username),
     details = await db.query(
       'SELECT id, username, firstname, surname, email, bio, joined, email_verified, account_type, instagram, twitter, facebook, github, website, phone, lastOnline FROM users WHERE username=?',
       [ username ]
@@ -31,7 +31,7 @@ app.post('/get-user-details', async (req, res) => {
   res.json({
     details: {
       ...details[0],
-      isOnline: await db.getWhat('isOnline', id) == 'yes' ? true : false
+      isOnline: await User.getWhat('isOnline', id) == 'yes' ? true : false
     },
     tags
   })
@@ -42,7 +42,7 @@ app.post('/get-user-details', async (req, res) => {
 app.post('/get-mutual-users', async (req, res) => {
   let
     { username } = req.body,
-    user = await db.getId(username),
+    user = await User.getId(username),
     { id } = req.session,
     _mutuals = await User.mutualUsers(id, user),
     mutuals = []

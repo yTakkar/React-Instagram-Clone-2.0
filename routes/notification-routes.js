@@ -36,7 +36,7 @@ app.post('/get-notifications', async (req, res) => {
   for (let n of notifications) {
     let
       isFollowing = await User.isFollowing(id, n.notify_by),
-      user_username = n.user != 0 ? await db.getWhat('username', n.user) : ''
+      user_username = n.user != 0 ? await User.getWhat('username', n.user) : ''
 
     array.push({
       ...n,

@@ -15,6 +15,14 @@ module.exports = {
     },
     'sourceType': 'module'
   },
+  'globals': {
+    'describe': true,
+    'test': true,
+    'it': true,
+    'expect': true,
+    'beforeAll': true,
+    'afterAll': true
+  },
   'plugins': [
     'react'
   ],

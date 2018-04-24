@@ -20,9 +20,9 @@ app.post('/create-new-conversation', async (req, res) => {
   let
     { id } = req.session,
     { user } = req.body,
-    username = await db.getWhat('username', user),
-    firstname = await db.getWhat('firstname', user),
-    surname = await db.getWhat('surname', user),
+    username = await User.getWhat('username', user),
+    firstname = await User.getWhat('firstname', user),
+    surname = await User.getWhat('surname', user),
     [{ conExists }] = await db.query(
       'SELECT COUNT(con_id) AS conExists FROM conversations WHERE ((user_one=? AND user_two=?) OR (user_one=? AND user_two=?))',
       [ id, user, user, id ]
@@ -67,17 +67,17 @@ app.post('/get-conversations', async (req, res) => {
   for (let c of _cons) {
     let
       con_with = c.user_one == id ? c.user_two : c.user_one,
-      con_with_username = await db.getWhat('username', con_with),
-      con_with_firstname = await db.getWhat('firstname', con_with),
-      con_with_surname = await db.getWhat('surname', con_with),
+      con_with_username = await User.getWhat('username', con_with),
+      con_with_firstname = await User.getWhat('firstname', con_with),
+      con_with_surname = await User.getWhat('surname', con_with),
       lastMssgTime = await Mssg.getLastMssgTime(c.con_id),
       [{ unreadMssgs }] = await db.query(
         'SELECT COUNT(message_id) AS unreadMssgs FROM messages WHERE con_id=? AND mssg_to=? AND status=?',
         [ c.con_id, id, 'unread' ]
       ),
       lastMssg = await Mssg.getLastMssg(c.con_id),
-      isOnline = await db.getWhat('isOnline', con_with),
-      lastOnline = await db.getWhat('lastOnline', con_with)
+      isOnline = await User.getWhat('isOnline', con_with),
+      lastOnline = await User.getWhat('lastOnline', con_with)
 
     cons.push({
       ...c,
@@ -243,7 +243,7 @@ app.post('/get-conversation-details', async (req, res) => {
     mutualFollowers = await User.mutualUsers(req.session.id, user)
 
   for (let m of _media) {
-    let mssg_by_username = await db.getWhat('username', m.mssg_by)
+    let mssg_by_username = await User.getWhat('username', m.mssg_by)
     media.push({ ...m, mssg_by_username, })
   }
 

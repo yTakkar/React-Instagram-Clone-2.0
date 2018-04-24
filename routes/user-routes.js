@@ -282,7 +282,7 @@ app.post('/user/change-password', async (req, res) => {
   let
     { old, new_, new_a } = req.body,
     { id } = req.session,
-    user_pass = await db.getWhat('password', id)
+    user_pass = await User.getWhat('password', id)
 
   req.checkBody('old', 'Old password is empty!!').notEmpty()
   req.checkBody('new_', 'New password field is empty!!').notEmpty()
@@ -322,7 +322,7 @@ app.post('/user/change-password', async (req, res) => {
 app.post('/user/deactivate-account', async (req, res) => {
   let
     { id } = req.session,
-    userPassword = await db.getWhat('password', id),
+    userPassword = await User.getWhat('password', id),
     { password } = req.body,
     samePassword = await User.comparePassword(password, userPassword)
 
@@ -352,7 +352,7 @@ app.post('/user/deactivate-account', async (req, res) => {
 app.post('/user/remove-user', async (req, res) => {
   let
     { user } = req.body,
-    username = await db.getWhat('username', user)
+    username = await User.getWhat('username', user)
 
   await User.deactivate(user, req, res)
   res.json({

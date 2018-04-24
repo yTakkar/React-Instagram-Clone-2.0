@@ -9,6 +9,11 @@ const
   { DeleteAllOfFolder } = require('handy-image-processor'),
   { intersectionBy } = require('lodash')
 
+const getWhatOfGrp = async (what, group) => {
+  let s = await db.query(`SELECT ${what} FROM groups WHERE group_id=?`, [ group ])
+  return s.length == 0 ? '' : s[0][what]
+}
+
 /**
  * Deletes group
  * @param {Number} group GroupID
@@ -64,6 +69,7 @@ const mutualGroupMembers = async (user, group) => {
 }
 
 module.exports = {
+  getWhatOfGrp,
   deleteGroup,
   joinedGroup,
   mutualGroupMembers

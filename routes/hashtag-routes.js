@@ -3,12 +3,13 @@
 const
   app = require('express').Router(),
   db = require('../config/db'),
+  User = require('../config/User'),
   Post = require('../config/Post')
 
 // GET USERS HASHTAGS [REQ = USERNAME]
 app.post('/get-users-hashtags', async (req, res) => {
   let
-    id = await db.getId(req.body.username),
+    id = await User.getId(req.body.username),
     hashtags = await db.query(
       'SELECT DISTINCT hashtag FROM hashtags WHERE user=? ORDER BY hashtag_time LIMIT 20',
       [ id ]

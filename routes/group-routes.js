@@ -113,7 +113,7 @@ app.post('/join-group', async (req, res) => {
   let
     { user, added_by, group, when } = req.body,
     { id: session } = req.session,
-    username = await db.getWhat('username', user),
+    username = await User.getWhat('username', user),
     joined = await Group.joinedGroup(user, group),
     member = {
       group_id: group,
@@ -159,7 +159,7 @@ app.post('/get-group-members', async (req, res) => {
 
   for (let m of _members) {
     let
-      added_by_username = await db.getWhat('username', m.added_by),
+      added_by_username = await User.getWhat('username', m.added_by),
       mutualUsers = await User.mutualUsers(id, m.member)
 
     members.push({

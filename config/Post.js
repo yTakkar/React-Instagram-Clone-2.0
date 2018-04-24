@@ -60,10 +60,9 @@ const didIShare = async (post, session, user) => {
 /**
  * Returns tags count, likes count, ...
  * @param {Number} post_id Post ID
- * @param {Number} group_id Group ID
  * @returns {Object} Tags Count, Likes Count, ...
  */
-const getCounts = async (post_id, group_id) => {
+const getCounts = async post_id => {
   let
     [{ tags_count }] = await db.query(
       'SELECT COUNT(post_tag_id) AS tags_count FROM post_tags WHERE post_id=?',
@@ -80,15 +79,13 @@ const getCounts = async (post_id, group_id) => {
     [{ comments_count }] = await db.query(
       'SELECT COUNT(comment_id) AS comments_count FROM comments WHERE post_id=?',
       [ post_id ]
-    ),
-    gn = await db.query('SELECT name FROM groups WHERE group_id=?', [group_id])
+    )
 
   return {
     tags_count,
     likes_count,
     shares_count,
     comments_count,
-    group_name: group_id != 0 && group_id != null ? gn[0].name : ''
   }
 }
 

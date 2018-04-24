@@ -1,4 +1,4 @@
-/* eslint no-undef:0 */
+/* global describe, it, expect */
 
 import * as util from '../utils'
 
@@ -10,7 +10,7 @@ describe('utils tests', () => {
   })
 
   it('uniq() should return type string', () =>
-    expect(typeof util.uniq()).toBe('string')
+    expect(util.uniq()).toBeString()
   )
 
   it('humanReadable() should return below results', () => {
@@ -24,15 +24,15 @@ describe('utils tests', () => {
   )
 
   it('Me(24) should return type boolean', () =>
-    expect(typeof util.Me(24)).toBe('boolean')
+    expect(util.Me(24)).toBeBoolean()
   )
 
   it('e_v(24) should return type boolean', () =>
-    expect(typeof util.e_v(24)).toBe('boolean')
+    expect(util.e_v(24)).toBeBoolean()
   )
 
   it('isPrivate(24, false, "private") should return type boolean', () =>
-    expect(typeof util.isPrivate(24, false, 'private')).toBe('boolean')
+    expect(util.isPrivate(24, false, 'private')).toBeBoolean()
   )
 
 })

@@ -32,7 +32,7 @@ app.post('/get-users-to-share', async (req, res) => {
 app.post('/share-post', async (req, res) => {
   let
     { share_to, post } = req.body,
-    username = await db.getWhat('username', share_to),
+    username = await User.getWhat('username', share_to),
     { id } = req.session,
     shared = await Post.didIShare(post, id, share_to),
     insert = {
@@ -84,7 +84,7 @@ app.post('/get-post-sharers', async (req, res) => {
 
   for (let s of _sharers) {
     let
-      share_to_username = await db.getWhat('username', s.share_to),
+      share_to_username = await User.getWhat('username', s.share_to),
       isFollowing = await User.isFollowing(id, s.share_by)
 
     sharers.push({

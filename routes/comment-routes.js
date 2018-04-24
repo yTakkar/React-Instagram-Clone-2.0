@@ -3,6 +3,7 @@
 const
   app = require('express').Router(),
   db = require('../config/db'),
+  User = require('../config/User'),
   root = process.cwd(),
   upload = require('multer')({
     dest: `${root}/public/temp/`
@@ -23,7 +24,7 @@ app.post('/comment-text', async (req, res) => {
       comment_time: new Date().getTime()
     },
     { insertId } = await db.query('INSERT INTO comments SET ?', comment)
-  await db.mentionUsers(text, id, post, 'comment')
+  await User.mentionUsers(text, id, post, 'comment')
 
   res.json({ comment_id: insertId })
 })

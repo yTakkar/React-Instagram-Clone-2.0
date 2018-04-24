@@ -14,6 +14,29 @@ const
   catchify = require('catchify')
 
 /**
+ * Returns ID of a user
+ * @param {String} username Username
+ */
+
+const getId = async username => {
+  let s = await db.query('SELECT id FROM users WHERE username=? LIMIT 1', [username])
+  return s[0].id
+}
+
+/**
+ * Returns [what] of user ID
+ *
+ * eq. getWhat('username', id) => id's username
+ *
+ * @param {String} what Eq. Username
+ * @param {String} id ID to be used to return [what]
+ */
+const getWhat = async (what, id) => {
+  let s = await db.query(`SELECT ${what} FROM users WHERE id=? LIMIT 1`, [id])
+  return s[0][what]
+}
+
+/**
  * creates a new user
  * @param {Object} User User details
  */
@@ -159,13 +182,53 @@ const mutualUsers = async (session, user) => {
   return mutuals
 }
 
+/**
+ * Mention users
+ * @param {String} str Text which will be used to get mentioned users
+ * @param {Number} session sessionID
+ * @param {Number} post PostID
+ * @param {String} when For fn to have knowledge when users were mentioned
+ */
+const mentionUsers = async (str, session, post, when) => {
+  let users = str.match(/[^|\s]?@[\d\w]+/g)
+
+  if (users) {
+    for (let h of users) {
+      let hash = h.slice(1)
+      if (hash.substr(0, 1) !== '@') {
+        let [{ userCount }] = await db.query(
+          'SELECT COUNT(id) AS userCount FROM users WHERE username=?', 
+          [ hash ]
+        )
+        let id = await getId(hash)
+
+        if (userCount == 1 && id != session) {
+          await db.query('INSERT INTO notifications SET ?', {
+            notify_by: session,
+            notify_to: id,
+            post_id: post,
+            type: when == 'post' ? 'mention_post' : 'mention_comment',
+            notify_time: new Date().getTime(),
+          })
+        }
+
+      }
+    }
+  }
+
+}
+
+
 module.exports = {
-  isFollowing,
-  favouriteOrNot,
-  isBlocked,
+  getId,
+  getWhat,
   create_user,
   change_password,
   comparePassword,
+  isFollowing,
+  favouriteOrNot,
+  isBlocked,
   deactivate,
-  mutualUsers
+  mutualUsers,
+  mentionUsers
 }

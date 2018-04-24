@@ -65,6 +65,7 @@
     "serve-favicon": "^2.4.5"
   },
   "devDependencies": {
+    "@types/jest": "^22.2.3",
     "@types/jquery": "^3.3.0",
     "@types/lodash": "^4.14.104",
     "@types/react": "^16.0.38",
@@ -84,6 +85,7 @@
     "eslint": "^4.13.0",
     "eslint-plugin-react": "^7.5.1",
     "handy-client-env": "^1.0.14",
-    "jest": "^22.4.2"
+    "jest": "^22.4.3",
+    "jest-extended": "^0.7.1"
   }
 }

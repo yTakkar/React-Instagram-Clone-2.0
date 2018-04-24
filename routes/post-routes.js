@@ -3,6 +3,7 @@
 const
   app = require('express').Router(),
   db = require('../config/db'),
+  Group = require('../config/Group'),
   Post = require('../config/Post'),
   User = require('../config/User'),
   root = process.cwd(),
@@ -37,11 +38,11 @@ app.post('/post-it', upload.single('image'), async (req, res) => {
 
   let
     { insertId } = await db.query('INSERT INTO posts SET ?', insert),
-    firstname = await db.getWhat('firstname', id),
-    surname = await db.getWhat('surname', id)
+    firstname = await User.getWhat('firstname', id),
+    surname = await User.getWhat('surname', id)
 
   await db.toHashtag(desc, id, insertId)
-  await db.mentionUsers(desc, id, insertId, 'post')
+  await User.mentionUsers(desc, id, insertId, 'post')
 
   res.json({
     post_id: insertId,
@@ -67,7 +68,7 @@ app.post('/tag-post', (req, res) => {
 // GET USER POSTS [REQ = USERNAME]
 app.post('/get-user-posts', async (req, res) => {
   let
-    id = await db.getId(req.body.username),
+    id = await User.getId(req.body.username),
     _posts = await db.query(
       'SELECT posts.post_id, posts.user, users.username, users.firstname, users.surname, posts.description, posts.imgSrc, posts.filter, posts.location, posts.type, posts.post_time FROM posts, users WHERE posts.user=? AND posts.user = users.id AND posts.type=? ORDER BY posts.post_time DESC',
       [ id, 'user' ]
@@ -77,7 +78,7 @@ app.post('/get-user-posts', async (req, res) => {
   for (let p of _posts) {
     let {
       tags_count, likes_count, shares_count, comments_count
-    } = await Post.getCounts(p.post_id, null)
+    } = await Post.getCounts(p.post_id)
 
     posts.push({
       ...p,
@@ -101,9 +102,11 @@ app.post('/get-bookmarked-posts', async (req, res) => {
     posts = []
 
   for (let p of _posts) {
-    let {
-      tags_count, likes_count, shares_count, comments_count, group_name
-    } = await Post.getCounts(p.post_id, p.group_id)
+    let
+      {
+        tags_count, likes_count, shares_count, comments_count,
+      } = await Post.getCounts(p.post_id),
+      group_name = await Group.getWhatOfGrp('name', p.group_id)
 
     posts.push({
       ...p,
@@ -128,9 +131,11 @@ app.post('/get-tagged-posts', async (req, res) => {
     posts = []
 
   for (let p of _posts) {
-    let {
-      tags_count, likes_count, shares_count, comments_count, group_name
-    } = await Post.getCounts(p.post_id, p.group_id)
+    let
+      {
+        tags_count, likes_count, shares_count, comments_count,
+      } = await Post.getCounts(p.post_id),
+      group_name = await Group.getWhatOfGrp('name', p.group_id)
 
     posts.push({
       ...p,
@@ -156,10 +161,11 @@ app.post('/get-shared-posts', async (req, res) => {
 
   for (let p of _posts) {
     let
-      share_by_username = await db.getWhat('username', p.share_by),
+      share_by_username = await User.getWhat('username', p.share_by),
       {
-        tags_count, likes_count, shares_count, comments_count, group_name
-      } = await Post.getCounts(p.post_id, p.group_id)
+        tags_count, likes_count, shares_count, comments_count
+      } = await Post.getCounts(p.post_id),
+      group_name = await Group.getWhatOfGrp('name', p.group_id)
 
     posts.push({
       ...p,
@@ -196,9 +202,11 @@ app.post('/get-feed', async (req, res) => {
     posts = []
 
   for (let p of _posts) {
-    let {
-      tags_count, likes_count, shares_count, comments_count, group_name
-    } = await Post.getCounts(p.post_id, p.group_id)
+    let
+      {
+        tags_count, likes_count, shares_count, comments_count
+      } = await Post.getCounts(p.post_id),
+      group_name = await Group.getWhatOfGrp('name', p.group_id)
 
     posts.push({
       ...p,
@@ -225,7 +233,7 @@ app.post('/get-group-posts', async (req, res) => {
   for (let p of _posts) {
     let {
       tags_count, likes_count, shares_count, comments_count
-    } = await Post.getCounts(p.post_id, null)
+    } = await Post.getCounts(p.post_id)
 
     posts.push({
       ...p,
@@ -258,13 +266,13 @@ app.post('/get-post', async (req, res) => {
       [ post_id ]
     ),
     {
-      tags_count, likes_count, shares_count, comments_count, group_name
-    } = await Post.getCounts(post_id, _post.length != 0 ? _post[0].group_id : 0),
+      tags_count, likes_count, shares_count, comments_count
+    } = await Post.getCounts(post_id),
     comments = await db.query(
       'SELECT comments.comment_id, comments.type, comments.text, comments.commentSrc, comments.comment_by, users.username AS comment_by_username, comments.post_id, comments.comment_time FROM comments, users WHERE comments.post_id = ? AND comments.comment_by = users.id ORDER BY comments.comment_time DESC',
       [ post_id ]
     ),
-
+    group_name = await Group.getWhatOfGrp('name', _post[0].group_id),
     post = {
       ..._post[0],
       tags_count,
