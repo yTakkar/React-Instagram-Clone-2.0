@@ -6,6 +6,7 @@ import * as follow_action from '../store/actions/follow_a'
 import { getUserPosts, getGroupPosts, } from '../store/actions/post-a'
 import { getGroupDetails, joinedGroup } from '../store/actions/group-a'
 import Compress from 'image-compressor.js'
+import { GOOGLE_GEOLOCATION_KEY } from '../../../../env'
 
 /**
  *  Shortens what with string length
@@ -236,23 +237,34 @@ export const insta_notify = async options => {
 /**
  * Geolocation setup
  * @param {Function} success Success function
- * @param {Function} error Error function
  */
-export const geolocation = (success, error) => {
+export const geolocation = success => {
   if (navigator.geolocation) {
-    navigator.geolocation.watchPosition(success, error)
+    navigator.geolocation.watchPosition(success, geolocationError)
   } else {
     Notify({ value: 'Geolocation not supported' })
   }
 }
 
 /**
+ * Returns human readable address from the given the cordinates
+ * @param {Object} pos
+ */
+export const getAddress = async pos => {
+  let
+    { latitude, longitude } = pos.coords,
+    { data: { results } } = await post(
+      `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${GOOGLE_GEOLOCATION_KEY}`
+    ),
+    loc = results[0].formatted_address
+  return loc
+}
+
+/**
  * Geolocation error
  */
 export const geolocationError = ({ code }) => {
-  let mssg
-
-  mssg =
+  let mssg =
     code == 1 ? 'Location permission denied!!'
       : code == 2 ? 'Location signal lost!!'
         : code == 3 ? 'Location request timed out!!'

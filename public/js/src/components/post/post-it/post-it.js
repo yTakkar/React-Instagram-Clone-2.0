@@ -3,10 +3,8 @@ import ToolTip from 'react-tooltip'
 import { FadeIn } from 'animate-components'
 import $ from 'jquery'
 import Emojis from '../../others/emojis'
-import { post } from 'axios'
-import { geolocation, geolocationError } from '../../../utils/utils'
+import { geolocation, getAddress } from '../../../utils/utils'
 import { addPost } from '../../../utils/post-utils'
-import { GOOGLE_GEOLOCATION_KEY } from '../../../../../../env'
 import SearchFollowings from '../../others/search-followings'
 import Overlay from '../../others/overlay'
 import { connect } from 'react-redux'
@@ -26,6 +24,7 @@ export default class PostIt extends React.Component {
     desc: '',                            // textarea value
     filter: 'normal',
     showEmojis: false,
+    fetchingLocation: false,
     location: '',
     addTag: false,
     tags: [],
@@ -57,17 +56,15 @@ export default class PostIt extends React.Component {
   }
 
   getLocation = () => {
+    this.setState({ fetchingLocation: true })
     let geolocationSuccess = async pos => {
-      let
-        { latitude, longitude } = pos.coords,
-        { data: { results } } = await post(
-          `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${GOOGLE_GEOLOCATION_KEY}`
-        ),
-        loc = results[0].formatted_address
-      this.setState({ location: loc })
+      let address = await getAddress(pos)
+      this.setState({
+        fetchingLocation: false,
+        location: address
+      })
     }
-
-    geolocation(geolocationSuccess, geolocationError)
+    geolocation(geolocationSuccess)
   }
 
   deleteTag = tag  => {
@@ -95,7 +92,7 @@ export default class PostIt extends React.Component {
       id = $('.data').data('session'),
       username = $('.data').data('username'),
       { back } = this.props,
-      { fileInput, fileChanged, previewImg, desc, filter, showEmojis, location, addTag, tags, showOverlay } = this.state,
+      { fileInput, fileChanged, previewImg, desc, filter, showEmojis, location, addTag, tags, showOverlay, fetchingLocation } = this.state,
       map_tags = tags.map(t =>
         <span
           key={t.username}
@@ -125,7 +122,13 @@ export default class PostIt extends React.Component {
                 <span>{username}</span>
               </div>
               <span className='loc_text' title={location} >
-                { location ? `${location.substr(0, 20)}..` : '' }
+                {
+                  fileChanged && fetchingLocation
+                    ? 'Fetching location...'
+                    : location
+                      ? `${location.substr(0, 20)}..`
+                      : ''
+                }
               </span>
             </div>
 
