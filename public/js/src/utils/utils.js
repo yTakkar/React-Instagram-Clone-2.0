@@ -205,12 +205,6 @@ export const profile_scroll = () => {
 }
 
 /**
- * Scrolls messages to the bottom
- */
-export const messageScroll = () =>
-  document.querySelector('.mssg_end').scrollIntoView({ behavior: 'smooth' })
-
-/**
  * Notifies user [on the notification page]
  * @param {Object} options
  * @param {Number} options.to
@@ -247,20 +241,6 @@ export const geolocation = success => {
 }
 
 /**
- * Returns human readable address from the given the cordinates
- * @param {Object} pos
- */
-export const getAddress = async pos => {
-  let
-    { latitude, longitude } = pos.coords,
-    { data: { results } } = await post(
-      `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${GOOGLE_GEOLOCATION_KEY}`
-    ),
-    loc = results[0].formatted_address
-  return loc
-}
-
-/**
  * Geolocation error
  */
 export const geolocationError = ({ code }) => {
@@ -272,6 +252,20 @@ export const geolocationError = ({ code }) => {
             : null
 
   Notify({ value: mssg })
+}
+
+/**
+ * Returns human readable address from the given the cordinates
+ * @param {Object} pos
+ */
+export const getAddress = async pos => {
+  let
+    { latitude, longitude } = pos.coords,
+    { data: { results } } = await post(
+      `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${GOOGLE_GEOLOCATION_KEY}`
+    ),
+    loc = results[0].formatted_address
+  return loc
 }
 
 /**

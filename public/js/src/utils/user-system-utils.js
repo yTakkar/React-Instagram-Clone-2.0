@@ -88,9 +88,13 @@ export const commonLogin = options => {
 
 /**
  * Quick login
+ * @param {Object} options
+ * @param {Number} options.id
+ * @param {String} options.username
  */
-export const quickLogin = ({ id, username }) => {
+export const quickLogin = options => {
   let
+    { id, username } = options,
     usernameDiv = $('.q_l_username'),
     imgDiv = $('.q_l_m_img'),
     icon = $('.s_p_ql')

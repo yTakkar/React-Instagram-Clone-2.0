@@ -9,6 +9,11 @@ const
   { DeleteAllOfFolder } = require('handy-image-processor'),
   { intersectionBy } = require('lodash')
 
+/**
+ * Returns what of a group
+ * @param {String} what Get what eg. name
+ * @param {Number} group Group ID
+ */
 const getWhatOfGrp = async (what, group) => {
   let s = await db.query(`SELECT ${what} FROM groups WHERE group_id=?`, [ group ])
   return s.length == 0 ? '' : s[0][what]

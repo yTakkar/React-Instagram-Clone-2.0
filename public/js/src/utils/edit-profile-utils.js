@@ -6,7 +6,10 @@ import { imageCompressor } from './utils'
 
 /**
  * Add user tags
- * @param {{ value: String, user: Number, dispatch: Function }} options Options for adding tags to the user
+ * @param {Object} options
+ * @param {String} options.value
+ * @param {Number} options.user
+ * @param {Function} options.dispatch
  */
 export const addUserTags = options => {
   let { value, user, dispatch } = options
@@ -22,7 +25,12 @@ export const addUserTags = options => {
 
 /**
  * Edit profile
- * @param {{ susername: String, semail: String, values: { username: String, email: String } }} options Options for editing profile
+ * @param {Object} options
+ * @param {String} options.susername
+ * @param {String} options.semail
+ * @param {Object} options.values
+ * @param {String} options.values.username
+ * @param {String} options.values.email
  */
 export const editProfile = async options => {
   let
@@ -84,10 +92,14 @@ export const resend_vl = async () => {
 }
 
 /** Upload avatar
- * @param {{ file: File, of: String, group: Number }}
+ * @param {Object} options
+ * @param {File} options.file
+ * @param {String} options.of
+ * @param {Number} options.group
  */
-export const upload_avatar = async ({ file: userFile, of, group }) => {
+export const upload_avatar = async options => {
   let
+    { file: userFile, of, group } = options,
     form = new FormData(),
     file = await imageCompressor(userFile)
 

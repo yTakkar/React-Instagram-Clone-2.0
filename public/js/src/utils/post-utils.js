@@ -84,7 +84,12 @@ export const addPost = async options => {
 
 /**
  * Image comment
- * @param {{ post_id: Number, dispatch: Function, when: String, user: Number, file: File }} options Options for image commenting
+ * @param {Object} options
+ * @param {Number} options.post_id
+ * @param {Function} options.dispatch
+ * @param {String} options.when
+ * @param {Number} options.user
+ * @param {File} options.file
  */
 export const imageComment = async options => {
   let
@@ -128,7 +133,12 @@ export const imageComment = async options => {
 
 /**
  * Sticker comment
- * @param {{ sticker: String, post_id: Number, user: Number, when: String, dispatch: Function }} options Options for sticker commenting
+ * @param {Object} options
+ * @param {String} options.sticker
+ * @param {Number} options.post_id
+ * @param {Number} options.user
+ * @param {String} options.when
+ * @param {Function} options.dispatch
  */
 export const stickerComment = async options => {
   let

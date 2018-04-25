@@ -50,11 +50,9 @@ const create_user = async user => {
 
 /** changes password */
 const change_password = async ({ password, id }) => {
-  return new Promise(async (resolve, reject) => {
-    let hash = bcrypt.hashSync(password)
-    let [e] = await catchify(db.query('UPDATE users SET password=? WHERE id=?', [ hash, id ]))
-    e ? reject(false) : resolve(true)
-  })
+  let hash = bcrypt.hashSync(password)
+  let [e] = await catchify(db.query('UPDATE users SET password=? WHERE id=?', [ hash, id ]))
+  return (e ? false : true)
 }
 
 /**
@@ -197,7 +195,7 @@ const mentionUsers = async (str, session, post, when) => {
       let hash = h.slice(1)
       if (hash.substr(0, 1) !== '@') {
         let [{ userCount }] = await db.query(
-          'SELECT COUNT(id) AS userCount FROM users WHERE username=?', 
+          'SELECT COUNT(id) AS userCount FROM users WHERE username=?',
           [ hash ]
         )
         let id = await getId(hash)
@@ -217,7 +215,6 @@ const mentionUsers = async (str, session, post, when) => {
   }
 
 }
-
 
 module.exports = {
   getId,

@@ -2,11 +2,22 @@ import $ from 'jquery'
 import { post } from 'axios'
 import Notify from 'handy-notification'
 import { conversationAdded, messaged, changeLastMssg, unsendAllMessages } from '../store/actions/message-a'
-import { insta_notify, messageScroll, imageCompressor } from './utils'
+import { insta_notify, imageCompressor } from './utils'
+
+/**
+ * Scrolls conversation to the bottom
+ */
+export const messageScroll = () =>
+  document.querySelector('.mssg_end')
+    .scrollIntoView({ behavior: 'smooth' })
 
 /**
  * Creates a new conversation
- * @param {{ user: Number, username: String, dispatch: Function, done: Function }} options Options for creating a conversation
+ * @param {Object} options
+ * @param {Number} options.user
+ * @param {String} options.username
+ * @param {Function} options.dispatch
+ * @param {Function} options.done
  */
 export const newConversation = async options => {
   let
@@ -48,11 +59,15 @@ export const newConversation = async options => {
 
 /**
  * Test message
- * @param {{ message: String, con_id: Number, grp_con_id: Number, con_with: Number, dispatch: Function }} options Options for test messaging
+ * @param {Object} options
+ * @param {String} options.message
+ * @param {Number} options.con_id
+ * @param {Number} options.con_with
+ * @param {Function} options.dispatch
  */
 export const textMessage = async options => {
   let
-    { message, con_id, grp_con_id, con_with, dispatch, } = options,
+    { message, con_id, con_with, dispatch, } = options,
     session = $('.data').data('session'),
     overlay2 = $('.overlay-2'),
     btn = $('.mssg_send')
@@ -67,11 +82,10 @@ export const textMessage = async options => {
   } else {
     let {
       data: { message_id }
-    } = await post('/api/text-message', { message, con_id, grp_con_id, con_with })
+    } = await post('/api/text-message', { message, con_id, con_with })
 
     dispatch(messaged({
       con_id,
-      grp_con_id,
       message,
       message_id,
       message_time: new Date().getTime(),
@@ -101,11 +115,15 @@ export const textMessage = async options => {
 
 /**
  * Image message
- * @param {{ file: File, con_id: Number, grp_con_id: Number, con_with: Number, dispatch: Function }} options Options for image messaging
+ * @param {Object} options
+ * @param {File} options.file
+ * @param {Number} options.con_id
+ * @param {Number} options.con_with
+ * @param {Function} options.dispatch
  */
 export const imageMessage = async options => {
   let
-    { file: messageFile, con_id, grp_con_id, con_with, dispatch } = options,
+    { file: messageFile, con_id, con_with, dispatch } = options,
     session = $('.data').data('session'),
     form = new FormData(),
     file = await imageCompressor(messageFile)
@@ -115,14 +133,14 @@ export const imageMessage = async options => {
 
   form.append('messageFile', file)
   form.append('con_id', con_id)
-  form.append('grp_con_id', grp_con_id)
   form.append('con_with', con_with)
 
-  let { data: { message_id, filename } } = await post('/api/image-message', form)
+  let {
+    data: { message_id, filename }
+  } = await post('/api/image-message', form)
 
   dispatch(messaged({
     con_id,
-    grp_con_id,
     message: filename,
     message_id,
     message_time: new Date().getTime(),
@@ -148,17 +166,22 @@ export const imageMessage = async options => {
 
 /**
  * Sticker message
- * @param {{ con_id: Number, grp_con_id: Number, con_with: Number, sticker: String, dispatch: Function }} options Options for sticker messaging
+ * @param {Object} options
+ * @param {Number} options.con_id
+ * @param {Number} options.con_with
+ * @param {String} options.sticker
+ * @param {Function} options.dispatch
  */
 export const stickerMessage = async options => {
   let
-    { con_id, grp_con_id, con_with, sticker, dispatch } = options,
+    { con_id, con_with, sticker, dispatch } = options,
     session = $('.data').data('session'),
-    { data: { filename, message_id } } = await post('/api/sticker-message', { con_id, grp_con_id, con_with, sticker })
+    {
+      data: { filename, message_id }
+    } = await post('/api/sticker-message', { con_id, con_with, sticker })
 
   dispatch(messaged({
     con_id,
-    grp_con_id,
     message: filename,
     message_id,
     message_time: new Date().getTime(),
@@ -182,7 +205,9 @@ export const stickerMessage = async options => {
 }
 
 /** Unsend all messages
- * @param {{ con_id: Number, dispatch: Function }} options Options for deleting all messages of session user
+ * @param {Object} options
+ * @param {Number} options.con_id
+ * @param {Function} options.dispatch
  */
 export const deleteYourMssgs = async options => {
   let
