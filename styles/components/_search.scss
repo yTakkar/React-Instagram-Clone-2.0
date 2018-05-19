@@ -1,0 +1,95 @@
+// SEARCH
+.search_div {
+  position: fixed;
+  background: $ff;
+  width: 850px;
+  max-height: 500px;
+  top: 48px;
+  left: 85px;
+  z-index: 2;
+  padding-bottom: 15px;
+  border-radius: 3px;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 0px 0px 25px 1px rgba(0,0,0,.1);
+  overflow: hidden;
+
+  &:hover {
+    background: $ff;
+  }
+
+  & .spinner{
+    left: 505px;
+    top: 80px;
+  }
+
+  & > .s_d{
+    width: 300px;
+    margin-top: 10px;
+
+    &:first-of-type {
+      margin-left: 20px;
+    }
+  }
+
+  & .s_header{
+    font-size: 14px;
+    font-weight: 600;
+    color: lightslategray;
+  }
+
+  & .s_d_peo{
+    margin-top: 5px;
+
+    & .s_d_p{
+      display: inline-block;
+      color: $dark;
+      height: 35px;
+      width: 90%;
+      padding: 5px;
+      margin-bottom: 5px;
+      border-radius: 3px;
+      border: 1px solid $ee;
+
+      &:hover{
+        background: $fb;
+      }
+
+      & img{
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+      }
+
+      & .s_d_c{
+        display: inline-block;
+        position: relative;
+        top: -4px;
+        margin-left: 4px;
+        width: 84%;
+
+        & .s_d_username{
+          font-weight: 600;
+          font-size: 14px;
+          display: block;
+        }
+
+        & span:last-of-type{
+          color: lightslategrey;
+          font-size: 13px;
+        }
+
+      }
+
+    }
+
+    & .h_d_p{
+      height: 19px;
+      font-weight: 600;
+      font-size: 14px;
+      margin-bottom: 2px;
+    }
+
+  }
+
+}

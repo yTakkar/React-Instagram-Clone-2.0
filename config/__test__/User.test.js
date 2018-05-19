@@ -43,9 +43,15 @@ describe('User config tests', () => {
   })
 
   test('should compare the password and return true', async () => {
-    let compare1 = User.comparePassword('testPasswordChanged', createdUser.hashPassword)
-    let compare2 = User.comparePassword('testPassword', createdUser.hashPassword)
-    let compare3 = User.comparePassword('testPasswordChanged', bcrypt.hashSync('testPasswordChanged'))
+    let compare1 = User.comparePassword(
+      'testPasswordChanged', createdUser.hashPassword
+    )
+    let compare2 = User.comparePassword(
+      'testPassword', createdUser.hashPassword
+    )
+    let compare3 = User.comparePassword(
+      'testPasswordChanged', bcrypt.hashSync('testPasswordChanged')
+    )
     expect(compare1).toBe(false)
     expect(compare2).toBe(true)
     expect(compare3).toBe(true)

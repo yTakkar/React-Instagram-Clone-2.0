@@ -1,0 +1,73 @@
+/**
+ * @author Faiyaz Shaikh <www.shtakkar@gmail.com>
+ * GitHub repo: https://github.com/yTakkar/React-Instagram-Clone-2.0
+ */
+
+// variables
+@import 'variables/variables';
+
+// mixins
+@import 'mixins/mixins';
+
+// defaults
+@import 'defaults/defaults';
+
+// components
+@import 'components/components';
+
+// post
+@import 'post/post-styles';
+
+// pages
+@import 'pages/pages';
+
+// preload [APP LOADING]
+.preload{
+  width: 100%;
+  height: 100%;
+  top: 0;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-image: linear-gradient(120deg, rgb(161, 240, 255), rgb(255, 253, 208));
+  z-index: 3;
+  text-align: center;
+
+  & .preload_spinner {
+    position: absolute;
+    top: 50%;
+    left: 37%;
+    transform: translate(-50%, -50%);
+
+    & span {
+      background: #da85af !important;
+    }
+
+  }
+
+}
+
+// TOP WRAPPER
+.badshah{
+  position: relative;
+  top: 62px;
+  left: 274px;
+  width: 800px;
+  display: block;
+}
+
+.senapati{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.prajkumar{
+  width: 490px;
+}
+
+.srajkumar{
+  width: 300px;
+  border-radius: 4px;
+}

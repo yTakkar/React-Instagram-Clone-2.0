@@ -23,9 +23,7 @@ module.exports = {
     'beforeAll': true,
     'afterAll': true
   },
-  'plugins': [
-    'react'
-  ],
+  'plugins': [ 'react' ],
   'rules': {
     'indent': [
       'error',
@@ -38,6 +36,10 @@ module.exports = {
     'semi': [
       'error',
       'never'
+    ],
+    'no-unused-vars': [
+      'error',
+      { 'varsIgnorePattern': 'React' }
     ],
     'no-console': 'off',
     'no-ternary': 0,

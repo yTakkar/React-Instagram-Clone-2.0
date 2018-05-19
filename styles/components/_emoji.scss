@@ -1,0 +1,64 @@
+// EMOJIS
+.emoji {
+  position: fixed;
+  background: $ff;
+  padding: 5px 0px;
+  border: 1px solid $ee;
+  width: 212px;
+  z-index: 3;
+  border-radius: 2px;
+  height: 300px;
+
+  & .emoji_wrapper{
+    overflow-y: scroll;
+    width: 100%;
+    height: 300px;
+    position: relative;
+
+    & .emoji_all{
+      display: inline-block;
+      position: relative;
+      width: 97% !important;
+
+      & ul{
+        display: inline-block;
+        width: 100%;
+
+        & li{
+          display: inline-block;
+          background: $ff;
+          padding: 2px 4px;
+          font-size: 15px;
+          margin-bottom: 5px;
+          margin-left: 5px;
+          cursor: pointer;
+          user-select: none;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+
+          &:hover{
+            background: aqua;
+            transform: scale(1.1);
+          }
+
+        }
+
+      }
+
+      & .emoji_toggle{
+        background: aqua;
+        animation: emoji_active 0.1s ease-in-out;
+      }
+
+      @keyframes emoji_active {
+        0% { transform: scale(1); }
+        50% { transform: scale(0.95); }
+        100% { transform: scale(1); }
+      }
+
+    }
+
+  }
+
+}

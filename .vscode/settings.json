@@ -1,5 +1,11 @@
 {
     "editor.tabSize": 2,
     "editor.autoIndent": false,
-    "instantmarkdown.autoOpenBrowser": false
-  }
+    "instantmarkdown.autoOpenBrowser": false,
+    "git.ignoreLimitWarning": true,
+    "codemetrics.nodeconfiguration.JsxSelfClosingElement": 0,
+    "complexityAnalysis.exclude": [
+        "node_modules/*",
+        "dist/*"
+    ],
+}

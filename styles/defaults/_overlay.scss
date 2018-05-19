@@ -1,0 +1,29 @@
+.overlay {
+  @include overlay_defaults;
+  background: #000;
+  opacity: 0.5;
+}
+
+.hidden_overlay {
+  @include overlay_defaults;
+  background: transparent !important;
+}
+
+.colored_overlay {
+  @include overlay_defaults;
+  background: rgb(238, 238, 238) !important;
+}
+
+.overlay-2-black {
+  @include overlay_defaults;
+  background: #000;
+  opacity: 0.5;
+  display: none;
+}
+
+.overlay-2 {
+  @include overlay_defaults;
+  background: transparent;
+  z-index: 20;
+  display: none;
+}

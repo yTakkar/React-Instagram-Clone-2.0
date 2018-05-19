@@ -1,0 +1,87 @@
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { humanReadable } from '../../../../utils/utils'
+import { Link } from 'react-router-dom'
+import Comments from '../../comment/comments/comments'
+import ImageComment from '../../comment/image-comment/imageComment'
+import StickerComment from '../../comment/sticker-comment/stickerComment'
+import TextComment from '../../comment/text-comment/text-comment'
+import PropTypes from 'prop-types'
+
+@connect(store => (
+  { session: store.User.session.id }
+))
+
+export default class PostBottom extends Component {
+
+  state = {
+    comments_count: 0
+  }
+
+  componentDidMount = () =>
+    this.setState({
+      comments_count: this.props.postDetails.comments_count
+    })
+
+  incrementComments = () =>
+    this.setState({
+      comments_count: ++this.state.comments_count
+    })
+
+  render() {
+    let { comments_count } = this.state
+    let {
+      postDetails,
+      postDetails: { post_id, when, comments },
+      session
+    } = this.props
+
+    let childProps = {
+      postDetails,
+      incrementComments: this.incrementComments
+    }
+
+    return (
+      <div>
+        <Link
+          to={`/post/${post_id}`}
+          className='p_comments' >{ humanReadable(comments_count, 'comment') }
+        </Link>
+        <div className='p_cit'>
+          <div className='p_cit_img'>
+            <img src={`/users/${session}/avatar.jpg`} />
+          </div>
+
+          <div className='p_cit_main'>
+            <TextComment
+              {...childProps}
+            />
+
+            <div className='p_cit_tool'>
+              <StickerComment
+                { ...childProps }
+              />
+              <ImageComment
+                { ...childProps }
+              />
+            </div>
+
+          </div>
+        </div>
+
+        <Comments
+          when={when}
+          comments={comments}
+          decrementComments={() =>
+            this.setState({ comments_count: --comments_count })
+          }
+        />
+
+      </div>
+    )
+  }
+}
+
+PostBottom.propTypes = {
+  postDetails: PropTypes.object
+}

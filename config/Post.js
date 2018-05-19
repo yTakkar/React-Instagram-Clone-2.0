@@ -103,11 +103,11 @@ const deletePost = async ({post, when}) => {
     comments = await db.query('SELECT commentSrc, type FROM comments WHERE post_id=?', [ post ]),
     deleteFile = promisify(unlink)
 
-  await deleteFile(`${root}/public/posts/${imgSrc}`)
+  await deleteFile(`${root}/dist/posts/${imgSrc}`)
 
   comments.map(async c => {
     if (c.type != 'text') {
-      await deleteFile(`${root}/public/comments/${c.commentSrc}`)
+      await deleteFile(`${root}/dist/comments/${c.commentSrc}`)
     }
   })
   await db.query('DELETE FROM comments WHERE post_id=?', [ post ])

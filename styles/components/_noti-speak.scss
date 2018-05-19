@@ -1,0 +1,47 @@
+// NOTI SPEAK
+.noti_speak{
+  position: fixed;
+  top: 55px;
+  right: 50px;
+  font-size: 13px;
+  padding: 7px 5px 4px 6px;
+  background: $ff;
+  width: 200px;
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,.1);
+  border-radius: 3px;
+  z-index: 1;
+
+  &::before{
+    content: "";
+    position: absolute;
+    top: -7px;
+    left: 15px;
+    width: 12px;
+    height: 12px;
+    background: $ff;
+    transform: rotate(45deg);
+    z-index: -1;
+    border-top: 1px solid $ee;
+    border-left: 1px solid $ee;
+  }
+
+  & img{
+    width: 33px;
+    height: 33px;
+    border-radius: 50%;
+    float: left;
+  }
+
+  & .n_s_sn_div{
+    width: 79%;
+    margin-left: 6px;
+    position: relative;
+    top: -2px;
+    float: left;
+  }
+
+  & .ns_bold{
+    font-weight: 600;
+  }
+
+}

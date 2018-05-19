@@ -1,0 +1,27 @@
+// STICKERS
+.stickers_modal {
+
+  & .sti_img{
+    width: 50px;
+    margin-left: 15px;
+    margin-bottom: 15px;
+    padding: 5px;
+    cursor: pointer;
+    border: 1px solid $ff;
+    border-radius: 4px;
+
+    &:hover{
+      background: $header_border;
+      border: 1px solid $header_border;
+    }
+
+  }
+
+  & .sti_img_active{
+    background: $header_border !important;
+    animation: pro_active 0.1s ease-in-out;
+    border: 1px solid $ee !important;
+  }
+
+
+}

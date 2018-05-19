@@ -1,0 +1,525 @@
+// MESSAGES PAGE
+
+.messages_senapati {
+  display: flex;
+  justify-content: space-between;
+
+  & .mssg_left {
+    width: 310px;
+    margin-bottom: 30px;
+    position: relative;
+
+    & .mssg_new{
+      margin-bottom: 10px;
+      text-align: left;
+      text-align: center;
+
+      & > a{
+        display: inline-block;
+        padding: 5px 14px 5px 14px;
+        font-size: 14px;
+
+        & i{
+          margin-right: 6px;
+        }
+
+        &:first-of-type {
+          margin-right: 3px;
+        }
+      }
+
+      // SEARCH USERS TO CREATE NEW CONVERSATION
+      & .search_followings {
+        margin-top: 7px;
+
+        & input[type='text'] {
+          width: 95%;
+          border-radius: 3px;
+        }
+
+        & .p_tagging_list {
+          width: 95%;
+          max-height: 300px;
+
+          & li {
+            text-align: initial;
+          }
+        }
+
+      }
+
+      // Online users
+      & .modal .modal_it_info {
+        text-align: initial;
+      }
+
+    }
+
+    & .con_count{
+      font-size: 17px;
+      margin-top: 13px;
+      position: relative;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    // CONVERSATION TEASER
+    & .mssg_sr {
+      @include inst;
+      height: 40px;
+      position: relative;
+      padding: 7px;
+      margin-bottom: 5px;
+      border-radius: 3px;
+      cursor: pointer;
+
+      &:hover {
+        background: $fb;
+      }
+
+      & > img{
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+      }
+
+      & .m_sr_content{
+        display: inline-block;
+        position: relative;
+        top: -6px;
+        margin-left: 5px;
+        width: 65%;
+
+        & .m_sr_username{
+          display: block;
+          font-weight: 600;
+          font-size: 14px;
+          width: 100%;
+          overflow: hidden;
+        }
+
+        & .m_sr_light{
+          color: $d_light;
+          display: inline-block;
+          word-break: break-all;
+
+          & .camera {
+            margin-left: 3px;
+
+            & .retro{
+              margin-right: 4px;
+            }
+          }
+
+          & .mssg_sent{
+            position: relative;
+            display: inline-block;
+            color: $d_light;
+            top: 3px;
+            margin-right: 3px;
+
+            & i {
+              font-size: 14px;
+            }
+          }
+
+        }
+
+      }
+
+      & .m_sr_time{
+        position: absolute;
+        top: 4px;
+        right: 7px;
+        color: $dark;
+      }
+
+      & .m_sr_unread{
+        position: absolute;
+        background: #54BBFF;
+        color: $ff;
+        padding: 0px 6px;
+        border-radius: 3px;
+        font-size: 13px;
+        right: 12px;
+        bottom: 8px;
+      }
+
+    }
+
+     & .mssg_sr_toggle{
+      background: $fb;
+      animation: pro_active 0.1s ease-in-out;
+    }
+
+  }
+
+  & .mssg_right {
+    width: 475px;
+    height: 565px;
+
+    & .spinner {
+      left: 650px;
+      top: 150px;
+    }
+
+    // CONVERSATION
+    & .mssg_messages {
+      height: 565px;
+      position: fixed;
+      z-index: 2;
+      border: 1px solid $header_border;
+      border-radius: 3px;
+      background: $ff;
+      width: 473px;
+      top: 62px;
+      border-bottom: none;
+
+      & .m_m_top{
+        background: #f6f7f9;
+        height: 35px;
+        padding: 10px;
+        position: relative;
+        border-bottom: 1px solid #edf0f5;
+
+        & img.con_with_avatar {
+          height: 35px;
+          width: 35px;
+          border-radius: 50%;
+        }
+
+        & .m_m_t_c{
+          display: inline-block;
+          position: relative;
+          top: -3px;
+          margin-left: 5px;
+          width: 82%;
+
+          & .con_name{
+            position: relative;
+            font-size: 14px;
+            font-weight: 600;
+            color: $dark;
+            outline: none;
+            height: 19px;
+            overflow: hidden;
+
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+
+          & .m_m_t_useless {
+            display: block;
+            color: $d_light;
+          }
+
+        }
+
+        & .m_m_exp {
+          display: inline-block;
+          height: 24px;
+          position: absolute;
+          right: 13px;
+          top: 13px;
+          border-radius: 2px;
+          padding: 1px;
+          cursor: pointer;
+          color: $d_light;
+          border: 1px solid #f6f7f9;
+
+          &:hover{
+            background: #e6f9f9;
+            border: 1px solid $ee;
+            color: $dark;
+          }
+        }
+
+        & .mssg_options{
+          left: 299px;
+          top: 55px;
+
+          & ul li a,
+          & ul li label{
+            width: 132px !important;
+            cursor: pointer;
+          }
+
+          &::before{
+            content: "";
+            background: $ff;
+            width: 11px;
+            height: 11px;
+            top: -6px;
+            position: absolute;
+            border-top: 1px solid #DCDFE1;
+            transform: rotate(45deg);
+            border-left: 1px solid #DCDFE1;
+            right: 9px;
+            z-index: -1;
+          }
+        }
+
+      }
+
+      & .m_m_wrapper {
+        position: relative;
+        padding-bottom: 10px;
+
+        & .m_m_main {
+          position: relative;
+          padding: 10px 15px 0px 10px;
+
+          // MESSAGE
+          & .m_m_divs {
+            width: 100%;
+            display: inline-block;
+            margin-bottom: 13px;
+
+            & .m_m {
+              padding: 10px;
+              display: inline-block;
+              font-size: 14px;
+              border-radius: 5px;
+              position: relative;
+              cursor: pointer;
+              outline: none;
+
+              & .m_m_img{
+                width: 200px;
+              }
+
+              & .m_m_sticker {
+                width: 64px;
+              }
+
+            }
+
+            & .mssg_sr_toggle{
+              background: $fb;
+              animation: pro_active 0.1s ease-in-out;
+            }
+
+            & .m_m_time {
+              display: block;
+              font-size: 12px;
+              color: #aab8c2;
+              margin-left: 12px;
+              margin-top: 1px;
+              margin-right: 12px;
+            }
+
+            & .m_m_tools {
+              margin-top: 3px;
+
+              & > div > span {
+                display: inline-block;
+                height: 17px;
+                color: #aab8c2;
+                margin-right: 4px;
+                cursor: pointer;
+
+                &:first-of-type{
+                  margin-left: 10px;
+                }
+
+                &:hover{
+                  color: $d_light;
+                }
+
+                & i{
+                  font-size: 17px;
+                }
+
+              }
+
+            }
+
+          }
+
+          & .my_mm_div {
+            text-align: right;
+
+            & .m_m {
+              background: #1da1f2;
+              color: $ff;
+              text-align: left;
+              margin-right: 10px;
+
+              &::after {
+                content: "";
+                width: 12px;
+                height: 12px;
+                position: absolute;
+                background: #1da1f2;
+                border: 1px solid #1da1f2;
+                right: -7px;
+                top: 11px;
+                transform: rotate(45deg);
+              }
+
+              & .hashtag {
+                color: $ff;
+              }
+            }
+
+          }
+
+          & .not_my_mm_div {
+            text-align: left;
+
+            & .m_m {
+              background: #EFF3F6;
+              margin-left: 8px;
+              text-align: left;
+
+              &::before {
+                content: "";
+                width: 13px;
+                height: 13px;
+                position: absolute;
+                background: #EFF3F6;
+                border: 1px solid #EFF3F6;
+                left: -8px;
+                top: 11px;
+                transform: rotate(45deg);
+              }
+            }
+
+          }
+
+          & .mssg_end {
+            display: block;
+            width: 100%;
+            height: 1px;
+          }
+
+        }
+
+      }
+
+      & .m_m_bottom {
+        padding: 10px 8px 8px 10px;
+        background: #f6f7f9;
+        border: 1px solid #eee;
+
+        & textarea {
+          width: 96%;
+          padding: 7px;
+          height: 35px;
+          margin-bottom: 2px;
+        }
+
+        & input[type='submit'] {
+          padding: 7px 12px;
+          font-size: 14px;
+          position: relative;
+          left: 390px;
+        }
+
+        & .mssg_emoji_btn {
+          position: absolute;
+          color: #aab8c2;
+          display: inline-block;
+          right: 80px;
+          bottom: 15px;
+          height: 22px;
+          cursor: pointer;
+
+          &:hover {
+            color: $d_light;
+          }
+
+          & i {
+            font-size: 22px;
+          }
+        }
+
+      }
+
+    }
+
+    // ABOUT CONVERSATION
+    .about_con {
+      padding: 10px;
+
+      & > div{
+        margin-top: 20px;
+      }
+
+      & .sli_label{
+        display: block;
+        color: $d_light;
+      }
+
+      & .sli_bold{
+        font-weight: 600;
+      }
+
+      & .sli_with_div {
+        margin-top: 0px;
+
+        & .sli_with{
+          margin-top: 5px;
+
+          & img{
+            width: 40px;
+            display: inline-block;
+            border-radius: 50%;
+          }
+
+          & .sli_with_cont{
+            display: inline-block;
+            position: relative;
+            top: -5px;
+            width: 87%;
+            margin-left: 6px;
+
+            & > a{
+              font-weight: 600;
+              color: $dark;
+
+              &:hover {
+                text-decoration: underline;
+              }
+            }
+
+            & span.sli_w{
+              display: block;
+              font-size: 13px;
+              position: relative;
+              top: -3px;
+            }
+
+          }
+
+        }
+      }
+
+      & .sli_media{
+        margin-bottom: 20px;
+
+        & span{
+          margin-bottom: 4px;
+        }
+
+        & .sli_media_img{
+          width: 120px;
+          height: 120px;
+          border-radius: 3px;
+          margin-right: 5px;
+          margin-bottom: 5px;
+          cursor: pointer;
+
+          &:hover{
+            transform: scale(1.03);
+          }
+        }
+
+      }
+
+    }
+
+  }
+
+}

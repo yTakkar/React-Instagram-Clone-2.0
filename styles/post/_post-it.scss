@@ -1,0 +1,245 @@
+// POST IT
+.post{
+  position: fixed;
+  top: 50%;
+  left: 42%;
+  transform: translate(-50%, -50%);
+  background: $ff;
+  width: 400px;
+  border-radius: 3px;
+  z-index: 3;
+  transition: all .1s ease-in-out;
+
+  & .add_filters{
+    position: absolute !important;
+    background: $ff;
+    right: -239px;
+    width: 218px !important;
+    z-index: 3;
+    padding: 10px;
+    border-top-right-radius: 2px;
+    height: 409px;
+    border-bottom-right-radius: 2px;
+
+    & .add_filters_main{
+      margin-top: 10px;
+      margin-left: 10px;
+
+      & .filter_div{
+        display: inline-block;
+        padding: 10px;
+        margin-right: 7px;
+        margin-bottom: 8px;
+        border-radius: 2px;
+        text-align: center;
+        cursor: pointer;
+        border: 1px solid $ff;
+
+        &:hover {
+          border: 1px solid #f5f5f5;
+        }
+
+        &:nth-of-type(2n){
+          margin-right: 0px;
+        }
+
+        & img{
+          width: 80px;
+        }
+
+        & span{
+          display: block;
+          font-weight: 600;
+        }
+
+      }
+
+    }
+
+  }
+
+  & .p_top{
+    padding: 7px;
+    background: $third-border;
+    height: 35px;
+    border-bottom: 1px solid $ee;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+
+    & .p_info{
+      position: relative;
+      display: inline-block;
+      width: 93%;
+      height: 35px;
+
+      & span{
+        position: relative;
+        font-size: 14px;
+        top: -38%;
+        margin-left: 5px;
+        display: inline-block;
+        font-weight: 600;
+      }
+
+      & img{
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        display: inline-block;
+      }
+
+    }
+
+    & .loc_text{
+      position: absolute;
+      right: 14px;
+      top: 14px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+  }
+
+  & .p_main{
+    margin-top: 10px;
+    margin-bottom: 4px;
+
+    & textarea{
+      width: 92%;
+      height: 66px !important;
+      font-size: 14px;
+      word-break: break-word;
+      padding: 7px;
+      border: 1px solid $ff;
+      border-radius: 2px;
+      margin-left: 7px;
+    }
+
+    & .i_p_img{
+      margin-top: 10px;
+      height: 200px;
+
+      & img{
+        position: relative;
+        left: 10px;
+        max-height: 200px;
+        max-width: 380px;
+      }
+    }
+
+    & label {
+      position: relative;
+      top: 140px;
+      left: 126px;
+      padding: 6px 18px;
+      font-size: 14px;
+    }
+
+  }
+
+  & .search_followings {
+    font-size: 13px;
+
+    & .p_add_taggings {
+      padding: 0 5px;
+      width: 391px;
+
+      & input[type='text'] {
+        width: 94%;
+        font-size: 13px;
+      }
+
+    }
+
+    & .p_tagging_list {
+      left: 5px;
+      font-size: 13px;
+      max-height: 145px;
+    }
+
+  }
+
+  & .p_tagging{
+    margin-top: 6px;
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 4px;
+
+    & .p_taggings{
+      background: $fb;
+      border: 1px solid $ee;
+      padding: 3.5px 7px;
+      border-radius: 2px;
+      margin-left: 5px;
+      margin-bottom: 5px;
+      font-weight: 600;
+      cursor: no-drop;
+      color: $d_light;
+
+      &:hover{
+        background: lightslategray;
+        color: $ff;
+        border: 1px solid lightslategray;
+      }
+    }
+
+  }
+
+  & .p_bottom{
+    padding: 8px 5px 8px 5px;
+    margin-top: 6px;
+    border-top: 1px solid $ee;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    display: flex;
+    justify-content: space-between;
+    // margin-top: 10px;
+
+    & .p_tag{
+      position: relative;
+      width: 100px;
+
+      & span{
+        position: relative;
+        display: inline-block;
+        padding: 2px;
+        height: 24px;
+        border-radius: 2px;
+        cursor: pointer;
+        border: 1px solid $ff;
+        margin-right: 5px;
+
+        &:hover{
+          background: $second_border;
+          border: 1px solid $ee;
+        }
+
+        &:last-of-type{
+          margin-right: 0px;
+        }
+      }
+
+      & .p_span_toggle{
+        background: $second_border;
+        border: 1px solid $ee;
+      }
+
+    }
+
+    & .p_act{
+      position: relative;
+
+      & a{
+        padding: 5px 18px;
+        font-weight: 600;
+        display: inline-block;
+        margin-right: 5px;
+      }
+
+    }
+
+  }
+
+}

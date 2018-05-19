@@ -1,0 +1,62 @@
+// IMAGE THEATRE
+.image_show{
+  position: fixed;
+  top: 50%;
+  z-index: 3;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 500px;
+
+  & .img_s_img{
+    height: 610px;
+    position: relative;
+    text-align: center;
+
+    & img{
+      max-height: 530px;
+      max-width: 530px;
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+  }
+
+  & .img_s_bottom{
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    color: $ff;
+    width: 100%;
+    background: $oo;
+    display: inline-block;
+    text-align: center;
+    padding: 10px 0px;
+    border-radius: 3px;
+
+    & span{
+      display: inline-block;
+      text-align: center;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    & a{
+      display: inline-block;
+      color: $ff;
+      bottom: 7px;
+      cursor: pointer;
+      right: 7px;
+      position: absolute;
+      height: 24px;
+      color: $ff;
+
+      & i{
+        position: relative;
+      }
+
+    }
+
+  }
+
+}

@@ -9,12 +9,18 @@ const variables = (req, res, next) => {
 }
 
 /** FOR LOGGED IN USERS ONLY */
-const LoggedIn = (req, res, next) =>
-  !req.session.id ? res.redirect('/login'): next()
+const LoggedIn = (req, res, next) => {
+  !req.session.id
+    ? res.redirect('/login')
+    : next()
+}
 
 /** FOR NOT-LOGGED IN USERS ONLY */
-const NotLoggedIn = (req, res, next) =>
-  req.session.id ? res.redirect('/'): next()
+const NotLoggedIn = (req, res, next) => {
+  req.session.id
+    ? res.redirect('/')
+    : next()
+}
 
 module.exports = {
   variables,

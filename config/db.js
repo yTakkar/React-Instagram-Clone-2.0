@@ -1,3 +1,8 @@
+/**
+ * @author Faiyaz Shaikh <www.shtakkar@gmail.com>
+ * GitHub repo: https://github.com/yTakkar/React-Instagram-Clone-2.0
+ */
+
 // HANDY FUNCTIONS FOR MYSQL
 
 const db = require('./mysql')
@@ -14,19 +19,6 @@ const query = (q, data) => {
       err ? reject(err) : resolve(res)
     )
   })
-}
-
-/**
- * Returns [what] of user ID
- *
- * eq. getWhat('username', id) => id's username
- *
- * @param {String} what Eq. Username
- * @param {String} id ID to be used to return [what]
- */
-const getWhat = async (what, id) => {
-  let s = await query(`SELECT ${what} FROM users WHERE id=? LIMIT 1`, [id])
-  return s[0][what]
 }
 
 /**
@@ -74,10 +66,21 @@ const toHashtag = async (str, user, post) => {
 const tf = value =>
   value == 1 ? true : false
 
+/**
+ * Function for outputting error created by try-catch block on express routes
+ *
+ * @param {Error} error Error object
+ * @param {Object} res Response object
+ */
+const catchError = (error, res) => {
+  console.log(error)
+  res.json({ mssg: 'An error occured!!' })
+}
+
 module.exports = {
-  getWhat,
   query,
   c_validator,
   toHashtag,
   tf,
+  catchError
 }

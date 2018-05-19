@@ -20,7 +20,7 @@ const
 
 const getId = async username => {
   let s = await db.query('SELECT id FROM users WHERE username=? LIMIT 1', [username])
-  return s[0].id
+  return s ? s[0].id : null
 }
 
 /**
@@ -114,7 +114,10 @@ const deactivate = async (user, req, res) => {
   let
     posts = await db.query('SELECT post_id FROM posts WHERE user=?', [ user ]),
     groups = await db.query('SELECT group_id FROM groups WHERE admin=?', [ user ]),
-    cons = await db.query('SELECT con_id FROM conversations WHERE user_one=? OR user_two=?', [ user, user ]),
+    cons = await db.query(
+      'SELECT con_id FROM conversations WHERE user_one=? OR user_two=?',
+      [ user, user ]
+    ),
     dltDir = promisify(rmdir),
     QLusers = JSON.parse(req.cookies.users),
     filtered = QLusers.filter(u => u.id != user )
@@ -132,7 +135,10 @@ const deactivate = async (user, req, res) => {
   groups.map(async g => {
     await deleteGroup(g.group_id)
   })
-  await db.query('DELETE FROM group_members WHERE member=? OR added_by=?', [ user, user ])
+  await db.query(
+    'DELETE FROM group_members WHERE member=? OR added_by=?',
+    [ user, user ]
+  )
 
   // DELETE ALL CONVERSATIONS
   cons.map(async c => {
@@ -142,7 +148,10 @@ const deactivate = async (user, req, res) => {
   await db.query('DELETE FROM tags WHERE user=?', [ user ])
   await db.query('DELETE FROM favourites WHERE fav_by=? OR user=?', [ user, user ])
   await db.query('DELETE FROM follow_system WHERE follow_by=? OR follow_to=?', [ user, user ])
-  await db.query('DELETE FROM notifications WHERE notify_by=? OR notify_to=? OR user=?', [ user, user, user ])
+  await db.query(
+    'DELETE FROM notifications WHERE notify_by=? OR notify_to=? OR user=?',
+    [ user, user, user ]
+  )
   await db.query('DELETE FROM profile_views WHERE view_by=? OR view_to=?', [ user, user ])
   await db.query(
     'DELETE FROM recommendations WHERE recommend_by=? OR recommend_to=? OR recommend_of=?',
@@ -150,8 +159,8 @@ const deactivate = async (user, req, res) => {
   )
   await db.query('DELETE FROM hashtags WHERE user=?', [ user ])
 
-  DeleteAllOfFolder(`${root}/public/users/${user}/`)
-  await dltDir(`${root}/public/users/${user}`)
+  DeleteAllOfFolder(`${root}/dist/users/${user}/`)
+  await dltDir(`${root}/dist/users/${user}`)
 
   await db.query('DELETE FROM users WHERE id=?', [ user ])
 
@@ -175,7 +184,9 @@ const mutualUsers = async (session, user) => {
       'SELECT follow_system.follow_id, follow_system.follow_by AS user, follow_system.follow_by_username AS username, users.firstname, users.surname FROM follow_system, users WHERE follow_system.follow_to=? AND follow_system.follow_by = users.id',
       [ user ]
     ),
-    mutuals = intersectionBy(myFollowings, userFollowers, 'user')
+    mutuals = intersectionBy(
+      myFollowings, userFollowers, 'user'
+    )
 
   return mutuals
 }

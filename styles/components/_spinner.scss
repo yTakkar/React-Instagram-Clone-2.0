@@ -1,0 +1,38 @@
+// SPINNER
+.spinner {
+  width: 0px;
+  height: 0px;
+  background: $ee;
+  border-radius: 50%;
+  position: absolute;
+  display: inline-block;
+  left: 177px;
+  top: 20px;
+
+  & span{
+    display: block;
+    height: 10px;
+    width: 10px;
+    background: #ddd;
+    border-radius: 50%;
+    position: absolute;
+    top: 0px;
+    transition: all .1s ease-in-out;
+
+    &:nth-child(1){
+      left: -18px;
+      animation: bounce 1s ease-in-out infinite;
+    }
+
+    &:nth-child(2){
+      animation: bounce 1s ease-in-out 0.33s infinite;
+    }
+
+    &:nth-child(3){
+      left: 18px;
+      animation: bounce 1s ease-in-out 0.66s infinite;
+    }
+
+  }
+
+}

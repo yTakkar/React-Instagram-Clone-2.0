@@ -1,0 +1,94 @@
+// components
+@import 'sidebar';
+@import 'header';
+@import 'modal';
+@import 'avatars';
+@import 'prompt';
+@import 'emoji';
+@import 'stickers';
+@import 'spinner';
+@import 'search';
+@import 'search-followings';
+@import 'image-show';
+@import 'suggested';
+@import 'mutuals';
+@import 'noti-speak';
+@import 'multiple_el';
+
+// OTHER COMPOENTS
+
+// NOTHING COMPONENT
+.home_last_mssg{
+  position: relative;
+  border-radius: 4px;
+  background:$ff;
+  border: 1px solid $header_border;
+  font-size: 14px;
+  text-align: center;
+  padding: 10px;
+  cursor: default;
+
+  & img{
+    position: relative;
+    text-align: center;
+    width: 150px;
+    /*margin-bottom: 10px;*/
+    display: block;
+    left: 48%;
+    transform: translate(-50%);
+  }
+
+  & span{
+    position: relative;
+    text-align: center;
+    display: block;
+    left: -5px;
+    /*top: -5px;*/
+  }
+
+}
+
+// PAGE LOADING
+.page_loading {
+  position: relative;
+  top: 215px;
+  left: 275px;
+}
+
+// PAGE END
+.page_end{
+  padding: 10px;
+  text-align: center;
+  font-size: 14px;
+  margin-top: 10px;
+  color: $d_light;
+  cursor: pointer;
+  border-radius: 3px;
+  border: 1px solid $fb;
+
+  &:hover{
+    border: 1px solid $ee;
+  }
+}
+
+// RECOMMENDATION TEASER
+.recomm_teaser{
+  @include inst;
+  padding: 10px;
+  margin-top: 8px;
+  text-align: right;
+
+  & span{
+    font-size: 14px;
+    display: block;
+    text-align: left;
+  }
+
+  & a{
+    padding: 4px 10px;
+    font-weight: 600;
+    display: inline-block;
+    margin-top: 10px;
+  }
+
+}

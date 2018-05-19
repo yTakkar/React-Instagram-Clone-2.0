@@ -1,0 +1,481 @@
+// POSTS
+.posts{
+  position: relative;
+  margin-top: 10px;
+  padding: 12px 10px 10px 10px;
+  @include inst;
+
+  & .post_share_info {
+    border-bottom: 1px solid $ee;
+    padding: 0px 0px 8px 0px;
+    position: relative;
+    top: -3px;
+    margin-bottom: 10px;
+    font-size: 13px;
+    color: $d_light;
+
+    & a{
+      color: $dark;
+      font-weight: bold;
+      font-size: 14px;
+      margin-left: 2px;
+
+      &:hover{
+        text-decoration: underline;
+      }
+    }
+
+    & span:last-of-type{
+      position: absolute;
+      right: 0px;
+      color: $d_light;
+    }
+
+  }
+
+  & .p_i{
+    display: flex;
+
+    & .p_i_img{
+      float: left;
+
+      & > img{
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+      }
+    }
+
+    & .p_i_1 {
+      float: left;
+      width: 80%;
+      position: relative;
+      left: 8px;
+
+      &::after{
+        content: "";
+        clear: both;
+        display: block;
+      }
+
+      & > a, & .to_grp_name {
+        font-size: 14px;
+        color: $dark;
+        outline: none;
+        font-weight: 600;
+        cursor: pointer;
+
+        &:hover{
+          text-decoration: underline;
+        }
+
+        &:focus{
+          text-decoration: underline;
+        }
+      }
+
+      & span{
+        font-size: 13px;
+        color: $d_light;
+        position: relative;
+        margin-top: 2px;
+      }
+
+      & .p_i_1_title {
+        display: block;
+      }
+
+      & .its_grp_post {
+        display: inline-block;
+
+        & .to_grp_arrow {
+          display: inline-block !important;
+          height: 22px !important;
+          margin: 0px !important;
+          top: 8px !important;
+          margin-left: -2px !important;
+          transform: rotate(90deg);
+        }
+      }
+
+
+    }
+
+    & .p_i_2{
+      position: absolute;
+      right: 10px;
+      color: $d_light;
+      display: flex;
+
+      & .p_time{
+        position: relative;
+        margin-right: 10px;
+        margin-top: 1px;
+      }
+
+      & div.p_h_opt{
+
+        & .exp_p_menu{
+          position: relative;
+          display: inline-block;
+          height: 26px;
+          border-radius: 2px;
+          cursor: pointer;
+        }
+
+      }
+
+    }
+
+    & .p_options{
+      top: 48px;
+      right: 7px;
+      position: absolute;
+      z-index: 2;
+
+      &::before{
+        content: "";
+        background: $ff;
+        width: 11px;
+        height: 11px;
+        top: -6px;
+        position: absolute;
+        border-top: 1px solid #DCDFE1;
+        transform: rotate(45deg);
+        border-left: 1px solid #DCDFE1;
+        right: 9px;
+        z-index: -1;
+      }
+
+      & a{
+        font-size: 13px;
+        padding: 4px 10px;
+      }
+
+    }
+
+
+
+  }
+
+  & .p_o {
+    margin-top: 12px;
+
+    & .p_actual {
+      position: relative;
+
+      & .p_abt {
+        word-break: break-word;
+        width: 97%;
+        font-size: 14px;
+      }
+
+      & .p_img{
+        max-width: 468px;
+        cursor: pointer;
+      }
+
+      & .p_tag_icon {
+        display: inline-block;
+        position: absolute;
+        bottom: 8px;
+        height: 28px;
+        left: 4px;
+        color: $oo;
+        background: $ff;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: all .02s ease-in-out;
+
+        &:hover {
+          transform: scale(1.1, 1.1);
+        }
+
+        & i {
+          font-size: 28px;
+        }
+      }
+
+    }
+
+  }
+
+  & hr{
+    margin-top: 7px;
+    border-top: 1px solid #f5eded;
+
+    &.img_d_hr{
+      margin-top: 12px !important;
+    }
+
+  }
+
+  & .p_a{
+    position: relative;
+    margin-top: 10px;
+    display: flex;
+
+    & .p_do{
+      float: left;
+
+      & > div{
+        color: $d_light;
+        position: relative;
+        margin-right: 9px;
+        display: inline-block;
+
+        & > span{
+          color: $d_light;
+          position: relative;
+          display: inline-block;
+          cursor: pointer;
+
+          &:hover {
+            color: $dark;
+            transform: scale(1.1);
+          }
+        }
+
+        &.overlay {
+          position: fixed;
+        }
+
+      }
+
+    }
+
+    & .p_did{
+      float: left;
+      position: absolute;
+      right: 0px;
+
+      &::after{
+        content: "";
+        clear: both;
+        display: block;
+      }
+
+      & > span{
+        background: $second_border;
+        padding: 5px 10px;
+        text-align: center;
+        line-height: 2;
+        color: $d_light;
+        border-radius: 3px;
+        cursor: pointer;
+        margin-left: 7px;
+
+        &:hover{
+          background: $fb;
+          padding: 4px 9px;
+          border: 1px solid $ee;
+        }
+
+      }
+
+    }
+
+
+  }
+
+  & .p_comments{
+    position: relative;
+    display: block;
+    margin-top: 10px;
+    border-radius: 3px;
+    padding: 5px;
+    color: $d_light;
+    text-align: center;
+    border: 1px solid $ee;
+    cursor: pointer;
+
+    &:hover{
+      background: $fb;
+      border: 1px solid $ee;
+    }
+
+  }
+
+  & .p_cit{
+    display: inline-block;
+    position: relative;
+    margin-top: 12px;
+    width: 100%;
+    color: $d_light;
+    display: flex;
+
+    & .p_cit_img{
+      position: relative;
+      height: 40px;
+
+      & img{
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        position: relative;
+      }
+    }
+
+    & .p_cit_main{
+      display: flex;
+      position: relative;
+      width: 100%;
+      border: 1px solid $ee;
+      margin-left: 7px;
+      padding: 5px 5px 5px 8px;
+      border-radius: 2px;
+
+      & .p_cit_teaser {
+        cursor: text;
+        width: 87%;
+      }
+
+      & .p_cit_tool {
+        position: absolute;
+        display: flex;
+        top: 7px;
+        right: 3px;
+
+        & span, & label {
+          display: inline-block;
+          height: 24px;
+          cursor: pointer;
+
+          & i {
+            font-size: 22px;
+          }
+
+        }
+
+        & .modal_header span.title {
+          display: initial;
+        }
+
+        & .spinner span {
+          height: 10px !important;
+        }
+
+      }
+
+    }
+
+  }
+
+  // comments
+  & .comments_div{
+    margin-top: 10px;
+    position: relative;
+
+    & .comments{
+      margin-top: 12px;
+      position: relative;
+
+      & .comments_avatar{
+        width: 30px;
+        float: left;
+        border-radius: 2px;
+      }
+
+      & .comments_content{
+        position: relative;
+        display: inline-block;
+        width: 90%;
+        margin-left: 5px;
+
+        & a.comments_user{
+          color: $dark;
+          font-weight: 600;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+
+        & p{
+          display: block;
+          word-wrap: break-word;
+        }
+
+        & .comments_img{
+          display: block;
+          width: 200px;
+          position: relative;
+          margin-top: 3px;
+          cursor: pointer;
+        }
+
+        & .comments_sticker{
+          display: block;
+          width: 64px;
+          position: relative;
+          margin-top: 3px;
+        }
+
+        & .comments_bottom {
+          margin-top: 5px;
+
+          & .comments_time{
+            margin-bottom: 5px;
+            color: $d_light;
+            font-size: 13px;
+          }
+        }
+
+        & .toggle_options {
+          position: absolute;
+          display: inline-block;
+          right: 0px;
+          top: 0px;
+          color: $d_light;
+          height: 17px;
+          padding: 3px;
+          cursor: pointer;
+
+          &:hover {
+            color: $dark;
+          }
+
+          & i {
+            font-size: 17px;
+          }
+        }
+
+        & .options {
+          right: -4px;
+          top: 30px;
+          z-index: 2;
+
+          &::before {
+            content: "";
+            background: #fff;
+            width: 11px;
+            height: 11px;
+            top: -6px;
+            position: absolute;
+            border-top: 1px solid #DCDFE1;
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+            border-left: 1px solid #DCDFE1;
+            right: 9px;
+            z-index: -1;
+          }
+        }
+
+      }
+
+    }
+
+    & .my_comment::before{
+      content: "";
+      width: 2px;
+      height: 31px;
+      position: absolute;
+      background: blue;
+      left: -10px;
+      top: 0px;
+    }
+
+  }
+
+}

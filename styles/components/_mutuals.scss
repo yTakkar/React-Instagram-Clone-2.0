@@ -1,0 +1,70 @@
+
+// MUTUAL FOLLOWERS
+.mutuals{
+  margin-bottom: 10px;
+  position: relative;
+  @include inst;
+
+  & .mutual_info{
+    @include header;
+
+    & span{
+      color: $dark;
+      font-size: 14px;
+    }
+
+    & a{
+      position: absolute;
+      right: 10px;
+      font-size: 14px;
+      color: lightslategrey;
+
+      &:hover{
+        color: $dark;
+      }
+    }
+
+  }
+
+  & .mutual_main{
+    padding: 10px;
+
+    & .mutual_links{
+      display: inline-block;
+      height: 47px;
+      margin-right: 9px;
+      margin-bottom: 9px;
+    }
+
+    & img{
+      width: 48px;
+      height: 48px;
+      border-radius: 3px;
+    }
+
+    & a.mutual_links:nth-of-type(5n){
+      margin-right: 0px;
+    }
+
+    & .bd_bottom {
+      text-align: right;
+      margin-top: 5px;
+
+      & a {
+        padding: 4px 10px;
+        display: inline-block;
+      }
+
+    }
+
+  }
+
+}
+
+.no_such_mutual {
+  @include inst;
+  padding: 10px;
+  font-size: 14px;
+  text-align: center;
+  margin-bottom: 10px;
+}

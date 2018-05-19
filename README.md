@@ -70,15 +70,18 @@ Here's a video which will take you on a tour of this project!!
 - [x] JSDoc & comments
 - [x] Admin system
 - [x] Show if member is online
-- [x] Show all online members(whome you've followed)
+- [x] Show all online members (whome you've followed)
 - [x] Description with react-helmet for SEO
-- [ ] Likes comments
+- [x] Some serious code refactoring
+- [x] Crush some bugs
+- [x] Don't need jQuery
+- [ ] UI Components testing
+- [ ] Express routes testing
+- [ ] Like comments
+- [ ] Upgrade to React v16.3.0
 - [ ] Story feature
-- [ ] Catch errors more effeciently
-- [ ] Upload video
-- [ ] Upload multiple
-- [ ] Show mutual likes, comments & shares count
-- [ ] Cache files, icons & fonts with ServiceWorker API
+- [ ] Upload multiple photos
+- [ ] Show mutual likes, comments & shares
 
 # Contribute
 Show your support by 🌟 the project!!
@@ -86,6 +89,6 @@ Show your support by 🌟 the project!!
 Feel free to contribute!
 
 # Image Copyright Claims
-Many images used in the project belong to their respective creators/authors. No claim by me & those who use this project!!
+Many images used in the project belong to their respective creators/authors. No claim by me & those who use this project. :)
 
 **Thanks for reading**

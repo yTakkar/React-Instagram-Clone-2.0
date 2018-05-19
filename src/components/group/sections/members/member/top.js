@@ -1,0 +1,51 @@
+import React from 'react'
+import { Me, humanReadable } from '../../../../../utils/utils'
+import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
+
+const MemberTop = ({ memberDetails, gd }) => {
+  let {
+    member, username, firstname, surname, mutualUsersCount
+  } = memberDetails
+  let { admin } = gd
+
+  return (
+    <div className='m_top'>
+      <img src={`/users/${member}/avatar.jpg`} />
+      <div className='m_top_right'>
+        <Link to={`/profile/${username}`} >{username}</Link>
+        {
+          member == admin
+            ? <span className='grp_admin'>admin</span>
+            : null
+        }
+        <span>
+          {
+            !Me(member)
+              ? mutualUsersCount == 0
+                ? `${firstname} ${surname}`
+                : humanReadable(mutualUsersCount, 'mutual follower')
+              : `${firstname} ${surname}`
+          }
+        </span>
+      </div>
+    </div>
+  )
+}
+
+MemberTop.propTypes = {
+  memberDetails: PropTypes.shape({
+    member: PropTypes.number.isRequired,
+    username: PropTypes.string.isRequired,
+    firstname: PropTypes.string.isRequired,
+    surname: PropTypes.string.isRequired,
+    mutualUsersCount: PropTypes.number.isRequired
+  }).isRequired
+}
+
+const mapStateToProps = state => (
+  { gd: state.Group.group_details }
+)
+
+export default connect(mapStateToProps)(MemberTop)

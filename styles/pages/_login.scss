@@ -1,0 +1,394 @@
+.index_header{
+  width: 100%;
+  height: 50px;
+  position: fixed;
+  z-index: 1;
+  top: 0px;
+
+  & .header_logo {
+    float: left;
+    position: absolute;
+    left: 5%;
+    top: 16px;
+    cursor: pointer;
+
+    & > img{
+      position: absolute;
+      width: 35px;
+      top: -2px;
+      right: 125px;
+    }
+
+    & > hr{
+      border: 0;
+      position: absolute;
+      border-left: 1px solid #000;
+      height: 35px;
+      left: 42px;
+      top: -2px;
+    }
+
+    & > span{
+      font-size: 27px;
+      margin-left: 40px;
+      font-family: 'Satisfy', cursive;
+      font-weight: bold;
+      top: -3px;
+      position: relative;
+      left: 15px;
+    }
+
+  }
+
+  & .right{
+    float: right;
+    position: relative;
+    right: 70px;
+    top: 21px;
+
+    & a{
+      border: 1px solid $ee;
+      outline: none;
+      padding: 4px 16px;
+      border-radius: 3px;
+      font-size: 14px;
+      margin-right: 5px;
+      color: #3d464d;
+      background: $ff;
+
+      & a[href='help']{ margin-right: 0px; }
+
+      & .index_header > .right > a[href="about"]{ margin-right: 5px; }
+
+      &:hover{ background: $second_border; }
+
+      &:focus{ background: $second_border; }
+
+    }
+
+  }
+
+}
+
+.display_text {
+  text-align: center;
+	margin-bottom: 30px;
+
+	& > span{
+		font-size: 23px;
+		color: #0b867a;
+	}
+
+}
+
+.log_sign{
+  position: absolute;
+  right: 50px;
+  top: 88px;
+
+	& > a{
+		padding: 5px 18px;
+		border-radius: 4px;
+		font-size: 14px;
+	}
+
+}
+
+.cua{
+  width: 300px;
+  @include center;
+
+  & form > input{
+    display: block;
+    margin-bottom: 10px;
+    width: 92%;
+    padding: 9px 10px;
+    font-size: 14px;
+  }
+
+  & input[type='submit']{
+      width: 99.5%;
+  }
+
+  & .forgot_psswrd{
+    text-align: left;
+    margin-top: 10px;
+
+    & > a{
+      font-size: 13px;
+      position: relative;
+      top: -2px;
+    }
+
+  }
+
+}
+
+.show_psswrd{
+  position: absolute;
+  bottom: 97px;
+  right: 17px;
+  color: darkturquoise;
+  font-size: 16px;
+  cursor: pointer;
+
+  &:hover {
+    color: #0ab5b7;
+  }
+}
+
+// FORGOT PASSWORD
+.forgot_password {
+
+  & .display_text {
+    margin-bottom: 66px;
+  }
+
+  & .fp_span {
+    font-size: 15px;
+  }
+
+  & input[type='email'] {
+    padding: 8px;
+    width: 300px;
+    display: block;
+    margin-top: 10px;
+    font-size: 15px;
+  }
+
+  & input[type='submit'] {
+    display: inline-block;
+    padding: 7px 18px;
+    width: 130px;
+  }
+
+}
+
+// REGISTER PAGE
+.register {
+  & .small_input {
+    position: relative;
+    width: 123px;
+    display: inline-block;
+  }
+
+  & .s_firstname {
+    margin-right: 5px;
+  }
+
+  & .terms_div {
+    position: relative;
+    margin-bottom: 14px;
+
+    & input[type='checkbox']{
+      position: relative;
+      top: 3px;
+    }
+
+  }
+
+  & .s_p_l {
+    bottom: 81px;
+    right: 17px;
+  }
+
+  & .username_checker {
+    position: absolute;
+    right: -188px;
+    top: 96px;
+    padding: 8px;
+    border-radius: 3px;
+    border: 1px solid $ee;
+    background: $fb;
+    display: none;
+    width: 160px;
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: wheat;
+      transform: rotate(45deg);
+      left: -5px;
+      top: 12px;
+      background: $fb;
+      border-left: 1px solid $ee;
+      border-bottom: 1px solid $ee;
+    }
+
+    & > .checker_icon {
+      position: absolute;
+      margin-left: 4px;
+
+      & > i {
+        font-size: 18px;
+      }
+    }
+
+  }
+
+}
+
+// REGISTERED PAGE
+.registered{
+  position: absolute;
+  background: $ff;
+  padding: 20px;
+  width: 300px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 15px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 15px 0px $light_shadow;
+}
+
+// WELCOME AND ERROR PAGE
+.welcome_div{
+  @include center;
+  & img{
+    height: 300px;
+  }
+}
+
+// GITHUB STATS ON WELCOME PAGE
+.github-stats {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+}
+
+// QUICK LOGIN
+.quick_login{
+  position: absolute;
+  bottom: 20px;
+  right: 30px;
+
+  & .clear_all_ql{
+    display: block;
+    position: absolute;
+    width: 100%;
+    width: 153px;
+    right: 1px;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 5px 15px;
+    top: -45px;
+  }
+
+  & .q_l_div{
+    display: inline-block;
+    margin-left: 5px;
+    cursor: pointer;
+    transition: all .1s ease-in-out;
+
+    &:hover{
+      transform: translateY(-5px);
+    }
+
+    & img{
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+    }
+
+  }
+
+}
+
+// QUICK LOGIN MODAL
+.q_l_model{
+  background: #fff;
+  z-index: 3;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 15px;
+  border-radius: 3px;
+  width: 300px;
+  display: none;
+  transition: display .4s;
+
+  & .q_l_m_cancel_div{
+    text-align: right;
+
+    & .q_l_m_cancel{
+      display: inline-block;
+      cursor: pointer;
+      height: 24px;
+      border-radius: 2px;
+
+      &:hover{
+        background: #f7f5f5;
+      }
+    }
+
+  }
+
+  & .q_l_m_main{
+
+    & .q_l_m_img_div{
+      text-align: center;
+
+      & img{
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+      }
+
+      & .q_l_username{
+        font-weight: 600;
+        font-size: 15px;
+        display: block;
+        margin-top: 4px;
+      }
+
+    }
+
+    & .q_l_m_form{
+      margin-top: 21px;
+      text-align: center;
+
+      & #q_l_password{
+        display: block;
+        padding: 7px;
+        width: 94.4%;
+        font-size: 14px;
+      }
+
+      & input[type="submit"]{
+        padding: 7px 15px;
+        margin-top: 6px;
+        width: 100%;
+        font-size: 14px;
+      }
+
+      & .s_p_ql {
+        bottom: 82px;
+        right: 28px;
+      }
+
+      & .q_l_m_bottom{
+        margin-top: 4px;
+        text-align: left;
+
+        & .q_l_show_psswrd{
+          right: 25px;
+          top: 198px;
+        }
+      }
+
+    }
+
+    & .q_l_remove{
+      position: absolute;
+      top: 16px;
+      font-weight: 600;
+      padding: 3px 12px;
+    }
+
+  }
+
+}

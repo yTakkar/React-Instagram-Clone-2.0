@@ -1,0 +1,93 @@
+// SUGGESTED
+.recomm{
+  @include inst;
+
+  & .recomm_top{
+    @include header;
+    padding: 8px;
+
+    & span{
+      font-size: 15px;
+      margin-right: 155px;
+      margin-left: 5px;
+    }
+
+    & a{
+      margin-left: 5px;
+      font-size: 15px;
+      color: lightslategrey;
+
+      &.recomm_all{
+        margin-left: 12px;
+      }
+
+      &:hover{
+        color: $dark;
+      }
+
+    }
+
+  }
+
+  & .recomm_main{
+    margin-top: 7px;
+  }
+
+  & .spinner{
+    left: 641px !important;
+    top: 85px !important;
+  }
+
+  & .recomms{
+    height: 40px;
+    position: relative;
+    padding: 5px;
+    margin-bottom: 5px;
+
+    & img{
+      width: 40px;
+      height: 40px;
+      display: inline-block;
+      border-radius: 50%;
+    }
+
+    & .recomms_cont{
+      display: inline-block;
+      top: -6px;
+      position: relative;
+      margin-left: 5px;
+
+      & a{
+        font-weight: 600;
+        color: $dark;
+        font-size: 14px;
+
+        &:hover{
+          text-decoration: underline;
+        }
+
+      }
+
+      & span{
+        display: block;
+        color: $d_light;
+      }
+
+    }
+
+    & .recomms_ff{
+      display: inline-block;
+      position: absolute;
+      right: 11px;
+      top: 15px;
+
+      & a{
+        padding: 5px 15px;
+      }
+
+    }
+
+
+  }
+
+}

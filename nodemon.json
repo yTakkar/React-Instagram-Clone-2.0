@@ -1,3 +1,7 @@
 {
-  "ignore": ["public/*"]
+  "ignore": [
+    "src/*",
+    "dist/*",
+    "webpack.config.js"
+  ]
 }

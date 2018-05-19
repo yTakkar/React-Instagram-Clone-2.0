@@ -1,0 +1,236 @@
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+  border: 1px solid $ee;
+  border-radius: 4px;
+  font-family: $family;
+  color: #0b867a;
+  outline: none;
+  padding: 5px 5px;
+
+  &:disabled {
+    background: $fb;
+  }
+
+  &:focus {
+    border: 1px solid #56b4ef !important;
+    box-shadow: 0px 0px 5px 1px #c8def0;
+  }
+}
+
+input[type="submit"]::-moz-focus-inner,
+input[type="button"]::-moz-focus-inner{
+  padding: 0 !important;
+  border: 0 none !important;
+}
+
+textarea{
+  word-break: break-all;
+  font-size: 13px;
+}
+
+input[type="submit"],
+input[type="button"],
+.pri_btn{
+  font-weight: 600;
+  background: $pric;
+  border: 1px solid $pric; /*#3e91b3*/
+  color: $ff;;
+  border-radius: 3px;
+  cursor: pointer;
+  outline: none;
+
+  &:hover{ opacity: .9; }
+
+}
+
+input[type="submit"]:focus,
+input[type="button"]:focus,
+.pri_btn:focus{
+  background: #198bd0;
+}
+
+input[type="submit"]:disabled,
+input[type="button"]:disabled{
+  background: #6ab9e8 !important;
+  cursor: auto !important;
+
+  &:hover{ opacity: 1 !important; }
+
+}
+
+input[type="range"]{
+  outline: none;
+  -webkit-appearance: none;
+  width: 100%;
+  border-radius: 3px;
+  cursor: pointer;
+
+  &:focus{
+    outline: none;
+
+    &::-ms-thumb{
+      transform: scale(1.2);
+      -webkit-transform: scale(1.2);
+      -moz-transform: scale(1.2);
+    }
+
+  }
+
+  &::-webkit-slider-runnable-track{
+    width: 100%;
+    background: rgba(255,255,255,0.5);
+    background: $ff;
+    /*background: lightskyblue;*/
+    cursor: pointer;
+    border-radius: 3px;
+    box-shadow: 0px 0px 5px 0px $light_shadow;
+    height: 6px;
+  }
+
+  &::-webkit-slider-thumb{
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #4080ff;
+    box-shadow: 0px 0px 5px 0px $light_shadow;
+    margin-top: -5px;
+    margin-left: px;
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+    border: 1px solid #4080ff;
+  }
+
+  &:hover::-webkit-slider-thumb{
+    transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+  }
+
+  &::-moz-range-track{
+    width: 100%;
+    background: #fff;
+    /*background: lightskyblue;*/
+    cursor: pointer;
+    border-radius: 3px;
+    box-shadow: 0px 0px 5px 0px $light_shadow;
+    height: 6px;
+  }
+
+  &::-moz-range-thumb{
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 1px solid #4080ff;
+    background: #4080ff;
+    box-shadow: 0px 0px 5px 0px $light_shadow;
+    cursor: pointer;
+  }
+
+  &:hover::-moz-range-thumb{
+    transform: scale(1.2);
+    -moz-transform: scale(1.2);
+  }
+
+  &::-moz-focus-outer {
+    border: 0;
+  }
+
+  &::-ms-track{
+    width: 100%;
+    background: transparent;
+    border-color: transparent;
+    /*border-width: 10px 0px 10px 0px;*/
+    color: transparent;
+    height: 6px;
+    border-radius: 3px;
+    z-index: 2;
+    position: relative;
+    border: 1px solid;
+    /*border: 1px solid #ecf0f1;*/
+    /*margin-top: -10px;*/
+  }
+
+  &::-ms-fill-lower{
+    background: lightskyblue;
+    border-radius: 3px;
+  }
+
+  &::-ms-fill-upper{
+    background: #ecf0f1;
+    border-color: #ecf0f1 !important;
+    border-radius: 3px;
+  }
+
+  &::-ms-thumb{
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #4080ff;
+    box-shadow: 0px 0px 5px 0px $light_shadow;
+    margin-top: 0px;
+    cursor: pointer;
+    border: 1px solid #4080ff;
+  }
+
+}
+
+input[type="file"]{
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -2;
+}
+
+select{
+  font-size: 14px;
+  font-family: $family;
+  border-radius: 3px;
+  border: 1px solid $ee;
+  cursor: pointer;
+  outline: none;
+  /*-moz-appearance: none;*/
+  /*-webkit-appearance: none;*/
+
+  &:focus{
+    border-color: #56b4ef;
+    box-shadow: 0px 0px 5px 1px #c8def0;
+  }
+
+}
+
+.inst_checkbox{
+  display: none;
+
+  & + label:before{
+    content: "\f0c8";
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 400;
+  }
+
+  &:checked + label::before{
+    content: "\f14a";
+    color: #06a3e9;
+    animation: tick 1s ease-in;
+    font-weight: 900;
+  }
+
+  &:disabled + label{
+    color: #aaa;
+    cursor: auto !important;
+  }
+
+  &:disabled + label::before{
+    content: "\f0c8";
+    color: #ccc;
+  }
+
+}

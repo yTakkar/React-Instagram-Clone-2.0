@@ -3,7 +3,9 @@
 const
   mysql = require('mysql'),
   { error } = require('handy-log'),
-  { MYSQL_HOST, MYSQL_USER, MYSQL_PASSWORD, MYSQL_DATABASE } = process.env
+  {
+    MYSQL_HOST, MYSQL_USER, MYSQL_PASSWORD, MYSQL_DATABASE
+  } = process.env
 
 // CREATES A DB CONNECTION
 const db = mysql.createConnection({
@@ -16,7 +18,7 @@ const db = mysql.createConnection({
 
 // CONNECTS DB
 db.connect(err => {
-  if(err){
+  if (err) {
     error(err.message)
   }
 })

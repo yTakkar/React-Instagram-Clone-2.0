@@ -1,0 +1,155 @@
+// SIDEBAR
+.m_n_wrapper{
+  position: fixed;
+  top: 60px;
+  background: $fb;
+  left: 34px;
+  height: 88%;
+
+  & > .m_n {
+    & img {
+      width: 25px;
+      height: 25px;
+      position: absolute;
+      border-radius: 50%;
+      top: 8px;
+    }
+
+    & > ul > li > a{
+      display: block;
+      width: 170px;
+      font-size: 14px;
+      padding: 7px 13px;
+      color: #66757f;
+      border-radius: 2px;
+      margin-top: 2px;
+      position: relative;
+      outline: none;
+
+      &:hover{
+        background: #ebf4fd;
+        color: #1b2733;
+      }
+
+      &:focus{
+        background: #ebf4fd;
+        color: #1b2733;
+      }
+
+      & > span.m_n_text{
+        position: relative;
+      }
+
+      & > span.m_n_icon{
+        position: absolute;
+        top: 8px;
+
+        & > span.m_n_icon > i{
+          font-size: 23px;
+        }
+
+      }
+
+      & > span.m_n_new{
+        font-size: 13px;
+        position: absolute;
+        right: 12px;
+        background: #54BBFF;
+        color: $ff;
+        padding: 0px 6px;
+        border-radius: 50%;
+      }
+
+    }
+
+    & .sidebar_active{
+      background: #ebf4fd;
+      color: $dark;
+
+      &::before{
+        content: "";
+        width: 3px;
+        height: 33px;
+        position: absolute;
+        background: #0070e0;
+        z-index: 2;
+        left: 0px;
+        top: 0px;
+        border-top-left-radius: 1px;
+        border-bottom-left-radius: 1px;
+      }
+
+    }
+
+  }
+
+  & > .m_n_bottom{
+    position: fixed;
+    bottom: 20px;
+    width: 226px;
+    text-align: center;
+    display: inline-block;
+
+    & ul{
+      position: relative;
+      display: inline-block;
+
+      & li{
+        float: left;
+        margin-right: 30px;
+
+        &:last-of-type::after{
+          content: "";
+          display: block;
+          clear: both;
+        }
+
+      }
+
+    }
+
+    & a{
+      font-size: 14px;
+      color: #66757f;
+      outline: none;
+
+      & a:hover{
+        color: #1b2733;
+      }
+
+      & a:focus{
+        color: #1b2733;
+      }
+
+      &:last-of-type{
+        display: inline-block;
+      }
+
+    }
+
+  }
+
+  & .nav_options{
+    position: fixed;
+    left: 113px;
+    bottom: 65px;
+
+    &::after{
+      content: "";
+      position: absolute;
+      background: white;
+      width: 11px;
+      height: 10px;
+      bottom: -6px;
+      border-bottom: 1px solid #DCDFE1;
+      transform: rotate(45deg);
+      -webkit-transform: rotate(45deg);
+      -moz-transform: rotate(45deg);
+      border-right: 1px solid #DCDFE1;
+      right: 7px;
+      z-index: -1;
+    }
+
+  }
+
+}

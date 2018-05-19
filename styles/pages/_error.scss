@@ -1,0 +1,35 @@
+// ERROR
+.error_div{
+  width: 436px;
+  position: relative;
+  top: 60px;
+  left: 230px;
+
+  .error_info{
+    margin-bottom: 10px;
+    width: 100%;
+    & span{
+      font-size: 20px;
+    }
+  }
+
+  .error_bottom {
+    text-align: right;
+    margin-top: 3px;
+
+    & a{
+      display: inline-block;
+      padding: 4px 15px;
+      font-weight: 600;
+      font-size: 14px;
+
+      &:last-of-type{
+        margin-left: 5px;
+      }
+
+    }
+
+  }
+
+
+}

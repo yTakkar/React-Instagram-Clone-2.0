@@ -1,9 +1,9 @@
 const { join } = require('path')
 
 module.exports = {
-  entry: './public/js/src/main.js',
+  entry: './src/main.js',
   output: {
-    path: join(__dirname, '/public/js/dist/'),
+    path: join(__dirname, '/dist/js/'),
     filename: 'bundle.js'
   },
   mode: 'development',
@@ -27,6 +27,13 @@ module.exports = {
             'transform-react-jsx-source',
           ]
         }
+      },
+      {
+        test: /\.css$/,
+        loaders: [
+          'style-loader', 'css-loader'
+        ],
+        exclude: /node_modules/
       }
     ]
   },

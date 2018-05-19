@@ -1,0 +1,76 @@
+// SEARCH FOLLOWINGS
+.search_followings {
+  font-size: 14px;
+
+  & .p_add_taggings{
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    padding: 0px;
+
+    & input[type="text"]{
+      padding: 7px;
+      width: 100%;
+      border-radius: 2px;
+      margin-right: 2px;
+      font-size: 14px;
+    }
+  }
+
+  .p_tagging_list{
+    position: absolute;
+    background: $ff;
+    font-size: 14px;
+    width: 92%;
+    z-index: 3;
+    max-height: 200px;
+    overflow-y: scroll;
+    border: 1px solid $ee;
+    border-top: none;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    padding: 5px 7px;
+
+    &::-webkit-scrollbar{
+      display: none;
+    }
+
+    &::-moz-scrollbar{
+      display: none;
+    }
+
+    & .p_tagging_wrapper {
+      & li{
+        height: 30px;
+        padding: 5px;
+        cursor: pointer;
+        font-weight: 600;
+        border-radius: 2px;
+
+        &:last-of-type{
+          border-bottom: none;
+        }
+
+        &:hover{
+          background: #54BBFF;
+          color: $ff;
+        }
+
+        & img{
+          width: 30px;
+          height: 30px;
+        }
+
+        & span{
+          position: relative;
+          top: -11px;
+          margin-left: 5px;
+        }
+
+      }
+
+    }
+
+  }
+
+}

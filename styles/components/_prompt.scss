@@ -1,0 +1,86 @@
+// PROMPT
+.prompt{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  background: $ff;
+  width: 400px;
+  border-radius: 3px;
+  @include modal-shadow;
+
+  & .prompt-top{
+    padding: 10px 10px;
+    background: $third-border;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-bottom: 1px solid $ee;
+    text-align: initial;
+
+    & .prompt-title{
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    & span:last-of-type{
+      display: inline-block;
+      position: absolute;
+      right: 7px;
+      top: 7px;
+      padding: 2px;
+      color: $d_light;
+      height: 20px;
+      cursor: pointer;
+      border: 1px solid $third-border;
+      border-radius: 3px;
+
+      &:hover{
+        color: $dark;
+        border: 1px solid #e2dbdb;
+      }
+
+      & i{
+        font-size: 20px;
+        position: relative;
+        left: 1px;
+      }
+
+    }
+
+  }
+
+  & .prompt-middle{
+    padding: 4px 10px;
+    font-size: 14px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    position: relative;
+    text-align: initial;
+
+    & span{
+      display: inline-block;
+      position: relative;
+    }
+
+  }
+
+  & .prompt-bottom{
+    padding: 8px 10px 8px 10px;
+    border-top: 1px solid $ee;
+    text-align: right;
+
+    & a{
+      display: inline-block;
+      padding: 4px 12px;
+      font-weight: 600;
+
+      &:last-of-type{
+        margin-left: 5px;
+      }
+
+    }
+
+  }
+
+}

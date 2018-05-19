@@ -1,0 +1,413 @@
+// FILTERS
+/*! Instagram.css | MIT License | github.com/picturepan2/instagram.css */
+
+// Filter Core
+[class*="filter"] {
+  position: relative;
+
+  &::before {
+    display: block;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+  }
+}
+
+// normal filter
+.filter-normal {
+  position: relative;
+}
+
+// 1977 filter
+.filter-1977 {
+  filter: sepia(.5) hue-rotate(-30deg) saturate(1.4);
+}
+
+// Aden filter
+.filter-aden {
+  filter: sepia(.2) brightness(1.15) saturate(1.4);
+
+  &::before {
+    background: rgba(125, 105, 24, .1);
+    content: "";
+    mix-blend-mode: multiply;
+  }
+}
+
+// Amaro filter
+.filter-amaro {
+  filter: sepia(.35) contrast(1.1) brightness(1.2) saturate(1.3);
+
+  &::before {
+    background: rgba(125, 105, 24, .2);
+    content: "";
+    mix-blend-mode: overlay;
+  }
+}
+
+// Ashby Filter
+.filter-ashby {
+  filter: sepia(.5) contrast(1.2) saturate(1.8);
+
+  &::before {
+    background: rgba(125, 105, 24, .35);
+    content: "";
+    mix-blend-mode: lighten;
+  }
+}
+
+// Brannan Filter
+.filter-brannan {
+  filter: sepia(.4) contrast(1.25) brightness(1.1) saturate(.9) hue-rotate(-2deg);
+}
+
+// Brooklyn Filter
+.filter-brooklyn {
+  filter: sepia(.25) contrast(1.25) brightness(1.25) hue-rotate(5deg);
+
+  &::before {
+    background: rgba(127, 187, 227, .2);
+    content: "";
+    mix-blend-mode: overlay;
+  }
+}
+
+// Charmes Filter
+.filter-charmes {
+  filter: sepia(.25) contrast(1.25) brightness(1.25) saturate(1.35) hue-rotate(-5deg);
+
+  &::before {
+    background: rgba(125, 105, 24, .25);
+    content: "";
+    mix-blend-mode: darken;
+  }
+}
+
+// Clarendon Filter
+.filter-clarendon {
+  filter: sepia(.15) contrast(1.25) brightness(1.25) hue-rotate(5deg);
+
+  &::before {
+    background: rgba(127, 187, 227, .4);
+    content: "";
+    mix-blend-mode: overlay;
+  }
+}
+
+// Crema Filter
+.filter-crema {
+  filter: sepia(.5) contrast(1.25) brightness(1.15) saturate(.9) hue-rotate(-2deg);
+
+  &::before {
+    background: rgba(125, 105, 24, .2);
+    content: "";
+    mix-blend-mode: multiply;
+  }
+}
+
+// Dogpatch Filter
+.filter-dogpatch {
+  filter: sepia(.35) saturate(1.1) contrast(1.5);
+}
+
+// Earlybird Filter
+.filter-earlybird {
+  filter: sepia(.25) contrast(1.25) brightness(1.15) saturate(.9) hue-rotate(-5deg);
+
+  &::before {
+    background: radial-gradient(circle closest-corner, transparent 0, rgba(125, 105, 24, .2) 100%);
+    content: "";
+    mix-blend-mode: multiply;
+  }
+}
+
+// Gingham Filter
+.filter-gingham {
+  filter: contrast(1.1) brightness(1.1);
+
+  &::before {
+    background: rgb(230, 230, 230);
+    content: "";
+    mix-blend-mode: soft-light;
+  }
+}
+
+// Ginza Filter
+.filter-ginza {
+  filter: sepia(.25) contrast(1.15) brightness(1.2) saturate(1.35) hue-rotate(-5deg);
+
+  &::before {
+    background: rgba(125, 105, 24, .15);
+    content: "";
+    mix-blend-mode: darken;
+  }
+}
+
+// Hefe Filter
+.filter-hefe {
+  filter: sepia(.4) contrast(1.5) brightness(1.2) saturate(1.4) hue-rotate(-10deg);
+
+  &::before {
+    background: radial-gradient(circle closest-corner, transparent 0, rgba(0, 0, 0, .25) 100%);
+    content: "";
+    mix-blend-mode: multiply;
+  }
+}
+
+// Helena Filter
+.filter-helena {
+  filter: sepia(.5) contrast(1.05) brightness(1.05) saturate(1.35);
+
+  &::before {
+    background: rgba(158, 175, 30, .25);
+    content: "";
+    mix-blend-mode: overlay;
+  }
+}
+
+// Hudson Filter
+.filter-hudson {
+  filter: sepia(.25) contrast(1.2) brightness(1.2) saturate(1.05) hue-rotate(-15deg);
+
+  &::before {
+    background: radial-gradient(circle closest-corner, transparent 25%, rgba(25, 62, 167, .25) 100%);
+    content: "";
+    mix-blend-mode: multiply;
+  }
+}
+
+// Inkwell Filter
+.filter-inkwell {
+  filter: brightness(1.25) contrast(.85) grayscale(1);
+}
+
+// Juno Filter
+.filter-juno {
+  filter: sepia(.35) contrast(1.15) brightness(1.15) saturate(1.8);
+
+  &::before {
+    background: rgba(127, 187, 227, .2);
+    content: "";
+    mix-blend-mode: overlay;
+  }
+}
+
+// Kelvin Filter
+.filter-kelvin {
+  filter: sepia(.15) contrast(1.5) brightness(1.1) hue-rotate(-10deg);
+
+  &::before {
+    background: radial-gradient(circle closest-corner, rgba(128, 78, 15, .25) 0, rgba(128, 78, 15, .5) 100%);
+    content: "";
+    mix-blend-mode: overlay;
+  }
+}
+
+// Lark Filter
+.filter-lark {
+  filter: sepia(.25) contrast(1.2) brightness(1.3) saturate(1.25);
+}
+
+// Lo-Fi Filter
+.filter-lofi {
+  filter: saturate(1.1) contrast(1.5);
+}
+
+// Ludwig Filter
+.filter-ludwig {
+  filter: sepia(.25) contrast(1.05) brightness(1.05) saturate(2);
+
+  &::before {
+    background: rgba(125, 105, 24, .1);
+    content: "";
+    mix-blend-mode: overlay;
+  }
+}
+
+// Maven Filter
+.filter-maven {
+  filter: sepia(.35) contrast(1.05) brightness(1.05) saturate(1.75);
+
+  &::before {
+    background: rgba(158, 175, 30, .25);
+    content: "";
+    mix-blend-mode: darken;
+  }
+}
+
+// Mayfair Filter
+.filter-mayfair {
+  filter: contrast(1.1) brightness(1.15) saturate(1.1);
+
+  &::before {
+    background: radial-gradient(circle closest-corner, transparent 0, rgba(175, 105, 24, .4) 100%);
+    content: "";
+    mix-blend-mode: multiply;
+  }
+}
+
+// Moon Filter
+.filter-moon {
+  filter: brightness(1.4) contrast(.95) saturate(0) sepia(.35);
+}
+
+// Nashville Filter
+.filter-nashville {
+  filter: sepia(.25) contrast(1.5) brightness(.9) hue-rotate(-15deg);
+
+  &::before {
+    background: radial-gradient(circle closest-corner, rgba(128, 78, 15, .5) 0, rgba(128, 78, 15, .65) 100%);
+    content: "";
+    mix-blend-mode: screen;
+  }
+}
+
+// Perpetua Filter
+.filter-perpetua {
+  filter: contrast(1.1) brightness(1.25) saturate(1.1);
+
+  &::before {
+    background: linear-gradient(to bottom, rgba(0, 91, 154, .25), rgba(230, 193, 61, .25));
+    content: "";
+    mix-blend-mode: multiply;
+  }
+}
+
+// Poprocket Filter
+.filter-poprocket  {
+  filter: sepia(.15) brightness(1.2);
+
+  &::before {
+    background: radial-gradient(circle closest-corner, rgba(206, 39, 70, .75) 40%, rgba(0, 0, 0, 1) 80%);
+    content: "";
+    mix-blend-mode: screen;
+  }
+}
+
+// Reyes Filter
+.filter-reyes {
+  filter: sepia(.75) contrast(.75) brightness(1.25) saturate(1.4);
+}
+
+// Rise Filter
+.filter-rise {
+  filter: sepia(.25) contrast(1.25) brightness(1.2) saturate(.9);
+
+  &::before {
+    background: radial-gradient(circle closest-corner, transparent 0, rgba(230, 193, 61, .25) 100%);
+    content: "";
+    mix-blend-mode: lighten;
+  }
+}
+
+// Sierra Filter
+.filter-sierra {
+  filter: sepia(.25) contrast(1.5) brightness(.9) hue-rotate(-15deg);
+
+  &::before {
+    background: radial-gradient(circle closest-corner, rgba(128, 78, 15, .5) 0, rgba(0, 0, 0, .65) 100%);
+    content: "";
+    mix-blend-mode: screen;
+  }
+}
+
+// Skyline Filter
+.filter-skyline {
+  filter: sepia(.15) contrast(1.25) brightness(1.25) saturate(1.2);
+}
+
+// Slumber Filter
+.filter-slumber {
+  filter: sepia(.35) contrast(1.25) saturate(1.25);
+
+  &::before {
+    background: rgba(125, 105, 24, .2);
+    content: "";
+    mix-blend-mode: darken;
+  }
+}
+
+// Stinson Filter
+.filter-stinson {
+  filter: sepia(.35) contrast(1.25) brightness(1.1) saturate(1.25);
+
+  &::before {
+    background: rgba(125, 105, 24, .45);
+    content: "";
+    mix-blend-mode: lighten;
+  }
+}
+
+// Sutro Filter
+.filter-sutro {
+  filter: sepia(.4) contrast(1.2) brightness(.9) saturate(1.4) hue-rotate(-10deg);
+
+  &::before {
+    background: radial-gradient(circle closest-corner, transparent 50%, rgba(0, 0, 0, .5) 90%);
+    content: "";
+    mix-blend-mode: darken;
+  }
+}
+
+// Toaster Filter
+.filter-toaster {
+  filter: sepia(.25) contrast(1.5) brightness(.95) hue-rotate(-15deg);
+
+  &::before {
+    background: radial-gradient(circle, rgb(128, 78, 15), rgba(0, 0, 0, .25));
+    content: "";
+    mix-blend-mode: screen;
+  }
+}
+
+// Valencia Filter
+.filter-valencia {
+  filter: sepia(.25) contrast(1.1) brightness(1.1) ;
+
+  &::before {
+    background: rgba(230, 193, 61, .1);
+    content: "";
+    mix-blend-mode: lighten;
+  }
+}
+
+// Vesper Filter
+.filter-vesper {
+  filter: sepia(.35) contrast(1.15) brightness(1.2) saturate(1.3);
+
+  &::before {
+    background: rgba(125, 105, 24, .25);
+    content: "";
+    mix-blend-mode: overlay;
+  }
+}
+
+// Walden Filter
+.filter-walden {
+  filter: sepia(.35) contrast(.8) brightness(1.25) saturate(1.4);
+
+  &::before {
+    background: rgba(229, 240, 128, .5);
+    content: "";
+    mix-blend-mode: darken;
+  }
+}
+
+// Willow Filter
+.filter-willow {
+  filter: brightness(1.2) contrast(.85) saturate(.05) sepia(.2);
+}
+
+// X-Pro II Filter
+.filter-xpro-ii  {
+  filter: sepia(.45) contrast(1.25) brightness(1.75) saturate(1.3) hue-rotate(-5deg);
+
+  &::before {
+    background: radial-gradient(circle closest-corner, rgba(0, 91, 154, .35) 0, rgba(0, 0, 0, .65) 100%);
+    content: "";
+    mix-blend-mode: multiply;
+  }
+}

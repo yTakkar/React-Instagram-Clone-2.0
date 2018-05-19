@@ -1,0 +1,106 @@
+// defaults
+@import 'input';
+@import 'button';
+@import 'options';
+@import 'overlay';
+
+// OTHER DEFAULTS
+
+*{
+  padding: 0px;
+  margin: 0px;
+}
+
+body{
+  font-family: $family;
+  background: $fb;
+  font-size: 13px;
+  color: #3d464d;
+  font-weight: normal;
+}
+
+a{
+  text-decoration: none;
+  color: $a;
+  outline: none;
+}
+
+i{
+  pointer-events: none;
+}
+
+hr{
+  border: 0;
+  border-top: 1px solid #c1c7cd;
+}
+
+li{
+  list-style: none;
+}
+
+.a_pri{ color: $a; }
+
+.hashtag {
+  color: #3d464d;
+  font-weight: 600;
+}
+
+@keyframes bounce {
+  0%, 75%, 100%{
+    transform: translateY(0px);
+  }
+  25%{
+    transform: translateY(-10px)
+  }
+}
+
+.select_receiver_toggle{
+  border: 1px solid #56b4ef !important;
+  box-shadow: 0px 0px 5px 1px #c8def0 !important;
+  animation: pro_active 0.1s ease-in-out;
+}
+
+@keyframes pro_active {
+  0%{
+    transform: scale(1);
+  }
+  50%{
+    transform: scale(0.95);
+  }
+  100%{
+    transform: scale(1);
+  }
+}
+
+.grp_admin {
+  position: relative;
+  border: 1px solid;
+  border-color: #5fcc5f;
+  color: #5fcc5f !important;
+  border-radius: 2px;
+  padding: 0px 3px;
+  font-size: 12px;
+  display: inline-block;
+  margin-left: 5px;
+  top: -1px;
+}
+
+// CLASS APPLIED TO MAIN PAGE COMPONENT WHEN IT'S LOADING
+.cLoading {
+  display: none !important;
+}
+
+.bold {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.fade {
+  opacity: 1 !important;
+}
+
+.emoji_disabled {
+  color: #d8c3c3 !important;
+  cursor: not-allowed !important;
+  pointer-events: none !important;
+}

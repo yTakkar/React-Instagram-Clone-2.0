@@ -1,0 +1,43 @@
+.options{
+  position: absolute;
+  padding: 7px 6px;
+  background: $ff;
+  box-shadow: 0 0 0 1px rgba(99,114,130,0.16), 0 8px 16px rgba(27,39,51,0.08);
+  border-radius: 3px;
+  z-index: 1;
+
+  & ul{
+    background: $ff;
+
+    & > li{
+      background: $ff;
+
+      & a,
+      & label{
+        background: $ff;
+        font-size: 14px;
+        color: #66757f;
+        padding: 4px 12px 4px 8px;
+        width: inherit;
+        display: block;
+        border-radius: 2px;
+
+        &:hover{
+          background: #54BBFF;
+          color: white;
+        }
+      }
+
+    }
+
+    & .o_divider{
+      margin: 5px 0px 5px 0px;
+
+      & > .menu_divider{
+        border-top-color: #e6e8eb;
+      }
+    }
+
+  }
+
+}

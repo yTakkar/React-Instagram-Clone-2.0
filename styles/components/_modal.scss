@@ -1,0 +1,194 @@
+.modal{
+  @include center;
+  position: fixed !important;
+  @include modal-shadow;
+  width: 300px;
+  border-radius: 3px;
+  z-index: 3;
+  background: $ff;
+  font-size: 14px;
+
+  & .modal_no{
+    text-align: center;
+    position: relative;
+    top: 30px;
+    & img{ width: 150px; }
+  }
+
+  & .modal_header{
+    background: $header;
+    border-bottom: 1px solid $header_border;
+    padding: 10px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    text-align: initial;
+
+    & span.title{
+      font-weight: 600;
+      color: $dark;
+    }
+
+  }
+
+  & .modal_middle{
+    position: relative;
+    padding: 10px;
+
+    & input[type='text'],
+    & textarea {
+      width: 94%;
+      padding: 7px;
+      font-size: 14px;
+    }
+
+    & textarea{
+      height: 150px;
+    }
+
+  }
+
+  & .modal_bottom{
+    display: block;
+    text-align: right;
+    padding: 9px 5px 12px 5px;
+    border-top: 1px solid $ee;
+    margin-top: 0px;
+
+    & span.emoji_span {
+      display: inline-block;
+      height: 24px;
+      position: absolute;
+      left: 10px;
+      bottom: 14px;
+      color: $d_light;
+      cursor: pointer;
+
+      &:hover {
+        color: $dark;
+      }
+    }
+
+    & a, & input[type='submit']{
+      display: inline-block;
+      padding: 4px 10px;
+      font-weight: 600;
+    }
+
+    & a:last-of-type {
+      margin-left: 4px;
+    }
+
+  }
+
+}
+
+.modal_big{
+  width: 400px;
+
+  & .modal_middle{
+    height: 450px;
+    width: inherit;
+    overflow: auto;
+    padding: 0px !important;
+
+    & .modal_main{
+      position: relative;
+      padding: 7px 0px;
+
+      & .modal_items{
+        margin-bottom: 5px;
+        position: relative;
+        padding: 0px 5px 5px 5px;
+
+        & .modal_it_img{
+          position: relative;
+          display: inline-block;
+          height: 45px;
+          margin-left: 5px;
+
+          & img{
+            width: 45px;
+            height: 45px;
+            border-radius: 3px;
+          }
+
+        }
+
+        & .modal_it_content{
+          display: inline-block;
+          position: relative;
+          width: 83%;
+          margin-left: 8px;
+          top: -10px;
+
+          & .modal_it_info{
+            display: inline-block;
+            width: 100%;
+
+            & .modal_it_username{
+              font-size: 14px;
+              color: $dark;
+              font-weight: 600;
+              outline: none;
+
+              &:hover,&:focus{text-decoration: underline;}
+
+            }
+
+            & span.modal_it_light{
+              display: block;
+              color: $d_light;
+              font-size: 13px;
+            }
+
+          }
+
+          & .modal_ff{
+            display: inline-block;
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            text-align: right;
+
+            & a{
+              display: inline-block;
+              padding: 5px 15px;
+              font-weight: 600;
+            }
+
+          }
+
+        }
+
+        & hr{
+          border-top-color: $ee;
+          margin-top: 3px;
+        }
+
+      }
+
+        & .already_shared{
+        background: $fb !important;
+        cursor: not-allowed !important;
+      }
+
+    }
+
+  }
+
+  & .modal_bottom{
+    margin-top: 1px;
+
+    & a:last-of-type{
+      margin-right: 10px;
+      margin-left: 5px;
+    }
+
+  }
+
+  & .spinner {
+    top: 175px !important;
+    left: 200px !important;
+  }
+
+}

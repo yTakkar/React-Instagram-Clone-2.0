@@ -1,0 +1,28 @@
+@import 'filters';
+@import 'post-it';
+@import 'post';
+
+// OTHER POST-RELATED STYLES
+
+// EDIT POST
+.edit_post{
+  width: 380px;
+
+  & .e_p_bottom{
+    margin-top: 1px;
+  }
+}
+
+// VIEW POST
+.view_senapati {
+  margin-bottom: 30px;
+
+  & .spinner {
+    left: 250px;
+    top: 175px;
+  }
+
+  & .posts {
+    margin-top: 0px;
+  }
+}

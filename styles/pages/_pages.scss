@@ -1,0 +1,141 @@
+// pages
+@import 'login';
+@import 'profile';
+@import 'notifications';
+@import 'editProfile';
+@import 'error';
+@import 'deactivate';
+@import 'explore';
+@import 'home';
+@import 'settings';
+@import 'group';
+@import 'messages';
+@import 'hashtags';
+
+// OTHER PAGES
+
+// FEED SENAPATI
+.home_senapati {
+
+  & .prajkumar {
+    margin-bottom: 30px;
+  }
+}
+
+// EMAIL VERIFICATION
+.email_verification {
+  position: relative;
+  top: 210px;
+  left: 300px;
+  transform: translate(0%, 0%);
+}
+
+// ABOUT SECTION'S INFO DIV
+.sabout_one{
+  background: $ff;
+  padding: 10px;
+  border-radius: 4px;
+  @include inst;
+
+  & img{
+    width: 100%;
+  }
+
+  & .sabout_one_info{
+    margin-top: 3px;
+
+    & span{
+      display: block;
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+
+    & a{
+      padding: 5px 12px;
+      display: inline-block;
+      font-weight: 600;
+
+      &:first-of-type{
+        margin-left: 22px;
+        margin-right: 3px;
+      }
+
+    }
+
+  }
+
+}
+
+// HELP PAGE
+.help_div{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+
+  & img{
+    width: 200px;
+  }
+}
+
+// DEVELOPER PAGE
+.dev_div {
+  font-size: 15px;
+  width: 500px;
+  background: $ff;
+  padding: 22px;
+  left: 130px;
+  position: relative;
+  top: 0px;
+  margin-bottom: 30px;
+  @include inst;
+
+  & img{
+    position: relative;
+    left: 39px;
+    margin-bottom: 10px;
+  }
+
+  & span{
+    display: block;
+
+    & > a{
+      color: $dark;
+      font-weight: 600;
+
+      &:hover{
+        text-decoration: underline;
+      }
+    }
+
+  }
+
+  & > div{
+    margin-top: 22px;
+    text-align: right;
+
+    & > a{
+      display: inline-block;
+      font-weight: 600;
+      padding: 4px 10px;
+      font-size: 13px;
+    }
+
+  }
+
+}
+
+// ADMIN
+.are-you-admin {
+  position: relative;
+  margin: 0 auto;
+  top: 160px;
+  left: 50px;
+  transform: translate(0%, 0%);
+
+  & .show_psswrd {
+    bottom: 55px;
+    right: 16px;
+  }
+}

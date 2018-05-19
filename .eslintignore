@@ -1,5 +1,4 @@
 node_modules/
-public/js/dist/*
-public/js/src/utils/emoji-script.js
+dist/js/*
 env.js
 coverage/*
