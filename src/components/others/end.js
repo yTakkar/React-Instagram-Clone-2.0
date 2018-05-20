@@ -20,7 +20,7 @@ End.defaultProps = {
 }
 
 End.propTypes = {
-  mssg: PropTypes.string.isRequired
+  mssg: PropTypes.string
 }
 
 export default End
