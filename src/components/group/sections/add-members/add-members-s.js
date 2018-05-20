@@ -51,7 +51,7 @@ export default class AddGroupMembers extends Component {
 
                 <div className='a_m_main'>
                   <SearchFollowings
-                    placeholder='Seach to add'
+                    placeholder='Search to add'
                     when='add_grp_members'
                     disabled={!Me(gd.admin)}
                     done={user =>
