@@ -1,6 +1,7 @@
 import React from 'react'
 import { humanReadable } from '../../../utils/utils'
 import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
 
 const HashtagInfo = ({ hashtag, len }) => (
   <div className='hashtag_info'>
@@ -13,8 +14,11 @@ const HashtagInfo = ({ hashtag, len }) => (
 )
 
 HashtagInfo.propTypes = {
-  hashtag: PropTypes.string.isRequired,
-  len: PropTypes.number.isRequired
+  hashtag: PropTypes.string.isRequired
 }
 
-export default HashtagInfo
+const mapStateToProps = state => (
+  { len: state.Hashtag.hashtagPosts.length }
+)
+
+export default connect(mapStateToProps)(HashtagInfo)

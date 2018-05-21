@@ -17,7 +17,6 @@ const Feed = ({ feed }) => {
         className='posts_div'
         style={{ marginTop: len == 0 ? 10 : 0 }}
       >
-
         <MapPosts
           posts={map_feed}
           nothingMssg={'Looks like you\'re new, Follow some to fill up your feed or post from above options!!'}

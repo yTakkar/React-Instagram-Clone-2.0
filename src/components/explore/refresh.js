@@ -33,7 +33,6 @@ const RefreshExplores = ({ dispatch }) => {
       >
         <FAIcon icon='sync-alt' />
       </a>
-
       <ToolTip/>
     </Fragment>
   )

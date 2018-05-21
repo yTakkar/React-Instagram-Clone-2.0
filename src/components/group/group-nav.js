@@ -17,7 +17,10 @@ const GroupNav = ({ url, admin }) => (
       }
       {
         Me(admin) ?
-          <ProfileNavLink url={`${url}/add-members`} label='Add members' />
+          <ProfileNavLink
+            url={`${url}/add-members`}
+            label='Add members'
+          />
           : null
       }
       <ProfileNavLink url={`${url}/about`} label='About' />

@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { FadeIn } from 'animate-components'
-import ToolTip from 'react-tooltip'
 import { messageScroll } from '../../../utils/message-utils'
 import { connect } from 'react-redux'
 import { getConversationMessages, readConversation, getConDetails } from '../../../store/actions/message-a'
@@ -16,7 +15,7 @@ import { cLoading } from '../../../utils/utils'
 export default class Conversation extends Component {
 
   state = {
-    loading: true,
+    loading: true
   }
 
   componentDidMount = () => {
@@ -62,7 +61,6 @@ export default class Conversation extends Component {
           </FadeIn>
         </div>
 
-        <ToolTip/>
       </div>
     )
   }

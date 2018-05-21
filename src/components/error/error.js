@@ -35,10 +35,6 @@ const Error = ({ match, username }) => {
   )
 }
 
-Error.defaultProps = {
-
-}
-
 const mapStateToProps = state => (
   { username: state.User.session.username }
 )

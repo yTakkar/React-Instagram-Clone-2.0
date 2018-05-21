@@ -36,7 +36,9 @@ export default class Header extends Component {
         </div>
         {
           showOptions ?
-            <HeaderOptions toggleOptions={this.toggleOptions} />
+            <HeaderOptions
+              toggleOptions={this.toggleOptions}
+            />
             : null
         }
       </div>

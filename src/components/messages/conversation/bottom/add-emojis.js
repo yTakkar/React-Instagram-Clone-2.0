@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react'
 import Emojis from '../../../others/emojis/emojis'
 import PropTypes from 'prop-types'
 import MaterialIcon from '../../../others/icons/material-icon'
+import ToolTip from 'react-tooltip'
 
 export default class MessageAddEmojis extends Component {
 
@@ -37,6 +38,8 @@ export default class MessageAddEmojis extends Component {
             />
             : null
         }
+
+        <ToolTip/>
       </Fragment>
     )
   }

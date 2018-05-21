@@ -6,15 +6,15 @@ import MaterialIcon from '../../others/icons/material-icon'
 
 export default class PostLike extends Component {
 
+  state = {
+    liked: false
+  }
+
   componentDidMount = async () => {
     let
       { postDetails: { post_id } } = this.props,
       { data: liked } = await post('/api/liked-or-not', { post: post_id })
     await this.setState({ liked })
-  }
-
-  state = {
-    liked: false
   }
 
   like = async () => {

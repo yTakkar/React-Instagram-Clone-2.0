@@ -15,7 +15,10 @@ const Nav = ({ url, user }) => {
         <ProfileNavLink url={`${url}/gallery`} label='Gallery' />
         {
           Me(user) ?
-            <ProfileNavLink url={`${url}/bookmarks`} label='Bookmarks' />
+            <ProfileNavLink
+              url={`${url}/bookmarks`}
+              label='Bookmarks'
+            />
             : null
         }
         <ProfileNavLink url={`${url}/groups`} label='Groups' />

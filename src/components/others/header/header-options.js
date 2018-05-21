@@ -4,8 +4,7 @@ import PropTypes from 'prop-types'
 
 const HeaderOptions = ({ toggleOptions }) => {
 
-  let clicked = () =>
-    toggleOptions()
+  let clicked = () => toggleOptions()
 
   return (
     <div className='sp_options options' >

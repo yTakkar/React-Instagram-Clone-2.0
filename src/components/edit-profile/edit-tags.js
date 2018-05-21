@@ -66,7 +66,7 @@ export default class EditTags extends Component {
   }
 }
 
-Edit.propTypes = {
+EditTags.propTypes = {
   newTag: PropTypes.string.isRequired,
   change: PropTypes.func.isRequired,
   tags: PropTypes.arrayOf(
