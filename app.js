@@ -25,7 +25,7 @@ const
   cookieParser = require('cookie-parser')
 
 // Project Files
-const { variables } = require('./config/middlewares')
+const { variables } = require('./config/Middlewares')
 const AppRoutes = require('./app-routes')
 
 // View engine

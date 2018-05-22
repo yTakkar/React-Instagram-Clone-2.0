@@ -4,7 +4,7 @@ const
   app = require('express').Router(),
   db = require('../../config/db'),
   User = require('../../config/User'),
-  mw = require('../../config/middlewares')
+  mw = require('../../config/Middlewares')
 
 // FORGOT PASSWORD
 app.get('/forgot-password', mw.NotLoggedIn, (req, res) => {

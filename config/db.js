@@ -5,7 +5,7 @@
 
 // HANDY FUNCTIONS FOR MYSQL
 
-const db = require('./mysql')
+const db = require('./Mysql')
 
 /**
  * Query MySQL as a promise

@@ -4,7 +4,7 @@ const
   app = require('express').Router(),
   db = require('../../config/db'),
   User = require('../../config/User'),
-  mw = require('../../config/middlewares'),
+  mw = require('../../config/Middlewares'),
   { uniqBy } = require('lodash')
 
 // USER LOGIN GET ROUTE

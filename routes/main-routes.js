@@ -3,7 +3,7 @@
 
 const
   app = require('express').Router(),
-  mw = require('../config/middlewares')
+  mw = require('../config/Middlewares')
 
 // WELCOME ROUTE
 app.get('/welcome', mw.NotLoggedIn, (req, res) => {

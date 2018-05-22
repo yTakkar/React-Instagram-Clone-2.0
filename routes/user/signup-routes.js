@@ -9,7 +9,7 @@ const
   fs = require('fs'),
   { promisify } = require('util'),
   { success } = require('handy-log'),
-  mw = require('../../config/middlewares')
+  mw = require('../../config/Middlewares')
 
 // USER SIGNUP GET ROUTE
 app.get('/signup', mw.NotLoggedIn, (req, res) => {
