@@ -1,4 +1,4 @@
-const mysql = require('../mysql')
+const mysql = require('../Mysql')
 
 describe('MySQL config tests', () => {
 

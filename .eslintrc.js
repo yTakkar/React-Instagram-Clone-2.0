@@ -21,7 +21,8 @@ module.exports = {
     'it': true,
     'expect': true,
     'beforeAll': true,
-    'afterAll': true
+    'afterAll': true,
+    'jest': true
   },
   'plugins': [ 'react' ],
   'rules': {

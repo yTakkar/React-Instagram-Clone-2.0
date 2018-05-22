@@ -1,3 +1,3 @@
 module.exports = {
-  setupTestFrameworkScriptFile: 'jest-extended'
+  setupTestFrameworkScriptFile: '<rootDir>/jest.setup.js'
 }
