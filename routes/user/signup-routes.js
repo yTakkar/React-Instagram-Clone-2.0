@@ -4,7 +4,7 @@ const
   app = require('express').Router(),
   db = require('../../config/db'),
   dir = process.cwd(),
-  mail = require('../../config/Mail'),
+  mail = require('../../config/mail'),
   User = require('../../config/User'),
   fs = require('fs'),
   { promisify } = require('util'),
