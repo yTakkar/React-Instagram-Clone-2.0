@@ -2703,9 +2703,9 @@ handy-log@^1.0.3:
     chalk "^2.1.0"
     chalk-animation "^1.2.0"
 
-handy-notification@^1.0.29:
-  version "1.0.29"
-  resolved "https://registry.yarnpkg.com/handy-notification/-/handy-notification-1.0.29.tgz#bd52db49e15b5fe965fab965d16f4e8810e41324"
+handy-notification@1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/handy-notification/-/handy-notification-1.2.1.tgz#16c27d25fbe86c383774c5563b3c882319e04107"
   dependencies:
     jquery "^3.2.1"
 
@@ -3557,8 +3557,8 @@ jest@^22.4.3:
     jest-cli "^22.4.3"
 
 jquery@^3.2.1:
-  version "3.2.1"
-  resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.2.1.tgz#5c4d9de652af6cd0a770154a631bba12b015c787"
+  version "3.3.1"
+  resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.3.1.tgz#958ce29e81c9790f31be7792df5d4d95fc57fbca"
 
 js-base64@^2.1.9:
   version "2.4.5"

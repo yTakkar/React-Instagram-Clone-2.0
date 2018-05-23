@@ -38,7 +38,7 @@
     "handy-copy": "^1.0.9",
     "handy-image-processor": "^1.0.6",
     "handy-log": "^1.0.3",
-    "handy-notification": "^1.0.29",
+    "handy-notification": "1.2.1",
     "handy-timeago": "^1.0.1",
     "image-compressor.js": "^1.1.1",
     "lodash": "^4.17.4",
