@@ -1,14 +1,14 @@
 import React from 'react'
 import { Me } from '../../../utils/utils'
 import { connect } from 'react-redux'
-import { toggleFollow } from '../../../store/actions/follow_a'
+import { toggleFollow } from '../../../actions/follow'
 import { Link } from 'react-router-dom'
 import Unfollow from '../../others/follow/unfollow'
 import Follow from '../../others/follow/follow'
 
 const BannerFollow = ({ ud, isFollowing, dispatch }) => {
   let { id, username } = ud
-  let user = id ? id : 0 
+  let user = id ? id : 0
 
   let toggle = what =>
     dispatch(toggleFollow(what))

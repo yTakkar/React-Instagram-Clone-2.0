@@ -11,7 +11,7 @@ import ToggleAddTags from './toggleAddTags'
 import PostItActions from './actions'
 import { func, oneOf, number } from 'prop-types'
 import AddEmojis from '../../others/emojis/add-emojis'
-import { CPP } from '../../../store/actions/post-a'
+import { CPP } from '../../../actions/post'
 import { connect } from 'react-redux'
 
 @connect(store => (

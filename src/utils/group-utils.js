@@ -1,7 +1,7 @@
 import { post } from 'axios'
 import Notify from 'handy-notification'
 import { insta_notify, ObjectMssg, wait } from './utils'
-import { leftGroup, updateGroup } from '../store/actions/group-a'
+import { leftGroup, updateGroup } from '../actions/group'
 import d from './DOM'
 
 /**

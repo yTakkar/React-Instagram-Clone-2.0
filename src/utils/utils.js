@@ -5,10 +5,10 @@
 
 import { post } from 'axios'
 import Notify from 'handy-notification'
-import { getUserDetails, getMutualUsers } from '../store/actions/user-a'
-import * as follow_action from '../store/actions/follow_a'
-import { getUserPosts, getGroupPosts, } from '../store/actions/post-a'
-import { getGroupDetails, joinedGroup } from '../store/actions/group-a'
+import { getUserDetails, getMutualUsers } from '../actions/user'
+import { isFollowing, getUserStats } from '../actions/follow'
+import { getUserPosts, getGroupPosts, } from '../actions/post'
+import { getGroupDetails, joinedGroup } from '../actions/group'
 import Compress from 'image-compressor.js'
 import { GOOGLE_GEOLOCATION_KEY } from '../../env'
 import d from './DOM'
@@ -175,13 +175,13 @@ export const forProfile = async options => {
   } else {
 
     if (username != s_username) {
-      dispatch(follow_action.isFollowing(username))
+      dispatch(isFollowing(username))
       dispatch(getMutualUsers(username))
       post('/api/view-profile', { username })
     }
 
     dispatch(getUserDetails(username))
-    dispatch(follow_action.getUserStats(username))
+    dispatch(getUserStats(username))
     dispatch(getUserPosts(username))
 
   }

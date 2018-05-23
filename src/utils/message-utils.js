@@ -1,6 +1,8 @@
 import { post } from 'axios'
 import Notify from 'handy-notification'
-import { conversationAdded, messaged, changeLastMssg, unsendAllMessages, deleteCon, deleteMssg } from '../store/actions/message-a'
+import {
+  conversationAdded, messaged, changeLastMssg, unsendAllMessages, deleteCon, deleteMssg
+} from '../actions/message'
 import { insta_notify, imageCompressor, uData, wait } from './utils'
 import d from './DOM'
 

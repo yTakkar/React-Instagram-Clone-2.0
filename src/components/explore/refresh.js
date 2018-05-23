@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import ToolTip from 'react-tooltip'
 import {
   getUsersToExplore, getPhotosToExplore, getGroupsToExplore
-} from '../../store/actions/explore-a'
+} from '../../actions/explore'
 import { connect } from 'react-redux'
 import FAIcon from '../others/icons/font-awesome-icon'
 

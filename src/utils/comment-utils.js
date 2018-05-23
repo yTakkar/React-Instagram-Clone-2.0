@@ -1,6 +1,6 @@
 import { post } from 'axios'
 import Notify from 'handy-notification'
-import { comment } from '../store/actions/post-a'
+import { comment } from '../actions/post'
 import {
   imageCompressor, insta_notify, Me, uData, wait
 } from './utils'

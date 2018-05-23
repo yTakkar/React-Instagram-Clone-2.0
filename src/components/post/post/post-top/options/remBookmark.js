@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import { isAdmin } from '../../../../../utils/admin-utils'
 import { post } from 'axios'
 import Notify from 'handy-notification'
-import { unbookmark } from '../../../../../store/actions/post-a'
+import { unbookmark } from '../../../../../actions/post'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 

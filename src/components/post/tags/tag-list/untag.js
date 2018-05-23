@@ -1,7 +1,7 @@
 import React from 'react'
 import { isAdmin } from '../../../../utils/admin-utils'
 import { post } from 'axios'
-import { untag } from '../../../../store/actions/post-a'
+import { untag } from '../../../../actions/post'
 import Notify from 'handy-notification'
 import { connect } from 'react-redux'
 import { number, func } from 'prop-types'

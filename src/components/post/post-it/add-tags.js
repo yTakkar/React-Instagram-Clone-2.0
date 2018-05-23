@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import SearchFollowings from '../../others/search-followings/search-followings'
 import { connect } from 'react-redux'
-import { CPP } from '../../../store/actions/post-a'
+import { CPP } from '../../../actions/post'
 
 @connect(store => (
   { postIt: store.Post.postIt }

@@ -1,6 +1,6 @@
 import React, { Fragment, Component } from 'react'
 import { connect } from 'react-redux'
-import { deleteTag } from '../../store/actions/user-a'
+import { deleteTag } from '../../actions/user'
 import * as Edit from '../../utils/edit-profile-utils'
 import PropTypes from 'prop-types'
 import d from '../../utils/DOM'

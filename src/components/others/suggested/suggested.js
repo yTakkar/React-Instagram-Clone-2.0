@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import ToolTip from 'react-tooltip'
 import { connect } from 'react-redux'
-import { getSuggestedUsers } from '../../../store/actions/explore-a'
+import { getSuggestedUsers } from '../../../actions/explore'
 import { Link } from 'react-router-dom'
 import SuggestedList from './suggested-list'
 import PropTypes from 'prop-types'

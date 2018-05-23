@@ -2,7 +2,7 @@ import React from 'react'
 import { func } from 'prop-types'
 import { connect } from 'react-redux'
 import { addPost } from '../../../utils/post-utils'
-import { CPP, resetPostIt } from '../../../store/actions/post-a'
+import { CPP, resetPostIt } from '../../../actions/post'
 import SecondaryButton from '../../others/button/secondary-btn'
 import PrimaryButton from '../../others/button/primary-btn'
 
