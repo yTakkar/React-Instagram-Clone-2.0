@@ -7,7 +7,8 @@ import PropTypes from 'prop-types'
 
 const MapSearch = ({ users, groups, hashtags, clicked }) => {
 
-  let map_users = users.map(u =>
+  let
+    map_users = users.map(u =>
       <UserSearch key={u.id} {...u} clicked={clicked} />
     ),
     map_groups = groups.map(g =>
@@ -20,18 +21,18 @@ const MapSearch = ({ users, groups, hashtags, clicked }) => {
   return (
     <div className='search_div'>
 
-      <div class='s_d_people s_d'>
-        <span class='s_header'>{ humanReadable(users.length, 'member') }</span>
+      <div className='s_d_people s_d'>
+        <span className='s_header'>{ humanReadable(users.length, 'member') }</span>
         { map_users }
       </div>
 
-      <div class='s_d_groups s_d'>
-        <span class='s_header'>{ humanReadable(groups.length, 'group') }</span>
+      <div className='s_d_groups s_d'>
+        <span className='s_header'>{ humanReadable(groups.length, 'group') }</span>
         { map_groups }
       </div>
 
-      <div class='s_d_hashtags s_d'>
-        <span class='s_header'>{ humanReadable(hashtags.length, 'hashtag') }</span>
+      <div className='s_d_hashtags s_d'>
+        <span className='s_header'>{ humanReadable(hashtags.length, 'hashtag') }</span>
         { map_hashtags }
       </div>
 

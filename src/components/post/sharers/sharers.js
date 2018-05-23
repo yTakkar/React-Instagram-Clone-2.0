@@ -45,7 +45,7 @@ export default class Sharers extends Component {
       )
 
     return (
-      <div class='modal modal_big' >
+      <div className='modal modal_big' >
 
         <Title value='Post shared by' />
 

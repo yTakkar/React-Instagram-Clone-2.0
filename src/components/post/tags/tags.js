@@ -49,7 +49,7 @@ export default class Tags extends Component {
       )
 
     return (
-      <div class='tags_model modal modal_big' >
+      <div className='tags_model modal modal_big' >
 
         <Title value='Tags' />
 

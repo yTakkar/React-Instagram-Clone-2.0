@@ -43,7 +43,7 @@ export default class OnlineUsers extends Component {
       )
 
     return (
-      <div class='modal modal_big' >
+      <div className='modal modal_big' >
 
         <Title value='Online members' />
 

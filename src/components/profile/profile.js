@@ -67,7 +67,7 @@ export default class Profile extends Component {
         />
 
         <div
-          class='profile-data'
+          className='profile-data'
           id='profile-data'
           data-get-username={username}
           data-getid={id}

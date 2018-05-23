@@ -45,7 +45,7 @@ export default class Likes extends Component {
       )
 
     return (
-      <div class='likes modal modal_big' >
+      <div className='likes modal modal_big' >
 
         <Title value='Likes' />
 

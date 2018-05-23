@@ -11,8 +11,8 @@ const BlockedUsers = ({ blockedUsers }) => {
 
   return (
     <div className='blocking'>
-      <div class='set_header block_header'>
-        <span class='acc_type_h'>Your blocked members</span>
+      <div className='set_header block_header'>
+        <span className='acc_type_h'>Your blocked members</span>
       </div>
       {
         blockedUsers.length == 0

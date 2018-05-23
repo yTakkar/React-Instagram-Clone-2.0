@@ -54,7 +54,7 @@ export default class Stickers extends Component {
     let { back } = this.props
 
     return (
-      <div class='stickers_modal modal modal_big' >
+      <div className='stickers_modal modal modal_big' >
 
         <FadeIn duration='300ms' >
           <ModalHeader title='Choose a sticker' />

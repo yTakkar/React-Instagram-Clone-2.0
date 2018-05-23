@@ -49,7 +49,7 @@ export default class Share extends Component {
     )
 
     return (
-      <div class='modal modal_big' >
+      <div className='modal modal_big' >
 
         <Title value='Share post' />
 

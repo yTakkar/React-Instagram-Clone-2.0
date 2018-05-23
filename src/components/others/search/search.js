@@ -22,7 +22,7 @@ export default class Search extends Component {
 
   search = async ({ target: { value } }) => {
     this.setState({ value })
-    if(value.trim() != '') {
+    if (value.trim() != '') {
       let { data } = await post('/api/search-instagram', { value })
       this.setState({ search: data })
     } else {

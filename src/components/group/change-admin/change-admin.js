@@ -43,7 +43,7 @@ export default class ChangeAdmin extends Component {
       )
 
     return (
-      <div class='likes modal modal_big' >
+      <div className='likes modal modal_big' >
 
         <FadeIn duration='300ms' >
           <ModalHeader title='Transfer admin position' />
