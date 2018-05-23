@@ -17,6 +17,12 @@ class DOM {
   toDOM = () =>
     document.querySelector(this.element)
 
+  // Perform a function/method on element only if element is [not null/present]
+  ifElement = fn => {
+    let element = this.toDOM()
+    element ? fn() : null
+  }
+
   // returns all DOM elements
   toAll = () =>
     document.querySelectorAll(this.element)
@@ -35,19 +41,17 @@ class DOM {
 
   // changes the text of the element
   text = t => {
-    let el = this.toDOM()
-    el ?
-      el.innerText = t
-      : null
+    this.ifElement(() => 
+      this.toDOM().innerText = t
+    )
     return this
   }
 
   // changes the html of the element
-  html = e => {
-    let el = this.toDOM()
-    el ?
-      el.innerHTML = e
-      : null
+  html = html => {
+    this.ifElement(() => 
+      this.toDOM().innerHTML = html
+    )
     return this
   }
 
@@ -131,10 +135,10 @@ class DOM {
 
   // Performs an action on the element
   action = (actionType, fn) => {
-    let element = this.toDOM()
-    element ?
+    this.ifElement(() => {
+      let element = this.toDOM()
       element.addEventListener(actionType, e => fn(e))
-      : null
+    })
     return this
   }
 
@@ -152,10 +156,9 @@ class DOM {
 
   // removes the element
   remove = () => {
-    let element = this.toDOM()
-    element
-      ? element.remove()
-      : null
+    this.ifElement(() => 
+      this.toDOM().remove()
+    )
     return this
   }
 
