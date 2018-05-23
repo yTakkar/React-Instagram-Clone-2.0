@@ -21,7 +21,7 @@ export default class Avatars extends Component {
   }
 
   selectAvatar = e => {
-    let avatar = new d(`[data-avatar="avatar-${e}"]`)
+    let avatar = new d(`[data-avatar='avatar-${e}']`)
     let siblings = new d('.pro_ava_avts')
 
     siblings.removeClass('pro_ava_active')

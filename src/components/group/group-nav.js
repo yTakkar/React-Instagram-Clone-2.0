@@ -5,7 +5,7 @@ import ProfileNavLink from '../others/profile-navlink'
 import PropTypes from 'prop-types'
 
 const GroupNav = ({ url, admin }) => (
-  <div className="pro_nav user_nav">
+  <div className='pro_nav user_nav'>
     <ul>
       <ProfileNavLink url={url} label='Posts' />
       <ProfileNavLink url={`${url}/members`} label='Members' />

@@ -11,10 +11,10 @@ const NotiSpeak = ({ un, session }) => {
     <div>
       {
         un != 0 ?
-          <div className="noti_speak">
+          <div className='noti_speak'>
             <FadeIn duration='300ms'>
               <img src={`/users/${id}/avatar.jpg`} />
-              <div className="n_s_sn_div">
+              <div className='n_s_sn_div'>
                 <span><b>@{username}</b>, you got { humanReadable(un, 'notification') }.</span>
               </div>
             </FadeIn>

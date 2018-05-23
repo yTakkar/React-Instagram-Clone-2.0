@@ -57,7 +57,7 @@ export default class RemoveMember extends Component {
               <Overlay/>
               <Prompt
                 title={`Remove ${username}`}
-                content="This member will be premanently removed. Member would have to re-join the group."
+                content='This member will be premanently removed. Member would have to re-join the group.'
                 actionText='Delete'
                 action={this.removeMember}
                 back={this.hidePrompt}
