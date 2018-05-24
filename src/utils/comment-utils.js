@@ -4,7 +4,7 @@ import { comment } from '../actions/post'
 import {
   imageCompressor, insta_notify, Me, uData, wait
 } from './utils'
-import d from './DOM'
+import d from './API/DOM'
 
 /**
  * A helper for dispatching actions related to comments

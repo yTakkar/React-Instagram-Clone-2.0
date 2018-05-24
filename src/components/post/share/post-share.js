@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from 'react'
-import Overlay from '../../others/overlay'
 import Share from './share/share'
 import PropTypes from 'prop-types'
 import MaterialIcon from '../../others/icons/material-icon'
@@ -34,16 +33,13 @@ export default class PostShare extends Component {
 
         {
           showShare ?
-            <Fragment>
-              <Overlay/>
-              <Share
-                post={post_id}
-                back={() => this._toggle('showShare')}
-                postOwner={user}
-                incrementShares={() => incrementWhat('shares_count')}
-                decrementShares={() => decrementWhat('shares_count')}
-              />
-            </Fragment>
+            <Share
+              post={post_id}
+              back={() => this._toggle('showShare')}
+              postOwner={user}
+              incrementShares={() => incrementWhat('shares_count')}
+              decrementShares={() => decrementWhat('shares_count')}
+            />
             : null
         }
 

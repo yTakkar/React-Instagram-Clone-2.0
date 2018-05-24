@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import Title from '../../others/title'
 import { FadeIn } from 'animate-components'
 import { Scrollbars } from 'react-custom-scrollbars'
@@ -11,6 +11,7 @@ import ModalHeader from '../../others/modal/modal-header'
 import ModalBack from '../../others/modal/modal-back'
 import ModalMiddle from '../../others/modal/modal-middle'
 import IsLoading from '../../others/isLoading'
+import Overlay from '../../others/overlay'
 
 @connect(store => (
   { Tags: store.Post }
@@ -49,24 +50,28 @@ export default class Tags extends Component {
       )
 
     return (
-      <div className='tags_model modal modal_big' >
+      <Fragment>
+        <Overlay/>
 
-        <Title value='Tags' />
+        <div className='tags_model modal modal_big' >
 
-        <FadeIn duration='300ms' >
-          <ModalHeader title='Tagged in this post' />
+          <Title value='Tags' />
 
-          <Scrollbars style={{ height: 450 }} className='modal_middle' >
-            <IsLoading loading={loading} />
-            <ModalMiddle loading={loading} list={map_tags} />
-          </Scrollbars>
+          <FadeIn duration='300ms' >
+            <ModalHeader title='Tagged in this post' />
 
-          <div className='modal_bottom'>
-            <ModalBack back={back} />
-          </div>
-        </FadeIn>
+            <Scrollbars style={{ height: 450 }} className='modal_middle' >
+              <IsLoading loading={loading} />
+              <ModalMiddle loading={loading} list={map_tags} />
+            </Scrollbars>
 
-      </div>
+            <div className='modal_bottom'>
+              <ModalBack back={back} />
+            </div>
+          </FadeIn>
+
+        </div>
+      </Fragment>
     )
   }
 }

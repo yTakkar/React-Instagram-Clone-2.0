@@ -4,7 +4,6 @@ import { isAdmin } from '../../../../utils/admin-utils'
 import Notify from 'handy-notification'
 import { post } from 'axios'
 import { connect } from 'react-redux'
-import Overlay from '../../../others/overlay'
 import Prompt from '../../../others/prompt'
 import PropTypes from 'prop-types'
 import { Redirect } from 'react-router'
@@ -35,8 +34,13 @@ export default class DeleteGroup extends Component {
     })
   }
 
+  modalBack = () => {
+    this.setState({ deleteGrp: false })
+    this.props.toggleOptions()
+  }
+
   render() {
-    let { gd: { admin }, toggleOptions } = this.props
+    let { gd: { admin } } = this.props
     let { deleteGrp, deleted } = this.state
 
     return (
@@ -57,19 +61,13 @@ export default class DeleteGroup extends Component {
 
         {
           deleteGrp ?
-            <Fragment>
-              <Overlay/>
-              <Prompt
-                title='Delete group'
-                content="This group will be deleted. There's no undo so you won't be able to find it."
-                actionText= 'Delete'
-                action={this.delete}
-                back={() => {
-                  this.setState({ deleteGrp: false })
-                  toggleOptions()
-                }}
-              />
-            </Fragment>
+            <Prompt
+              title='Delete group'
+              content="This group will be deleted. There's no undo so you won't be able to find it."
+              actionText= 'Delete'
+              action={this.delete}
+              back={this.modalBack}
+            />
             : null
         }
       </Fragment>

@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import { Me } from '../../../../utils/utils'
 import { connect } from 'react-redux'
-import Overlay from '../../../others/overlay'
 import ChangeAdmin from '../../change-admin/change-admin'
 
 @connect(store => (
@@ -19,11 +18,13 @@ export default class ChangeGroupAdmin extends Component {
     this.setState({ change: !this.state.change })
   }
 
+  modalBack = () => {
+    this.setState({ change: false })
+    this.props.toggleOptions()
+  }
+
   render() {
-    let {
-      gd: {admin, group_id },
-      toggleOptions
-    } = this.props
+    let { gd: {admin, group_id } } = this.props
     let { change } = this.state
 
     return (
@@ -40,16 +41,10 @@ export default class ChangeGroupAdmin extends Component {
 
         {
           change ?
-            <Fragment>
-              <Overlay/>
-              <ChangeAdmin
-                back={() => {
-                  this.setState({ change: false })
-                  toggleOptions()
-                }}
-                group={group_id}
-              />
-            </Fragment>
+            <ChangeAdmin
+              back={this.modalBack}
+              group={group_id}
+            />
             : null
         }
       </Fragment>

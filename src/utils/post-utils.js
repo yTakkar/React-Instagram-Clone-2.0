@@ -5,7 +5,8 @@ import {
   imageCompressor, insta_notify, Me, uData, wait
 } from './utils'
 import * as PostActions from '../actions/post'
-import d from './DOM'
+import d from './API/DOM'
+import Action from './API/Action'
 
 /**
  * Add post
@@ -30,12 +31,10 @@ export const addPost = async options => {
     user = Number(uData('session')),
     username = uData('username'),
     form = new FormData(),
-    file = await imageCompressor(targetFile)
+    file = await imageCompressor(targetFile),
+    action = new Action('.p_post')
 
-  new d('.p_post')
-    .text('Wait..')
-    .addClass('a_disabled')
-
+  action.start()
   wait()
 
   form.append('desc', desc)
@@ -94,6 +93,7 @@ export const addPost = async options => {
       }))
   }
 
+  action.end()
   Notify({ value: mssg })
 }
 
@@ -293,14 +293,4 @@ export const unshare = async options => {
 
   success ? done() : null
   Notify({ value: mssg })
-}
-
-/**
- * Helper function for dispatching & changing redux postit data.
- *
- * @param {Function} dispatch
- * @param {[String, any]} args Args with what to update and it's value
- */
-export const pdh = (dispatch, ...args) => {
-  dispatch(PostActions.CPP(...args))
 }

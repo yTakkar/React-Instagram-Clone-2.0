@@ -1,13 +1,13 @@
 import React from 'react'
-import { geolocation, getAddress } from '../../../utils/utils'
+import { geolocation, getAddress } from '../../../utils/location-utils'
 import MaterialIcon from '../../others/icons/material-icon'
 import { connect } from 'react-redux'
-import { pdh } from '../../../utils/post-utils'
+import { CPP } from '../../../actions/post'
 
 const GetLocation = ({ postIt, dispatch }) => {
   let { location } = postIt
 
-  let dp = (...args) => pdh(dispatch, ...args)
+  let dp = (...args) => dispatch(CPP(...args))
 
   let getLocation = async () => {
     let geolocationSuccess = async pos => {

@@ -1,11 +1,12 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { post } from 'axios'
 import PropTypes from 'prop-types'
 import MapAvatars from './map-avatars'
 import UploadAvatar from './upload-avatar'
-import d from '../../../utils/DOM'
+import d from '../../../utils/API/DOM'
 import AvatarActions from './avatar-actions'
 import MaterialIcon from '../icons/material-icon'
+import Overlay from '../overlay'
 
 export default class Avatars extends Component {
 
@@ -36,31 +37,35 @@ export default class Avatars extends Component {
     let { of, group, back } = this.props
 
     return (
-      <div className='pro_avatars'>
-        <div className='pro_ava_top'>
-          <div className='pro_ava_info'>
-            <span>Change your avatar</span>
+      <Fragment>
+        <Overlay/>
+
+        <div className='pro_avatars'>
+          <div className='pro_ava_top'>
+            <div className='pro_ava_info'>
+              <span>Change your avatar</span>
+            </div>
+            <span className='pro_ava_close' onClick={back} >
+              <MaterialIcon icon='close' />
+            </span>
           </div>
-          <span className='pro_ava_close' onClick={back} >
-            <MaterialIcon icon='close' />
-          </span>
-        </div>
-        <MapAvatars
-          avatars={avatars}
-          loading={loading}
-          selectAvatar={this.selectAvatar}
-        />
-        <div className='pro_ava_bottom'>
-          <UploadAvatar of={of} group={group} />
-
-          <AvatarActions
+          <MapAvatars
+            avatars={avatars}
             loading={loading}
-            avatar={selectedAvatar}
-            {...this.props}
+            selectAvatar={this.selectAvatar}
           />
-        </div>
+          <div className='pro_ava_bottom'>
+            <UploadAvatar of={of} group={group} />
 
-      </div>
+            <AvatarActions
+              loading={loading}
+              avatar={selectedAvatar}
+              {...this.props}
+            />
+          </div>
+
+        </div>
+      </Fragment>
     )
   }
 }

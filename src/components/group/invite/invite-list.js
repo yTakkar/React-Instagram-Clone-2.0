@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import Notify from 'handy-notification'
 import { insta_notify } from '../../../utils/utils'
-import d from '../../../utils/DOM'
+import d from '../../../utils/API/DOM'
 import PrimaryButton from '../../others/button/primary-btn'
 
 export default class InviteList extends Component {

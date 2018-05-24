@@ -2,7 +2,7 @@ import qs from 'query-string'
 import { post } from 'axios'
 import Notify from 'handy-notification'
 import { uData } from './utils'
-import d from './DOM'
+import Action from './API/Action'
 
 /**
  * For submit to check if user is the admin
@@ -14,14 +14,12 @@ export const adminSubmit = async options => {
   let
     { password, search } = options,
     toURL = qs.parse(search),
-    element = new d('.al_submit')
+    action = new Action('.al_submit')
 
   if (!password) {
     Notify({ value: 'Password field is missing!!' })
   } else {
-    element
-      .addClass('a_disable')
-      .val('Please wait..')
+    action.start('Please wait..')
 
     let {
       data: { mssg, success }
@@ -33,9 +31,7 @@ export const adminSubmit = async options => {
       done: () => success ? location.href = to : null
     })
 
-    element
-      .removeClass('a_disabled')
-      .val('Continue as admin')
+    action.end('Continue as admin')
   }
 
 }

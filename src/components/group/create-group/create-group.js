@@ -1,6 +1,5 @@
-import React, { Fragment, Component } from 'react'
+import React, { Component } from 'react'
 import CreateGroupModal from './cg-modal'
-import Overlay from '../../others/overlay'
 import SecondaryButton from '../../others/button/secondary-btn'
 
 export default class CreateGroup extends Component {
@@ -32,12 +31,9 @@ export default class CreateGroup extends Component {
 
         {
           createGroup ?
-            <Fragment>
-              <Overlay/>
-              <CreateGroupModal
-                back={this.toggleCreateGroup}
-              />
-            </Fragment>
+            <CreateGroupModal
+              back={this.toggleCreateGroup}
+            />
             : null
         }
 

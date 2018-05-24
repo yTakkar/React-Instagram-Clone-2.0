@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from 'react'
-import Overlay from '../../../others/overlay'
 import Invite from '../../invite/invite'
 import { connect } from 'react-redux'
 
@@ -18,9 +17,14 @@ export default class InviteToGroup extends Component {
     this.setState({ invite: !this.state.invite })
   }
 
+  modalBack = () => {
+    this.setState({ invite: false })
+    this.props.toggleOptions()
+  }
+
   render() {
     let { invite } = this.state
-    let { gd: { group_id }, toggleOptions } = this.props
+    let { gd: { group_id } } = this.props
 
     return (
       <Fragment>
@@ -30,16 +34,10 @@ export default class InviteToGroup extends Component {
 
         {
           invite ?
-            <Fragment>
-              <Overlay/>
-              <Invite
-                back={() => {
-                  this.setState({ invite: false })
-                  toggleOptions()
-                }}
-                group={group_id}
-              />
-            </Fragment>
+            <Invite
+              back={this.modalBack}
+              group={group_id}
+            />
             : null
         }
       </Fragment>

@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import RecommendUsers from './recommend-users'
-import Overlay from '../overlay'
 import PropTypes from 'prop-types'
 import SecondaryButton from '../button/secondary-btn'
 
@@ -35,12 +34,9 @@ export default class Recommend extends Component {
 
         {
           recommend ?
-            <div>
-              <Overlay/>
-              <RecommendUsers
-                back={this.toggleRecommend}
-              />
-            </div>
+            <RecommendUsers
+              back={this.toggleRecommend}
+            />
             : null
         }
 

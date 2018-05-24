@@ -1,7 +1,7 @@
 import { post } from 'axios'
 import Notify from 'handy-notification'
 import { imageCompressor } from './utils'
-import d from './DOM'
+import Action from './API/Action'
 
 /** Upload avatar
  * @param {Object} options
@@ -14,16 +14,12 @@ export const upload_avatar = async options => {
     { file: userFile, of, group } = options,
     form = new FormData(),
     file = await imageCompressor(userFile),
-    btn = new d('.c_a_add'),
-    o = new d('.overlay-2')
+    action = new Action('.c_a_add')
 
   if (file.size > 6000000) {
     Notify({ value: 'Image should be less than 4MB!!' })
   } else {
-    o.show()
-    btn
-      .text('Changing avatar..')
-      .addClass('a_disabled')
+    action.start('Changing avatar..')
 
     form.append('avatar', file)
     form.append('of', of)
@@ -38,10 +34,7 @@ export const upload_avatar = async options => {
       done: () => success ? location.reload() : null
     })
 
-    o.hide()
-    btn
-      .text('Change avatar')
-      .removeClass('a_disabled')
+    action.end('Change avatar')
   }
 
 }

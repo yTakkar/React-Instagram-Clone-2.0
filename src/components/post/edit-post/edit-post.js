@@ -2,13 +2,14 @@ import React, { Component } from 'react'
 import { FadeIn } from 'animate-components'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import d from '../../../utils/DOM'
+import d from '../../../utils/API/DOM'
 import ModalHeader from '../../others/modal/modal-header'
 import ModalBack from '../../others/modal/modal-back'
 import { editPost } from '../../../utils/post-utils'
 import AddEmojis from '../../others/emojis/add-emojis'
 import PrimaryButton from '../../others/button/primary-btn'
 import TextArea from '../../others/input/textArea'
+import Overlay from '../../others/overlay'
 
 @connect()
 export default class EditPost extends Component {
@@ -61,6 +62,7 @@ export default class EditPost extends Component {
 
     return (
       <div>
+        <Overlay/>
 
         <div className='edit_post modal'>
           <FadeIn duration='300ms'>

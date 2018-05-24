@@ -1,6 +1,5 @@
 import React, { Component, Fragment } from 'react'
 import { humanReadable } from '../../../../utils/utils'
-import Overlay from '../../../others/overlay'
 import Sharers from '../../sharers/sharers'
 
 export default class ShowSharers extends Component {
@@ -26,14 +25,11 @@ export default class ShowSharers extends Component {
 
         {
           showSharers ?
-            <Fragment>
-              <Overlay/>
-              <Sharers
-                post={post_id}
-                back={this.toggleShares}
-                decrementSharers={decrementSharers}
-              />
-            </Fragment>
+            <Sharers
+              post={post_id}
+              back={this.toggleShares}
+              decrementSharers={decrementSharers}
+            />
             : null
         }
       </Fragment>

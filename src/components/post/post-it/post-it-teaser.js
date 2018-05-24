@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import Overlay from '../../others/overlay'
 import PostIt from './post-it'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
@@ -44,14 +43,11 @@ export default class PostItTeaser extends Component {
 
         {
           postIt ?
-            <div>
-              <Overlay />
-              <PostIt
-                back={this.togglePostIt}
-                type={type}
-                group={group}
-              />
-            </div>
+            <PostIt
+              back={this.togglePostIt}
+              type={type}
+              group={group}
+            />
             : null
         }
 

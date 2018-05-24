@@ -3,7 +3,7 @@ import Notify from 'handy-notification'
 import { post } from 'axios'
 import { connect } from 'react-redux'
 import { isAdmin } from '../../../../utils/admin-utils'
-import d from '../../../../utils/DOM'
+import d from '../../../../utils/API/DOM'
 
 const BannerRemoveUser = ({ id }) => {
 
@@ -15,8 +15,8 @@ const BannerRemoveUser = ({ id }) => {
     let {
       data: { mssg, success }
     } = await post('/user/remove-user', { user: id })
-    o.hide()
 
+    o.hide()
     Notify({
       value: mssg,
       done: () => success ? location.href = '/login': null

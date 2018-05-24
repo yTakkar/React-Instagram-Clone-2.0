@@ -2,7 +2,6 @@ import React, { Component, Fragment } from 'react'
 import Nothing from '../../others/nothing'
 import Gallery from 'react-photo-gallery'
 import { connect } from 'react-redux'
-import Overlay from '../../others/overlay'
 import ImageTheatre from '../../others/image-theatre'
 
 @connect(store => (
@@ -68,20 +67,14 @@ export default class ExplorePhotoGallery extends Component {
 
         {
           showImage ?
-            <Fragment>
-              <Overlay
-                close_on_click={true}
-                close={() => this.setState({ showImage: false })}
-                opacity={0.9}
-              />
-              <ImageTheatre
-                imgSrc={imgSrc}
-                filter={filter}
-                username={username}
-                time={time}
-                link={link}
-              />
-            </Fragment>
+            <ImageTheatre
+              imgSrc={imgSrc}
+              filter={filter}
+              username={username}
+              time={time}
+              link={link}
+              back={() => this.setState({ showImage: false })}
+            />
             : null
         }
       </Fragment>

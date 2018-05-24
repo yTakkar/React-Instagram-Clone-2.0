@@ -1,7 +1,6 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import { humanReadable } from '../../../../utils/utils'
 import ToolTip from 'react-tooltip'
-import Overlay from '../../../others/overlay'
 import Tags from '../../tags/tags'
 import PropTypes from 'prop-types'
 import MaterialIcon from '../../../others/icons/material-icon'
@@ -15,6 +14,9 @@ export default class PostTags extends Component {
 
   componentDidMount = () =>
     this.setState({ tags_count: this.props.tags_count })
+
+  decrementTags = () =>
+    this.setState({ tags_count: --this.state.tags_count })
 
   render() {
     let { tags_count, showTags } = this.state
@@ -39,14 +41,11 @@ export default class PostTags extends Component {
 
         {
           showTags ?
-            <Fragment>
-              <Overlay/>
-              <Tags
-                post={post_id}
-                back={() => this.setState({ showTags: false })}
-                decrementTags={() => this.setState({ tags_count: --tags_count })}
-              />
-            </Fragment>
+            <Tags
+              post={post_id}
+              back={() => this.setState({ showTags: false })}
+              decrementTags={this.decrementTags}
+            />
             : null
         }
 

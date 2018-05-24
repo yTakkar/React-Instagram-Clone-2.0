@@ -1,6 +1,6 @@
 import React from 'react'
 import emojis from './emojis-array'
-import d from '../../../utils/DOM'
+import d from '../../../utils/API/DOM'
 
 const EmojisList = (props) => {
   let { textArea, updateStateValue, recenterEmojis } = props

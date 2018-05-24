@@ -8,6 +8,7 @@ import AddEmojis from '../../others/emojis/add-emojis'
 import TextArea from '../../others/input/textArea'
 import { func } from 'prop-types'
 import TextInput from '../../others/input/text'
+import Overlay from '../../others/overlay'
 
 export default class CreateGroupModal extends Component {
 
@@ -39,6 +40,7 @@ export default class CreateGroupModal extends Component {
 
     return (
       <div>
+        <Overlay/>
 
         <div className='create_group modal'>
           <FadeIn duration='300ms'>

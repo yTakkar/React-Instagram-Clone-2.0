@@ -1,7 +1,7 @@
 import React, { Fragment, Component } from 'react'
 import { Me, toggle } from '../../../utils/utils'
 import { connect } from 'react-redux'
-import d from '../../../utils/DOM'
+import d from '../../../utils/API/DOM'
 import ChangeAvatarAction from '../../others/avatar/actions/change-avatar'
 import ViewAvatarAction from '../../others/avatar/actions/view-avatar'
 

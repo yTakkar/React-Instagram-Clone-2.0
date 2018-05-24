@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from 'react'
-import Overlay from '../../../others/overlay'
 import Comment from './comment-modal'
 import PropTypes from 'prop-types'
 
@@ -27,16 +26,13 @@ export default class TextComment extends Component {
 
         {
           comment ?
-            <Fragment>
-              <Overlay/>
-              <Comment
-                post={post_id}
-                postOwner={user}
-                back={() => this.setState({ comment: false })}
-                incrementComments={incrementComments}
-                when={when}
-              />
-            </Fragment>
+            <Comment
+              post={post_id}
+              postOwner={user}
+              back={() => this.setState({ comment: false })}
+              incrementComments={incrementComments}
+              when={when}
+            />
             : null
         }
 

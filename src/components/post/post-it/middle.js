@@ -1,15 +1,15 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { pdh } from '../../../utils/post-utils'
 import FileInput from '../../others/input/file'
 import TextArea from '../../others/input/textArea'
+import { CPP } from '../../../actions/post'
 
 const Middle = ({ postIt, session, dispatch }) => {
 
   let { username } = session
   let { fileChanged, desc, previewImg, filter, fileInput } = postIt
 
-  let dp = (...args) => pdh(dispatch, ...args)
+  let dp = (...args) => dispatch(CPP(...args))
 
   let fileChange = e => {
     e.preventDefault()

@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import { Me } from '../../../../utils/utils'
 import { connect } from 'react-redux'
-import Overlay from '../../../others/overlay'
 import Prompt from '../../../others/prompt'
 import { block } from '../../../../utils/setting-utils'
 import PropTypes from 'prop-types'
@@ -47,16 +46,13 @@ export default class BannerBlockUser extends Component {
 
         {
           blockUser ?
-            <Fragment>
-              <Overlay/>
-              <Prompt
-                title={`Block ${username}`}
-                content={`${username} will no longer be able to follow, message, comment, recommend or add you in any group. Instagram won't let ghalib know you blocked him/her. You can unblock from settings.`}
-                actionText= 'Block'
-                action={this.blockUser}
-                back={this.toggleBlockUser}
-              />
-            </Fragment>
+            <Prompt
+              title={`Block ${username}`}
+              content={`${username} will no longer be able to follow, message, comment, recommend or add you in any group. Instagram won't let ghalib know you blocked him/her. You can unblock from settings.`}
+              actionText= 'Block'
+              action={this.blockUser}
+              back={this.toggleBlockUser}
+            />
             : null
         }
 

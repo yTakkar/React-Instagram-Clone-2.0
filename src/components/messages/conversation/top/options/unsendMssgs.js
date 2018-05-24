@@ -1,6 +1,5 @@
 import React, { Component, Fragment } from 'react'
 import Prompt from '../../../../others/prompt'
-import Overlay from '../../../../others/overlay'
 import { deleteYourMssgs } from '../../../../../utils/message-utils'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
@@ -31,9 +30,14 @@ export default class UnsendMessages extends Component {
     this.setState({ unsend: false })
   }
 
+  modalBack = () => {
+    this.setState({ unsend: false })
+    this.props.toggleOptions()
+  }
+
   render() {
     let { unsend } = this.state
-    let { toggleOptions, messages } = this.props
+    let { messages } = this.props
 
     return (
       <Fragment>
@@ -49,19 +53,13 @@ export default class UnsendMessages extends Component {
 
         {
           unsend ?
-            <Fragment>
-              <Overlay/>
-              <Prompt
-                title='Unsend all your messages'
-                content="All your messages will be deleted. There's no undo so you won't be able to find it."
-                actionText='Delete'
-                action={this.unsendAllMssgs}
-                back={() => {
-                  this.setState({ unsend: false })
-                  toggleOptions()
-                }}
-              />
-            </Fragment>
+            <Prompt
+              title='Unsend all your messages'
+              content="All your messages will be deleted. There's no undo so you won't be able to find it."
+              actionText='Delete'
+              action={this.unsendAllMssgs}
+              back={this.modalBack}
+            />
             : null
         }
       </Fragment>

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { humanReadable } from '../../../utils/utils'
+import { humanReadable } from '../../../../utils/utils'
 import PropTypes from 'prop-types'
 
 const GroupSearch = props => {

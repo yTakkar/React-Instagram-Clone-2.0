@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { deleteTag } from '../../actions/user'
 import * as Edit from '../../utils/edit-profile-utils'
 import PropTypes from 'prop-types'
-import d from '../../utils/DOM'
+import d from '../../utils/API/DOM'
 import SecondaryButton from '../others/button/secondary-btn'
 import TextInput from '../others/input/text'
 

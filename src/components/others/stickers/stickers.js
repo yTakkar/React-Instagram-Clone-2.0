@@ -1,15 +1,16 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { FadeIn } from 'animate-components'
 import { Scrollbars } from 'react-custom-scrollbars'
 import { post } from 'axios'
 import PropTypes from 'prop-types'
 import MapStickers from './map-stickers'
-import d from '../../../utils/DOM'
+import d from '../../../utils/API/DOM'
 import ModalHeader from '../modal/modal-header'
 import ModalBack from '../modal/modal-back'
 import IsLoading from '../isLoading'
 import { cLoading } from '../../../utils/utils'
 import PrimaryButton from '../button/primary-btn'
+import Overlay from '../overlay'
 
 export default class Stickers extends Component {
 
@@ -54,33 +55,37 @@ export default class Stickers extends Component {
     let { back } = this.props
 
     return (
-      <div className='stickers_modal modal modal_big' >
+      <Fragment>
+        <Overlay/>
 
-        <FadeIn duration='300ms' >
-          <ModalHeader title='Choose a sticker' />
+        <div className='stickers_modal modal modal_big' >
 
-          <Scrollbars style={{ height: 450 }} className='modal_middle' >
+          <FadeIn duration='300ms' >
+            <ModalHeader title='Choose a sticker' />
 
-            <IsLoading loading={loading} />
+            <Scrollbars style={{ height: 450 }} className='modal_middle' >
 
-            <div className={`modal_main ${cLoading(loading)}`}>
-              <MapStickers stickers={stickers} selectSticker={this.selectSticker} />
+              <IsLoading loading={loading} />
+
+              <div className={`modal_main ${cLoading(loading)}`}>
+                <MapStickers stickers={stickers} selectSticker={this.selectSticker} />
+              </div>
+
+            </Scrollbars>
+
+            <div className='modal_bottom'>
+              <ModalBack back={back} btnClass='secondary' />
+              <PrimaryButton
+                label='Choose'
+                onClick={this.chooseSticker}
+                extraClass='btn_select_sticker'
+                disabled={loading}
+              />
             </div>
+          </FadeIn>
 
-          </Scrollbars>
-
-          <div className='modal_bottom'>
-            <ModalBack back={back} btnClass='secondary' />
-            <PrimaryButton
-              label='Choose'
-              onClick={this.chooseSticker}
-              extraClass='btn_select_sticker'
-              disabled={loading}
-            />
-          </div>
-        </FadeIn>
-
-      </div>
+        </div>
+      </Fragment>
     )
   }
 }

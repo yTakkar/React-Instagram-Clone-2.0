@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { post } from 'axios'
-import MapSearch from './map-search'
+import MapSearch from './map-search/map-search'
 import FAIcon from '../icons/font-awesome-icon'
 import TextInput from '../input/text'
 

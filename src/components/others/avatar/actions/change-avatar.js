@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react'
-import Overlay from '../../overlay'
 import Avatars from '../avatars'
 import { bool, func, oneOf } from 'prop-types'
 import { connect } from 'react-redux'
@@ -8,14 +7,11 @@ const ChangeAvatarAction = ({ change, back, when, group_id }) => (
   <Fragment>
     {
       change ?
-        <Fragment>
-          <Overlay/>
-          <Avatars
-            back={back}
-            of={when}
-            group={group_id}
-          />
-        </Fragment>
+        <Avatars
+          back={back}
+          of={when}
+          group={group_id}
+        />
         : null
     }
   </Fragment>

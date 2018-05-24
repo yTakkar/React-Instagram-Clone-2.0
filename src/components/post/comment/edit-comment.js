@@ -4,12 +4,13 @@ import { connect } from 'react-redux'
 import { editComment } from '../../../actions/post'
 import { post } from 'axios'
 import Notify from 'handy-notification'
-import d from '../../../utils/DOM'
+import d from '../../../utils/API/DOM'
 import ModalHeader from '../../others/modal/modal-header'
 import ModalBack from '../../others/modal/modal-back'
 import AddEmojis from '../../others/emojis/add-emojis'
 import TextArea from '../../others/input/textArea'
 import PrimaryButton from '../../others/button/primary-btn'
+import Overlay from '../../others/overlay'
 
 @connect()
 export default class EditComment extends Component {
@@ -54,6 +55,7 @@ export default class EditComment extends Component {
 
     return (
       <div>
+        <Overlay/>
 
         <div className='edit_post modal'>
           <FadeIn duration='300ms'>

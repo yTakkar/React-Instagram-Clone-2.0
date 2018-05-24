@@ -2,7 +2,7 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import d from '../../utils/DOM'
+import d from '../../utils/API/DOM'
 
 const Title = ({ value, desc, un }) => {
 

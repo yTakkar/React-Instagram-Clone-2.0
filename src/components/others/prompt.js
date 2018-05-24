@@ -1,10 +1,11 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { FadeIn } from 'animate-components'
 import PropTypes from 'prop-types'
-import d from '../../utils/DOM'
+import d from '../../utils/API/DOM'
 import MaterialIcon from './icons/material-icon'
 import PrimaryButton from './button/primary-btn'
 import SecondaryButton from './button/secondary-btn'
+import Overlay from './overlay'
 
 export default class Prompt extends Component {
 
@@ -17,37 +18,46 @@ export default class Prompt extends Component {
   }
 
   render() {
-    let { title, content, actionText, action, blurred } = this.props
+    let {
+      title, content, actionText, action, blurred
+    } = this.props
+    let style = {
+      marginBottom: blurred ? 9 : 10
+    }
 
     return (
-      <div className='prompt'>
-        <FadeIn duration='300ms'>
+      <Fragment>
+        <Overlay/>
 
-          <div className='prompt-top'>
-            <span className='prompt-title'>{title}</span>
-            <span onClick={this.close} >
-              <MaterialIcon icon='close' />
-            </span>
-          </div>
+        <div className='prompt'>
+          <FadeIn duration='300ms'>
 
-          <div className='prompt-middle' style={{ marginBottom: blurred ? 9 : 10 }} >
-            <span className='prompt-content'>{content}</span>
-          </div>
+            <div className='prompt-top'>
+              <span className='prompt-title'>{title}</span>
+              <span onClick={this.close} >
+                <MaterialIcon icon='close' />
+              </span>
+            </div>
 
-          <div className='prompt-bottom'>
-            <SecondaryButton
-              label='Cancel'
-              onClick={this.close}
-            />
-            <PrimaryButton
-              label={actionText}
-              onClick={action}
-              extraClass='prompt-done'
-            />
-          </div>
+            <div className='prompt-middle' style={style} >
+              <span className='prompt-content'>{content}</span>
+            </div>
 
-        </FadeIn>
-      </div>
+            <div className='prompt-bottom'>
+              <SecondaryButton
+                label='Cancel'
+                onClick={this.close}
+              />
+              <PrimaryButton
+                label={actionText}
+                onClick={action}
+                extraClass='prompt-done'
+              />
+            </div>
+
+          </FadeIn>
+        </div>
+      </Fragment>
     )
   }
 }

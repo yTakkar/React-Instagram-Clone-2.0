@@ -34,6 +34,7 @@ export default class PostIt extends Component {
 
     return (
       <div>
+        <Overlay/>
 
         <div
           className='post'
@@ -79,7 +80,6 @@ export default class PostIt extends Component {
         }
 
         <ToolTip/>
-
       </div>
     )
   }

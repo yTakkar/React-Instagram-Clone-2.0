@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import { isAdmin } from '../../../../../utils/admin-utils'
 import Prompt from '../../../../others/prompt'
-import Overlay from '../../../../others/overlay'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import { deleteMessage } from '../../../../../utils/message-utils'
@@ -43,16 +42,13 @@ export default class DeleteMessage extends Component {
 
         {
           deleteMessage ?
-            <Fragment>
-              <Overlay/>
-              <Prompt
-                title='Delete message'
-                content="This message will be deleted. There's no undo so you won't be able to find it."
-                actionText='Delete'
-                action={this.delete}
-                back={this.toggleDelete}
-              />
-            </Fragment>
+            <Prompt
+              title='Delete message'
+              content="This message will be deleted. There's no undo so you won't be able to find it."
+              actionText='Delete'
+              action={this.delete}
+              back={this.toggleDelete}
+            />
             : null
         }
       </Fragment>

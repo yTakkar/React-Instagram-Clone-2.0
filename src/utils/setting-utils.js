@@ -1,8 +1,8 @@
 import { post } from 'axios'
 import Notify from 'handy-notification'
-import d from './DOM'
 import { unblockUser } from '../actions/settings'
 import { ObjectMssg, wait } from './utils'
+import Action from './API/Action'
 
 /**
  * Block user
@@ -43,8 +43,7 @@ export const unblock = async options => {
  * @param {String} new_a New password again for surety
  */
 export const changePassword = async (old, new_, new_a) => {
-  let btn = new d('.c_p_btn')
-  let overlay2 = new d('.overlay-2')
+  let action = new Action('.c_p_btn')
 
   if (!old || !new_ || !new_a) {
     Notify({ value: 'Some values are missing!!' })
@@ -52,11 +51,7 @@ export const changePassword = async (old, new_, new_a) => {
     Notify({ value: 'New passwords don\'t match' })
   } else {
 
-    btn
-      .addClass('a_disabled')
-      .text('Changing password..')
-    overlay2.show()
-
+    action.start('Changing password..')
     wait()
 
     let {
@@ -74,11 +69,7 @@ export const changePassword = async (old, new_, new_a) => {
         value: ObjectMssg(mssg)
       })
 
-      btn
-        .removeClass('a_disabled')
-        .text('Change password')
-      overlay2.hide()
-
+      action.end('Change password')
     }
 
   }
@@ -89,24 +80,16 @@ export const changePassword = async (old, new_, new_a) => {
  * @param {String} password User's password
  */
 export const deactivateAccount = async (password, hidePrompt) => {
-  let btn = new d('.prompt-done')
-  let o = new d('.overlay-2')
+  let action = new Action('.prompt-done')
 
-  btn
-    .addClass('a_disabled')
-    .text('Deactivating..')
-  o.show()
-
+  action.start('Deactivating..')
   wait()
 
   let {
     data: { mssg, success }
   } = await post('/user/deactivate-account', { password })
 
-  btn
-    .removeClass('a_disabled')
-    .text('Deactivate')
-  o.hide()
+  action.end('Deactivate')
 
   Notify({
     value: mssg,

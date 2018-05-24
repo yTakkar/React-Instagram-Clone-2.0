@@ -2,7 +2,7 @@ import { post } from 'axios'
 import Notify from 'handy-notification'
 import { insta_notify, ObjectMssg, wait } from './utils'
 import { leftGroup, updateGroup } from '../actions/group'
-import d from './DOM'
+import Action from './API/Action'
 
 /**
  * Creates a group
@@ -12,14 +12,9 @@ import d from './DOM'
  */
 export const createGroup = async options => {
   let { name, bio, created } = options
-  let
-    btn = new d('.c_g_update'),
-    overlay2 = new d('.overlay-2')
+  let action = new Action('.c_g_update')
 
-  btn
-    .text('Please wait..')
-    .addClass('a_disabled')
-  overlay2.show()
+  action.start('Please wait..')
   wait()
 
   let {
@@ -36,10 +31,7 @@ export const createGroup = async options => {
     })
   }
 
-  btn
-    .text('Create group')
-    .removeClass('a_disabled')
-  overlay2.hide()
+  action.end('Create group')
 }
 
 /**
@@ -55,11 +47,9 @@ export const editGroup = async options => {
   let
     { group_id, name, bio, isPrivate, dispatch } = options,
     group_type = isPrivate ? 'private': 'public',
-    btn = new d('.g_e_save_btn')
+    action = new Action('.g_e_save_btn', true, 'sec_btn_disabled')
 
-  btn
-    .text('Updating..')
-    .addClass('sec_btn_disabled')
+  action.start('Updating..')
   wait()
 
   let {
@@ -74,11 +64,7 @@ export const editGroup = async options => {
     : null
 
   Notify({ value: mssg })
-  btn
-    .text('Update')
-    .removeClass('sec_btn_disabled')
-    .blur()
-
+  action.end('Update')
 }
 
 /**

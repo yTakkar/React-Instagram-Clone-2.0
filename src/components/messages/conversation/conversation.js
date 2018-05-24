@@ -7,7 +7,7 @@ import MapMessages from './message/map-messages'
 import TextMessage from './bottom/text-message'
 import ConversationTop from './top/con-top'
 import PropTypes from 'prop-types'
-import d from '../../../utils/DOM'
+import d from '../../../utils/API/DOM'
 import IsLoading from '../../others/isLoading'
 import { cLoading } from '../../../utils/utils'
 
@@ -60,7 +60,6 @@ export default class Conversation extends Component {
 
           </FadeIn>
         </div>
-
       </div>
     )
   }

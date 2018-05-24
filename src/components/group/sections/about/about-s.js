@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import TimeAgo from 'handy-timeago'
 import GrpAboutSection from './section'
 import GroupInstruction from '../../instruction'
-import d from '../../../../utils/DOM'
+import d from '../../../../utils/API/DOM'
 import EditPen from '../../../others/edit-pen'
 import { bottomScroll } from '../../../../utils/utils'
 

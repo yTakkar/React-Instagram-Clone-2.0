@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import { isAdmin } from '../../../../../utils/admin-utils'
 import { Me } from '../../../../../utils/utils'
-import Overlay from '../../../../others/overlay'
 import EditPost from '../../../edit-post/edit-post'
 import PropTypes from 'prop-types'
 
@@ -16,11 +15,15 @@ export default class EditPostOption extends Component {
     this.setState({ editPost: !this.state.editPost })
   }
 
+  modalBack = () => {
+    this.setState({ editPost: false })
+    this.props.toggleOptions()
+  }
+
   render() {
     let {
       postDetails: { user, post_id, description },
-      updateDescription,
-      toggleOptions
+      updateDescription
     } = this.props
     let { editPost } = this.state
 
@@ -29,8 +32,12 @@ export default class EditPostOption extends Component {
         {
           Me(user) || isAdmin() ?
             <li>
-              <a href='#' className='edit_post' onClick={this.showEditPost}>
-                  Edit post {isAdmin() ? 'as admin' : null}
+              <a
+                href='#'
+                className='edit_post'
+                onClick={this.showEditPost}
+              >
+                Edit post {isAdmin() ? 'as admin' : null}
               </a>
             </li>
             : null
@@ -38,20 +45,14 @@ export default class EditPostOption extends Component {
 
         {
           editPost ?
-            <Fragment>
-              <Overlay/>
-              <EditPost
-                post={post_id}
-                description={description}
-                back={() => {
-                  this.setState({ editPost: false })
-                  toggleOptions()
-                }}
-                changeDesc={value =>
-                  updateDescription(value)
-                }
-              />
-            </Fragment>
+            <EditPost
+              post={post_id}
+              description={description}
+              back={this.modalBack}
+              changeDesc={value =>
+                updateDescription(value)
+              }
+            />
             : null
         }
       </Fragment>

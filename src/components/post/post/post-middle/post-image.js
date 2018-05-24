@@ -1,6 +1,5 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import ToTags from '../../../hashtag/toTags/toTags'
-import Overlay from '../../../others/overlay'
 import ImageTheatre from '../../../others/image-theatre'
 import PropTypes from 'prop-types'
 import PostTags from './post-tags'
@@ -41,20 +40,14 @@ export default class PostImage extends Component {
 
         {
           showImage ?
-            <Fragment>
-              <Overlay
-                close_on_click={true}
-                close={() => this._toggle('showImage')}
-                opacity={0.9}
-              />
-              <ImageTheatre
-                imgSrc={`/posts/${imgSrc}`}
-                filter={filter}
-                username={username}
-                time={post_time}
-                link={`/post/${post_id}`}
-              />
-            </Fragment>
+            <ImageTheatre
+              imgSrc={`/posts/${imgSrc}`}
+              filter={filter}
+              username={username}
+              time={post_time}
+              link={`/post/${post_id}`}
+              back={() => this._toggle('showImage')}
+            />
             : null
         }
 

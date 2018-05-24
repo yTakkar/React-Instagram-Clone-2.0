@@ -1,31 +1,26 @@
 import React, { Fragment } from 'react'
-import Overlay from '../../overlay'
 import ViewAvatar from '../viewAvatar'
 import { bool, func, oneOf } from 'prop-types'
 import { connect } from 'react-redux'
 
-const ViewAvatarAction = ({ view, back, when, id, group_id }) => (
-  <Fragment>
-    {
-      view ?
-        <Fragment>
-          <Overlay
-            close_on_click
-            close={back}
-            opacity={0.9}
-          />
+const ViewAvatarAction = ({ view, back, when, id, group_id }) => {
+  let src = when == 'user' ?
+    `/users/${id}/avatar.jpg` :
+    `/groups/${group_id}/avatar.jpg`
+
+  return (
+    <Fragment>
+      {
+        view ?
           <ViewAvatar
-            imgSrc={
-              when == 'user'
-                ? `/users/${id}/avatar.jpg`
-                : `/groups/${group_id}/avatar.jpg`
-            }
+            imgSrc={src}
+            back={back}
           />
-        </Fragment>
-        : null
-    }
-  </Fragment>
-)
+          : null
+      }
+    </Fragment>
+  )
+}
 
 ViewAvatarAction.propTypes = {
   view: bool.isRequired,

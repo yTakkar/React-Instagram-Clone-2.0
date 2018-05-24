@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import d from '../../utils/DOM'
+import d from '../../utils/API/DOM'
 
 const End = ({ mssg }) => {
 

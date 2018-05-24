@@ -1,7 +1,7 @@
 import { post } from 'axios'
 import Notify from 'handy-notification'
 import { viewPassword } from './utils'
-import d from './DOM'
+import d from './API/DOM'
 import { commonLogin } from './user-system-utils'
 
 /**

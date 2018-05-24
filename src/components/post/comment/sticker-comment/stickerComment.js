@@ -1,6 +1,5 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import ToolTip from 'react-tooltip'
-import Overlay from '../../../others/overlay'
 import Stickers from '../../../others/stickers/stickers'
 import { stickerComment } from '../../../../utils/comment-utils'
 import { connect } from 'react-redux'
@@ -47,17 +46,14 @@ export default class StickerComment extends Component {
 
         {
           showStickers ?
-            <Fragment>
-              <Overlay/>
-              <Stickers
-                back={() => this.setState({ showStickers: false })}
-                type='comment'
-                post={post_id}
-                postWhen={when}
-                postOwner={user}
-                stickerComment={sticker => this.stickerComment(sticker)}
-              />
-            </Fragment>
+            <Stickers
+              back={() => this.setState({ showStickers: false })}
+              type='comment'
+              post={post_id}
+              postWhen={when}
+              postOwner={user}
+              stickerComment={sticker => this.stickerComment(sticker)}
+            />
             : null
         }
 

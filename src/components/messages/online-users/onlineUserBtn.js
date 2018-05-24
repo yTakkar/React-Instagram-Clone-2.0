@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from 'react'
-import Overlay from '../../others/overlay'
 import OnlineUsers from './onlineUsers'
 import FAIcon from '../../others/icons/font-awesome-icon'
 import PrimaryButton from '../../others/button/primary-btn'
@@ -34,12 +33,11 @@ export default class OnlineUsersButton extends Component {
 
         {
           showOnlineUsers ?
-            <Fragment>
-              <Overlay />
-              <OnlineUsers
-                back={() => this.setState({ showOnlineUsers: false })}
-              />
-            </Fragment>
+            <OnlineUsers
+              back={() =>
+                this.setState({ showOnlineUsers: false })
+              }
+            />
             : null
         }
       </Fragment>

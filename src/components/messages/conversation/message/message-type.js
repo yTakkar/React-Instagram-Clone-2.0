@@ -2,7 +2,6 @@ import React, { Component, Fragment } from 'react'
 import TimeAgo from 'handy-timeago'
 import ToTags from '../../../hashtag/toTags/toTags'
 import PropTypes from 'prop-types'
-import Overlay from '../../../others/overlay'
 import ImageTheatre from '../../../others/image-theatre'
 
 export default class MessageType extends Component {
@@ -45,17 +44,11 @@ export default class MessageType extends Component {
 
         {
           showImage?
-            <Fragment>
-              <Overlay
-                close_on_click={true}
-                close={this.toggleShowImage}
-                opacity={0.9}
-              />
-              <ImageTheatre
-                imgSrc={`/messages/${message}`}
-                showInfo={false}
-              />
-            </Fragment>
+            <ImageTheatre
+              imgSrc={`/messages/${message}`}
+              showInfo={false}
+              back={this.toggleShowImage}
+            />
             : null
         }
       </Fragment>

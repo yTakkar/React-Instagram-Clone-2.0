@@ -7,7 +7,7 @@ import * as fn from '../utils/utils'
 import * as User from '../utils/user-system-utils'
 import Notify from 'handy-notification'
 import axios from 'axios'
-import d from '../utils/DOM'
+import d from '../utils/API/DOM'
 import { quickLogin } from '../utils/quick-login-utils'
 
 new d('.nh_logo').action('click', () =>
