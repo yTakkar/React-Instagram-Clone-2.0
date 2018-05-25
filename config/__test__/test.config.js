@@ -6,5 +6,5 @@ module.exports = {
   postID: 89,   // postId of a post (by takkar),
   conId: 24,    // conversation ID,
   grpID: 11,    // Group ID
-  testMailTo: 'www.shtakkar@gmail.com'
+  testMailTo: 'anymail@gmail.com'
 }
