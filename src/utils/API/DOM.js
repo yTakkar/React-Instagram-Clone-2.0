@@ -137,7 +137,7 @@ class DOM {
   }
 
   // Performs an action on the element
-  action = (actionType, fn) => {
+  on = (actionType, fn) => {
     this.ifElement(() => {
       let element = this.toDOM()
       element.addEventListener(actionType, e => fn(e))

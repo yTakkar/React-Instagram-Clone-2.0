@@ -115,7 +115,7 @@ export const replacer = (el, filter) => {
       : filter == 'bio'
         ? /[<>]/i : null
 
-  elem.action('keyup', e => {
+  elem.on('keyup', e => {
     let value = e.currentTarget.value
     elem.setValue(value.replace(regex, ''))
   })

@@ -12,7 +12,7 @@ export const username_checker = el => {
   let element = new d(el)
   let uc = new d('.username_checker')
 
-  element.action('keyup', async e => {
+  element.on('keyup', async e => {
     let value = e.target.value
     uc.show()
 
@@ -42,7 +42,7 @@ export const username_checker = el => {
     }
   })
 
-  element.action('blur', () =>
+  element.on('blur', () =>
     uc.hide()
   )
 }
