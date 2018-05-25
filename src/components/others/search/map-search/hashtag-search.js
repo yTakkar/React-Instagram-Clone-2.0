@@ -1,12 +1,14 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
+import AppLink from '../../link/link'
 
 const HashtagSearch = ({ hashtag, clicked }) => (
   <div className='s_d_peo' onClick={clicked} >
-    <Link className='s_d_p h_d_p' to={`/hashtag/${hashtag}`} >
-      <span className='s_d_username'>{hashtag}</span>
-    </Link>
+    <AppLink
+      className='s_d_p h_d_p'
+      url={`/hashtag/${hashtag}`}
+    ><span className='s_d_username'>{hashtag}</span>
+    </AppLink>
   </div>
 )
 

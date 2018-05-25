@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react'
 import Nothing from '../../others/nothing'
 import Gallery from 'react-photo-gallery'
 import { connect } from 'react-redux'
-import ImageTheatre from '../../others/image-theatre'
+import ImageTheatre from '../../others/imageTheatre/imageTheatre'
 
 @connect(store => (
   { photos: store.Explore.photos }

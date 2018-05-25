@@ -1,8 +1,8 @@
 import React from 'react'
 import { Me, humanReadable } from '../../../../../utils/utils'
-import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
+import AppLink from '../../../../others/link/link'
 
 const MemberTop = ({ memberDetails, gd }) => {
   let {
@@ -14,7 +14,10 @@ const MemberTop = ({ memberDetails, gd }) => {
     <div className='m_top'>
       <img src={`/users/${member}/avatar.jpg`} />
       <div className='m_top_right'>
-        <Link to={`/profile/${username}`} >{username}</Link>
+        <AppLink
+          url={`/profile/${username}`}
+          label={username}
+        />
         {
           member == admin
             ? <span className='grp_admin'>admin</span>

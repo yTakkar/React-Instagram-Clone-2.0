@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
 import ToTags from '../../hashtag/toTags/toTags'
+import AppLink from '../../others/link/link'
 
 const BannerInfo = ({ ud }) => {
   let url = location.pathname
@@ -10,7 +10,11 @@ const BannerInfo = ({ ud }) => {
   return (
     <div className='pro_info'>
       <div className='pro_username'>
-        <Link to={url} className='username'>{username}</Link>
+        <AppLink
+          url={url}
+          className='username'
+          label={username}
+        />
       </div>
       <div className='pro_name'>
         <span>{firstname} {surname}</span>

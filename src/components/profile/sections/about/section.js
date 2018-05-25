@@ -1,10 +1,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Link } from 'react-router-dom'
 import ToTags from '../../../hashtag/toTags/toTags'
+import AppLink from '../../../others/link/link'
 
 const AboutSection = ({ label, value, isLink }) => {
-  let editLink = text => <Link to='/edit-profile' >{text}</Link>
+
+  let editLink = text => (
+    <AppLink
+      url='/edit-profile'
+      label={text}
+    />
+  )
 
   return (
     <div>

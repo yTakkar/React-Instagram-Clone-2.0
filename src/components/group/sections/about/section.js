@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Link } from 'react-router-dom'
+import AppLink from '../../../others/link/link'
 
 const GrpAboutSection = ({ label, value, type, url }) => {
   return (
@@ -8,7 +8,11 @@ const GrpAboutSection = ({ label, value, type, url }) => {
       <span className='a_label'>{ label }</span>
       {
         type == 'link'
-          ? <Link to={url} className='a_info' >{value}</Link>
+          ? <AppLink
+            url={url}
+            className='a_info'
+            label={value}
+          />
           : <span className='a_info'>{value}</span>
       }
     </div>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import ToTags from '../../../hashtag/toTags/toTags'
-import ImageTheatre from '../../../others/image-theatre'
+import ImageTheatre from '../../../others/imageTheatre/imageTheatre'
 import PropTypes from 'prop-types'
 import PostTags from './post-tags'
 

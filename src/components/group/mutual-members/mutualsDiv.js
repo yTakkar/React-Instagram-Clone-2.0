@@ -2,37 +2,37 @@ import React from 'react'
 import ToolTip from 'react-tooltip'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import { Link } from 'react-router-dom'
 import FAIcon from '../../others/icons/font-awesome-icon'
+import AppLink from '../../others/link/link'
 
 const MutualMembersDiv = ({ group, mutualMembers }) => {
 
   let map_mutuals = mutualMembers.map(u =>
-    <Link
+    <AppLink
       key={u.user}
-      to={`/profile/${u.username}`}
+      url={`/profile/${u.username}`}
       data-tip={u.username}
       className='mutual_links'
-    >
-      <img src={`/users/${u.user}/avatar.jpg`} />
-    </Link>
+    ><img src={`/users/${u.user}/avatar.jpg`} />
+    </AppLink>
   )
 
   return (
     <div className='mutuals'>
       <div className='mutual_info'>
         <span>Members you know</span>
-        <Link 
-          to={`/group/${group}/members`} 
-          data-tip='view all' 
+        <AppLink
+          to={`/group/${group}/members`}
+          data-tip='view all'
           className='view_all_yk'
-        >
-          <FAIcon icon='chevron-right' />
-        </Link>
+        ><FAIcon icon='chevron-right' />
+        </AppLink>
       </div>
+
       <div className='mutual_main'>
         { map_mutuals }
       </div>
+
       <ToolTip/>
     </div>
   )

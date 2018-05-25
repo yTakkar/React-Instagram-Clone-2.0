@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
 import { Me } from '../../../../utils/utils'
 import { isAdmin } from '../../../../utils/admin-utils'
 import PropTypes from 'prop-types'
@@ -7,6 +6,7 @@ import RemoveShare from './remove-share'
 import SharerInfo from './sharer-info'
 import AdvancedFollow from '../../../others/follow/advancedFollow'
 import AdvancedUnfollow from '../../../others/follow/advancedUnfollow'
+import AppLink from '../../../others/link/link'
 
 export default class Sharer extends Component {
 
@@ -47,10 +47,11 @@ export default class Sharer extends Component {
           <div className='modal_ff'>
             {
               Me(share_by) ?
-                <Link
-                  to={`/profile/${share_by_username}`}
+                <AppLink
+                  url={`/profile/${share_by_username}`}
                   className='pri_btn follow'
-                >Profile</Link>
+                  label='Profile'
+                />
 
                 : Me(share_to) || isAdmin() ?
                   <RemoveShare

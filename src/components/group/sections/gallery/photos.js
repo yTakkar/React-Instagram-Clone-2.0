@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import Nothing from '../../../others/nothing'
 import PhotoGallery from 'react-photo-gallery'
-import ImageTheatre from '../../../others/image-theatre'
+import ImageTheatre from '../../../others/imageTheatre/imageTheatre'
 import { connect } from 'react-redux'
 
 @connect(store => (

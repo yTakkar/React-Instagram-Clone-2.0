@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react'
 import { shortener } from '../../../../utils/utils'
-import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import MaterialIcon from '../../../others/icons/material-icon'
+import AppLink from '../../../others/link/link'
 
 const PostTopDetails = ({ details }) => {
   let {
@@ -18,20 +18,22 @@ const PostTopDetails = ({ details }) => {
         className='p_i_1'
         style={{ top: type == 'group' ? -8 : 'inherit' }}
       >
-        <Link
-          to={`/profile/${username}`}
+        <AppLink
+          url={`/profile/${username}`}
           title={username}
-        >{username}</Link>
+          label={username}
+        />
         {
           type == 'group' ?
             <div className='its_grp_post' >
               <span className='to_grp_arrow'>
                 <MaterialIcon icon='arrow_drop_up' />
               </span>
-              <Link
-                to={`/group/${group_id}`}
+              <AppLink
+                url={`/group/${group_id}`}
                 className='to_grp_name'
-              >{group_name}</Link>
+                label={group_name}
+              />
             </div>
             : null
         }

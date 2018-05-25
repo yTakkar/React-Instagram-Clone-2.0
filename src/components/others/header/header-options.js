@@ -1,6 +1,6 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
+import AppLink from '../link/link'
 
 const HeaderOptions = ({ toggleOptions }) => {
 
@@ -10,10 +10,20 @@ const HeaderOptions = ({ toggleOptions }) => {
     <div className='sp_options options' >
       <ul className='o_ul'>
         <li className='o_li' onClick={clicked} >
-          <Link to='/settings' className='o_a' alt='Settings'>Settings</Link>
+          <AppLink
+            url='/settings'
+            className='o_a'
+            alt='Settings'
+            label='Settings'
+          />
         </li>
         <li className='o_li' onClick={clicked}>
-          <Link to='/edit-profile' className='o_a' alt='Edit'>Edit</Link>
+          <AppLink
+            url='/edit-profile'
+            className='o_a'
+            alt='Edit'
+            label='Edit'
+          />
         </li>
         <li className='o_li'>
           <a href='/help' className='o_a' alt='Help'>Help</a>

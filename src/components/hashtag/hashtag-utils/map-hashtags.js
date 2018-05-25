@@ -1,14 +1,15 @@
 import React, { Fragment } from 'react'
-import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
+import AppLink from '../../others/link/link'
 
 const MapHashtags = ({ hashtags }) => {
   let map_hashtags = hashtags.map(h =>
-    <Link
+    <AppLink
       key={h.hashtag}
       className='uh_link'
-      to={`/hashtag/${h.hashtag.slice(1)}`}
-    >{h.hashtag}</Link>
+      url={`/hashtag/${h.hashtag.slice(1)}`}
+      label={h.hashtag}
+    />
   )
 
   return (

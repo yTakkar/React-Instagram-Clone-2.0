@@ -1,12 +1,13 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
+import AppLink from '../../../others/link/link'
 
 const NotificationTypeProfile = ({ user_username }) => (
-  <Link
-    to={`/profile/${user_username}`}
+  <AppLink
+    url={`/profile/${user_username}`}
     className='pri_btn'
-  >View {user_username}</Link>
+    label={`View ${user_username}`}
+  />
 )
 
 NotificationTypeProfile.propTypes = {

@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react'
 import TimeAgo from 'handy-timeago'
 import ToTags from '../../../hashtag/toTags/toTags'
 import PropTypes from 'prop-types'
-import ImageTheatre from '../../../others/image-theatre'
+import ImageTheatre from '../../../others/imageTheatre/imageTheatre'
 
 export default class MessageType extends Component {
 

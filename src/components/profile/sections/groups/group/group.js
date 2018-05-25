@@ -6,6 +6,7 @@ import PropTypes from 'prop-types'
 import UserGroupInfo from './info'
 import Join from '../../../../group/join-group/join'
 import Leave from '../../../../group/join-group/leave'
+import AppLink from '../../../../others/link/link';
 
 @connect(store => (
   { session: store.User.session }
@@ -36,7 +37,11 @@ export default class GroupList extends Component {
         <div className='m_bottom'>
           {
             Me(admin) ?
-              <Link to={`/group/${group_id}`} className='sec_btn' >View group</Link>
+              <AppLink
+                url={`/group/${group_id}`}
+                className='sec_btn'
+                label='View group'
+              />
 
               : joined ?
                 <Leave

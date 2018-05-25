@@ -1,17 +1,12 @@
 import React, { Fragment } from 'react'
 import { FadeIn } from 'animate-components'
-import { Link } from 'react-router-dom'
 import ToolTip from 'react-tooltip'
-import TimeAgo from 'handy-timeago'
 import PropTypes from 'prop-types'
-import MaterialIcon from './icons/material-icon'
-import Overlay from './overlay'
+import Overlay from '../overlay'
+import ImageTheatreInfo from './info'
 
 const ImageTheatre = props => {
-  let {
-    showInfo, imgSrc, filter, username, time, link, back
-  } = props
-  let imgBy = `by ${username} (${TimeAgo(time).replace(' ago', '')})`
+  let { imgSrc, filter, back } = props
 
   return (
     <Fragment>
@@ -27,27 +22,15 @@ const ImageTheatre = props => {
           <div className='img_s_img'>
             <img src={imgSrc} className={filter} />
 
-            {
-              showInfo ?
-                <div className='img_s_bottom'>
-                  <span className='img_s_by'>{imgBy}</span>
-                  <Link
-                    to={link}
-                    className='img_s_window'
-                    data-tip='Open separately'
-                  >
-                    <MaterialIcon icon='open_in_new' />
-                  </Link>
-                </div>
-                : null
-            }
-
+            <ImageTheatreInfo
+              {...props}
+            />
           </div>
 
+          <ToolTip/>
         </FadeIn>
-
-        <ToolTip/>
       </div>
+
     </Fragment>
   )
 }

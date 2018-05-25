@@ -1,12 +1,13 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
+import AppLink from '../../../others/link/link'
 
 const NotificationTypePost = ({ post_id }) => (
-  <Link
-    to={`/post/${post_id}`}
+  <AppLink
+    url={`/post/${post_id}`}
     className='pri_btn'
-  >Open post</Link>
+    label='Open post'
+  />
 )
 
 NotificationTypePost.propTypes = {

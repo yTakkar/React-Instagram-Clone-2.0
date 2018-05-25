@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react'
-import ImageTheatre from '../../../others/image-theatre'
+import ImageTheatre from '../../../others/imageTheatre/imageTheatre'
 import PropTypes from 'prop-types'
 
 export default class CommentTypeImage extends Component {

@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import TimeAgo from 'handy-timeago'
-import { Link } from 'react-router-dom'
 import PostTop from './post-top/post-top'
 import PropTypes from 'prop-types'
 import PostImage from './post-middle/post-image'
 import PostActions from './post-actions/post-actions'
 import PostBottom from './post-bottom/post-bottom'
+import AppLink from '../../others/link/link'
 
 export default class Post extends Component {
 
@@ -28,9 +28,10 @@ export default class Post extends Component {
         {
           when == 'shared' ?
             <div className='post_share_info'>
-              by <Link
-                to={`/profile/${share_by_username}`}
-              >{share_by_username}</Link>
+              by <AppLink
+                url={`/profile/${share_by_username}`}
+                label={share_by_username}
+              />
               <span>{ share_time ? TimeAgo(share_time) : null }</span>
             </div>
             : null

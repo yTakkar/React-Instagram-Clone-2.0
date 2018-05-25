@@ -115,7 +115,7 @@ for (let elem of allQL) {
 // CLOSE QUICK MODAL
 new d('.q_l_m_cancel').action('click', () => {
   new d('.overlay-2-black').hide()
-  new d('#q_l_password').val('')
+  new d('#q_l_password').setValue('')
   new d('.q_l_model').hide()
 })
 

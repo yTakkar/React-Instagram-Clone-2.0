@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
 import Search from '../search/search'
 import HeaderOptions from './header-options'
 import HeaderTopLinks from './top-links'
 import MaterialIcon from '../icons/material-icon'
+import HeaderLogo from './logo'
 
 export default class Header extends Component {
 
@@ -19,12 +19,9 @@ export default class Header extends Component {
 
     return (
       <div className='header'>
-        <div className='logo'>
-          <Link to='/'>
-            <img src='/images/instagram.jpg' alt='Instagram'/>
-          </Link>
-        </div>
+        <HeaderLogo/>
         <Search/>
+
         <div className='header_right'>
           <HeaderTopLinks/>
           <span
@@ -34,6 +31,7 @@ export default class Header extends Component {
             <MaterialIcon icon='expand_more' />
           </span>
         </div>
+
         {
           showOptions ?
             <HeaderOptions

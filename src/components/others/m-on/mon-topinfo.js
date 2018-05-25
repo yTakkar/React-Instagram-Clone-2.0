@@ -1,19 +1,21 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import { humanReadable } from '../../../utils/utils'
+import AppLink from '../link/link'
 
 const MonTopInfo = ({ info, basedOnMutuals }) => {
   let {
     user, username, firstname, surname, mutuals
   } = info
 
-
   return (
     <div className='m_top'>
       <img src={`/users/${user}/avatar.jpg`} />
       <div className='m_top_right'>
-        <Link to={`/profile/${username}`} >{username}</Link>
+        <AppLink
+          url={`/profile/${username}`}
+          label={username}
+        />
         {
           basedOnMutuals ?
             <span>

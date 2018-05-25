@@ -76,7 +76,7 @@ export const commonLogin = options => {
           done: () => location.href = redirect
         })
 
-        button.val('Redirecting..')
+        button.setValue('Redirecting..')
         overlay2.show()
 
       } else {

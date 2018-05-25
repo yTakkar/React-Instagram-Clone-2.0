@@ -29,7 +29,7 @@ export default class Action {
       .text(text)
       .addClass(this.disabledClass)
       .blur()
-      .val(text)  // if it's an input button
+      .setValue(text)  // if it's an input button
 
     this.ifWithOverlay(() => this.overlay.show())
     return this
@@ -39,7 +39,7 @@ export default class Action {
     new d(this.button)
       .text(text)
       .removeClass(this.disabledClass)
-      .val(text)  // it it's an input button
+      .setValue(text)  // it it's an input button
 
     this.ifWithOverlay(() => this.overlay.hide())
     return this

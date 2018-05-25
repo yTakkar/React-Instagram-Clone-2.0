@@ -2,12 +2,12 @@ import React, { Component } from 'react'
 import ToolTip from 'react-tooltip'
 import { connect } from 'react-redux'
 import { getSuggestedUsers } from '../../../actions/explore'
-import { Link } from 'react-router-dom'
 import SuggestedList from './suggested-list'
 import PropTypes from 'prop-types'
 import IsLoading from '../isLoading'
 import { cLoading } from '../../../utils/utils'
 import FAIcon from '../icons/font-awesome-icon'
+import AppLink from '../link/link'
 
 @connect(store => (
   { suggested: store.Explore.suggested }
@@ -57,9 +57,12 @@ export default class Suggested extends Component {
             >
               <FAIcon icon='sync-alt' />
             </a>
-            <Link to='/explore' className='recomm_all' data-tip='view all' >
-              <FAIcon icon='chevron-right' />
-            </Link>
+            <AppLink
+              url='/explore'
+              className='recomm_all'
+              data-tip='view all'
+            ><FAIcon icon='chevron-right' />
+            </AppLink>
           </div>
 
           <div className='recomm_main' style={{ height: loading ? 100 : 'inherit' }} >

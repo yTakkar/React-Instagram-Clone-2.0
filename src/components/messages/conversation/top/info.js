@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import TimeAgo from 'handy-timeago'
 import { connect } from 'react-redux'
+import AppLink from '../../../others/link/link';
 
 const ConversationInfo = ({ cd }) => {
   let {
@@ -15,10 +16,11 @@ const ConversationInfo = ({ cd }) => {
         className='con_with_avatar'
       />
       <div className='m_m_t_c'>
-        <Link
-          to={`/profile/${con_with_username}`}
+        <AppLink
+          url={`/profile/${con_with_username}`}
           className='con_name'
-        >{ con_with_username }</Link>
+          label={con_with_username}
+        />
         <span className='m_m_t_useless'>
           {
             isOnline ? 'online'

@@ -1,11 +1,12 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import AppLink from '../../../others/link/link'
 
 const NotificationTypeCon = () => (
-  <Link
-    to='/messages'
+  <AppLink
+    url='/messages'
     className='pri_btn'
-  >View conversation</Link>
+    label='View conversation'
+  />
 )
 
 export default NotificationTypeCon

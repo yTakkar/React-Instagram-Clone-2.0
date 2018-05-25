@@ -1,8 +1,8 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import ToTags from '../../../hashtag/toTags/toTags'
 import { Me } from '../../../../utils/utils'
 import { connect } from 'react-redux'
+import AppLink from '../../../others/link/link'
 
 const GroupBio = ({ gd }) => {
   let { group_id, bio, admin } = gd
@@ -20,7 +20,11 @@ const GroupBio = ({ gd }) => {
         }
         {
           Me(admin)
-            ? <Link to={`/group/${group_id}/edit`} className='sec_btn grp_ns'>Not satisfied</Link>
+            ? <AppLink
+              url={`/group/${group_id}/edit`}
+              className='sec_btn grp_ns'
+              label='Not satisfied'
+            />
             : null
         }
       </div>

@@ -1,6 +1,7 @@
 import React from 'react'
 import emojis from './emojis-array'
 import d from '../../../utils/API/DOM'
+import { EmojisPropTypes } from './emojis'
 
 const EmojisList = (props) => {
   let { textArea, updateStateValue, recenterEmojis } = props
@@ -38,5 +39,7 @@ const EmojisList = (props) => {
     </div>
   )
 }
+
+EmojisList.propTypes = EmojisPropTypes
 
 export default EmojisList

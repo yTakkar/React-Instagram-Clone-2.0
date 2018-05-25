@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { Me } from '../../../../utils/utils'
 import Nothing from '../../../others/nothing'
 import PhotoGallery from 'react-photo-gallery'
-import ImageTheatre from '../../../others/image-theatre'
+import ImageTheatre from '../../../others/imageTheatre/imageTheatre'
 
 @connect(store => (
   {

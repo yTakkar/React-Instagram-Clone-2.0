@@ -1,28 +1,36 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { Fragment } from 'react'
 import { humanReadable } from '../../../../utils/utils'
 import PropTypes from 'prop-types'
+import AppLink from '../../link/link'
 
 const GroupSearch = props => {
   let {
     group_id, name, membersCount, mutualMembersCount, clicked
   } = props
 
+  let label = () => (
+    <Fragment>
+      <img src={`/groups/${group_id}/avatar.jpg`} />
+      <div className='s_d_c'>
+        <span className='s_d_username'>{ name }</span>
+        <span>
+          {
+            mutualMembersCount == 0
+              ? humanReadable(membersCount, 'member')
+              : humanReadable(mutualMembersCount, 'mutual member')
+          }
+        </span>
+      </div>
+    </Fragment>
+  )
+
   return (
     <div className='s_d_peo' onClick={clicked} >
-      <Link className='s_d_p' to={`/group/${group_id}`} >
-        <img src={`/groups/${group_id}/avatar.jpg`} />
-        <div className='s_d_c'>
-          <span className='s_d_username'>{ name }</span>
-          <span>
-            {
-              mutualMembersCount == 0
-                ? humanReadable(membersCount, 'member')
-                : humanReadable(mutualMembersCount, 'mutual member')
-            }
-          </span>
-        </div>
-      </Link>
+      <AppLink
+        className='s_d_p'
+        url={`/group/${group_id}`}
+        label={label}
+      />
     </div>
   )
 }

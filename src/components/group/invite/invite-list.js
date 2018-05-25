@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
 import Notify from 'handy-notification'
 import { insta_notify } from '../../../utils/utils'
 import d from '../../../utils/API/DOM'
 import PrimaryButton from '../../others/button/primary-btn'
+import AppLink from '../../others/link/link'
 
 export default class InviteList extends Component {
 
@@ -28,11 +28,16 @@ export default class InviteList extends Component {
         <div className='modal_it_img'>
           <img src={`/users/${follow_to}/avatar.jpg`} />
         </div>
+
         <div className='modal_it_content '>
           <div className='modal_it_info'>
-            <Link to={`/profile/${username}`} className='modal_it_username' >{username}</Link>
+            <AppLink
+              url={`/profile/${username}`} className='modal_it_username'
+              label={username}
+            />
             <span className='modal_it_light' >{`${firstname} ${surname}`}</span>
           </div>
+
           <div className='modal_ff'>
             <PrimaryButton
               label='Invite'
@@ -41,6 +46,7 @@ export default class InviteList extends Component {
             />
           </div>
         </div>
+
         <hr/>
       </div>
     )

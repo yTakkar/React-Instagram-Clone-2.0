@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import TimeAgo from 'handy-timeago'
 import { Me } from '../../../../../utils/utils'
 import { isAdmin } from '../../../../../utils/admin-utils'
-import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { post } from 'axios'
 import MemberAddedBy from './added_by'
@@ -12,6 +11,7 @@ import PropTypes from 'prop-types'
 import MonSticky from '../../../../others/m-on/mon-sticky'
 import Follow from '../../../../others/follow/follow'
 import Unfollow from '../../../../others/follow/unfollow'
+import AppLink from '../../../../others/link/link'
 
 @connect(store => (
   { gd: store.Group.group_details }
@@ -66,7 +66,11 @@ export default class MembersList extends Component {
 
           {
             Me(member)
-              ? <Link to={`/profile/${username}`} className='sec_btn' >Profile</Link>
+              ? <AppLink
+                url={`/profile/${username}`}
+                className='sec_btn'
+                label='Profile'
+              />
 
               : Me(gd.admin) || isAdmin()
                 ? <RemoveMember

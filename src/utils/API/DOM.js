@@ -125,14 +125,15 @@ class DOM {
   }
 
   // returns value of the element
-  val = setValue => {
-    if (setValue || setValue == '') {
-      this.toDOM().value = setValue
-      return this
-    } else {
-      let value = this.toDOM().value
-      return value
-    }
+  val = () => {
+    let value = this.toDOM().value
+    return value
+  }
+
+  setValue = value => {
+    let element = this.toDOM()
+    element.value = value
+    return this
   }
 
   // Performs an action on the element

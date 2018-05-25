@@ -1,7 +1,7 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { Fragment } from 'react'
 import { humanReadable } from '../../../../utils/utils'
 import PropTypes from 'prop-types'
+import AppLink from '../../link/link'
 
 const UserSearch = props => {
   let {
@@ -10,19 +10,24 @@ const UserSearch = props => {
 
   return (
     <div className='s_d_peo' onClick={clicked} >
-      <Link className='s_d_p' to={`/profile/${username}`} >
-        <img src={`/users/${id}/avatar.jpg`} />
-        <div className='s_d_c'>
-          <span className='s_d_username'>{username}</span>
-          <span>
-            {
-              mutualFollowersCount == 0
-                ? `${firstname} ${surname}`
-                : humanReadable(mutualFollowersCount, 'mutual follower')
-            }
-          </span>
-        </div>
-      </Link>
+      <AppLink
+        className='s_d_p'
+        url={`/profile/${username}`}
+      >
+        <Fragment>
+          <img src={`/users/${id}/avatar.jpg`} />
+          <div className='s_d_c'>
+            <span className='s_d_username'>{username}</span>
+            <span>
+              {
+                mutualFollowersCount == 0
+                  ? `${firstname} ${surname}`
+                  : humanReadable(mutualFollowersCount, 'mutual follower')
+              }
+            </span>
+          </div>
+        </Fragment>
+      </AppLink>
     </div>
   )
 }

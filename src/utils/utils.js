@@ -117,7 +117,7 @@ export const replacer = (el, filter) => {
 
   elem.action('keyup', e => {
     let value = e.currentTarget.value
-    elem.val(value.replace(regex, ''))
+    elem.setValue(value.replace(regex, ''))
   })
 }
 
