@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { humanReadable } from '../../../../utils/utils'
-import { Link } from 'react-router-dom'
 import Comments from '../../comment/comments/comments'
 import ImageComment from '../../comment/image-comment/imageComment'
 import StickerComment from '../../comment/sticker-comment/stickerComment'
 import TextComment from '../../comment/text-comment/text-comment'
 import PropTypes from 'prop-types'
+import AppLink from '../../../others/link/link'
 
 @connect(store => (
   { session: store.User.session.id }
@@ -43,10 +43,11 @@ export default class PostBottom extends Component {
 
     return (
       <div>
-        <Link
-          to={`/post/${post_id}`}
-          className='p_comments' >{ humanReadable(comments_count, 'comment') }
-        </Link>
+        <AppLink
+          url={`/post/${post_id}`}
+          className='p_comments'
+          label={ humanReadable(comments_count, 'comment') }
+        />
         <div className='p_cit'>
           <div className='p_cit_img'>
             <img src={`/users/${session}/avatar.jpg`} />

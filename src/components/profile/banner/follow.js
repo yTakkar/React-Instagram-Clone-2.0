@@ -1,14 +1,14 @@
 import React from 'react'
 import { Me } from '../../../utils/utils'
 import { connect } from 'react-redux'
-import { toggleFollow } from '../../../store/actions/follow_a'
-import { Link } from 'react-router-dom'
+import { toggleFollow } from '../../../actions/follow'
 import Unfollow from '../../others/follow/unfollow'
 import Follow from '../../others/follow/follow'
+import AppLink from '../../others/link/link'
 
 const BannerFollow = ({ ud, isFollowing, dispatch }) => {
   let { id, username } = ud
-  let user = id ? id : 0 
+  let user = id ? id : 0
 
   let toggle = what =>
     dispatch(toggleFollow(what))
@@ -17,10 +17,11 @@ const BannerFollow = ({ ud, isFollowing, dispatch }) => {
     <div className='pro_ff' >
       {
         Me(id)
-          ? <Link
-            to='/edit-profile'
+          ? <AppLink
+            url='/edit-profile'
+            label='Edit profile'
             className='pri_btn ff'
-          >Edit profile</Link>
+          />
 
           : isFollowing
             ? <Unfollow

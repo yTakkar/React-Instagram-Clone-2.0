@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import { upload_avatar } from '../../../utils/avatar-utils'
 import PropTypes from 'prop-types'
-import Overlay from '../overlay'
 import PreviewAvatar from './preview-avatar'
 import FileInput from '../input/file'
 
@@ -57,14 +56,11 @@ export default class UploadAvatar extends Component {
 
         {
           fileAvatarChanged ?
-            <div>
-              <Overlay/>
-              <PreviewAvatar
-                previewAvatar={previewAvatar}
-                back={this.previewAvatarBack}
-                upload={this.uploadAvatar}
-              />
-            </div>
+            <PreviewAvatar
+              previewAvatar={previewAvatar}
+              back={this.previewAvatarBack}
+              upload={this.uploadAvatar}
+            />
             : null
         }
       </Fragment>

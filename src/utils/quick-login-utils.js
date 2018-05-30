@@ -1,7 +1,7 @@
 import { post } from 'axios'
 import Notify from 'handy-notification'
 import { viewPassword } from './utils'
-import d from './DOM'
+import d from './API/DOM'
 import { commonLogin } from './user-system-utils'
 
 /**
@@ -32,13 +32,13 @@ export const quickLogin = options => {
   imgDiv.setAttr('src', `/users/${id}/avatar.jpg`)
 
   // QUICK LOGIN SUBMIT
-  new d('.q_l_m_form').action('submit', e => {
+  new d('.q_l_m_form').on('submit', e => {
     e.preventDefault()
     quickLoginSubmit(username)
   })
 
   // CLEAR QUICK LOGIN
-  new d('.q_l_remove').action('click', async e => {
+  new d('.q_l_remove').on('click', async e => {
     e.preventDefault()
     await post('/api/remove-quick-login', { id })
     Notify({
@@ -48,7 +48,7 @@ export const quickLogin = options => {
   })
 
   // TOGGLE VIEW PASSWORD
-  new d('.s_p_ql').action('click', () => {
+  new d('.s_p_ql').on('click', () => {
     viewPassword({
       input: '#q_l_password',
       icon: '.s_p_ql'

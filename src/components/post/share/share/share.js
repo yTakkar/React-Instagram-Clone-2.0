@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { FadeIn } from 'animate-components'
 import { Scrollbars } from 'react-custom-scrollbars'
 import Title from '../../../others/title'
 import ShareList from './share-list'
-import { getUsersToShare } from '../../../../store/actions/post-a'
+import { getUsersToShare } from '../../../../actions/post'
 import { connect } from 'react-redux'
 import { llr } from '../../../../utils/utils'
 import PropTypes from 'prop-types'
@@ -11,6 +11,7 @@ import ModalHeader from '../../../others/modal/modal-header'
 import ModalBack from '../../../others/modal/modal-back'
 import ModalMiddle from '../../../others/modal/modal-middle'
 import IsLoading from '../../../others/isLoading'
+import Overlay from '../../../others/overlay'
 
 @connect(store => (
   { users: store.Post.usersToShare }
@@ -49,24 +50,28 @@ export default class Share extends Component {
     )
 
     return (
-      <div class='modal modal_big' >
+      <Fragment>
+        <Overlay/>
 
-        <Title value='Share post' />
+        <div className='modal modal_big' >
 
-        <FadeIn duration='300ms' >
-          <ModalHeader title='Share post to' />
+          <Title value='Share post' />
 
-          <Scrollbars style={{ height: 450 }} className='modal_middle' >
-            <IsLoading loading={loading} />
-            <ModalMiddle loading={loading} list={map_users} />
-          </Scrollbars>
+          <FadeIn duration='300ms' >
+            <ModalHeader title='Share post to' />
 
-          <div className='modal_bottom'>
-            <ModalBack back={back} />
-          </div>
-        </FadeIn>
+            <Scrollbars style={{ height: 450 }} className='modal_middle' >
+              <IsLoading loading={loading} />
+              <ModalMiddle loading={loading} list={map_users} />
+            </Scrollbars>
 
-      </div>
+            <div className='modal_bottom'>
+              <ModalBack back={back} />
+            </div>
+          </FadeIn>
+
+        </div>
+      </Fragment>
     )
   }
 }

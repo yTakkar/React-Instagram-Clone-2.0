@@ -6,8 +6,8 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { getUnreadNotifications } from '../store/actions/notification-a'
-import { getUnreadMessages } from '../store/actions/message-a'
+import { getUnreadNotifications } from '../actions/notification'
+import { getUnreadMessages } from '../actions/message'
 
 import Header from './others/header/header'
 import NotiSpeak from './others/noti-speak'

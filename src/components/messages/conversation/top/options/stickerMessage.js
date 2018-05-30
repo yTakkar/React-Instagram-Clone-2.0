@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from 'react'
-import Overlay from '../../../../others/overlay'
 import Stickers from '../../../../others/stickers/stickers'
 import { stickerMessage } from '../../../../../utils/message-utils'
 import { connect } from 'react-redux'
@@ -36,7 +35,6 @@ export default class StickerMessage extends Component {
 
   render() {
     let { showStickers } = this.state
-    let { toggleOptions } = this.props
 
     return (
       <Fragment>
@@ -48,15 +46,12 @@ export default class StickerMessage extends Component {
 
         {
           showStickers ?
-            <Fragment>
-              <Overlay/>
-              <Stickers
-                back={this.modalBack}
-                stickerSelected={sticker =>
-                  this.message(sticker)
-                }
-              />
-            </Fragment>
+            <Stickers
+              back={this.modalBack}
+              stickerSelected = {
+                sticker => this.message(sticker)
+              }
+            />
             : null
         }
       </Fragment>

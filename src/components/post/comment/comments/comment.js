@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import CommentType from './comment-type'
 import CommentOptions from './options/comment-options'
 import PropTypes from 'prop-types'
-import { Link } from 'react-router-dom'
+import AppLink from '../../../others/link/link'
 
 @connect()
 export default class Comment extends Component {
@@ -40,10 +40,11 @@ export default class Comment extends Component {
           <img className='comments_avatar' src={`/users/${comment_by}/avatar.jpg`} />
 
           <div className='comments_content'>
-            <Link
-              to={`/profile/${comment_by_username}`}
+            <AppLink
+              url={`/profile/${comment_by_username}`}
               className='comments_user'
-            >{ comment_by_username }</Link>
+              label={comment_by_username}
+            />
 
             <CommentType
               type={type}

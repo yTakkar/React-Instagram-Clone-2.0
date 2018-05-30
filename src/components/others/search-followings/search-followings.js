@@ -3,7 +3,7 @@ import { post } from 'axios'
 import { uniqBy } from 'lodash'
 import PropTypes from 'prop-types'
 import MapSFUsers from './map-users'
-import d from '../../../utils/DOM'
+import d from '../../../utils/API/DOM'
 import TextInput from '../input/text'
 
 export default class SearchFollowings extends Component {

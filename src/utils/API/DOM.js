@@ -1,9 +1,11 @@
 /**
  * @author Faiyaz Shaikh <www.shtakkar@gmail.com>
  * GitHub repo: https://github.com/yTakkar/React-Instagram-Clone-2.0
+ *
+ * A library for DOM manipulation (inspired by jQuery) which also enables to chain mathods.
  */
 
-import { toggle } from './utils'
+import { toggle } from '../utils'
 
 class DOM {
   element = ''
@@ -20,6 +22,12 @@ class DOM {
   }
 
   // Perform an operaction only if element is valid
+  ifElement = fn => {
+    let element = this.toDOM()
+    element ? fn() : null
+  }
+
+  // Perform a function/method on element only if element is [not null/present]
   ifElement = fn => {
     let element = this.toDOM()
     element ? fn() : null
@@ -54,9 +62,9 @@ class DOM {
   }
 
   // changes the html of the element
-  html = e => {
+  html = body => {
     this.ifElement(() =>
-      this.toDOM().innerHTML = e
+      this.toDOM().innerHTML = body
     )
     return this
   }
@@ -133,22 +141,23 @@ class DOM {
   }
 
   // returns value of the element
-  val = setValue => {
-    if (setValue || setValue == '') {
-      this.toDOM().value = setValue
-      return this
-    } else {
-      let value = this.toDOM().value
-      return value
-    }
+  val = () => {
+    let value = this.toDOM().value
+    return value
+  }
+
+  setValue = value => {
+    let element = this.toDOM()
+    element.value = value
+    return this
   }
 
   // Performs an action on the element
-  action = (actionType, fn) => {
-    this.ifElement(() =>
-      this.toDOM()
-        .addEventListener(actionType, e => fn(e))
-    )
+  on = (actionType, fn) => {
+    this.ifElement(() => {
+      let element = this.toDOM()
+      element.addEventListener(actionType, e => fn(e))
+    })
     return this
   }
 

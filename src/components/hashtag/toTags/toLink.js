@@ -1,14 +1,15 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import { uniq } from '../../../utils/utils'
 import PropTypes from 'prop-types'
+import AppLink from '../../others/link/link'
 
 const ToLink = (url, label) => (
-  <Link
+  <AppLink
     key={uniq()}
-    to={url}
+    url={url}
     className='hashtag'
-  >{label}</Link>
+    label={label}
+  />
 )
 
 ToLink.propTypes = {

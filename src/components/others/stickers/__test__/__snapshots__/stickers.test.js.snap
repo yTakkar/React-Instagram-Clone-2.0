@@ -1,143 +1,155 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Stickers Component should match snapshot 1`] = `
-<div
-  className="stickers_modal modal modal_big"
->
+Array [
   <div
+    className="overlay"
+    onClick={null}
     style={
       Object {
-        "animation": "bcCCNc 300ms ease 0s 1 normal none running",
-        "backfaceVisibility": "visible",
+        "cursor": "inherit",
+        "opacity": 0.5,
       }
     }
+  />,
+  <div
+    className="stickers_modal modal modal_big"
   >
     <div
-      className="modal_header"
-    >
-      <span
-        className="title"
-      >
-        Choose a sticker
-      </span>
-    </div>
-    <div
-      className="modal_middle"
       style={
         Object {
-          "height": 450,
-          "overflow": "hidden",
-          "position": "relative",
-          "width": "100%",
+          "animation": "bcCCNc 300ms ease 0s 1 normal none running",
+          "backfaceVisibility": "visible",
         }
       }
     >
       <div
+        className="modal_header"
+      >
+        <span
+          className="title"
+        >
+          Choose a sticker
+        </span>
+      </div>
+      <div
+        className="modal_middle"
         style={
           Object {
-            "WebkitOverflowScrolling": "touch",
-            "bottom": 0,
-            "left": 0,
-            "marginBottom": 0,
-            "marginRight": 0,
-            "overflow": "scroll",
-            "position": "absolute",
-            "right": 0,
-            "top": 0,
+            "height": 450,
+            "overflow": "hidden",
+            "position": "relative",
+            "width": "100%",
           }
         }
       >
         <div
-          className="spinner"
+          style={
+            Object {
+              "WebkitOverflowScrolling": "touch",
+              "bottom": 0,
+              "left": 0,
+              "marginBottom": 0,
+              "marginRight": 0,
+              "overflow": "scroll",
+              "position": "absolute",
+              "right": 0,
+              "top": 0,
+            }
+          }
         >
-          <span />
-          <span />
-          <span />
+          <div
+            className="spinner"
+          >
+            <span />
+            <span />
+            <span />
+          </div>
+          <div
+            className="modal_main cLoading"
+          >
+            <div
+              style={
+                Object {
+                  "animation": "bcCCNc 300ms ease 0s 1 normal none running",
+                  "backfaceVisibility": "visible",
+                }
+              }
+            />
+          </div>
         </div>
         <div
-          className="modal_main cLoading"
+          style={
+            Object {
+              "borderRadius": 3,
+              "bottom": 2,
+              "display": "none",
+              "height": 6,
+              "left": 2,
+              "position": "absolute",
+              "right": 2,
+            }
+          }
         >
           <div
             style={
               Object {
-                "animation": "bcCCNc 300ms ease 0s 1 normal none running",
-                "backfaceVisibility": "visible",
+                "backgroundColor": "rgba(0,0,0,.2)",
+                "borderRadius": "inherit",
+                "cursor": "pointer",
+                "display": "block",
+                "height": "100%",
+                "position": "relative",
+              }
+            }
+          />
+        </div>
+        <div
+          style={
+            Object {
+              "borderRadius": 3,
+              "bottom": 2,
+              "display": "none",
+              "position": "absolute",
+              "right": 2,
+              "top": 2,
+              "width": 6,
+            }
+          }
+        >
+          <div
+            style={
+              Object {
+                "backgroundColor": "rgba(0,0,0,.2)",
+                "borderRadius": "inherit",
+                "cursor": "pointer",
+                "display": "block",
+                "position": "relative",
+                "width": "100%",
               }
             }
           />
         </div>
       </div>
       <div
-        style={
-          Object {
-            "borderRadius": 3,
-            "bottom": 2,
-            "display": "none",
-            "height": 6,
-            "left": 2,
-            "position": "absolute",
-            "right": 2,
-          }
-        }
+        className="modal_bottom"
       >
-        <div
-          style={
-            Object {
-              "backgroundColor": "rgba(0,0,0,.2)",
-              "borderRadius": "inherit",
-              "cursor": "pointer",
-              "display": "block",
-              "height": "100%",
-              "position": "relative",
-            }
-          }
-        />
-      </div>
-      <div
-        style={
-          Object {
-            "borderRadius": 3,
-            "bottom": 2,
-            "display": "none",
-            "position": "absolute",
-            "right": 2,
-            "top": 2,
-            "width": 6,
-          }
-        }
-      >
-        <div
-          style={
-            Object {
-              "backgroundColor": "rgba(0,0,0,.2)",
-              "borderRadius": "inherit",
-              "cursor": "pointer",
-              "display": "block",
-              "position": "relative",
-              "width": "100%",
-            }
-          }
-        />
+        <a
+          className="sec_btn  "
+          href="#"
+          onClick={[Function]}
+        >
+          Back
+        </a>
+        <a
+          className="pri_btn btn_select_sticker a_disabled"
+          href="#"
+          onClick={[Function]}
+        >
+          Choose
+        </a>
       </div>
     </div>
-    <div
-      className="modal_bottom"
-    >
-      <a
-        className="sec_btn  "
-        href="#"
-        onClick={[Function]}
-      >
-        Back
-      </a>
-      <a
-        className="pri_btn btn_select_sticker a_disabled"
-        href="#"
-        onClick={[Function]}
-      >
-        Choose
-      </a>
-    </div>
-  </div>
-</div>
+  </div>,
+]
 `;

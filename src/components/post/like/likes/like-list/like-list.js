@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
 import { Me } from '../../../../../utils/utils'
 import { isAdmin } from '../../../../../utils/admin-utils'
 import { connect } from 'react-redux'
@@ -8,6 +7,7 @@ import LikeInfo from './info'
 import RemoveLikeAsAdmin from './remLike'
 import AdvancedUnfollow from '../../../../others/follow/advancedUnfollow'
 import AdvancedFollow from '../../../../others/follow/advancedFollow'
+import AppLink from '../../../../others/link/link'
 
 @connect(store => (
   { ud: store.User.user_details }
@@ -45,7 +45,11 @@ export default class LikeList extends Component {
           <div className='modal_ff'>
             {
               Me(like_by) ?
-                <Link to={`/profile/${username}`} className='pri_btn follow' >Profile</Link>
+                <AppLink
+                  url={`/profile/${username}`}
+                  className='pri_btn follow'
+                  label='Profile'
+                />
 
                 : isAdmin() ?
                   <RemoveLikeAsAdmin

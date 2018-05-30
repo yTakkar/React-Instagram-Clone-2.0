@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppLink Component should match snapshot with children prop 1`] = `
+<a
+  href="/"
+  onClick={[Function]}
+>
+  <img
+    src="/images/spacecraft.jpg"
+  />
+</a>
+`;
+
+exports[`AppLink Component should match snapshot with label as a string 1`] = `
+<a
+  href="/"
+  onClick={[Function]}
+>
+  Home
+</a>
+`;

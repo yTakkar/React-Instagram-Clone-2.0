@@ -3,7 +3,7 @@
 const
   app = require('express').Router(),
   db = require('../../../config/db'),
-  mail = require('../../../config/mail')
+  mail = require('../../../config/Mail')
 
 // RETURNS THE COUNT OF A GIVEN FIELD SUCH.
 // EG. POST('/api/what-exists', { what: 'username', value: 'Takkar' })

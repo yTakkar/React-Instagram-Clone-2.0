@@ -1,6 +1,5 @@
 import React, { Component, Fragment } from 'react'
 import { isAdmin } from '../../../../../utils/admin-utils'
-import Overlay from '../../../../others/overlay'
 import EditMessage from '../edit'
 import PropTypes from 'prop-types'
 import MaterialIcon from '../../../../others/icons/material-icon'
@@ -36,17 +35,14 @@ export default class EditMessageTool extends Component {
 
         {
           editMessage ?
-            <Fragment>
-              <Overlay/>
-              <EditMessage
-                back={this.toggleEdit}
-                message={message}
-                message_id={message_id}
-                changeMessage={message =>
-                  updateMessage(message)
-                }
-              />
-            </Fragment>
+            <EditMessage
+              back={this.toggleEdit}
+              message={message}
+              message_id={message_id}
+              changeMessage={message =>
+                updateMessage(message)
+              }
+            />
             : null
         }
       </Fragment>

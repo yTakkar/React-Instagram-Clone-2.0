@@ -1,12 +1,13 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import { string } from 'prop-types'
+import AppLink from '../../../../others/link/link'
 
 const RecommendBy = ({ username }) => (
   <span className='recommend_by' >by
-    <Link
-      to={`/profile/${username}`}
-    > {username}</Link>
+    <AppLink
+      url={`/profile/${username}`}
+      label={username}
+    />
   </span>
 )
 

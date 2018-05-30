@@ -1,6 +1,5 @@
 import React, { Component, Fragment } from 'react'
-import Overlay from '../../../others/overlay'
-import ImageTheatre from '../../../others/image-theatre'
+import ImageTheatre from '../../../others/imageTheatre/imageTheatre'
 import PropTypes from 'prop-types'
 
 export default class CommentTypeImage extends Component {
@@ -26,17 +25,11 @@ export default class CommentTypeImage extends Component {
 
         {
           openImage ?
-            <Fragment>
-              <Overlay
-                close_on_click={true}
-                close={() => this.setState({ openImage: false })}
-                opacity={0.9}
-              />
-              <ImageTheatre
-                imgSrc={`/comments/${commentSrc}`}
-                showInfo={false}
-              />
-            </Fragment>
+            <ImageTheatre
+              imgSrc={`/comments/${commentSrc}`}
+              showInfo={false}
+              back={() => this.setState({ openImage: false })}
+            />
             : null
         }
       </Fragment>

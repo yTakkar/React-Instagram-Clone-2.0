@@ -25,7 +25,7 @@ exports[`Nothing component should match snapshot with default behaviour 1`] = `
 </div>
 `;
 
-exports[`Nothing component should match snapshot with elaphant image, a different message & a description message 1`] = `
+exports[`Nothing component should match snapshot with elaphant image & a descriptive message 1`] = `
 <div
   className="home_last_mssg"
   style={

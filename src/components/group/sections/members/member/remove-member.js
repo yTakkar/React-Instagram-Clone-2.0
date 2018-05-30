@@ -1,10 +1,9 @@
 import React, { Component, Fragment } from 'react'
 import { isAdmin } from '../../../../../utils/admin-utils'
-import Overlay from '../../../../others/overlay'
 import Prompt from '../../../../others/prompt'
 import { post } from 'axios'
 import Notify from 'handy-notification'
-import { removeMember } from '../../../../../store/actions/group-a'
+import { removeMember } from '../../../../../actions/group'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import SecondaryButton from '../../../../others/button/secondary-btn'
@@ -53,16 +52,13 @@ export default class RemoveMember extends Component {
 
         {
           showPrompt ?
-            <div>
-              <Overlay/>
-              <Prompt
-                title={`Remove ${username}`}
-                content="This member will be premanently removed. Member would have to re-join the group."
-                actionText='Delete'
-                action={this.removeMember}
-                back={this.hidePrompt}
-              />
-            </div>
+            <Prompt
+              title={`Remove ${username}`}
+              content='This member will be premanently removed. Member would have to re-join the group.'
+              actionText='Delete'
+              action={this.removeMember}
+              back={this.hidePrompt}
+            />
             : null
         }
       </Fragment>

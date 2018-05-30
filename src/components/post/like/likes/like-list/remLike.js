@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import { removeLike } from '../../../../../store/actions/post-a'
+import { removeLike } from '../../../../../actions/post'
 import Notify from 'handy-notification'
 import { connect } from 'react-redux'
 import SecondaryButton from '../../../../others/button/secondary-btn'

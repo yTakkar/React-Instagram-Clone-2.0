@@ -2,8 +2,8 @@ import React from 'react'
 import { c_first } from '../../../../utils/utils'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { CPP } from '../../../../store/actions/post-a'
-import d from '../../../../utils/DOM'
+import { CPP } from '../../../../actions/post'
+import d from '../../../../utils/API/DOM'
 
 const Filter = ({ filter, postIt, dispatch }) => {
 

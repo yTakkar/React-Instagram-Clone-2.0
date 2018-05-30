@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { FadeIn } from 'animate-components'
 import { Scrollbars } from 'react-custom-scrollbars'
 import Title from '../../../others/title'
-import { getPostLikes } from '../../../../store/actions/post-a'
+import { getPostLikes } from '../../../../actions/post'
 import { connect } from 'react-redux'
 import LikeList from './like-list/like-list'
 import { llr } from '../../../../utils/utils'
@@ -11,6 +11,7 @@ import ModalHeader from '../../../others/modal/modal-header'
 import ModalBack from '../../../others/modal/modal-back'
 import ModalMiddle from '../../../others/modal/modal-middle'
 import IsLoading from '../../../others/isLoading'
+import Overlay from '../../../others/overlay'
 
 @connect(store => (
   { likes: store.Post.likes }
@@ -45,24 +46,28 @@ export default class Likes extends Component {
       )
 
     return (
-      <div class='likes modal modal_big' >
+      <Fragment>
+        <Overlay/>
 
-        <Title value='Likes' />
+        <div className='likes modal modal_big' >
 
-        <FadeIn duration='300ms' >
-          <ModalHeader title='Likes' />
+          <Title value='Likes' />
 
-          <Scrollbars style={{ height: 450 }} className='modal_middle' >
-            <IsLoading loading={loading} />
-            <ModalMiddle loading={loading} list={map_likes} />
-          </Scrollbars>
+          <FadeIn duration='300ms' >
+            <ModalHeader title='Likes' />
 
-          <div className='modal_bottom'>
-            <ModalBack back={back} />
-          </div>
-        </FadeIn>
+            <Scrollbars style={{ height: 450 }} className='modal_middle' >
+              <IsLoading loading={loading} />
+              <ModalMiddle loading={loading} list={map_likes} />
+            </Scrollbars>
 
-      </div>
+            <div className='modal_bottom'>
+              <ModalBack back={back} />
+            </div>
+          </FadeIn>
+
+        </div>
+      </Fragment>
     )
   }
 }

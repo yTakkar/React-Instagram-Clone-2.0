@@ -1,23 +1,22 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import ToolTip from 'react-tooltip'
 import { connect } from 'react-redux'
 import { humanReadable } from '../../utils/utils'
 import PropTypes from 'prop-types'
 import FAIcon from '../others/icons/font-awesome-icon'
+import AppLink from '../others/link/link'
 
 const MutualUsers = ({ mutuals, username }) => {
   let
     len = mutuals.length,
     map_mutuals = mutuals.map(u =>
-      <Link
+      <AppLink
         key={u.follow_id}
-        to={`/profile/${u.username}`}
+        url={`/profile/${u.username}`}
         data-tip={u.username}
         className='mutual_links'
-      >
-        <img src={`/users/${u.user}/avatar.jpg`} />
-      </Link>
+      ><img src={`/users/${u.user}/avatar.jpg`} />
+      </AppLink>
     )
 
   return (
@@ -33,13 +32,19 @@ const MutualUsers = ({ mutuals, username }) => {
           <div className='mutuals'>
             <div className='mutual_info'>
               <span>{ humanReadable(len, 'follower') } you might know</span>
-              <Link to={`/profile/${username}/people-you-know`} data-tip='view all' className='view_all_yk'>
-                <FAIcon icon='chevron-right' />
-              </Link>
+
+              <AppLink
+                url={`/profile/${username}/people-you-know`}
+                data-tip='view all'
+                className='view_all_yk'
+              ><FAIcon icon='chevron-right' />
+              </AppLink>
             </div>
+
             <div className='mutual_main'>
               { map_mutuals }
             </div>
+
             <ToolTip/>
           </div>
       }

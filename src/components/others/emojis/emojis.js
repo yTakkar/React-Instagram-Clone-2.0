@@ -26,7 +26,7 @@ Emojis.defaultProps = {
   recenterEmojis: false,
 }
 
-Emojis.propTypes = {
+export const EmojisPropTypes = {
   position: PropTypes.shape({
     top: PropTypes.number,
     left: PropTypes.number
@@ -35,5 +35,7 @@ Emojis.propTypes = {
   updateStateValue: PropTypes.func.isRequired,
   recenterEmojis: PropTypes.bool,
 }
+
+Emojis.propTypes = EmojisPropTypes
 
 export default Emojis

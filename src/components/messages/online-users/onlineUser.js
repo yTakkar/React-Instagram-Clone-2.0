@@ -1,10 +1,10 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import { humanReadable } from '../../../utils/utils'
 import { connect } from 'react-redux'
 import { newConversation } from '../../../utils/message-utils'
 import PropTypes from 'prop-types'
 import PrimaryButton from '../../others/button/primary-btn'
+import AppLink from '../../others/link/link'
 
 const OnlineUser = props => {
   let {
@@ -27,9 +27,11 @@ const OnlineUser = props => {
 
       <div className='modal_it_content'>
         <div className='modal_it_info'>
-          <Link
-            to={`/profile/${username}`} className='modal_it_username'
-          >{username}</Link>
+          <AppLink
+            url={`/profile/${username}`}
+            className='modal_it_username'
+            label={username}
+          />
 
           <span className='modal_it_light' >
             {

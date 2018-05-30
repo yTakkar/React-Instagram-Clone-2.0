@@ -1,10 +1,10 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import { humanReadable } from '../../../../../utils/utils'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import { unblock } from '../../../../../utils/setting-utils'
 import SecondaryButton from '../../../../others/button/secondary-btn'
+import AppLink from '../../../../others/link/link'
 
 const BlockedUser = props => {
   let {
@@ -22,10 +22,11 @@ const BlockedUser = props => {
 
       <div className='blocked_u_content'>
         <div className='blocked_info'>
-          <Link
-            to={`/profile/${username}`}
+          <AppLink
+            url={`/profile/${username}`}
             className='blocked_username'
-          >{ username }</Link>
+            label={username}
+          />
 
           <span className='blocked_mutual'>
             {

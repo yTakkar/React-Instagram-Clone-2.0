@@ -7,7 +7,7 @@ import AboutSections from './sections'
 import SocialIcons from './social-icons'
 import UpdateInstruction from './update-instruction'
 import EditPen from '../../../others/edit-pen'
-import d from '../../../../utils/DOM'
+import d from '../../../../utils/API/DOM'
 
 @connect(store => (
   { ud: store.User.user_details }

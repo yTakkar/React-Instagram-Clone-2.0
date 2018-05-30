@@ -7,19 +7,19 @@ import * as fn from '../utils/utils'
 import * as User from '../utils/user-system-utils'
 import Notify from 'handy-notification'
 import axios from 'axios'
-import d from '../utils/DOM'
+import d from '../utils/API/DOM'
 import { quickLogin } from '../utils/quick-login-utils'
 
-new d('.nh_logo').action('click', () =>
+new d('.nh_logo').on('click', () =>
   location.href = '/welcome'
 )
 
-new d('.h_logo').action('click', () =>
+new d('.h_logo').on('click', () =>
   location.href = '/'
 )
 
 // View Password for signup
-new d('.s_p_s').action('click', () =>
+new d('.s_p_s').on('click', () =>
   fn.viewPassword({
     input: '#s_password',
     icon: '.s_p_s'
@@ -27,7 +27,7 @@ new d('.s_p_s').action('click', () =>
 )
 
 // View Password for login
-new d('.s_p_l').action('click', () =>
+new d('.s_p_l').on('click', () =>
   fn.viewPassword({
     input: '#l_password',
     icon: '.s_p_l'
@@ -43,7 +43,7 @@ fn.replacer('.s_surname', 'normal')
 User.username_checker('.s_username')
 
 // User Signup
-new d('form.form_register').action('submit', e => {
+new d('form.form_register').on('submit', e => {
   e.preventDefault()
 
   let
@@ -77,7 +77,7 @@ new d('form.form_register').action('submit', e => {
 })
 
 // User login
-new d('form.form_login').action('submit', e => {
+new d('form.form_login').on('submit', e => {
   e.preventDefault()
 
   let username = new d('.l_username').val()
@@ -113,14 +113,14 @@ for (let elem of allQL) {
 }
 
 // CLOSE QUICK MODAL
-new d('.q_l_m_cancel').action('click', () => {
+new d('.q_l_m_cancel').on('click', () => {
   new d('.overlay-2-black').hide()
-  new d('#q_l_password').val('')
+  new d('#q_l_password').setValue('')
   new d('.q_l_model').hide()
 })
 
 // CLEAR ALL QUICK LOGINS
-new d('.clear_all_ql').action('click', async e => {
+new d('.clear_all_ql').on('click', async e => {
   e.preventDefault()
   await axios.post('/api/clear-all-quick-logins')
   Notify({
@@ -130,7 +130,7 @@ new d('.clear_all_ql').action('click', async e => {
 })
 
 // FORGOT PASSWORD
-new d('form.form_fp').action('submit', async e => {
+new d('form.form_fp').on('submit', async e => {
   e.preventDefault()
   let email = new d('.fp_email').val()
 

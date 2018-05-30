@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import { string, bool, func } from 'prop-types'
 
-const CheckBox = ({ label, checked, disabled, changeValue }) => {
+const CheckBox = ({ label, checked, disabled, changeValue, ...props }) => {
   return (
     <Fragment>
       <input
@@ -11,6 +11,7 @@ const CheckBox = ({ label, checked, disabled, changeValue }) => {
         disabled={disabled}
         checked={checked}
         onChange={changeValue}
+        {...props}
       />
       <label for='grp_private'>{label}</label>
     </Fragment>

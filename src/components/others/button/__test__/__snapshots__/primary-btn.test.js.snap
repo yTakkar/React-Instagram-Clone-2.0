@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Primary Button Component should match snapshot and simulate click event 1`] = `
+exports[`Primary Button Component should match snapshot 1`] = `
 <a
   className="pri_btn p_add "
   href="#"
@@ -10,7 +10,7 @@ exports[`Primary Button Component should match snapshot and simulate click event
 </a>
 `;
 
-exports[`Primary Button Component should match snapshot with label prop as a function 1`] = `
+exports[`Primary Button Component should match snapshot with label as a function and disabled=true 1`] = `
 <a
   className="pri_btn  a_disabled"
   href="#"

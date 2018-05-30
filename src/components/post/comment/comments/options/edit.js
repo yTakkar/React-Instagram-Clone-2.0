@@ -1,6 +1,5 @@
 import React, { Fragment, Component } from 'react'
 import { isAdmin } from '../../../../../utils/admin-utils'
-import Overlay from '../../../../others/overlay'
 import EditComment from '../../edit-comment'
 import PropTypes from 'prop-types'
 
@@ -15,11 +14,15 @@ export default class EditCommentOption extends Component {
     this.setState({ editComment: !this.state.editComment })
   }
 
+  modalBack = () => {
+    this.setState({ editComment: false })
+    this.props.toggleOptions()
+  }
+
   render() {
     let {
       commentDetails: { comment_id, type, text },
-      updateCommentText,
-      toggleOptions
+      updateCommentText
     } = this.props
     let { editComment } = this.state
 
@@ -38,18 +41,12 @@ export default class EditCommentOption extends Component {
 
         {
           editComment ?
-            <Fragment>
-              <Overlay/>
-              <EditComment
-                comment={text}
-                back={() => {
-                  toggleOptions()
-                  this.setState({ editComment: false })
-                }}
-                updateComment={value => updateCommentText(value) }
-                comment_id={comment_id}
-              />
-            </Fragment>
+            <EditComment
+              comment={text}
+              back={this.modalBack}
+              updateComment={value => updateCommentText(value) }
+              comment_id={comment_id}
+            />
             : null
         }
       </Fragment>

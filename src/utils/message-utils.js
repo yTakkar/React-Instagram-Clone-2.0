@@ -1,8 +1,11 @@
 import { post } from 'axios'
 import Notify from 'handy-notification'
-import { conversationAdded, messaged, changeLastMssg, unsendAllMessages, deleteCon, deleteMssg } from '../store/actions/message-a'
+import {
+  conversationAdded, messaged, changeLastMssg, unsendAllMessages, deleteCon, deleteMssg
+} from '../actions/message'
 import { insta_notify, imageCompressor, uData, wait } from './utils'
-import d from './DOM'
+import d from './API/DOM'
+import Action from './API/Action'
 
 /**
  * Scrolls down to bottom of the conversation
@@ -99,15 +102,10 @@ const messageDispatchHelper = async options => {
  * @param {Function} options.dispatch
  */
 export const textMessage = async options => {
-  let
-    { message, con_id, con_with, dispatch, } = options,
-    overlay2 = new d('.overlay-2'),
-    btn = new d('.mssg_send')
+  let { message, con_id, con_with, dispatch, } = options
+  let action = new Action('.mssg_send')
 
-  overlay2.show()
-  btn
-    .val('Wait..')
-    .addClass('a_disabled')
+  action.start()
 
   if (!message) {
     Notify({ value: 'Comment field is empty!!' })
@@ -132,10 +130,7 @@ export const textMessage = async options => {
   }
 
   messageScroll()
-  overlay2.hide()
-  btn
-    .val('Send')
-    .removeClass('a_disabled')
+  action.end('Send')
 }
 
 /**

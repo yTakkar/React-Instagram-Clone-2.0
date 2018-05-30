@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { FadeIn } from 'animate-components'
 import Title from '../../others/title'
 import { Scrollbars } from 'react-custom-scrollbars'
 import { connect } from 'react-redux'
-import { getOnlineUsers } from '../../../store/actions/message-a'
+import { getOnlineUsers } from '../../../actions/message'
 import { llr } from '../../../utils/utils'
 import OnlineUser from './onlineUser'
 import PropTypes from 'prop-types'
@@ -11,6 +11,7 @@ import ModalHeader from '../../others/modal/modal-header'
 import ModalBack from '../../others/modal/modal-back'
 import ModalMiddle from '../../others/modal/modal-middle'
 import IsLoading from '../../others/isLoading'
+import Overlay from '../../others/overlay'
 
 @connect(store => (
   { onlineUsers: store.Message.onlineUsers }
@@ -43,24 +44,28 @@ export default class OnlineUsers extends Component {
       )
 
     return (
-      <div class='modal modal_big' >
+      <Fragment>
+        <Overlay/>
 
-        <Title value='Online members' />
+        <div className='modal modal_big' >
 
-        <FadeIn duration='300ms' >
-          <ModalHeader title='Online members' />
+          <Title value='Online members' />
 
-          <Scrollbars style={{ height: 450 }} className='modal_middle' >
-            <IsLoading loading={loading} />
-            <ModalMiddle loading={loading} list={map_users} />
-          </Scrollbars>
+          <FadeIn duration='300ms' >
+            <ModalHeader title='Online members' />
 
-          <div className='modal_bottom'>
-            <ModalBack back={back} />
-          </div>
-        </FadeIn>
+            <Scrollbars style={{ height: 450 }} className='modal_middle' >
+              <IsLoading loading={loading} />
+              <ModalMiddle loading={loading} list={map_users} />
+            </Scrollbars>
 
-      </div>
+            <div className='modal_bottom'>
+              <ModalBack back={back} />
+            </div>
+          </FadeIn>
+
+        </div>
+      </Fragment>
     )
   }
 }

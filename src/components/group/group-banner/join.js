@@ -1,10 +1,10 @@
 import React, { Fragment } from 'react'
 import { Me } from '../../../utils/utils'
-import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { toggleJoinGroup } from '../../../store/actions/group-a'
+import { toggleJoinGroup } from '../../../actions/group'
 import Join from '../join-group/join'
 import Leave from '../join-group/leave'
+import AppLink from '../../others/link/link'
 
 const notNull = id => id ? id : 0
 
@@ -23,7 +23,11 @@ const JoinGroup = ({ gd, joined, session, dispatch }) => {
       <div className='pro_ff' >
         {
           Me(admin)
-            ? <Link to='/edit-group' className='pri_btn ff'>Edit profile</Link>
+            ? <AppLink
+              url='/edit-group'
+              label='Edit profile'
+              className='pri_btn ff'
+            />
 
             : joined
               ? <Leave

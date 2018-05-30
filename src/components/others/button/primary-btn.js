@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import { string, func, bool, oneOfType } from 'prop-types'
 
-const PrimaryButton = ({ label, onClick, extraClass, disabled }) => {
+const PrimaryButton = ({ label, onClick, extraClass, disabled, ...props }) => {
   let disabledClass = disabled ? 'a_disabled' : ''
 
   return (
@@ -10,6 +10,7 @@ const PrimaryButton = ({ label, onClick, extraClass, disabled }) => {
         href='#'
         className={`pri_btn ${extraClass} ${disabledClass}`}
         onClick={onClick}
+        {...props}
       >
         {
           typeof(label) == 'function'

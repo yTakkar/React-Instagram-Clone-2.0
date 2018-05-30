@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import { Me } from '../../../../utils/utils'
-import { Link } from 'react-router-dom'
 import { post } from 'axios'
 import PropTypes from 'prop-types'
 import MonTopInfo from '../../../others/m-on/mon-topinfo'
 import Follow from '../../../others/follow/follow'
 import Unfollow from '../../../others/follow/unfollow'
 import { connect } from 'react-redux'
+import AppLink from '../../../others/link/link'
 
 @connect(store => (
   { id: store.User.user_details.id }
@@ -43,7 +43,11 @@ export default class PeopleYouKnowList extends Component {
         <div className='m_bottom'>
           {
             Me(user)
-              ? <Link to={`/profile/${username}`} className='sec_btn '>Profile</Link>
+              ? <AppLink
+                url={`/profile/${username}`}
+                className='sec_btn '
+                label='Profile'
+              />
 
               : isFollowing
                 ? <Unfollow

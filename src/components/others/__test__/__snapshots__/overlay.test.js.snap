@@ -1,18 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Overlay component should match snapshot & perform click operation 1`] = `
-<div
-  className="overlay"
-  onClick={[Function]}
-  style={
-    Object {
-      "cursor": "zoom-out",
-      "opacity": 0.5,
-    }
-  }
-/>
-`;
-
 exports[`Overlay component should match snapshot with different overlay types 1`] = `
 <div
   className="overlay"

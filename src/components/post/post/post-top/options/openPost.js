@@ -1,12 +1,17 @@
 import React, { Fragment } from 'react'
-import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
+import AppLink from '../../../../others/link/link'
 
 const OpenPost = ({ when, post_id }) => (
   <Fragment>
     {
       when != 'viewPost' ?
-        <li><Link to={`/post/${post_id}`} >Open</Link></li>
+        <li>
+          <AppLink
+            url={`/post/${post_id}`}
+            label='Open'
+          />
+        </li>
         : null
     }
   </Fragment>

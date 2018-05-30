@@ -1,51 +1,63 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Preview-Avatar Component should match snapshot 1`] = `
-<div
-  className="preview_avatar modal"
->
+Array [
   <div
+    className="overlay"
+    onClick={null}
     style={
       Object {
-        "animation": "bcCCNc 300ms ease 0s 1 normal none running",
-        "backfaceVisibility": "visible",
+        "cursor": "inherit",
+        "opacity": 0.5,
       }
     }
+  />,
+  <div
+    className="preview_avatar modal"
   >
     <div
-      className="modal_header"
+      style={
+        Object {
+          "animation": "bcCCNc 300ms ease 0s 1 normal none running",
+          "backfaceVisibility": "visible",
+        }
+      }
     >
-      <span
-        className="title"
+      <div
+        className="modal_header"
       >
-        Change Avatar
-      </span>
-    </div>
-    <div
-      className="c_a_middle"
-    >
-      <img
-        src="/images/location.jpg"
-      />
-    </div>
-    <div
-      className="c_a_bottom modal_bottom"
-    >
-      <a
-        className="sec_btn  "
-        href="#"
-        onClick={[Function]}
+        <span
+          className="title"
+        >
+          Change Avatar
+        </span>
+      </div>
+      <div
+        className="c_a_middle"
       >
-        Cancel
-      </a>
-      <a
-        className="pri_btn c_a_add "
-        href="#"
-        onClick={[Function]}
+        <img
+          src="/images/location.jpg"
+        />
+      </div>
+      <div
+        className="c_a_bottom modal_bottom"
       >
-        Change avatar
-      </a>
+        <a
+          className="sec_btn  "
+          href="#"
+          onClick={[Function]}
+        >
+          Cancel
+        </a>
+        <a
+          className="pri_btn c_a_add "
+          href="#"
+          onClick={[Function]}
+        >
+          Change avatar
+        </a>
+      </div>
     </div>
-  </div>
-</div>
+  </div>,
+]
 `;

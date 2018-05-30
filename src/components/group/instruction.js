@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
-import { Link } from 'react-router-dom'
 import { bool } from 'prop-types'
+import AppLink from '../others/link/link'
 
 const GroupInstruction = ({ showBtns }) => (
   <div className='sabout_one'>
@@ -10,8 +10,16 @@ const GroupInstruction = ({ showBtns }) => (
       {
         showBtns ?
           <Fragment>
-            <Link to='/' className='sec_btn'>Update group</Link>
-            <Link to='/edit-profile' className='pri_btn'>Edit group</Link>
+            <AppLink
+              url='/'
+              className='sec_btn'
+              label='Update group'
+            />
+            <AppLink
+              url='/edit-profile'
+              className='pri_btn'
+              label='Edit group'
+            />
           </Fragment>
           : null
       }

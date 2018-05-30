@@ -1,8 +1,8 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import ToolTip from 'react-tooltip'
 import PropTypes from 'prop-types'
 import MaterialIcon from './icons/material-icon'
+import AppLink from './link/link'
 
 const EditPen = ({ to, when }) => (
   <div
@@ -10,9 +10,9 @@ const EditPen = ({ to, when }) => (
     style={{ display: 'none' }}
     data-tip={`Edit ${when}`}
   >
-    <Link to={to} >
+    <AppLink url={to} >
       <MaterialIcon icon='mode_edit' />
-    </Link>
+    </AppLink>
 
     <ToolTip/>
   </div>

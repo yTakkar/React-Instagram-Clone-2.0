@@ -1,12 +1,24 @@
 import { post } from 'axios'
 import Notify from 'handy-notification'
-import * as follow_action from '../store/actions/follow_a'
+import * as followA from '../actions/follow'
 import { insta_notify, uData } from './utils'
 
 /**
  * Follow user
  *
  * user, username & done properties must be provided.
+ *
+ * Provide update_followers when user's followers data need to be updated.
+ * Eg. On Banner Comp.
+ *
+ * Provide update_followings when user's followings data need to be updated.
+ * Eg. On Followers Comp.
+ *
+ * Provide dispatch when either update_followers OR update_followings needs to be updated
+ *
+ * Provide Firstname & Surname when update_followings=true
+ *
+ * Provide username as it used for notifying.
  *
  * @param {Object} options Options for following user
  * @param {Number} options.user
@@ -21,14 +33,14 @@ import { insta_notify, uData } from './utils'
 export const follow = async options => {
   let
     defaults = {
-      user: null,                 // USER TO FOLLOW [MUST]
-      username: null,             // USER'S USERNAME, ONlY FOR NOTIFYING [MUST]
-      firstname: null,            // WHEN UPDATE_FOLLOWINGS=TRUE
-      surname: null,              // WHEN UPDATE_FOLLOWINGS=TRUE
-      update_followers: false,    // PROVIDE WHEN FOLLOWERS DATA NEEDS TO BE UDATED. EG. FOLLOW ACTION ON BANNER COMPONENT
-      update_followings: false,   // PROVIDE WHEN FOLLOWINGS DATA NEEDS TO BE UDATED. EG. FOLLOWERS/FOLLOWINGS COMPONENT'S FOLLOW ACTION
-      dispatch: () => { return }, // PROVIDE WHEN [UPDATE_FOLLOWERS/UPDATE_FOLLOWINGS]=TRUE
-      done: () => { return }      // FN TO BE EXECUTED WHEN USER IS FOLLOWED [MUST]
+      user: null,
+      username: null,
+      firstname: null,
+      surname: null,
+      update_followers: false,
+      update_followings: false,
+      dispatch: () => { return },
+      done: () => { return }
     },
     obj = { ...defaults, ...options },
     {
@@ -56,8 +68,14 @@ export const follow = async options => {
       isFollowing: true,
       follow_time: ff.follow_time
     }
-    update_followers ? dispatch(follow_action.Follower(ff)) : null
-    update_followings ? dispatch(follow_action.Following(fwing)) : null
+
+    update_followers
+      ? dispatch(followA.Follower(ff))
+      : null
+
+    update_followings
+      ? dispatch(followA.Following(fwing))
+      : null
 
     insta_notify({
       to: user,
@@ -68,13 +86,20 @@ export const follow = async options => {
   }
 
   Notify({ value: mssg })
-
 }
 
 /**
  * Unfollow user
  *
  * user & done properties must be provided.
+ *
+ * Provide update_followers when user's followers data need to be updated.
+ * Eg. On Banner Comp.
+ *
+ * Provide update_followings when user's followings data need to be updated.
+ * Eg. On Followers Comp.
+ *
+ * Provide dispatch when either update_followers OR update_followings needs to be updated
  *
  * @param {Object} options Options for unfollowing user
  * @param {Number} options.user
@@ -84,31 +109,35 @@ export const follow = async options => {
  * @param {Function} options.done
  */
 export const unfollow = async options => {
-  let
-    defaults = {
-      user: null,                 // USER TO UNFOLLOW [MUST]
-      update_followers: false,    // PROVIDE WHEN FOLLOWERS DATA NEEDS TO BE UDATED. EG. FOLLOW ACTION ON BANNER COMPONENT
-      update_followings: false,   // PROVIDE WHEN FOLLOWINGS DATA NEEDS TO BE UDATED. EG. FOLLOWERS/FOLLOWINGS COMPONENT'S FOLLOW ACTION
-      dispatch: () => { return },   // PROVIDE WHEN [UPDATE_FOLLOWERS/UPDATE_FOLLOWINGS]=TRUE
-      done: () => { return }      // FN TO BE EXECUTED WHEN USER IS UNFOLLOWED [MUST]
-    },
-    obj = { ...defaults, ...options },
-    {
-      user,
-      dispatch,
-      update_followers,
-      update_followings,
-      done
-    } = obj,
-    session = uData('session')
+  let defaults = {
+    user: null,
+    update_followers: false,
+    update_followings: false,
+    dispatch: () => { return },
+    done: () => { return }
+  }
+  let obj = { ...defaults, ...options }
+  let {
+    user,
+    dispatch,
+    update_followers,
+    update_followings,
+    done
+  } = obj
+  let session = uData('session')
 
   let {
     data: { success, mssg }
   } = await post('/api/unfollow', { user })
 
   if (success) {
-    update_followers ? dispatch(follow_action.Unfollower(session)) : null
-    update_followings ? dispatch(follow_action.Unfollowing(user)) : null
+    update_followers
+      ? dispatch(followA.Unfollower(session))
+      : null
+
+    update_followings
+      ? dispatch(followA.Unfollowing(user))
+      : null
     done()
   }
 

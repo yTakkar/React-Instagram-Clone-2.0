@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ImageTheatre Component should match snapshot with complete details 1`] = `
+<div
+  className="img_s_bottom"
+>
+  <span
+    className="img_s_by"
+  >
+    by takkar (3 months)
+  </span>
+  <a
+    className="img_s_window"
+    data-tip="Open separately"
+    href="/"
+    onClick={[Function]}
+  >
+    <i
+      className="material-icons"
+    >
+      open_in_new
+    </i>
+  </a>
+</div>
+`;
+
+exports[`ImageTheatre Component should match snapshot with null 1`] = `null`;

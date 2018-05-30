@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import { humanReadable } from '../../../utils/utils'
-import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import TimeAgo from 'handy-timeago'
 import MonSticky from '../../others/m-on/mon-sticky'
 import Join from '../../group/join-group/join'
 import Leave from '../../group/join-group/leave'
+import AppLink from '../../others/link/link'
 
 @connect(store => (
   { session: store.User.session }
@@ -31,24 +31,25 @@ export default class ExploreGroupsList extends Component {
     } = this.props
     let { joined, showTime } = this.state
 
+    let spanText = mutualMembersCount == 0 ?
+      humanReadable(membersCount, 'member') :
+      humanReadable(mutualMembersCount, 'mutual member')
+
     return (
       <div
         className='m_on exp_groups_m_on'
         onMouseOver={this.showTime}
         onMouseOut={this.hideTime}
       >
-
         <div className='m_top'>
           <img src={`/groups/${group_id}/avatar.jpg`} />
+
           <div className='m_top_right'>
-            <Link to={`/group/${group_id}`} >{name}</Link>
-            <span>
-              {
-                mutualMembersCount == 0
-                  ? humanReadable(membersCount, 'member')
-                  : humanReadable(mutualMembersCount, 'mutual member')
-              }
-            </span>
+            <AppLink
+              url={`/group/${group_id}`}
+              label={name}
+            />
+            <span>{spanText}</span>
           </div>
         </div>
 

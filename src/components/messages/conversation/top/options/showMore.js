@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from 'react'
-import Overlay from '../../../../others/overlay'
 import AboutConversation from '../../about-con/about-con'
 import PropTypes from 'prop-types'
 
@@ -14,9 +13,13 @@ export default class ConversationShowMore extends Component {
     this.setState({ showMore: true })
   }
 
+  modalBack = () => {
+    this.setState({ showMore: false })
+    this.props.toggleOptions()
+  }
+
   render() {
     let { showMore } = this.state
-    let { toggleOptions } = this.props
 
     return (
       <Fragment>
@@ -28,15 +31,9 @@ export default class ConversationShowMore extends Component {
 
         {
           showMore ?
-            <Fragment>
-              <Overlay/>
-              <AboutConversation
-                back={() => {
-                  this.setState({ showMore: false })
-                  toggleOptions()
-                }}
-              />
-            </Fragment>
+            <AboutConversation
+              back={this.modalBack}
+            />
             : null
         }
       </Fragment>

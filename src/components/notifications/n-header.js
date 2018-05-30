@@ -2,7 +2,7 @@ import React from 'react'
 import ToolTip from 'react-tooltip'
 import { connect } from 'react-redux'
 import Notify from 'handy-notification'
-import { clearNotifications } from '../../store/actions/notification-a'
+import { clearNotifications } from '../../actions/notification'
 import MaterialIcon from '../others/icons/material-icon'
 
 const NotificationsHeader = ({ len, dispatch }) => {

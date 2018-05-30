@@ -1,15 +1,19 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import FAIcon from '../../others/icons/font-awesome-icon'
+import AppLink from '../../others/link/link'
 
 const GroupInfo = ({ gd }) => {
-  let { name, group_type } = gd
+  let { group_id, name, group_type } = gd
 
   return (
     <div className='pro_info'>
       <div className='pro_username'>
-        <Link to='#' className='username'>{name}</Link>
+        <AppLink
+          url={`/group/${group_id}`}
+          label={name}
+          className='username'
+        />
       </div>
       <div className='pro_name'>
         {

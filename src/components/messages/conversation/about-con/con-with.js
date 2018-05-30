@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { humanReadable } from '../../../../utils/utils'
-import { Link } from 'react-router-dom'
+import AppLink from '../../../others/link/link'
 
 const ConversationWith = ({ cd, conAbout }) => {
   let { mutualFollowersCount } = conAbout
@@ -15,10 +15,16 @@ const ConversationWith = ({ cd, conAbout }) => {
   return (
     <div className='sli_with_div'>
       <span className='sli_label'>Conversation with</span>
+
       <div className='sli_with'>
         <img src={`/users/${user}/avatar.jpg`} />
+
         <div className='sli_with_cont'>
-          <Link to={`/profile/${username}`} >{username}</Link>
+          <AppLink
+            url={`/profile/${username}`}
+            label={username}
+          />
+
           <span className='sli_w'>
             {
               mutualFollowersCount == 0
@@ -28,6 +34,7 @@ const ConversationWith = ({ cd, conAbout }) => {
           </span>
         </div>
       </div>
+
     </div>
   )
 }

@@ -1,18 +1,15 @@
 import React from 'react'
-import { NotiSpeak } from '../noti-speak'
+import NotiSpeak from '../noti-speak'
 import { create } from 'react-test-renderer'
+import mockStore from '../../../store/mockStore/mockStore'
 
 describe('Noti-Speak Component', () => {
-  const session = {
-    id: 24,
-    username: 'takkar'
-  }
 
-  it('should match snapshot with empty DIV', () => {
+  it('should match snapshot with null', () => {
     const tree = create(
       <NotiSpeak
         un={0}
-        session={session}
+        store={mockStore}
       />
     ).toJSON()
 
@@ -23,7 +20,7 @@ describe('Noti-Speak Component', () => {
     const tree = create(
       <NotiSpeak
         un={5}
-        session={session}
+        store={mockStore}
       />
     ).toJSON()
 

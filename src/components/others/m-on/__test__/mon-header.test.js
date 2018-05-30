@@ -14,7 +14,7 @@ describe('Mon-Header Component', () => {
     expect(tree).toMatchSnapshot()
   })
 
-  it('should match snapshot', () => {
+  it('should match snapshot with complete component', () => {
     const tree = create(
       <MonHeader
         len={4}
@@ -24,7 +24,7 @@ describe('Mon-Header Component', () => {
     expect(tree).toMatchSnapshot()
   })
 
-  it('should match snapshot and display you-may-know message', () => {
+  it('should match snapshot with you-may-know message', () => {
     const tree = create(
       <MonHeader
         len={4}

@@ -35,37 +35,35 @@ describe('Search-Followings Component', () => {
     )
   })
 
+  const simulateChange = (wrapper, value) => {
+    wrapper.find('input').simulate(
+      'change',
+      { target: { value } }
+    )
+  }
+
   it('should return matched users when typing', async () => {
     const wrapper = mount(comp)
     await wrapper.instance().componentDidMount()
 
-    // should return coldplay as cold matches only coldplay
-    wrapper.find('input').simulate(
-      'change',
-      { target: { value: 'cold' } }
-    )
+    // should return coldplay as 'cold' matches only coldplay
+    simulateChange(wrapper, 'cold')
     expect(wrapper.state().followings).toBeArrayOfSize(1)
     expect(wrapper.state().followings[0]).toContainEntries([
       ['follow_to', 8],
       ['follow_to_username', 'coldplay']
     ])
 
-    // should return ghalib as gh matches ghalib only
-    wrapper.find('input').simulate(
-      'change',
-      { target: { value: 'gh' } }
-    )
+    // should return ghalib as 'gh' matches ghalib only
+    simulateChange(wrapper, 'gh')
     expect(wrapper.state().followings).toBeArrayOfSize(1)
     expect(wrapper.state().followings[0]).toContainEntries([
       ['follow_to', 7],
       ['follow_to_username', 'ghalib']
     ])
 
-    // should return [] as gh matches neither ghalib nor coldplay
-    wrapper.find('input').simulate(
-      'change',
-      { target: { value: 'something-diff' } }
-    )
+    // should return [] as 'very-diff' matches neither ghalib nor coldplay
+    simulateChange(wrapper, 'very-diff')
     expect(wrapper.state().followings).toBeArrayOfSize(0)
   })
 

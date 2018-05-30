@@ -5,7 +5,7 @@ import { FadeIn } from 'animate-components'
 import Nothing from '../../others/nothing'
 import { humanReadable } from '../../../utils/utils'
 import PropTypes from 'prop-types'
-import d from '../../../utils/DOM'
+import d from '../../../utils/API/DOM'
 
 const MapConversations = ({ showConversation, conversations }) => {
 

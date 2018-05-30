@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`IsLoading Component should match snapshot with <Loading /> 1`] = `
+exports[`IsLoading Component should match snapshot and show <Loading /> 1`] = `
 <div
   className="page_loading"
 >
@@ -14,7 +14,7 @@ exports[`IsLoading Component should match snapshot with <Loading /> 1`] = `
 </div>
 `;
 
-exports[`IsLoading Component should match snapshot with <Spinner /> 1`] = `
+exports[`IsLoading Component should match snapshot and show <Spinner /> 1`] = `
 <div
   className="spinner"
 >

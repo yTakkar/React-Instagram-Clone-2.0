@@ -1,7 +1,7 @@
 import React from 'react'
 import { Me } from '../../../../utils/utils'
-import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
+import AppLink from '../../../others/link/link'
 
 const SharerInfo = ({ sharerDetails }) => {
   let {
@@ -10,9 +10,10 @@ const SharerInfo = ({ sharerDetails }) => {
 
   return (
     <div className='modal_it_info'>
-      <Link to={`/profile/${share_by_username}`} className='modal_it_username' >
-        { Me(share_by) ? 'You' : share_by_username }
-      </Link>
+      <AppLink
+        url={`/profile/${share_by_username}`} className='modal_it_username'
+        label={ Me(share_by) ? 'You' : share_by_username }
+      />
       <span className='modal_it_light' >
         to { Me(share_to) ? 'You' : share_to_username }
       </span>

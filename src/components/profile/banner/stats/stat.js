@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react'
 import { c_first } from '../../../../utils/utils'
 import PropTypes from 'prop-types'
-import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
+import AppLink from '../../../others/link/link'
 
 const BannerStat = ({ username, disabled, statType, statValue }) => {
 
@@ -22,9 +22,9 @@ const BannerStat = ({ username, disabled, statType, statValue }) => {
             { body }
           </div>
           :
-          <Link to={url}>
+          <AppLink url={url} >
             { body }
-          </Link>
+          </AppLink>
       }
     </Fragment>
   )

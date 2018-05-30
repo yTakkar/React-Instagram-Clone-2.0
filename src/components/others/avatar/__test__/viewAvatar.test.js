@@ -4,14 +4,14 @@ import ViewAvatar from '../viewAvatar'
 import { shallow } from 'enzyme'
 
 describe('ViewAvatar Component', () => {
+  const comp = (
+    <ViewAvatar
+      imgSrc='/images/music.jpg'
+      back={() => {}}
+    />
+  )
 
-  it('should match snapshot', () => {
-    const tree = create(
-      <ViewAvatar/>
-    ).toJSON()
-    expect(tree).toMatchSnapshot()
-  })
-
+  // changed input's value to given value
   const changeRange = (wrapper, value) => {
     let mockedEvent = {
       target: { value }
@@ -19,8 +19,13 @@ describe('ViewAvatar Component', () => {
     wrapper.find('RangeInput').simulate('change', mockedEvent)
   }
 
+  it('should match snapshot', () => {
+    const tree = create(comp).toJSON()
+    expect(tree).toMatchSnapshot()
+  })
+
   it('should change img\'s width based on state', () => {
-    const wrapper = shallow(<ViewAvatar/>)
+    const wrapper = shallow(comp)
 
     // image's width should be 300 when range=300
     changeRange(wrapper, 300)

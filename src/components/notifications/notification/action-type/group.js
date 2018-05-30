@@ -1,12 +1,13 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
+import AppLink from '../../../others/link/link'
 
 const NotificationTypeGroup = ({ group_id }) => (
-  <Link
+  <AppLink
     to={`/group/${group_id}`}
     className='pri_btn'
-  >View group</Link>
+    label='View group'
+  />
 )
 
 NotificationTypeGroup.propTypes = {

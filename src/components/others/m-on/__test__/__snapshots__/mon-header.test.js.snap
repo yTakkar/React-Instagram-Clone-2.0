@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Mon-Header Component should match snapshot 1`] = `
+exports[`Mon-Header Component should match snapshot with complete component 1`] = `
 <div
   className="m_header"
 >
@@ -10,7 +10,9 @@ exports[`Mon-Header Component should match snapshot 1`] = `
 </div>
 `;
 
-exports[`Mon-Header Component should match snapshot and display you-may-know message 1`] = `
+exports[`Mon-Header Component should match snapshot with no content 1`] = `null`;
+
+exports[`Mon-Header Component should match snapshot with you-may-know message 1`] = `
 <div
   className="m_header"
 >
@@ -19,5 +21,3 @@ exports[`Mon-Header Component should match snapshot and display you-may-know mes
   </span>
 </div>
 `;
-
-exports[`Mon-Header Component should match snapshot with no content 1`] = `null`;

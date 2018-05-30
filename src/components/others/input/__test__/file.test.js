@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import FileInput from '../file'
 import { create } from 'react-test-renderer'
-import FAIcon from '../../icons/font-awesome-icon';
+import FAIcon from '../../icons/font-awesome-icon'
 
 describe('FileInput Component', () => {
   const props = {

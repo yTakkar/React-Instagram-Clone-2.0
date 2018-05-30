@@ -3,8 +3,7 @@ import { connect } from 'react-redux'
 import { Me } from '../../../../utils/utils'
 import Nothing from '../../../others/nothing'
 import PhotoGallery from 'react-photo-gallery'
-import Overlay from '../../../others/overlay'
-import ImageTheatre from '../../../others/image-theatre'
+import ImageTheatre from '../../../others/imageTheatre/imageTheatre'
 
 @connect(store => (
   {
@@ -71,20 +70,14 @@ export default class UserPhotos extends Component {
 
         {
           showImage ?
-            <Fragment>
-              <Overlay
-                close_on_click={true}
-                close={() => this.setState({ showImage: false })}
-                opacity={0.9}
-              />
-              <ImageTheatre
-                imgSrc={imgSrc}
-                filter={filter}
-                username={imgUsername}
-                time={time}
-                link={link}
-              />
-            </Fragment>
+            <ImageTheatre
+              imgSrc={imgSrc}
+              filter={filter}
+              username={imgUsername}
+              time={time}
+              link={link}
+              back={() => this.setState({ showImage: false })}
+            />
             : null
         }
       </Fragment>

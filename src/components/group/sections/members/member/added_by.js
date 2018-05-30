@@ -1,7 +1,7 @@
 import React from 'react'
 import { Me } from '../../../../../utils/utils'
-import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
+import AppLink from '../../../../others/link/link'
 
 const MemberAddedBy = ({ memberDetails }) => {
   let { member, added_by, added_by_username } = memberDetails
@@ -11,9 +11,10 @@ const MemberAddedBy = ({ memberDetails }) => {
       {
         member != added_by ?
           <div>
-            by <Link
-              to={`/profile/${added_by_username}`}
-            >{ Me(added_by) ? 'You' : added_by_username }</Link>
+            by <AppLink
+              url={`/profile/${added_by_username}`}
+              label={Me(added_by) ? 'You' : added_by_username}
+            />
           </div>
           : null
       }

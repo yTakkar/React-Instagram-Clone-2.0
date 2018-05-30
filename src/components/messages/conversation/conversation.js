@@ -1,14 +1,13 @@
 import React, { Component } from 'react'
 import { FadeIn } from 'animate-components'
-import ToolTip from 'react-tooltip'
 import { messageScroll } from '../../../utils/message-utils'
 import { connect } from 'react-redux'
-import { getConversationMessages, readConversation, getConDetails } from '../../../store/actions/message-a'
+import { getConversationMessages, readConversation, getConDetails } from '../../../actions/message'
 import MapMessages from './message/map-messages'
 import TextMessage from './bottom/text-message'
 import ConversationTop from './top/con-top'
 import PropTypes from 'prop-types'
-import d from '../../../utils/DOM'
+import d from '../../../utils/API/DOM'
 import IsLoading from '../../others/isLoading'
 import { cLoading } from '../../../utils/utils'
 
@@ -16,7 +15,7 @@ import { cLoading } from '../../../utils/utils'
 export default class Conversation extends Component {
 
   state = {
-    loading: true,
+    loading: true
   }
 
   componentDidMount = () => {
@@ -61,8 +60,6 @@ export default class Conversation extends Component {
 
           </FadeIn>
         </div>
-
-        <ToolTip/>
       </div>
     )
   }

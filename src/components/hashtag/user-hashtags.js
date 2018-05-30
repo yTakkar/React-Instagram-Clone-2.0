@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { getUserHashtags } from '../../store/actions/hashtag-a'
+import { getUserHashtags } from '../../actions/hashtag'
 import PropTypes from 'prop-types'
 import MapHashtags from './hashtag-utils/map-hashtags'
 import HashtagHeader from './hashtag-utils/hashtag-header'

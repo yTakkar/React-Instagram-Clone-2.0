@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
 import { humanReadable } from '../../../utils/utils'
 import PropTypes from 'prop-types'
 import AdvancedFollow from '../follow/advancedFollow'
 import AdvancedUnfollow from '../follow/advancedUnfollow'
+import AppLink from '../link/link'
 
 export default class SuggestedList extends Component {
 
@@ -21,7 +21,10 @@ export default class SuggestedList extends Component {
       <div className='recomms'>
         <img src={`/users/${id}/avatar.jpg`} alt='' />
         <div className='recomms_cont'>
-          <Link to={`/profile/${username}`} className='recomms_username' >{username}</Link>
+          <AppLink
+            url={`/profile/${username}`} className='recomms_username'
+            label={username}
+          />
           <span>
             {
               mutualUsersCount == 0

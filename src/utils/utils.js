@@ -5,13 +5,12 @@
 
 import { post } from 'axios'
 import Notify from 'handy-notification'
-import { getUserDetails, getMutualUsers } from '../store/actions/user-a'
-import * as follow_action from '../store/actions/follow_a'
-import { getUserPosts, getGroupPosts, } from '../store/actions/post-a'
-import { getGroupDetails, joinedGroup } from '../store/actions/group-a'
+import { getUserDetails, getMutualUsers } from '../actions/user'
+import { isFollowing, getUserStats } from '../actions/follow'
+import { getUserPosts, getGroupPosts, } from '../actions/post'
+import { getGroupDetails, joinedGroup } from '../actions/group'
 import Compress from 'image-compressor.js'
-import { GOOGLE_GEOLOCATION_KEY } from '../../env'
-import d from './DOM'
+import d from './API/DOM'
 
 /**
  *  Shortens what with string length
@@ -119,9 +118,9 @@ export const replacer = (el, filter) => {
       : filter == 'bio'
         ? /[<>]/i : null
 
-  elem.action('keyup', e => {
+  elem.on('keyup', e => {
     let value = e.currentTarget.value
-    elem.val(value.replace(regex, ''))
+    elem.setValue(value.replace(regex, ''))
   })
 }
 
@@ -178,17 +177,16 @@ export const forProfile = async options => {
   } else {
 
     if (username != s_username) {
-      dispatch(follow_action.isFollowing(username))
+      dispatch(isFollowing(username))
       dispatch(getMutualUsers(username))
       post('/api/view-profile', { username })
     }
 
     dispatch(getUserDetails(username))
-    dispatch(follow_action.getUserStats(username))
+    dispatch(getUserStats(username))
     dispatch(getUserPosts(username))
 
   }
-
 }
 
 /**
@@ -206,7 +204,6 @@ export const forGroup = async options => {
     dispatch(getGroupDetails(grp_id))
     dispatch(getGroupPosts(grp_id))
   }
-
 }
 
 /**
@@ -239,48 +236,6 @@ export const insta_notify = async options => {
   await post('/api/notify', {
     to, type, post_id, group_id, user
   })
-}
-
-/**
- * Geolocation setup
- * @param {Function} success Success function
- */
-export const geolocation = success => {
-  if (navigator.geolocation) {
-    navigator.geolocation.watchPosition(success, geolocationError)
-  } else {
-    Notify({ value: 'Geolocation not supported' })
-  }
-}
-
-/**
- * Geolocation error
- */
-export const geolocationError = ({ code }) => {
-  let mssg =
-    /* eslint-disable indent */
-    code == 1 ? 'Location permission denied!!'
-    : code == 2 ? 'Location signal lost!!'
-    : code == 3 ? 'Location request timed out!!'
-    : code == 0 ? 'Unknown location error!!'
-    : null
-    /* eslint-enable */
-
-  Notify({ value: mssg })
-}
-
-/**
- * Returns human readable address from the given the cordinates
- * @param {Object} pos
- */
-export const getAddress = async pos => {
-  let
-    { latitude, longitude } = pos.coords,
-    { data: { results } } = await post(
-      `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${GOOGLE_GEOLOCATION_KEY}`
-    ),
-    loc = results[0].formatted_address
-  return loc
 }
 
 /**
@@ -319,5 +274,9 @@ export const wait = () => {
   Notify({ value: 'Please wait..' })
 }
 
+/**
+ * If loading, then add 'cLoading' class to the specified component which hides it until it is loaded
+ * @param {Boolean} loading
+ */
 export const cLoading = loading =>
   `${loading ? 'cLoading' : ''}`

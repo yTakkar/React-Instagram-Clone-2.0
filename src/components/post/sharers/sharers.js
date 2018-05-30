@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { FadeIn } from 'animate-components'
 import { Scrollbars } from 'react-custom-scrollbars'
 import Title from '../../others/title'
 import { connect } from 'react-redux'
-import { getPostSharers } from '../../../store/actions/post-a'
+import { getPostSharers } from '../../../actions/post'
 import Sharer from './sharer/sharer'
 import { llr } from '../../../utils/utils'
 import PropTypes from 'prop-types'
@@ -11,6 +11,7 @@ import ModalHeader from '../../others/modal/modal-header'
 import ModalBack from '../../others/modal/modal-back'
 import ModalMiddle from '../../others/modal/modal-middle'
 import IsLoading from '../../others/isLoading'
+import Overlay from '../../others/overlay'
 
 @connect(store => (
   { sharers: store.Post.sharers }
@@ -45,24 +46,28 @@ export default class Sharers extends Component {
       )
 
     return (
-      <div class='modal modal_big' >
+      <Fragment>
+        <Overlay/>
 
-        <Title value='Post shared by' />
+        <div className='modal modal_big' >
 
-        <FadeIn duration='300ms' >
-          <ModalHeader title='Post shared by' />
+          <Title value='Post shared by' />
 
-          <Scrollbars style={{ height: 450 }} className='modal_middle' >
-            <IsLoading loading={loading} />
-            <ModalMiddle loading={loading} list={map_sharers} />
-          </Scrollbars>
+          <FadeIn duration='300ms' >
+            <ModalHeader title='Post shared by' />
 
-          <div className='modal_bottom'>
-            <ModalBack back={back} />
-          </div>
-        </FadeIn>
+            <Scrollbars style={{ height: 450 }} className='modal_middle' >
+              <IsLoading loading={loading} />
+              <ModalMiddle loading={loading} list={map_sharers} />
+            </Scrollbars>
 
-      </div>
+            <div className='modal_bottom'>
+              <ModalBack back={back} />
+            </div>
+          </FadeIn>
+
+        </div>
+      </Fragment>
     )
   }
 }

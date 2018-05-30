@@ -1,8 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import { isAdmin } from '../../../../../utils/admin-utils'
-import Overlay from '../../../../others/overlay'
 import Prompt from '../../../../others/prompt'
-import { deleteComment } from '../../../../../store/actions/post-a'
+import { deleteComment } from '../../../../../actions/post'
 import Notify from 'handy-notification'
 import { post } from 'axios'
 import { connect } from 'react-redux'
@@ -33,9 +32,13 @@ export default class DeleteCommentOption extends Component {
     Notify({ value: 'Comment deleted!!' })
   }
 
+  modalBack = () => {
+    this.props.toggleOptions()
+    this.setState({ deleteComment: false })
+  }
+
   render() {
     let { deleteComment } = this.state
-    let { toggleOptions } = this.props
 
     return (
       <Fragment>
@@ -48,19 +51,13 @@ export default class DeleteCommentOption extends Component {
 
         {
           deleteComment ?
-            <Fragment>
-              <Overlay/>
-              <Prompt
-                title='Delete comment'
-                content="This comment will be deleted. There's no undo so you won't be able to find it."
-                actionText= 'Delete'
-                action={this.deleteComment}
-                back={() => {
-                  toggleOptions()
-                  this.setState({ deleteComment: false })
-                }}
-              />
-            </Fragment>
+            <Prompt
+              title='Delete comment'
+              content="This comment will be deleted. There's no undo so you won't be able to find it."
+              actionText= 'Delete'
+              action={this.deleteComment}
+              back={this.modalBack}
+            />
             : null
         }
 

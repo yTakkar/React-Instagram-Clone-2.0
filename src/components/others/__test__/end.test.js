@@ -1,12 +1,12 @@
 import React from 'react'
 import End from '../end'
 import { shallow } from 'enzyme'
-import renderer from 'react-test-renderer'
+import { create } from 'react-test-renderer'
 
 describe('End Component', () => {
 
   it('should match snapshot', () => {
-    const tree = renderer.create(<End/>).toJSON()
+    const tree = create(<End/>).toJSON()
     expect(tree).toMatchSnapshot()
   })
 

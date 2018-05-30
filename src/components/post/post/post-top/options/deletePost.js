@@ -2,7 +2,6 @@ import React, { Component, Fragment } from 'react'
 import { Me } from '../../../../../utils/utils'
 import { isAdmin } from '../../../../../utils/admin-utils'
 import { deletePost } from '../../../../../utils/post-utils'
-import Overlay from '../../../../others/overlay'
 import Prompt from '../../../../others/prompt'
 import { Redirect } from 'react-router'
 import PropTypes from 'prop-types'
@@ -30,10 +29,14 @@ export default class DeletePostOption extends Component {
     })
   }
 
+  modalBack = () => {
+    this.props.toggleOptions()
+    this.setState({ deletePost: false })
+  }
+
   render() {
     let {
       postDetails: { user },
-      toggleOptions,
     } = this.props
     let { deletePost, redirect } = this.state
 
@@ -53,19 +56,13 @@ export default class DeletePostOption extends Component {
 
         {
           deletePost ?
-            <Fragment>
-              <Overlay/>
-              <Prompt
-                title='Delete post'
-                content="This post will be deleted. There's no undo so you won't be able to find it."
-                actionText= 'Delete'
-                action={this.delete}
-                back={() => {
-                  toggleOptions()
-                  this.setState({ deletePost: false })
-                }}
-              />
-            </Fragment>
+            <Prompt
+              title='Delete post'
+              content="This post will be deleted. There's no undo so you won't be able to find it."
+              actionText= 'Delete'
+              action={this.delete}
+              back={this.modalBack}
+            />
             : null
         }
 

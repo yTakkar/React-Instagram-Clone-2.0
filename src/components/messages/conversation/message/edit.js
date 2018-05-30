@@ -7,6 +7,7 @@ import ModalBack from '../../../others/modal/modal-back'
 import AddEmojis from '../../../others/emojis/add-emojis'
 import PrimaryButton from '../../../others/button/primary-btn'
 import TextArea from '../../../others/input/textArea'
+import Overlay from '../../../others/overlay'
 
 export default class EditMessage extends Component {
 
@@ -60,6 +61,7 @@ export default class EditMessage extends Component {
 
     return (
       <div>
+        <Overlay/>
 
         <div className='edit_post modal'>
           <FadeIn duration='300ms'>

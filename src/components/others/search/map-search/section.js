@@ -7,7 +7,9 @@ const SearchSection = ({ searchList, listFor }) => {
 
   return (
     <div className='s_d'>
-      <span className='s_header'>{ humanReadable(len, listFor) }</span>
+      <span className='s_header'>
+        { humanReadable(len, listFor) }
+      </span>
       { searchList }
     </div>
   )

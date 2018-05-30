@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import TimeAgo from 'handy-timeago'
 import { Me } from '../../../../../utils/utils'
-import { Link } from 'react-router-dom'
 import { post } from 'axios'
 import PropTypes from 'prop-types'
 import RemoveFav from './rem-fav'
@@ -10,6 +9,7 @@ import MonSticky from '../../../../others/m-on/mon-sticky'
 import Unfollow from '../../../../others/follow/unfollow'
 import Follow from '../../../../others/follow/follow'
 import { connect } from 'react-redux'
+import AppLink from '../../../../others/link/link'
 
 @connect(store => (
   { id: store.User.user_details.id }
@@ -56,7 +56,11 @@ export default class Favourite extends Component {
           <RemoveFav fav_id={fav_id} username={username} />
           {
             Me(user)
-              ? <Link to={`/profile/${username}`} className='sec_btn '>Profile</Link>
+              ? <AppLink
+                url={`/profile/${username}`}
+                className='sec_btn'
+                label='Profile'
+              />
 
               : isFollowing
                 ? <Unfollow

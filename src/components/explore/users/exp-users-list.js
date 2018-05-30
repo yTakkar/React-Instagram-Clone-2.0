@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import { Me, humanReadable, } from '../../../utils/utils'
-import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import MonTopInfo from '../../others/m-on/mon-topinfo'
 import MonSticky from '../../others/m-on/mon-sticky'
 import Follow from '../../others/follow/follow'
 import Unfollow from '../../others/follow/unfollow'
+import AppLink from '../../others/link/link'
 
 @connect()
 export default class ExploreUsersList extends Component {
@@ -47,7 +47,11 @@ export default class ExploreUsersList extends Component {
         <div className='m_bottom'>
           {
             Me(id)
-              ? <Link to={`/profile/${username}`} className='sec_btn '>Profile</Link>
+              ? <AppLink
+                url={`/profile/${username}`}
+                label='Profile'
+                className='sec_btn '
+              />
 
               : isFollowing
                 ? <Unfollow

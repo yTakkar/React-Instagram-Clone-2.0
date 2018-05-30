@@ -8,7 +8,6 @@ import MockAdapter from 'axios-mock-adapter'
 
 describe('Stickers Component', () => {
   const mockFn = () => {}
-  const mockAxios = new MockAdapter(axios)
   const comp = (
     <Stickers
       back={mockFn}
@@ -17,6 +16,7 @@ describe('Stickers Component', () => {
   )
 
   // mock axios' AJAX request
+  const mockAxios = new MockAdapter(axios)
   mockAxios
     .onPost('/api/get-stickers')
     .reply(200, stickers)
@@ -35,7 +35,7 @@ describe('Stickers Component', () => {
     ).toBe(false)
   })
 
-  it('should get stickers from AJAX request on componentDidMount', async () => {
+  it('should get stickers from API in componentDidMount', async () => {
     const wrapper = shallow(comp)
     await wrapper.instance().componentDidMount()
     expect(wrapper.state().stickers).toBeArray()

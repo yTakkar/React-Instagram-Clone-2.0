@@ -35,7 +35,7 @@ describe('SideBar Component', () => {
     expect(wrapper.find('.m_n_a_admin').exists()).toBe(true)
   })
 
-  it('should logout admin when clicked', () => {
+  it('should mock admin-logout action when clicked', () => {
     dataElement.setAttribute('data-isadmin', 'true')
     const wrapper = mount(comp)
 

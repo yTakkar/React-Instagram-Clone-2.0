@@ -34,4 +34,4 @@ exports[`Noti-Speak Component should match snapshot with complete Component 1`] 
 </div>
 `;
 
-exports[`Noti-Speak Component should match snapshot with empty DIV 1`] = `<div />`;
+exports[`Noti-Speak Component should match snapshot with null 1`] = `<div />`;

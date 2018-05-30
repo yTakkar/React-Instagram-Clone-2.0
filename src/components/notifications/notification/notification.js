@@ -1,9 +1,9 @@
 import React from 'react'
 import TimeAgo from 'handy-timeago'
-import { Link } from 'react-router-dom'
 import NotificationType from './type'
 import NotificationActionType from './action-type/action-type'
 import PropTypes from 'prop-types'
+import AppLink from '../../others/link/link'
 
 const Notification = props => {
   let {
@@ -18,10 +18,11 @@ const Notification = props => {
       />
 
       <div className='noti_left'>
-        <Link
-          to={`/profile/${notify_by_username}`}
+        <AppLink
+          url={`/profile/${notify_by_username}`}
           className='noti_bold noti_username'
-        >{ notify_by_username }</Link>
+          label={notify_by_username}
+        />
 
         <NotificationType
           type={type}

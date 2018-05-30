@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import { number, func, oneOfType, string } from 'prop-types'
 
-const RangeInput = ({ value, min, max, onChange }) => (
+const RangeInput = ({ value, min, max, onChange, ...props }) => (
   <Fragment>
     <input
       type='range'
@@ -9,6 +9,7 @@ const RangeInput = ({ value, min, max, onChange }) => (
       max={max}
       value={value}
       onChange={onChange}
+      {...props}
     />
   </Fragment>
 )

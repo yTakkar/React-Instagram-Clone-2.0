@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import AppLink from '../../../others/link/link'
 
 const UpdateInstruction = () => (
   <div className='sabout_one'>
@@ -10,14 +10,16 @@ const UpdateInstruction = () => (
         Update or edit you profile to make it look more attractive
       </span>
 
-      <Link
-        to='/'
+      <AppLink
+        url='/'
         className='sec_btn'
-      >Update profile</Link>
-      <Link
-        to='/edit-profile'
+        label='Update profile'
+      />
+      <AppLink
+        url='/edit-profile'
         className='pri_btn'
-      >Edit profile</Link>
+        label='Edit profile'
+      />
     </div>
 
   </div>

@@ -1,7 +1,8 @@
 import { post } from 'axios'
 import Notify from 'handy-notification'
-import d from './DOM'
+import d from './API/DOM'
 import { ObjectMssg } from './utils'
+import Action from './API/Action'
 
 /**
  * For username checker
@@ -11,7 +12,7 @@ export const username_checker = el => {
   let element = new d(el)
   let uc = new d('.username_checker')
 
-  element.action('keyup', async e => {
+  element.on('keyup', async e => {
     let value = e.target.value
     uc.show()
 
@@ -21,12 +22,14 @@ export const username_checker = el => {
 
       if (count == 0) {
         html = '<span class="checker_text">username is available</span><span class="checker_icon"><i class="far fa-smile"></i></span>'
+
         uc.mutipleCSS({
           width: '160px',
           right: '-188px'
         })
       } else {
         html = '<span class="checker_text">username already taken</span><span class="checker_icon"><i class="far fa-frown"></i></span>'
+
         uc.mutipleCSS({
           width: '167px',
           right: '-194px'
@@ -39,7 +42,7 @@ export const username_checker = el => {
     }
   })
 
-  element.action('blur', () =>
+  element.on('blur', () =>
     uc.hide()
   )
 }
@@ -58,12 +61,10 @@ export const commonLogin = options => {
   let
     { data, btn, url, redirect, defBtnValue } = options,
     overlay2 = new d('.overlay-2'),
-    button = new d(btn)
+    button = new d(btn),
+    action = new Action(btn)
 
-  button
-    .val('Please wait..')
-    .addClass('a_disabled')
-  overlay2.show()
+  action.start('Please wait..')
 
   post(url, data)
     .then(s => {
@@ -75,7 +76,7 @@ export const commonLogin = options => {
           done: () => location.href = redirect
         })
 
-        button.val('Redirecting..')
+        button.setValue('Redirecting..')
         overlay2.show()
 
       } else {
@@ -83,11 +84,7 @@ export const commonLogin = options => {
           value: ObjectMssg(mssg)
         })
 
-        button
-          .val(defBtnValue)
-          .removeClass('a_disabled')
-        overlay2.hide()
-
+        action.end(defBtnValue)
       }
 
       button.blur()

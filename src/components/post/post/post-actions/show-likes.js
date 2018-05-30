@@ -1,6 +1,5 @@
 import React, { Component, Fragment } from 'react'
 import { humanReadable } from '../../../../utils/utils'
-import Overlay from '../../../others/overlay'
 import Likes from '../../like/likes/likes'
 
 export default class ShowLikes extends Component {
@@ -28,14 +27,11 @@ export default class ShowLikes extends Component {
 
         {
           showLikes ?
-            <Fragment>
-              <Overlay/>
-              <Likes
-                post={post_id}
-                back={this.toggleLikes}
-                decrementLikes={decrementLikes}
-              />
-            </Fragment>
+            <Likes
+              post={post_id}
+              back={this.toggleLikes}
+              decrementLikes={decrementLikes}
+            />
             : null
         }
       </Fragment>

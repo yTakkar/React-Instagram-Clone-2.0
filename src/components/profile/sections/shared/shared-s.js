@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { FadeIn } from 'animate-components'
 import { connect } from 'react-redux'
-import { getSharedPosts } from '../../../../store/actions/post-a'
+import { getSharedPosts } from '../../../../actions/post'
 import Post from '../../../post/post/post'
 import { Me, bottomScroll, cLoading } from '../../../../utils/utils'
 import Title from '../../../others/title'

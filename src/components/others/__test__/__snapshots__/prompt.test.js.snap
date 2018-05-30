@@ -1,133 +1,157 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Prompt Component should work with given props and also change if props are changed 1`] = `
-<div
-  className="prompt"
->
+exports[`Prompt Component should match snapshot 1`] = `
+Array [
   <div
+    className="overlay"
+    onClick={null}
     style={
       Object {
-        "animation": "bcCCNc 300ms ease 0s 1 normal none running",
-        "backfaceVisibility": "visible",
+        "cursor": "inherit",
+        "opacity": 0.5,
       }
     }
+  />,
+  <div
+    className="prompt"
   >
     <div
-      className="prompt-top"
-    >
-      <span
-        className="prompt-title"
-      >
-        Title of the prompt component
-      </span>
-      <span
-        onClick={[Function]}
-      >
-        <i
-          className="material-icons"
-        >
-          close
-        </i>
-      </span>
-    </div>
-    <div
-      className="prompt-middle"
       style={
         Object {
-          "marginBottom": 10,
+          "animation": "bcCCNc 300ms ease 0s 1 normal none running",
+          "backfaceVisibility": "visible",
         }
       }
     >
-      <span
-        className="prompt-content"
+      <div
+        className="prompt-top"
       >
-        Some content here..
-      </span>
+        <span
+          className="prompt-title"
+        >
+          Title of the prompt component
+        </span>
+        <span
+          onClick={[Function]}
+        >
+          <i
+            className="material-icons"
+          >
+            close
+          </i>
+        </span>
+      </div>
+      <div
+        className="prompt-middle"
+        style={
+          Object {
+            "marginBottom": 10,
+          }
+        }
+      >
+        <span
+          className="prompt-content"
+        >
+          Some content here..
+        </span>
+      </div>
+      <div
+        className="prompt-bottom"
+      >
+        <a
+          className="sec_btn  "
+          href="#"
+          onClick={[Function]}
+        >
+          Cancel
+        </a>
+        <a
+          className="pri_btn prompt-done "
+          href="#"
+          onClick={[Function]}
+        >
+          Delete
+        </a>
+      </div>
     </div>
-    <div
-      className="prompt-bottom"
-    >
-      <a
-        className="sec_btn  "
-        href="#"
-        onClick={[Function]}
-      >
-        Cancel
-      </a>
-      <a
-        className="pri_btn prompt-done "
-        href="#"
-        onClick={[Function]}
-      >
-        Delete
-      </a>
-    </div>
-  </div>
-</div>
+  </div>,
+]
 `;
 
-exports[`Prompt Component should work with given props and also change if props are changed 2`] = `
-<div
-  className="prompt"
->
+exports[`Prompt Component should match snapshot with blurred prop 1`] = `
+Array [
   <div
+    className="overlay"
+    onClick={null}
     style={
       Object {
-        "animation": "bcCCNc 300ms ease 0s 1 normal none running",
-        "backfaceVisibility": "visible",
+        "cursor": "inherit",
+        "opacity": 0.5,
       }
     }
+  />,
+  <div
+    className="prompt"
   >
     <div
-      className="prompt-top"
-    >
-      <span
-        className="prompt-title"
-      >
-        Title of the prompt component
-      </span>
-      <span
-        onClick={[Function]}
-      >
-        <i
-          className="material-icons"
-        >
-          close
-        </i>
-      </span>
-    </div>
-    <div
-      className="prompt-middle"
       style={
         Object {
-          "marginBottom": 9,
+          "animation": "bcCCNc 300ms ease 0s 1 normal none running",
+          "backfaceVisibility": "visible",
         }
       }
     >
-      <span
-        className="prompt-content"
+      <div
+        className="prompt-top"
       >
-        Some content here..
-      </span>
+        <span
+          className="prompt-title"
+        >
+          Title of the prompt component
+        </span>
+        <span
+          onClick={[Function]}
+        >
+          <i
+            className="material-icons"
+          >
+            close
+          </i>
+        </span>
+      </div>
+      <div
+        className="prompt-middle"
+        style={
+          Object {
+            "marginBottom": 9,
+          }
+        }
+      >
+        <span
+          className="prompt-content"
+        >
+          Some content here..
+        </span>
+      </div>
+      <div
+        className="prompt-bottom"
+      >
+        <a
+          className="sec_btn  "
+          href="#"
+          onClick={[Function]}
+        >
+          Cancel
+        </a>
+        <a
+          className="pri_btn prompt-done "
+          href="#"
+          onClick={[Function]}
+        >
+          Delete
+        </a>
+      </div>
     </div>
-    <div
-      className="prompt-bottom"
-    >
-      <a
-        className="sec_btn  "
-        href="#"
-        onClick={[Function]}
-      >
-        Cancel
-      </a>
-      <a
-        className="pri_btn prompt-done "
-        href="#"
-        onClick={[Function]}
-      >
-        Delete
-      </a>
-    </div>
-  </div>
-</div>
+  </div>,
+]
 `;

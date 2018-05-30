@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import { Me } from '../../../../utils/utils'
 import { connect } from 'react-redux'
-import Overlay from '../../../others/overlay'
 import RecommendUsers from '../../../others/recommend/recommend-users'
 import PropTypes from 'prop-types'
 
@@ -20,8 +19,13 @@ export default class BannerRecommendUser extends Component {
     this.setState({ recommendUser: !this.state.recommendUser })
   }
 
+  modalBack = () => {
+    this.toggleRecommendUser()
+    this.props.toggleOptions()
+  }
+
   render() {
-    let { id, toggleOptions } = this.props
+    let { id } = this.props
     let { recommendUser } = this.state
 
     return (
@@ -38,15 +42,9 @@ export default class BannerRecommendUser extends Component {
 
         {
           recommendUser ?
-            <Fragment>
-              <Overlay/>
-              <RecommendUsers
-                back={() => {
-                  this.toggleRecommendUser()
-                  toggleOptions()
-                }}
-              />
-            </Fragment>
+            <RecommendUsers
+              back={this.modalBack}
+            />
             : null
         }
 

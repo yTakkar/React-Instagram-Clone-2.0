@@ -4,39 +4,47 @@ import { create } from 'react-test-renderer'
 import { shallow } from 'enzyme'
 
 describe('Primary Button Component', () => {
-  let clicked = () => {}
+  let mockFn = () => {}
 
-  it('should match snapshot and simulate click event', () => {
-    const component = (
+  it('should match snapshot', () => {
+    const tree = create(
       <PrimaryButton
         label='Add post'
-        onClick={clicked}
+        onClick={mockFn}
         extraClass='p_add'
       />
-    )
-    const tree = create(component).toJSON()
-    const wrapper = shallow(component)
-
-    wrapper.find('a').simulate(
-      'click',
-      { preventDefault() {} }
-    )
+    ).toJSON()
     expect(tree).toMatchSnapshot()
   })
 
-  it('should match snapshot with label prop as a function', () => {
+  it('should match snapshot with label as a function and disabled=true', () => {
     let label = () => (
       <img src='/images/spacecraft.jpg' />
     )
     const tree = create(
       <PrimaryButton
         label={label}
-        onClick={clicked}
+        onClick={mockFn}
         disabled
       />
     ).toJSON()
 
     expect(tree).toMatchSnapshot()
+  })
+
+  it('should simulate click events', () => {
+    const wrapper = shallow(
+      <PrimaryButton
+        label='Add post'
+        onClick={mockFn}
+        extraClass='p_add'
+      />
+    )
+
+    wrapper.find('a').simulate(
+      'click',
+      { preventDefault() {} }
+    )
   })
 
 })

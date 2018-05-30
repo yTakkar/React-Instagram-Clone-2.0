@@ -6,6 +6,7 @@ import AddEmojis from '../../../others/emojis/add-emojis'
 import PrimaryButton from '../../../others/button/primary-btn'
 import ModalBack from '../../../others/modal/modal-back'
 import TextArea from '../../../others/input/textArea'
+import Overlay from '../../../others/overlay'
 
 @connect()
 export default class TextCommentModal extends Component {
@@ -40,6 +41,7 @@ export default class TextCommentModal extends Component {
 
     return (
       <div>
+        <Overlay/>
 
         <div className='edit_post modal'>
           <FadeIn duration='300ms'>

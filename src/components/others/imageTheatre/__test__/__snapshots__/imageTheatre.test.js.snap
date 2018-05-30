@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ImageTheatre Component should match snapshot 1`] = `
+Array [
+  <div
+    className="overlay"
+    onClick={[Function]}
+    style={
+      Object {
+        "cursor": "zoom-out",
+        "opacity": 0.9,
+      }
+    }
+  />,
+  <div
+    className="image_show"
+  >
+    <div
+      style={
+        Object {
+          "animation": "bcCCNc 300ms ease 0s 1 normal none running",
+          "backfaceVisibility": "visible",
+        }
+      }
+    >
+      <div
+        className="img_s_img"
+      >
+        <img
+          className="ashly"
+          src="/images/elephant-march.png"
+        />
+      </div>
+      <div
+        className="__react_component_tooltip place-top type-dark "
+        data-id="tooltip"
+      >
+        
+      </div>
+    </div>
+  </div>,
+]
+`;

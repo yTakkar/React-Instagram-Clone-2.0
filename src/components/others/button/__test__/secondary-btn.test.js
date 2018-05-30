@@ -4,23 +4,16 @@ import { create } from 'react-test-renderer'
 import { shallow } from 'enzyme'
 
 describe('Secondary Button Component', () => {
-  let clicked = () => {}
+  let mockFn = () => {}
 
-  it('should match snapshot and simulate click event', () => {
-    const component = (
+  it('should match snapshot', () => {
+    const tree = create(
       <SecondaryButton
         label='Add post'
-        onClick={clicked}
+        onClick={mockFn}
         extraClass='p_add'
       />
-    )
-    const tree = create(component).toJSON()
-    const wrapper = shallow(component)
-
-    wrapper.find('a').simulate(
-      'click',
-      { preventDefault() {} }
-    )
+    ).toJSON()
     expect(tree).toMatchSnapshot()
   })
 
@@ -31,11 +24,26 @@ describe('Secondary Button Component', () => {
     const tree = create(
       <SecondaryButton
         label={label}
-        onClick={clicked}
+        onClick={mockFn}
         disabled
       />
     ).toJSON()
     expect(tree).toMatchSnapshot()
+  })
+
+  it('should simulate click event', () => {
+    const wrapper = shallow(
+      <SecondaryButton
+        label='Add post'
+        onClick={mockFn}
+        extraClass='p_add'
+      />
+    )
+
+    wrapper.find('a').simulate(
+      'click',
+      { preventDefault() {} }
+    )
   })
 
 })

@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from 'react'
-import Overlay from '../../../others/overlay'
 import Prompt from '../../../others/prompt'
 import PropTypes from 'prop-types'
 import { deactivateAccount } from '../../../../utils/setting-utils'
@@ -44,17 +43,14 @@ export default class DeactivateForm extends Component {
 
         {
           showPrompt ?
-            <Fragment>
-              <Overlay/>
-              <Prompt
-                title='Deactivate account'
-                content="Are you sure, you wanna permanently deactivate your account? There's no undo so you won't be able login with this account."
-                actionText= 'Deactivate'
-                action={this.deactivate}
-                back={() => this.setState({ showPrompt: false })}
-                blurred={true}
-              />
-            </Fragment>
+            <Prompt
+              title='Deactivate account'
+              content="Are you sure, you wanna permanently deactivate your account? There's no undo so you won't be able login with this account."
+              actionText= 'Deactivate'
+              action={this.deactivate}
+              back={() => this.setState({ showPrompt: false })}
+              blurred
+            />
             : null
         }
       </Fragment>

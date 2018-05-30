@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from 'react'
-import Overlay from '../../../../others/overlay'
 import Prompt from '../../../../others/prompt'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
@@ -27,9 +26,13 @@ export default class DeleteConversation extends Component {
     deleteConversation({ con_id, dispatch, hideConversation })
   }
 
+  modalBack = () => {
+    this.setState({ deleteCon: false })
+    this.props.toggleOptions()
+  }
+
   render() {
     let { deleteCon } = this.state
-    let { toggleOptions } = this.props
 
     return (
       <Fragment>
@@ -41,19 +44,13 @@ export default class DeleteConversation extends Component {
 
         {
           deleteCon ?
-            <Fragment>
-              <Overlay/>
-              <Prompt
-                title='Delete conversation'
-                content="This conversation will be deleted. There's no undo so you won't be able to find it."
-                actionText='Delete'
-                action={this.deleteConversation}
-                back={() => {
-                  this.setState({ deleteCon: false })
-                  toggleOptions()
-                }}
-              />
-            </Fragment>
+            <Prompt
+              title='Delete conversation'
+              content="This conversation will be deleted. There's no undo so you won't be able to find it."
+              actionText='Delete'
+              action={this.deleteConversation}
+              back={this.modalBack}
+            />
             : null
         }
       </Fragment>

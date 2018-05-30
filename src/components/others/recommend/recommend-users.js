@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { FadeIn } from 'animate-components'
 import { Scrollbars } from 'react-custom-scrollbars'
 import { connect } from 'react-redux'
-import { getUsersToRecommend } from '../../../store/actions/follow_a'
+import { getUsersToRecommend } from '../../../actions/follow'
 import RecommendUsersList from './ru-list'
 import { llr } from '../../../utils/utils'
 import PropTypes from 'prop-types'
@@ -10,6 +10,7 @@ import ModalHeader from '../modal/modal-header'
 import ModalBack from '../modal/modal-back'
 import ModalMiddle from '../modal/modal-middle'
 import IsLoading from '../isLoading'
+import Overlay from '../overlay'
 
 @connect(store => (
   {
@@ -47,22 +48,26 @@ export default class RecommendUsers extends Component {
       )
 
     return (
-      <div class='likes modal modal_big' >
+      <Fragment>
+        <Overlay/>
 
-        <FadeIn duration='300ms' >
-          <ModalHeader title='Recommend' />
+        <div className='likes modal modal_big' >
 
-          <Scrollbars style={{ height: 450 }} className='modal_middle' >
-            <IsLoading loading={loading} />
-            <ModalMiddle loading={loading} list={map_users} />
-          </Scrollbars>
+          <FadeIn duration='300ms' >
+            <ModalHeader title='Recommend' />
 
-          <div className='modal_bottom' >
-            <ModalBack back={back} />
-          </div>
-        </FadeIn>
+            <Scrollbars style={{ height: 450 }} className='modal_middle' >
+              <IsLoading loading={loading} />
+              <ModalMiddle loading={loading} list={map_users} />
+            </Scrollbars>
 
-      </div>
+            <div className='modal_bottom' >
+              <ModalBack back={back} />
+            </div>
+          </FadeIn>
+
+        </div>
+      </Fragment>
     )
   }
 }

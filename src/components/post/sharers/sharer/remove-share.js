@@ -1,7 +1,7 @@
 import React from 'react'
 import { isAdmin } from '../../../../utils/admin-utils'
 import { post } from 'axios'
-import { removeShare } from '../../../../store/actions/post-a'
+import { removeShare } from '../../../../actions/post'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import SecondaryButton from '../../../others/button/secondary-btn'

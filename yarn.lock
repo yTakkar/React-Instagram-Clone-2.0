@@ -2825,12 +2825,13 @@ handlebars@^4.0.3, handlebars@^4.0.5:
   optionalDependencies:
     uglify-js "^2.6"
 
-handy-client-env@^1.0.14:
-  version "1.0.14"
-  resolved "https://registry.yarnpkg.com/handy-client-env/-/handy-client-env-1.0.14.tgz#594cf950addc223d7f31010991424c4b2a06b952"
+handy-client-env@^1.0.16:
+  version "1.0.16"
+  resolved "https://registry.yarnpkg.com/handy-client-env/-/handy-client-env-1.0.16.tgz#818773ebc04d2314eba0bf85bf8594dc8b60fb3d"
   dependencies:
     dotenv "^5.0.0"
     handy-log "^1.0.3"
+    lodash "^4.17.5"
 
 handy-copy@^1.0.9:
   version "1.0.9"
@@ -2849,9 +2850,9 @@ handy-log@^1.0.3:
     chalk "^2.1.0"
     chalk-animation "^1.2.0"
 
-handy-notification@^1.0.26:
-  version "1.0.26"
-  resolved "https://registry.yarnpkg.com/handy-notification/-/handy-notification-1.0.26.tgz#7847f66114cb0f9ba942714436322b88c169c764"
+handy-notification@1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/handy-notification/-/handy-notification-1.2.1.tgz#16c27d25fbe86c383774c5563b3c882319e04107"
   dependencies:
     jquery "^3.2.1"
 
@@ -3730,8 +3731,8 @@ jest@^22.4.3:
     jest-cli "^22.4.3"
 
 jquery@^3.2.1:
-  version "3.2.1"
-  resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.2.1.tgz#5c4d9de652af6cd0a770154a631bba12b015c787"
+  version "3.3.1"
+  resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.3.1.tgz#958ce29e81c9790f31be7792df5d4d95fc57fbca"
 
 js-base64@^2.1.9:
   version "2.4.5"
@@ -3963,6 +3964,10 @@ lodash@^4.15.0:
 lodash@^4.16.0, lodash@^4.17.4, lodash@^4.2.0, lodash@^4.2.1, lodash@^4.3.0:
   version "4.17.4"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
+
+lodash@^4.17.5:
+  version "4.17.10"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.10.tgz#1b7793cf7259ea38fb3661d4d38b3260af8ae4e7"
 
 longest@^1.0.1:
   version "1.0.1"

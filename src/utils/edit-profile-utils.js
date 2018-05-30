@@ -1,8 +1,8 @@
 import { post } from 'axios'
 import Notify from 'handy-notification'
-import { addTag } from '../store/actions/user-a'
-import d from './DOM'
+import { addTag } from '../actions/user'
 import { ObjectMssg, wait } from './utils'
+import Action from './API/Action'
 
 /**
  * Add user tags
@@ -43,12 +43,9 @@ export const editProfile = async options => {
     { data: eCount } = await post(
       '/api/what-exists', { what: 'email', value: email }
     ),
-    btn = new d('.edit_done')
+    action = new Action('.edit_done')
 
-  btn
-    .addClass('a_disabled')
-    .text('Processing..')
-    .blur()
+  action.start('Processing..')
 
   if(!username) {
     Notify({ value: 'Username must not be empty!!' })
@@ -71,33 +68,22 @@ export const editProfile = async options => {
 
   }
 
-  btn
-    .removeClass('a_disabled')
-    .text('Done Editing')
-
+  action.end('Done Editing')
 }
 
 /**
  * Resend verification link
  */
 export const resend_vl = async () => {
-  let vl = new d('.resend_vl')
-  let o = new d('.overlay-2')
+  let action = new Action('.resend_vl', true, 'sec_btn_disabled')
 
-  vl
-    .addClass('sec_btn_disabled')
-    .text('Sending verification link..')
-    .blur()
+  action.start('Sending verification link..')
   wait()
 
-  o.show()
   let { data: { mssg } } = await post('/api/resend_vl')
 
   Notify({ value: mssg })
-  vl
-    .text('Resend verification link')
-    .removeClass('sec_btn_disabled')
-  o.hide()
+  action.end('Resend verification link')
 }
 
 /**

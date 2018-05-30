@@ -8,7 +8,7 @@ describe('Mon-TopInfo Component', () => {
     user: 24,
     username: 'takkar',
     firstname: 'iam',
-    surname: '_takkar_'
+    surname: '_takkar'
   }
 
   it('should match snapshot', () => {
