@@ -50,7 +50,6 @@ exports[`Header component should match snapshot 1`] = `
       className="notification"
       href="/notifications"
       onClick={[Function]}
-      style={undefined}
     >
       <span
         className="notification_span nav_icon"
@@ -72,7 +71,6 @@ exports[`Header component should match snapshot 1`] = `
       className="sp"
       href="/profile/null"
       onClick={[Function]}
-      style={undefined}
     >
       <img
         alt="avatar"

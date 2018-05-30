@@ -7,7 +7,6 @@ exports[`Profile Navlink should match snapshot 1`] = `
     className="inst_nav"
     href="/profile/takkar/bookmarks"
     onClick={[Function]}
-    style={undefined}
   >
     Bookmarks
   </a>

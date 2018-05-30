@@ -7,7 +7,6 @@ Array [
     className="notification"
     href="/notifications"
     onClick={[Function]}
-    style={undefined}
   >
     <span
       className="notification_span nav_icon"
@@ -29,7 +28,6 @@ Array [
     className="sp"
     href="/profile/null"
     onClick={[Function]}
-    style={undefined}
   >
     <img
       alt="avatar"
