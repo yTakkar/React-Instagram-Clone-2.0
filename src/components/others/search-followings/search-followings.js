@@ -28,7 +28,10 @@ export default class SearchFollowings extends Component {
       ff = !value ? [] : data.filter(f =>
         f.follow_to_username.toLowerCase().includes(value)
       )
-    await this.setState({ value, followings: ff })
+    await this.setState({
+      value,
+      followings: ff
+    })
   }
 
   selectUser = (user, username) => {
@@ -53,7 +56,6 @@ export default class SearchFollowings extends Component {
     : when == 'new_con' ? done(user, username)
     : null
     /* eslint-enable indent */
-
   }
 
   render() {
@@ -92,5 +94,7 @@ SearchFollowings.propTypes = {
   when: PropTypes.oneOf([
     'tag', 'add_grp_members', 'new_con'
   ]).isRequired,
-  done: PropTypes.func.isRequired
+  done: PropTypes.func.isRequired,
+  placeholder: PropTypes.string,
+  disabled: PropTypes.bool
 }

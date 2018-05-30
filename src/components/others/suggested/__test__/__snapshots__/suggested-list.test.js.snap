@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Suggested-List Component should match snapshot with AdvancedFollow comp 1`] = `
+<div
+  className="recomms"
+>
+  <img
+    alt=""
+    src="/users/7/avatar.jpg"
+  />
+  <div
+    className="recomms_cont"
+  >
+    <a
+      className="recomms_username"
+      href="/profile/ghalib"
+      onClick={[Function]}
+    >
+      ghalib
+    </a>
+    <span>
+      1 mutual follower
+    </span>
+  </div>
+  <div
+    className="recomms_ff"
+  >
+    <a
+      className="pri_btn follow "
+      href="#"
+      onClick={[Function]}
+    >
+      Follow
+    </a>
+  </div>
+</div>
+`;

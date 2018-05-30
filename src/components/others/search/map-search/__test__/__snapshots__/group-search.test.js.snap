@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Group-Search Component should match snapshot 1`] = `
+<div
+  className="s_d_peo"
+  onClick={[Function]}
+>
+  <a
+    className="s_d_p"
+    href="/group/11"
+    onClick={[Function]}
+  >
+    <img
+      src="/groups/11/avatar.jpg"
+    />
+    <div
+      className="s_d_c"
+    >
+      <span
+        className="s_d_username"
+      >
+        a groupss
+      </span>
+      <span>
+        11 members
+      </span>
+    </div>
+  </a>
+</div>
+`;
+
+exports[`Group-Search Component should match snapshot with mutual members also hide members count 1`] = `
+<div
+  className="s_d_peo"
+  onClick={[Function]}
+>
+  <a
+    className="s_d_p"
+    href="/group/11"
+    onClick={[Function]}
+  >
+    <img
+      src="/groups/11/avatar.jpg"
+    />
+    <div
+      className="s_d_c"
+    >
+      <span
+        className="s_d_username"
+      >
+        a groupss
+      </span>
+      <span>
+        3 mutual members
+      </span>
+    </div>
+  </a>
+</div>
+`;

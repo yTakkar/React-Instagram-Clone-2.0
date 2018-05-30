@@ -1,7 +1,7 @@
 import React from 'react'
 import { string, func, oneOf, bool } from 'prop-types'
 
-const TextInput = ({ type, placeholder, value, valueChange, maxLength, disabled, ...props }) => {
+const TextInput = ({ type, placeholder, value, valueChange, ...props }) => {
   return (
     <input
       type={type}
@@ -10,8 +10,6 @@ const TextInput = ({ type, placeholder, value, valueChange, maxLength, disabled,
       autoComplete='false'
       value={value}
       onChange={valueChange}
-      maxLength={maxLength}
-      disabled={disabled}
       {...props}
     />
   )

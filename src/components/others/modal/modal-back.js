@@ -34,7 +34,8 @@ const ModalBack = ({ back, btnType, label, disabled }) => {
 
 ModalBack.defaultProps = {
   label: 'Back',
-  disabled: false
+  disabled: false,
+  btnType: 'primary'
 }
 
 ModalBack.propTypes = {

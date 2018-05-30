@@ -22,7 +22,7 @@ export default class SidebarBottom extends Component {
             <li><a href='/help'>Help</a></li>
             <li><a
               href='#'
-              className=''
+              className='toggle-sb-options'
               onClick={this.toggleOptions} >
               <MaterialIcon icon='more_horiz' />
             </a></li>

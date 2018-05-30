@@ -4,7 +4,7 @@ import { humanReadable } from '../../utils/utils'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
-const NotiSpeak = ({ un, session }) => {
+export const NotiSpeak = ({ un, session }) => {
   let { id, username } = session
 
   return (
@@ -15,7 +15,9 @@ const NotiSpeak = ({ un, session }) => {
             <FadeIn duration='300ms'>
               <img src={`/users/${id}/avatar.jpg`} />
               <div className="n_s_sn_div">
-                <span><b>@{username}</b>, you got { humanReadable(un, 'notification') }.</span>
+                <span>
+                  <b>@{username}</b>, you got { humanReadable(un, 'notification') }.
+                </span>
               </div>
             </FadeIn>
           </div>

@@ -13,7 +13,9 @@ export default class SuggestedList extends Component {
 
   render() {
     let { isFollowing } = this.state
-    let { id, username, firstname, surname, mutualUsersCount } = this.props
+    let {
+      id, username, firstname, surname, mutualUsersCount
+    } = this.props
 
     return (
       <div className='recomms'>

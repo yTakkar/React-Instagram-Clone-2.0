@@ -43,6 +43,9 @@ export const uData = what =>
 export const uniq = () =>
   Math.random().toString(5).slice(2)
 
+export const randNum = () =>
+  Math.random() * 200
+
 /**
  * Returns human-readable text
  *
@@ -233,7 +236,9 @@ export const insta_notify = async options => {
     obj = { ...defaults, ...options },
     { to, type, post_id, group_id, user } = obj
 
-  await post('/api/notify', { to, type, post_id, group_id, user })
+  await post('/api/notify', {
+    to, type, post_id, group_id, user
+  })
 }
 
 /**

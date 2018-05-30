@@ -9,7 +9,8 @@ const ProfileNavLink = ({ url, label }) => {
         to={url}
         exact
         activeClassName='pro_nav_active'
-        className='inst_nav'>{label}</NavLink>
+        className='inst_nav'
+      >{label}</NavLink>
     </li>
   )
 }

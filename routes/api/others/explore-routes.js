@@ -110,7 +110,10 @@ app.post('/get-suggested-users', async (req, res) => {
       : null
   }
 
-  let filter = user ? users.filter(u => u.username != user ) : users
+  let filter = user
+    ? users.filter(u => u.username != user)
+    : users
+
   let orderByMutualUsers = _.orderBy(
     filter.slice(0, 5),
     ['mutualUsersCount'],

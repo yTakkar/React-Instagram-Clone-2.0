@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CheckBox Component should match snapshot 1`] = `
+Array [
+  <input
+    checked={true}
+    className="inst_checkbox"
+    disabled={false}
+    id="grp_private"
+    onChange={[Function]}
+    type="checkbox"
+  />,
+  <label
+    htmlFor="grp_private"
+  >
+    CheckBox label
+  </label>,
+]
+`;
+
+exports[`CheckBox Component should match snapshot with disabled prop 1`] = `
+Array [
+  <input
+    checked={true}
+    className="inst_checkbox"
+    disabled={true}
+    id="grp_private"
+    onChange={[Function]}
+    type="checkbox"
+  />,
+  <label
+    htmlFor="grp_private"
+  >
+    CheckBox label
+  </label>,
+]
+`;

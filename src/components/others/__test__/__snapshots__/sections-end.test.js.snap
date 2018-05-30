@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Sections-End Component should match snapshot 1`] = `
+<div
+  className="page_end"
+  onClick={[Function]}
+>
+  <span>
+    Looks like you've reached the end
+  </span>
+</div>
+`;

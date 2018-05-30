@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EditPen Component should match snapshot 1`] = `
+<div
+  className="a_edit"
+  data-tip="Edit profile"
+  style={
+    Object {
+      "display": "none",
+    }
+  }
+>
+  <a
+    href="/edit-profile"
+    onClick={[Function]}
+  >
+    <i
+      className="material-icons"
+    >
+      mode_edit
+    </i>
+  </a>
+  <div
+    className="__react_component_tooltip place-top type-dark "
+    data-id="tooltip"
+  >
+    
+  </div>
+</div>
+`;

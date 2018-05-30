@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Profile Navlink should match snapshot 1`] = `
+<li>
+  <a
+    aria-current={false}
+    className="inst_nav"
+    href="/profile/takkar/bookmarks"
+    onClick={[Function]}
+    style={undefined}
+  >
+    Bookmarks
+  </a>
+</li>
+`;

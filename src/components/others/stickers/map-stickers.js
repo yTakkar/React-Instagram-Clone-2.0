@@ -13,7 +13,9 @@ const MapStickers = ({ stickers, selectSticker }) => {
   )
 
   return (
-    <FadeIn duration='300ms'>{ map_stickers }</FadeIn>
+    <FadeIn duration='300ms'>
+      { map_stickers }
+    </FadeIn>
   )
 }
 

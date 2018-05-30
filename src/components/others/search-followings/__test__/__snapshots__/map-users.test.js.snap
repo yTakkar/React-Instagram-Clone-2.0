@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MapSFUsers Component should match snapshot with list of 2 users 1`] = `
+<div
+  className="p_tagging_list"
+>
+  <div
+    className="p_tagging_wrapper"
+  >
+    <ul
+      className="p_tagging_ul"
+    >
+      <div
+        style={
+          Object {
+            "animation": "bcCCNc 200ms ease 0s 1 normal none running",
+            "backfaceVisibility": "visible",
+          }
+        }
+      >
+        <li
+          className="tag_hmm"
+          onClick={[Function]}
+        >
+          <img
+            src="/users/7/avatar.jpg"
+          />
+          <span>
+            ghalib
+          </span>
+        </li>
+        <li
+          className="tag_hmm"
+          onClick={[Function]}
+        >
+          <img
+            src="/users/8/avatar.jpg"
+          />
+          <span>
+            coldplay
+          </span>
+        </li>
+      </div>
+    </ul>
+  </div>
+</div>
+`;
+
+exports[`MapSFUsers Component should match snapshot with null 1`] = `null`;

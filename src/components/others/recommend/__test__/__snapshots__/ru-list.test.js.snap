@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RecommendUsers-List Component should match snapshot 1`] = `
+<div
+  className="modal_items"
+>
+  <div
+    className="modal_it_img"
+  >
+    <img
+      src="/users/7/avatar.jpg"
+    />
+  </div>
+  <div
+    className="modal_it_content "
+  >
+    <div
+      className="modal_it_info"
+    >
+      <a
+        className="modal_it_username"
+        href="/profile/ghalib"
+        onClick={[Function]}
+      >
+        ghalib
+      </a>
+      <span
+        className="modal_it_light"
+      >
+        Mirza Ghalib
+      </span>
+    </div>
+    <div
+      className="modal_ff"
+    >
+      <a
+        className="pri_btn  "
+        href="#"
+        onClick={[Function]}
+      >
+        Recommend
+      </a>
+    </div>
+  </div>
+  <hr />
+</div>
+`;

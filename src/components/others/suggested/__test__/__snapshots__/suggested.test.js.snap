@@ -1,0 +1,129 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Suggested Component should match snapshot 1`] = `
+<div>
+  <div
+    className="recomm"
+  >
+    <div
+      className="recomm_top"
+    >
+      <span>
+        Suggested
+      </span>
+      <a
+        className="recomm_refresh"
+        data-tip="refresh"
+        href="#"
+        onClick={[Function]}
+      >
+        <i
+          className="fas fa-sync-alt"
+        />
+      </a>
+      <a
+        className="recomm_all"
+        data-tip="view all"
+        href="/explore"
+        onClick={[Function]}
+      >
+        <i
+          className="fas fa-chevron-right"
+        />
+      </a>
+    </div>
+    <div
+      className="recomm_main"
+      style={
+        Object {
+          "height": 100,
+        }
+      }
+    >
+      <div
+        className="spinner"
+      >
+        <span />
+        <span />
+        <span />
+      </div>
+      <div
+        className="cLoading"
+      >
+        <div
+          className="recomms"
+        >
+          <img
+            alt=""
+            src="/users/7/avatar.jpg"
+          />
+          <div
+            className="recomms_cont"
+          >
+            <a
+              className="recomms_username"
+              href="/profile/ghalib"
+              onClick={[Function]}
+            >
+              ghalib
+            </a>
+            <span>
+              1 mutual follower
+            </span>
+          </div>
+          <div
+            className="recomms_ff"
+          >
+            <a
+              className="pri_btn follow "
+              href="#"
+              onClick={[Function]}
+            >
+              Follow
+            </a>
+          </div>
+        </div>
+        <div
+          className="recomms"
+        >
+          <img
+            alt=""
+            src="/users/8/avatar.jpg"
+          />
+          <div
+            className="recomms_cont"
+          >
+            <a
+              className="recomms_username"
+              href="/profile/coldplay"
+              onClick={[Function]}
+            >
+              coldplay
+            </a>
+            <span>
+              cold play
+            </span>
+          </div>
+          <div
+            className="recomms_ff"
+          >
+            <a
+              className="pri_btn follow "
+              href="#"
+              onClick={[Function]}
+            >
+              Follow
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="__react_component_tooltip place-top type-dark "
+    data-id="tooltip"
+  >
+    
+  </div>
+</div>
+`;

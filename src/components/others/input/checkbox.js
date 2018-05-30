@@ -26,8 +26,8 @@ CheckBox.defaultProps = {
 CheckBox.propTypes = {
   label: string.isRequired,
   checked: bool.isRequired,
-  disabled: bool.isRequired,
-  changeValue: func.isRequired
+  changeValue: func.isRequired,
+  disabled: bool,
 }
 
 export default CheckBox

@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Mon-Header Component should match snapshot 1`] = `
+<div
+  className="m_header"
+>
+  <span>
+    4 groups
+  </span>
+</div>
+`;
+
+exports[`Mon-Header Component should match snapshot and display you-may-know message 1`] = `
+<div
+  className="m_header"
+>
+  <span>
+    4 followers you might know
+  </span>
+</div>
+`;
+
+exports[`Mon-Header Component should match snapshot with no content 1`] = `null`;

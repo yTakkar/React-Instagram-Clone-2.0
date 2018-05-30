@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddToFavourites Component should match snapshot 1`] = `
+<div>
+  <div
+    className="recomm_teaser"
+  >
+    <span>
+      Wanna add 
+      ghalib
+       to your favourites list.
+    </span>
+    <a
+      className="sec_btn  "
+      href="#"
+      onClick={[Function]}
+    >
+      Add
+    </a>
+  </div>
+</div>
+`;

@@ -65,6 +65,7 @@
     "serve-favicon": "^2.4.5"
   },
   "devDependencies": {
+    "@types/enzyme": "^3.1.10",
     "@types/jest": "^22.2.3",
     "@types/jquery": "^3.3.0",
     "@types/lodash": "^4.14.104",
@@ -72,6 +73,8 @@
     "@types/react": "^16.0.38",
     "@types/react-redux": "^5.0.15",
     "@types/react-router-dom": "^4.2.4",
+    "@types/react-test-renderer": "^16.0.1",
+    "axios-mock-adapter": "^1.15.0",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.0.3",
     "babel-loader": "^7.1.2",
@@ -84,11 +87,15 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
     "css-loader": "^0.28.11",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
     "eslint": "^4.13.0",
     "eslint-plugin-react": "^7.5.1",
     "handy-client-env": "^1.0.14",
     "jest": "^22.4.3",
     "jest-extended": "^0.7.1",
+    "react-test-renderer": "^16.3.2",
+    "redux-mock-store": "^1.5.1",
     "style-loader": "^0.21.0"
   }
 }

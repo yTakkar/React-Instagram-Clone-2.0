@@ -1,0 +1,206 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Map-Avatars Component should match snapshot and show avatars list 1`] = `
+<div
+  className="pro_ava_middle"
+  style={
+    Object {
+      "height": "300px",
+      "overflow": "hidden",
+      "position": "relative",
+      "width": "100%",
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "WebkitOverflowScrolling": "touch",
+        "bottom": 0,
+        "left": 0,
+        "marginBottom": 0,
+        "marginRight": 0,
+        "overflow": "scroll",
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <div
+      className="pro_ava_content"
+    >
+      <img
+        className="pro_ava_avts"
+        data-avatar="avatar-/images/avatars/wheel.jpg"
+        onClick={[Function]}
+        src="/images/avatars//images/avatars/wheel.jpg"
+      />
+      <img
+        className="pro_ava_avts"
+        data-avatar="avatar-/images/avatars/Ronaldo-portrait-vectorport.jpg"
+        onClick={[Function]}
+        src="/images/avatars//images/avatars/Ronaldo-portrait-vectorport.jpg"
+      />
+      <img
+        className="pro_ava_avts"
+        data-avatar="avatar-/images/avatars/saree.jpg"
+        onClick={[Function]}
+        src="/images/avatars//images/avatars/saree.jpg"
+      />
+      <img
+        className="pro_ava_avts"
+        data-avatar="avatar-/images/avatars/shinchan22.jpg"
+        onClick={[Function]}
+        src="/images/avatars//images/avatars/shinchan22.jpg"
+      />
+    </div>
+  </div>
+  <div
+    style={
+      Object {
+        "borderRadius": 3,
+        "bottom": 2,
+        "display": "none",
+        "height": 6,
+        "left": 2,
+        "position": "absolute",
+        "right": 2,
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "backgroundColor": "rgba(0,0,0,.2)",
+          "borderRadius": "inherit",
+          "cursor": "pointer",
+          "display": "block",
+          "height": "100%",
+          "position": "relative",
+        }
+      }
+    />
+  </div>
+  <div
+    style={
+      Object {
+        "borderRadius": 3,
+        "bottom": 2,
+        "display": "none",
+        "position": "absolute",
+        "right": 2,
+        "top": 2,
+        "width": 6,
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "backgroundColor": "rgba(0,0,0,.2)",
+          "borderRadius": "inherit",
+          "cursor": "pointer",
+          "display": "block",
+          "position": "relative",
+          "width": "100%",
+        }
+      }
+    />
+  </div>
+</div>
+`;
+
+exports[`Map-Avatars Component should match snapshot with Spinner 1`] = `
+<div
+  className="pro_ava_middle"
+  style={
+    Object {
+      "height": "300px",
+      "overflow": "hidden",
+      "position": "relative",
+      "width": "100%",
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "WebkitOverflowScrolling": "touch",
+        "bottom": 0,
+        "left": 0,
+        "marginBottom": 0,
+        "marginRight": 0,
+        "overflow": "scroll",
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <div
+      className="pro_ava_content"
+    >
+      <div
+        className="spinner"
+      >
+        <span />
+        <span />
+        <span />
+      </div>
+    </div>
+  </div>
+  <div
+    style={
+      Object {
+        "borderRadius": 3,
+        "bottom": 2,
+        "display": "none",
+        "height": 6,
+        "left": 2,
+        "position": "absolute",
+        "right": 2,
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "backgroundColor": "rgba(0,0,0,.2)",
+          "borderRadius": "inherit",
+          "cursor": "pointer",
+          "display": "block",
+          "height": "100%",
+          "position": "relative",
+        }
+      }
+    />
+  </div>
+  <div
+    style={
+      Object {
+        "borderRadius": 3,
+        "bottom": 2,
+        "display": "none",
+        "position": "absolute",
+        "right": 2,
+        "top": 2,
+        "width": 6,
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "backgroundColor": "rgba(0,0,0,.2)",
+          "borderRadius": "inherit",
+          "cursor": "pointer",
+          "display": "block",
+          "position": "relative",
+          "width": "100%",
+        }
+      }
+    />
+  </div>
+</div>
+`;

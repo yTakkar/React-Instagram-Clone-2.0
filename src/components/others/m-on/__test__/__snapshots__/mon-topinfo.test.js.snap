@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Mon-TopInfo Component should match snapshot 1`] = `
+<div
+  className="m_top"
+>
+  <img
+    src="/users/24/avatar.jpg"
+  />
+  <div
+    className="m_top_right"
+  >
+    <a
+      href="/profile/takkar"
+      onClick={[Function]}
+    >
+      takkar
+    </a>
+    <span>
+      iam
+       
+      _takkar_
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Mon-TopInfo Component should match snapshot with basedOnMutuals prop 1`] = `
+<div
+  className="m_top"
+>
+  <img
+    src="/users/24/avatar.jpg"
+  />
+  <div
+    className="m_top_right"
+  >
+    <a
+      href="/profile/takkar"
+      onClick={[Function]}
+    >
+      takkar
+    </a>
+    <span>
+      3 mutual followers
+    </span>
+  </div>
+</div>
+`;

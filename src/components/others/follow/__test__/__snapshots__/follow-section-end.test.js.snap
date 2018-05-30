@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Follow-Section-End Component should match snapshot and show End component 1`] = `
+<div
+  className="page_end"
+  onClick={[Function]}
+>
+  <span>
+    Looks like you've reached the end
+  </span>
+</div>
+`;
+
+exports[`Follow-Section-End Component should match snapshot and show Nothing component 1`] = `
+<div
+  className="home_last_mssg"
+  style={
+    Object {
+      "border": "",
+    }
+  }
+>
+  <img
+    src="/images/large.jpg"
+  />
+  <span
+    className="nothingMssg"
+  >
+    ghalib have no followers!!
+  </span>
+  <span
+    className="secondMssg"
+  >
+    
+  </span>
+</div>
+`;

@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Font Awesome Component should match snapshot with camera icon 1`] = `
+<i
+  className="fas fa-camera"
+/>
+`;
+
+exports[`Font Awesome Component should match snapshot with lock icon 1`] = `
+<i
+  className="fas fa-lock"
+/>
+`;

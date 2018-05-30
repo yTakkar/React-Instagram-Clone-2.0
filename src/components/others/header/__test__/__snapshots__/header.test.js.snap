@@ -1,0 +1,98 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header component should match snapshot 1`] = `
+<div
+  className="header"
+>
+  <div
+    className="logo"
+  >
+    <a
+      href="/"
+      onClick={[Function]}
+    >
+      <img
+        alt="Instagram"
+        src="/images/instagram.jpg"
+      />
+    </a>
+  </div>
+  <div>
+    <div
+      className="search_box"
+    >
+      <input
+        autoComplete="false"
+        autoFocus={true}
+        className="search"
+        disabled={false}
+        maxLength="255"
+        onChange={[Function]}
+        placeholder="Search Instagram"
+        spellCheck="false"
+        type="text"
+        value=""
+      />
+      <span
+        className="search_icon"
+      >
+        <i
+          className="fas fa-search"
+        />
+      </span>
+    </div>
+  </div>
+  <div
+    className="header_right"
+  >
+    <a
+      aria-current={false}
+      className="notification"
+      href="/notifications"
+      onClick={[Function]}
+      style={undefined}
+    >
+      <span
+        className="notification_span nav_icon"
+      >
+        <i
+          className="material-icons"
+        >
+          notifications_none
+        </i>
+      </span>
+      <span
+        className="links_span"
+      >
+        Notifications
+      </span>
+    </a>
+    <a
+      aria-current={false}
+      className="sp"
+      href="/profile/null"
+      onClick={[Function]}
+      style={undefined}
+    >
+      <img
+        alt="avatar"
+        className="sp_img"
+        src="/users/null/avatar.jpg"
+      />
+      <span
+        className="sp_span"
+      />
+    </a>
+    <span
+      className="show_more"
+      onClick={[Function]}
+    >
+      <i
+        className="material-icons"
+      >
+        expand_more
+      </i>
+    </span>
+  </div>
+</div>
+`;

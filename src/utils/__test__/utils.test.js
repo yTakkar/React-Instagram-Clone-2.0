@@ -14,6 +14,12 @@ describe('utils tests', () => {
     expect(first).not.toEqual(second)
   })
 
+  it('should return unique random number', () => {
+    let rand = util.randNum()
+    let rand2 = util.randNum()
+    expect(rand).not.toEqual(rand2)
+  })
+
   it('should return results as humanReadable', () => {
     expect(util.humanReadable(0, 'like')).toEqual('No likes')
     expect(util.humanReadable(1, 'like')).toEqual('1 like')

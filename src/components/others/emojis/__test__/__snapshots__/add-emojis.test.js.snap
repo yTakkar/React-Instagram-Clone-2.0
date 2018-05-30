@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Add-Emojis Component should match snapshot 1`] = `
+Array [
+  <span
+    className="emoji_span  "
+    data-tip="Add emojis"
+    onClick={[Function]}
+  >
+    <i
+      className="material-icons"
+    >
+      sentiment_very_satisfied
+    </i>
+  </span>,
+  <div
+    className="__react_component_tooltip place-top type-dark "
+    data-id="tooltip"
+  >
+    
+  </div>,
+]
+`;
+
+exports[`Add-Emojis Component should match snapshot 2`] = `
+Array [
+  <span
+    className="emoji_span emoji_disabled "
+    data-tip="Add emojis"
+    onClick={[Function]}
+  >
+    <i
+      className="material-icons"
+    >
+      sentiment_very_satisfied
+    </i>
+  </span>,
+  <div
+    className="__react_component_tooltip place-top type-dark "
+    data-id="tooltip"
+  >
+    
+  </div>,
+]
+`;

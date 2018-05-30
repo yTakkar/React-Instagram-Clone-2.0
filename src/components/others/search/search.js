@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { post } from 'axios'
-import MapSearch from './map-search'
+import MapSearch from './map-search/map-search'
 import FAIcon from '../icons/font-awesome-icon'
 import TextInput from '../input/text'
 
@@ -15,14 +15,19 @@ export default class Search extends Component {
     }
   }
 
-  hide = () =>
+  hide = () => {
     this.setState({
-      search: { users: [], groups: [], hashtags: [] }
+      search: {
+        users: [],
+        groups: [],
+        hashtags: []
+      }
     })
+  }
 
   search = async ({ target: { value } }) => {
     this.setState({ value })
-    if(value.trim() != '') {
+    if (value.trim() != '') {
       let { data } = await post('/api/search-instagram', { value })
       this.setState({ search: data })
     } else {

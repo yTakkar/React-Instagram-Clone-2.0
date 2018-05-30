@@ -41,7 +41,11 @@ const SideBar = ({ uc, un }) => {
           <li>
             {
               isAdmin() ?
-                <a href='#' onClick={adminLogout} >Log out as admin</a>
+                <a
+                  href='#'
+                  className='admin-logout'
+                  onClick={adminLogout}
+                >Log out as admin</a>
                 : <NavLink
                   to={`/admin-login?to=${location.pathname}`}
                   className='m_n_a_admin'

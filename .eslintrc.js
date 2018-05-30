@@ -21,7 +21,10 @@ module.exports = {
     'it': true,
     'expect': true,
     'beforeAll': true,
-    'afterAll': true
+    'afterAll': true,
+    'beforeEach': true,
+    'afterEach': true,
+    'jest': true
   },
   'plugins': [ 'react' ],
   'rules': {

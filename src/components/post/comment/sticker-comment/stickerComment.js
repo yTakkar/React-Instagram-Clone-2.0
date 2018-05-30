@@ -32,7 +32,6 @@ export default class StickerComment extends Component {
 
   render() {
     let { showStickers } = this.state
-    let { postDetails: { post_id, when, user } } = this.props
 
     return (
       <div>
@@ -50,12 +49,12 @@ export default class StickerComment extends Component {
             <Fragment>
               <Overlay/>
               <Stickers
-                back={() => this.setState({ showStickers: false })}
-                type='comment'
-                post={post_id}
-                postWhen={when}
-                postOwner={user}
-                stickerComment={sticker => this.stickerComment(sticker)}
+                back={() =>
+                  this.setState({ showStickers: false })
+                }
+                stickerSelected={sticker =>
+                  this.stickerComment(sticker)
+                }
               />
             </Fragment>
             : null

@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Search-Followings Component should match snapshot 1`] = `
+<div
+  className="search_followings"
+>
+  <div
+    className="p_add_taggings"
+  >
+    <input
+      autoComplete="false"
+      className="p_add_taggings_text"
+      disabled={false}
+      maxLength="255"
+      onChange={[Function]}
+      placeholder=""
+      spellCheck="false"
+      type="text"
+      value=""
+    />
+  </div>
+</div>
+`;

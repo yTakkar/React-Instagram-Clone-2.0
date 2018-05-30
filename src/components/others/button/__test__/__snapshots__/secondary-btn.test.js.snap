@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Secondary Button Component should match snapshot and simulate click event 1`] = `
+<a
+  className="sec_btn p_add "
+  href="#"
+  onClick={[Function]}
+>
+  Add post
+</a>
+`;
+
+exports[`Secondary Button Component should match snapshot with label prop as a function 1`] = `
+<a
+  className="sec_btn  sec_btn_disabled"
+  href="#"
+  onClick={[Function]}
+>
+  <img
+    src="/images/spacecraft.jpg"
+  />
+</a>
+`;

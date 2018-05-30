@@ -1,0 +1,87 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Map-Search Component should match snapshot with different search data 1`] = `
+<div
+  className="search_div"
+>
+  <div
+    className="s_d"
+  >
+    <span
+      className="s_header"
+    >
+      1 member
+    </span>
+    <div
+      className="s_d_peo"
+      onClick={[Function]}
+    >
+      <a
+        className="s_d_p"
+        href="/profile/coldplay"
+        onClick={[Function]}
+      >
+        <img
+          src="/users/8/avatar.jpg"
+        />
+        <div
+          className="s_d_c"
+        >
+          <span
+            className="s_d_username"
+          >
+            coldplay
+          </span>
+          <span>
+            cold play
+          </span>
+        </div>
+      </a>
+    </div>
+  </div>
+  <div
+    className="s_d"
+  >
+    <span
+      className="s_header"
+    >
+      1 group
+    </span>
+    <div
+      className="s_d_peo"
+      onClick={[Function]}
+    >
+      <a
+        className="s_d_p"
+        href="/group/11"
+        onClick={[Function]}
+      >
+        <img
+          src="/groups/11/avatar.jpg"
+        />
+        <div
+          className="s_d_c"
+        >
+          <span
+            className="s_d_username"
+          >
+            a groupss
+          </span>
+          <span>
+            1 mutual member
+          </span>
+        </div>
+      </a>
+    </div>
+  </div>
+  <div
+    className="s_d"
+  >
+    <span
+      className="s_header"
+    >
+      No hashtags
+    </span>
+  </div>
+</div>
+`;

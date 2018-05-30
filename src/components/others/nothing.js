@@ -14,10 +14,10 @@ const Nothing = props => {
       />
       {
         showMssg
-          ? <span>{mssg}</span>
+          ? <span className='nothingMssg' >{mssg}</span>
           : null
       }
-      <span>{ secondMssg }</span>
+      <span className='secondMssg' >{ secondMssg }</span>
     </div>
   )
 }

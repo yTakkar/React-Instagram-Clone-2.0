@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Upload-Avatar Component should match snapshot 1`] = `
+<form
+  className="pro_ch_form"
+  encType="multipart/formdata"
+  method="post"
+>
+  <input
+    accept="image/*"
+    id="file_input"
+    onChange={[Function]}
+    type="file"
+    value=""
+  />
+  <label
+    className="sec_btn"
+    htmlFor="file_input"
+  >
+    Upload avatar
+  </label>
+</form>
+`;

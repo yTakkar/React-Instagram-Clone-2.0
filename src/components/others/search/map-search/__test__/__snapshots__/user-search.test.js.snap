@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`User-Search Component should match snapshot 1`] = `
+<div
+  className="s_d_peo"
+  onClick={[Function]}
+>
+  <a
+    className="s_d_p"
+    href="/profile/ghalib"
+    onClick={[Function]}
+  >
+    <img
+      src="/users/7/avatar.jpg"
+    />
+    <div
+      className="s_d_c"
+    >
+      <span
+        className="s_d_username"
+      >
+        ghalib
+      </span>
+      <span>
+        Mirza Ghalib
+      </span>
+    </div>
+  </a>
+</div>
+`;
+
+exports[`User-Search Component should match snapshot with mutual followers also hiding firstname & surname 1`] = `
+<div
+  className="s_d_peo"
+  onClick={[Function]}
+>
+  <a
+    className="s_d_p"
+    href="/profile/ghalib"
+    onClick={[Function]}
+  >
+    <img
+      src="/users/7/avatar.jpg"
+    />
+    <div
+      className="s_d_c"
+    >
+      <span
+        className="s_d_username"
+      >
+        ghalib
+      </span>
+      <span>
+        3 mutual followers
+      </span>
+    </div>
+  </a>
+</div>
+`;

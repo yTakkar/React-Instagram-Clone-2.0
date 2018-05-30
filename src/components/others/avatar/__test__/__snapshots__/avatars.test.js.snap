@@ -1,0 +1,161 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Avatars Component should match snapshot 1`] = `
+<div
+  className="pro_avatars"
+>
+  <div
+    className="pro_ava_top"
+  >
+    <div
+      className="pro_ava_info"
+    >
+      <span>
+        Change your avatar
+      </span>
+    </div>
+    <span
+      className="pro_ava_close"
+      onClick={[Function]}
+    >
+      <i
+        className="material-icons"
+      >
+        close
+      </i>
+    </span>
+  </div>
+  <div
+    className="pro_ava_middle"
+    style={
+      Object {
+        "height": "300px",
+        "overflow": "hidden",
+        "position": "relative",
+        "width": "100%",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "WebkitOverflowScrolling": "touch",
+          "bottom": 0,
+          "left": 0,
+          "marginBottom": 0,
+          "marginRight": 0,
+          "overflow": "scroll",
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+        }
+      }
+    >
+      <div
+        className="pro_ava_content"
+      >
+        <div
+          className="spinner"
+        >
+          <span />
+          <span />
+          <span />
+        </div>
+      </div>
+    </div>
+    <div
+      style={
+        Object {
+          "borderRadius": 3,
+          "bottom": 2,
+          "display": "none",
+          "height": 6,
+          "left": 2,
+          "position": "absolute",
+          "right": 2,
+        }
+      }
+    >
+      <div
+        style={
+          Object {
+            "backgroundColor": "rgba(0,0,0,.2)",
+            "borderRadius": "inherit",
+            "cursor": "pointer",
+            "display": "block",
+            "height": "100%",
+            "position": "relative",
+          }
+        }
+      />
+    </div>
+    <div
+      style={
+        Object {
+          "borderRadius": 3,
+          "bottom": 2,
+          "display": "none",
+          "position": "absolute",
+          "right": 2,
+          "top": 2,
+          "width": 6,
+        }
+      }
+    >
+      <div
+        style={
+          Object {
+            "backgroundColor": "rgba(0,0,0,.2)",
+            "borderRadius": "inherit",
+            "cursor": "pointer",
+            "display": "block",
+            "position": "relative",
+            "width": "100%",
+          }
+        }
+      />
+    </div>
+  </div>
+  <div
+    className="pro_ava_bottom"
+  >
+    <form
+      className="pro_ch_form"
+      encType="multipart/formdata"
+      method="post"
+    >
+      <input
+        accept="image/*"
+        id="file_input"
+        onChange={[Function]}
+        type="file"
+        value=""
+      />
+      <label
+        className="sec_btn"
+        htmlFor="file_input"
+      >
+        Upload avatar
+      </label>
+    </form>
+    <div
+      className="pro_ava_bottom_act"
+    >
+      <a
+        className="sec_btn  "
+        href="#"
+        onClick={[Function]}
+      >
+        Cancel
+      </a>
+      <a
+        className="pri_btn btn_select_avatar a_disabled"
+        href="#"
+        onClick={[Function]}
+      >
+        Apply
+      </a>
+    </div>
+  </div>
+</div>
+`;

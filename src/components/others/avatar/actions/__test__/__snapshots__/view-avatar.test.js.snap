@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ViewAvatar-Action Component should match snapshot with ViewAvatar Component 1`] = `
+Array [
+  <div
+    className="overlay"
+    onClick={[Function]}
+    style={
+      Object {
+        "cursor": "zoom-out",
+        "opacity": 0.9,
+      }
+    }
+  />,
+  <div
+    className="view_avatar"
+  >
+    <div
+      style={
+        Object {
+          "animation": "bcCCNc 300ms ease 0s 1 normal none running",
+          "backfaceVisibility": "visible",
+        }
+      }
+    >
+      <div
+        className="v_a_img"
+      >
+        <img
+          alt=""
+          src="/users/7/avatar.jpg"
+          style={
+            Object {
+              "width": "200px",
+            }
+          }
+        />
+      </div>
+      <div
+        className="v_a_inc"
+      >
+        <input
+          max={500}
+          min={200}
+          onChange={[Function]}
+          type="range"
+          value={200}
+        />
+      </div>
+    </div>
+  </div>,
+]
+`;
+
+exports[`ViewAvatar-Action Component should match snapshot with null 1`] = `null`;

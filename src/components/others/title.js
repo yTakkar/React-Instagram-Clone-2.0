@@ -12,7 +12,9 @@ const Title = ({ value, desc, un }) => {
 
   return (
     <Helmet>
-      <title>{ un ? `(${un})` : '' } {`${value}`} • Instagram</title>
+      <title>
+        { un ? `(${un})` : '' } {`${value}`} • Instagram
+      </title>
       <meta name='description' content={desc} />
     </Helmet>
   )

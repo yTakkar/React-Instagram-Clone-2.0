@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ModalHeader Component should match snapshot 1`] = `
+<div
+  className="modal_header"
+>
+  <span
+    className="title"
+  >
+    Post likes
+  </span>
+</div>
+`;

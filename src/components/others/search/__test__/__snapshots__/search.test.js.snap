@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Search Component should match snapshot 1`] = `
+<div>
+  <div
+    className="search_box"
+  >
+    <input
+      autoComplete="false"
+      autoFocus={true}
+      className="search"
+      disabled={false}
+      maxLength="255"
+      onChange={[Function]}
+      placeholder="Search Instagram"
+      spellCheck="false"
+      type="text"
+      value=""
+    />
+    <span
+      className="search_icon"
+    >
+      <i
+        className="fas fa-search"
+      />
+    </span>
+  </div>
+</div>
+`;

@@ -9,11 +9,7 @@ import IsLoading from '../isLoading'
 import { cLoading } from '../../../utils/utils'
 import FAIcon from '../icons/font-awesome-icon'
 
-@connect(store => (
-  { suggested: store.Explore.suggested }
-))
-
-export default class Suggested extends Component {
+class Suggested extends Component {
 
   state = {
     loading: true
@@ -62,8 +58,10 @@ export default class Suggested extends Component {
             </Link>
           </div>
 
-          <div className='recomm_main' style={{ height: loading ? 100 : 'inherit' }} >
-
+          <div
+            className='recomm_main'
+            style={{ height: loading ? 100 : 'inherit' }}
+          >
             <IsLoading loading={loading} />
 
             <div className={cLoading(loading)} >
@@ -84,3 +82,11 @@ Suggested.propTypes = {
   params: PropTypes.string,
   when: PropTypes.oneOf([ 'profile', 'home' ])
 }
+
+const mapStateToProps = store => (
+  {
+    suggested: store.Explore.suggested
+  }
+)
+
+export default connect(mapStateToProps)(Suggested)

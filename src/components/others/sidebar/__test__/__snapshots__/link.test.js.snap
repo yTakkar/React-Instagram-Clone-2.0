@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SideBarLink Component should match snapshot & display + if number > 9 1`] = `
+<li
+  className="m_n_li"
+>
+  <a
+    aria-current="true"
+    className="m_n_a sidebar_active"
+    href="/"
+    onClick={[Function]}
+    style={Object {}}
+  >
+    <span
+      className="m_n_text"
+    >
+      A label
+    </span>
+    <span
+      className="m_n_new"
+    >
+      +
+    </span>
+  </a>
+</li>
+`;
+
+exports[`SideBarLink Component should match snapshot & show number (eg. unread noti.) 1`] = `
+<li
+  className="m_n_li"
+>
+  <a
+    aria-current="true"
+    className="m_n_a sidebar_active"
+    href="/"
+    onClick={[Function]}
+    style={Object {}}
+  >
+    <span
+      className="m_n_text"
+    >
+      A label
+    </span>
+    <span
+      className="m_n_new"
+    >
+      4
+    </span>
+  </a>
+</li>
+`;
+
+exports[`SideBarLink Component should match snapshot 1`] = `
+<li
+  className="m_n_li"
+>
+  <a
+    aria-current="true"
+    className="m_n_a sidebar_active"
+    href="/"
+    onClick={[Function]}
+    style={Object {}}
+  >
+    <span
+      className="m_n_text"
+    >
+      A label
+    </span>
+  </a>
+</li>
+`;

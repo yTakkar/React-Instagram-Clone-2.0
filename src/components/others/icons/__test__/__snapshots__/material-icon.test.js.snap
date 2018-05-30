@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Material Icon Component should match snapshot with close icon 1`] = `
+<i
+  className="material-icons"
+>
+  close
+</i>
+`;
+
+exports[`Material Icon Component should match snapshot with delete icon 1`] = `
+<i
+  className="material-icons"
+>
+  delete
+</i>
+`;

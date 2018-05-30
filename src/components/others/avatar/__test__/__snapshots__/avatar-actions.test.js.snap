@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Avatar-Actions Component should match snapshot 1`] = `
+<div
+  className="pro_ava_bottom_act"
+>
+  <a
+    className="sec_btn  "
+    href="#"
+    onClick={[Function]}
+  >
+    Cancel
+  </a>
+  <a
+    className="pri_btn btn_select_avatar "
+    href="#"
+    onClick={[Function]}
+  >
+    Apply
+  </a>
+</div>
+`;

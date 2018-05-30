@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Map-Stickers Component should match snapshot 1`] = `
+<div
+  style={
+    Object {
+      "animation": "bcCCNc 300ms ease 0s 1 normal none running",
+      "backfaceVisibility": "visible",
+    }
+  }
+>
+  <img
+    className="sti_img"
+    data-sticker="sticker-/images/stickers/wall.png"
+    onClick={[Function]}
+    src="/images/stickers//images/stickers/wall.png"
+  />
+  <img
+    className="sti_img"
+    data-sticker="sticker-/images/stickers/oracles.png"
+    onClick={[Function]}
+    src="/images/stickers//images/stickers/oracles.png"
+  />
+  <img
+    className="sti_img"
+    data-sticker="sticker-/images/stickers/like9.png"
+    onClick={[Function]}
+    src="/images/stickers//images/stickers/like9.png"
+  />
+</div>
+`;

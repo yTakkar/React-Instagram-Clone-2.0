@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Preview-Avatar Component should match snapshot 1`] = `
+<div
+  className="preview_avatar modal"
+>
+  <div
+    style={
+      Object {
+        "animation": "bcCCNc 300ms ease 0s 1 normal none running",
+        "backfaceVisibility": "visible",
+      }
+    }
+  >
+    <div
+      className="modal_header"
+    >
+      <span
+        className="title"
+      >
+        Change Avatar
+      </span>
+    </div>
+    <div
+      className="c_a_middle"
+    >
+      <img
+        src="/images/location.jpg"
+      />
+    </div>
+    <div
+      className="c_a_bottom modal_bottom"
+    >
+      <a
+        className="sec_btn  "
+        href="#"
+        onClick={[Function]}
+      >
+        Cancel
+      </a>
+      <a
+        className="pri_btn c_a_add "
+        href="#"
+        onClick={[Function]}
+      >
+        Change avatar
+      </a>
+    </div>
+  </div>
+</div>
+`;

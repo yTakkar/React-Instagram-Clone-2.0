@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SideBarBottom Component should match snapshot 1`] = `
+<div
+  className="m_n_bottom"
+>
+  <ul>
+    <li>
+      <a
+        href="/logout"
+      >
+        Logout
+      </a>
+    </li>
+    <li>
+      <a
+        href="/help"
+      >
+        Help
+      </a>
+    </li>
+    <li>
+      <a
+        className="toggle-sb-options"
+        href="#"
+        onClick={[Function]}
+      >
+        <i
+          className="material-icons"
+        >
+          more_horiz
+        </i>
+      </a>
+    </li>
+  </ul>
+</div>
+`;

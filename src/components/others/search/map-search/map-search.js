@@ -1,13 +1,14 @@
 import React from 'react'
-import { humanReadable } from '../../../utils/utils'
 import UserSearch from './user-search'
 import GroupSearch from './group-search'
 import HashtagSearch from './hashtag-search'
 import PropTypes from 'prop-types'
+import SearchSection from './section'
 
 const MapSearch = ({ users, groups, hashtags, clicked }) => {
 
-  let map_users = users.map(u =>
+  let
+    map_users = users.map(u =>
       <UserSearch key={u.id} {...u} clicked={clicked} />
     ),
     map_groups = groups.map(g =>
@@ -19,22 +20,9 @@ const MapSearch = ({ users, groups, hashtags, clicked }) => {
 
   return (
     <div className='search_div'>
-
-      <div class='s_d_people s_d'>
-        <span class='s_header'>{ humanReadable(users.length, 'member') }</span>
-        { map_users }
-      </div>
-
-      <div class='s_d_groups s_d'>
-        <span class='s_header'>{ humanReadable(groups.length, 'group') }</span>
-        { map_groups }
-      </div>
-
-      <div class='s_d_hashtags s_d'>
-        <span class='s_header'>{ humanReadable(hashtags.length, 'hashtag') }</span>
-        { map_hashtags }
-      </div>
-
+      <SearchSection searchList={map_users} listFor='member' />
+      <SearchSection searchList={map_groups} listFor='group' />
+      <SearchSection searchList={map_hashtags} listFor='hashtag' />
     </div>
   )
 }

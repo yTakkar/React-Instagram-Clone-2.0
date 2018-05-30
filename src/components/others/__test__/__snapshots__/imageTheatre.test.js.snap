@@ -1,0 +1,86 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ImageTheatre Component should match snapshot with complete ImageTheatre 1`] = `
+<div
+  className="image_show"
+>
+  <div
+    style={
+      Object {
+        "animation": "bcCCNc 300ms ease 0s 1 normal none running",
+        "backfaceVisibility": "visible",
+      }
+    }
+  >
+    <div
+      className="img_s_img"
+    >
+      <img
+        className="ashby"
+        src="/images/spacecraft.jpg"
+      />
+      <div
+        className="img_s_bottom"
+      >
+        <span
+          className="img_s_by"
+        >
+          by 
+          takkar
+           (
+          3 months
+          )
+        </span>
+        <a
+          className="img_s_window"
+          data-tip="Open separately"
+          href="/"
+          onClick={[Function]}
+        >
+          <i
+            className="material-icons"
+          >
+            open_in_new
+          </i>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div
+    className="__react_component_tooltip place-top type-dark "
+    data-id="tooltip"
+  >
+    
+  </div>
+</div>
+`;
+
+exports[`ImageTheatre Component should match snapshot with just the image 1`] = `
+<div
+  className="image_show"
+>
+  <div
+    style={
+      Object {
+        "animation": "bcCCNc 300ms ease 0s 1 normal none running",
+        "backfaceVisibility": "visible",
+      }
+    }
+  >
+    <div
+      className="img_s_img"
+    >
+      <img
+        className=""
+        src="/images/location.jpg"
+      />
+    </div>
+  </div>
+  <div
+    className="__react_component_tooltip place-top type-dark "
+    data-id="tooltip"
+  >
+    
+  </div>
+</div>
+`;

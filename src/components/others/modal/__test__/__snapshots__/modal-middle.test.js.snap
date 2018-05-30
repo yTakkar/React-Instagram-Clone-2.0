@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Modal-Middle Component should match snapshot and display nothing component 1`] = `
+<div
+  className="modal_main cLoading"
+>
+  <div
+    className="home_last_mssg"
+    style={
+      Object {
+        "border": "none",
+      }
+    }
+  >
+    <img
+      src="/images/large.jpg"
+    />
+    <span
+      className="secondMssg"
+    >
+      
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Modal-Middle Component should match snapshot with the list 1`] = `
+<div
+  className="modal_main "
+>
+  <span>
+    first
+  </span>
+  <span>
+    second
+  </span>
+</div>
+`;

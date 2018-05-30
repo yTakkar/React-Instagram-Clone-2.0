@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`IsLoading Component should match snapshot with <Loading /> 1`] = `
+<div
+  className="page_loading"
+>
+  <div
+    className="spinner"
+  >
+    <span />
+    <span />
+    <span />
+  </div>
+</div>
+`;
+
+exports[`IsLoading Component should match snapshot with <Spinner /> 1`] = `
+<div
+  className="spinner"
+>
+  <span />
+  <span />
+  <span />
+</div>
+`;

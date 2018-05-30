@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FileInput Component should match snapshot 1`] = `
+Array [
+  <input
+    accept="image/*"
+    id="file_input"
+    onChange={[Function]}
+    type="file"
+    value="a value"
+  />,
+  <label
+    className="label-class"
+    htmlFor="file_input"
+  >
+    A label
+  </label>,
+]
+`;
+
+exports[`FileInput Component should match snapshot with label as a function 1`] = `
+Array [
+  <input
+    accept="image/*"
+    id="file_input"
+    onChange={[Function]}
+    type="file"
+    value="a value"
+  />,
+  <label
+    className=""
+    htmlFor="file_input"
+  >
+    <i
+      className="fas fa-lock"
+    />
+    <img
+      src="/images/spacecraft.jpg"
+    />
+  </label>,
+]
+`;

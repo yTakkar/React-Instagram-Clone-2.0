@@ -30,7 +30,10 @@ export default class Prompt extends Component {
             </span>
           </div>
 
-          <div className='prompt-middle' style={{ marginBottom: blurred ? 9 : 10 }} >
+          <div
+            className='prompt-middle'
+            style={{ marginBottom: blurred ? 9 : 10 }}
+          >
             <span className='prompt-content'>{content}</span>
           </div>
 
@@ -58,7 +61,7 @@ Prompt.defaultProps = {
   actionText: 'Action',
   action: () => { return },
   back: () => { return },
-  blurred: false // chrome blures it, if blurred, set it true to remove it
+  blurred: false // chrome blurs it, if blurred, set it true to remove it
 }
 
 Prompt.propTypes = {

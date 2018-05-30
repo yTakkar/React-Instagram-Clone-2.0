@@ -1,3 +1,4 @@
+require('dotenv').config()
 // ALL FAVOURITE-RELATED ROUTES ARE HANDLED BY THIS FILE
 
 const

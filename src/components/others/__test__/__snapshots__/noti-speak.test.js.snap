@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Noti-Speak Component should match snapshot with complete Component 1`] = `
+<div>
+  <div
+    className="noti_speak"
+  >
+    <div
+      style={
+        Object {
+          "animation": "bcCCNc 300ms ease 0s 1 normal none running",
+          "backfaceVisibility": "visible",
+        }
+      }
+    >
+      <img
+        src="/users/24/avatar.jpg"
+      />
+      <div
+        className="n_s_sn_div"
+      >
+        <span>
+          <b>
+            @
+            takkar
+          </b>
+          , you got 
+          5 notifications
+          .
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Noti-Speak Component should match snapshot with empty DIV 1`] = `<div />`;

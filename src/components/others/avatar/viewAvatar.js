@@ -17,16 +17,16 @@ export default class ViewAvatar extends Component {
     let { imgSrc } = this.props
 
     return (
-      <div class='view_avatar'>
+      <div className='view_avatar'>
         <FadeIn duration='300ms'>
-          <div class='v_a_img'>
+          <div className='v_a_img'>
             <img
               src={imgSrc} alt=''
               style={{ width: `${range}px` }}
             />
           </div>
 
-          <div class='v_a_inc'>
+          <div className='v_a_inc'>
             <RangeInput
               min={200}
               max={500}

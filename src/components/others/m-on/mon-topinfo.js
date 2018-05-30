@@ -8,7 +8,6 @@ const MonTopInfo = ({ info, basedOnMutuals }) => {
     user, username, firstname, surname, mutuals
   } = info
 
-
   return (
     <div className='m_top'>
       <img src={`/users/${user}/avatar.jpg`} />

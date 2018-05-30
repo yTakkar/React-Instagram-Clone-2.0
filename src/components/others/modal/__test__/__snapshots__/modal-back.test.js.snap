@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ModalBack Component should match snapshot with primary button 1`] = `
+<a
+  className="pri_btn  "
+  href="#"
+  onClick={[Function]}
+>
+  Back
+</a>
+`;
+
+exports[`ModalBack Component should match snapshot with secondary button 1`] = `
+<a
+  className="sec_btn  "
+  href="#"
+  onClick={[Function]}
+>
+  Back
+</a>
+`;

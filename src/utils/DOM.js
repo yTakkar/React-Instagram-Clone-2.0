@@ -14,8 +14,16 @@ class DOM {
   }
 
   // converts element into a DOM element
-  toDOM = () =>
-    document.querySelector(this.element)
+  toDOM = () => {
+    let element = document.querySelector(this.element)
+    return element ? element : null
+  }
+
+  // Perform an operaction only if element is valid
+  ifElement = fn => {
+    let element = this.toDOM()
+    element ? fn() : null
+  }
 
   // returns all DOM elements
   toAll = () =>
@@ -23,37 +31,41 @@ class DOM {
 
   // focuses the element
   focus = () => {
-    this.toDOM().focus()
+    this.ifElement(() =>
+      this.toDOM().focus()
+    )
     return this
   }
 
   // blurs the element
   blur = () => {
-    this.toDOM().blur()
+    this.ifElement(() =>
+      this.toDOM().blur()
+    )
     return this
   }
 
   // changes the text of the element
   text = t => {
-    let el = this.toDOM()
-    el ?
-      el.innerText = t
-      : null
+    this.ifElement(() =>
+      this.toDOM().innerText = t
+    )
     return this
   }
 
   // changes the html of the element
   html = e => {
-    let el = this.toDOM()
-    el ?
-      el.innerHTML = e
-      : null
+    this.ifElement(() =>
+      this.toDOM().innerHTML = e
+    )
     return this
   }
 
   // helper for adding or removing class
   doWhat = (operation, className) => {
-    let all = Array.from(document.querySelectorAll(this.element))
+    let all = Array.from(
+      document.querySelectorAll(this.element)
+    )
     for (let elem of all) {
       elem.classList[operation](className)
     }
@@ -61,7 +73,9 @@ class DOM {
 
   // adds a class to element
   addClass = className => {
-    this.doWhat('add', className)
+    this.ifElement(() =>
+      this.doWhat('add', className)
+    )
     return this
   }
 
@@ -131,10 +145,10 @@ class DOM {
 
   // Performs an action on the element
   action = (actionType, fn) => {
-    let element = this.toDOM()
-    element ?
-      element.addEventListener(actionType, e => fn(e))
-      : null
+    this.ifElement(() =>
+      this.toDOM()
+        .addEventListener(actionType, e => fn(e))
+    )
     return this
   }
 
@@ -152,10 +166,9 @@ class DOM {
 
   // removes the element
   remove = () => {
-    let element = this.toDOM()
-    element
-      ? element.remove()
-      : null
+    this.ifElement(() =>
+      this.toDOM().remove()
+    )
     return this
   }
 

@@ -21,7 +21,10 @@ export default class Stickers extends Component {
 
   componentDidMount = async () => {
     let { data: stickers } = await post('/api/get-stickers')
-    this.setState({ stickers, loading: false })
+    this.setState({
+      stickers,
+      loading: false
+    })
   }
 
   selectSticker = e => {
@@ -40,12 +43,8 @@ export default class Stickers extends Component {
     new d('.btn_select_sticker').addClass('a_disabled')
 
     let { selectedSticker } = this.state
-    let { type, back, stickerComment, stickerMessage } = this.props
-
-    type == 'comment'
-      ? stickerComment(selectedSticker)
-      : stickerMessage(selectedSticker)
-
+    let { back, stickerSelected } = this.props
+    stickerSelected(selectedSticker)
     back()
   }
 
@@ -70,7 +69,7 @@ export default class Stickers extends Component {
           </Scrollbars>
 
           <div className='modal_bottom'>
-            <ModalBack back={back} btnClass='secondary' />
+            <ModalBack back={back} btnType='secondary' />
             <PrimaryButton
               label='Choose'
               onClick={this.chooseSticker}
@@ -86,8 +85,6 @@ export default class Stickers extends Component {
 }
 
 Stickers.propTypes = {
-  type: PropTypes.string,
   back: PropTypes.func.isRequired,
-  stickerMessage: PropTypes.func,
-  stickerComment: PropTypes.func
+  stickerSelected: PropTypes.func
 }

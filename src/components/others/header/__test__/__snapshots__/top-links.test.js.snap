@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HeaderTopLinks Component should match snapshot 1`] = `
+Array [
+  <a
+    aria-current={false}
+    className="notification"
+    href="/notifications"
+    onClick={[Function]}
+    style={undefined}
+  >
+    <span
+      className="notification_span nav_icon"
+    >
+      <i
+        className="material-icons"
+      >
+        notifications_none
+      </i>
+    </span>
+    <span
+      className="links_span"
+    >
+      Notifications
+    </span>
+  </a>,
+  <a
+    aria-current={false}
+    className="sp"
+    href="/profile/null"
+    onClick={[Function]}
+    style={undefined}
+  >
+    <img
+      alt="avatar"
+      className="sp_img"
+      src="/users/null/avatar.jpg"
+    />
+    <span
+      className="sp_span"
+    />
+  </a>,
+]
+`;

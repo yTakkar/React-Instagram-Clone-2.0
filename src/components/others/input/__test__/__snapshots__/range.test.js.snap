@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RangeInput Component should match snapshot 1`] = `
+<input
+  max={100}
+  min={10}
+  onChange={[Function]}
+  type="range"
+  value={20}
+/>
+`;

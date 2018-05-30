@@ -29,6 +29,11 @@ export default class StickerMessage extends Component {
     toggleOptions()
   }
 
+  modalBack = () => {
+    this.setState({ showStickers: false })
+    this.props.toggleOptions()
+  }
+
   render() {
     let { showStickers } = this.state
     let { toggleOptions } = this.props
@@ -46,12 +51,10 @@ export default class StickerMessage extends Component {
             <Fragment>
               <Overlay/>
               <Stickers
-                type='message'
-                back={() => {
-                  this.setState({ showStickers: false })
-                  toggleOptions()
-                }}
-                stickerMessage={sticker => this.message(sticker)}
+                back={this.modalBack}
+                stickerSelected={sticker =>
+                  this.message(sticker)
+                }
               />
             </Fragment>
             : null

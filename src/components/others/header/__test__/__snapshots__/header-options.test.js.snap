@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HeaderOptions Component should match snapshot 1`] = `
+<div
+  className="sp_options options"
+>
+  <ul
+    className="o_ul"
+  >
+    <li
+      className="o_li"
+      onClick={[Function]}
+    >
+      <a
+        alt="Settings"
+        className="o_a"
+        href="/settings"
+        onClick={[Function]}
+      >
+        Settings
+      </a>
+    </li>
+    <li
+      className="o_li"
+      onClick={[Function]}
+    >
+      <a
+        alt="Edit"
+        className="o_a"
+        href="/edit-profile"
+        onClick={[Function]}
+      >
+        Edit
+      </a>
+    </li>
+    <li
+      className="o_li"
+    >
+      <a
+        alt="Help"
+        className="o_a"
+        href="/help"
+      >
+        Help
+      </a>
+    </li>
+    <li
+      className="o_li"
+    >
+      <a
+        href="/about"
+      >
+        About
+      </a>
+    </li>
+    <li
+      className="o_li"
+    >
+      <a
+        href="/developer"
+      >
+        Developer
+      </a>
+    </li>
+    <li
+      className="o_li o_divider"
+    >
+      <hr
+        className="menu_divider"
+      />
+    </li>
+    <li
+      className="o_li"
+    >
+      <a
+        alt="Settings"
+        className="o_a"
+        href="/logout"
+      >
+        Logout
+      </a>
+    </li>
+  </ul>
+</div>
+`;

@@ -1,0 +1,133 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Prompt Component should work with given props and also change if props are changed 1`] = `
+<div
+  className="prompt"
+>
+  <div
+    style={
+      Object {
+        "animation": "bcCCNc 300ms ease 0s 1 normal none running",
+        "backfaceVisibility": "visible",
+      }
+    }
+  >
+    <div
+      className="prompt-top"
+    >
+      <span
+        className="prompt-title"
+      >
+        Title of the prompt component
+      </span>
+      <span
+        onClick={[Function]}
+      >
+        <i
+          className="material-icons"
+        >
+          close
+        </i>
+      </span>
+    </div>
+    <div
+      className="prompt-middle"
+      style={
+        Object {
+          "marginBottom": 10,
+        }
+      }
+    >
+      <span
+        className="prompt-content"
+      >
+        Some content here..
+      </span>
+    </div>
+    <div
+      className="prompt-bottom"
+    >
+      <a
+        className="sec_btn  "
+        href="#"
+        onClick={[Function]}
+      >
+        Cancel
+      </a>
+      <a
+        className="pri_btn prompt-done "
+        href="#"
+        onClick={[Function]}
+      >
+        Delete
+      </a>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Prompt Component should work with given props and also change if props are changed 2`] = `
+<div
+  className="prompt"
+>
+  <div
+    style={
+      Object {
+        "animation": "bcCCNc 300ms ease 0s 1 normal none running",
+        "backfaceVisibility": "visible",
+      }
+    }
+  >
+    <div
+      className="prompt-top"
+    >
+      <span
+        className="prompt-title"
+      >
+        Title of the prompt component
+      </span>
+      <span
+        onClick={[Function]}
+      >
+        <i
+          className="material-icons"
+        >
+          close
+        </i>
+      </span>
+    </div>
+    <div
+      className="prompt-middle"
+      style={
+        Object {
+          "marginBottom": 9,
+        }
+      }
+    >
+      <span
+        className="prompt-content"
+      >
+        Some content here..
+      </span>
+    </div>
+    <div
+      className="prompt-bottom"
+    >
+      <a
+        className="sec_btn  "
+        href="#"
+        onClick={[Function]}
+      >
+        Cancel
+      </a>
+      <a
+        className="pri_btn prompt-done "
+        href="#"
+        onClick={[Function]}
+      >
+        Delete
+      </a>
+    </div>
+  </div>
+</div>
+`;

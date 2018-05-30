@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Recommend Component should match snapshot 1`] = `
+<div>
+  <div
+    className="recomm_teaser"
+  >
+    <span>
+      Wanna recommend 
+      ghalib
+       to others or invite someone, so they can get to know about 
+      ghalib
+      .
+    </span>
+    <a
+      className="sec_btn  "
+      href="#"
+      onClick={[Function]}
+    >
+      Recommend
+    </a>
+  </div>
+</div>
+`;

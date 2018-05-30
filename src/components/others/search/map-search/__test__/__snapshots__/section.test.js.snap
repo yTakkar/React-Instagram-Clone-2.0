@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Search Section Component should match snapshot for group search 1`] = `
+<div
+  className="s_d"
+>
+  <span
+    className="s_header"
+  >
+    2 groups
+  </span>
+  <span>
+    normal-grp
+  </span>
+  <span>
+    crazy-group
+  </span>
+</div>
+`;
+
+exports[`Search Section Component should match snapshot for hashtags search 1`] = `
+<div
+  className="s_d"
+>
+  <span
+    className="s_header"
+  >
+    2 hashtags
+  </span>
+  <span>
+    #first
+  </span>
+  <span>
+    #second
+  </span>
+</div>
+`;
+
+exports[`Search Section Component should match snapshot for users search 1`] = `
+<div
+  className="s_d"
+>
+  <span
+    className="s_header"
+  >
+    2 members
+  </span>
+  <span>
+    first
+  </span>
+  <span>
+    second
+  </span>
+</div>
+`;

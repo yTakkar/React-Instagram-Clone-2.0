@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CopyLink Component should match snapshot 1`] = `
+<li>
+  <a
+    className="p_copy_link"
+    href="#"
+    onClick={[Function]}
+  >
+    Copy Link
+  </a>
+</li>
+`;
