@@ -39,7 +39,7 @@ export default class Action {
     new d(this.button)
       .text(text)
       .removeClass(this.disabledClass)
-      .setValue(text)  // it it's an input button
+      .setValue(text)  // if it's an input button
 
     this.ifWithOverlay(() => this.overlay.hide())
     return this

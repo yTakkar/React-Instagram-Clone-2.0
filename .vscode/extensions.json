@@ -6,5 +6,6 @@
     "TomiTurtiainen.js-complexity-analysis",
     "kisstkondoros.vscode-codemetrics",
     "dbaeumer.vscode-eslint",
+    "CoenraadS.bracket-pair-colorizer"
   ]
 }

@@ -21,21 +21,15 @@ class DOM {
     return element ? element : null
   }
 
-  // Perform an operaction only if element is valid
-  ifElement = fn => {
-    let element = this.toDOM()
-    element ? fn() : null
-  }
+  // returns all DOM elements
+  toAll = () =>
+    document.querySelectorAll(this.element)
 
   // Perform a function/method on element only if element is [not null/present]
   ifElement = fn => {
     let element = this.toDOM()
     element ? fn() : null
   }
-
-  // returns all DOM elements
-  toAll = () =>
-    document.querySelectorAll(this.element)
 
   // focuses the element
   focus = () => {
@@ -89,54 +83,73 @@ class DOM {
 
   // removes a class from the element
   removeClass = className => {
-    this.doWhat('remove', className)
+    this.ifElement(() =>
+      this.doWhat('remove', className)
+    )
     return this
   }
 
   // toggle class of the element
   toggleClass = className => {
-    this.toDOM().classList.toggle(className)
+    this.ifElement(() =>
+      this.toDOM().classList.toggle(className)
+    )
     return this
   }
 
   // returns the attribute of the element
   getAttr = attr => {
-    return this.toDOM().getAttribute(attr)
+    let el = this.toDOM()
+    return el ?
+      el.getAttribute(attr)
+      : null
   }
 
   // sets/changes attributes of the element
   setAttr = (name, value) => {
-    this.toDOM().setAttribute(name, value)
+    this.ifElement(() =>
+      this.toDOM().setAttribute(name, value)
+    )
     return this
   }
 
   // toggle (hide/show) element
   toggle = () => {
-    toggle(this.toDOM())
+    this.ifElement(() =>
+      toggle(this.toDOM())
+    )
     return this
   }
 
   // hides the element
   hide = () => {
-    this.toDOM().style.display = 'none'
+    this.ifElement(() =>
+      this.toDOM().style.display = 'none'
+    )
     return this
   }
 
   // shows the element
   show = () => {
-    this.toDOM().style.display = 'block'
+    this.ifElement(() =>
+      this.toDOM().style.display = 'block'
+    )
     return this
   }
 
   // Applies CSS to the element
   css = (styleName, styleValue) => {
-    this.toDOM().style[styleName] = styleValue
+    this.ifElement(() =>
+      this.toDOM().style[styleName] = styleValue
+    )
     return this
   }
 
   // Applies multiple CSS rules to the element
   mutipleCSS = styles => {
-    Object.assign(this.toDOM(), styles)
+    this.ifElement(() =>
+      Object.assign(this.toDOM(), styles)
+    )
     return this
   }
 
@@ -147,12 +160,13 @@ class DOM {
   }
 
   setValue = value => {
-    let element = this.toDOM()
-    element.value = value
+    this.ifElement(() =>
+      this.toDOM().value = value
+    )
     return this
   }
 
-  // Performs an action on the element
+  // Performs an action on the element such as click, change
   on = (actionType, fn) => {
     this.ifElement(() => {
       let element = this.toDOM()
@@ -163,7 +177,9 @@ class DOM {
 
   // Scrolls to top
   scrollTop = (behavior='smooth') => {
-    this.toDOM().scrollIntoView({ behavior: behavior })
+    this.ifElement(() =>
+      this.toDOM().scrollIntoView({ behavior: behavior })
+    )
     return this
   }
 
