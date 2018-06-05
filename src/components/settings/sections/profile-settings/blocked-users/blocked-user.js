@@ -40,6 +40,7 @@ const BlockedUser = props => {
         <SecondaryButton
           label='Unblock'
           onClick={unblockUser}
+          extraClass='unblock'
         />
       </div>
 
