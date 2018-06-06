@@ -15,7 +15,10 @@ import { cLoading } from '../../../../utils/utils'
 import Overlay from '../../../others/overlay'
 
 @connect(store => (
-  { cd: store.Message.conDetails }
+  { 
+    store,
+    cd: store.Message.conDetails 
+  }
 ))
 
 export default class AboutConversation extends Component {
