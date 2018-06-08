@@ -11,8 +11,7 @@ import PrimaryButton from '../../others/button/primary-btn'
 import TextArea from '../../others/input/textArea'
 import Overlay from '../../others/overlay'
 
-@connect()
-export default class EditPost extends Component {
+class EditPost extends Component {
 
   state = {
     description: '',
@@ -116,3 +115,6 @@ EditPost.propTypes = {
   back: PropTypes.func.isRequired,
   changeDesc: PropTypes.func.isRequired
 }
+
+export default connect()(EditPost)
+export { EditPost as PureEditPost }

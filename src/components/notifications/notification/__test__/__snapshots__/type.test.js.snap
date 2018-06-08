@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NotificationType Component should match snapshot with type "change_admin" 1`] = `
+<span>
+   made you admin of a group
+</span>
+`;
+
+exports[`NotificationType Component should match snapshot with type "favourites" 1`] = `
+<span>
+   added you to favourites
+</span>
+`;
+
+exports[`NotificationType Component should match snapshot with type "follow" 1`] = `
+<span>
+   started following you
+</span>
+`;
+
+exports[`NotificationType Component should match snapshot with type "invite" 1`] = `
+<span>
+   invited to a group
+</span>
+`;
+
+exports[`NotificationType Component should match snapshot with type "like" 1`] = `
+<span>
+   liked your post
+</span>
+`;
+
+exports[`NotificationType Component should match snapshot with type "mention_post" 1`] = `
+<span>
+   mentioned you in a post
+</span>
+`;
+
+exports[`NotificationType Component should match snapshot with type "recommend" 1`] = `
+<span>
+   recommended zayn to you
+</span>
+`;

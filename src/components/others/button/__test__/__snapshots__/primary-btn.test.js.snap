@@ -4,7 +4,7 @@ exports[`Primary Button Component should match snapshot 1`] = `
 <a
   className="pri_btn p_add "
   href="#"
-  onClick={[Function]}
+  onClick={[MockFunction]}
 >
   Add post
 </a>
@@ -14,7 +14,7 @@ exports[`Primary Button Component should match snapshot with label as a function
 <a
   className="pri_btn  a_disabled"
   href="#"
-  onClick={[Function]}
+  onClick={[MockFunction]}
 >
   <img
     src="/images/spacecraft.jpg"

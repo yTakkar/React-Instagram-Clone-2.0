@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react'
 import { newConversation } from '../../utils/message-utils'
 import { Redirect } from 'react-router'
 import SecondaryButton from '../others/button/secondary-btn'
+import { shape, number, string } from 'prop-types'
 
 export default class NewConTeaser extends Component {
 
@@ -40,4 +41,11 @@ export default class NewConTeaser extends Component {
       </Fragment>
     )
   }
+}
+
+NewConTeaser.propTypes = {
+  userDetails: shape({
+    id: number,
+    username: string.isRequired
+  }).isRequired
 }

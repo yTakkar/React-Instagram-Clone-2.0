@@ -5,19 +5,19 @@ import {
 } from '../../actions/explore'
 import { connect } from 'react-redux'
 import FAIcon from '../others/icons/font-awesome-icon'
+import { string } from 'prop-types'
 
-const RefreshExplores = ({ dispatch }) => {
+const RefreshExplores = ({ url, dispatch }) => {
 
   let refresh = e => {
     e.preventDefault()
-    let path = location.pathname
 
     dispatch(
-      path == '/explore'
+      url == '/explore'
         ? getUsersToExplore()
-        : path == '/explore/explore-photos'
+        : url == '/explore/explore-photos'
           ? getPhotosToExplore()
-          : path == '/explore/explore-groups'
+          : url == '/explore/explore-groups'
             ? getGroupsToExplore()
             : null
     )
@@ -36,6 +36,10 @@ const RefreshExplores = ({ dispatch }) => {
       <ToolTip/>
     </Fragment>
   )
+}
+
+RefreshExplores.propTypes = {
+  url: string.isRequired
 }
 
 export default connect()(RefreshExplores)

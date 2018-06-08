@@ -16,15 +16,7 @@ import { cLoading } from '../../utils/utils'
 import AddEmojis from '../others/emojis/add-emojis'
 import PrimaryButton from '../others/button/primary-btn'
 
-@connect(store => (
-  {
-    ud: store.User.user_details,
-    tags: store.User.tags,
-    session: store.User.session
-  }
-))
-
-export default class EditProfile extends Component {
+class EditProfile extends Component {
 
   state = {
     loading: true,
@@ -58,7 +50,8 @@ export default class EditProfile extends Component {
     this.setState({
       loading: false,
       username, firstname, surname, email, bio,
-      instagram, twitter, facebook, github, website, phone, tags
+      instagram, twitter, facebook, github, website, phone,
+      tags
     })
   }
 
@@ -136,7 +129,9 @@ export default class EditProfile extends Component {
 
             <div className='edit_tags'>
               <SocialInputs
-                inputs={{ instagram, github, twitter, facebook, website, phone }}
+                inputs={{
+                  instagram, github, twitter, facebook, website, phone
+                }}
                 change={this.change}
               />
               <EditTags
@@ -156,3 +151,14 @@ export default class EditProfile extends Component {
     )
   }
 }
+
+const mapStateToProps = store => (
+  {
+    ud: store.User.user_details,
+    tags: store.User.tags,
+    session: store.User.session
+  }
+)
+
+export default connect(mapStateToProps)(EditProfile)
+export { EditProfile as PureEditProfile }

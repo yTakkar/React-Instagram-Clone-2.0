@@ -34,3 +34,4 @@ const mapStateToProps = state => (
 )
 
 export default connect(mapStateToProps)(GetLocation)
+export { GetLocation as PureGetLocation }

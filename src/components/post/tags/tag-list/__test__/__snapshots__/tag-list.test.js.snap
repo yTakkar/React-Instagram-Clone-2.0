@@ -1,0 +1,231 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TagItems Component should match snapshot and show <AdvancedFollow/> 1`] = `
+<div
+  className="modal_items fer_items"
+>
+  <div
+    className="modal_it_img"
+  >
+    <img
+      src="/users/16/avatar.jpg"
+    />
+  </div>
+  <div
+    className="modal_it_content"
+  >
+    <div
+      className="modal_it_info"
+    >
+      <a
+        className="modal_it_username"
+        href="/profile/zayn"
+        onClick={[Function]}
+      >
+        zayn
+      </a>
+      <span
+        className="modal_it_light"
+      >
+        Zayn Malik
+      </span>
+    </div>
+    <div
+      className="modal_ff"
+    >
+      <a
+        className="pri_btn follow "
+        href="#"
+        onClick={[Function]}
+      >
+        Follow
+      </a>
+    </div>
+  </div>
+  <hr />
+</div>
+`;
+
+exports[`TagItems Component should match snapshot and show <AdvancedUnfollow/> 1`] = `
+<div
+  className="modal_items fer_items"
+>
+  <div
+    className="modal_it_img"
+  >
+    <img
+      src="/users/16/avatar.jpg"
+    />
+  </div>
+  <div
+    className="modal_it_content"
+  >
+    <div
+      className="modal_it_info"
+    >
+      <a
+        className="modal_it_username"
+        href="/profile/zayn"
+        onClick={[Function]}
+      >
+        zayn
+      </a>
+      <span
+        className="modal_it_light"
+      >
+        Zayn Malik
+      </span>
+    </div>
+    <div
+      className="modal_ff"
+    >
+      <a
+        className="pri_btn unfollow "
+        href="#"
+        onClick={[Function]}
+      >
+        Unfollow
+      </a>
+    </div>
+  </div>
+  <hr />
+</div>
+`;
+
+exports[`TagItems Component should match snapshot and show <Untag/> 1`] = `
+<div
+  className="modal_items fer_items"
+>
+  <div
+    className="modal_it_img"
+  >
+    <img
+      src="/users/16/avatar.jpg"
+    />
+  </div>
+  <div
+    className="modal_it_content"
+  >
+    <div
+      className="modal_it_info"
+    >
+      <a
+        className="modal_it_username"
+        href="/profile/zayn"
+        onClick={[Function]}
+      >
+        zayn
+      </a>
+      <span
+        className="modal_it_light"
+      >
+        Zayn Malik
+      </span>
+    </div>
+    <div
+      className="modal_ff"
+    >
+      <a
+        className="sec_btn  "
+        href="#"
+        onClick={[Function]}
+      >
+        Untag 
+      </a>
+    </div>
+  </div>
+  <hr />
+</div>
+`;
+
+exports[`TagItems Component should match snapshot and show <Untag/> 2`] = `
+<div
+  className="modal_items fer_items"
+>
+  <div
+    className="modal_it_img"
+  >
+    <img
+      src="/users/16/avatar.jpg"
+    />
+  </div>
+  <div
+    className="modal_it_content"
+  >
+    <div
+      className="modal_it_info"
+    >
+      <a
+        className="modal_it_username"
+        href="/profile/zayn"
+        onClick={[Function]}
+      >
+        zayn
+      </a>
+      <span
+        className="modal_it_light"
+      >
+        Zayn Malik
+      </span>
+    </div>
+    <div
+      className="modal_ff"
+    >
+      <a
+        className="sec_btn  "
+        href="#"
+        onClick={[Function]}
+      >
+        Untag 
+      </a>
+    </div>
+  </div>
+  <hr />
+</div>
+`;
+
+exports[`TagItems Component should match snapshot and show <Untag/> 3`] = `
+<div
+  className="modal_items fer_items"
+>
+  <div
+    className="modal_it_img"
+  >
+    <img
+      src="/users/16/avatar.jpg"
+    />
+  </div>
+  <div
+    className="modal_it_content"
+  >
+    <div
+      className="modal_it_info"
+    >
+      <a
+        className="modal_it_username"
+        href="/profile/zayn"
+        onClick={[Function]}
+      >
+        zayn
+      </a>
+      <span
+        className="modal_it_light"
+      >
+        Zayn Malik
+      </span>
+    </div>
+    <div
+      className="modal_ff"
+    >
+      <a
+        className="sec_btn  "
+        href="#"
+        onClick={[Function]}
+      >
+        Untag as admin
+      </a>
+    </div>
+  </div>
+  <hr />
+</div>
+`;

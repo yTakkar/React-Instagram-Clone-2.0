@@ -1,0 +1,247 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Notification Component should match snapshot with change_admin notification 1`] = `
+<div
+  className="noti follow_noti"
+>
+  <img
+    className="noti_avatar"
+    src="/users/7/avatar.jpg"
+  />
+  <div
+    className="noti_left"
+  >
+    <a
+      className="noti_bold noti_username"
+      href="/profile/ghalib"
+      onClick={[Function]}
+    >
+      ghalib
+    </a>
+    <span>
+       made you admin of a group
+    </span>
+    <span
+      className="noti_time"
+    >
+      3 months ago
+    </span>
+  </div>
+  <div
+    className="noti_right follow_noti_right"
+  >
+    <a
+      className="pri_btn"
+      href="/group/11"
+      onClick={[Function]}
+    >
+      View group
+    </a>
+  </div>
+</div>
+`;
+
+exports[`Notification Component should match snapshot with follow notification 1`] = `
+<div
+  className="noti follow_noti"
+>
+  <img
+    className="noti_avatar"
+    src="/users/7/avatar.jpg"
+  />
+  <div
+    className="noti_left"
+  >
+    <a
+      className="noti_bold noti_username"
+      href="/profile/ghalib"
+      onClick={[Function]}
+    >
+      ghalib
+    </a>
+    <span>
+       started following you
+    </span>
+    <span
+      className="noti_time"
+    >
+      3 months ago
+    </span>
+  </div>
+  <div
+    className="noti_right follow_noti_right"
+  >
+    <a
+      className="pri_btn follow "
+      href="#"
+      onClick={[Function]}
+    >
+      Follow
+    </a>
+  </div>
+</div>
+`;
+
+exports[`Notification Component should match snapshot with like notification 1`] = `
+<div
+  className="noti follow_noti"
+>
+  <img
+    className="noti_avatar"
+    src="/users/7/avatar.jpg"
+  />
+  <div
+    className="noti_left"
+  >
+    <a
+      className="noti_bold noti_username"
+      href="/profile/ghalib"
+      onClick={[Function]}
+    >
+      ghalib
+    </a>
+    <span>
+       liked your post
+    </span>
+    <span
+      className="noti_time"
+    >
+      3 months ago
+    </span>
+  </div>
+  <div
+    className="noti_right follow_noti_right"
+  >
+    <a
+      className="pri_btn"
+      href="/post/8"
+      onClick={[Function]}
+    >
+      Open post
+    </a>
+  </div>
+</div>
+`;
+
+exports[`Notification Component should match snapshot with mention_post notification 1`] = `
+<div
+  className="noti follow_noti"
+>
+  <img
+    className="noti_avatar"
+    src="/users/7/avatar.jpg"
+  />
+  <div
+    className="noti_left"
+  >
+    <a
+      className="noti_bold noti_username"
+      href="/profile/ghalib"
+      onClick={[Function]}
+    >
+      ghalib
+    </a>
+    <span>
+       mentioned you in a post
+    </span>
+    <span
+      className="noti_time"
+    >
+      3 months ago
+    </span>
+  </div>
+  <div
+    className="noti_right follow_noti_right"
+  >
+    <a
+      className="pri_btn"
+      href="/post/8"
+      onClick={[Function]}
+    >
+      Open post
+    </a>
+  </div>
+</div>
+`;
+
+exports[`Notification Component should match snapshot with recommend notification 1`] = `
+<div
+  className="noti follow_noti"
+>
+  <img
+    className="noti_avatar"
+    src="/users/7/avatar.jpg"
+  />
+  <div
+    className="noti_left"
+  >
+    <a
+      className="noti_bold noti_username"
+      href="/profile/ghalib"
+      onClick={[Function]}
+    >
+      ghalib
+    </a>
+    <span>
+       recommended coldplay to you
+    </span>
+    <span
+      className="noti_time"
+    >
+      3 months ago
+    </span>
+  </div>
+  <div
+    className="noti_right follow_noti_right"
+  >
+    <a
+      className="pri_btn"
+      href="/profile/coldplay"
+      onClick={[Function]}
+    >
+      View coldplay
+    </a>
+  </div>
+</div>
+`;
+
+exports[`Notification Component should match snapshot with tag notification 1`] = `
+<div
+  className="noti follow_noti"
+>
+  <img
+    className="noti_avatar"
+    src="/users/7/avatar.jpg"
+  />
+  <div
+    className="noti_left"
+  >
+    <a
+      className="noti_bold noti_username"
+      href="/profile/ghalib"
+      onClick={[Function]}
+    >
+      ghalib
+    </a>
+    <span>
+       tagged you in a post
+    </span>
+    <span
+      className="noti_time"
+    >
+      3 months ago
+    </span>
+  </div>
+  <div
+    className="noti_right follow_noti_right"
+  >
+    <a
+      className="pri_btn"
+      href="/post/23"
+      onClick={[Function]}
+    >
+      Open post
+    </a>
+  </div>
+</div>
+`;

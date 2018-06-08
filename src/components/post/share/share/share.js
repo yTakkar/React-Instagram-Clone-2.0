@@ -13,11 +13,7 @@ import ModalMiddle from '../../../others/modal/modal-middle'
 import IsLoading from '../../../others/isLoading'
 import Overlay from '../../../others/overlay'
 
-@connect(store => (
-  { users: store.Post.usersToShare }
-))
-
-export default class Share extends Component {
+class Share extends Component {
 
   state = {
     loading: true
@@ -38,6 +34,7 @@ export default class Share extends Component {
     let {
       users, post, incrementShares, decrementShares, postOwner, back
     } = this.props
+
     let map_users = users.map(u =>
       <ShareList
         key={u.follow_id}
@@ -83,3 +80,10 @@ Share.propTypes = {
   incrementShares: PropTypes.func.isRequired,
   decrementShares: PropTypes.func.isRequired
 }
+
+const mapStateToProps = store => ({
+  users: store.Post.usersToShare
+})
+
+export default connect(mapStateToProps)(Share)
+export { Share as PureShare }

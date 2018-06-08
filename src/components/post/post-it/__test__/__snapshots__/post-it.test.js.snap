@@ -1,0 +1,335 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PostIt Component should match snapshot with type group 1`] = `
+<div>
+  <div
+    className="overlay"
+    onClick={null}
+    style={
+      Object {
+        "cursor": "inherit",
+        "opacity": 0.5,
+      }
+    }
+  />
+  <div
+    className="post"
+    style={
+      Object {
+        "left": "50%",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "animation": "bcCCNc 300ms ease 0s 1 normal none running",
+          "backfaceVisibility": "visible",
+        }
+      }
+    >
+      <div
+        className="i_p_top p_top"
+      >
+        <div
+          className="i_p_info p_info"
+        >
+          <img
+            src="/users/24/avatar.jpg"
+          />
+          <span>
+            takkar
+          </span>
+        </div>
+        <span
+          className="loc_text"
+          title="A-301, 90 Feet Road, Dharavi, Mumbai, Maharashtra 400017, India"
+        >
+          A-301, 90 Feet Road,..
+        </span>
+      </div>
+      <div
+        className="i_p_main p_main"
+        style={
+          Object {
+            "height": 296,
+          }
+        }
+      >
+        <form
+          className="post_img_form"
+          encType="multipart/formdata"
+          method="post"
+        >
+          <input
+            accept="image/*"
+            id="file_input"
+            onChange={[Function]}
+            type="file"
+            value=""
+          />
+          <label
+            className="pri_btn"
+            htmlFor="file_input"
+          >
+            Choose an image
+          </label>
+        </form>
+      </div>
+      <div
+        className="p_tagging"
+      >
+        <span
+          className="p_taggings"
+          onClick={[Function]}
+        >
+          ghalib
+        </span>
+      </div>
+      <div
+        className="t_p_bottom p_bottom"
+      >
+        <div
+          className="t_p_tag p_tag"
+          style={
+            Object {
+              "visibility": "hidden",
+            }
+          }
+        >
+          <span
+            className="emoji_span  "
+            data-tip="Add emojis"
+            onClick={[Function]}
+          >
+            <i
+              className="material-icons"
+            >
+              sentiment_very_satisfied
+            </i>
+          </span>
+          <div
+            className="__react_component_tooltip place-top type-dark "
+            data-id="tooltip"
+          >
+            
+          </div>
+          <span
+            className="tag_add "
+            data-tip="Tag people"
+            onClick={[Function]}
+          >
+            <i
+              className="material-icons"
+            >
+              loyalty
+            </i>
+          </span>
+          <span
+            className="loc_add p_span_toggle"
+            data-tip="Add location"
+            onClick={[Function]}
+          >
+            <i
+              className="material-icons"
+            >
+              location_on
+            </i>
+          </span>
+        </div>
+        <div
+          className="t_p_act p_act"
+        >
+          <a
+            className="sec_btn  "
+            href="#"
+            onClick={[Function]}
+          >
+            Cancel
+          </a>
+          <a
+            className="pri_btn p_post a_disabled"
+            href="#"
+            onClick={[Function]}
+          >
+            Post
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="__react_component_tooltip place-top type-dark "
+    data-id="tooltip"
+  >
+    
+  </div>
+</div>
+`;
+
+exports[`PostIt Component should match snapshot with type user 1`] = `
+<div>
+  <div
+    className="overlay"
+    onClick={null}
+    style={
+      Object {
+        "cursor": "inherit",
+        "opacity": 0.5,
+      }
+    }
+  />
+  <div
+    className="post"
+    style={
+      Object {
+        "left": "50%",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "animation": "bcCCNc 300ms ease 0s 1 normal none running",
+          "backfaceVisibility": "visible",
+        }
+      }
+    >
+      <div
+        className="i_p_top p_top"
+      >
+        <div
+          className="i_p_info p_info"
+        >
+          <img
+            src="/users/24/avatar.jpg"
+          />
+          <span>
+            takkar
+          </span>
+        </div>
+        <span
+          className="loc_text"
+          title="A-301, 90 Feet Road, Dharavi, Mumbai, Maharashtra 400017, India"
+        >
+          A-301, 90 Feet Road,..
+        </span>
+      </div>
+      <div
+        className="i_p_main p_main"
+        style={
+          Object {
+            "height": 296,
+          }
+        }
+      >
+        <form
+          className="post_img_form"
+          encType="multipart/formdata"
+          method="post"
+        >
+          <input
+            accept="image/*"
+            id="file_input"
+            onChange={[Function]}
+            type="file"
+            value=""
+          />
+          <label
+            className="pri_btn"
+            htmlFor="file_input"
+          >
+            Choose an image
+          </label>
+        </form>
+      </div>
+      <div
+        className="p_tagging"
+      >
+        <span
+          className="p_taggings"
+          onClick={[Function]}
+        >
+          ghalib
+        </span>
+      </div>
+      <div
+        className="t_p_bottom p_bottom"
+      >
+        <div
+          className="t_p_tag p_tag"
+          style={
+            Object {
+              "visibility": "hidden",
+            }
+          }
+        >
+          <span
+            className="emoji_span  "
+            data-tip="Add emojis"
+            onClick={[Function]}
+          >
+            <i
+              className="material-icons"
+            >
+              sentiment_very_satisfied
+            </i>
+          </span>
+          <div
+            className="__react_component_tooltip place-top type-dark "
+            data-id="tooltip"
+          >
+            
+          </div>
+          <span
+            className="tag_add "
+            data-tip="Tag people"
+            onClick={[Function]}
+          >
+            <i
+              className="material-icons"
+            >
+              loyalty
+            </i>
+          </span>
+          <span
+            className="loc_add p_span_toggle"
+            data-tip="Add location"
+            onClick={[Function]}
+          >
+            <i
+              className="material-icons"
+            >
+              location_on
+            </i>
+          </span>
+        </div>
+        <div
+          className="t_p_act p_act"
+        >
+          <a
+            className="sec_btn  "
+            href="#"
+            onClick={[Function]}
+          >
+            Cancel
+          </a>
+          <a
+            className="pri_btn p_post a_disabled"
+            href="#"
+            onClick={[Function]}
+          >
+            Post
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="__react_component_tooltip place-top type-dark "
+    data-id="tooltip"
+  >
+    
+  </div>
+</div>
+`;

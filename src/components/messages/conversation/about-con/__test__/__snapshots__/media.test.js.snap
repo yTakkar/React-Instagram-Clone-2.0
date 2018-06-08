@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ConversationMedia Component should match snapshot 1`] = `
+<div
+  className="sli_media"
+>
+  <span
+    className="sli_label"
+  >
+    Media
+  </span>
+  <img
+    className="sli_media_img"
+    src="/messages/instagram_message_1528278864884.jpg"
+    title="By takkar"
+  />
+</div>
+`;
+
+exports[`ConversationMedia Component should match snapshot and show <Nothing/> when media.length == 0 1`] = `
+<div
+  className="sli_media"
+>
+  <span
+    className="sli_label"
+  >
+    Media
+  </span>
+  <div
+    className="home_last_mssg"
+    style={
+      Object {
+        "border": "none",
+      }
+    }
+  >
+    <img
+      src="/images/elephant-march.png"
+    />
+    <span
+      className="secondMssg"
+    >
+      
+    </span>
+  </div>
+</div>
+`;

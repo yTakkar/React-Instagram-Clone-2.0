@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import { connect } from 'react-redux'
-import Conversations from './conversations'
+import ConversationTeaser from './conversation-teaser'
 import { FadeIn } from 'animate-components'
 import Nothing from '../../others/nothing'
 import { humanReadable } from '../../../utils/utils'
@@ -17,7 +17,7 @@ const MapConversations = ({ showConversation, conversations }) => {
 
   let conLen = conversations.length
   let map_conversations = conversations.map(c =>
-    <Conversations
+    <ConversationTeaser
       key={c.con_id}
       {...c}
       select={() =>
@@ -56,3 +56,4 @@ const mapStateToProps = state => (
 )
 
 export default connect(mapStateToProps)(MapConversations)
+export { MapConversations as PureMapConversations }

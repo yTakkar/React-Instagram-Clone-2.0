@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Hashtag Component should match snapshot 1`] = `
+<div>
+  <Connect(Title)
+    desc="View posts with #travel"
+    value="#travel"
+  />
+  <FadeIn
+    as="div"
+    backfaceVisible="visible"
+    delay="0s"
+    direction="normal"
+    duration="300ms"
+    fillMode="none"
+    iterations="1"
+    playState="running"
+    timingFunction="ease"
+  >
+    <Connect(HashtagInfo)
+      hashtag="travel"
+    />
+    <div
+      className="senapati"
+    >
+      <div
+        className="prajkumar"
+      >
+        <Connect(HashtagMiddleSection)
+          hashtag="travel"
+          loading={true}
+        />
+      </div>
+      <div
+        className="srajkumar"
+      >
+        <Connect(PopularHashtags) />
+        <Connect(UserHashtags)
+          username="takkar"
+        />
+      </div>
+    </div>
+  </FadeIn>
+</div>
+`;

@@ -3,7 +3,7 @@
 exports[`Hashtag-Search Component should match snapshot 1`] = `
 <div
   className="s_d_peo"
-  onClick={[Function]}
+  onClick={[MockFunction]}
 >
   <a
     className="s_d_p h_d_p"

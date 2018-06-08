@@ -3,13 +3,9 @@ import { FadeIn } from 'animate-components'
 import { connect } from 'react-redux'
 import { getUnreadNotifications } from '../../actions/notification'
 import { getUnreadMessages } from '../../actions/message'
-import { Route, Switch, Redirect } from 'react-router-dom'
 import ExploreNav from './explore-nav'
+import ExploreRoutes from './explore-routes'
 import RefreshExplores from './refresh'
-
-import ExpUsers from './users/exp-users'
-import ExpPhotos from './photos/explore-photos'
-import ExpGroups from './groups/exp-groups'
 
 @connect()
 export default class Explore extends Component {
@@ -29,18 +25,10 @@ export default class Explore extends Component {
 
           <div className='exp_nav'>
             <ExploreNav url={url} />
-            <RefreshExplores/>
+            <RefreshExplores url={url} />
           </div>
 
-          <div className='exp_hmm'>
-            <Switch>
-              <Route path={`${url}`} exact component={ExpUsers} />
-              <Route path={`${url}/explore-photos`} component={ExpPhotos} />
-              <Route path={`${url}/explore-groups`} component={ExpGroups} />
-              <Redirect to='/error' />
-            </Switch>
-          </div>
-
+          <ExploreRoutes url={url} />
         </FadeIn>
       </div>
     )

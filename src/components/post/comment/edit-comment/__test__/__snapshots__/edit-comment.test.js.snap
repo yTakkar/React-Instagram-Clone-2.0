@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EditComment Component should match snapshot 1`] = `
+<div>
+  <div
+    className="overlay"
+    onClick={null}
+    style={
+      Object {
+        "cursor": "inherit",
+        "opacity": 0.5,
+      }
+    }
+  />
+  <div
+    className="edit_post modal"
+  >
+    <div
+      style={
+        Object {
+          "animation": "bcCCNc 300ms ease 0s 1 normal none running",
+          "backfaceVisibility": "visible",
+        }
+      }
+    >
+      <div
+        className="modal_header"
+      >
+        <span
+          className="title"
+        >
+          Edit comment
+        </span>
+      </div>
+      <div
+        className="e_p_middle modal_middle"
+      >
+        <textarea
+          autoFocus={true}
+          className="e_c_textarea"
+          onChange={[Function]}
+          placeholder="Comment.."
+          spellCheck="false"
+          value="a comment"
+        />
+      </div>
+      <div
+        className="e_p_bottom modal_bottom"
+      >
+        <span
+          className="emoji_span  "
+          data-tip="Add emojis"
+          onClick={[Function]}
+        >
+          <i
+            className="material-icons"
+          >
+            sentiment_very_satisfied
+          </i>
+        </span>
+        <div
+          className="__react_component_tooltip place-top type-dark "
+          data-id="tooltip"
+        >
+          
+        </div>
+        <a
+          className="sec_btn  "
+          href="#"
+          onClick={[Function]}
+        >
+          Back
+        </a>
+        <a
+          className="pri_btn e_p_update "
+          href="#"
+          onClick={[Function]}
+        >
+          Update
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;

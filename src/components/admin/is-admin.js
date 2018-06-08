@@ -18,6 +18,7 @@ const IsAdmin = () => (
         <span>You can now remove and edit any post, comment, user, group, message, etc. as an admin</span>
       </div>
     </FadeIn>
+
   </div>
 )
 

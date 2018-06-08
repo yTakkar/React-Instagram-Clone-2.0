@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UnsendMessages Component should match snapshot 1`] = `
+<li>
+  <a
+    className="dlt_mssgs"
+    href="#"
+    onClick={[Function]}
+  >
+    Unsend your mssgs
+  </a>
+</li>
+`;
+
+exports[`UnsendMessages Component should match snapshot with null when messages.length == 0 1`] = `null`;

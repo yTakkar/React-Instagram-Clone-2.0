@@ -5,8 +5,7 @@ import PropTypes from 'prop-types'
 import MaterialIcon from '../../../others/icons/material-icon'
 import FileInput from '../../../others/input/file'
 
-@connect()
-export default class ImageComment extends Component {
+class ImageComment extends Component {
 
   state = {
     commentFile: ''
@@ -62,3 +61,6 @@ ImageComment.propTypes = {
   }).isRequired,
   incrementComments: PropTypes.func.isRequired,
 }
+
+export default connect()(ImageComment)
+export { ImageComment as PureImageComment }

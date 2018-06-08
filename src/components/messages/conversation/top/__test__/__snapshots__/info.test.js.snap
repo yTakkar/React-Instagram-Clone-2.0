@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ConversationInfo Component should match snapshot 1`] = `
+<div>
+  <img
+    className="con_with_avatar"
+    src="/users/28/avatar.jpg"
+  />
+  <div
+    className="m_m_t_c"
+  >
+    <a
+      className="con_name"
+      href="/profile/selena"
+      onClick={[Function]}
+    >
+      selena
+    </a>
+    <span
+      className="m_m_t_useless"
+    >
+      Last active 2 months ago
+    </span>
+  </div>
+</div>
+`;
+
+exports[`ConversationInfo Component should match snapshot when user is online 1`] = `
+<div>
+  <img
+    className="con_with_avatar"
+    src="/users/28/avatar.jpg"
+  />
+  <div
+    className="m_m_t_c"
+  >
+    <a
+      className="con_name"
+      href="/profile/selena"
+      onClick={[Function]}
+    >
+      selena
+    </a>
+    <span
+      className="m_m_t_useless"
+    >
+      online
+    </span>
+  </div>
+</div>
+`;

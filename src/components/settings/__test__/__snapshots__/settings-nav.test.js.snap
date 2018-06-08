@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SettingsNav Component should match snapshot 1`] = `
+<div
+  className="settings_nav_div"
+>
+  <ul>
+    <li>
+      <a
+        aria-current={false}
+        className="settings_nav"
+        href="/settings"
+        onClick={[Function]}
+      >
+        Profile settings
+      </a>
+    </li>
+    <li>
+      <a
+        aria-current={false}
+        className="settings_nav"
+        href="/settings/change-password"
+        onClick={[Function]}
+      >
+        Change password
+      </a>
+    </li>
+    <li>
+      <a
+        aria-current={false}
+        className="settings_nav"
+        href="/settings/deactivate"
+        onClick={[Function]}
+      >
+        Deactivate
+      </a>
+    </li>
+  </ul>
+</div>
+`;

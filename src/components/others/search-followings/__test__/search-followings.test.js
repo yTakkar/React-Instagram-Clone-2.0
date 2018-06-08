@@ -7,7 +7,7 @@ import { shallow, mount } from 'enzyme'
 import users from './users-mockArray'
 
 describe('Search-Followings Component', () => {
-  const mockFn = () => {}
+  const mockFn = jest.fn()
   const comp = (
     <SearchFollowings
       when='new_con'

@@ -1,0 +1,133 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HashtagMiddleSection Component should match snapshot 1`] = `
+<React.Fragment>
+  <MapPosts
+    nothingMssg="No post with #travel tag found!!"
+    posts={
+      Array [
+        <Post
+          comments_count={2}
+          description="he @nobita, @doraemon #checkout, #dd #fgf"
+          filter="filter-ashby"
+          firstname="iam_"
+          group_id={0}
+          group_name=""
+          imgSrc="instagram_1518972814710.jpg"
+          likes_count={3}
+          location="A-301, 90 Feet Road, Dharavi, Mumbai, Maharashtra 400017, India"
+          post_id={89}
+          post_time="1518972814710"
+          shares_count={3}
+          surname="takkar"
+          tags_count={1}
+          type="user"
+          user={24}
+          username="takkar"
+          when="hashtag"
+        />,
+        <Post
+          comments_count={3}
+          description="Hello @ghalib @takkar #checkout"
+          filter="filter-normal"
+          firstname="iam_"
+          group_id={0}
+          group_name=""
+          imgSrc="instagram_1518945386167.jpg"
+          likes_count={0}
+          location=""
+          post_id={88}
+          post_time="1518945386167"
+          shares_count={1}
+          surname="takkar"
+          tags_count={0}
+          type="user"
+          user={24}
+          username="takkar"
+          when="hashtag"
+        />,
+      ]
+    }
+  />
+  <SectionsEnd
+    len={2}
+  />
+  <div
+    style={
+      Object {
+        "marginBottom": 20,
+      }
+    }
+  />
+</React.Fragment>
+`;
+
+exports[`HashtagMiddleSection Component should show <Instagram/> loader when loading=true 1`] = `
+<React.Fragment>
+  <div
+    style={
+      Object {
+        "marginTop": 10,
+      }
+    }
+  />
+  <InstagramStyle />
+  <MapPosts
+    nothingMssg="No post with #travel tag found!!"
+    posts={
+      Array [
+        <Post
+          comments_count={2}
+          description="he @nobita, @doraemon #checkout, #dd #fgf"
+          filter="filter-ashby"
+          firstname="iam_"
+          group_id={0}
+          group_name=""
+          imgSrc="instagram_1518972814710.jpg"
+          likes_count={3}
+          location="A-301, 90 Feet Road, Dharavi, Mumbai, Maharashtra 400017, India"
+          post_id={89}
+          post_time="1518972814710"
+          shares_count={3}
+          surname="takkar"
+          tags_count={1}
+          type="user"
+          user={24}
+          username="takkar"
+          when="hashtag"
+        />,
+        <Post
+          comments_count={3}
+          description="Hello @ghalib @takkar #checkout"
+          filter="filter-normal"
+          firstname="iam_"
+          group_id={0}
+          group_name=""
+          imgSrc="instagram_1518945386167.jpg"
+          likes_count={0}
+          location=""
+          post_id={88}
+          post_time="1518945386167"
+          shares_count={1}
+          surname="takkar"
+          tags_count={0}
+          type="user"
+          user={24}
+          username="takkar"
+          when="hashtag"
+        />,
+      ]
+    }
+  />
+  <SectionsEnd
+    len={2}
+  />
+  <div
+    style={
+      Object {
+        "marginBottom": 20,
+      }
+    }
+  />
+</React.Fragment>
+`;

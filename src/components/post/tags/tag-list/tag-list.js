@@ -8,14 +8,7 @@ import AdvancedFollow from '../../../others/follow/advancedFollow'
 import AdvancedUnfollow from '../../../others/follow/advancedUnfollow'
 import ModalItemInfo from '../../../others/modal/modal-item-info'
 
-@connect(store => (
-  {
-    isPostMine: store.Post.isPostMine,
-    ud: store.User.user_details
-  }
-))
-
-export default class TagItems extends Component {
+class TagItems extends Component {
 
   state = {
     isFollowing: false
@@ -83,3 +76,10 @@ TagItems.propTypes = {
   isFollowing: PropTypes.bool.isRequired,
   decrementTags: PropTypes.func.isRequired
 }
+
+const mapStateToProps = store => ({
+  isPostMine: store.Post.isPostMine,
+  ud: store.User.user_details
+})
+
+export default connect(mapStateToProps)(TagItems)

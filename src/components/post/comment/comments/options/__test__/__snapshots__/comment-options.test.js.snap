@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CommentOptions Component should match snapshot and show toggle icon 1`] = `
+Array [
+  <span
+    className="toggle_options"
+    data-tip="Options"
+    onClick={[Function]}
+  >
+    <i
+      className="material-icons"
+    >
+      expand_more
+    </i>
+  </span>,
+  <div
+    className="__react_component_tooltip place-top type-dark "
+    data-id="tooltip"
+  >
+    
+  </div>,
+]
+`;
+
+exports[`CommentOptions Component should match snapshot and show toggle icon 2`] = `
+Array [
+  <span
+    className="toggle_options"
+    data-tip="Options"
+    onClick={[Function]}
+  >
+    <i
+      className="material-icons"
+    >
+      expand_more
+    </i>
+  </span>,
+  <div
+    className="__react_component_tooltip place-top type-dark "
+    data-id="tooltip"
+  >
+    
+  </div>,
+]
+`;
+
+exports[`CommentOptions Component should match snapshot with null 1`] = `
+<div
+  className="__react_component_tooltip place-top type-dark "
+  data-id="tooltip"
+>
+  
+</div>
+`;

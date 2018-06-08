@@ -134,7 +134,7 @@ export const Me = user =>
  * Returns whether email is verified
  */
 export const e_v = () => {
-  let ea = uData('email-verified')
+  let ea = uData('emailVerified')
   return ea == 'yes' ? true : false
 }
 

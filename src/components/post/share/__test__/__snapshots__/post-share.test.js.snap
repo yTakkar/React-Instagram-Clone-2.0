@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PostShare Component should match snapshot 1`] = `
+<div
+  className="p_send_wra"
+>
+  <span
+    className="p_send"
+    data-tip="Share"
+    onClick={[Function]}
+  >
+    <i
+      className="material-icons"
+    >
+      send
+    </i>
+  </span>
+</div>
+`;

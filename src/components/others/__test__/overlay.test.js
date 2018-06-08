@@ -25,7 +25,7 @@ describe('Overlay component', () => {
     const wrapper = shallow(
       <Overlay
         close_on_click
-        close={() => {}}
+        close={jest.fn()}
       />
     )
     wrapper.find('div').simulate('click')

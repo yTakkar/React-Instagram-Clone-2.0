@@ -11,11 +11,7 @@ import NotificationsHeader from './n-header'
 import IsLoading from '../others/isLoading'
 import { cLoading } from '../../utils/utils'
 
-@connect(store => (
-  { notifications: store.Notification.notifications }
-))
-
-export default class Notifications extends Component {
+class Notifications extends Component {
 
   state = { loading: true }
 
@@ -47,7 +43,11 @@ export default class Notifications extends Component {
         <FadeIn duration='300ms' className={cLoading(loading)} >
           <div className='notifications_div'>
             <NotificationsHeader/>
-            { len == 0 ? <Nothing mssg='You have no notifications!!' /> : map_n }
+            {
+              len == 0
+                ? <Nothing mssg='You have no notifications!!' />
+                : map_n
+            }
             { len != 0 ? <End/> : null }
           </div>
 
@@ -57,3 +57,10 @@ export default class Notifications extends Component {
     )
   }
 }
+
+const mapStateToProps = store => (
+  { notifications: store.Notification.notifications }
+)
+
+export default connect(mapStateToProps)(Notifications)
+export { Notifications as PureNotifications }

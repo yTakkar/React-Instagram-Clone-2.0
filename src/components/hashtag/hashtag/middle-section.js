@@ -14,9 +14,13 @@ const HashtagMiddleSection = ({ loading, hashtag, posts }) => {
 
   return (
     <Fragment>
-      { loading ? <Instagram/> : null }
+      {
+        len == 0 || loading
+          ? <div style={{ marginTop: 10 }} />
+          : null
+      }
 
-      { len == 0 ? <div style={{ marginTop: 10 }} /> : null }
+      { loading ? <Instagram/> : null }
 
       <MapPosts
         posts={map_posts}
@@ -39,3 +43,6 @@ const mapStateToProps = state => (
 )
 
 export default connect(mapStateToProps)(HashtagMiddleSection)
+export {
+  HashtagMiddleSection as PureHashtagMiddleSection
+}

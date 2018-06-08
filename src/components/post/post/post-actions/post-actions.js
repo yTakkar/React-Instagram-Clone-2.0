@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PostLike from '../../like/post-like'
 import PostBookmark from '../../bookmark/post-bookmark'
 import PostShare from '../../share/post-share'
-import PropTypes from 'prop-types'
+import { shape, number, string } from 'prop-types'
 import ShowLikes from './show-likes'
 import ShowShares from './show-sharers'
 
@@ -53,13 +53,17 @@ export default class PostActions extends Component {
             <ShowLikes
               post_id={post_id}
               likes_count={likes_count}
-              decrementLikes={() => this.decrementWhat('likes_count')}
+              decrementLikes={() =>
+                this.decrementWhat('likes_count')
+              }
             />
 
             <ShowShares
               post_id={post_id}
               shares_count={shares_count}
-              decrementSharers={() => this.decrementWhat('shares_count')}
+              decrementSharers={() =>
+                this.decrementWhat('shares_count')
+              }
             />
           </div>
         </div>
@@ -70,5 +74,11 @@ export default class PostActions extends Component {
 }
 
 PostActions.propTypes = {
-  postDetails: PropTypes.object.isRequired
+  postDetails: shape({
+    post_id: number.isRequired,
+    user: number.isRequired,
+    when: string.isRequired,
+    likes_count: number.isRequired,
+    shares_count: number.isRequired,
+  }).isRequired
 }

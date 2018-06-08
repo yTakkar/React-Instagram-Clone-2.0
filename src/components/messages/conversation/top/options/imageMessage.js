@@ -43,3 +43,4 @@ const mapStateToProps = state => (
 )
 
 export default connect(mapStateToProps)(ImageMessage)
+export { ImageMessage as PureImageMessage }

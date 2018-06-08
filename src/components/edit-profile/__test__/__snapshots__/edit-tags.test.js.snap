@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EditTags Component should match snapshot 1`] = `
+Array [
+  <div
+    className="edit_tags_info"
+  >
+    <span>
+      Edit tags (click tags to remove)
+    </span>
+  </div>,
+  <div
+    className="add_tag"
+  >
+    <input
+      autoComplete="false"
+      className="add_tag_text"
+      disabled={false}
+      maxLength="255"
+      onChange={[Function]}
+      placeholder="Add a tag"
+      spellCheck="false"
+      type="text"
+      value="programmer"
+    />
+    <a
+      className="sec_btn  "
+      href="#"
+      onClick={[Function]}
+    >
+      Add
+    </a>
+  </div>,
+  <div
+    className="tags_all"
+  >
+    <span
+      className="tir_btn t_a_tag"
+      onClick={[Function]}
+    >
+      traveler
+    </span>
+    <span
+      className="tir_btn t_a_tag"
+      onClick={[Function]}
+    >
+      nature-lover
+    </span>
+  </div>,
+]
+`;

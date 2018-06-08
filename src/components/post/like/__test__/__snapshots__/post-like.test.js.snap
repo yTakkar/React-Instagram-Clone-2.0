@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PostLike Component should match snapshot 1`] = `
+<div
+  className="p_Like_wra"
+>
+  <span
+    className="p_like p_like_icon"
+    data-tip="Like"
+    onClick={[Function]}
+  >
+    <i
+      className="material-icons"
+    >
+      favorite_border
+    </i>
+  </span>
+</div>
+`;

@@ -4,7 +4,7 @@ exports[`ImageTheatre Component should match snapshot 1`] = `
 Array [
   <div
     className="overlay"
-    onClick={[Function]}
+    onClick={[MockFunction]}
     style={
       Object {
         "cursor": "zoom-out",

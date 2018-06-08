@@ -1,0 +1,151 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Error Component should match snapshot with no param 1`] = `
+<div
+  className="error"
+>
+  <div
+    style={
+      Object {
+        "animation": "bcCCNc 300ms ease 0s 1 normal none running",
+        "backfaceVisibility": "visible",
+      }
+    }
+  >
+    <div
+      className="error_div"
+    >
+      <div
+        className="error_info"
+      >
+        <span>
+          Oops, 
+          page
+           you're looking for does not exist!!
+        </span>
+      </div>
+      <img
+        src="/images/error.svg"
+      />
+      <div
+        className="error_bottom"
+      >
+        <a
+          className="sec_btn error_home"
+          href="/profile/takkar"
+          onClick={[Function]}
+        >
+          View profile
+        </a>
+        <a
+          className="pri_btn error_login"
+          href="/"
+          onClick={[Function]}
+        >
+          Try going to homepage
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Error Component should match snapshot with no-post error 1`] = `
+<div
+  className="error"
+>
+  <div
+    style={
+      Object {
+        "animation": "bcCCNc 300ms ease 0s 1 normal none running",
+        "backfaceVisibility": "visible",
+      }
+    }
+  >
+    <div
+      className="error_div"
+    >
+      <div
+        className="error_info"
+      >
+        <span>
+          Oops, 
+          post
+           you're looking for does not exist!!
+        </span>
+      </div>
+      <img
+        src="/images/error.svg"
+      />
+      <div
+        className="error_bottom"
+      >
+        <a
+          className="sec_btn error_home"
+          href="/profile/takkar"
+          onClick={[Function]}
+        >
+          View profile
+        </a>
+        <a
+          className="pri_btn error_login"
+          href="/"
+          onClick={[Function]}
+        >
+          Try going to homepage
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Error Component should match snapshot with no-user error 1`] = `
+<div
+  className="error"
+>
+  <div
+    style={
+      Object {
+        "animation": "bcCCNc 300ms ease 0s 1 normal none running",
+        "backfaceVisibility": "visible",
+      }
+    }
+  >
+    <div
+      className="error_div"
+    >
+      <div
+        className="error_info"
+      >
+        <span>
+          Oops, 
+          user
+           you're looking for does not exist!!
+        </span>
+      </div>
+      <img
+        src="/images/error.svg"
+      />
+      <div
+        className="error_bottom"
+      >
+        <a
+          className="sec_btn error_home"
+          href="/profile/takkar"
+          onClick={[Function]}
+        >
+          View profile
+        </a>
+        <a
+          className="pri_btn error_login"
+          href="/"
+          onClick={[Function]}
+        >
+          Try going to homepage
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;

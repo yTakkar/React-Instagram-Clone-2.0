@@ -1,0 +1,185 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LikeList Component should match snapshot and show <AppLink> 1`] = `
+<div
+  className="modal_items fer_items"
+>
+  <div
+    className="modal_it_img"
+  >
+    <img
+      src="/users/24/avatar.jpg"
+    />
+  </div>
+  <div
+    className="modal_it_content"
+  >
+    <div
+      className="modal_it_info"
+    >
+      <a
+        className="modal_it_username"
+        href="/profile/ragnar"
+        onClick={[Function]}
+      >
+        You
+      </a>
+      <span
+        className="modal_it_light"
+      >
+        4 months ago
+      </span>
+    </div>
+    <div
+      className="modal_ff"
+    >
+      <a
+        className="pri_btn follow"
+        href="/profile/ragnar"
+        onClick={[Function]}
+      >
+        Profile
+      </a>
+    </div>
+  </div>
+  <hr />
+</div>
+`;
+
+exports[`LikeList Component should match snapshot and show <Follow/> 1`] = `
+<div
+  className="modal_items fer_items"
+>
+  <div
+    className="modal_it_img"
+  >
+    <img
+      src="/users/18/avatar.jpg"
+    />
+  </div>
+  <div
+    className="modal_it_content"
+  >
+    <div
+      className="modal_it_info"
+    >
+      <a
+        className="modal_it_username"
+        href="/profile/ragnar"
+        onClick={[Function]}
+      >
+        ragnar
+      </a>
+      <span
+        className="modal_it_light"
+      >
+        4 months ago
+      </span>
+    </div>
+    <div
+      className="modal_ff"
+    >
+      <a
+        className="pri_btn follow "
+        href="#"
+        onClick={[Function]}
+      >
+        Follow
+      </a>
+    </div>
+  </div>
+  <hr />
+</div>
+`;
+
+exports[`LikeList Component should match snapshot and show <RemoveLikeAsAdmin> 1`] = `
+<div
+  className="modal_items fer_items"
+>
+  <div
+    className="modal_it_img"
+  >
+    <img
+      src="/users/18/avatar.jpg"
+    />
+  </div>
+  <div
+    className="modal_it_content"
+  >
+    <div
+      className="modal_it_info"
+    >
+      <a
+        className="modal_it_username"
+        href="/profile/ragnar"
+        onClick={[Function]}
+      >
+        ragnar
+      </a>
+      <span
+        className="modal_it_light"
+      >
+        4 months ago
+      </span>
+    </div>
+    <div
+      className="modal_ff"
+    >
+      <a
+        className="sec_btn  "
+        href="#"
+        onClick={[Function]}
+      >
+        Remove as admin
+      </a>
+    </div>
+  </div>
+  <hr />
+</div>
+`;
+
+exports[`LikeList Component should match snapshot and show <Unfollow/> 1`] = `
+<div
+  className="modal_items fer_items"
+>
+  <div
+    className="modal_it_img"
+  >
+    <img
+      src="/users/18/avatar.jpg"
+    />
+  </div>
+  <div
+    className="modal_it_content"
+  >
+    <div
+      className="modal_it_info"
+    >
+      <a
+        className="modal_it_username"
+        href="/profile/ragnar"
+        onClick={[Function]}
+      >
+        ragnar
+      </a>
+      <span
+        className="modal_it_light"
+      >
+        4 months ago
+      </span>
+    </div>
+    <div
+      className="modal_ff"
+    >
+      <a
+        className="pri_btn unfollow "
+        href="#"
+        onClick={[Function]}
+      >
+        Unfollow
+      </a>
+    </div>
+  </div>
+  <hr />
+</div>
+`;

@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ExploreUsersList Component should match snapshot 1`] = `
+<div
+  className="m_on followers_m_on"
+  onMouseOut={[Function]}
+  onMouseOver={[Function]}
+>
+  <div
+    className="m_top"
+  >
+    <img
+      src="/users/7/avatar.jpg"
+    />
+    <div
+      className="m_top_right"
+    >
+      <a
+        href="/profile/ghalib"
+        onClick={[Function]}
+      >
+        ghalib
+      </a>
+      <span>
+        1 mutual follower
+      </span>
+    </div>
+  </div>
+  <div
+    className="m_bottom"
+  >
+    <a
+      className="pri_btn follow "
+      href="#"
+      onClick={[Function]}
+    >
+      Follow
+    </a>
+  </div>
+</div>
+`;
+
+exports[`ExploreUsersList Component should match snapshot when mutualUsersCount = 0 1`] = `
+<div
+  className="m_on followers_m_on"
+  onMouseOut={[Function]}
+  onMouseOver={[Function]}
+>
+  <div
+    className="m_top"
+  >
+    <img
+      src="/users/8/avatar.jpg"
+    />
+    <div
+      className="m_top_right"
+    >
+      <a
+        href="/profile/coldplay"
+        onClick={[Function]}
+      >
+        coldplay
+      </a>
+      <span>
+        cold play
+      </span>
+    </div>
+  </div>
+  <div
+    className="m_bottom"
+  >
+    <a
+      className="pri_btn follow "
+      href="#"
+      onClick={[Function]}
+    >
+      Follow
+    </a>
+  </div>
+</div>
+`;

@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Settings Component should match snapshot 1`] = `
+<div>
+  <div
+    style={
+      Object {
+        "animation": "bcCCNc 300ms ease 0s 1 normal none running",
+        "backfaceVisibility": "visible",
+      }
+    }
+  >
+    <div
+      className="senapati"
+    >
+      <div
+        className="srajkumar settings_srajkumar"
+      >
+        <div
+          className="settings_nav_div"
+        >
+          <ul>
+            <li>
+              <a
+                aria-current={false}
+                className="settings_nav"
+                href="/settings"
+                onClick={[Function]}
+              >
+                Profile settings
+              </a>
+            </li>
+            <li>
+              <a
+                aria-current={false}
+                className="settings_nav"
+                href="/settings/change-password"
+                onClick={[Function]}
+              >
+                Change password
+              </a>
+            </li>
+            <li>
+              <a
+                aria-current={false}
+                className="settings_nav"
+                href="/settings/deactivate"
+                onClick={[Function]}
+              >
+                Deactivate
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div
+        className="prajkumar settings_prajkumar"
+      />
+    </div>
+  </div>
+</div>
+`;

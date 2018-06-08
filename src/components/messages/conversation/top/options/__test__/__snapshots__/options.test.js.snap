@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ConversationOptions Component should match snapshot 1`] = `
+<ul>
+  <li>
+    <a
+      className="dlt_con"
+      href="#"
+      onClick={[Function]}
+    >
+      Delete conversation
+    </a>
+  </li>
+  <li>
+    <a
+      className="dlt_mssgs"
+      href="#"
+      onClick={[Function]}
+    >
+      Unsend your mssgs
+    </a>
+  </li>
+  <li>
+    <form
+      className="mssg_add_img_form"
+    >
+      <input
+        accept="image/*"
+        id="file_input"
+        onChange={[Function]}
+        type="file"
+        value=""
+      />
+      <label
+        className="mssg_img"
+        htmlFor="file_input"
+      >
+        Send image
+      </label>
+    </form>
+  </li>
+  <li>
+    <a
+      className="mssg_sticker"
+      href="#"
+      onClick={[Function]}
+    >
+      Send sticker
+    </a>
+  </li>
+  <li>
+    <a
+      className="m_m_info"
+      href="#"
+      onClick={[Function]}
+    >
+      More
+    </a>
+  </li>
+</ul>
+`;

@@ -1,6 +1,6 @@
 import React, { Fragment, Component } from 'react'
 import { isAdmin } from '../../../../../utils/admin-utils'
-import EditComment from '../../edit-comment'
+import EditComment from '../../edit-comment/edit-comment'
 import PropTypes from 'prop-types'
 
 export default class EditCommentOption extends Component {
@@ -57,10 +57,8 @@ export default class EditCommentOption extends Component {
 EditCommentOption.propTypes = {
   commentDetails: PropTypes.shape({
     comment_id: PropTypes.number.isRequired,
-    comment_by: PropTypes.number.isRequired,
     text: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,
-    commentSrc: PropTypes.string.isRequired
   }).isRequired,
   updateCommentText: PropTypes.func.isRequired,
   toggleOptions: PropTypes.func.isRequired,

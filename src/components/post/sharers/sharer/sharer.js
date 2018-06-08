@@ -66,7 +66,7 @@ export default class Sharer extends Component {
                     />
 
                     : <AdvancedFollow
-                      sharerDetails={{
+                      userDetails={{
                         user: share_by,
                         username: share_by_username,
                         firstname: share_by_firstname,
@@ -95,4 +95,5 @@ Sharer.propTypes = {
   share_time: PropTypes.string.isRequired,
   post_id: PropTypes.number.isRequired,
   isFollowing: PropTypes.bool.isRequired,
+  decrementSharers: PropTypes.func.isRequired
 }

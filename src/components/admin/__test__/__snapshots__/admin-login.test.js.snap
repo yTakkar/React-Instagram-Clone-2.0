@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Admin-Login Component should match snapshot 1`] = `
+<div>
+  <div
+    style={
+      Object {
+        "animation": "bcCCNc 300ms ease 0s 1 normal none running",
+        "backfaceVisibility": "visible",
+      }
+    }
+  >
+    <div
+      className="cua are-you-admin"
+    >
+      <div
+        className="display_text"
+      >
+        <span>
+          Are you the admin?
+        </span>
+      </div>
+      <form
+        className="form_login"
+        onSubmit={[Function]}
+      >
+        <input
+          autoComplete="false"
+          autoFocus={true}
+          disabled={false}
+          id="al_password"
+          maxLength="255"
+          onChange={[Function]}
+          placeholder="Admin password"
+          required={true}
+          spellCheck="false"
+          type="password"
+          value=""
+        />
+        <span
+          className="show_psswrd s_p_l"
+          onClick={[Function]}
+        >
+          <i
+            className="fas fa-lock"
+          />
+        </span>
+        <input
+          className="al_submit"
+          type="submit"
+          value="Continue as admin"
+        />
+      </form>
+    </div>
+  </div>
+</div>
+`;

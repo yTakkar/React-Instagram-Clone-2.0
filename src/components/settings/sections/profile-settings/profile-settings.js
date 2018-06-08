@@ -4,22 +4,13 @@ import Title from '../../../others/title'
 import { connect } from 'react-redux'
 import { getUserDetails } from '../../../../actions/user'
 import { getBlockedUsers } from '../../../../actions/settings'
-import BlockedUsers from './blocked-users/blocked-users'
-import ChangeAccountType from './account-type'
 import IsLoading from '../../../others/isLoading'
 import { cLoading } from '../../../../utils/utils'
 
-@connect(store => (
-  {
-    store,
-    // imp. as component removes the spinner when data is fetched & stored.
-    // So we must return something that has been updated.
-    // Since session data is never updated only initialized.
-    session: store.User.session
-  }
-))
+import BlockedUsers from './blocked-users/blocked-users'
+import ChangeAccountType from './account-type/account-type'
 
-export default class ProfileSettings extends Component {
+class ProfileSettings extends Component {
 
   state = {
     loading: true,
@@ -54,3 +45,14 @@ export default class ProfileSettings extends Component {
     )
   }
 }
+
+const mapStateToProps = store => ({
+  store,
+  // imp. as component removes the spinner when data is fetched & stored.
+  // So we must return something that has been updated.
+  // Since session data is never updated only initialized.
+  session: store.User.session
+})
+
+export default connect(mapStateToProps)(ProfileSettings)
+export { ProfileSettings as PureProfileSettings }

@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NewConversation Component should match snapshot 1`] = `
+<a
+  className="pri_btn  "
+  href="#"
+  onClick={[Function]}
+>
+  <i
+    className="fas fa-plus"
+  />
+  <span>
+    New conversation
+  </span>
+</a>
+`;

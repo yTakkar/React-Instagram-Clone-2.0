@@ -4,11 +4,7 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import { deleteConversation } from '../../../../../utils/message-utils'
 
-@connect(store => (
-  { con_id: store.Message.conDetails.con_id }
-))
-
-export default class DeleteConversation extends Component {
+class DeleteConversation extends Component {
 
   state = {
     deleteCon: false
@@ -62,3 +58,10 @@ DeleteConversation.propTypes = {
   toggleOptions: PropTypes.func.isRequired,
   hideConversation: PropTypes.func.isRequired
 }
+
+const mapStateToProps = store => ({
+  con_id: store.Message.conDetails.con_id
+})
+
+export default connect(mapStateToProps)(DeleteConversation)
+export { DeleteConversation as PureDeleteConversation }

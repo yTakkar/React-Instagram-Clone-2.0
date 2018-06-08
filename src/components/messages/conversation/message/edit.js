@@ -8,6 +8,7 @@ import AddEmojis from '../../../others/emojis/add-emojis'
 import PrimaryButton from '../../../others/button/primary-btn'
 import TextArea from '../../../others/input/textArea'
 import Overlay from '../../../others/overlay'
+import { string, number, func } from 'prop-types'
 
 export default class EditMessage extends Component {
 
@@ -106,4 +107,11 @@ export default class EditMessage extends Component {
       </div>
     )
   }
+}
+
+EditMessage.propTypes = {
+  message: string.isRequired,
+  message_id: number.isRequired,
+  changeMessage: func.isRequired,
+  back: func.isRequired
 }

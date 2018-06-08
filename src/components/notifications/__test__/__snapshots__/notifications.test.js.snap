@@ -1,0 +1,282 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Notifications Component should match snapshot 1`] = `
+<div>
+  <div
+    className="page_loading"
+  >
+    <div
+      className="spinner"
+    >
+      <span />
+      <span />
+      <span />
+    </div>
+  </div>
+  <div
+    className="cLoading"
+    style={
+      Object {
+        "animation": "bcCCNc 300ms ease 0s 1 normal none running",
+        "backfaceVisibility": "visible",
+      }
+    }
+  >
+    <div
+      className="notifications_div"
+    >
+      <div
+        className="notifications_header"
+      >
+        <span
+          className="noti_count"
+        >
+          4
+           notifications
+        </span>
+        <div>
+          <span
+            className="clear_noti"
+            data-tip="Clear notifications"
+            onClick={[Function]}
+          >
+            <i
+              className="material-icons"
+            >
+              clear_all
+            </i>
+          </span>
+          <div
+            className="__react_component_tooltip place-top type-dark "
+            data-id="tooltip"
+          >
+            
+          </div>
+        </div>
+      </div>
+      <div
+        className="noti follow_noti"
+      >
+        <img
+          className="noti_avatar"
+          src="/users/7/avatar.jpg"
+        />
+        <div
+          className="noti_left"
+        >
+          <a
+            className="noti_bold noti_username"
+            href="/profile/ghalib"
+            onClick={[Function]}
+          >
+            ghalib
+          </a>
+          <span>
+             started following you
+          </span>
+          <span
+            className="noti_time"
+          >
+            3 months ago
+          </span>
+        </div>
+        <div
+          className="noti_right follow_noti_right"
+        >
+          <a
+            className="pri_btn follow "
+            href="#"
+            onClick={[Function]}
+          >
+            Follow
+          </a>
+        </div>
+      </div>
+      <div
+        className="noti follow_noti"
+      >
+        <img
+          className="noti_avatar"
+          src="/users/7/avatar.jpg"
+        />
+        <div
+          className="noti_left"
+        >
+          <a
+            className="noti_bold noti_username"
+            href="/profile/ghalib"
+            onClick={[Function]}
+          >
+            ghalib
+          </a>
+          <span>
+             recommended coldplay to you
+          </span>
+          <span
+            className="noti_time"
+          >
+            3 months ago
+          </span>
+        </div>
+        <div
+          className="noti_right follow_noti_right"
+        >
+          <a
+            className="pri_btn"
+            href="/profile/coldplay"
+            onClick={[Function]}
+          >
+            View coldplay
+          </a>
+        </div>
+      </div>
+      <div
+        className="noti follow_noti"
+      >
+        <img
+          className="noti_avatar"
+          src="/users/7/avatar.jpg"
+        />
+        <div
+          className="noti_left"
+        >
+          <a
+            className="noti_bold noti_username"
+            href="/profile/ghalib"
+            onClick={[Function]}
+          >
+            ghalib
+          </a>
+          <span>
+             liked your post
+          </span>
+          <span
+            className="noti_time"
+          >
+            3 months ago
+          </span>
+        </div>
+        <div
+          className="noti_right follow_noti_right"
+        >
+          <a
+            className="pri_btn"
+            href="/post/27"
+            onClick={[Function]}
+          >
+            Open post
+          </a>
+        </div>
+      </div>
+      <div
+        className="noti follow_noti"
+      >
+        <img
+          className="noti_avatar"
+          src="/users/7/avatar.jpg"
+        />
+        <div
+          className="noti_left"
+        >
+          <a
+            className="noti_bold noti_username"
+            href="/profile/ghalib"
+            onClick={[Function]}
+          >
+            ghalib
+          </a>
+          <span>
+             invited to a group
+          </span>
+          <span
+            className="noti_time"
+          >
+            3 months ago
+          </span>
+        </div>
+        <div
+          className="noti_right follow_noti_right"
+        >
+          <a
+            className="pri_btn"
+            href="/group/11"
+            onClick={[Function]}
+          >
+            View group
+          </a>
+        </div>
+      </div>
+      <div
+        className="page_end"
+        onClick={[Function]}
+      >
+        <span>
+          Looks like you've reached the end
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Notifications Component should match snapshot when notifications.length == 0 1`] = `
+<div>
+  <div
+    className="page_loading"
+  >
+    <div
+      className="spinner"
+    >
+      <span />
+      <span />
+      <span />
+    </div>
+  </div>
+  <div
+    className="cLoading"
+    style={
+      Object {
+        "animation": "bcCCNc 300ms ease 0s 1 normal none running",
+        "backfaceVisibility": "visible",
+      }
+    }
+  >
+    <div
+      className="notifications_div"
+    >
+      <div
+        className="notifications_header"
+      >
+        <span
+          className="noti_count"
+        >
+          No
+           notifications
+        </span>
+      </div>
+      <div
+        className="home_last_mssg"
+        style={
+          Object {
+            "border": "",
+          }
+        }
+      >
+        <img
+          src="/images/large.jpg"
+        />
+        <span
+          className="nothingMssg"
+        >
+          You have no notifications!!
+        </span>
+        <span
+          className="secondMssg"
+        >
+          
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;

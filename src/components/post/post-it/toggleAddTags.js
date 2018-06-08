@@ -3,8 +3,7 @@ import MaterialIcon from '../../others/icons/material-icon'
 import { connect } from 'react-redux'
 import { CPP } from '../../../actions/post'
 
-const ToggleAddTags = ({ postIt, dispatch }) => {
-  let { addTag } = postIt
+const ToggleAddTags = ({ addTag, dispatch }) => {
 
   let toggle = () =>
     dispatch(CPP('addTag', !addTag))
@@ -20,7 +19,8 @@ const ToggleAddTags = ({ postIt, dispatch }) => {
 }
 
 const mapStateToProps = state => (
-  { postIt: state.Post.postIt }
+  { postIt: state.Post.postIt.addTag }
 )
 
 export default connect(mapStateToProps)(ToggleAddTags)
+export { ToggleAddTags as PureToggleAddTags }

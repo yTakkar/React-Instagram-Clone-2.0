@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ConSince Component should match snapshot 1`] = `
+<div
+  className="sli_time"
+>
+  <span
+    className="sli_label"
+  >
+    Conversation since
+  </span>
+  <span
+    className="sli_bold"
+  >
+    Last month
+  </span>
+</div>
+`;

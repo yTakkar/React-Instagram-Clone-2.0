@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ImageMessage Component should match snapshot 1`] = `
+<li>
+  <form
+    className="mssg_add_img_form"
+  >
+    <input
+      accept="image/*"
+      id="file_input"
+      onChange={[Function]}
+      type="file"
+      value=""
+    />
+    <label
+      className="mssg_img"
+      htmlFor="file_input"
+    >
+      Send image
+    </label>
+  </form>
+</li>
+`;

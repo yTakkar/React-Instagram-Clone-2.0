@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ImageComment Component should match snapshot 1`] = `
+<div
+  className="p_cit_teaser"
+  onClick={[Function]}
+>
+  <span>
+    Wanna comment?
+  </span>
+</div>
+`;

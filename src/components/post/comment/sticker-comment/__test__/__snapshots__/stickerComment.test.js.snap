@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ImageComment Component should match snapshot 1`] = `
+<div>
+  <span
+    className="c_sticker"
+    data-tip="Add sticker"
+    onClick={[Function]}
+  >
+    <i
+      className="material-icons"
+    >
+      face
+    </i>
+  </span>
+  <div
+    className="__react_component_tooltip place-top type-dark "
+    data-id="tooltip"
+  >
+    
+  </div>
+</div>
+`;

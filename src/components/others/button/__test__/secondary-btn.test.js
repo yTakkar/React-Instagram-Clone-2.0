@@ -4,7 +4,7 @@ import { create } from 'react-test-renderer'
 import { shallow } from 'enzyme'
 
 describe('Secondary Button Component', () => {
-  let mockFn = () => {}
+  let mockFn = jest.fn()
 
   it('should match snapshot', () => {
     const tree = create(

@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HashtagHeader Component should match snapshot 1`] = `
+<div
+  className="recomm_top"
+>
+  <span>
+    Popular trends
+  </span>
+</div>
+`;

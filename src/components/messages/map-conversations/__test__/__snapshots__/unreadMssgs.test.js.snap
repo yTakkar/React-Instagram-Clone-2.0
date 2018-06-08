@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UnreadMssgs Component should match snapshot 1`] = `
+<span
+  className="m_sr_unread"
+>
+  4
+</span>
+`;
+
+exports[`UnreadMssgs Component should match snapshot and display "+" when unreadMssgs > 9 1`] = `
+<span
+  className="m_sr_unread"
+>
+  +
+</span>
+`;
+
+exports[`UnreadMssgs Component should match snapshot with null when unreadMssgs = 0 1`] = `null`;

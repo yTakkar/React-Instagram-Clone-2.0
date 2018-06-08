@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ImageComment Component should match snapshot 1`] = `
+<div>
+  <form
+    className="p_comment_form"
+    encType="multipart/form-data"
+  >
+    <input
+      accept="image/*"
+      id="file_input"
+      onChange={[Function]}
+      type="file"
+      value=""
+    />
+    <label
+      className=""
+      htmlFor="file_input"
+    >
+      <div
+        data-tip="Attach a file"
+      >
+        <i
+          className="material-icons"
+        >
+          attach_file
+        </i>
+      </div>
+    </label>
+  </form>
+</div>
+`;

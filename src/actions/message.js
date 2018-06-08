@@ -60,9 +60,14 @@ export const readConversation = (con_id, unreadMssgs) => {
     post('/api/read-conversation', { con_id })
       .then(() => {
         dispatch({ type: 'READ_CONVERSATION', payload: con_id })
+
         unreadMssgs != 0 ?
-          dispatch({ type: 'UPDATE_UNREAD_CONVERSATIONS', payload: unreadMssgs })
+          dispatch({
+            type: 'UPDATE_UNREAD_CONVERSATIONS',
+            payload: unreadMssgs
+          })
           : null
+
       })
       .catch(e => console.log(e) )
   }

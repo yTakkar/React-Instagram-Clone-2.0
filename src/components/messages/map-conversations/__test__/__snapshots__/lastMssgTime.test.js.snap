@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LastMssgTime Component should match snapshot 1`] = `
+<span
+  className="m_sr_time"
+>
+  3 months
+</span>
+`;
+
+exports[`LastMssgTime Component should match snapshot and return null when !lastMssgTime or lastMssgTime == "" 1`] = `
+<span
+  className="m_sr_time"
+/>
+`;

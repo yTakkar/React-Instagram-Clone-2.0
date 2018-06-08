@@ -32,3 +32,4 @@ RemoveShare.propTypes = {
 }
 
 export default connect()(RemoveShare)
+export { RemoveShare as PureRemoveShare }

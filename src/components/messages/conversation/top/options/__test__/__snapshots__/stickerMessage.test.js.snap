@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StickerMessage Component should match snapshot 1`] = `
+<li>
+  <a
+    className="mssg_sticker"
+    href="#"
+    onClick={[Function]}
+  >
+    Send sticker
+  </a>
+</li>
+`;

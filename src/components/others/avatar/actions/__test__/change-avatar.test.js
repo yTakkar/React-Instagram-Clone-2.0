@@ -4,7 +4,7 @@ import { create } from 'react-test-renderer'
 import mockStore from '../../../../../store/mockStore/mockStore'
 
 describe('ChangeAvatar-Action Component', () => {
-  const mockFn = () => {}
+  const mockFn = jest.fn()
 
   it('should match snapshot with null', () => {
     const tree = create(

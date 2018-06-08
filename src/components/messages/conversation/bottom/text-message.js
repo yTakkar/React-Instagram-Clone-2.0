@@ -1,14 +1,10 @@
 import React, { Component, Fragment } from 'react'
 import { textMessage } from '../../../../utils/message-utils'
 import { connect } from 'react-redux'
-import MessageAddEmojis from './add-emojis'
+import ConversationAddEmojis from './add-emojis'
 import TextArea from '../../../others/input/textArea'
 
-@connect(store => (
-  { cd: store.Message.conDetails }
-))
-
-export default class TextMessage extends Component {
+class TextMessage extends Component {
 
   state = {
     messageValue: ''
@@ -40,7 +36,7 @@ export default class TextMessage extends Component {
             value={messageValue}
             valueChange={this.changeMssgValue}
           />
-          <MessageAddEmojis
+          <ConversationAddEmojis
             updateMssgValue={value =>
               this.setState({ messageValue: value })
             }
@@ -51,3 +47,10 @@ export default class TextMessage extends Component {
     )
   }
 }
+
+const mapStateToProps = store => ({
+  cd: store.Message.conDetails
+})
+
+export default connect(mapStateToProps)(TextMessage)
+export { TextMessage as PureTextMessage }

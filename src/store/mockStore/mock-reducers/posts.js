@@ -1,0 +1,40 @@
+export default [
+  {
+    post_id: 89,
+    user: 24,
+    username: 'takkar',
+    firstname: 'iam_',
+    surname: 'takkar',
+    description: 'he @nobita, @doraemon #checkout, #dd #fgf',
+    imgSrc: 'instagram_1518972814710.jpg',
+    filter: 'filter-ashby',
+    location: 'A-301, 90 Feet Road, Dharavi, Mumbai, Maharashtra 400017, India',
+    type: 'user',
+    group_id: 0,
+    post_time: '1518972814710',
+    tags_count: 1,
+    likes_count: 3,
+    shares_count: 3,
+    comments_count: 2,
+    group_name: ''
+  },
+  {
+    post_id: 88,
+    user: 24,
+    username: 'takkar',
+    firstname: 'iam_',
+    surname: 'takkar',
+    description: 'Hello @ghalib @takkar #checkout',
+    imgSrc: 'instagram_1518945386167.jpg',
+    filter: 'filter-normal',
+    location: '',
+    type: 'user',
+    group_id: 0,
+    post_time: '1518945386167',
+    tags_count: 0,
+    likes_count: 0,
+    shares_count: 1,
+    comments_count: 3,
+    group_name: ''
+  }
+]

@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EditMessageTool Component should match snapshot 1`] = `
+<span
+  className="toggle_edit_mssg"
+  data-tip="Edit "
+  onClick={[Function]}
+>
+  <i
+    className="material-icons"
+  >
+    mode_edit
+  </i>
+</span>
+`;
+
+exports[`EditMessageTool Component should match snapshot with null when type != text 1`] = `null`;

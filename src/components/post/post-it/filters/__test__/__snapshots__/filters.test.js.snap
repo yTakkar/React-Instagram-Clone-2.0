@@ -1,0 +1,592 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Filters Component should match snapshot 1`] = `
+<div
+  className="add_filters"
+  style={
+    Object {
+      "height": 396,
+      "overflow": "hidden",
+      "position": "relative",
+      "width": "100%",
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "WebkitOverflowScrolling": "touch",
+        "bottom": 0,
+        "left": 0,
+        "marginBottom": 0,
+        "marginRight": 0,
+        "overflow": "scroll",
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <div
+      className="add_filters_main"
+    >
+      <div
+        className="filter_div fp_filter-normal"
+        onClick={[Function]}
+      >
+        <img
+          className="filter-normal"
+          src="/images/location.jpg"
+        />
+        <span>
+          Normal
+        </span>
+      </div>
+      <div
+        className="filter_div fp_filter-1977"
+        onClick={[Function]}
+      >
+        <img
+          className="filter-1977"
+          src="/images/location.jpg"
+        />
+        <span>
+          1977
+        </span>
+      </div>
+      <div
+        className="filter_div fp_filter-aden"
+        onClick={[Function]}
+      >
+        <img
+          className="filter-aden"
+          src="/images/location.jpg"
+        />
+        <span>
+          Aden
+        </span>
+      </div>
+      <div
+        className="filter_div fp_filter-amaro"
+        onClick={[Function]}
+      >
+        <img
+          className="filter-amaro"
+          src="/images/location.jpg"
+        />
+        <span>
+          Amaro
+        </span>
+      </div>
+      <div
+        className="filter_div fp_filter-ashby"
+        onClick={[Function]}
+      >
+        <img
+          className="filter-ashby"
+          src="/images/location.jpg"
+        />
+        <span>
+          Ashby
+        </span>
+      </div>
+      <div
+        className="filter_div fp_filter-brannan"
+        onClick={[Function]}
+      >
+        <img
+          className="filter-brannan"
+          src="/images/location.jpg"
+        />
+        <span>
+          Brannan
+        </span>
+      </div>
+      <div
+        className="filter_div fp_filter-brooklyn"
+        onClick={[Function]}
+      >
+        <img
+          className="filter-brooklyn"
+          src="/images/location.jpg"
+        />
+        <span>
+          Brooklyn
+        </span>
+      </div>
+      <div
+        className="filter_div fp_filter-charmes"
+        onClick={[Function]}
+      >
+        <img
+          className="filter-charmes"
+          src="/images/location.jpg"
+        />
+        <span>
+          Charmes
+        </span>
+      </div>
+      <div
+        className="filter_div fp_filter-clarendon"
+        onClick={[Function]}
+      >
+        <img
+          className="filter-clarendon"
+          src="/images/location.jpg"
+        />
+        <span>
+          Clarendon
+        </span>
+      </div>
+      <div
+        className="filter_div fp_filter-crema"
+        onClick={[Function]}
+      >
+        <img
+          className="filter-crema"
+          src="/images/location.jpg"
+        />
+        <span>
+          Crema
+        </span>
+      </div>
+      <div
+        className="filter_div fp_filter-dogpatch"
+        onClick={[Function]}
+      >
+        <img
+          className="filter-dogpatch"
+          src="/images/location.jpg"
+        />
+        <span>
+          Dogpatch
+        </span>
+      </div>
+      <div
+        className="filter_div fp_filter-earlybird"
+        onClick={[Function]}
+      >
+        <img
+          className="filter-earlybird"
+          src="/images/location.jpg"
+        />
+        <span>
+          Earlybird
+        </span>
+      </div>
+      <div
+        className="filter_div fp_filter-gingham"
+        onClick={[Function]}
+      >
+        <img
+          className="filter-gingham"
+          src="/images/location.jpg"
+        />
+        <span>
+          Gingham
+        </span>
+      </div>
+      <div
+        className="filter_div fp_filter-ginza"
+        onClick={[Function]}
+      >
+        <img
+          className="filter-ginza"
+          src="/images/location.jpg"
+        />
+        <span>
+          Ginza
+        </span>
+      </div>
+      <div
+        className="filter_div fp_filter-hefe"
+        onClick={[Function]}
+      >
+        <img
+          className="filter-hefe"
+          src="/images/location.jpg"
+        />
+        <span>
+          Hefe
+        </span>
+      </div>
+      <div
+        className="filter_div fp_filter-helena"
+        onClick={[Function]}
+      >
+        <img
+          className="filter-helena"
+          src="/images/location.jpg"
+        />
+        <span>
+          Helena
+        </span>
+      </div>
+      <div
+        className="filter_div fp_filter-hudson"
+        onClick={[Function]}
+      >
+        <img
+          className="filter-hudson"
+          src="/images/location.jpg"
+        />
+        <span>
+          Hudson
+        </span>
+      </div>
+      <div
+        className="filter_div fp_filter-inkwell"
+        onClick={[Function]}
+      >
+        <img
+          className="filter-inkwell"
+          src="/images/location.jpg"
+        />
+        <span>
+          Inkwell
+        </span>
+      </div>
+      <div
+        className="filter_div fp_filter-juno"
+        onClick={[Function]}
+      >
+        <img
+          className="filter-juno"
+          src="/images/location.jpg"
+        />
+        <span>
+          Juno
+        </span>
+      </div>
+      <div
+        className="filter_div fp_filter-kelvin"
+        onClick={[Function]}
+      >
+        <img
+          className="filter-kelvin"
+          src="/images/location.jpg"
+        />
+        <span>
+          Kelvin
+        </span>
+      </div>
+      <div
+        className="filter_div fp_filter-lark"
+        onClick={[Function]}
+      >
+        <img
+          className="filter-lark"
+          src="/images/location.jpg"
+        />
+        <span>
+          Lark
+        </span>
+      </div>
+      <div
+        className="filter_div fp_filter-lofi"
+        onClick={[Function]}
+      >
+        <img
+          className="filter-lofi"
+          src="/images/location.jpg"
+        />
+        <span>
+          Lofi
+        </span>
+      </div>
+      <div
+        className="filter_div fp_filter-ludwig"
+        onClick={[Function]}
+      >
+        <img
+          className="filter-ludwig"
+          src="/images/location.jpg"
+        />
+        <span>
+          Ludwig
+        </span>
+      </div>
+      <div
+        className="filter_div fp_filter-maven"
+        onClick={[Function]}
+      >
+        <img
+          className="filter-maven"
+          src="/images/location.jpg"
+        />
+        <span>
+          Maven
+        </span>
+      </div>
+      <div
+        className="filter_div fp_filter-mayfair"
+        onClick={[Function]}
+      >
+        <img
+          className="filter-mayfair"
+          src="/images/location.jpg"
+        />
+        <span>
+          Mayfair
+        </span>
+      </div>
+      <div
+        className="filter_div fp_filter-moon"
+        onClick={[Function]}
+      >
+        <img
+          className="filter-moon"
+          src="/images/location.jpg"
+        />
+        <span>
+          Moon
+        </span>
+      </div>
+      <div
+        className="filter_div fp_filter-nashville"
+        onClick={[Function]}
+      >
+        <img
+          className="filter-nashville"
+          src="/images/location.jpg"
+        />
+        <span>
+          Nashville
+        </span>
+      </div>
+      <div
+        className="filter_div fp_filter-perpetua"
+        onClick={[Function]}
+      >
+        <img
+          className="filter-perpetua"
+          src="/images/location.jpg"
+        />
+        <span>
+          Perpetua
+        </span>
+      </div>
+      <div
+        className="filter_div fp_filter-poprocket"
+        onClick={[Function]}
+      >
+        <img
+          className="filter-poprocket"
+          src="/images/location.jpg"
+        />
+        <span>
+          Poprocket
+        </span>
+      </div>
+      <div
+        className="filter_div fp_filter-reyes"
+        onClick={[Function]}
+      >
+        <img
+          className="filter-reyes"
+          src="/images/location.jpg"
+        />
+        <span>
+          Reyes
+        </span>
+      </div>
+      <div
+        className="filter_div fp_filter-rise"
+        onClick={[Function]}
+      >
+        <img
+          className="filter-rise"
+          src="/images/location.jpg"
+        />
+        <span>
+          Rise
+        </span>
+      </div>
+      <div
+        className="filter_div fp_filter-sierra"
+        onClick={[Function]}
+      >
+        <img
+          className="filter-sierra"
+          src="/images/location.jpg"
+        />
+        <span>
+          Sierra
+        </span>
+      </div>
+      <div
+        className="filter_div fp_filter-skyline"
+        onClick={[Function]}
+      >
+        <img
+          className="filter-skyline"
+          src="/images/location.jpg"
+        />
+        <span>
+          Skyline
+        </span>
+      </div>
+      <div
+        className="filter_div fp_filter-slumber"
+        onClick={[Function]}
+      >
+        <img
+          className="filter-slumber"
+          src="/images/location.jpg"
+        />
+        <span>
+          Slumber
+        </span>
+      </div>
+      <div
+        className="filter_div fp_filter-stinson"
+        onClick={[Function]}
+      >
+        <img
+          className="filter-stinson"
+          src="/images/location.jpg"
+        />
+        <span>
+          Stinson
+        </span>
+      </div>
+      <div
+        className="filter_div fp_filter-sutro"
+        onClick={[Function]}
+      >
+        <img
+          className="filter-sutro"
+          src="/images/location.jpg"
+        />
+        <span>
+          Sutro
+        </span>
+      </div>
+      <div
+        className="filter_div fp_filter-toaster"
+        onClick={[Function]}
+      >
+        <img
+          className="filter-toaster"
+          src="/images/location.jpg"
+        />
+        <span>
+          Toaster
+        </span>
+      </div>
+      <div
+        className="filter_div fp_filter-valencia"
+        onClick={[Function]}
+      >
+        <img
+          className="filter-valencia"
+          src="/images/location.jpg"
+        />
+        <span>
+          Valencia
+        </span>
+      </div>
+      <div
+        className="filter_div fp_filter-vesper"
+        onClick={[Function]}
+      >
+        <img
+          className="filter-vesper"
+          src="/images/location.jpg"
+        />
+        <span>
+          Vesper
+        </span>
+      </div>
+      <div
+        className="filter_div fp_filter-walden"
+        onClick={[Function]}
+      >
+        <img
+          className="filter-walden"
+          src="/images/location.jpg"
+        />
+        <span>
+          Walden
+        </span>
+      </div>
+      <div
+        className="filter_div fp_filter-willow"
+        onClick={[Function]}
+      >
+        <img
+          className="filter-willow"
+          src="/images/location.jpg"
+        />
+        <span>
+          Willow
+        </span>
+      </div>
+      <div
+        className="filter_div fp_filter-xpro-ii"
+        onClick={[Function]}
+      >
+        <img
+          className="filter-xpro-ii"
+          src="/images/location.jpg"
+        />
+        <span>
+          Xpro-ii
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    style={
+      Object {
+        "borderRadius": 3,
+        "bottom": 2,
+        "display": "none",
+        "height": 6,
+        "left": 2,
+        "position": "absolute",
+        "right": 2,
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "backgroundColor": "rgba(0,0,0,.2)",
+          "borderRadius": "inherit",
+          "cursor": "pointer",
+          "display": "block",
+          "height": "100%",
+          "position": "relative",
+        }
+      }
+    />
+  </div>
+  <div
+    style={
+      Object {
+        "borderRadius": 3,
+        "bottom": 2,
+        "display": "none",
+        "position": "absolute",
+        "right": 2,
+        "top": 2,
+        "width": 6,
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "backgroundColor": "rgba(0,0,0,.2)",
+          "borderRadius": "inherit",
+          "cursor": "pointer",
+          "display": "block",
+          "position": "relative",
+          "width": "100%",
+        }
+      }
+    />
+  </div>
+</div>
+`;

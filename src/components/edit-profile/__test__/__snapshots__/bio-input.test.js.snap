@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InputBio Component should match snapshot 1`] = `
+<div
+  className="edit_bio_div"
+>
+  <span
+    className="edit_span"
+  >
+    Bio
+  </span>
+  <textarea
+    className="edit_ta"
+    maxLength="1000"
+    onChange={[Function]}
+    placeholder="Bio"
+    spellCheck="false"
+    value="Some value"
+  />
+</div>
+`;

@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OpenPost Component should match snapshot 1`] = `
+<li>
+  <a
+    href="/post/11"
+    onClick={[Function]}
+  >
+    Open
+  </a>
+</li>
+`;
+
+exports[`OpenPost Component should match snapshot with null when prop when == viewPost 1`] = `null`;

@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RefreshExplores Component should match snapshot 1`] = `
+Array [
+  <a
+    className="exp_refresh"
+    data-tip="Refresh"
+    href="#"
+    onClick={[Function]}
+  >
+    <i
+      className="fas fa-sync-alt"
+    />
+  </a>,
+  <div
+    className="__react_component_tooltip place-top type-dark "
+    data-id="tooltip"
+  >
+    
+  </div>,
+]
+`;

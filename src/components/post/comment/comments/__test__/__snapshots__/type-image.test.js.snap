@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CommentTypeImage Component should match snapshot 1`] = `
+<img
+  className="comments_img"
+  onClick={[Function]}
+  src="/comments/instagram_comment_1518972851259.jpg"
+/>
+`;

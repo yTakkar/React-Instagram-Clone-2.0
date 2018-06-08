@@ -13,11 +13,7 @@ import ModalMiddle from '../../others/modal/modal-middle'
 import IsLoading from '../../others/isLoading'
 import Overlay from '../../others/overlay'
 
-@connect(store => (
-  { sharers: store.Post.sharers }
-))
-
-export default class Sharers extends Component {
+class Sharers extends Component {
 
   state = {
     loading: true
@@ -77,3 +73,10 @@ Sharers.propTypes = {
   back: PropTypes.func.isRequired,
   decrementSharers: PropTypes.func.isRequired
 }
+
+const mapStateToProps = store => ({
+  sharers: store.Post.sharers
+})
+
+export default connect(mapStateToProps)(Sharers)
+export { Sharers as PureSharers }

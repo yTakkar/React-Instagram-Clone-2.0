@@ -4,7 +4,7 @@ import { create } from 'react-test-renderer'
 import { BrowserRouter as Router } from 'react-router-dom'
 
 describe('HeaderOptions Component', () => {
-  const mockFn = () => {}
+  const mockFn = jest.fn()
 
   it('should match snapshot', () => {
     const tree = create(

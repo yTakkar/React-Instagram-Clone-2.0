@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Social-Inputs Component should match snapshot 1`] = `
+<div
+  className="edit_sm_div"
+>
+  <span
+    className="edit_span"
+  >
+    Connections
+  </span>
+  <input
+    autoComplete="false"
+    disabled={false}
+    maxLength="255"
+    onChange={[Function]}
+    placeholder="Instagram"
+    spellCheck="false"
+    type="text"
+    value="https://www.instagram.com/_faiyaz_shaikh"
+  />
+  <input
+    autoComplete="false"
+    disabled={false}
+    maxLength="255"
+    onChange={[Function]}
+    placeholder="Github"
+    spellCheck="false"
+    type="text"
+    value="https://github.com/yTakkar/"
+  />
+  <input
+    autoComplete="false"
+    disabled={false}
+    maxLength="255"
+    onChange={[Function]}
+    placeholder="Twitter"
+    spellCheck="false"
+    type="text"
+    value="https://twitter.com/shtakkar"
+  />
+  <input
+    autoComplete="false"
+    disabled={false}
+    maxLength="255"
+    onChange={[Function]}
+    placeholder="Facebook"
+    spellCheck="false"
+    type="text"
+    value="https://www.facebook.com/profile.php?id=100009110960262"
+  />
+  <input
+    autoComplete="false"
+    disabled={false}
+    maxLength="255"
+    onChange={[Function]}
+    placeholder="Website"
+    spellCheck="false"
+    type="text"
+    value=""
+  />
+  <input
+    autoComplete="false"
+    disabled={false}
+    maxLength="10"
+    onChange={[Function]}
+    placeholder="Phone"
+    spellCheck="false"
+    type="text"
+    value=""
+  />
+</div>
+`;

@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DeletePostOption Component should match snapshot and show delete option 1`] = `
+<li>
+  <a
+    className="delete_post"
+    href="#"
+    onClick={[Function]}
+  >
+    Delete post 
+  </a>
+</li>
+`;
+
+exports[`DeletePostOption Component should match snapshot and show delete option 2`] = `
+<li>
+  <a
+    className="delete_post"
+    href="#"
+    onClick={[Function]}
+  >
+    Delete post 
+    as admin
+  </a>
+</li>
+`;
+
+exports[`DeletePostOption Component should match snapshot with null 1`] = `null`;

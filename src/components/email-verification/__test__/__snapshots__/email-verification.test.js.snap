@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EmailVerification Component should match snapshot with already-verified message 1`] = `
+<div>
+  <div
+    style={
+      Object {
+        "animation": "bcCCNc 300ms ease 0s 1 normal none running",
+        "backfaceVisibility": "visible",
+      }
+    }
+  >
+    <div
+      className="registered email_verification"
+    >
+      <span>
+        Email already verified!
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`EmailVerification Component should match snapshot with something-wrong message 1`] = `
+<div>
+  <div
+    style={
+      Object {
+        "animation": "bcCCNc 300ms ease 0s 1 normal none running",
+        "backfaceVisibility": "visible",
+      }
+    }
+  >
+    <div
+      className="registered email_verification"
+    >
+      <span>
+        Something went wrong!
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`EmailVerification Component should match snapshot with verified message 1`] = `
+<div>
+  <div
+    style={
+      Object {
+        "animation": "bcCCNc 300ms ease 0s 1 normal none running",
+        "backfaceVisibility": "visible",
+      }
+    }
+  >
+    <div
+      className="registered email_verification"
+    >
+      <span>
+        You email has been verified successfully!
+      </span>
+    </div>
+  </div>
+</div>
+`;

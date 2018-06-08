@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PostOptionsList Component should match snapshot 1`] = `
+<div>
+  <ul>
+    <li>
+      <a
+        href="/post/11"
+        onClick={[Function]}
+      >
+        Open
+      </a>
+    </li>
+    <li>
+      <a
+        className="edit_post"
+        href="#"
+        onClick={[Function]}
+      >
+        Edit post 
+      </a>
+    </li>
+    <li>
+      <a
+        className="delete_post"
+        href="#"
+        onClick={[Function]}
+      >
+        Delete post 
+      </a>
+    </li>
+    <li>
+      <a
+        className="p_copy_link"
+        href="#"
+        onClick={[Function]}
+      >
+        Copy link
+      </a>
+    </li>
+  </ul>
+</div>
+`;

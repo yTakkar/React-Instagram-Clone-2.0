@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PostActions Component should match snapshot 1`] = `
+<div>
+  <div
+    className="p_a"
+  >
+    <div
+      className="p_do"
+    >
+      <div
+        className="p_Like_wra"
+      >
+        <span
+          className="p_like p_like_icon"
+          data-tip="Like"
+          onClick={[Function]}
+        >
+          <i
+            className="material-icons"
+          >
+            favorite_border
+          </i>
+        </span>
+      </div>
+      <div
+        className="p_bmrk_wra"
+      >
+        <span
+          className="p_bookmark"
+          data-tip="Bookmark"
+          onClick={[Function]}
+        >
+          <i
+            className="material-icons"
+          >
+            bookmark_border
+          </i>
+        </span>
+      </div>
+      <div
+        className="p_send_wra"
+      >
+        <span
+          className="p_send"
+          data-tip="Share"
+          onClick={[Function]}
+        >
+          <i
+            className="material-icons"
+          >
+            send
+          </i>
+        </span>
+      </div>
+    </div>
+    <div
+      className="p_did"
+    >
+      <span
+        className="p_likes likes"
+        onClick={[Function]}
+      >
+        1 like
+      </span>
+      <span
+        className="p_comm"
+        onClick={[Function]}
+      >
+        1 share
+      </span>
+    </div>
+  </div>
+</div>
+`;

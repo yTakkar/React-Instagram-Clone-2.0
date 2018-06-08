@@ -8,8 +8,7 @@ import EditCommentOption from './edit'
 import DeleteCommentOption from './delete'
 import MaterialIcon from '../../../../others/icons/material-icon'
 
-@connect()
-export default class CommentTools extends Component {
+class CommentTools extends Component {
 
   state = {
     showOptions: false
@@ -77,3 +76,6 @@ CommentTools.propTypes = {
   decrementComments: PropTypes.func.isRequired,
   updateCommentText: PropTypes.func.isRequired
 }
+
+export default connect()(CommentTools)
+export { CommentTools as PureCommentTools }

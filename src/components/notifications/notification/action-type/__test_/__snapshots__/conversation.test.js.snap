@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NotificationTypeCon Component should match snapshot 1`] = `
+<a
+  className="pri_btn"
+  href="/messages"
+  onClick={[Function]}
+>
+  View conversation
+</a>
+`;

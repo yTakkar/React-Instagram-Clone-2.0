@@ -10,7 +10,7 @@ describe('RangeInput Component', () => {
         value={20}
         min={10}
         max={100}
-        onChange={() => {}}
+        onChange={jest.fn()}
       />
     ).toJSON()
 

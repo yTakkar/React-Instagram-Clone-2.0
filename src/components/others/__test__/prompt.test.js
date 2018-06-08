@@ -4,7 +4,7 @@ import Prompt from '../prompt'
 import { create } from 'react-test-renderer'
 
 describe('Prompt Component', () => {
-  const mockFn = () => {}
+  const mockFn = jest.fn()
   const defaultProps = {
     title: 'Title of the prompt component',
     content: 'Some content here..',

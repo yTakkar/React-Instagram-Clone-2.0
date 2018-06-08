@@ -4,14 +4,7 @@ import { deleteYourMssgs } from '../../../../../utils/message-utils'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
-@connect(store => (
-  {
-    con_id: store.Message.conDetails.con_id,
-    messages: store.Message.messages
-  }
-))
-
-export default class UnsendMessages extends Component {
+class UnsendMessages extends Component {
 
   state = {
     unsend: false,
@@ -70,3 +63,11 @@ export default class UnsendMessages extends Component {
 UnsendMessages.propTypes = {
   toggleOptions: PropTypes.func.isRequired
 }
+
+const mapStateToProps = store => ({
+  con_id: store.Message.conDetails.con_id,
+  messages: store.Message.messages
+})
+
+export default connect(mapStateToProps)(UnsendMessages)
+export { UnsendMessages as PureUnsendMessages }

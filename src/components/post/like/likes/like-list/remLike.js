@@ -3,6 +3,7 @@ import { removeLike } from '../../../../../actions/post'
 import Notify from 'handy-notification'
 import { connect } from 'react-redux'
 import SecondaryButton from '../../../../others/button/secondary-btn'
+import { number, func } from 'prop-types'
 
 const RemoveLikeAsAdmin = ({ like_id, decrementLikes, dispatch }) => {
 
@@ -23,4 +24,10 @@ const RemoveLikeAsAdmin = ({ like_id, decrementLikes, dispatch }) => {
   )
 }
 
+RemoveLikeAsAdmin.propTypes = {
+  like_id: number.isRequired,
+  decrementLikes: func.isRequired
+}
+
 export default connect()(RemoveLikeAsAdmin)
+export { RemoveLikeAsAdmin as PureRemoveLikeAsAdmin }

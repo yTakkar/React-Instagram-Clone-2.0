@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ConversationAddEmojis Component should match snapshot 1`] = `
+Array [
+  <span
+    className="mssg_emoji_btn"
+    data-tip="Add emojis"
+    onClick={[Function]}
+  >
+    <i
+      className="material-icons"
+    >
+      sentiment_very_satisfied
+    </i>
+  </span>,
+  <div
+    className="__react_component_tooltip place-top type-dark "
+    data-id="tooltip"
+  >
+    
+  </div>,
+]
+`;

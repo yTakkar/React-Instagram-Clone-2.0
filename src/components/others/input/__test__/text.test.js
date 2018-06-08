@@ -5,7 +5,7 @@ import { create } from 'react-test-renderer'
 describe('TextInput Component', () => {
   const props = {
     value: 'a value',
-    valueChange: () => {}
+    valueChange: jest.fn()
   }
 
   it('should match snapshot with input type text', () => {

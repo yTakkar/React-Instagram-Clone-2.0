@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ConversationWith Component should match snapshot 1`] = `
+<div
+  className="sli_with_div"
+>
+  <span
+    className="sli_label"
+  >
+    Conversation with
+  </span>
+  <div
+    className="sli_with"
+  >
+    <img
+      src="/users/28/avatar.jpg"
+    />
+    <div
+      className="sli_with_cont"
+    >
+      <a
+        href="/profile/selena"
+        onClick={[Function]}
+      >
+        selena
+      </a>
+      <span
+        className="sli_w"
+      >
+        1 mutual follower
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ConversationWith Component should match snapshot when mutualFollowersCount == 0 1`] = `
+<div
+  className="sli_with_div"
+>
+  <span
+    className="sli_label"
+  >
+    Conversation with
+  </span>
+  <div
+    className="sli_with"
+  >
+    <img
+      src="/users/28/avatar.jpg"
+    />
+    <div
+      className="sli_with_cont"
+    >
+      <a
+        href="/profile/selena"
+        onClick={[Function]}
+      >
+        selena
+      </a>
+      <span
+        className="sli_w"
+      >
+        selena gomez
+      </span>
+    </div>
+  </div>
+</div>
+`;

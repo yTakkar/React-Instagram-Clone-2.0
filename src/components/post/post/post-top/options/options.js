@@ -25,7 +25,11 @@ export default class PostOptions extends Component {
         <div className='p_i_2'>
           <div className='p_time'>
             <span>
-              { post_time ? TimeAgo(post_time).replace(/\s ago/, '') : null }
+              {
+                post_time
+                  ? TimeAgo(post_time).replace(/\s ago/, '')
+                  : null
+              }
             </span>
           </div>
           <div className='p_h_opt' >

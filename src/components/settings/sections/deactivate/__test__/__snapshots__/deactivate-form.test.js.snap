@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DeactivateForm Component should match snapshot 1`] = `
+<form
+  className="dlt_acc_form"
+  onSubmit={[Function]}
+>
+  <input
+    autoComplete="false"
+    autoFocus={true}
+    disabled={false}
+    maxLength="255"
+    onChange={[MockFunction]}
+    placeholder="Your password.."
+    required={true}
+    spellCheck="false"
+    type="password"
+    value="mypassword"
+  />
+  <input
+    disabled={false}
+    type="submit"
+    value="Deactivate"
+  />
+</form>
+`;

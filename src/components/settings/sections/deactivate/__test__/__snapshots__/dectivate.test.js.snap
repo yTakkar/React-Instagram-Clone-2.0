@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Deactivate Component should match snapshot 1`] = `
+<div>
+  <div
+    style={
+      Object {
+        "animation": "bcCCNc 300ms ease 0s 1 normal none running",
+        "backfaceVisibility": "visible",
+      }
+    }
+  >
+    <div
+      className="dlt_acc"
+    >
+      <div
+        className="c_p_header"
+      >
+        <span>
+          Deactivate your account
+        </span>
+      </div>
+      <form
+        className="dlt_acc_form"
+        onSubmit={[Function]}
+      >
+        <input
+          autoComplete="false"
+          autoFocus={true}
+          disabled={false}
+          maxLength="255"
+          onChange={[Function]}
+          placeholder="Your password.."
+          required={true}
+          spellCheck="false"
+          type="password"
+          value=""
+        />
+        <input
+          disabled={true}
+          type="submit"
+          value="Deactivate"
+        />
+      </form>
+      <div
+        className="dlt_acc_info"
+      >
+        <span
+          className="dlt_acc_bold"
+        >
+          Note:
+        </span>
+        <span>
+          All of your 
+          <span
+            className="dlt_acc_bold"
+          >
+            posts, followers, followings, recommendations, messages, groups, settings, notifications, bookmarks & other info will be permanently deleted.
+          </span>
+           And you won't be able to find it again.
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;

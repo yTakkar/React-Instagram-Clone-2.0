@@ -4,15 +4,11 @@ import Gallery from 'react-photo-gallery'
 import { connect } from 'react-redux'
 import ImageTheatre from '../../others/imageTheatre/imageTheatre'
 
-@connect(store => (
-  { photos: store.Explore.photos }
-))
-
-export default class ExplorePhotoGallery extends Component {
+class ExplorePhotoGallery extends Component {
 
   state = {
     showImage: false,
-    imgSrc: '',
+    src: '',
     filter: '',
     username: '',
     time: '',
@@ -22,7 +18,7 @@ export default class ExplorePhotoGallery extends Component {
   selectPhoto = (e, { photo }) => {
     let { src, filter, username, post_time, post_id } = photo
     this.setState({
-      imgSrc: src,
+      src,
       filter,
       username,
       time: post_time,
@@ -32,7 +28,9 @@ export default class ExplorePhotoGallery extends Component {
   }
 
   render() {
-    let { showImage, imgSrc, filter, username, time, link } = this.state
+    let {
+      showImage, src, filter, username, time, link
+    } = this.state
     let { photos } = this.props
     let len = photos.length
     let PHOTO_SET = []
@@ -68,7 +66,7 @@ export default class ExplorePhotoGallery extends Component {
         {
           showImage ?
             <ImageTheatre
-              imgSrc={imgSrc}
+              imgSrc={src}
               filter={filter}
               username={username}
               time={time}
@@ -80,4 +78,13 @@ export default class ExplorePhotoGallery extends Component {
       </Fragment>
     )
   }
+}
+
+const mapStateToProps = store => (
+  { photos: store.Explore.photos }
+)
+
+export default connect(mapStateToProps)(ExplorePhotoGallery)
+export {
+  ExplorePhotoGallery as PureExplorePhotoGallery
 }

@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NotificationsHeader Component should match snapshot 1`] = `
+<div
+  className="notifications_header"
+>
+  <span
+    className="noti_count"
+  >
+    4
+     notifications
+  </span>
+  <div>
+    <span
+      className="clear_noti"
+      data-tip="Clear notifications"
+      onClick={[Function]}
+    >
+      <i
+        className="material-icons"
+      >
+        clear_all
+      </i>
+    </span>
+    <div
+      className="__react_component_tooltip place-top type-dark "
+      data-id="tooltip"
+    >
+      
+    </div>
+  </div>
+</div>
+`;
+
+exports[`NotificationsHeader Component should match snapshot when notifications.length == 0 1`] = `
+<div
+  className="notifications_header"
+>
+  <span
+    className="noti_count"
+  >
+    No
+     notifications
+  </span>
+</div>
+`;

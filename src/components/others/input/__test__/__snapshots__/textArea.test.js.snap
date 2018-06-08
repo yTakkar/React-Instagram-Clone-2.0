@@ -2,7 +2,7 @@
 
 exports[`TextArea Component should match snapshot 1`] = `
 <textarea
-  onChange={[Function]}
+  onChange={[MockFunction]}
   placeholder="Enter bio"
   spellCheck="false"
   value="A value"

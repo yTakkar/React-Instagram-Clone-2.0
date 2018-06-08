@@ -10,7 +10,7 @@ describe('Hashtag-Search Component', () => {
       <Router>
         <HashtagSearch
           hashtag='#travel'
-          clicked={() => {}}
+          clicked={jest.fn()}
         />
       </Router>
     ).toJSON()

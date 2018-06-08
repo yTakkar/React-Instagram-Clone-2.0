@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LastMssg Component should match snapshot when lastMssg == "" 1`] = `null`;
+
+exports[`LastMssg Component should match snapshot when lastMssgType == image 1`] = `
+<span
+  className="camera"
+>
+  <i
+    className="fas fa-camera"
+  />
+</span>
+`;
+
+exports[`LastMssg Component should match snapshot when lastMssgType == sticker 1`] = `
+<span
+  className="camera"
+>
+  <i
+    className="fas fa-gift"
+  />
+</span>
+`;
+
+exports[`LastMssg Component should match snapshot when lastMssgType == text 1`] = `"some message"`;

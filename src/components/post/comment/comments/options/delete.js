@@ -7,8 +7,7 @@ import { post } from 'axios'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
-@connect()
-export default class DeleteCommentOption extends Component {
+class DeleteCommentOption extends Component {
 
   state = {
     deleteComment: false
@@ -69,11 +68,12 @@ export default class DeleteCommentOption extends Component {
 DeleteCommentOption.propTypes = {
   commentDetails: PropTypes.shape({
     comment_id: PropTypes.number.isRequired,
-    comment_by: PropTypes.number.isRequired,
-    text: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,
     commentSrc: PropTypes.string.isRequired
   }).isRequired,
   decrementComments: PropTypes.func.isRequired,
   toggleOptions: PropTypes.func.isRequired
 }
+
+export default connect()(DeleteCommentOption)
+export { DeleteCommentOption as PureDeleteCommentOption }

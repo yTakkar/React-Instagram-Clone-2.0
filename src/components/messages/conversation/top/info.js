@@ -1,8 +1,7 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import TimeAgo from 'handy-timeago'
 import { connect } from 'react-redux'
-import AppLink from '../../../others/link/link';
+import AppLink from '../../../others/link/link'
 
 const ConversationInfo = ({ cd }) => {
   let {

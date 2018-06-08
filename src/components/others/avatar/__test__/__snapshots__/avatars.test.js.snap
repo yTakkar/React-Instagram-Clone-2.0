@@ -27,7 +27,7 @@ Array [
       </div>
       <span
         className="pro_ava_close"
-        onClick={[Function]}
+        onClick={[MockFunction]}
       >
         <i
           className="material-icons"

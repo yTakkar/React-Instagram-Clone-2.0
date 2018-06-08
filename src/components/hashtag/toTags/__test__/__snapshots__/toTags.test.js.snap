@@ -1,0 +1,88 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ToTags Component should match snapshot with complex hashtag string 1`] = `
+<span>
+  <a
+    className="hashtag"
+    href="/hashtag/This"
+    onClick={[Function]}
+  >
+    #This 
+  </a>
+  is 
+  a 
+  ##double 
+  hashtag 
+</span>
+`;
+
+exports[`ToTags Component should match snapshot with link string 1`] = `
+<span>
+  Hey 
+  <a
+    className="hashtag"
+    href="/profile/ghalib"
+    onClick={[Function]}
+  >
+    @ghalib, 
+  </a>
+  <a
+    className="hashtag"
+    href="/hashtag/checkout"
+    onClick={[Function]}
+  >
+    #checkout 
+  </a>
+  <a
+    className="hashtag"
+    href="https://github.com/yTakkar/React-Instagram-Clone-2.0"
+    target="_blank"
+  >
+    https://github.com/yTakkar/React-Instagram-Clone-2.0 
+  </a>
+</span>
+`;
+
+exports[`ToTags Component should match snapshot with mention string 1`] = `
+<span>
+  A 
+  very 
+  <a
+    className="hashtag"
+    href="/hashtag/good"
+    onClick={[Function]}
+  >
+    #good 
+  </a>
+  ##morning 
+  <a
+    className="hashtag"
+    href="/profile/ghalib"
+    onClick={[Function]}
+  >
+    @ghalib, 
+  </a>
+  <a
+    className="hashtag"
+    href="/profile/zayn"
+    onClick={[Function]}
+  >
+    @zayn 
+  </a>
+</span>
+`;
+
+exports[`ToTags Component should match snapshot with simple hashtag string 1`] = `
+<span>
+  A 
+  very 
+  <a
+    className="hashtag"
+    href="/hashtag/good"
+    onClick={[Function]}
+  >
+    #good 
+  </a>
+  morning 
+</span>
+`;

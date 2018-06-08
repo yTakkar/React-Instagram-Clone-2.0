@@ -5,13 +5,14 @@ import avatars from './avatars-mockArray'
 import { shallow } from 'enzyme'
 
 describe('Map-Avatars Component', () => {
+  let mockFn = jest.fn()
 
   it('should match snapshot with Spinner', () => {
     const tree = create(
       <MapAvatars
         avatars={[]}
         loading
-        selectAvatar={() => {}}
+        selectAvatar={mockFn}
       />
     ).toJSON()
     expect(tree).toMatchSnapshot()
@@ -22,7 +23,7 @@ describe('Map-Avatars Component', () => {
       <MapAvatars
         loading={false}
         avatars={avatars}
-        selectAvatar={() => {}}
+        selectAvatar={mockFn}
       />
     ).toJSON()
     expect(tree).toMatchSnapshot()

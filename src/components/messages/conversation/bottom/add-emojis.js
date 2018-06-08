@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import MaterialIcon from '../../../others/icons/material-icon'
 import ToolTip from 'react-tooltip'
 
-export default class MessageAddEmojis extends Component {
+export default class ConversationAddEmojis extends Component {
 
   state = {
     showEmojis: false,
@@ -45,6 +45,6 @@ export default class MessageAddEmojis extends Component {
   }
 }
 
-MessageAddEmojis.propTypes = {
+ConversationAddEmojis.propTypes = {
   updateMssgValue: PropTypes.func.isRequired
 }

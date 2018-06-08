@@ -68,7 +68,7 @@ Array [
         <a
           className="pri_btn prompt-done "
           href="#"
-          onClick={[Function]}
+          onClick={[MockFunction]}
         >
           Delete
         </a>
@@ -146,7 +146,7 @@ Array [
         <a
           className="pri_btn prompt-done "
           href="#"
-          onClick={[Function]}
+          onClick={[MockFunction]}
         >
           Delete
         </a>

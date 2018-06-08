@@ -13,11 +13,7 @@ import ModalMiddle from '../../others/modal/modal-middle'
 import IsLoading from '../../others/isLoading'
 import Overlay from '../../others/overlay'
 
-@connect(store => (
-  { Tags: store.Post }
-))
-
-export default class Tags extends Component {
+class Tags extends Component {
 
   state = {
     loading: true
@@ -34,20 +30,16 @@ export default class Tags extends Component {
   componentDidUpdate = () => llr()
 
   render() {
-    let
-      { loading } = this.state,
-      {
-        Tags: { tags },
-        decrementTags,
-        back
-      } = this.props,
-      map_tags = tags.map(t =>
-        <TagItems
-          key={t.post_tag_id}
-          {...t}
-          decrementTags={decrementTags}
-        />
-      )
+    let { loading } = this.state
+    let { tags, decrementTags, back } = this.props
+
+    let map_tags = tags.map(t =>
+      <TagItems
+        key={t.post_tag_id}
+        {...t}
+        decrementTags={decrementTags}
+      />
+    )
 
     return (
       <Fragment>
@@ -81,3 +73,10 @@ Tags.propTypes = {
   back: PropTypes.func.isRequired,
   decrementTags: PropTypes.func.isRequired
 }
+
+const mapStateToProps = store => ({
+  tags: store.Post.tags
+})
+
+export default connect(mapStateToProps)(Tags)
+export { Tags as PureTags }

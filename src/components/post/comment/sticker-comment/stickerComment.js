@@ -6,8 +6,7 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import MaterialIcon from '../../../others/icons/material-icon'
 
-@connect()
-export default class StickerComment extends Component {
+class StickerComment extends Component {
 
   state = {
     showStickers: false
@@ -67,3 +66,6 @@ StickerComment.propTypes = {
   }).isRequired,
   incrementComments: PropTypes.func.isRequired,
 }
+
+export default connect()(StickerComment)
+export { StickerComment as PureStickerComment }

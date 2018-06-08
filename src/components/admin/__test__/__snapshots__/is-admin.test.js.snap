@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`IsAdmin Component should match snapshot 1`] = `
+<div>
+  <div
+    style={
+      Object {
+        "animation": "bcCCNc 300ms ease 0s 1 normal none running",
+        "backfaceVisibility": "visible",
+      }
+    }
+  >
+    <div
+      className="registered email_verification"
+    >
+      <span>
+        You can now remove and edit any post, comment, user, group, message, etc. as an admin
+      </span>
+    </div>
+  </div>
+</div>
+`;

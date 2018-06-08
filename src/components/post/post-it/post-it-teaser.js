@@ -3,11 +3,7 @@ import PostIt from './post-it'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
-@connect(store => (
-  { session: store.User.session }
-))
-
-export default class PostItTeaser extends Component {
+class PostItTeaser extends Component {
 
   state = {
     postIt: false
@@ -65,3 +61,10 @@ PostItTeaser.propTypes = {
   disabled: PropTypes.bool,
   group: PropTypes.number,
 }
+
+const mapStateToProps = store => ({
+  session: store.User.session
+})
+
+export default connect(mapStateToProps)(PostItTeaser)
+export { PostItTeaser as PurePostItTeaser }

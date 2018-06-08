@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GroupHashtags Component should match snapshot 1`] = `
+<div>
+  <div
+    className="recomm user-hashtags"
+  >
+    <div
+      className="recomm_top"
+    >
+      <span>
+        Group recent hashtags
+      </span>
+    </div>
+    <div
+      className="recomm_main"
+    >
+      <a
+        className="uh_link"
+        href="/hashtag/travel"
+        onClick={[Function]}
+      >
+        #travel
+      </a>
+      <a
+        className="uh_link"
+        href="/hashtag/cool"
+        onClick={[Function]}
+      >
+        #cool
+      </a>
+      <a
+        className="uh_link"
+        href="/hashtag/hmm"
+        onClick={[Function]}
+      >
+        #hmm
+      </a>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`GroupHashtags Component should match snapshot with null when hashtags.length == 0 1`] = `<div />`;

@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PostItTeaser Component should match snapshot 1`] = `
+<div>
+  <div
+    className="post_it inst"
+    style={
+      Object {
+        "marginBottom": null,
+      }
+    }
+  >
+    <img
+      alt="Your avatar"
+      src="/users/24/avatar.jpg"
+    />
+    <div
+      className="post_teaser"
+    >
+      <span
+        className="p_whats_new"
+        onClick={[Function]}
+      >
+        What's new with you, @
+        takkar
+        ? #cool
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`PostItTeaser Component should match snapshot with disabled prop 1`] = `
+<div>
+  <div
+    className="post_it inst"
+    style={
+      Object {
+        "marginBottom": null,
+      }
+    }
+  >
+    <img
+      alt="Your avatar"
+      src="/users/24/avatar.jpg"
+    />
+    <div
+      className="post_teaser"
+    >
+      <span
+        className="p_whats_new"
+        onClick={null}
+      >
+        What's new with you, @
+        takkar
+        ? #cool
+      </span>
+    </div>
+  </div>
+</div>
+`;

@@ -25,6 +25,7 @@ export default class EditMessageTool extends Component {
         {
           type == 'text' ?
             <span
+              className='toggle_edit_mssg'
               data-tip={`Edit ${isAdmin() ? 'as admin' : ''}`}
               onClick={this.toggleEdit}
             >

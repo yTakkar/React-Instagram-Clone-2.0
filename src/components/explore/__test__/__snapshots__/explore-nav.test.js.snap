@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ExploreNav Component should match snapshot 1`] = `
+<ul>
+  <li>
+    <a
+      aria-current={false}
+      className="exp_nav_link"
+      href="/explore"
+      onClick={[Function]}
+    >
+      Users
+    </a>
+  </li>
+  <li>
+    <a
+      aria-current={false}
+      className="exp_nav_link"
+      href="/explore/explore-photos"
+      onClick={[Function]}
+    >
+      Photos
+    </a>
+  </li>
+  <li>
+    <a
+      aria-current={false}
+      className="exp_nav_link"
+      href="/explore/explore-groups"
+      onClick={[Function]}
+    >
+      Groups
+    </a>
+  </li>
+</ul>
+`;

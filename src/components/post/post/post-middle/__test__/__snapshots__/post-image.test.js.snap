@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PostImage Component should match snapshot 1`] = `
+<div>
+  <div
+    className="p_o"
+  >
+    <div
+      className="p_actual"
+      spellCheck="false"
+    >
+      <div
+        className="p_abt"
+        style={
+          Object {
+            "marginBottom": "10px",
+          }
+        }
+      >
+        <p>
+          <span>
+            description 
+          </span>
+        </p>
+      </div>
+      <img
+        className="p_img filter-ashby"
+        onClick={[Function]}
+        src="/posts/instagram_1518972814710.jpg"
+      />
+      <div>
+        <div>
+          <span
+            className="p_tag_icon"
+            data-tip="1 tag"
+            onClick={[Function]}
+          >
+            <i
+              className="material-icons"
+            >
+              account_circle
+            </i>
+          </span>
+          <div
+            className="__react_component_tooltip place-top type-dark "
+            data-id="tooltip"
+          >
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -5,7 +5,7 @@ import users from './users-mockArray'
 import { shallow } from 'enzyme'
 
 describe('MapSFUsers Component', () => {
-  const mockFn = () => {}
+  const mockFn = jest.fn()
 
   it('should match snapshot with null', () => {
     const tree = create(

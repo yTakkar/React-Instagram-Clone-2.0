@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PostTags Component should match snapshot 1`] = `
+<div>
+  <div>
+    <span
+      className="p_tag_icon"
+      data-tip="1 tag"
+      onClick={[Function]}
+    >
+      <i
+        className="material-icons"
+      >
+        account_circle
+      </i>
+    </span>
+    <div
+      className="__react_component_tooltip place-top type-dark "
+      data-id="tooltip"
+    >
+      
+    </div>
+  </div>
+</div>
+`;
+
+exports[`PostTags Component should match snapshot with null when tags_count == 0 1`] = `<div />`;

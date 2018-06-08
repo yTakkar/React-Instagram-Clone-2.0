@@ -17,7 +17,7 @@ export default class ChangePassword extends Component {
   changeValue = (what, e) =>
     this.setState({ [what]: e.target.value })
 
-  change = async e => {
+  change = e => {
     e.preventDefault()
     let { oldP, newP, newPagain } = this.state
     changePassword(oldP, newP, newPagain)

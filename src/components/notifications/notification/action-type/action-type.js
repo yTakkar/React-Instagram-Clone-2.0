@@ -11,17 +11,18 @@ export default class NotificationActionType extends Component {
 
   state = { isFollowing: false }
 
-  componentDidMount = () =>
-    this.setState({
-      isFollowing: this.props.details.isFollowing
-    })
+  componentDidMount = () => this.setState({
+    isFollowing: this.props.details.isFollowing
+  })
 
   componentWillReceiveProps = ({ details: { isFollowing } }) =>
     this.setState({ isFollowing })
 
   render() {
     let {
-      details: { type, user_username, group_id, post_id, notify_by, notify_by_username }
+      details: {
+        type, user_username, group_id, post_id, notify_by, notify_by_username
+      }
     } = this.props
     let { isFollowing } = this.state
 

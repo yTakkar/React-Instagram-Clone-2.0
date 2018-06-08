@@ -6,8 +6,7 @@ import { FadeIn } from 'animate-components'
 import FAIcon from '../others/icons/font-awesome-icon'
 import PrimaryButton from '../others/button/primary-btn'
 
-@connect()
-export default class NewConversation extends Component {
+class NewConversation extends Component {
 
   state = {
     getUsersForNewCon: false,
@@ -66,3 +65,6 @@ export default class NewConversation extends Component {
     )
   }
 }
+
+export default connect()(NewConversation)
+export { NewConversation as PureNewConversation }

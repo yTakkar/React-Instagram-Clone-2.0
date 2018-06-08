@@ -7,7 +7,10 @@ import AppLink from '../others/link/link'
 
 const Error = ({ match, username }) => {
   let { params } = match
-  let what = params.what ? params.what : 'page'
+  let what = params.what
+    ? params.what
+    : 'page'
+
   let title = c_first(`${what}`)
 
   return (

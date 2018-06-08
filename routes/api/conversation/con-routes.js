@@ -244,7 +244,10 @@ app.post('/get-online-users', async (req, res) => {
 
   for (let u of _onlineUsers) {
     let mutualUsers = await User.mutualUsers(id, u.user)
-    onlineUsers.push({ ...u, mutualUsersCount: mutualUsers.length })
+    onlineUsers.push({
+      ...u,
+      mutualUsersCount: mutualUsers.length
+    })
   }
 
   res.json(onlineUsers)

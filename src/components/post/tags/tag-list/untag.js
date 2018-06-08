@@ -17,7 +17,7 @@ const Untag = ({ post_id, user, decrementTags, dispatch }) => {
     Notify({ value: 'Untagged!!' })
   }
 
-  let btnLabel = `Untag ${isAdmin() ? 'as admin' : null}`
+  let btnLabel = `Untag ${isAdmin() ? 'as admin' : ''}`
 
   return (
     <SecondaryButton
@@ -34,3 +34,4 @@ Untag.propTypes = {
 }
 
 export default connect()(Untag)
+export { Untag as PureUntag }

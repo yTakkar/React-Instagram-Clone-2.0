@@ -8,14 +8,7 @@ import { getHashtagPosts } from '../../../actions/hashtag'
 import HashtagInfo from './info'
 import MiddleSection from './middle-section'
 
-@connect(store => (
-  {
-    store,
-    session: store.User.session
-  }
-))
-
-export default class Hashtag extends Component {
+class Hashtag extends Component {
 
   state = {
     loading: true
@@ -68,3 +61,13 @@ export default class Hashtag extends Component {
     )
   }
 }
+
+const mapStateToProps = store => (
+  {
+    store,
+    session: store.User.session
+  }
+)
+
+export default connect(mapStateToProps)(Hashtag)
+export { Hashtag as PureHashtag }

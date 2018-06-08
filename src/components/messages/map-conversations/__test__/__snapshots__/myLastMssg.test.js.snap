@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MyLastMssg Component should match snapshot 1`] = `
+<span
+  className="mssg_sent"
+>
+  <i
+    className="material-icons"
+  >
+    done_all
+  </i>
+</span>
+`;
+
+exports[`MyLastMssg Component should match snapshot and return null when lastMssgBy != session ID stored in dataElement 1`] = `null`;

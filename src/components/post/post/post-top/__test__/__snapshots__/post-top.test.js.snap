@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PostTop Component should match snapshot 1`] = `
+<div>
+  <div
+    className="p_i"
+  >
+    <div
+      className="p_i_img"
+    >
+      <img
+        src="/users/24/avatar.jpg"
+      />
+    </div>
+    <div
+      className="p_i_1"
+      style={
+        Object {
+          "top": "inherit",
+        }
+      }
+    >
+      <a
+        href="/profile/takkar"
+        onClick={[Function]}
+        title="takkar"
+      >
+        takkar
+      </a>
+      <span
+        className="p_i_1_title"
+        title="A-301, 90 Feet Road, Dharavi, Mumbai, Maharashtra 400017, India"
+      >
+        A-301, 90 Feet Road, Dharavi, Mum..
+      </span>
+    </div>
+    <div>
+      <div
+        className="p_i_2"
+      >
+        <div
+          className="p_time"
+        >
+          <span>
+            3 months ago
+          </span>
+        </div>
+        <div
+          className="p_h_opt"
+        >
+          <span
+            className="exp_p_menu"
+            onClick={[Function]}
+          >
+            <i
+              className="material-icons"
+            >
+              expand_more
+            </i>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -6,7 +6,7 @@ import FAIcon from '../../icons/font-awesome-icon'
 describe('FileInput Component', () => {
   const props = {
     value: 'a value',
-    fileChange: () => {},
+    fileChange: jest.fn(),
     label: 'A label'
   }
 

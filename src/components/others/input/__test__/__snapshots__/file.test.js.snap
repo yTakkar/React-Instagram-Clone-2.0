@@ -5,7 +5,7 @@ Array [
   <input
     accept="image/*"
     id="file_input"
-    onChange={[Function]}
+    onChange={[MockFunction]}
     type="file"
     value="a value"
   />,
@@ -23,7 +23,7 @@ Array [
   <input
     accept="image/*"
     id="file_input"
-    onChange={[Function]}
+    onChange={[MockFunction]}
     type="file"
     value="a value"
   />,

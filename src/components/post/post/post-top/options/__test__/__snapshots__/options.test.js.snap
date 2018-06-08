@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PostOptions Component should match snapshot 1`] = `
+<div>
+  <div
+    className="p_i_2"
+  >
+    <div
+      className="p_time"
+    >
+      <span>
+        3 months ago
+      </span>
+    </div>
+    <div
+      className="p_h_opt"
+    >
+      <span
+        className="exp_p_menu"
+        onClick={[Function]}
+      >
+        <i
+          className="material-icons"
+        >
+          expand_more
+        </i>
+      </span>
+    </div>
+  </div>
+</div>
+`;

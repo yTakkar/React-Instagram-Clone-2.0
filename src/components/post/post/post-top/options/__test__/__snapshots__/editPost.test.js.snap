@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EditPostOption Component should match snapshot and show edit option 1`] = `
+<li>
+  <a
+    className="edit_post"
+    href="#"
+    onClick={[Function]}
+  >
+    Edit post 
+  </a>
+</li>
+`;
+
+exports[`EditPostOption Component should match snapshot and show edit option 2`] = `
+<li>
+  <a
+    className="edit_post"
+    href="#"
+    onClick={[Function]}
+  >
+    Edit post 
+    as admin
+  </a>
+</li>
+`;
+
+exports[`EditPostOption Component should match snapshot with null 1`] = `null`;

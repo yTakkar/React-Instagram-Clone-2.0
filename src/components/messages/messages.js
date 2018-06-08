@@ -12,18 +12,14 @@ import MapConversations from './map-conversations/map-conversations'
 import IsLoading from '../others/isLoading'
 import { cLoading } from '../../utils/utils'
 
-@connect(store => (
-  { store }
-))
-
-export default class Messages extends Component {
+class Messages extends Component {
 
   state = {
     loading: true,
     showConversation: false,
     selectedCon: {
       con_id: null,
-      unreadMssgs: 0
+      unreadMssgs: 0  // for updating total unread mssgs
     }
   }
 
@@ -76,7 +72,9 @@ export default class Messages extends Component {
               showConversation ?
                 <Conversation
                   con={selectedCon}
-                  hideConversation={() => this.setState({ showConversation: false })}
+                  hideConversation={() =>
+                    this.setState({ showConversation: false })
+                  }
                 />
                 : <div style={{ marginTop: 77 }} >
                   <Nothing mssg='Please select a conversation' />
@@ -90,3 +88,10 @@ export default class Messages extends Component {
     )
   }
 }
+
+const mapStateToProps = store => ({
+  store
+})
+
+export default connect(mapStateToProps)(Messages)
+export { Messages as PureMessages }

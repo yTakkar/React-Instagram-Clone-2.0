@@ -1,0 +1,93 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OnlineUser Component should match snapshot 1`] = `
+<div
+  className="modal_items fer_items"
+>
+  <div
+    className="modal_it_img"
+  >
+    <img
+      src="/users/16/avatar.jpg"
+    />
+  </div>
+  <div
+    className="modal_it_content"
+  >
+    <div
+      className="modal_it_info"
+    >
+      <a
+        className="modal_it_username"
+        href="/profile/zayn"
+        onClick={[Function]}
+      >
+        zayn
+      </a>
+      <span
+        className="modal_it_light"
+      >
+        Zayn Malik
+      </span>
+    </div>
+    <div
+      className="modal_ff"
+    >
+      <a
+        className="pri_btn  "
+        href="#"
+        onClick={[Function]}
+      >
+        Message
+      </a>
+    </div>
+  </div>
+  <hr />
+</div>
+`;
+
+exports[`OnlineUser Component should match snapshot when mutualUsersCount > 0 1`] = `
+<div
+  className="modal_items fer_items"
+>
+  <div
+    className="modal_it_img"
+  >
+    <img
+      src="/users/7/avatar.jpg"
+    />
+  </div>
+  <div
+    className="modal_it_content"
+  >
+    <div
+      className="modal_it_info"
+    >
+      <a
+        className="modal_it_username"
+        href="/profile/ghalib"
+        onClick={[Function]}
+      >
+        ghalib
+      </a>
+      <span
+        className="modal_it_light"
+      >
+        1 mutual follower
+      </span>
+    </div>
+    <div
+      className="modal_ff"
+    >
+      <a
+        className="pri_btn  "
+        href="#"
+        onClick={[Function]}
+      >
+        Message
+      </a>
+    </div>
+  </div>
+  <hr />
+</div>
+`;

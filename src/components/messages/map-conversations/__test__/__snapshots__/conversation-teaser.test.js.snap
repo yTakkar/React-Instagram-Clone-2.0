@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ConversationTeaser Component should match snapshot 1`] = `
+<div
+  className="mssg_sr mt_24"
+  onClick={[MockFunction]}
+>
+  <img
+    src="/users/7/avatar.jpg"
+  />
+  <div
+    className="m_sr_content"
+  >
+    <span
+      className="m_sr_username"
+    >
+      ghalib
+    </span>
+    <span
+      className="m_sr_light"
+    >
+      eo
+    </span>
+  </div>
+  <span
+    className="m_sr_time"
+  >
+    3 months
+  </span>
+</div>
+`;
+
+exports[`ConversationTeaser Component should match snapshot when conversation has no last message 1`] = `
+<div
+  className="mssg_sr mt_40"
+  onClick={[MockFunction]}
+>
+  <img
+    src="/users/10/avatar.jpg"
+  />
+  <div
+    className="m_sr_content"
+  >
+    <span
+      className="m_sr_username"
+    >
+      noddy
+    </span>
+    <span
+      className="m_sr_light"
+    />
+  </div>
+  <span
+    className="m_sr_time"
+  />
+</div>
+`;

@@ -1,0 +1,88 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PostBottom Component should match snapshot 1`] = `
+<div>
+  <a
+    className="p_comments"
+    href="/post/44"
+    onClick={[Function]}
+  >
+    2 comments
+  </a>
+  <div
+    className="p_cit"
+  >
+    <div
+      className="p_cit_img"
+    >
+      <img
+        src="/users/24/avatar.jpg"
+      />
+    </div>
+    <div
+      className="p_cit_main"
+    >
+      <div
+        className="p_cit_teaser"
+        onClick={[Function]}
+      >
+        <span>
+          Wanna comment?
+        </span>
+      </div>
+      <div
+        className="p_cit_tool"
+      >
+        <div>
+          <span
+            className="c_sticker"
+            data-tip="Add sticker"
+            onClick={[Function]}
+          >
+            <i
+              className="material-icons"
+            >
+              face
+            </i>
+          </span>
+          <div
+            className="__react_component_tooltip place-top type-dark "
+            data-id="tooltip"
+          >
+            
+          </div>
+        </div>
+        <div>
+          <form
+            className="p_comment_form"
+            encType="multipart/form-data"
+          >
+            <input
+              accept="image/*"
+              id="file_input"
+              onChange={[Function]}
+              type="file"
+              value=""
+            />
+            <label
+              className=""
+              htmlFor="file_input"
+            >
+              <div
+                data-tip="Attach a file"
+              >
+                <i
+                  className="material-icons"
+                >
+                  attach_file
+                </i>
+              </div>
+            </label>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div />
+</div>
+`;

@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DeleteCommentOption Component should match snapshot 1`] = `
+<li>
+  <a
+    href="#"
+    onClick={[Function]}
+  >
+    Delete comment 
+  </a>
+</li>
+`;

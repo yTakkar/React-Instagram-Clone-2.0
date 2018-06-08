@@ -32,6 +32,13 @@ export default class SocialInputs extends Component {
 }
 
 SocialInputs.propTypes = {
-  inputs: PropTypes.objectOf(PropTypes.string).isRequired,
+  inputs: PropTypes.shape({
+    instagram: PropTypes.string.isRequired,
+    github: PropTypes.string.isRequired,
+    twitter: PropTypes.string.isRequired,
+    facebook: PropTypes.string.isRequired,
+    website: PropTypes.string.isRequired,
+    phone: PropTypes.string.isRequired
+  }).isRequired,
   change: PropTypes.func.isRequired,
 }

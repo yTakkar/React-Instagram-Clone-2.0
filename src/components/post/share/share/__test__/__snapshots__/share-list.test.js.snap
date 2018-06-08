@@ -1,0 +1,93 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ShareList Component should match snapshot with <PrimaryButton/> for share 1`] = `
+<div
+  className="modal_items"
+>
+  <div
+    className="modal_it_img"
+  >
+    <img
+      src="/users/16/avatar.jpg"
+    />
+  </div>
+  <div
+    className="modal_it_content "
+  >
+    <div
+      className="modal_it_info"
+    >
+      <a
+        className="modal_it_username"
+        href="/profile/zayn"
+        onClick={[Function]}
+      >
+        zayn
+      </a>
+      <span
+        className="modal_it_light"
+      >
+        Zayn Malik
+      </span>
+    </div>
+    <div
+      className="modal_ff"
+    >
+      <a
+        className="pri_btn share_btn "
+        href="#"
+        onClick={[Function]}
+      >
+        Share
+      </a>
+    </div>
+  </div>
+  <hr />
+</div>
+`;
+
+exports[`ShareList Component should match snapshot with <SecondaryButton/> for unshare 1`] = `
+<div
+  className="modal_items"
+>
+  <div
+    className="modal_it_img"
+  >
+    <img
+      src="/users/16/avatar.jpg"
+    />
+  </div>
+  <div
+    className="modal_it_content "
+  >
+    <div
+      className="modal_it_info"
+    >
+      <a
+        className="modal_it_username"
+        href="/profile/zayn"
+        onClick={[Function]}
+      >
+        zayn
+      </a>
+      <span
+        className="modal_it_light"
+      >
+        Zayn Malik
+      </span>
+    </div>
+    <div
+      className="modal_ff"
+    >
+      <a
+        className="sec_btn share_btn "
+        href="#"
+        onClick={[Function]}
+      >
+        Unshare
+      </a>
+    </div>
+  </div>
+  <hr />
+</div>
+`;

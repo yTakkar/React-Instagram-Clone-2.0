@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NewConTeaser Component should match snapshot 1`] = `
+<div
+  className="recomm_teaser"
+>
+  <span>
+    Wanna message 
+    ghalib
+    ? Create a private conversation with 
+    ghalib
+    .
+  </span>
+  <a
+    className="sec_btn  "
+    href="#"
+    onClick={[Function]}
+  >
+    Message
+  </a>
+</div>
+`;

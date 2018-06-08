@@ -6,8 +6,7 @@ import PropTypes from 'prop-types'
 import { deleteMessage } from '../../../../../utils/message-utils'
 import MaterialIcon from '../../../../others/icons/material-icon'
 
-@connect()
-export default class DeleteMessage extends Component {
+class DeleteMessageTool extends Component {
 
   state = {
     deleteMessage: false
@@ -34,6 +33,7 @@ export default class DeleteMessage extends Component {
     return (
       <Fragment>
         <span
+          className='toggle_dlt_mssg'
           data-tip={`Delete ${isAdmin() ? 'as admin' : ''}`}
           onClick={this.toggleDelete}
         >
@@ -56,10 +56,13 @@ export default class DeleteMessage extends Component {
   }
 }
 
-DeleteMessage.propTypes = {
+DeleteMessageTool.propTypes = {
   messageDetails: PropTypes.shape({
     message_id: PropTypes.number.isRequired,
     message: PropTypes.string,
     type: PropTypes.string.isRequired,
   }).isRequired
 }
+
+export default connect()(DeleteMessageTool)
+export { DeleteMessageTool as PureDeleteMessageTool }

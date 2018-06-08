@@ -3,11 +3,7 @@ import SearchFollowings from '../../others/search-followings/search-followings'
 import { connect } from 'react-redux'
 import { CPP } from '../../../actions/post'
 
-@connect(store => (
-  { postIt: store.Post.postIt }
-))
-
-export default class AddTags extends Component {
+class AddTags extends Component {
 
   updateTags = tags =>
     this.props.dispatch(CPP('tags', tags))
@@ -51,3 +47,10 @@ export default class AddTags extends Component {
     )
   }
 }
+
+const mapStateToProps = store => ({
+  postIt: store.Post.postIt
+})
+
+export default connect(mapStateToProps)(AddTags)
+export { AddTags as PureAddTags }

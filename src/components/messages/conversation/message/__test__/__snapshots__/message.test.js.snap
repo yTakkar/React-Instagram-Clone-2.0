@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Message Component should match snapshot with message type image 1`] = `
+<div>
+  <div
+    className="m_m_divs not_my_mm_div"
+  >
+    <div
+      className="toggle_mssg_tools"
+      onClick={[Function]}
+    >
+      <div
+        className="m_m"
+        title="Last month"
+      >
+        <img
+          className="m_m_img"
+          onClick={[Function]}
+          src="/messages/instagram_message_1528278864884.jpg"
+        />
+      </div>
+    </div>
+    <span
+      className="m_m_time"
+    >
+      Last month
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Message Component should match snapshot with message type sticker 1`] = `
+<div>
+  <div
+    className="m_m_divs not_my_mm_div"
+  >
+    <div
+      className="toggle_mssg_tools"
+      onClick={[Function]}
+    >
+      <div
+        className="m_m"
+        title="Last month"
+      >
+        <img
+          className="m_m_sticker"
+          src="/messages/instagram_message_1525091176544.jpg"
+        />
+      </div>
+    </div>
+    <span
+      className="m_m_time"
+    >
+      Last month
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Message Component should match snapshot with message type text 1`] = `
+<div>
+  <div
+    className="m_m_divs not_my_mm_div"
+  >
+    <div
+      className="toggle_mssg_tools"
+      onClick={[Function]}
+    >
+      <div
+        className="m_m"
+        title="Last month"
+      >
+        <span>
+          kjkjk 
+        </span>
+      </div>
+    </div>
+    <span
+      className="m_m_time"
+    >
+      Last month
+    </span>
+  </div>
+</div>
+`;

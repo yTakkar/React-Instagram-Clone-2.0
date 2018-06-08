@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GetLocation Component should match snapshot 1`] = `
+<span
+  className="loc_add p_span_toggle"
+  data-tip="Add location"
+  onClick={[Function]}
+>
+  <i
+    className="material-icons"
+  >
+    location_on
+  </i>
+</span>
+`;

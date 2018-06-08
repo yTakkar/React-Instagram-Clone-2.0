@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RemBookmarkAsAdmin Component should match snapshot 1`] = `
+<li>
+  <a
+    href="#"
+    onClick={[Function]}
+  >
+    Remove bookmark as admin
+  </a>
+</li>
+`;

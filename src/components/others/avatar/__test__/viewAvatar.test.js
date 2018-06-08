@@ -7,7 +7,7 @@ describe('ViewAvatar Component', () => {
   const comp = (
     <ViewAvatar
       imgSrc='/images/music.jpg'
-      back={() => {}}
+      back={jest.fn()}
     />
   )
 

@@ -12,11 +12,7 @@ import PopularHashtags from '../hashtag/popular-hashtags'
 import { Instagram } from 'react-content-loader'
 import Feed from './feed'
 
-@connect(store => (
-  { store }
-))
-
-export default class Home extends Component {
+class Home extends Component {
 
   state = {
     loading: true
@@ -70,3 +66,10 @@ export default class Home extends Component {
     )
   }
 }
+
+const mapStateToProps = store => ({
+  store
+})
+
+export default connect(mapStateToProps)(Home)
+export { Home as PureHome }

@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MessagesCount Component should match snapshot 1`] = `
+<div
+  className="sli_mssg_count"
+>
+  <span
+    className="sli_label"
+  >
+    No. of messages
+  </span>
+  <span
+    className="sli_bold"
+  >
+    6 messages
+  </span>
+</div>
+`;

@@ -5,9 +5,8 @@ import { connect } from 'react-redux'
 import { CPP } from '../../../../actions/post'
 import d from '../../../../utils/API/DOM'
 
-const Filter = ({ filter, postIt, dispatch }) => {
+const Filter = ({ filter, previewImg, dispatch }) => {
 
-  let { previewImg } = postIt
   let f = filter.replace('filter-', '')
 
   let select = () => {
@@ -32,7 +31,8 @@ Filter.propTypes = {
 }
 
 const mapStateToProps = state => (
-  { postIt: state.Post.postIt }
+  { previewImg: state.Post.postIt.previewImg }
 )
 
 export default connect(mapStateToProps)(Filter)
+export { Filter as PureFilter }

@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import { humanReadable } from '../../../../utils/utils'
 import Likes from '../../like/likes/likes'
+import { number, func } from 'prop-types'
 
 export default class ShowLikes extends Component {
 
@@ -37,4 +38,10 @@ export default class ShowLikes extends Component {
       </Fragment>
     )
   }
+}
+
+ShowLikes.propTypes = {
+  post_id: number.isRequired,
+  likes_count: number.isRequired,
+  decrementLikes: func.isRequired
 }

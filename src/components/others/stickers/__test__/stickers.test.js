@@ -7,7 +7,7 @@ import axios from 'axios'
 import MockAdapter from 'axios-mock-adapter'
 
 describe('Stickers Component', () => {
-  const mockFn = () => {}
+  const mockFn = jest.fn()
   const comp = (
     <Stickers
       back={mockFn}

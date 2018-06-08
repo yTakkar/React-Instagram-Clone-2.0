@@ -7,7 +7,7 @@ Array [
     className="inst_checkbox"
     disabled={false}
     id="grp_private"
-    onChange={[Function]}
+    onChange={[MockFunction]}
     type="checkbox"
   />,
   <label
@@ -25,7 +25,7 @@ Array [
     className="inst_checkbox"
     disabled={true}
     id="grp_private"
-    onChange={[Function]}
+    onChange={[MockFunction]}
     type="checkbox"
   />,
   <label

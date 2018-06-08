@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PostItMiddle Component should match snapshot when fileChanged = false 1`] = `
+<div
+  className="i_p_main p_main"
+  style={
+    Object {
+      "height": 296,
+    }
+  }
+>
+  <form
+    className="post_img_form"
+    encType="multipart/formdata"
+    method="post"
+  >
+    <input
+      accept="image/*"
+      id="file_input"
+      onChange={[Function]}
+      type="file"
+      value=""
+    />
+    <label
+      className="pri_btn"
+      htmlFor="file_input"
+    >
+      Choose an image
+    </label>
+  </form>
+</div>
+`;
+
+exports[`PostItMiddle Component should match snapshot when fileChanged = false 2`] = `
+<div
+  className="i_p_main p_main"
+  style={
+    Object {
+      "height": 296,
+    }
+  }
+>
+  <div>
+    <div
+      className="i_p_ta"
+    >
+      <textarea
+        className="t_p_ta"
+        onChange={[Function]}
+        placeholder="What's new with you, @takkar?"
+        spellCheck="false"
+        value=""
+      />
+    </div>
+    <div
+      className="i_p_img"
+    >
+      <img
+        className="filter-normal"
+        src="/images/location.jpg"
+      />
+    </div>
+  </div>
+</div>
+`;

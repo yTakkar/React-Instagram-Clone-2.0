@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PostBookmark Component should match snapshot 1`] = `
+<div
+  className="p_bmrk_wra"
+>
+  <span
+    className="p_bookmark"
+    data-tip="Bookmark"
+    onClick={[Function]}
+  >
+    <i
+      className="material-icons"
+    >
+      bookmark_border
+    </i>
+  </span>
+</div>
+`;

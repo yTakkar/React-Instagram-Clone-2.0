@@ -5,11 +5,7 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import MaterialIcon from '../../others/icons/material-icon'
 
-@connect(store => (
-  { ud: store.User.user_details }
-))
-
-export default class PostBookmark extends Component {
+class PostBookmark extends Component {
 
   state = {
     bookmarked: false
@@ -50,7 +46,7 @@ export default class PostBookmark extends Component {
           {
             bookmarked
               ? <span
-                className='p_bookmark'
+                className='p_bookmark undo_bookmark'
                 data-tip='Undo bookmark'
                 onClick={this.unbookmark}
               ><MaterialIcon icon='bookmark' />
@@ -74,3 +70,10 @@ PostBookmark.propTypes = {
     when: PropTypes.string.isRequired
   }).isRequired,
 }
+
+const mapStateToProps = store => ({
+  ud: store.User.user_details
+})
+
+export default connect(mapStateToProps)(PostBookmark)
+export { PostBookmark as PurePostBookmark }

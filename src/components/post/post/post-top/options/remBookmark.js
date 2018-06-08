@@ -19,9 +19,10 @@ const RemBookmarkAsAdmin = ({ post_id, user, when, dispatch }) => {
     <Fragment>
       {
         when == 'bookmarks' && isAdmin() ?
-          <li>
-            <a href='#' onClick={remBookmarkAsAdmin} >Remove bookmark as admin</a>
-          </li>
+          <li><a
+            href='#'
+            onClick={remBookmarkAsAdmin}
+          >Remove bookmark as admin</a></li>
           : null
       }
     </Fragment>
@@ -34,6 +35,5 @@ RemBookmarkAsAdmin.propTypes = {
   when: PropTypes.string.isRequired
 }
 
-const mapStateToProps = () => ({})
-
-export default connect(mapStateToProps)(RemBookmarkAsAdmin)
+export default connect()(RemBookmarkAsAdmin)
+export { RemBookmarkAsAdmin as PureRemBookmarkAsAdmin }

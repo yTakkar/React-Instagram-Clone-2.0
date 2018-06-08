@@ -4,7 +4,7 @@ import ViewAvatarAction from '../view-avatar'
 import mockStore from '../../../../../store/mockStore/mockStore'
 
 describe('ViewAvatar-Action Component', () => {
-  const mockFn = () => {}
+  const mockFn = jest.fn()
 
   it('should match snapshot with null', () => {
     const tree = create(

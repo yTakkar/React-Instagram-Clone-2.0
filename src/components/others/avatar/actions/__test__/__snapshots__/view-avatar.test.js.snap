@@ -4,7 +4,7 @@ exports[`ViewAvatar-Action Component should match snapshot with ViewAvatar Compo
 Array [
   <div
     className="overlay"
-    onClick={[Function]}
+    onClick={[MockFunction]}
     style={
       Object {
         "cursor": "zoom-out",

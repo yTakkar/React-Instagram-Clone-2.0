@@ -9,11 +9,7 @@ import AdvancedUnfollow from '../../../../others/follow/advancedUnfollow'
 import AdvancedFollow from '../../../../others/follow/advancedFollow'
 import AppLink from '../../../../others/link/link'
 
-@connect(store => (
-  { ud: store.User.user_details }
-))
-
-export default class LikeList extends Component {
+class LikeList extends Component {
 
   state = {
     isFollowing: false
@@ -89,5 +85,13 @@ LikeList.propTypes = {
   firstname: PropTypes.string.isRequired,
   surname: PropTypes.string.isRequired,
   post_id: PropTypes.number.isRequired,
-  isFollowing: PropTypes.bool.isRequired
+  isFollowing: PropTypes.bool.isRequired,
+  decrementLikes: PropTypes.func.isRequired
 }
+
+const mapStateToProps = store => ({
+  ud: store.User.user_details
+})
+
+export default connect(mapStateToProps)(LikeList)
+export { LikeList as PureLikeList }

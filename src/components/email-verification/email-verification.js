@@ -5,11 +5,9 @@ import { FadeIn } from 'animate-components'
 const EmailVerification = ({ match }) => {
   let { params: { is } } = match
   let mssg =
-    is == 'yes'
-      ? 'You email has been verified successfully!'
-      : is == 'alr'
-        ? 'Email already verified!'
-        : 'Something went wrong!'
+  is == 'yes' ? 'You email has been verified successfully!'
+    : is == 'alr' ? 'Email already verified!'
+      : 'Something went wrong!'
 
   return (
     <div>

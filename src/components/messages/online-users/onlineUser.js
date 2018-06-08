@@ -66,3 +66,4 @@ OnlineUser.propTypes = {
 }
 
 export default connect()(OnlineUser)
+export { OnlineUser as PureOnlineUser }

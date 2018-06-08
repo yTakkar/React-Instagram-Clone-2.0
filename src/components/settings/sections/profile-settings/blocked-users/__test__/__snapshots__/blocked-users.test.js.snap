@@ -1,0 +1,123 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BlockedUsers Component should match snapshot 1`] = `
+<div
+  className="blocking"
+>
+  <div
+    className="set_header block_header"
+  >
+    <span
+      className="acc_type_h"
+    >
+      Your blocked members
+    </span>
+  </div>
+  <div
+    className="blocked_users"
+  >
+    <img
+      src="/users/7/avatar.jpg"
+    />
+    <div
+      className="blocked_u_content"
+    >
+      <div
+        className="blocked_info"
+      >
+        <a
+          className="blocked_username"
+          href="/profile/ghalib"
+          onClick={[Function]}
+        >
+          ghalib
+        </a>
+        <span
+          className="blocked_mutual"
+        >
+          Mirza Ghalib
+        </span>
+      </div>
+      <a
+        className="sec_btn unblock "
+        href="#"
+        onClick={[Function]}
+      >
+        Unblock
+      </a>
+    </div>
+  </div>
+  <div
+    className="blocked_users"
+  >
+    <img
+      src="/users/8/avatar.jpg"
+    />
+    <div
+      className="blocked_u_content"
+    >
+      <div
+        className="blocked_info"
+      >
+        <a
+          className="blocked_username"
+          href="/profile/coldplay"
+          onClick={[Function]}
+        >
+          coldplay
+        </a>
+        <span
+          className="blocked_mutual"
+        >
+          2 mutual followers
+        </span>
+      </div>
+      <a
+        className="sec_btn unblock "
+        href="#"
+        onClick={[Function]}
+      >
+        Unblock
+      </a>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`BlockedUsers Component should match snapshot and show when blockedUsers.length == 0 1`] = `
+<div
+  className="blocking"
+>
+  <div
+    className="set_header block_header"
+  >
+    <span
+      className="acc_type_h"
+    >
+      Your blocked members
+    </span>
+  </div>
+  <div
+    className="home_last_mssg"
+    style={
+      Object {
+        "border": "",
+      }
+    }
+  >
+    <img
+      src="/images/large.jpg"
+    />
+    <span
+      className="nothingMssg"
+    >
+      No blocked members
+    </span>
+    <span
+      className="secondMssg"
+    >
+      
+    </span>
+  </div>
+</div>
+`;

@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MapConversations Component should match snapshot 1`] = `
+Array [
+  <span
+    className="con_count"
+  >
+    2 conversations
+  </span>,
+  <div
+    style={
+      Object {
+        "animation": "bcCCNc 300ms ease 0s 1 normal none running",
+        "backfaceVisibility": "visible",
+      }
+    }
+  >
+    <div
+      className="mssg_sr mt_24"
+      onClick={[Function]}
+    >
+      <img
+        src="/users/7/avatar.jpg"
+      />
+      <div
+        className="m_sr_content"
+      >
+        <span
+          className="m_sr_username"
+        >
+          ghalib
+        </span>
+        <span
+          className="m_sr_light"
+        >
+          eo
+        </span>
+      </div>
+      <span
+        className="m_sr_time"
+      >
+        3 months
+      </span>
+    </div>
+    <div
+      className="mssg_sr mt_40"
+      onClick={[Function]}
+    >
+      <img
+        src="/users/10/avatar.jpg"
+      />
+      <div
+        className="m_sr_content"
+      >
+        <span
+          className="m_sr_username"
+        >
+          noddy
+        </span>
+        <span
+          className="m_sr_light"
+        />
+      </div>
+      <span
+        className="m_sr_time"
+      />
+    </div>
+  </div>,
+]
+`;

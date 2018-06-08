@@ -11,7 +11,7 @@ const BlockedUser = props => {
     block_id, user, username, firstname, surname, mutualFollowersCount, dispatch
   } = props
 
-  let unblockUser = async e => {
+  let unblockUser = e => {
     e.preventDefault()
     unblock({ block_id, username, dispatch })
   }
@@ -40,6 +40,7 @@ const BlockedUser = props => {
         <SecondaryButton
           label='Unblock'
           onClick={unblockUser}
+          extraClass='unblock'
         />
       </div>
 
@@ -58,3 +59,4 @@ BlockedUser.propTypes = {
 }
 
 export default connect()(BlockedUser)
+export { BlockedUser as PureBlockedUser }

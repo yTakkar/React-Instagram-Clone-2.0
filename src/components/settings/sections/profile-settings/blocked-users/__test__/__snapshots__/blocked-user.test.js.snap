@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BlockedUser Component should match snapshot 1`] = `
+<div
+  className="blocked_users"
+>
+  <img
+    src="/users/7/avatar.jpg"
+  />
+  <div
+    className="blocked_u_content"
+  >
+    <div
+      className="blocked_info"
+    >
+      <a
+        className="blocked_username"
+        href="/profile/ghalib"
+        onClick={[Function]}
+      >
+        ghalib
+      </a>
+      <span
+        className="blocked_mutual"
+      >
+        Mirza Ghalib
+      </span>
+    </div>
+    <a
+      className="sec_btn unblock "
+      href="#"
+      onClick={[Function]}
+    >
+      Unblock
+    </a>
+  </div>
+</div>
+`;
+
+exports[`BlockedUser Component should match snapshot when mutualFollowersCount > 0 1`] = `
+<div
+  className="blocked_users"
+>
+  <img
+    src="/users/8/avatar.jpg"
+  />
+  <div
+    className="blocked_u_content"
+  >
+    <div
+      className="blocked_info"
+    >
+      <a
+        className="blocked_username"
+        href="/profile/coldplay"
+        onClick={[Function]}
+      >
+        coldplay
+      </a>
+      <span
+        className="blocked_mutual"
+      >
+        2 mutual followers
+      </span>
+    </div>
+    <a
+      className="sec_btn unblock "
+      href="#"
+      onClick={[Function]}
+    >
+      Unblock
+    </a>
+  </div>
+</div>
+`;

@@ -1,0 +1,123 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PostTopDetails Component should match snapshot 1`] = `
+Array [
+  <div
+    className="p_i_img"
+  >
+    <img
+      src="/users/24/avatar.jpg"
+    />
+  </div>,
+  <div
+    className="p_i_1"
+    style={
+      Object {
+        "top": "inherit",
+      }
+    }
+  >
+    <a
+      href="/profile/takkar"
+      onClick={[Function]}
+      title="takkar"
+    >
+      takkar
+    </a>
+    <span
+      className="p_i_1_title"
+      title="A-301, 90 Feet Road, Dharavi, Mumbai, Maharashtra 400017, India"
+    >
+      A-301, 90 Feet Road, Dharavi, Mum..
+    </span>
+  </div>,
+]
+`;
+
+exports[`PostTopDetails Component should match snapshot and show first & second name of user if no location 1`] = `
+Array [
+  <div
+    className="p_i_img"
+  >
+    <img
+      src="/users/24/avatar.jpg"
+    />
+  </div>,
+  <div
+    className="p_i_1"
+    style={
+      Object {
+        "top": "inherit",
+      }
+    }
+  >
+    <a
+      href="/profile/takkar"
+      onClick={[Function]}
+      title="takkar"
+    >
+      takkar
+    </a>
+    <span
+      className="p_i_1_title"
+      title={null}
+    >
+      iam_ takkar
+    </span>
+  </div>,
+]
+`;
+
+exports[`PostTopDetails Component should match snapshot and show group name when type == group 1`] = `
+Array [
+  <div
+    className="p_i_img"
+  >
+    <img
+      src="/users/24/avatar.jpg"
+    />
+  </div>,
+  <div
+    className="p_i_1"
+    style={
+      Object {
+        "top": -8,
+      }
+    }
+  >
+    <a
+      href="/profile/takkar"
+      onClick={[Function]}
+      title="takkar"
+    >
+      takkar
+    </a>
+    <div
+      className="its_grp_post"
+    >
+      <span
+        className="to_grp_arrow"
+      >
+        <i
+          className="material-icons"
+        >
+          arrow_drop_up
+        </i>
+      </span>
+      <a
+        className="to_grp_name"
+        href="/group/11"
+        onClick={[Function]}
+      >
+        cool group
+      </a>
+    </div>
+    <span
+      className="p_i_1_title"
+      title="A-301, 90 Feet Road, Dharavi, Mumbai, Maharashtra 400017, India"
+    >
+      A-301, 90 Feet Road, Dharavi, Mum..
+    </span>
+  </div>,
+]
+`;

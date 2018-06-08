@@ -28,8 +28,8 @@ const PostItActions = props => {
 
   let postIt = async e => {
     e.preventDefault()
-
     toggleOverlay()
+
     await addPost({
       dispatch, desc, targetFile, filter, location, tags, type, group, group_name
     })
@@ -67,3 +67,4 @@ const mapStateToProps = state => (
 )
 
 export default connect(mapStateToProps)(PostItActions)
+export { PostItActions as PurePostItActions }

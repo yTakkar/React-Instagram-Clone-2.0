@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Me, toggle } from '../../../../utils/utils'
+import { Me } from '../../../../utils/utils'
 import TimeAgo from 'handy-timeago'
 import MessageType from './message-type'
 import MessageTools from './tools/message-tools'
@@ -9,24 +9,30 @@ export default class Message extends Component {
 
   state = {
     message: '',
+    showTools: false
   }
 
   componentDidMount = () =>
     this.setState({ message: this.props.message })
 
-  toggleTools = () => toggle(this.tools)
+  toggleTools = () =>
+    this.setState({ showTools: !this.state.showTools })
 
   render() {
-    let { message } = this.state
+    let { message, showTools } = this.state
     let { mssg_by, type, message_time, message_id } = this.props
+    let mssgStyle = Me(mssg_by) ? 'my_mm_div' : 'not_my_mm_div'
 
     return (
       <div>
 
         <div
-          className={`m_m_divs ${Me(mssg_by) ? 'my_mm_div' : 'not_my_mm_div'} `}
+          className={`m_m_divs ${mssgStyle}`}
         >
-          <div onClick={this.toggleTools} >
+          <div
+            className='toggle_mssg_tools'
+            onClick={this.toggleTools}
+          >
             <MessageType
               messageDetails={{ message, type, message_time }}
             />
@@ -36,18 +42,19 @@ export default class Message extends Component {
             { TimeAgo(message_time).replace(' ago', '') }
           </span>
 
-          <div
-            className='m_m_tools'
-            style={{ display: 'none' }}
-            ref={r => this.tools = r}
-          >
-            <MessageTools
-              messageDetails={{ message_id, message, type, mssg_by }}
-              updateMessage={message =>
-                this.setState({ message })
-              }
-            />
-          </div>
+          {
+            showTools ?
+              <div className='m_m_tools' >
+                <MessageTools
+                  messageDetails={{ message_id, message, type, mssg_by }}
+                  updateMessage={message =>
+                    this.setState({ message })
+                  }
+                />
+              </div>
+              : null
+          }
+
         </div>
 
       </div>

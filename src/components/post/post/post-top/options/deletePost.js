@@ -7,8 +7,7 @@ import { Redirect } from 'react-router'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
-@connect()
-export default class DeletePostOption extends Component {
+class DeletePostOption extends Component {
 
   state = {
     deletePost: false,
@@ -20,9 +19,12 @@ export default class DeletePostOption extends Component {
     this.setState({ deletePost: !this.state.deletePost })
   }
 
-  delete = async e => {
+  delete = e => {
     e.preventDefault()
-    let { postDetails: { post_id, when }, dispatch } = this.props
+    let {
+      postDetails: { post_id, when },
+      dispatch
+    } = this.props
     deletePost({
       post_id, when, dispatch,
       redirect: () => this.setState({ redirect: true })
@@ -79,3 +81,6 @@ DeletePostOption.propTypes = {
   }).isRequired,
   toggleOptions: PropTypes.func.isRequired
 }
+
+export default connect()(DeletePostOption)
+export { DeletePostOption as PureDeletePostOption }

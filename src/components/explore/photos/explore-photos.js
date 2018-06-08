@@ -7,11 +7,7 @@ import ExplorePhotoGallery from './photo-gallery'
 import IsLoading from '../../others/isLoading'
 import { cLoading } from '../../../utils/utils'
 
-@connect(store => (
-  { store }
-))
-
-export default class ExpPhotos extends Component {
+class ExpPhotos extends Component {
 
   state = {
     loading: true
@@ -46,3 +42,10 @@ export default class ExpPhotos extends Component {
     )
   }
 }
+
+const mapStateToProps = store => (
+  { store }
+)
+
+export default connect(mapStateToProps)(ExpPhotos)
+export { ExpPhotos as PureExpPhotos }

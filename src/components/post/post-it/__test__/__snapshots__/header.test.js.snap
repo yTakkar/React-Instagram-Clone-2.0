@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PostItHeader Component should match snapshot with location 1`] = `
+<div
+  className="i_p_top p_top"
+>
+  <div
+    className="i_p_info p_info"
+  >
+    <img
+      src="/users/24/avatar.jpg"
+    />
+    <span>
+      takkar
+    </span>
+  </div>
+  <span
+    className="loc_text"
+    title="A-301, 90 Feet Road, Dharavi, Mumbai, Maharashtra 400017, India"
+  >
+    A-301, 90 Feet Road,..
+  </span>
+</div>
+`;
+
+exports[`PostItHeader Component should match snapshot with text "Fetching location.." 1`] = `
+<div
+  className="i_p_top p_top"
+>
+  <div
+    className="i_p_info p_info"
+  >
+    <img
+      src="/users/24/avatar.jpg"
+    />
+    <span>
+      takkar
+    </span>
+  </div>
+  <span
+    className="loc_text"
+    title="A-301, 90 Feet Road, Dharavi, Mumbai, Maharashtra 400017, India"
+  >
+    Fetching location...
+  </span>
+</div>
+`;

@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DeleteMessageTool Component should match snapshot 1`] = `
+<span
+  className="toggle_dlt_mssg"
+  data-tip="Delete "
+  onClick={[Function]}
+>
+  <i
+    className="material-icons"
+  >
+    delete
+  </i>
+</span>
+`;

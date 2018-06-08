@@ -94,7 +94,7 @@ export const resend_vl = async () => {
 export const fieldsToArray = fields => {
   let array = []
 
-  for(let key in fields) {
+  for (let key in fields) {
     array.push({
       key,
       value: fields[key]

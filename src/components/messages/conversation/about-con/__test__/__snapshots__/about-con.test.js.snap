@@ -1,0 +1,222 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AboutConversation Component should match snapshot 1`] = `
+Array [
+  <div
+    className="overlay"
+    onClick={null}
+    style={
+      Object {
+        "cursor": "inherit",
+        "opacity": 0.5,
+      }
+    }
+  />,
+  <div
+    className="modal modal_big"
+  >
+    <div
+      style={
+        Object {
+          "animation": "bcCCNc 300ms ease 0s 1 normal none running",
+          "backfaceVisibility": "visible",
+        }
+      }
+    >
+      <div
+        className="modal_header"
+      >
+        <span
+          className="title"
+        >
+          About conversation
+        </span>
+      </div>
+      <div
+        className="modal_middle"
+        style={
+          Object {
+            "height": 450,
+            "overflow": "hidden",
+            "position": "relative",
+            "width": "100%",
+          }
+        }
+      >
+        <div
+          style={
+            Object {
+              "WebkitOverflowScrolling": "touch",
+              "bottom": 0,
+              "left": 0,
+              "marginBottom": 0,
+              "marginRight": 0,
+              "overflow": "scroll",
+              "position": "absolute",
+              "right": 0,
+              "top": 0,
+            }
+          }
+        >
+          <div
+            className="spinner"
+          >
+            <span />
+            <span />
+            <span />
+          </div>
+          <div
+            className="modal_main cLoading"
+            style={
+              Object {
+                "padding": 0,
+              }
+            }
+          >
+            <div
+              className="about_con"
+            >
+              <div
+                className="sli_with_div"
+              >
+                <span
+                  className="sli_label"
+                >
+                  Conversation with
+                </span>
+                <div
+                  className="sli_with"
+                >
+                  <img
+                    src="/users/28/avatar.jpg"
+                  />
+                  <div
+                    className="sli_with_cont"
+                  >
+                    <a
+                      href="/profile/selena"
+                      onClick={[Function]}
+                    >
+                      selena
+                    </a>
+                    <span
+                      className="sli_w"
+                    >
+                      1 mutual follower
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div
+                className="sli_time"
+              >
+                <span
+                  className="sli_label"
+                >
+                  Conversation since
+                </span>
+                <span
+                  className="sli_bold"
+                >
+                  Last month
+                </span>
+              </div>
+              <div
+                className="sli_mssg_count"
+              >
+                <span
+                  className="sli_label"
+                >
+                  No. of messages
+                </span>
+                <span
+                  className="sli_bold"
+                >
+                  6 messages
+                </span>
+              </div>
+              <div
+                className="sli_media"
+              >
+                <span
+                  className="sli_label"
+                >
+                  Media
+                </span>
+                <img
+                  className="sli_media_img"
+                  src="/messages/instagram_message_1528278864884.jpg"
+                  title="By takkar"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          style={
+            Object {
+              "borderRadius": 3,
+              "bottom": 2,
+              "display": "none",
+              "height": 6,
+              "left": 2,
+              "position": "absolute",
+              "right": 2,
+            }
+          }
+        >
+          <div
+            style={
+              Object {
+                "backgroundColor": "rgba(0,0,0,.2)",
+                "borderRadius": "inherit",
+                "cursor": "pointer",
+                "display": "block",
+                "height": "100%",
+                "position": "relative",
+              }
+            }
+          />
+        </div>
+        <div
+          style={
+            Object {
+              "borderRadius": 3,
+              "bottom": 2,
+              "display": "none",
+              "position": "absolute",
+              "right": 2,
+              "top": 2,
+              "width": 6,
+            }
+          }
+        >
+          <div
+            style={
+              Object {
+                "backgroundColor": "rgba(0,0,0,.2)",
+                "borderRadius": "inherit",
+                "cursor": "pointer",
+                "display": "block",
+                "position": "relative",
+                "width": "100%",
+              }
+            }
+          />
+        </div>
+      </div>
+      <div
+        className="modal_bottom"
+      >
+        <a
+          className="pri_btn  "
+          href="#"
+          onClick={[Function]}
+        >
+          Back
+        </a>
+      </div>
+    </div>
+  </div>,
+]
+`;

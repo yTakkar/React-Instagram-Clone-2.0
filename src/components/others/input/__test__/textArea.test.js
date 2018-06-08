@@ -9,7 +9,7 @@ describe('TextArea Component', () => {
       <TextArea
         value='A value'
         placeholder='Enter bio'
-        valueChange={() => {}}
+        valueChange={jest.fn()}
       />
     ).toJSON()
     expect(tree).toMatchSnapshot()

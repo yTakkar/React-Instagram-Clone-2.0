@@ -62,7 +62,10 @@ app.post('/get-blocked-users', async (req, res) => {
 
   for (let b of _blockedUsers) {
     let mutualFollowers = await User.mutualUsers(id, b.user)
-    blockedUsers.push({ ...b, mutualFollowersCount: mutualFollowers.length })
+    blockedUsers.push({
+      ...b,
+      mutualFollowersCount: mutualFollowers.length
+    })
   }
 
   res.json(blockedUsers)

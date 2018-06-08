@@ -6,7 +6,7 @@ describe('CheckBox Component', () => {
   const props = {
     label: 'CheckBox label',
     checked: true,
-    changeValue: () => {}
+    changeValue: jest.fn()
   }
 
   it('should match snapshot', () => {

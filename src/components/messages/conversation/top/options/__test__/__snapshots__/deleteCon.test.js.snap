@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DeleteConversation Component should match snapshot 1`] = `
+<li>
+  <a
+    className="dlt_con"
+    href="#"
+    onClick={[Function]}
+  >
+    Delete conversation
+  </a>
+</li>
+`;

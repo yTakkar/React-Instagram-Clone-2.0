@@ -1,10 +1,11 @@
 import EmojisArray from '../emojis-array'
+import { create } from 'react-test-renderer'
 
 describe('Emojis Array', () => {
 
-  it('should be an array of 768 emojis', () => {
-    expect(EmojisArray).toBeArray()
-    expect(EmojisArray.length).toBe(768)
+  it('should match snapshot', () => {
+    const tree = create(EmojisArray).toJSON()
+    expect(tree).toMatchSnapshot()
   })
 
   it('should contain 😈, 😺, 😎', () => {

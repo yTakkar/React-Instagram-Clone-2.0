@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Explore Component should match snapshot 1`] = `
+<div>
+  <div
+    style={
+      Object {
+        "animation": "bcCCNc 300ms ease 0s 1 normal none running",
+        "backfaceVisibility": "visible",
+      }
+    }
+  >
+    <div
+      className="exp_nav"
+    >
+      <ul>
+        <li>
+          <a
+            aria-current={false}
+            className="exp_nav_link"
+            href="/explore"
+            onClick={[Function]}
+          >
+            Users
+          </a>
+        </li>
+        <li>
+          <a
+            aria-current={false}
+            className="exp_nav_link"
+            href="/explore/explore-photos"
+            onClick={[Function]}
+          >
+            Photos
+          </a>
+        </li>
+        <li>
+          <a
+            aria-current={false}
+            className="exp_nav_link"
+            href="/explore/explore-groups"
+            onClick={[Function]}
+          >
+            Groups
+          </a>
+        </li>
+      </ul>
+      <a
+        className="exp_refresh"
+        data-tip="Refresh"
+        href="#"
+        onClick={[Function]}
+      >
+        <i
+          className="fas fa-sync-alt"
+        />
+      </a>
+      <div
+        className="__react_component_tooltip place-top type-dark "
+        data-id="tooltip"
+      >
+        
+      </div>
+    </div>
+    <div
+      className="exp_hmm"
+    />
+  </div>
+</div>
+`;

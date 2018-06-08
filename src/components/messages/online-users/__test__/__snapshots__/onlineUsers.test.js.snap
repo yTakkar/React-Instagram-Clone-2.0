@@ -1,0 +1,226 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OnlineUsers Component should match snapshot 1`] = `
+Array [
+  <div
+    className="overlay"
+    onClick={null}
+    style={
+      Object {
+        "cursor": "inherit",
+        "opacity": 0.5,
+      }
+    }
+  />,
+  <div
+    className="modal modal_big"
+  >
+    <div
+      style={
+        Object {
+          "animation": "bcCCNc 300ms ease 0s 1 normal none running",
+          "backfaceVisibility": "visible",
+        }
+      }
+    >
+      <div
+        className="modal_header"
+      >
+        <span
+          className="title"
+        >
+          Online members
+        </span>
+      </div>
+      <div
+        className="modal_middle"
+        style={
+          Object {
+            "height": 450,
+            "overflow": "hidden",
+            "position": "relative",
+            "width": "100%",
+          }
+        }
+      >
+        <div
+          style={
+            Object {
+              "WebkitOverflowScrolling": "touch",
+              "bottom": 0,
+              "left": 0,
+              "marginBottom": 0,
+              "marginRight": 0,
+              "overflow": "scroll",
+              "position": "absolute",
+              "right": 0,
+              "top": 0,
+            }
+          }
+        >
+          <div
+            className="spinner"
+          >
+            <span />
+            <span />
+            <span />
+          </div>
+          <div
+            className="modal_main cLoading"
+          >
+            <div
+              className="modal_items fer_items"
+            >
+              <div
+                className="modal_it_img"
+              >
+                <img
+                  src="/users/16/avatar.jpg"
+                />
+              </div>
+              <div
+                className="modal_it_content"
+              >
+                <div
+                  className="modal_it_info"
+                >
+                  <a
+                    className="modal_it_username"
+                    href="/profile/zayn"
+                    onClick={[Function]}
+                  >
+                    zayn
+                  </a>
+                  <span
+                    className="modal_it_light"
+                  >
+                    Zayn Malik
+                  </span>
+                </div>
+                <div
+                  className="modal_ff"
+                >
+                  <a
+                    className="pri_btn  "
+                    href="#"
+                    onClick={[Function]}
+                  >
+                    Message
+                  </a>
+                </div>
+              </div>
+              <hr />
+            </div>
+            <div
+              className="modal_items fer_items"
+            >
+              <div
+                className="modal_it_img"
+              >
+                <img
+                  src="/users/7/avatar.jpg"
+                />
+              </div>
+              <div
+                className="modal_it_content"
+              >
+                <div
+                  className="modal_it_info"
+                >
+                  <a
+                    className="modal_it_username"
+                    href="/profile/ghalib"
+                    onClick={[Function]}
+                  >
+                    ghalib
+                  </a>
+                  <span
+                    className="modal_it_light"
+                  >
+                    1 mutual follower
+                  </span>
+                </div>
+                <div
+                  className="modal_ff"
+                >
+                  <a
+                    className="pri_btn  "
+                    href="#"
+                    onClick={[Function]}
+                  >
+                    Message
+                  </a>
+                </div>
+              </div>
+              <hr />
+            </div>
+          </div>
+        </div>
+        <div
+          style={
+            Object {
+              "borderRadius": 3,
+              "bottom": 2,
+              "display": "none",
+              "height": 6,
+              "left": 2,
+              "position": "absolute",
+              "right": 2,
+            }
+          }
+        >
+          <div
+            style={
+              Object {
+                "backgroundColor": "rgba(0,0,0,.2)",
+                "borderRadius": "inherit",
+                "cursor": "pointer",
+                "display": "block",
+                "height": "100%",
+                "position": "relative",
+              }
+            }
+          />
+        </div>
+        <div
+          style={
+            Object {
+              "borderRadius": 3,
+              "bottom": 2,
+              "display": "none",
+              "position": "absolute",
+              "right": 2,
+              "top": 2,
+              "width": 6,
+            }
+          }
+        >
+          <div
+            style={
+              Object {
+                "backgroundColor": "rgba(0,0,0,.2)",
+                "borderRadius": "inherit",
+                "cursor": "pointer",
+                "display": "block",
+                "position": "relative",
+                "width": "100%",
+              }
+            }
+          />
+        </div>
+      </div>
+      <div
+        className="modal_bottom"
+      >
+        <a
+          className="pri_btn  "
+          href="#"
+          onClick={[Function]}
+        >
+          Back
+        </a>
+      </div>
+    </div>
+  </div>,
+]
+`;

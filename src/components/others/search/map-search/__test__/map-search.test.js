@@ -6,14 +6,14 @@ import { BrowserRouter as Router } from 'react-router-dom'
 
 describe('Map-Search Component', () => {
 
-  it('should match snapshot with different search data', () => {
+  it('should match snapshot with given search data', () => {
     const tree = create(
       <Router>
         <MapSearch
           users={searchData.users.slice(1)}
           groups={searchData.groups}
           hashtags={[]}
-          clicked={() => {}}
+          clicked={jest.fn()}
         />
       </Router>
     ).toJSON()

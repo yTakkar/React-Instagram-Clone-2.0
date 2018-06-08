@@ -1,0 +1,183 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ExpGroups Component should match snapshot 1`] = `
+<div>
+  <div
+    style={
+      Object {
+        "animation": "bcCCNc 300ms ease 0s 1 normal none running",
+        "backfaceVisibility": "visible",
+      }
+    }
+  >
+    <div
+      className="spinner"
+    >
+      <span />
+      <span />
+      <span />
+    </div>
+    <div
+      className="m_div cLoading"
+      style={
+        Object {
+          "marginTop": 0,
+        }
+      }
+    >
+      <div
+        className="m_wrapper"
+        style={
+          Object {
+            "width": null,
+          }
+        }
+      >
+        <div
+          className="m_on exp_groups_m_on"
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}
+        >
+          <div
+            className="m_top"
+          >
+            <img
+              src="/groups/12/avatar.jpg"
+            />
+            <div
+              className="m_top_right"
+            >
+              <a
+                href="/group/12"
+                onClick={[Function]}
+              >
+                nmnmnmnm
+              </a>
+              <span>
+                3 mutual members
+              </span>
+            </div>
+          </div>
+          <div
+            className="m_bottom"
+          >
+            <a
+              className="pri_btn follow "
+              href="#"
+              onClick={[Function]}
+            >
+              Join group
+            </a>
+          </div>
+        </div>
+        <div
+          className="m_on exp_groups_m_on"
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}
+        >
+          <div
+            className="m_top"
+          >
+            <img
+              src="/groups/11/avatar.jpg"
+            />
+            <div
+              className="m_top_right"
+            >
+              <a
+                href="/group/11"
+                onClick={[Function]}
+              >
+                a groupss
+              </a>
+              <span>
+                4 members
+              </span>
+            </div>
+          </div>
+          <div
+            className="m_bottom"
+          >
+            <a
+              className="pri_btn follow "
+              href="#"
+              onClick={[Function]}
+            >
+              Join group
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ExpGroups Component should match snapshot and show <Nothing/> when groups.length == 0 1`] = `
+<div>
+  <div
+    style={
+      Object {
+        "animation": "bcCCNc 300ms ease 0s 1 normal none running",
+        "backfaceVisibility": "visible",
+      }
+    }
+  >
+    <div
+      className="spinner"
+    >
+      <span />
+      <span />
+      <span />
+    </div>
+    <div
+      className="m_div cLoading"
+      style={
+        Object {
+          "marginTop": 0,
+        }
+      }
+    >
+      <div
+        className="m_wrapper"
+        style={
+          Object {
+            "width": 500,
+          }
+        }
+      >
+        <div
+          style={
+            Object {
+              "width": "100%",
+            }
+          }
+        >
+          <div
+            className="home_last_mssg"
+            style={
+              Object {
+                "border": "",
+              }
+            }
+          >
+            <img
+              src="/images/large.jpg"
+            />
+            <span
+              className="nothingMssg"
+            >
+              Sorry, no groups to explore!!
+            </span>
+            <span
+              className="secondMssg"
+            >
+              
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

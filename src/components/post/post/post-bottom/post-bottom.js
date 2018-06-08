@@ -5,14 +5,10 @@ import Comments from '../../comment/comments/comments'
 import ImageComment from '../../comment/image-comment/imageComment'
 import StickerComment from '../../comment/sticker-comment/stickerComment'
 import TextComment from '../../comment/text-comment/text-comment'
-import PropTypes from 'prop-types'
+import { shape, number, string, array } from 'prop-types'
 import AppLink from '../../../others/link/link'
 
-@connect(store => (
-  { session: store.User.session.id }
-))
-
-export default class PostBottom extends Component {
+class PostBottom extends Component {
 
   state = {
     comments_count: 0
@@ -84,5 +80,18 @@ export default class PostBottom extends Component {
 }
 
 PostBottom.propTypes = {
-  postDetails: PropTypes.object
+  postDetails: shape({
+    comments_count: number.isRequired,
+    post_id: number.isRequired,
+    when: string.isRequired,
+    user: number.isRequired,
+    comments: array
+  }).isRequired
 }
+
+const mapStateToProps = store => ({
+  session: store.User.session.id
+})
+
+export default connect(mapStateToProps)(PostBottom)
+export { PostBottom as PurePostBottom }

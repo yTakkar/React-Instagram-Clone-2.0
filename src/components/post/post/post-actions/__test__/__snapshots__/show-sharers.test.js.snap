@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ShowSharers Component should match snapshot 1`] = `
+<span
+  className="p_comm"
+  onClick={[Function]}
+>
+  1 share
+</span>
+`;

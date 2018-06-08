@@ -11,11 +11,7 @@ import IsLoading from '../../others/isLoading'
 import ShowPost from './show-post'
 import { cLoading } from '../../../utils/utils'
 
-@connect(store => (
-  { store }
-))
-
-export default class ViewPost extends Component {
+class ViewPost extends Component {
 
   state = {
     loading: true
@@ -63,3 +59,10 @@ export default class ViewPost extends Component {
     )
   }
 }
+
+const mapStateToProps = store => ({
+  store
+})
+
+export default connect(mapStateToProps)(ViewPost)
+export { ViewPost as PureViewPost }

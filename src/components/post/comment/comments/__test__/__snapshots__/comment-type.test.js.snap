@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CommentType Component should match snapshot when no comment 1`] = `
+<span
+  style={
+    Object {
+      "display": "block",
+      "fontStyle": "italic",
+    }
+  }
+>
+  Empty comment
+</span>
+`;
+
+exports[`CommentType Component should match snapshot when type == image 1`] = `
+<img
+  className="comments_img"
+  onClick={[Function]}
+  src="/comments/instagram_comment_1518972851259.jpg"
+/>
+`;
+
+exports[`CommentType Component should match snapshot when type == sticker 1`] = `
+<img
+  className="comments_sticker"
+  src="/comments/instagram_comment_1527447929485.jpg"
+/>
+`;
+
+exports[`CommentType Component should match snapshot when type == text 1`] = `
+<p
+  className="ce"
+>
+  <span>
+    a 
+    comment 
+  </span>
+</p>
+`;

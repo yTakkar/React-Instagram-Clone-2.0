@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ConversationShowMore Component should match snapshot 1`] = `
+<li>
+  <a
+    className="m_m_info"
+    href="#"
+    onClick={[Function]}
+  >
+    More
+  </a>
+</li>
+`;

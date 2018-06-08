@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import { humanReadable } from '../../../../utils/utils'
 import Sharers from '../../sharers/sharers'
+import { number, func } from 'prop-types'
 
 export default class ShowSharers extends Component {
 
@@ -35,4 +36,10 @@ export default class ShowSharers extends Component {
       </Fragment>
     )
   }
+}
+
+ShowSharers.propTypes = {
+  post_id: number.isRequired,
+  shares_count: number.isRequired,
+  decrementSharers: func.isRequired
 }

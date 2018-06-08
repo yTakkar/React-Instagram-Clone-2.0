@@ -13,11 +13,7 @@ import ModalMiddle from '../../others/modal/modal-middle'
 import IsLoading from '../../others/isLoading'
 import Overlay from '../../others/overlay'
 
-@connect(store => (
-  { onlineUsers: store.Message.onlineUsers }
-))
-
-export default class OnlineUsers extends Component {
+class OnlineUsers extends Component {
 
   state = {
     loading: true
@@ -73,3 +69,10 @@ export default class OnlineUsers extends Component {
 OnlineUsers.propTypes = {
   back: PropTypes.func.isRequired
 }
+
+const mapsStateToProps = store => ({
+  onlineUsers: store.Message.onlineUsers
+})
+
+export default connect(mapsStateToProps)(OnlineUsers)
+export { OnlineUsers as PureOnlineUsers }

@@ -1,0 +1,141 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Comment Component should match snapshot with type image 1`] = `
+<div>
+  <div
+    className="comments "
+  >
+    <img
+      className="comments_avatar"
+      src="/users/8/avatar.jpg"
+    />
+    <div
+      className="comments_content"
+    >
+      <a
+        className="comments_user"
+        href="/profile/coldplay"
+        onClick={[Function]}
+      >
+        coldplay
+      </a>
+      <img
+        className="comments_img"
+        onClick={[Function]}
+        src="/comments/instagram_comment_1518972851259.jpg"
+      />
+      <div
+        className="comments_bottom"
+      >
+        <span
+          className="comments_time"
+        >
+          3 months ago
+        </span>
+      </div>
+      <div
+        className="__react_component_tooltip place-top type-dark "
+        data-id="tooltip"
+      >
+        
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Comment Component should match snapshot with type sticker 1`] = `
+<div>
+  <div
+    className="comments "
+  >
+    <img
+      className="comments_avatar"
+      src="/users/24/avatar.jpg"
+    />
+    <div
+      className="comments_content"
+    >
+      <a
+        className="comments_user"
+        href="/profile/takkar"
+        onClick={[Function]}
+      >
+        takkar
+      </a>
+      <img
+        className="comments_sticker"
+        src="/comments/instagram_comment_1527447929485.jpg"
+      />
+      <div
+        className="comments_bottom"
+      >
+        <span
+          className="comments_time"
+        >
+          Last week
+        </span>
+      </div>
+      <div
+        className="__react_component_tooltip place-top type-dark "
+        data-id="tooltip"
+      >
+        
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Comment Component should match snapshot with type text 1`] = `
+<div>
+  <div
+    className="comments "
+  >
+    <img
+      className="comments_avatar"
+      src="/users/7/avatar.jpg"
+    />
+    <div
+      className="comments_content"
+    >
+      <a
+        className="comments_user"
+        href="/profile/ghalib"
+        onClick={[Function]}
+      >
+        ghalib
+      </a>
+      <p
+        className="ce"
+      >
+        <span>
+          <a
+            className="hashtag"
+            href="https://regexr.com/?37i6s"
+            target="_blank"
+          >
+            https://regexr.com/?37i6s 
+          </a>
+          fffffm 
+        </span>
+      </p>
+      <div
+        className="comments_bottom"
+      >
+        <span
+          className="comments_time"
+        >
+          3 months ago
+        </span>
+      </div>
+      <div
+        className="__react_component_tooltip place-top type-dark "
+        data-id="tooltip"
+      >
+        
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -1,20 +1,21 @@
 import React from 'react'
-import { uniq } from '../../../utils/utils'
-import PropTypes from 'prop-types'
 import AppLink from '../../others/link/link'
+import { string } from 'prop-types'
 
-const ToLink = (url, label) => (
-  <AppLink
-    key={uniq()}
-    url={url}
-    className='hashtag'
-    label={label}
-  />
-)
+const ToLink = ({ url, label }) => {
+
+  return (
+    <AppLink
+      url={url}
+      className='hashtag'
+      label={label}
+    />
+  )
+}
 
 ToLink.propTypes = {
-  url: PropTypes.string.isRequired,
-  label: PropTypes.string.isRequired
+  url: string.isRequired,
+  label: string.isRequired
 }
 
 export default ToLink

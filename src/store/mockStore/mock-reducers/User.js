@@ -10,7 +10,7 @@ export default {
     surname: 'Ghalib',
     email: 'ghalib@gmail.com',
     bio: '',
-    account_type: 'private',
+    account_type: 'public',
     email_verified: 'yes',
     joined: '1514718748562',
     twitter: '',
@@ -21,5 +21,15 @@ export default {
     website: '',
     isOnline: false,
     lastOnline: '',
-  }
+  },
+  tags: [
+    {
+      tag: 'traveler',
+      user: 24,
+    },
+    {
+      tag: 'nature-lover',
+      user: 24
+    }
+  ]
 }

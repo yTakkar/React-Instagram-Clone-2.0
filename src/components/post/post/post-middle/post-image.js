@@ -15,27 +15,36 @@ export default class PostImage extends Component {
 
   render() {
     let {
-      postDetails: { post_id, post_time, description, imgSrc, filter, username, tags_count },
+      postDetails: {
+        post_id, post_time, description, imgSrc, filter, username, tags_count
+      },
     } = this.props
     let { showImage } = this.state
 
     return (
       <div>
         <div className='p_o'>
+
           <div className='p_actual' spellCheck='false'>
-            <div className='p_abt' style={{ marginBottom: description ? '10px' : null }} >
+            <div
+              className='p_abt'
+              style={{ marginBottom: description ? '10px' : null }}
+            >
               <p><ToTags str={`${description}`} /></p>
             </div>
+
             <img
               src={`/posts/${imgSrc}`}
               className={`p_img ${filter}`}
               onClick={() => this._toggle('showImage')}
             />
+
             <PostTags
               post_id={post_id}
               tags_count={tags_count}
             />
           </div>
+
         </div>
 
         {

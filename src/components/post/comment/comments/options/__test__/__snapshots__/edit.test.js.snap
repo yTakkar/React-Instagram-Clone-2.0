@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EditCommentOption Component should match snapshot 1`] = `
+<li>
+  <a
+    href="#"
+    onClick={[Function]}
+  >
+    Edit comment 
+  </a>
+</li>
+`;
+
+exports[`EditCommentOption Component should match snapshot with null when type != text 1`] = `null`;

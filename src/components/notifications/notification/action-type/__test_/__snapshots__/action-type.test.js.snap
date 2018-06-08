@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NotificationActionType Component should match snapshot with <Follow/> 1`] = `
+<React.Fragment>
+  <div
+    className="noti_right follow_noti_right"
+  >
+    <Connect(Follow)
+      followed={[Function]}
+      userDetails={
+        Object {
+          "user": 7,
+          "username": "ghalib",
+        }
+      }
+    />
+  </div>
+</React.Fragment>
+`;
+
+exports[`NotificationActionType Component should match snapshot with <NotificationTypeCon/> 1`] = `
+<React.Fragment>
+  <div
+    className="noti_right follow_noti_right"
+  >
+    <NotificationTypeCon />
+  </div>
+</React.Fragment>
+`;
+
+exports[`NotificationActionType Component should match snapshot with <NotificationTypeGroup/> 1`] = `
+<React.Fragment>
+  <div
+    className="noti_right follow_noti_right"
+  >
+    <NotificationTypeGroup
+      group_id={17}
+    />
+  </div>
+</React.Fragment>
+`;
+
+exports[`NotificationActionType Component should match snapshot with <NotificationTypePost/> 1`] = `
+<React.Fragment>
+  <div
+    className="noti_right follow_noti_right"
+  >
+    <NotificationTypePost
+      post_id={24}
+    />
+  </div>
+</React.Fragment>
+`;
+
+exports[`NotificationActionType Component should match snapshot with <NotificationTypeProfile/> 1`] = `
+<React.Fragment>
+  <div
+    className="noti_right follow_noti_right"
+  >
+    <NotificationTypeProfile
+      user_username="zayn"
+    />
+  </div>
+</React.Fragment>
+`;
+
+exports[`NotificationActionType Component should match snapshot with <Unfollow/> 1`] = `
+<React.Fragment>
+  <div
+    className="noti_right follow_noti_right"
+  >
+    <Connect(Unfollow)
+      unfollowed={[Function]}
+      user={7}
+    />
+  </div>
+</React.Fragment>
+`;

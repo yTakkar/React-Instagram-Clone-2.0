@@ -1,0 +1,236 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Sharer Component should match snapshot and show <AdvancedFollow/> 1`] = `
+<div
+  className="modal_items fer_items"
+>
+  <div
+    className="modal_it_img"
+  >
+    <img
+      src="/users/7/avatar.jpg"
+    />
+  </div>
+  <div
+    className="modal_it_content"
+  >
+    <div
+      className="modal_it_info"
+    >
+      <a
+        className="modal_it_username"
+        href="/profile/ghalib"
+        onClick={[Function]}
+      >
+        ghalib
+      </a>
+      <span
+        className="modal_it_light"
+      >
+        to 
+        selena
+      </span>
+    </div>
+    <div
+      className="modal_ff"
+    >
+      <a
+        className="pri_btn follow "
+        href="#"
+        onClick={[Function]}
+      >
+        Follow
+      </a>
+    </div>
+  </div>
+  <hr />
+</div>
+`;
+
+exports[`Sharer Component should match snapshot and show <AdvancedUnfollow/> 1`] = `
+<div
+  className="modal_items fer_items"
+>
+  <div
+    className="modal_it_img"
+  >
+    <img
+      src="/users/7/avatar.jpg"
+    />
+  </div>
+  <div
+    className="modal_it_content"
+  >
+    <div
+      className="modal_it_info"
+    >
+      <a
+        className="modal_it_username"
+        href="/profile/ghalib"
+        onClick={[Function]}
+      >
+        ghalib
+      </a>
+      <span
+        className="modal_it_light"
+      >
+        to 
+        selena
+      </span>
+    </div>
+    <div
+      className="modal_ff"
+    >
+      <a
+        className="pri_btn unfollow "
+        href="#"
+        onClick={[Function]}
+      >
+        Unfollow
+      </a>
+    </div>
+  </div>
+  <hr />
+</div>
+`;
+
+exports[`Sharer Component should match snapshot and show <AppLink/> 1`] = `
+<div
+  className="modal_items fer_items"
+>
+  <div
+    className="modal_it_img"
+  >
+    <img
+      src="/users/24/avatar.jpg"
+    />
+  </div>
+  <div
+    className="modal_it_content"
+  >
+    <div
+      className="modal_it_info"
+    >
+      <a
+        className="modal_it_username"
+        href="/profile/ghalib"
+        onClick={[Function]}
+      >
+        You
+      </a>
+      <span
+        className="modal_it_light"
+      >
+        to 
+        selena
+      </span>
+    </div>
+    <div
+      className="modal_ff"
+    >
+      <a
+        className="pri_btn follow"
+        href="/profile/ghalib"
+        onClick={[Function]}
+      >
+        Profile
+      </a>
+    </div>
+  </div>
+  <hr />
+</div>
+`;
+
+exports[`Sharer Component should match snapshot and show <RemoveShare/> 1`] = `
+<div
+  className="modal_items fer_items"
+>
+  <div
+    className="modal_it_img"
+  >
+    <img
+      src="/users/7/avatar.jpg"
+    />
+  </div>
+  <div
+    className="modal_it_content"
+  >
+    <div
+      className="modal_it_info"
+    >
+      <a
+        className="modal_it_username"
+        href="/profile/ghalib"
+        onClick={[Function]}
+      >
+        ghalib
+      </a>
+      <span
+        className="modal_it_light"
+      >
+        to 
+        selena
+      </span>
+    </div>
+    <div
+      className="modal_ff"
+    >
+      <a
+        className="sec_btn  "
+        href="#"
+        onClick={[Function]}
+      >
+        Remove as admin
+      </a>
+    </div>
+  </div>
+  <hr />
+</div>
+`;
+
+exports[`Sharer Component should match snapshot and show <RemoveShare/> 2`] = `
+<div
+  className="modal_items fer_items"
+>
+  <div
+    className="modal_it_img"
+  >
+    <img
+      src="/users/7/avatar.jpg"
+    />
+  </div>
+  <div
+    className="modal_it_content"
+  >
+    <div
+      className="modal_it_info"
+    >
+      <a
+        className="modal_it_username"
+        href="/profile/ghalib"
+        onClick={[Function]}
+      >
+        ghalib
+      </a>
+      <span
+        className="modal_it_light"
+      >
+        to 
+        You
+      </span>
+    </div>
+    <div
+      className="modal_ff"
+    >
+      <a
+        className="sec_btn  "
+        href="#"
+        onClick={[Function]}
+      >
+        Remove share
+      </a>
+    </div>
+  </div>
+  <hr />
+</div>
+`;

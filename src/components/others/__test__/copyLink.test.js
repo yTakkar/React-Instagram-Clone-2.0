@@ -9,7 +9,7 @@ describe('CopyLink Component', () => {
       <CopyLink
         url='https://github.com/yTakkar/React-Instagram-Clone-2.0'
         label='Copy Link'
-        done={() => {}}
+        done={jest.fn()}
       />
     ).toJSON()
 

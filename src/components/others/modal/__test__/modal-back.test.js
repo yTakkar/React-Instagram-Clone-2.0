@@ -4,7 +4,7 @@ import { create } from 'react-test-renderer'
 import { shallow } from 'enzyme'
 
 describe('ModalBack Component', () => {
-  const mockFn = () => {}
+  const mockFn = jest.fn()
 
   it('should match snapshot with primary button', () => {
     const tree = create(

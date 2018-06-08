@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ToLink Component should match snapshot 1`] = `
+<a
+  className="hashtag"
+  href="/hashtag/travel"
+  onClick={[Function]}
+>
+  A label
+</a>
+`;

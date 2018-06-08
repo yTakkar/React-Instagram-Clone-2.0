@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home Component should match snapshot 1`] = `
+<div>
+  <Connect(Title)
+    value="Home"
+  />
+  <FadeIn
+    as="div"
+    backfaceVisible="visible"
+    delay="0s"
+    direction="normal"
+    duration="300ms"
+    fillMode="none"
+    iterations="1"
+    playState="running"
+    timingFunction="ease"
+  >
+    <div
+      className="senapati home_senapati"
+    >
+      <div
+        className="prajkumar"
+      >
+        <Connect(PostItTeaser)
+          disabled={true}
+          type="user"
+        />
+        <div
+          style={
+            Object {
+              "marginTop": 20,
+            }
+          }
+        >
+          <InstagramStyle />
+          <InstagramStyle />
+          <InstagramStyle />
+        </div>
+        <Connect(Feed) />
+      </div>
+      <div
+        className="srajkumar"
+      >
+        <Connect(Suggested)
+          when="home"
+        />
+        <Connect(PopularHashtags) />
+      </div>
+    </div>
+  </FadeIn>
+</div>
+`;

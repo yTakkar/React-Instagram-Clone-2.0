@@ -1,0 +1,157 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Messages Component should match snapshot 1`] = `
+<div>
+  <div
+    className="page_loading"
+  >
+    <div
+      className="spinner"
+    >
+      <span />
+      <span />
+      <span />
+    </div>
+  </div>
+  <div
+    className="messages_senapati cLoading"
+    style={
+      Object {
+        "animation": "bcCCNc 300ms ease 0s 1 normal none running",
+        "backfaceVisibility": "visible",
+      }
+    }
+  >
+    <div
+      className="mssg_left"
+    >
+      <div
+        className="mssg_new"
+      >
+        <a
+          className="pri_btn  "
+          href="#"
+          onClick={[Function]}
+        >
+          <i
+            className="fas fa-globe"
+          />
+          <span>
+            Online users
+          </span>
+        </a>
+        <a
+          className="pri_btn  "
+          href="#"
+          onClick={[Function]}
+        >
+          <i
+            className="fas fa-plus"
+          />
+          <span>
+            New conversation
+          </span>
+        </a>
+      </div>
+      <span
+        className="con_count"
+      >
+        2 conversations
+      </span>
+      <div
+        style={
+          Object {
+            "animation": "bcCCNc 300ms ease 0s 1 normal none running",
+            "backfaceVisibility": "visible",
+          }
+        }
+      >
+        <div
+          className="mssg_sr mt_24"
+          onClick={[Function]}
+        >
+          <img
+            src="/users/7/avatar.jpg"
+          />
+          <div
+            className="m_sr_content"
+          >
+            <span
+              className="m_sr_username"
+            >
+              ghalib
+            </span>
+            <span
+              className="m_sr_light"
+            >
+              eo
+            </span>
+          </div>
+          <span
+            className="m_sr_time"
+          >
+            3 months
+          </span>
+        </div>
+        <div
+          className="mssg_sr mt_40"
+          onClick={[Function]}
+        >
+          <img
+            src="/users/10/avatar.jpg"
+          />
+          <div
+            className="m_sr_content"
+          >
+            <span
+              className="m_sr_username"
+            >
+              noddy
+            </span>
+            <span
+              className="m_sr_light"
+            />
+          </div>
+          <span
+            className="m_sr_time"
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      className="mssg_right"
+    >
+      <div
+        style={
+          Object {
+            "marginTop": 77,
+          }
+        }
+      >
+        <div
+          className="home_last_mssg"
+          style={
+            Object {
+              "border": "",
+            }
+          }
+        >
+          <img
+            src="/images/large.jpg"
+          />
+          <span
+            className="nothingMssg"
+          >
+            Please select a conversation
+          </span>
+          <span
+            className="secondMssg"
+          >
+            
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

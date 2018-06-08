@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ChangeAccountType Component should match snapshot 1`] = `
+<div
+  className="acc_type"
+>
+  <div
+    className="set_header acc_type_header"
+  >
+    <span
+      className="acc_type_h"
+    >
+      Change account type
+    </span>
+    <span>
+      Select your account type, currently it's 
+      <span
+        className="type_indicator"
+      >
+        public
+      </span>
+    </span>
+  </div>
+  <div
+    className="acc_type_main"
+  >
+    <select
+      className="acc_select"
+      onChange={[Function]}
+      value="public"
+    >
+      <option
+        value="public"
+      >
+        Public
+      </option>
+      <option
+        value="private"
+      >
+        Private
+      </option>
+    </select>
+    <span
+      className="bold"
+    >
+      Note:
+    </span>
+    <span>
+      When account is 
+      <span
+        className="bold"
+      >
+        private only your followers can interact with with your profile.
+      </span>
+       Others would have to follow you first to interact. This is the 
+      <span
+        className="bold"
+      >
+        recommended
+      </span>
+       option as only people you know would interact with your profile.
+    </span>
+    <span>
+      And when account is public 
+      <span
+        className="bold"
+      >
+        anyone can see your profile and interact with your profile.
+      </span>
+    </span>
+  </div>
+</div>
+`;

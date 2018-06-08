@@ -49,13 +49,13 @@ export default class PostLike extends Component {
           {
             liked
               ? <span
-                className='p_like'
+                className='p_like p_unlike_icon'
                 data-tip='Unlike'
                 onClick={this.unlike}
               ><MaterialIcon icon='favorite' />
               </span>
               : <span
-                className='p_like'
+                className='p_like p_like_icon'
                 data-tip='Like'
                 onClick={this.like}
               ><MaterialIcon icon='favorite_border' />

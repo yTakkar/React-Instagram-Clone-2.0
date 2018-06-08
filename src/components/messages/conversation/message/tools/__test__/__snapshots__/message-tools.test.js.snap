@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MessageTools Component should match snapshot when iam the admin 1`] = `
+<div
+  style={
+    Object {
+      "animation": "bcCCNc 300ms ease 0s 1 normal none running",
+      "backfaceVisibility": "visible",
+    }
+  }
+>
+  <span
+    className="toggle_dlt_mssg"
+    data-tip="Delete as admin"
+    onClick={[Function]}
+  >
+    <i
+      className="material-icons"
+    >
+      delete
+    </i>
+  </span>
+  <span
+    className="toggle_edit_mssg"
+    data-tip="Edit as admin"
+    onClick={[Function]}
+  >
+    <i
+      className="material-icons"
+    >
+      mode_edit
+    </i>
+  </span>
+  <div
+    className="__react_component_tooltip place-top type-dark "
+    data-id="tooltip"
+  >
+    
+  </div>
+</div>
+`;
+
+exports[`MessageTools Component should match snapshot when post is mine 1`] = `
+<div
+  style={
+    Object {
+      "animation": "bcCCNc 300ms ease 0s 1 normal none running",
+      "backfaceVisibility": "visible",
+    }
+  }
+>
+  <span
+    className="toggle_dlt_mssg"
+    data-tip="Delete "
+    onClick={[Function]}
+  >
+    <i
+      className="material-icons"
+    >
+      delete
+    </i>
+  </span>
+  <span
+    className="toggle_edit_mssg"
+    data-tip="Edit "
+    onClick={[Function]}
+  >
+    <i
+      className="material-icons"
+    >
+      mode_edit
+    </i>
+  </span>
+  <div
+    className="__react_component_tooltip place-top type-dark "
+    data-id="tooltip"
+  >
+    
+  </div>
+</div>
+`;
+
+exports[`MessageTools Component should match snapshot with null when post is not mine & iam not an admin 1`] = `null`;

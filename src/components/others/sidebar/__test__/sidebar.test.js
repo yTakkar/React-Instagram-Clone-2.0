@@ -3,25 +3,19 @@ import SideBar from '../sidebar'
 import { create } from 'react-test-renderer'
 import { BrowserRouter as Router } from 'react-router-dom'
 import { mount } from 'enzyme'
+import MockDataElement from '../../../../utils/__test__/mock-dataElement'
 
 describe('SideBar Component', () => {
   const comp = (
     <Router>
-      <SideBar
-        uc={0}
-        un={4}
-      />
+      <SideBar uc={0} un={4} />
     </Router>
   )
   let dataElement
 
-  beforeAll(() => {
-    dataElement = document.createElement('div')
-    dataElement.setAttribute('class', 'data')
-    dataElement.setAttribute('data-username', 'takkar')
-    dataElement.setAttribute('data-isadmin', 'false')
-    document.body.appendChild(dataElement)
-  })
+  beforeAll(() =>
+    dataElement = MockDataElement()
+  )
 
   afterAll(() =>
     dataElement.remove()

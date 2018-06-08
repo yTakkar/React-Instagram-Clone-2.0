@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Filter Component should match snapshot 1`] = `
+<div
+  className="filter_div fp_filter-ashby"
+  onClick={[Function]}
+>
+  <img
+    className="filter-ashby"
+    src="/images/location.jpg"
+  />
+  <span>
+    Ashby
+  </span>
+</div>
+`;

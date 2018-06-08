@@ -24,7 +24,7 @@ export default class AdminLogin extends Component {
     })
   }
 
-  submit = async e => {
+  submit =  e => {
     e.preventDefault()
     let { password } = this.state
     let { search } = this.props.location

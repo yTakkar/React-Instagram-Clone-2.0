@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react'
-import Comment from './comment-modal'
+import TextCommentModal from './comment-modal'
 import PropTypes from 'prop-types'
 
 export default class TextComment extends Component {
@@ -26,7 +26,7 @@ export default class TextComment extends Component {
 
         {
           comment ?
-            <Comment
+            <TextCommentModal
               post={post_id}
               postOwner={user}
               back={() => this.setState({ comment: false })}

@@ -4,11 +4,7 @@ import { stickerMessage } from '../../../../../utils/message-utils'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
-@connect(store => (
-  { cd: store.Message.conDetails }
-))
-
-export default class StickerMessage extends Component {
+class StickerMessage extends Component {
 
   state = {
     showStickers: false,
@@ -48,8 +44,8 @@ export default class StickerMessage extends Component {
           showStickers ?
             <Stickers
               back={this.modalBack}
-              stickerSelected = {
-                sticker => this.message(sticker)
+              stickerSelected = {sticker =>
+                this.message(sticker)
               }
             />
             : null
@@ -62,3 +58,10 @@ export default class StickerMessage extends Component {
 StickerMessage.propTypes = {
   toggleOptions: PropTypes.func.isRequired,
 }
+
+const mapStateToProps = store => ({
+  cd: store.Message.conDetails
+})
+
+export default connect(mapStateToProps)(StickerMessage)
+export { StickerMessage as PureStickerMessage }

@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { FadeIn } from 'animate-components'
 import { Scrollbars } from 'react-custom-scrollbars'
 import { connect } from 'react-redux'
@@ -12,12 +12,9 @@ import IsLoading from '../../../others/isLoading'
 import ConSince from './con-since'
 import MessagesCount from './mssgs-count'
 import { cLoading } from '../../../../utils/utils'
+import Overlay from '../../../others/overlay'
 
-@connect(store => (
-  { cd: store.Message.conDetails }
-))
-
-export default class AboutConversation extends Component {
+class AboutConversation extends Component {
 
   state = {
     loading: true,
@@ -36,35 +33,39 @@ export default class AboutConversation extends Component {
     let { back } = this.props
 
     return (
-      <div className='modal modal_big' >
+      <Fragment>
+        <Overlay/>
 
-        <FadeIn duration='300ms' >
-          <ModalHeader title='About conversation' />
+        <div className='modal modal_big' >
 
-          <Scrollbars style={{ height: 450 }} className='modal_middle' >
+          <FadeIn duration='300ms' >
+            <ModalHeader title='About conversation' />
 
-            <IsLoading loading={loading} />
+            <Scrollbars style={{ height: 450 }} className='modal_middle' >
 
-            <div
-              className={`modal_main ${cLoading(loading)}`}
-              style={{ padding: 0 }}
-            >
-              <div className='about_con'>
-                <ConversationWith/>
-                <ConSince/>
-                <MessagesCount/>
-                <ConversationMedia/>
+              <IsLoading loading={loading} />
+
+              <div
+                className={`modal_main ${cLoading(loading)}`}
+                style={{ padding: 0 }}
+              >
+                <div className='about_con'>
+                  <ConversationWith/>
+                  <ConSince/>
+                  <MessagesCount/>
+                  <ConversationMedia/>
+                </div>
               </div>
+
+            </Scrollbars>
+
+            <div className='modal_bottom'>
+              <ModalBack back={back} />
             </div>
+          </FadeIn>
 
-          </Scrollbars>
-
-          <div className='modal_bottom'>
-            <ModalBack back={back} />
-          </div>
-        </FadeIn>
-
-      </div>
+        </div>
+      </Fragment>
     )
   }
 }
@@ -72,3 +73,11 @@ export default class AboutConversation extends Component {
 AboutConversation.propTypes = {
   back: PropTypes.func.isRequired
 }
+
+const mapStateToProps = store => ({
+  store,
+  cd: store.Message.conDetails
+})
+
+export default connect(mapStateToProps)(AboutConversation)
+export { AboutConversation as PureAboutConversation }

@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TextMessage Component should match snapshot 1`] = `
+<form
+  className="add_mssg_form"
+  onSubmit={[Function]}
+>
+  <textarea
+    className="send_mssg"
+    onChange={[Function]}
+    placeholder="Send message.."
+    required={true}
+    spellCheck="false"
+    value=""
+  />
+  <span
+    className="mssg_emoji_btn"
+    data-tip="Add emojis"
+    onClick={[Function]}
+  >
+    <i
+      className="material-icons"
+    >
+      sentiment_very_satisfied
+    </i>
+  </span>
+  <div
+    className="__react_component_tooltip place-top type-dark "
+    data-id="tooltip"
+  >
+    
+  </div>
+  <input
+    className="pri_btn mssg_send"
+    name=""
+    type="submit"
+    value="Send"
+  />
+</form>
+`;

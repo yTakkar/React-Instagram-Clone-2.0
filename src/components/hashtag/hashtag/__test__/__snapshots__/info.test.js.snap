@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HashtagInfo Component should match snapshot 1`] = `
+<div
+  className="hashtag_info"
+>
+  <span>
+    #
+    travel
+  </span>
+  <span
+    className="no_of_tag_peop"
+  >
+    2 posts
+  </span>
+</div>
+`;

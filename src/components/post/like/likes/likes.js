@@ -13,11 +13,7 @@ import ModalMiddle from '../../../others/modal/modal-middle'
 import IsLoading from '../../../others/isLoading'
 import Overlay from '../../../others/overlay'
 
-@connect(store => (
-  { likes: store.Post.likes }
-))
-
-export default class Likes extends Component {
+class Likes extends Component {
 
   state = {
     loading: true
@@ -77,3 +73,10 @@ Likes.propTypes = {
   back: PropTypes.func.isRequired,
   decrementLikes: PropTypes.func.isRequired
 }
+
+const mapStateToProps = store => ({
+  likes: store.Post.likes
+})
+
+export default connect(mapStateToProps)(Likes)
+export { Likes as PureLikes }

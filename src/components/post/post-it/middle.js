@@ -4,7 +4,7 @@ import FileInput from '../../others/input/file'
 import TextArea from '../../others/input/textArea'
 import { CPP } from '../../../actions/post'
 
-const Middle = ({ postIt, session, dispatch }) => {
+const PostItMiddle = ({ postIt, session, dispatch }) => {
 
   let { username } = session
   let { fileChanged, desc, previewImg, filter, fileInput } = postIt
@@ -71,4 +71,5 @@ const mapStateToProps = state => (
   }
 )
 
-export default connect(mapStateToProps)(Middle)
+export default connect(mapStateToProps)(PostItMiddle)
+export { PostItMiddle as PurePostItMiddle }

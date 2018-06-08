@@ -6,7 +6,7 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import mockStore from '../../../../store/mockStore/mockStore'
 
 describe('RecommendUsers Component', () => {
-  const mockFn = () => {}
+  const mockFn = jest.fn()
   const comp = (
     <Provider store={mockStore} >
       <Router>

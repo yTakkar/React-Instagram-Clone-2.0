@@ -7,7 +7,7 @@ import avatars from './avatars-mockArray'
 import { shallow } from 'enzyme'
 
 describe('Avatars Component', () => {
-  const mockFn = () => {}
+  const mockFn = jest.fn()
   const comp = (
     <Avatars
       back={mockFn}

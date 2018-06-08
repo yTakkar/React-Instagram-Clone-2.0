@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ExploreGroupsList Component should match snapshot 1`] = `
+<div
+  className="m_on exp_groups_m_on"
+  onMouseOut={[Function]}
+  onMouseOver={[Function]}
+>
+  <div
+    className="m_top"
+  >
+    <img
+      src="/groups/12/avatar.jpg"
+    />
+    <div
+      className="m_top_right"
+    >
+      <a
+        href="/group/12"
+        onClick={[Function]}
+      >
+        nmnmnmnm
+      </a>
+      <span>
+        3 mutual members
+      </span>
+    </div>
+  </div>
+  <div
+    className="m_bottom"
+  >
+    <a
+      className="pri_btn follow "
+      href="#"
+      onClick={[Function]}
+    >
+      Join group
+    </a>
+  </div>
+</div>
+`;
+
+exports[`ExploreGroupsList Component should match snapshot when mutualMembersCount = 0 1`] = `
+<div
+  className="m_on exp_groups_m_on"
+  onMouseOut={[Function]}
+  onMouseOver={[Function]}
+>
+  <div
+    className="m_top"
+  >
+    <img
+      src="/groups/11/avatar.jpg"
+    />
+    <div
+      className="m_top_right"
+    >
+      <a
+        href="/group/11"
+        onClick={[Function]}
+      >
+        a groupss
+      </a>
+      <span>
+        4 members
+      </span>
+    </div>
+  </div>
+  <div
+    className="m_bottom"
+  >
+    <a
+      className="pri_btn follow "
+      href="#"
+      onClick={[Function]}
+    >
+      Join group
+    </a>
+  </div>
+</div>
+`;

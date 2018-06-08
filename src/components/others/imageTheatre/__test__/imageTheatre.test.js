@@ -10,7 +10,7 @@ describe('ImageTheatre Component', () => {
         showInfo={false}
         imgSrc='/images/elephant-march.png'
         filter='ashly'
-        back={() => {}}
+        back={jest.fn()}
       />
     ).toJSON()
     expect(tree).toMatchSnapshot()

@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ResendVL Component should match snapshot and show SecondaryButton 1`] = `
+<a
+  className="sec_btn resend_vl "
+  href="#"
+  onClick={[Function]}
+>
+  Resend verification link
+</a>
+`;
+
+exports[`ResendVL Component should match snapshot with null 1`] = `null`;

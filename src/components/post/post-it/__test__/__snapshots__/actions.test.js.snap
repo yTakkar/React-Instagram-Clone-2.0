@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PostItActions Component should match snapshot 1`] = `
+<div
+  className="t_p_act p_act"
+>
+  <a
+    className="sec_btn  "
+    href="#"
+    onClick={[Function]}
+  >
+    Cancel
+  </a>
+  <a
+    className="pri_btn p_post a_disabled"
+    href="#"
+    onClick={[Function]}
+  >
+    Post
+  </a>
+</div>
+`;

@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddTags Component should match snapshot and show <SearchFollowing/> when addTag == true 1`] = `
+Array [
+  <div
+    className="p_tagging"
+  />,
+  <div
+    className="search_followings"
+  >
+    <div
+      className="p_add_taggings"
+    >
+      <input
+        autoComplete="false"
+        className="p_add_taggings_text"
+        disabled={false}
+        maxLength="255"
+        onChange={[Function]}
+        placeholder="Search to tag"
+        spellCheck="false"
+        type="text"
+        value=""
+      />
+    </div>
+  </div>,
+]
+`;
+
+exports[`AddTags Component should match snapshot when tags.length == 0 1`] = `
+<div
+  className="p_tagging"
+/>
+`;
+
+exports[`AddTags Component should match snapshot with tags 1`] = `
+<div
+  className="p_tagging"
+>
+  <span
+    className="p_taggings"
+    onClick={[Function]}
+  >
+    ghalib
+  </span>
+</div>
+`;

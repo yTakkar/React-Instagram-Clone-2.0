@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LikeInfo Component should match snapshot 1`] = `
+<div
+  className="modal_it_info"
+>
+  <a
+    className="modal_it_username"
+    href="/profile/ghalib"
+    onClick={[Function]}
+  >
+    ghalib
+  </a>
+  <span
+    className="modal_it_light"
+  >
+    4 months ago
+  </span>
+</div>
+`;
