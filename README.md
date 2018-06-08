@@ -75,7 +75,7 @@ Here's a video which will take you on a tour of this project!!
 - [x] Some serious code refactoring
 - [x] Crush some bugs
 - [x] Don't need jQuery
-- [ ] UI Components testing
+- [ ] UI testing
 - [ ] Express routes testing
 - [ ] Like comments
 - [ ] Upgrade to React v16.3.0
