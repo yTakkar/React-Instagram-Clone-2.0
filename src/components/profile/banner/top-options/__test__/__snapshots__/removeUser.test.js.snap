@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BannerRemoveUser Component should match snapshot 1`] = `
+<li>
+  <a
+    className="rem_user"
+    href="#"
+    onClick={[Function]}
+  >
+    Remove as admin
+  </a>
+</li>
+`;

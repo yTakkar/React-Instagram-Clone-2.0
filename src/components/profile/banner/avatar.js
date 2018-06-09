@@ -5,15 +5,11 @@ import d from '../../../utils/API/DOM'
 import ChangeAvatarAction from '../../others/avatar/actions/change-avatar'
 import ViewAvatarAction from '../../others/avatar/actions/view-avatar'
 
-@connect(store => (
-  { ud: store.User.user_details }
-))
-
-export default class BannerAvatar extends Component {
+class BannerAvatar extends Component {
 
   state = {
     viewAvatar: false,
-    changeAvatar: false
+    changeAvatar: false,
   }
 
   toggleAvatarOptions = () =>
@@ -37,7 +33,11 @@ export default class BannerAvatar extends Component {
             src={ id ? `/users/${id}/avatar.jpg` : '/images/spacecraft.jpg' }
             alt='avatar'
           />
-          <div className='pro_avatar_ch_teaser' style={{ display: 'none' }} >
+
+          <div
+            className='pro_avatar_ch_teaser'
+            style={{ display: 'none' }}
+          >
             <span
               className='view_avatar_span'
               onClick={() => this._toggle('viewAvatar')}
@@ -70,3 +70,10 @@ export default class BannerAvatar extends Component {
     )
   }
 }
+
+const mapStateToProps = store => ({
+  ud: store.User.user_details
+})
+
+export default connect(mapStateToProps)(BannerAvatar)
+export { BannerAvatar as PureBannerAvatar }

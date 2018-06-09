@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`IsOnline Component should match snapshot and show last active status 1`] = `
+<span
+  className="last_online"
+>
+  Last active 
+  5 months ago
+</span>
+`;
+
+exports[`IsOnline Component should match snapshot and show online status 1`] = `
+<span
+  className="grp_admin user_online"
+>
+  <span
+    className="user_online_circle"
+  />
+  <span>
+    online
+  </span>
+</span>
+`;

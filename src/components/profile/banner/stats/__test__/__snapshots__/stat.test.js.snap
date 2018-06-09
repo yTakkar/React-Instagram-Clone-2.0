@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BannerStat Component should match snapshot 1`] = `
+<a
+  href="/profile/takkar/followers"
+  onClick={[Function]}
+>
+  <span
+    className="pro_hg"
+  >
+    10
+  </span>
+  <span
+    className="pro_nhg"
+  >
+    Followers
+  </span>
+</a>
+`;
+
+exports[`BannerStat Component should match snapshot with disabled prop 1`] = `
+<div
+  className="pro_post stat_disabled"
+>
+  <span
+    className="pro_hg"
+  >
+    10
+  </span>
+  <span
+    className="pro_nhg"
+  >
+    Followers
+  </span>
+</div>
+`;

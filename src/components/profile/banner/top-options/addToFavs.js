@@ -36,3 +36,4 @@ const mapStateToProps = state => (
 )
 
 export default connect(mapStateToProps)(BannerAddToFavs)
+export { BannerAddToFavs as PureBannerAddToFavs }

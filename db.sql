@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 08, 2018 at 02:52 PM
+-- Generation Time: Jun 09, 2018 at 07:00 PM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -195,7 +195,8 @@ INSERT INTO `follow_system` (`follow_id`, `follow_by`, `follow_by_username`, `fo
 (279, 27, 'taylor_swift', 10, 'noddy', '1526384912449'),
 (289, 24, 'takkar', 10, 'noddy', '1526411089128'),
 (301, 16, 'zayn', 24, 'takkar', '1526663420190'),
-(302, 24, 'takkar', 16, 'zayn', '1528272513281');
+(302, 24, 'takkar', 16, 'zayn', '1528272513281'),
+(303, 28, 'selena', 24, 'takkar', '1528534489463');
 
 -- --------------------------------------------------------
 
@@ -495,7 +496,8 @@ INSERT INTO `notifications` (`notify_id`, `notify_by`, `notify_to`, `post_id`, `
 (628, 28, 7, 0, 12, 'change_admin', 0, '1527942673969', 'unread'),
 (629, 24, 16, 0, 0, 'follow', 0, '1528272513475', 'unread'),
 (630, 24, 10, 0, 0, 'new_con', 0, '1528274472284', 'unread'),
-(631, 24, 16, 90, 0, 'tag', 0, '1528387362128', 'unread');
+(631, 24, 16, 90, 0, 'tag', 0, '1528387362128', 'unread'),
+(632, 28, 24, 0, 0, 'follow', 0, '1528534489731', 'read');
 
 -- --------------------------------------------------------
 
@@ -838,7 +840,10 @@ INSERT INTO `profile_views` (`view_id`, `view_by`, `view_to`, `view_time`) VALUE
 (463, 24, 18, '1527682269056'),
 (464, 28, 24, '1528222627685'),
 (465, 28, 10, '1528222708564'),
-(466, 24, 16, '1528272511064');
+(466, 24, 16, '1528272511064'),
+(467, 28, 11, '1528534481649'),
+(468, 28, 24, '1528534487195'),
+(469, 24, 18, '1528534513630');
 
 -- --------------------------------------------------------
 
@@ -913,7 +918,7 @@ CREATE TABLE `tags` (
 
 INSERT INTO `tags` (`tag_id`, `user`, `tag`) VALUES
 (1, 29, 'apple'),
-(32, 24, 'bb');
+(33, 24, 'bb');
 
 -- --------------------------------------------------------
 
@@ -960,9 +965,9 @@ INSERT INTO `users` (`id`, `username`, `firstname`, `surname`, `email`, `passwor
 (18, 'ragnar', 'Ragnar', 'Lothbrok', 'ragnar@gmail.com', '$2a$10$M7lx4wF.PUhAjSJVxb7bW.nk2G6zxeCjhXBnKTyFz3JNq8NQbQQ8m', '', '1516525343645', 'no', 'public', '', '', '', '', '', '', 'no', '1525866681046'),
 (19, 'jonsnow', 'jon_', 'snow', 'jonsnow@gmail.com', '$2a$10$9Nb4hFjgg.MKKLLTeXMuWehralT21UCoeWsPq3./VWMkUnu19JpzS', '', '1516527326858', 'no', 'public', '', '', '', '', '', '', 'no', ''),
 (20, 'gian', 'Takeshi', 'Gauda', 'gian@gmail.com', '$2a$10$K3ijpio/4HIOKJhQ5yq3DOQ4IW5Oee4O5hwogEQtB/FBuNJRvd9T2', '', '1516527534985', 'no', 'public', '', '', '', '', '', '', 'no', ''),
-(24, 'takkar', 'iam_', 'takkar', 'takkar@gmail.com', '$2a$10$R/iWFCwEDgmOvg7mCB3wreerTC0hRuYyZflDN2Gyr3YV/ppMMNgJu', 'Hello #world', '1518016437193', 'no', 'private', '', '', 'm', '', '', 'gg', 'yes', '1528194201585'),
+(24, 'takkar', 'iam_', 'takkar', 'takkar@gmail.com', '$2a$10$R/iWFCwEDgmOvg7mCB3wreerTC0hRuYyZflDN2Gyr3YV/ppMMNgJu', 'Hello #world', '1518016437193', 'no', 'private', '', '', 'm', '', '', 'gg', 'yes', '1528490530271'),
 (27, 'taylor_swift', 'taylor', 'swift', 'taylor_swift@gmail.com', '$2a$10$rnQRsp0iWCdV8b6AD24mJ.7rL5XQ31ejULlOQMVkBpjxD7RlRxqKK', '', '1518018283428', 'no', 'public', '', '', '', '', '', '', 'no', '1526387270500'),
-(28, 'selena', 'selena', 'gomez', 'selenagomez@gmail.com', '$2a$10$.ifdYlKQdt/acrXtn09NLuENJylSfZIJq2U4tqzZNqeRWaUG0nnQq', '', '1518018409165', 'no', 'public', 'mmmm', '', '', '', '', '', 'no', '1528271760736'),
+(28, 'selena', 'selena', 'gomez', 'selenagomez@gmail.com', '$2a$10$.ifdYlKQdt/acrXtn09NLuENJylSfZIJq2U4tqzZNqeRWaUG0nnQq', '', '1518018409165', 'no', 'public', 'mmmm', '', '', '', '', '', 'no', '1528534503389'),
 (29, 'steve_jobs', 'steve', 'jobs', 'steve_jobs@gmail.com', '$2a$10$B05HNF3/pnK.8fU7kCJHpuaU5LpVxwao9Wmkn3Md2sAPc5GINiU6O', '', '1518018498672', 'no', 'public', '', '', '', '', '', '', 'no', ''),
 (30, 'doraemon', 'iam_', 'doraemon', 'doraemon@gmail.com', '$2a$10$OjZg/mosNPOT297skkotUetzYL7mIEFDVxVPP2lsBAv4F0LSyK18m', '', '1518454660501', 'no', 'public', '', '', '', '', '', '', 'no', '1525801713580');
 
@@ -1117,7 +1122,7 @@ ALTER TABLE `favourites`
 -- AUTO_INCREMENT for table `follow_system`
 --
 ALTER TABLE `follow_system`
-  MODIFY `follow_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=303;
+  MODIFY `follow_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=304;
 --
 -- AUTO_INCREMENT for table `groups`
 --
@@ -1147,7 +1152,7 @@ ALTER TABLE `messages`
 -- AUTO_INCREMENT for table `notifications`
 --
 ALTER TABLE `notifications`
-  MODIFY `notify_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=632;
+  MODIFY `notify_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=633;
 --
 -- AUTO_INCREMENT for table `posts`
 --
@@ -1162,7 +1167,7 @@ ALTER TABLE `post_tags`
 -- AUTO_INCREMENT for table `profile_views`
 --
 ALTER TABLE `profile_views`
-  MODIFY `view_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=467;
+  MODIFY `view_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=470;
 --
 -- AUTO_INCREMENT for table `recommendations`
 --
@@ -1177,12 +1182,12 @@ ALTER TABLE `shares`
 -- AUTO_INCREMENT for table `tags`
 --
 ALTER TABLE `tags`
-  MODIFY `tag_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `tag_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

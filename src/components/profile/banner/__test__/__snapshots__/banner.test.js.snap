@@ -1,0 +1,200 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Banner Component should match snapshot 1`] = `
+<div
+  className="pro_banner"
+>
+  <div
+    className="pro_top"
+  >
+    <div
+      className="pro_more"
+    >
+      <span
+        className="pro_more_horiz"
+        data-tip="Options"
+        onClick={[Function]}
+      >
+        <i
+          className="material-icons"
+        >
+          more_horiz
+        </i>
+      </span>
+    </div>
+    <div
+      className="pro_ff"
+    >
+      <a
+        className="pri_btn ff"
+        href="/edit-profile"
+        onClick={[Function]}
+      >
+        Edit profile
+      </a>
+    </div>
+  </div>
+  <div
+    className="pro_avatar"
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <img
+      alt="avatar"
+      src="/users/24/avatar.jpg"
+    />
+    <div
+      className="pro_avatar_ch_teaser"
+      style={
+        Object {
+          "display": "none",
+        }
+      }
+    >
+      <span
+        className="view_avatar_span"
+        onClick={[Function]}
+      >
+        View
+      </span>
+      <span
+        className="change_pro"
+        onClick={[Function]}
+      >
+        Change
+      </span>
+    </div>
+  </div>
+  <div
+    className="pro_info"
+  >
+    <div
+      className="pro_username"
+    >
+      <a
+        className="username"
+        href="/"
+        onClick={[Function]}
+      >
+        takkar
+      </a>
+    </div>
+    <div
+      className="pro_name"
+    >
+      <span>
+        iam_
+         
+        takkar
+      </span>
+    </div>
+    <div
+      className="pro_bio"
+    >
+      <span>
+        <span>
+           
+        </span>
+      </span>
+    </div>
+  </div>
+  <div
+    className="pro_exp_more"
+    onClick={[Function]}
+  >
+    <span
+      data-tip="Tags"
+    >
+      <i
+        className="material-icons"
+      >
+        expand_more
+      </i>
+    </span>
+  </div>
+  <hr />
+  <div
+    className="pro_bottom"
+  >
+    <div
+      className="pro_post stat_disabled"
+    >
+      <span
+        className="pro_hg"
+      >
+        2
+      </span>
+      <span
+        className="pro_nhg"
+      >
+        Posts
+      </span>
+    </div>
+    <a
+      href="/profile/takkar/followers"
+      onClick={[Function]}
+    >
+      <span
+        className="pro_hg"
+      >
+        2
+      </span>
+      <span
+        className="pro_nhg"
+      >
+        Followers
+      </span>
+    </a>
+    <a
+      href="/profile/takkar/followings"
+      onClick={[Function]}
+    >
+      <span
+        className="pro_hg"
+      >
+        2
+      </span>
+      <span
+        className="pro_nhg"
+      >
+        Followings
+      </span>
+    </a>
+    <a
+      href="/profile/takkar/recommendations"
+      onClick={[Function]}
+    >
+      <span
+        className="pro_hg"
+      >
+        1
+      </span>
+      <span
+        className="pro_nhg"
+      >
+        Recommendations
+      </span>
+    </a>
+    <div
+      className="pro_post stat_disabled"
+    >
+      <span
+        className="pro_hg"
+      >
+        10
+      </span>
+      <span
+        className="pro_nhg"
+      >
+        Profile views
+      </span>
+    </div>
+  </div>
+  <div
+    className="__react_component_tooltip place-top type-dark "
+    data-id="tooltip"
+  >
+    
+  </div>
+</div>
+`;

@@ -16,12 +16,14 @@ const AboutSection = ({ label, value, isLink }) => {
     <div>
       <span className='a_label'>{label}</span>
       {
-        value
-          ? !isLink
+        value ?
+
+          !isLink
             ? <span className='a_info'>
               { label == 'Bio' ? <ToTags str={`${value}`} /> : value }
             </span>
             : <a className='a_info' href={value} target='_blank'>{value}</a>
+
           : editLink(`Add ${label} account`)
       }
     </div>

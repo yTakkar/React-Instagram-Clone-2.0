@@ -26,7 +26,7 @@ exports[`Follow-Section-End Component should match snapshot and show Nothing com
   <span
     className="nothingMssg"
   >
-    ghalib have no followers!!
+    takkar have no followers!!
   </span>
   <span
     className="secondMssg"

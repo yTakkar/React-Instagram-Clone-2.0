@@ -5,11 +5,7 @@ import Prompt from '../../../others/prompt'
 import { block } from '../../../../utils/setting-utils'
 import PropTypes from 'prop-types'
 
-@connect(store => (
-  { ud: store.User.user_details }
-))
-
-export default class BannerBlockUser extends Component {
+class BannerBlockUser extends Component {
 
   state = {
     blockUser: false
@@ -64,3 +60,10 @@ export default class BannerBlockUser extends Component {
 BannerBlockUser.propTypes = {
   toggleOptions: PropTypes.func.isRequired
 }
+
+const mapStateToProps = store => ({
+  ud: store.User.user_details
+})
+
+export default connect(mapStateToProps)(BannerBlockUser)
+export { BannerBlockUser as PureBannerBlockUser }

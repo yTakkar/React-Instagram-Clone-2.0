@@ -9,14 +9,7 @@ import PropTypes from 'prop-types'
 import MonHeader from '../../../others/m-on/mon-header'
 import MonEnd from '../../../others/m-on/mon-end'
 
-@connect(store => (
-  {
-    ud: store.User.user_details,
-    mutuals: store.User.mutualUsers
-  }
-))
-
-export default class PeopleYouKnow extends Component {
+class PeopleYouKnow extends Component {
 
   render() {
     let
@@ -66,3 +59,11 @@ export default class PeopleYouKnow extends Component {
 PeopleYouKnow.propTypes = {
   param: PropTypes.string.isRequired
 }
+
+const mapStateToProps = store => ({
+  ud: store.User.user_details,
+  mutuals: store.User.mutualUsers
+})
+
+export default connect(mapStateToProps)(PeopleYouKnow)
+export { PeopleYouKnow as PurePeopleYouKnow }

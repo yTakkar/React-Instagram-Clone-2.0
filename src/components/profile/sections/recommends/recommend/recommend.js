@@ -11,11 +11,7 @@ import MonSticky from '../../../../others/m-on/mon-sticky'
 import RecommendBy from './recommend-by'
 import SecondaryButton from '../../../../others/button/secondary-btn'
 
-@connect(store => (
-  { ud: store.User.user_details }
-))
-
-export default class RecommendList extends Component {
+class RecommendList extends Component {
 
   state = {
     showTime: false
@@ -93,3 +89,10 @@ RecommendList.propTypes = {
   recommend_to: PropTypes.number.isRequired,
   recommend_time: PropTypes.string.isRequired,
 }
+
+const mapStateToProps = store => ({
+  ud: store.User.user_details
+})
+
+export default connect(mapStateToProps)(RecommendList)
+export { RecommendList as PureRecommendList }

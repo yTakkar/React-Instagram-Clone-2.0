@@ -4,11 +4,7 @@ import { connect } from 'react-redux'
 import RecommendUsers from '../../../others/recommend/recommend-users'
 import PropTypes from 'prop-types'
 
-@connect(store => (
-  { id: store.User.user_details.id }
-))
-
-export default class BannerRecommendUser extends Component {
+class BannerRecommendUser extends Component {
 
   state = {
     recommendUser: false
@@ -56,3 +52,10 @@ export default class BannerRecommendUser extends Component {
 BannerRecommendUser.propTypes = {
   toggleOptions: PropTypes.func.isRequired
 }
+
+const mapStateToProps = store => ({
+  id: store.User.user_details.id
+})
+
+export default connect(mapStateToProps)(BannerRecommendUser)
+export { BannerRecommendUser as PureBannerRecommendUser }

@@ -1,0 +1,92 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Recommendations Component should match snapshot 1`] = `
+<div>
+  <div
+    style={
+      Object {
+        "animation": "bcCCNc 300ms ease 0s 1 normal none running",
+        "backfaceVisibility": "visible",
+      }
+    }
+  >
+    <div
+      className="senapati pro_senapati"
+    >
+      <div
+        className="m_div"
+      >
+        <div
+          className="m_header"
+        >
+          <span>
+            1 recommendation
+          </span>
+        </div>
+        <div
+          className="m_wrapper"
+        >
+          <div
+            className="m_on followers_m_on"
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}
+          >
+            <div
+              className="m_top"
+            >
+              <img
+                src="/users/20/avatar.jpg"
+              />
+              <div
+                className="m_top_right"
+              >
+                <a
+                  href="/profile/gian"
+                  onClick={[Function]}
+                >
+                  gian
+                </a>
+                <span>
+                  Takeshi
+                   
+                  Gauda
+                </span>
+              </div>
+            </div>
+            <div
+              className="m_bottom"
+            >
+              <span
+                className="recommend_by"
+              >
+                by
+                <a
+                  href="/profile/selena"
+                  onClick={[Function]}
+                >
+                   selena
+                </a>
+              </span>
+              <a
+                className="sec_btn  "
+                href="#"
+                onClick={[Function]}
+              >
+                Remove
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="page_end"
+      onClick={[Function]}
+    >
+      <span>
+        Looks like you've reached the end
+      </span>
+    </div>
+  </div>
+</div>
+`;

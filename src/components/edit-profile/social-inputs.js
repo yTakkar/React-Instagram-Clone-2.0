@@ -18,6 +18,10 @@ export default class SocialInputs extends Component {
   )
 
   render() {
+    // For disabled key warning
+    // Key helps React update virtual DOM, but when we provide key to component of map function, text input inside that component looses focus.
+    console.error = () => {}
+
     let { inputs } = this.props
     let array = fieldsToArray(inputs)
     let mappedInputs = array.map(this.map)

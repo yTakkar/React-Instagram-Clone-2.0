@@ -11,14 +11,7 @@ import MapPosts from '../../../post/map-posts/map-posts'
 import SectionsEnd from '../../../others/sections-end'
 import IsLoading from '../../../others/isLoading'
 
-@connect(store => (
-  {
-    ud: store.User.user_details,
-    shared: store.Post.shared
-  }
-))
-
-export default class Shared extends Component {
+class Shared extends Component {
 
   state = {
     loading: true
@@ -81,3 +74,11 @@ export default class Shared extends Component {
 Shared.propTypes = {
   param: PropTypes.string.isRequired
 }
+
+const mapStateToProps = store => ({
+  ud: store.User.user_details,
+  shared: store.Post.shared
+})
+
+export default connect(mapStateToProps)(Shared)
+export { Shared as PureShared }

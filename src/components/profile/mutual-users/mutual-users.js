@@ -1,10 +1,10 @@
 import React from 'react'
 import ToolTip from 'react-tooltip'
 import { connect } from 'react-redux'
-import { humanReadable } from '../../utils/utils'
+import { humanReadable } from '../../../utils/utils'
 import PropTypes from 'prop-types'
-import FAIcon from '../others/icons/font-awesome-icon'
-import AppLink from '../others/link/link'
+import FAIcon from '../../others/icons/font-awesome-icon'
+import AppLink from '../../others/link/link'
 
 const MutualUsers = ({ mutuals, username }) => {
   let

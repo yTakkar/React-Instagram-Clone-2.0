@@ -2,6 +2,7 @@ import React from 'react'
 import { string, func, oneOf, bool } from 'prop-types'
 
 const TextInput = ({ type, placeholder, value, valueChange, ...props }) => {
+
   return (
     <input
       type={type}

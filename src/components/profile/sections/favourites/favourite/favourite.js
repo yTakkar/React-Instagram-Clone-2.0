@@ -11,11 +11,7 @@ import Follow from '../../../../others/follow/follow'
 import { connect } from 'react-redux'
 import AppLink from '../../../../others/link/link'
 
-@connect(store => (
-  { id: store.User.user_details.id }
-))
-
-export default class Favourite extends Component {
+class Favourite extends Component {
 
   state = {
     isFollowing: false,
@@ -91,3 +87,10 @@ Favourite.propTypes = {
   surname: PropTypes.string.isRequired,
   fav_time: PropTypes.string.isRequired,
 }
+
+const mapStateToProps = store => ({
+  id: store.User.user_details.id
+})
+
+export default connect(mapStateToProps)(Favourite)
+export { Favourite as PureFavourite }

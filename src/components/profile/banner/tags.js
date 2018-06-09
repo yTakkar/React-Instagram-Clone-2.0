@@ -5,14 +5,7 @@ import { NavLink } from 'react-router-dom'
 import { FadeIn } from 'animate-components'
 import MaterialIcon from '../../others/icons/material-icon'
 
-@connect(store => (
-  {
-    ud: store.User.user_details,
-    tags: store.User.tags
-  }
-))
-
-export default class BannerTags extends Component {
+class BannerTags extends Component {
 
   state = {
     showTags: false
@@ -28,8 +21,11 @@ export default class BannerTags extends Component {
       tags,
     } = this.props
     let tags_len = tags.length
+
     let map_tags = tags.map(t =>
-      <NavLink to='/' key={t.tag} className='tags'>{t.tag}</NavLink>
+      <NavLink to='/' key={t.tag} className='tags'>
+        {t.tag}
+      </NavLink>
     )
 
     return (
@@ -62,3 +58,11 @@ export default class BannerTags extends Component {
     )
   }
 }
+
+const mapStateToProps = store => ({
+  ud: store.User.user_details,
+  tags: store.User.tags
+})
+
+export default connect(mapStateToProps)(BannerTags)
+export { BannerTags as PureBannerTags }

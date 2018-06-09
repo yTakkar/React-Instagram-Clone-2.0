@@ -43,3 +43,4 @@ const mapStateToProps = state => (
 )
 
 export default connect(mapStateToProps)(BannerRemoveUser)
+export { BannerRemoveUser as PureBannerRemoveUser }

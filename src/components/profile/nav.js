@@ -3,7 +3,7 @@ import ProfileNavLink from '../others/profile-navlink'
 import PropTypes from 'prop-types'
 import { Me } from '../../utils/utils'
 
-const Nav = ({ url, user }) => {
+const ProfileNav = ({ url, user }) => {
   return (
     <div
       className={`pro_nav user_nav ${!Me(user) ? 'not_me_nav' : ''}`}
@@ -28,9 +28,9 @@ const Nav = ({ url, user }) => {
   )
 }
 
-Nav.propTypes = {
+ProfileNav.propTypes = {
   url: PropTypes.string.isRequired,
   user: PropTypes.number
 }
 
-export default Nav
+export default ProfileNav

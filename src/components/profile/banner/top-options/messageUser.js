@@ -5,14 +5,7 @@ import { newConversation } from '../../../../utils/message-utils'
 import { Redirect } from 'react-router'
 import PropTypes from 'prop-types'
 
-@connect(store => (
-  {
-    ud: store.User.user_details,
-    isFollowing: store.Follow.isFollowing
-  }
-))
-
-export default class BannerMessageUser extends Component {
+class BannerMessageUser extends Component {
 
   state = {
     messagedUser: false
@@ -39,7 +32,10 @@ export default class BannerMessageUser extends Component {
         { messagedUser ? <Redirect to='/messages' /> : null }
         {
           isFollowing && !Me(id)
-            ? <li><a href='#' onClick={this.messageUser} >Message</a></li>
+            ? <li><a
+              href='#'
+              onClick={this.messageUser}
+            >Message</a></li>
             : null
         }
       </Fragment>
@@ -50,3 +46,11 @@ export default class BannerMessageUser extends Component {
 BannerMessageUser.propTypes = {
   toggleOptions: PropTypes.func.isRequired,
 }
+
+const mapStateToProps = store => ({
+  ud: store.User.user_details,
+  isFollowing: store.Follow.isFollowing
+})
+
+export default connect(mapStateToProps)(BannerMessageUser)
+export { BannerMessageUser as PureBannerMessageUser }

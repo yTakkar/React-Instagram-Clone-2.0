@@ -30,7 +30,7 @@ exports[`Edit-Profile Component should match snapshot 1`] = `
       >
         <img
           alt=""
-          src="/users/7/avatar.jpg"
+          src="/users/24/avatar.jpg"
         />
         <span>
           @

@@ -26,7 +26,9 @@ export default class About extends Component {
     return (
       <div>
 
-        <Title value={`About @${username} (${firstname} ${surname})`} />
+        <Title
+          value={`About @${username} (${firstname} ${surname})`}
+        />
 
         <FadeIn duration='300ms' >
           <div className='senapati pro_senapati'>

@@ -4,20 +4,13 @@ import Title from '../../../others/title'
 import { connect } from 'react-redux'
 import { bottomScroll, cLoading } from '../../../../utils/utils'
 import { getUserGroups } from '../../../../actions/group'
-import Group from './group/group'
+import UserGroup from './group/group'
 import MonHeader from '../../../others/m-on/mon-header'
 import PropTypes from 'prop-types'
 import NoUserGroups from './no-groups'
 import IsLoading from '../../../others/isLoading'
 
-@connect(store => (
-  {
-    groups: store.Group.userGroups,
-    ud: store.User.user_details
-  }
-))
-
-export default class UserGroups extends Component {
+class UserGroups extends Component {
 
   state = {
     loading: true
@@ -43,7 +36,7 @@ export default class UserGroups extends Component {
       { param: username, groups } = this.props,
       len = groups.length,
       map_groups = groups.map(g =>
-        <Group key={g.group_id} {...g} />
+        <UserGroup key={g.group_id} {...g} />
       )
 
     return (
@@ -78,3 +71,11 @@ export default class UserGroups extends Component {
 UserGroups.propTypes = {
   param: PropTypes.string.isRequired
 }
+
+const mapStateToProps = store => ({
+  groups: store.Group.userGroups,
+  ud: store.User.user_details
+})
+
+export default connect(mapStateToProps)(UserGroups)
+export { UserGroups as PureUserGroups }

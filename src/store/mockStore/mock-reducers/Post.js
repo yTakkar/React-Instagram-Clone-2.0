@@ -2,6 +2,25 @@ import posts from './posts'
 
 export default {
   feed: posts,
+  posts,
+  tagged: posts,
+  shared: [{
+    ...posts[0],
+    share_id: 445,
+    share_by_username: 'takkar',
+    share_time: '1519113671582'
+  }],
+  bookmarks: [posts[0]],
+  photos: [{
+    post_id: 43,
+    user: 18,
+    username: 'ragnar',
+    firstname: 'Ragnar',
+    surname: 'Lothbrok',
+    post_time: '1516528062094',
+    imgsrc: 'instagram_1516528062094.jpg',
+    filter: 'filter-normal'
+  }],
   viewPost: {
     ...posts[0],
     comments: [

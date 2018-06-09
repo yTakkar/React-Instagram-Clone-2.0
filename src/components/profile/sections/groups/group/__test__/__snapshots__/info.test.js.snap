@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UserGroupInfo Component should match snapshot 1`] = `
+<div
+  className="m_top"
+>
+  <img
+    src="/groups/11/avatar.jpg"
+  />
+  <div
+    className="m_top_right"
+  >
+    <a
+      href="/group/11"
+      onClick={[Function]}
+    >
+      a groupss
+    </a>
+    <span>
+      4 months ago
+    </span>
+  </div>
+</div>
+`;
+
+exports[`UserGroupInfo Component should match snapshot when member is also the admin of group 1`] = `
+<div
+  className="m_top"
+>
+  <img
+    src="/groups/11/avatar.jpg"
+  />
+  <div
+    className="m_top_right"
+  >
+    <a
+      href="/group/11"
+      onClick={[Function]}
+    >
+      a groupss
+    </a>
+    <span
+      className="grp_admin"
+    >
+      admin
+    </span>
+    <span>
+      4 months ago
+    </span>
+  </div>
+</div>
+`;

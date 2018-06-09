@@ -1,18 +1,13 @@
 import React, { Component } from 'react'
 import { Me } from '../../../../../utils/utils'
-import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import UserGroupInfo from './info'
 import Join from '../../../../group/join-group/join'
 import Leave from '../../../../group/join-group/leave'
-import AppLink from '../../../../others/link/link';
+import AppLink from '../../../../others/link/link'
 
-@connect(store => (
-  { session: store.User.session }
-))
-
-export default class GroupList extends Component {
+class UserGroupList extends Component {
 
   state = {
     joined: false
@@ -64,7 +59,7 @@ export default class GroupList extends Component {
   }
 }
 
-GroupList.propTypes = {
+UserGroupList.propTypes = {
   group_id: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
   member: PropTypes.number.isRequired,
@@ -72,3 +67,10 @@ GroupList.propTypes = {
   joined: PropTypes.bool.isRequired,
   joined_group: PropTypes.string.isRequired,
 }
+
+const mapStateToProps = store => ({
+  session: store.User.session
+})
+
+export default connect(mapStateToProps)(UserGroupList)
+export { UserGroupList as PureUserGroupList }

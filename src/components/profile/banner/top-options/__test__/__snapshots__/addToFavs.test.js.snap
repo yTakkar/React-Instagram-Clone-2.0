@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BannerAddToFavs Component should match snapshot 1`] = `
+<li>
+  <a
+    className="add_fav"
+    href="#"
+    onClick={[Function]}
+  >
+    Add to favourites
+  </a>
+</li>
+`;
+
+exports[`BannerAddToFavs Component should match snapshot with null 1`] = `null`;

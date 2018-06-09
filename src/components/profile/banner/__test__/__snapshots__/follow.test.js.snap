@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BannerFollow Component should match snapshot and show <Follow/> 1`] = `
+<div
+  className="pro_ff"
+>
+  <a
+    className="pri_btn follow "
+    href="#"
+    onClick={[Function]}
+  >
+    Follow
+  </a>
+</div>
+`;
+
+exports[`BannerFollow Component should match snapshot and show <Unfollow/> 1`] = `
+<div
+  className="pro_ff"
+>
+  <a
+    className="pri_btn unfollow "
+    href="#"
+    onClick={[Function]}
+  >
+    Unfollow
+  </a>
+</div>
+`;
+
+exports[`BannerFollow Component should match snapshot and show editProfile link 1`] = `
+<div
+  className="pro_ff"
+>
+  <a
+    className="pri_btn ff"
+    href="/edit-profile"
+    onClick={[Function]}
+  >
+    Edit profile
+  </a>
+</div>
+`;

@@ -16,7 +16,6 @@ describe('Social-Inputs Component', () => {
   }
 
   it('should match snapshot', () => {
-    console.error = jest.fn() // remove
     const tree = create(
       <SocialInputs
         {...props}

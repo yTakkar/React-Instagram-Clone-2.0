@@ -4,19 +4,19 @@ export default {
     username: 'takkar',
   },
   user_details: {
-    id: 7,
-    username: 'ghalib',
-    firstname: 'Mirza',
-    surname: 'Ghalib',
-    email: 'ghalib@gmail.com',
+    id: 24,
+    username: 'takkar',
+    firstname: 'iam_',
+    surname: 'takkar',
+    email: 'takkar@gmail.com',
     bio: '',
     account_type: 'public',
     email_verified: 'yes',
     joined: '1514718748562',
     twitter: '',
     facebook: '',
-    github: '',
-    instagram: '',
+    github: 'https://github.com/yTakkar/',
+    instagram: 'https://www.instagram.com/_faiyaz_shaikh',
     phone: '',
     website: '',
     isOnline: false,
@@ -31,5 +31,13 @@ export default {
       tag: 'nature-lover',
       user: 24
     }
-  ]
+  ],
+  mutualUsers: [{
+    user: 11,
+    username: 'nobita',
+    firstname: 'nobita',
+    surname: 'nobi',
+    follow_id: 261,
+    mutualUsersCount: 0
+  }]
 }

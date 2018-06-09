@@ -12,14 +12,7 @@ import MapPosts from '../../../post/map-posts/map-posts'
 import SectionsEnd from '../../../others/sections-end'
 import IsLoading from '../../../others/isLoading'
 
-@connect(store => (
-  {
-    bookmarks: store.Post.bookmarks,
-    ud: store.User.user_details
-  }
-))
-
-export default class Bookmarks extends Component {
+class Bookmarks extends Component {
 
   state = {
     loading: true,
@@ -89,3 +82,11 @@ export default class Bookmarks extends Component {
 Bookmarks.propTypes = {
   param: PropTypes.string.isRequired
 }
+
+const mapStateToProps = store => ({
+  bookmarks: store.Post.bookmarks,
+  ud: store.User.user_details
+})
+
+export default connect(mapStateToProps)(Bookmarks)
+export { Bookmarks as PureBookmarks }

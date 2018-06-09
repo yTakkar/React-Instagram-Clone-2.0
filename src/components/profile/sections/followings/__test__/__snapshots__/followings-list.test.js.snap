@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FollowingsList Component should match snapshot with profile link 1`] = `
+<div
+  className="m_on followers_m_on"
+  onMouseOut={[Function]}
+  onMouseOver={[Function]}
+>
+  <div
+    className="m_top"
+  >
+    <img
+      src="/users/24/avatar.jpg"
+    />
+    <div
+      className="m_top_right"
+    >
+      <a
+        href="/profile/steve_jobs"
+        onClick={[Function]}
+      >
+        steve_jobs
+      </a>
+      <span>
+        steve
+         
+        jobs
+      </span>
+    </div>
+  </div>
+  <div
+    className="m_bottom"
+  >
+    <a
+      className="sec_btn"
+      href="/profile/steve_jobs"
+      onClick={[Function]}
+    >
+      Profile
+    </a>
+  </div>
+</div>
+`;

@@ -11,14 +11,7 @@ import MapPosts from '../../../post/map-posts/map-posts'
 import SectionsEnd from '../../../others/sections-end'
 import IsLoading from '../../../others/isLoading'
 
-@connect(store => (
-  {
-    ud: store.User.user_details,
-    tagged: store.Post.tagged
-  }
-))
-
-export default class Tagged extends Component {
+class Tagged extends Component {
 
   state = {
     loading: true
@@ -85,3 +78,11 @@ export default class Tagged extends Component {
 Tagged.propTypes = {
   param: PropTypes.string.isRequired
 }
+
+const mapStateToProps = store => ({
+  ud: store.User.user_details,
+  tagged: store.Post.tagged
+})
+
+export default connect(mapStateToProps)(Tagged)
+export { Tagged as PureTagged }

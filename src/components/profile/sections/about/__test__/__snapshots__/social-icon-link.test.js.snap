@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SocialIconLink Component should match snapshot 1`] = `
+<a
+  href="https://www.instagram.com/_faiyaz_shaikh"
+  target="_blank"
+>
+  <i
+    className="fab fa-instagram"
+  />
+</a>
+`;
+
+exports[`SocialIconLink Component should match snapshot with null 1`] = `null`;

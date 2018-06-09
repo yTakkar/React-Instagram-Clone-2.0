@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BannerOptions Component should match snapshot 1`] = `
+<ul>
+  <li>
+    <a
+      className="pro_block"
+      href="#"
+      onClick={[Function]}
+    >
+      Block
+    </a>
+  </li>
+  <li>
+    <a
+      className="pro_recommend"
+      href="#"
+      onClick={[Function]}
+    >
+      Recommend
+    </a>
+  </li>
+  <li>
+    <a
+      className="add_fav"
+      href="#"
+      onClick={[Function]}
+    >
+      Add to favourites
+    </a>
+  </li>
+  <li>
+    <a
+      className="p_copy_link"
+      href="#"
+      onClick={[Function]}
+    >
+      Copy profile link
+    </a>
+  </li>
+</ul>
+`;
+
+exports[`BannerOptions Component should match snapshot and show <CopyLink/> only 1`] = `
+<ul>
+  <li>
+    <a
+      className="p_copy_link"
+      href="#"
+      onClick={[Function]}
+    >
+      Copy profile link
+    </a>
+  </li>
+</ul>
+`;

@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ExplorePhotoGallery Component should match snapshot 1`] = `
+<React.Fragment>
+  <div
+    className="m_wrapper"
+    style={
+      Object {
+        "width": null,
+      }
+    }
+  >
+    <Gallery
+      columns={4}
+      margin={7}
+      onClick={[Function]}
+      photos={
+        Array [
+          Object {
+            "className": "filter-normal",
+            "filter": "filter-normal",
+            "firstname": "Thomas",
+            "height": 15,
+            "imgsrc": "instagram_1516524098767.jpg",
+            "post_id": 28,
+            "post_time": "1516524098767",
+            "src": "/posts/instagram_1516524098767.jpg",
+            "surname": "Kinkade",
+            "user": 14,
+            "username": "kinkade",
+            "width": 15,
+          },
+        ]
+      }
+    />
+  </div>
+</React.Fragment>
+`;

@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UserGroups Component should match snapshot 1`] = `
+<div>
+  <div
+    className="spinner"
+  >
+    <span />
+    <span />
+    <span />
+  </div>
+  <div
+    className="cLoading"
+    style={
+      Object {
+        "animation": "bcCCNc 300ms ease 0s 1 normal none running",
+        "backfaceVisibility": "visible",
+      }
+    }
+  >
+    <div
+      className="senapati pro_senapati"
+    >
+      <div
+        className="m_div"
+      >
+        <div
+          className="m_header"
+        >
+          <span>
+            1 group
+          </span>
+        </div>
+        <div
+          className="m_wrapper"
+        >
+          <div
+            className="m_on followers_m_on"
+          >
+            <div
+              className="m_top"
+            >
+              <img
+                src="/groups/11/avatar.jpg"
+              />
+              <div
+                className="m_top_right"
+              >
+                <a
+                  href="/group/11"
+                  onClick={[Function]}
+                >
+                  a groupss
+                </a>
+                <span>
+                  4 months ago
+                </span>
+              </div>
+            </div>
+            <div
+              className="m_bottom"
+            >
+              <a
+                className="pri_btn unfollow "
+                href="#"
+                onClick={[Function]}
+              >
+                Leave group
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="page_end"
+      onClick={[Function]}
+    >
+      <span>
+        Looks like you've reached the end
+      </span>
+    </div>
+  </div>
+</div>
+`;

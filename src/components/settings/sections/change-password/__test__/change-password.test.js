@@ -8,7 +8,6 @@ import { shallow } from 'enzyme'
 describe('ChangePassword Component', () => {
 
   it('should match snapshot', () => {
-    console.error = jest.fn() // remove
     const tree = create(
       <Provider store={mockStore}>
         <ChangePassword/>

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 import Suggested from '../../../others/suggested/suggested'
 import Recommend from '../../../others/recommend/recommend'
 import AddToFavourites from '../../../others/addToFavourites'
-import MutualUsers from '../../mutual-users'
+import MutualUsers from '../../mutual-users/mutual-users'
 import UserHashtags from '../../../hashtag/user-hashtags'
 import NewConTeaser from '../../../messages/newCon-teaser'
 
@@ -49,3 +49,4 @@ const mapStateToProps = state => (
 )
 
 export default connect(mapStateToProps)(UserPostsLeftSection)
+export { UserPostsLeftSection as PureUserPostsLeftSection }

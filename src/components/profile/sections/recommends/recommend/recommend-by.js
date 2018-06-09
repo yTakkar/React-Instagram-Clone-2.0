@@ -3,10 +3,10 @@ import { string } from 'prop-types'
 import AppLink from '../../../../others/link/link'
 
 const RecommendBy = ({ username }) => (
-  <span className='recommend_by' >by
+  <span className='recommend_by'>by
     <AppLink
       url={`/profile/${username}`}
-      label={username}
+      label={` ${username}`}
     />
   </span>
 )

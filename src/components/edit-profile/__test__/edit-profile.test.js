@@ -23,7 +23,6 @@ describe('Edit-Profile Component', () => {
   )
 
   it('should match snapshot', () => {
-    console.error = jest.fn() // remove
     const tree = create(comp).toJSON()
     expect(tree).toMatchSnapshot()
   })

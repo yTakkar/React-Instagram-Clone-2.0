@@ -51,3 +51,4 @@ const mapStateToProps = state => (
 )
 
 export default connect(mapStateToProps)(RemoveFav)
+export { RemoveFav as PureRemoveFav }

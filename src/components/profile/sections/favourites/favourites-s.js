@@ -8,14 +8,7 @@ import PropTypes from 'prop-types'
 import MonHeader from '../../../others/m-on/mon-header'
 import MonEnd from '../../../others/m-on/mon-end'
 
-@connect(store => (
-  {
-    ud: store.User.user_details,
-    favourites: store.Follow.favourites
-  }
-))
-
-export default class Favourites extends Component {
+class Favourites extends Component {
 
   componentDidUpdate = () => bottomScroll()
 
@@ -64,3 +57,11 @@ export default class Favourites extends Component {
 Favourites.propTypes = {
   param: PropTypes.string.isRequired
 }
+
+const mapStateToProps = store => ({
+  ud: store.User.user_details,
+  favourites: store.Follow.favourites
+})
+
+export default connect(mapStateToProps)(Favourites)
+export { Favourites as PureFavourites }

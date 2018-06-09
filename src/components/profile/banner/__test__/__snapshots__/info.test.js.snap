@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BannerInfo Component should match snapshot 1`] = `
+<div
+  className="pro_info"
+>
+  <div
+    className="pro_username"
+  >
+    <a
+      className="username"
+      href="/"
+      onClick={[Function]}
+    >
+      takkar
+    </a>
+  </div>
+  <div
+    className="pro_name"
+  >
+    <span>
+      iam_
+       
+      takkar
+    </span>
+  </div>
+  <div
+    className="pro_bio"
+  >
+    <span>
+      <span>
+         
+      </span>
+    </span>
+  </div>
+</div>
+`;

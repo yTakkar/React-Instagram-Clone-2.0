@@ -10,14 +10,7 @@ import MonHeader from '../../../others/m-on/mon-header'
 import FollowSectionEnd from '../../../others/follow/follow-section-end'
 import IsLoading from '../../../others/isLoading'
 
-@connect(store => (
-  {
-    ud: store.User.user_details,
-    followers: store.Follow.followers
-  }
-))
-
-export default class Followers extends Component {
+class Followers extends Component {
 
   state = {
     loading: true
@@ -77,3 +70,11 @@ export default class Followers extends Component {
 Followers.propTypes = {
   param: PropTypes.string.isRequired
 }
+
+const mapStateToProps = store => ({
+  ud: store.User.user_details,
+  followers: store.Follow.followers
+})
+
+export default connect(mapStateToProps)(Followers)
+export { Followers as PureFollowers }

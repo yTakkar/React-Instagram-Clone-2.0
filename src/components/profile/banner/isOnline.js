@@ -19,7 +19,9 @@ const IsOnline = ({ ud }) => {
 
       {
         !Me(id) && !isOnline && lastOnline ?
-          <span className='last_online' >Last active {TimeAgo(lastOnline)}</span>
+          <span className='last_online' >
+            Last active {TimeAgo(lastOnline)}
+          </span>
           : null
       }
     </Fragment>

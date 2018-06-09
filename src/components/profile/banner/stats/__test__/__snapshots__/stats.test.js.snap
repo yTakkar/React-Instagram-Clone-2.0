@@ -1,0 +1,161 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BannerStats Component should match snapshot with favourites stat 1`] = `
+<div
+  className="pro_bottom"
+>
+  <div
+    className="pro_post stat_disabled"
+  >
+    <span
+      className="pro_hg"
+    >
+      2
+    </span>
+    <span
+      className="pro_nhg"
+    >
+      Posts
+    </span>
+  </div>
+  <a
+    href="/profile/takkar/followers"
+    onClick={[Function]}
+  >
+    <span
+      className="pro_hg"
+    >
+      2
+    </span>
+    <span
+      className="pro_nhg"
+    >
+      Followers
+    </span>
+  </a>
+  <a
+    href="/profile/takkar/followings"
+    onClick={[Function]}
+  >
+    <span
+      className="pro_hg"
+    >
+      2
+    </span>
+    <span
+      className="pro_nhg"
+    >
+      Followings
+    </span>
+  </a>
+  <a
+    href="/profile/takkar/favourites"
+    onClick={[Function]}
+  >
+    <span
+      className="pro_hg"
+    >
+      1
+    </span>
+    <span
+      className="pro_nhg"
+    >
+      Favourites
+    </span>
+  </a>
+  <div
+    className="pro_post stat_disabled"
+  >
+    <span
+      className="pro_hg"
+    >
+      10
+    </span>
+    <span
+      className="pro_nhg"
+    >
+      Profile views
+    </span>
+  </div>
+</div>
+`;
+
+exports[`BannerStats Component should match snapshot with recommendation stat 1`] = `
+<div
+  className="pro_bottom"
+>
+  <div
+    className="pro_post stat_disabled"
+  >
+    <span
+      className="pro_hg"
+    >
+      2
+    </span>
+    <span
+      className="pro_nhg"
+    >
+      Posts
+    </span>
+  </div>
+  <a
+    href="/profile/takkar/followers"
+    onClick={[Function]}
+  >
+    <span
+      className="pro_hg"
+    >
+      2
+    </span>
+    <span
+      className="pro_nhg"
+    >
+      Followers
+    </span>
+  </a>
+  <a
+    href="/profile/takkar/followings"
+    onClick={[Function]}
+  >
+    <span
+      className="pro_hg"
+    >
+      2
+    </span>
+    <span
+      className="pro_nhg"
+    >
+      Followings
+    </span>
+  </a>
+  <a
+    href="/profile/takkar/recommendations"
+    onClick={[Function]}
+  >
+    <span
+      className="pro_hg"
+    >
+      1
+    </span>
+    <span
+      className="pro_nhg"
+    >
+      Recommendations
+    </span>
+  </a>
+  <div
+    className="pro_post stat_disabled"
+  >
+    <span
+      className="pro_hg"
+    >
+      10
+    </span>
+    <span
+      className="pro_nhg"
+    >
+      Profile views
+    </span>
+  </div>
+</div>
+`;

@@ -5,14 +5,7 @@ import Nothing from '../../../others/nothing'
 import PhotoGallery from 'react-photo-gallery'
 import ImageTheatre from '../../../others/imageTheatre/imageTheatre'
 
-@connect(store => (
-  {
-    ud: store.User.user_details,
-    photos: store.Post.photos
-  }
-))
-
-export default class UserPhotos extends Component {
+class UserPhotos extends Component {
 
   state = {
     showImage: false,
@@ -36,7 +29,9 @@ export default class UserPhotos extends Component {
   }
 
   render() {
-    let { showImage, imgSrc, filter, username: imgUsername, time, link } = this.state
+    let {
+      showImage, imgSrc, filter, username: imgUsername, time, link
+    } = this.state
     let { photos, ud: { id, username } } = this.props
     let len = photos.length
     let PHOTO_SET = []
@@ -84,3 +79,11 @@ export default class UserPhotos extends Component {
     )
   }
 }
+
+const mapStateToProps = store => ({
+  ud: store.User.user_details,
+  photos: store.Post.photos
+})
+
+export default connect(mapStateToProps)(UserPhotos)
+export { UserPhotos as PureUserPhotos }

@@ -1,0 +1,248 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`About Component should match snapshot 1`] = `
+<div>
+  <div
+    style={
+      Object {
+        "animation": "bcCCNc 300ms ease 0s 1 normal none running",
+        "backfaceVisibility": "visible",
+      }
+    }
+  >
+    <div
+      className="senapati pro_senapati"
+    >
+      <div
+        className="about"
+      >
+        <div
+          className="sabout"
+        >
+          <div
+            className="sabout_one"
+          >
+            <img
+              src="/images/tree.png"
+            />
+            <div
+              className="sabout_one_info"
+            >
+              <span>
+                Update or edit you profile to make it look more attractive
+              </span>
+              <a
+                className="sec_btn"
+                href="/"
+                onClick={[Function]}
+              >
+                Update profile
+              </a>
+              <a
+                className="pri_btn"
+                href="/edit-profile"
+                onClick={[Function]}
+              >
+                Edit profile
+              </a>
+            </div>
+          </div>
+          <div
+            className="social_div inst"
+          >
+            <a
+              href="https://www.instagram.com/_faiyaz_shaikh"
+              target="_blank"
+            >
+              <i
+                className="fab fa-instagram"
+              />
+            </a>
+            <a
+              href="https://github.com/yTakkar/"
+              target="_blank"
+            >
+              <i
+                className="fab fa-github"
+              />
+            </a>
+          </div>
+        </div>
+        <div
+          className="fabout"
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}
+        >
+          <div
+            className="a_edit"
+            data-tip="Edit profile"
+            style={
+              Object {
+                "display": "none",
+              }
+            }
+          >
+            <a
+              href="/edit-profile"
+              onClick={[Function]}
+            >
+              <i
+                className="material-icons"
+              >
+                mode_edit
+              </i>
+            </a>
+            <div
+              className="__react_component_tooltip place-top type-dark "
+              data-id="tooltip"
+            >
+              
+            </div>
+          </div>
+          <div>
+            <span
+              className="a_label"
+            >
+              Username
+            </span>
+            <span
+              className="a_info"
+            >
+              takkar
+            </span>
+          </div>
+          <div>
+            <span
+              className="a_label"
+            >
+              Name
+            </span>
+            <span
+              className="a_info"
+            >
+              iam_ takkar
+            </span>
+          </div>
+          <div>
+            <span
+              className="a_label"
+            >
+              Email
+            </span>
+            <span
+              className="a_info"
+            >
+              takkar@gmail.com
+            </span>
+          </div>
+          <div>
+            <span
+              className="a_label"
+            >
+              Bio
+            </span>
+            <a
+              href="/edit-profile"
+              onClick={[Function]}
+            >
+              Add Bio account
+            </a>
+          </div>
+          <div>
+            <span
+              className="a_label"
+            >
+              Instagram
+            </span>
+            <a
+              className="a_info"
+              href="https://www.instagram.com/_faiyaz_shaikh"
+              target="_blank"
+            >
+              https://www.instagram.com/_faiyaz_shaikh
+            </a>
+          </div>
+          <div>
+            <span
+              className="a_label"
+            >
+              Github
+            </span>
+            <a
+              className="a_info"
+              href="https://github.com/yTakkar/"
+              target="_blank"
+            >
+              https://github.com/yTakkar/
+            </a>
+          </div>
+          <div>
+            <span
+              className="a_label"
+            >
+              Twitter
+            </span>
+            <a
+              href="/edit-profile"
+              onClick={[Function]}
+            >
+              Add Twitter account
+            </a>
+          </div>
+          <div>
+            <span
+              className="a_label"
+            >
+              Facebook
+            </span>
+            <a
+              href="/edit-profile"
+              onClick={[Function]}
+            >
+              Add Facebook account
+            </a>
+          </div>
+          <div>
+            <span
+              className="a_label"
+            >
+              Website
+            </span>
+            <a
+              href="/edit-profile"
+              onClick={[Function]}
+            >
+              Add Website account
+            </a>
+          </div>
+          <div>
+            <span
+              className="a_label"
+            >
+              Phone
+            </span>
+            <a
+              href="/edit-profile"
+              onClick={[Function]}
+            >
+              Add Phone account
+            </a>
+          </div>
+          <div>
+            <span
+              className="a_label"
+            >
+              Joined
+            </span>
+            <span
+              className="a_info"
+            >
+              5 months ago
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

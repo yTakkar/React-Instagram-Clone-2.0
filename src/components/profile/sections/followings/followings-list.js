@@ -10,11 +10,7 @@ import Unfollow from '../../../others/follow/unfollow'
 import { connect } from 'react-redux'
 import AppLink from '../../../others/link/link'
 
-@connect(store => (
-  { id: store.User.user_details.id }
-))
-
-export default class FollowingsList extends Component {
+class FollowingsList extends Component {
 
   state = {
     isFollowing: false,
@@ -91,3 +87,10 @@ FollowingsList.propTypes = {
   surname: PropTypes.string.isRequired,
   follow_time: PropTypes.string.isRequired,
 }
+
+const mapStateToProps = store => ({
+  id: store.User.user_details.id
+})
+
+export default connect(mapStateToProps)(FollowingsList)
+export { FollowingsList as PureFollowingsList }

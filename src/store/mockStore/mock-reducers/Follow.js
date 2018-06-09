@@ -1,4 +1,5 @@
 import { randNum } from '../../../utils/utils'
+import f from './f';
 
 export default {
   usersToRecommend: [
@@ -16,5 +17,29 @@ export default {
       firstname: 'cold',
       surname: 'play',
     },
-  ]
+  ],
+  followers: f,
+  followings: f,
+  favourites: [{
+    fav_id: 3,
+    fav_by: 24,
+    user: 14,
+    username: 'kinkade',
+    firstname: 'Thomas',
+    surname: 'Kinkade',
+    fav_time: '1524503038800'
+  }],
+  recommendations: [{
+    recommend_id: 3,
+    recommend_of: 20,
+    recommend_of_username: 'gian',
+    recommend_of_firstname: 'Takeshi',
+    recommend_of_surname: 'Gauda',
+    recommend_to: 24,
+    recommend_by: 28,
+    recommend_time: '1524916352254',
+    recommend_by_username: 'selena'
+  }],
+  profile_views: 10,
+  isFollowing: false,
 }

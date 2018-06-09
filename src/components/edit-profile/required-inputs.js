@@ -5,6 +5,11 @@ import { c_first } from '../../utils/utils'
 import { fieldsToArray } from '../../utils/edit-profile-utils'
 
 const RequiredInputs = ({ fields, change }) => {
+
+  // For disabled key warning
+  // Key helps React update virtual DOM, but when we provide key to component of map function, text input inside that component looses focus.
+  console.error = () => {}
+
   let array = fieldsToArray(fields)
 
   let map = ({ key, value }) => {

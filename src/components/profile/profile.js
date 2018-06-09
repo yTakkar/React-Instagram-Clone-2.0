@@ -6,21 +6,13 @@ import { forProfile, isPrivate, humanReadable, cLoading } from '../../utils/util
 import { isAdmin } from '../../utils/admin-utils'
 import { getUnreadNotifications } from '../../actions/notification'
 import Banner from './banner/banner'
-import Nav from './nav'
+import ProfileNav from './nav'
 import Nothing from '../others/nothing'
 import ProfileRoutes from './profile-routes'
 import { getUnreadMessages } from '../../actions/message'
 import IsLoading from '../others/isLoading'
 
-@connect(store => (
-  {
-    ud: store.User.user_details,
-    mutuals: store.User.mutualUsers,
-    isFollowing: store.Follow.isFollowing,
-  }
-))
-
-export default class Profile extends Component {
+class Profile extends Component {
 
   state = {
     loading: true,
@@ -80,7 +72,7 @@ export default class Profile extends Component {
           {
             !isPrivate(id, isFollowing, account_type) || isAdmin() ?
               <div>
-                <Nav url={url} user={id} />
+                <ProfileNav url={url} user={id} />
                 <ProfileRoutes url={url} param={username} />
               </div>
               :
@@ -97,3 +89,12 @@ export default class Profile extends Component {
     )
   }
 }
+
+const mapStateToProps = store => ({
+  ud: store.User.user_details,
+  mutuals: store.User.mutualUsers,
+  isFollowing: store.Follow.isFollowing,
+})
+
+export default connect(mapStateToProps)(Profile)
+export { Profile as PureProfile }

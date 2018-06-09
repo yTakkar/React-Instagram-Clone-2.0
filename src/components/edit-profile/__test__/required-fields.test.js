@@ -14,7 +14,6 @@ describe('Required-fields Component', () => {
   }
 
   it('should match snapshot', () => {
-    console.error = jest.fn() // remove
     const tree = create(
       <RequiredInputs
         {...props}

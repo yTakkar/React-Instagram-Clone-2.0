@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SocialIcons Component should match snapshot 1`] = `
+<div
+  className="social_div inst"
+>
+  <a
+    href="https://www.instagram.com/_faiyaz_shaikh"
+    target="_blank"
+  >
+    <i
+      className="fab fa-instagram"
+    />
+  </a>
+  <a
+    href="https://github.com/yTakkar/"
+    target="_blank"
+  >
+    <i
+      className="fab fa-github"
+    />
+  </a>
+</div>
+`;
+
+exports[`SocialIcons Component should match snapshot with null 1`] = `null`;

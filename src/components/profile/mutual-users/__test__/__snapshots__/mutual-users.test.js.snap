@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MutualUsers Component should match snapshot 1`] = `
+<div>
+  <div
+    className="mutuals"
+  >
+    <div
+      className="mutual_info"
+    >
+      <span>
+        1 follower
+         you might know
+      </span>
+      <a
+        className="view_all_yk"
+        data-tip="view all"
+        href="/profile/ghalib/people-you-know"
+        onClick={[Function]}
+      >
+        <i
+          className="fas fa-chevron-right"
+        />
+      </a>
+    </div>
+    <div
+      className="mutual_main"
+    >
+      <a
+        className="mutual_links"
+        data-tip="nobita"
+        href="/profile/nobita"
+        onClick={[Function]}
+      >
+        <img
+          src="/users/11/avatar.jpg"
+        />
+      </a>
+    </div>
+    <div
+      className="__react_component_tooltip place-top type-dark "
+      data-id="tooltip"
+    >
+      
+    </div>
+  </div>
+</div>
+`;
+
+exports[`MutualUsers Component should match snapshot when users.length == 0 1`] = `
+<div>
+  <div
+    className="no_such_mutual"
+  >
+    <span>
+      No followers you know
+    </span>
+  </div>
+</div>
+`;

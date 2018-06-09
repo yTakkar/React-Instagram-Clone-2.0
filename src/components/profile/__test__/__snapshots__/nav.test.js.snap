@@ -1,0 +1,149 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProfileNav Component should match snapshot 1`] = `
+<div
+  className="pro_nav user_nav "
+>
+  <ul>
+    <li>
+      <a
+        aria-current={false}
+        className="inst_nav"
+        href="/profile/takkar"
+        onClick={[Function]}
+      >
+        Posts
+      </a>
+    </li>
+    <li>
+      <a
+        aria-current={false}
+        className="inst_nav"
+        href="/profile/takkar/tagged"
+        onClick={[Function]}
+      >
+        Tagged
+      </a>
+    </li>
+    <li>
+      <a
+        aria-current={false}
+        className="inst_nav"
+        href="/profile/takkar/shared"
+        onClick={[Function]}
+      >
+        Shared
+      </a>
+    </li>
+    <li>
+      <a
+        aria-current={false}
+        className="inst_nav"
+        href="/profile/takkar/gallery"
+        onClick={[Function]}
+      >
+        Gallery
+      </a>
+    </li>
+    <li>
+      <a
+        aria-current={false}
+        className="inst_nav"
+        href="/profile/takkar/bookmarks"
+        onClick={[Function]}
+      >
+        Bookmarks
+      </a>
+    </li>
+    <li>
+      <a
+        aria-current={false}
+        className="inst_nav"
+        href="/profile/takkar/groups"
+        onClick={[Function]}
+      >
+        Groups
+      </a>
+    </li>
+    <li>
+      <a
+        aria-current={false}
+        className="inst_nav"
+        href="/profile/takkar/about"
+        onClick={[Function]}
+      >
+        About
+      </a>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`ProfileNav Component should match snapshot when profile is not mine 1`] = `
+<div
+  className="pro_nav user_nav not_me_nav"
+>
+  <ul>
+    <li>
+      <a
+        aria-current={false}
+        className="inst_nav"
+        href="/profile/ghalib"
+        onClick={[Function]}
+      >
+        Posts
+      </a>
+    </li>
+    <li>
+      <a
+        aria-current={false}
+        className="inst_nav"
+        href="/profile/ghalib/tagged"
+        onClick={[Function]}
+      >
+        Tagged
+      </a>
+    </li>
+    <li>
+      <a
+        aria-current={false}
+        className="inst_nav"
+        href="/profile/ghalib/shared"
+        onClick={[Function]}
+      >
+        Shared
+      </a>
+    </li>
+    <li>
+      <a
+        aria-current={false}
+        className="inst_nav"
+        href="/profile/ghalib/gallery"
+        onClick={[Function]}
+      >
+        Gallery
+      </a>
+    </li>
+    <li>
+      <a
+        aria-current={false}
+        className="inst_nav"
+        href="/profile/ghalib/groups"
+        onClick={[Function]}
+      >
+        Groups
+      </a>
+    </li>
+    <li>
+      <a
+        aria-current={false}
+        className="inst_nav"
+        href="/profile/ghalib/about"
+        onClick={[Function]}
+      >
+        About
+      </a>
+    </li>
+  </ul>
+</div>
+`;

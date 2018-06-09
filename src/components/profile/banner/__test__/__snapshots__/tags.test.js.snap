@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BannerTags Component should match snapshot 1`] = `
+<div
+  className="pro_exp_more"
+  onClick={[Function]}
+>
+  <span
+    data-tip="Tags"
+  >
+    <i
+      className="material-icons"
+    >
+      expand_more
+    </i>
+  </span>
+</div>
+`;

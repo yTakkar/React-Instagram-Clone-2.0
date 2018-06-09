@@ -10,14 +10,7 @@ import PropTypes from 'prop-types'
 import IsLoading from '../../../others/isLoading'
 import FollowSectionEnd from '../../../others/follow/follow-section-end'
 
-@connect(store => (
-  {
-    ud: store.User.user_details,
-    followings: store.Follow.followings
-  }
-))
-
-export default class Followings extends Component {
+class Followings extends Component {
 
   state = {
     loading: true
@@ -78,3 +71,11 @@ export default class Followings extends Component {
 Followings.propTypes = {
   param: PropTypes.string.isRequired
 }
+
+const mapStateToProps = store => ({
+  ud: store.User.user_details,
+  followings: store.Follow.followings
+})
+
+export default connect(mapStateToProps)(Followings)
+export { Followings as PureFollowings }

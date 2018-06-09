@@ -8,14 +8,7 @@ import PropTypes from 'prop-types'
 import MonHeader from '../../../others/m-on/mon-header'
 import MonEnd from '../../../others/m-on/mon-end'
 
-@connect(store => (
-  {
-    ud: store.User.user_details,
-    recommends: store.Follow.recommendations
-  }
-))
-
-export default class Recommendations extends Component {
+class Recommendations extends Component {
 
   componentDidUpdate = () => bottomScroll()
 
@@ -64,3 +57,11 @@ export default class Recommendations extends Component {
 Recommendations.propTypes = {
   param: PropTypes.string.isRequired
 }
+
+const mapStateToProps = store => ({
+  ud: store.User.user_details,
+  recommends: store.Follow.recommendations
+})
+
+export default connect(mapStateToProps)(Recommendations)
+export { Recommendations as PureRecommendations }

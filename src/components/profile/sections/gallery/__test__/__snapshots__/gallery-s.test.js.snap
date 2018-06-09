@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Gallery Component should match snapshot 1`] = `
+<div>
+  <Connect(Title)
+    value="takkar's gallery"
+  />
+  <FadeIn
+    as="div"
+    backfaceVisible="visible"
+    delay="0s"
+    direction="normal"
+    duration="300ms"
+    fillMode="none"
+    iterations="1"
+    playState="running"
+    timingFunction="ease"
+  >
+    <IsLoading
+      loading={true}
+      when="component"
+    />
+    <div
+      className="pro_senapati photos_senapati cLoading"
+    >
+      <Connect(UserPhotos) />
+    </div>
+  </FadeIn>
+</div>
+`;

@@ -9,14 +9,7 @@ import PropTypes from 'prop-types'
 import UserPhotos from './photos'
 import IsLoading from '../../../others/isLoading'
 
-@connect(store => (
-  {
-    ud: store.User.user_details,
-    photos: store.Post.photos
-  }
-))
-
-export default class Gallery extends Component {
+class Gallery extends Component {
 
   state = {
     loading: true,
@@ -66,3 +59,11 @@ export default class Gallery extends Component {
 Gallery.propTypes = {
   param: PropTypes.string.isRequired
 }
+
+const mapStateToProps = store => ({
+  ud: store.User.user_details,
+  photos: store.Post.photos
+})
+
+export default connect(mapStateToProps)(Gallery)
+export { Gallery as PureGallery }

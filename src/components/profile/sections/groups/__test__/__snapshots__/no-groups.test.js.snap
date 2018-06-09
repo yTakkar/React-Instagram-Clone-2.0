@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NoUserGroups Component should match snapshot 1`] = `
+<div
+  className="page_end"
+  onClick={[Function]}
+>
+  <span>
+    Looks like you've reached the end
+  </span>
+</div>
+`;
+
+exports[`NoUserGroups Component should match snapshot and show <End/> when groups.length == 0 1`] = `
+<div
+  className="senapati"
+>
+  <div
+    className="srajkumar"
+    style={
+      Object {
+        "marginTop": -8,
+      }
+    }
+  >
+    <div>
+      <div
+        className="recomm_teaser"
+      >
+        <span>
+          Create public or private group of your interest with people you know.
+        </span>
+        <a
+          className="sec_btn  "
+          href="#"
+          onClick={[Function]}
+        >
+          Create group
+        </a>
+      </div>
+    </div>
+  </div>
+  <div
+    className="prajkumar"
+  >
+    <div
+      className="home_last_mssg"
+      style={
+        Object {
+          "border": "",
+        }
+      }
+    >
+      <img
+        src="/images/large.jpg"
+      />
+      <span
+        className="nothingMssg"
+      >
+        You're not a member of any group!!
+      </span>
+      <span
+        className="secondMssg"
+      >
+        
+      </span>
+    </div>
+  </div>
+</div>
+`;

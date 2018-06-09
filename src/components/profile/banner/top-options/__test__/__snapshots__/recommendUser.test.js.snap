@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BannerRecommendUser Component should match snapshot 1`] = `
+<li>
+  <a
+    className="pro_recommend"
+    href="#"
+    onClick={[Function]}
+  >
+    Recommend
+  </a>
+</li>
+`;
