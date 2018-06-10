@@ -8,14 +8,7 @@ import { bottomScroll, cLoading } from '../../../../utils/utils'
 import GroupPhotos from './photos'
 import IsLoading from '../../../others/isLoading'
 
-@connect(store => (
-  {
-    gd: store.Group.group_details,
-    photos: store.Post.photos
-  }
-))
-
-export default class GroupGallery extends Component {
+class GroupGallery extends Component {
 
   state = {
     loading: true
@@ -61,3 +54,11 @@ export default class GroupGallery extends Component {
     )
   }
 }
+
+const mapStateToProps = store => ({
+  gd: store.Group.group_details,
+  photos: store.Post.photos
+})
+
+export default connect(mapStateToProps)(GroupGallery)
+export { GroupGallery as PureGroupGallery }

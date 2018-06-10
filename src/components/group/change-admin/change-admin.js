@@ -10,12 +10,9 @@ import ModalBack from '../../others/modal/modal-back'
 import ModalMiddle from '../../others/modal/modal-middle'
 import IsLoading from '../../others/isLoading'
 import Overlay from '../../others/overlay'
+import { func, number } from 'prop-types'
 
-@connect(store => (
-  { members: store.Group.usersToMakeAdmin }
-))
-
-export default class ChangeAdmin extends Component {
+class ChangeAdmin extends Component {
 
   state = {
     loading: true
@@ -67,3 +64,15 @@ export default class ChangeAdmin extends Component {
     )
   }
 }
+
+ChangeAdmin.propTypes = {
+  group: number,
+  back: func.isRequired
+}
+
+const mapStateToProps = store => ({
+  members: store.Group.usersToMakeAdmin
+})
+
+export default connect(mapStateToProps)(ChangeAdmin)
+export { ChangeAdmin as PureChangeAdmin }

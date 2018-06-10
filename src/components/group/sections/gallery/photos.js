@@ -4,14 +4,7 @@ import PhotoGallery from 'react-photo-gallery'
 import ImageTheatre from '../../../others/imageTheatre/imageTheatre'
 import { connect } from 'react-redux'
 
-@connect(store => (
-  {
-    gd: store.Group.group_details,
-    photos: store.Post.photos
-  }
-))
-
-export default class GroupPhotos extends Component {
+class GroupPhotos extends Component {
 
   state = {
     showImage: false,
@@ -80,3 +73,11 @@ export default class GroupPhotos extends Component {
     )
   }
 }
+
+const mapStateToProps = store => ({
+  gd: store.Group.group_details,
+  photos: store.Post.photos
+})
+
+export default connect(mapStateToProps)(GroupPhotos)
+export { GroupPhotos as PureGroupPhotos }

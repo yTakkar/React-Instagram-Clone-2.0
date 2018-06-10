@@ -64,3 +64,4 @@ const mapStateToProps = state => (
 )
 
 export default connect(mapStateToProps)(EditGroupFields)
+export { EditGroupFields as PureEditGroupFields }

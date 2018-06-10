@@ -107,6 +107,6 @@ export default {
       status: 'unread',
       message_time: '1525091176544'
     }
-  ]
-
+  ],
+  unreadMessages: 0
 }

@@ -1,10 +1,9 @@
 import React from 'react'
-import ShallowRenderer from 'react-test-renderer/shallow'
 import { PureHashtagMiddleSection } from '../middle-section'
 import Hashtag from '../../../../store/mockStore/mock-reducers/Hashtag'
+import { shallow } from 'enzyme'
 
 describe('HashtagMiddleSection Component', () => {
-  const renderer = new ShallowRenderer()
 
   const comp = (loading=false) => (
     <PureHashtagMiddleSection
@@ -15,12 +14,12 @@ describe('HashtagMiddleSection Component', () => {
   )
 
   it('should match snapshot', () => {
-    const tree = renderer.render(comp())
+    const tree = shallow(comp())
     expect(tree).toMatchSnapshot()
   })
 
   it('should show <Instagram/> loader when loading=true', () => {
-    const tree = renderer.render(comp(true))
+    const tree = shallow(comp(true))
     expect(tree).toMatchSnapshot()
   })
 

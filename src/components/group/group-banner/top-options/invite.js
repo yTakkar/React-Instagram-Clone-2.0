@@ -2,11 +2,7 @@ import React, { Component, Fragment } from 'react'
 import Invite from '../../invite/invite'
 import { connect } from 'react-redux'
 
-@connect(store => (
-  { gd: store.Group.group_details }
-))
-
-export default class InviteToGroup extends Component {
+class InviteToGroup extends Component {
 
   state = {
     invite: false,
@@ -44,3 +40,10 @@ export default class InviteToGroup extends Component {
     )
   }
 }
+
+const mapStateToProps = store => ({
+  gd: store.Group.group_details
+})
+
+export default connect(mapStateToProps)(InviteToGroup)
+export { InviteToGroup as PureInviteToGroup }

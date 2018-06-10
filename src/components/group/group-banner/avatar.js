@@ -5,11 +5,7 @@ import d from '../../../utils/API/DOM'
 import ViewAvatarAction from '../../others/avatar/actions/view-avatar'
 import ChangeAvatarAction from '../../others/avatar/actions/change-avatar'
 
-@connect(store => (
-  { gd: store.Group.group_details }
-))
-
-export default class GroupAvatar extends Component {
+class GroupAvatar extends Component {
 
   state = {
     viewAvatar: false,
@@ -69,3 +65,10 @@ export default class GroupAvatar extends Component {
     )
   }
 }
+
+const mapStateToProps = store => ({
+  gd: store.Group.group_details
+})
+
+export default connect(mapStateToProps)(GroupAvatar)
+export { GroupAvatar as PureGroupAvatar }

@@ -1,12 +1,10 @@
 import React from 'react'
-import ShallowRenderer from 'react-test-renderer/shallow'
 import NotificationActionType from '../action-type'
-import { shallow } from 'enzyme';
+import { shallow } from 'enzyme'
 
 // MAKES USE OF SHALLOW SNAPHSOT
 
 describe('NotificationActionType Component', () => {
-  const renderer = new ShallowRenderer()
   const props = {
     details: {
       type: 'follow',
@@ -20,7 +18,7 @@ describe('NotificationActionType Component', () => {
   }
 
   it('should match snapshot with <Follow/>', () => {
-    const tree = renderer.render(
+    const tree = shallow(
       <NotificationActionType
         {...props}
       />
@@ -29,7 +27,7 @@ describe('NotificationActionType Component', () => {
   })
 
   it('should match snapshot with <Unfollow/>', () => {
-    const tree = renderer.render(
+    const tree = shallow(
       <NotificationActionType
         details={{
           ...props.details,
@@ -41,7 +39,7 @@ describe('NotificationActionType Component', () => {
   })
 
   it('should match snapshot with <NotificationTypePost/>', () => {
-    const tree = renderer.render(
+    const tree = shallow(
       <NotificationActionType
         details={{
           ...props.details,
@@ -53,7 +51,7 @@ describe('NotificationActionType Component', () => {
   })
 
   it('should match snapshot with <NotificationTypeProfile/>', () => {
-    const tree = renderer.render(
+    const tree = shallow(
       <NotificationActionType
         details={{
           ...props.details,
@@ -66,7 +64,7 @@ describe('NotificationActionType Component', () => {
   })
 
   it('should match snapshot with <NotificationTypeGroup/>', () => {
-    const tree = renderer.render(
+    const tree = shallow(
       <NotificationActionType
         details={{
           ...props.details,
@@ -79,7 +77,7 @@ describe('NotificationActionType Component', () => {
   })
 
   it('should match snapshot with <NotificationTypeCon/>', () => {
-    const tree = renderer.render(
+    const tree = shallow(
       <NotificationActionType
         details={{
           ...props.details,

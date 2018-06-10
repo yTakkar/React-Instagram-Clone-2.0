@@ -1,0 +1,89 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddGroupMembers Component should match snapshot 1`] = `
+<div>
+  <div
+    style={
+      Object {
+        "animation": "bcCCNc 300ms ease 0s 1 normal none running",
+        "backfaceVisibility": "visible",
+      }
+    }
+  >
+    <div
+      className="senapati pro_senapati"
+    >
+      <div
+        className="srajkumar"
+      >
+        <div
+          className="sabout_one"
+        >
+          <img
+            src="/images/tree.png"
+          />
+          <div
+            className="sabout_one_info"
+          >
+            <span>
+              Update or edit group to make it look more attractive
+            </span>
+            <a
+              className="sec_btn"
+              href="/"
+              onClick={[Function]}
+            >
+              Update group
+            </a>
+            <a
+              className="pri_btn"
+              href="/edit-profile"
+              onClick={[Function]}
+            >
+              Edit group
+            </a>
+          </div>
+        </div>
+      </div>
+      <div
+        className="prajkumar"
+      >
+        <div
+          className="a_m"
+        >
+          <div
+            className="a_m_header"
+          >
+            <span>
+              Add members
+            </span>
+          </div>
+          <div
+            className="a_m_main"
+          >
+            <div
+              className="search_followings"
+            >
+              <div
+                className="p_add_taggings"
+              >
+                <input
+                  autoComplete="false"
+                  className="p_add_taggings_text"
+                  disabled={true}
+                  maxLength="255"
+                  onChange={[Function]}
+                  placeholder="Search to add"
+                  spellCheck="false"
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

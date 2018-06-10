@@ -1,0 +1,129 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EditGroupFields Component should match snapshot 1`] = `
+Array [
+  <div
+    className="g_e_name"
+  >
+    <span
+      className="g_e_span"
+    >
+      Group name
+    </span>
+    <input
+      autoComplete="false"
+      autoFocus={true}
+      disabled={false}
+      maxLength="255"
+      onChange={[Function]}
+      placeholder="Group name.."
+      spellCheck="false"
+      type="text"
+      value="group name"
+    />
+  </div>,
+  <div
+    className="g_e_bio"
+  >
+    <span
+      className="g_e_span"
+    >
+      Group bio
+    </span>
+    <textarea
+      className="gen_bio"
+      disabled={false}
+      onChange={[Function]}
+      placeholder="Group bio.."
+      spellCheck="false"
+      value="group bio"
+    />
+  </div>,
+  <div
+    className="g_e_pri"
+  >
+    <input
+      checked={false}
+      className="inst_checkbox"
+      disabled={false}
+      id="grp_private"
+      onChange={[Function]}
+      type="checkbox"
+    />
+    <label
+      htmlFor="grp_private"
+    >
+      Private group
+    </label>
+    <span
+      className="g_e_p_info"
+    >
+      Private: Only members can interact with group
+    </span>
+  </div>,
+]
+`;
+
+exports[`EditGroupFields Component should match snapshot and disabled inputs 1`] = `
+Array [
+  <div
+    className="g_e_name"
+  >
+    <span
+      className="g_e_span"
+    >
+      Group name
+    </span>
+    <input
+      autoComplete="false"
+      autoFocus={true}
+      disabled={true}
+      maxLength="255"
+      onChange={[Function]}
+      placeholder="Group name.."
+      spellCheck="false"
+      type="text"
+      value="group name"
+    />
+  </div>,
+  <div
+    className="g_e_bio"
+  >
+    <span
+      className="g_e_span"
+    >
+      Group bio
+    </span>
+    <textarea
+      className="gen_bio"
+      disabled={true}
+      onChange={[Function]}
+      placeholder="Group bio.."
+      spellCheck="false"
+      value="group bio"
+    />
+  </div>,
+  <div
+    className="g_e_pri"
+  >
+    <input
+      checked={false}
+      className="inst_checkbox"
+      disabled={true}
+      id="grp_private"
+      onChange={[Function]}
+      type="checkbox"
+    />
+    <label
+      htmlFor="grp_private"
+    >
+      Private group
+    </label>
+    <span
+      className="g_e_p_info"
+    >
+      Private: Only members can interact with group
+    </span>
+  </div>,
+]
+`;

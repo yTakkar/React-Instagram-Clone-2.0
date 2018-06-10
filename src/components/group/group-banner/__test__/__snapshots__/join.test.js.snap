@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`JoinGroup Component should match snapshot 1`] = `
+<div
+  className="pro_ff"
+>
+  <a
+    className="pri_btn ff"
+    href="/edit-group"
+    onClick={[Function]}
+  >
+    Edit group
+  </a>
+</div>
+`;
+
+exports[`JoinGroup Component should match snapshot and show <Join/> when joined == false 1`] = `
+<div
+  className="pro_ff"
+>
+  <a
+    className="pri_btn follow "
+    href="#"
+    onClick={[Function]}
+  >
+    Join group
+  </a>
+</div>
+`;
+
+exports[`JoinGroup Component should match snapshot and show <Leave/> when joined == true 1`] = `
+<div
+  className="pro_ff"
+>
+  <a
+    className="pri_btn unfollow "
+    href="#"
+    onClick={[Function]}
+  >
+    Leave group
+  </a>
+</div>
+`;

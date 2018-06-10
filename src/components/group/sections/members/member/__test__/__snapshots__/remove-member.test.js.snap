@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RemoveMember Component should match snapshot 1`] = `
+<a
+  className="sec_btn  "
+  href="#"
+  onClick={[Function]}
+>
+  Remove 
+</a>
+`;

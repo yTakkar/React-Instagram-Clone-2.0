@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GroupPhotos Component should match snapshot 1`] = `
+<React.Fragment>
+  <Gallery
+    columns={4}
+    margin={7}
+    onClick={[Function]}
+    photos={
+      Array [
+        Object {
+          "className": "g_photo filter-normal",
+          "filter": "filter-normal",
+          "firstname": "Ragnar",
+          "height": 15,
+          "imgsrc": "instagram_1516528062094.jpg",
+          "post_id": 43,
+          "post_time": "1516528062094",
+          "src": "/posts/instagram_1516528062094.jpg",
+          "surname": "Lothbrok",
+          "user": 18,
+          "username": "ragnar",
+          "width": 15,
+        },
+      ]
+    }
+  />
+</React.Fragment>
+`;

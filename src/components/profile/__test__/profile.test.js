@@ -6,7 +6,7 @@ import mockStore from '../../../store/mockStore/mockStore'
 import { BrowserRouter as Router } from 'react-router-dom'
 import Profile, { PureProfile } from '../profile'
 import { shallow } from 'enzyme'
-import User from '../../../store/mockStore/mock-reducers/User';
+import User from '../../../store/mockStore/mock-reducers/User'
 
 describe('Profile Component', () => {
   MockDataElement()

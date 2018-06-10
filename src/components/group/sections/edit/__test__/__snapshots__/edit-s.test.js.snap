@@ -1,0 +1,132 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EditGroup Component should match snapshot 1`] = `
+<div>
+  <div
+    style={
+      Object {
+        "animation": "bcCCNc 300ms ease 0s 1 normal none running",
+        "backfaceVisibility": "visible",
+      }
+    }
+  >
+    <div
+      className="senapati pro_senapati"
+    >
+      <div
+        className="srajkumar"
+      >
+        <div
+          className="sabout_one"
+        >
+          <img
+            src="/images/tree.png"
+          />
+          <div
+            className="sabout_one_info"
+          >
+            <span>
+              Update or edit group to make it look more attractive
+            </span>
+          </div>
+        </div>
+      </div>
+      <div
+        className="prajkumar"
+      >
+        <div
+          className="grp_edit"
+        >
+          <div
+            className="g_e_name"
+          >
+            <span
+              className="g_e_span"
+            >
+              Group name
+            </span>
+            <input
+              autoComplete="false"
+              autoFocus={true}
+              disabled={false}
+              maxLength="255"
+              onChange={[Function]}
+              placeholder="Group name.."
+              spellCheck="false"
+              type="text"
+              value="a groupss"
+            />
+          </div>
+          <div
+            className="g_e_bio"
+          >
+            <span
+              className="g_e_span"
+            >
+              Group bio
+            </span>
+            <textarea
+              className="gen_bio"
+              disabled={false}
+              onChange={[Function]}
+              placeholder="Group bio.."
+              spellCheck="false"
+              value="#random group"
+            />
+          </div>
+          <div
+            className="g_e_pri"
+          >
+            <input
+              checked={false}
+              className="inst_checkbox"
+              disabled={false}
+              id="grp_private"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            <label
+              htmlFor="grp_private"
+            >
+              Private group
+            </label>
+            <span
+              className="g_e_p_info"
+            >
+              Private: Only members can interact with group
+            </span>
+          </div>
+          <div
+            className="g_e_save"
+          >
+            <span
+              className="emoji_span  "
+              data-tip="Add emojis"
+              onClick={[Function]}
+            >
+              <i
+                className="material-icons"
+              >
+                sentiment_very_satisfied
+              </i>
+            </span>
+            <div
+              className="__react_component_tooltip place-top type-dark "
+              data-id="tooltip"
+            >
+              
+            </div>
+            <a
+              className="sec_btn g_e_save_btn "
+              href="#"
+              onClick={[Function]}
+            >
+              Update
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -13,11 +13,7 @@ import Follow from '../../../../others/follow/follow'
 import Unfollow from '../../../../others/follow/unfollow'
 import AppLink from '../../../../others/link/link'
 
-@connect(store => (
-  { gd: store.Group.group_details }
-))
-
-export default class MembersList extends Component {
+class MembersList extends Component {
 
   state = {
     isFollowing: false,
@@ -107,3 +103,10 @@ MembersList.propTypes = {
   mutualUsersCount: PropTypes.number.isRequired,
   group_id: PropTypes.number.isRequired,
 }
+
+const mapStateToProps = store => ({
+  gd: store.Group.group_details
+})
+
+export default connect(mapStateToProps)(MembersList)
+export { MembersList as PureMembersList }

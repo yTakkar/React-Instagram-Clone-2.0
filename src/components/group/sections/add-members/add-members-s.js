@@ -7,14 +7,7 @@ import { Me, bottomScroll } from '../../../../utils/utils'
 import { joinGroup } from '../../../../utils/group-utils'
 import GroupInstruction from '../../instruction'
 
-@connect(store => (
-  {
-    gd: store.Group.group_details,
-    session: store.User.session.id
-  }
-))
-
-export default class AddGroupMembers extends Component {
+class AddGroupMembers extends Component {
 
   componentDidMount = () => bottomScroll()
 
@@ -70,3 +63,11 @@ export default class AddGroupMembers extends Component {
     )
   }
 }
+
+const mapStateToProps = store => ({
+  gd: store.Group.group_details,
+  session: store.User.session.id
+})
+
+export default connect(mapStateToProps)(AddGroupMembers)
+export { AddGroupMembers as PureAddGroupMembers }

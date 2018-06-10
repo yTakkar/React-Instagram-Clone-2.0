@@ -9,11 +9,7 @@ import d from '../../../../utils/API/DOM'
 import EditPen from '../../../others/edit-pen'
 import { bottomScroll } from '../../../../utils/utils'
 
-@connect(store => (
-  { gd: store.Group.group_details }
-))
-
-export default class AboutGroup extends Component {
+class AboutGroup extends Component {
 
   togglePen = () =>
     new d('.a_edit').toggle()
@@ -66,3 +62,10 @@ export default class AboutGroup extends Component {
     )
   }
 }
+
+const mapStateToProps = store => ({
+  gd: store.Group.group_details
+})
+
+export default connect(mapStateToProps)(AboutGroup)
+export { AboutGroup as PureAboutGroup }

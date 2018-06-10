@@ -1,0 +1,161 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AboutGroup Component should match snapshot 1`] = `
+<div>
+  <div
+    style={
+      Object {
+        "animation": "bcCCNc 300ms ease 0s 1 normal none running",
+        "backfaceVisibility": "visible",
+      }
+    }
+  >
+    <div
+      className="senapati pro_senapati"
+    >
+      <div
+        className="about"
+      >
+        <div
+          className="sabout"
+        >
+          <div
+            className="sabout_one"
+          >
+            <img
+              src="/images/tree.png"
+            />
+            <div
+              className="sabout_one_info"
+            >
+              <span>
+                Update or edit group to make it look more attractive
+              </span>
+              <a
+                className="sec_btn"
+                href="/"
+                onClick={[Function]}
+              >
+                Update group
+              </a>
+              <a
+                className="pri_btn"
+                href="/edit-profile"
+                onClick={[Function]}
+              >
+                Edit group
+              </a>
+            </div>
+          </div>
+        </div>
+        <div
+          className="fabout"
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}
+        >
+          <div
+            className="a_edit"
+            data-tip="Edit group"
+            style={
+              Object {
+                "display": "none",
+              }
+            }
+          >
+            <a
+              href="/group/11/edit"
+              onClick={[Function]}
+            >
+              <i
+                className="material-icons"
+              >
+                mode_edit
+              </i>
+            </a>
+            <div
+              className="__react_component_tooltip place-top type-dark "
+              data-id="tooltip"
+            >
+              
+            </div>
+          </div>
+          <div>
+            <span
+              className="a_label"
+            >
+              Group name
+            </span>
+            <span
+              className="a_info"
+            >
+              a groupss
+            </span>
+          </div>
+          <div>
+            <span
+              className="a_label"
+            >
+              Bio
+            </span>
+            <span
+              className="a_info"
+            >
+              #random group
+            </span>
+          </div>
+          <div>
+            <span
+              className="a_label"
+            >
+              No of posts
+            </span>
+            <span
+              className="a_info"
+            >
+              undefined
+            </span>
+          </div>
+          <div>
+            <span
+              className="a_label"
+            >
+              Group type
+            </span>
+            <span
+              className="a_info"
+            >
+              public
+            </span>
+          </div>
+          <div>
+            <span
+              className="a_label"
+            >
+              Group created by
+            </span>
+            <a
+              className="a_info"
+              href="/profile/takkar"
+              onClick={[Function]}
+            >
+              takkar
+            </a>
+          </div>
+          <div>
+            <span
+              className="a_label"
+            >
+              Group created
+            </span>
+            <span
+              className="a_info"
+            >
+              4 months ago
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

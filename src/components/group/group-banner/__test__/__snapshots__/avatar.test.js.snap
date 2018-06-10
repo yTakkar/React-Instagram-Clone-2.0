@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GroupAvatar Component should match snapshot 1`] = `
+<div
+  className="pro_avatar"
+  onMouseOut={[Function]}
+  onMouseOver={[Function]}
+>
+  <img
+    alt="avatar"
+    src="/groups/11/avatar.jpg"
+  />
+  <div
+    className="pro_avatar_ch_teaser"
+    style={
+      Object {
+        "display": "none",
+      }
+    }
+  >
+    <span
+      className="view_avatar_span"
+      onClick={[Function]}
+    >
+      View
+    </span>
+    <span
+      className="change_pro"
+      onClick={[Function]}
+    >
+      Change
+    </span>
+  </div>
+</div>
+`;

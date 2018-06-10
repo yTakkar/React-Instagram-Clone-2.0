@@ -1,0 +1,105 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CreateGroupModal Component should match snapshot 1`] = `
+<div>
+  <div
+    className="overlay"
+    onClick={null}
+    style={
+      Object {
+        "cursor": "inherit",
+        "opacity": 0.5,
+      }
+    }
+  />
+  <div
+    className="create_group modal"
+  >
+    <div
+      style={
+        Object {
+          "animation": "bcCCNc 300ms ease 0s 1 normal none running",
+          "backfaceVisibility": "visible",
+        }
+      }
+    >
+      <div
+        className="modal_header"
+      >
+        <span
+          className="title"
+        >
+          Create group
+        </span>
+      </div>
+      <div
+        className="c_g_middle modal_middle"
+      >
+        <div>
+          <span>
+            Name your group
+          </span>
+          <input
+            autoComplete="false"
+            autoFocus={true}
+            disabled={false}
+            maxLength="255"
+            onChange={[Function]}
+            placeholder="Name.."
+            spellCheck="false"
+            type="text"
+            value=""
+          />
+        </div>
+        <div>
+          <span>
+            Add bio to your group
+          </span>
+          <textarea
+            className="c_g_textarea"
+            onChange={[Function]}
+            placeholder="Bio.."
+            spellCheck="false"
+            value=""
+          />
+        </div>
+      </div>
+      <div
+        className="e_p_bottom modal_bottom"
+      >
+        <span
+          className="emoji_span  "
+          data-tip="Add emojis"
+          onClick={[Function]}
+        >
+          <i
+            className="material-icons"
+          >
+            sentiment_very_satisfied
+          </i>
+        </span>
+        <div
+          className="__react_component_tooltip place-top type-dark "
+          data-id="tooltip"
+        >
+          
+        </div>
+        <a
+          className="sec_btn  "
+          href="#"
+          onClick={[MockFunction]}
+        >
+          Back
+        </a>
+        <a
+          className="pri_btn c_g_update a_disabled"
+          href="#"
+          onClick={[Function]}
+        >
+          Create group
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;

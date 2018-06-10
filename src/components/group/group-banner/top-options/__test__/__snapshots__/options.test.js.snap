@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GroupOptions Component should match snapshot 1`] = `
+<ul>
+  <li>
+    <a
+      href="#"
+      onClick={[Function]}
+    >
+      Invite to group
+    </a>
+  </li>
+  <li>
+    <a
+      className="p_copy_link"
+      href="#"
+      onClick={[Function]}
+    >
+      Transfer admin position
+    </a>
+  </li>
+  <li>
+    <a
+      className="p_copy_link"
+      href="#"
+      onClick={[Function]}
+    >
+      Delete group 
+    </a>
+  </li>
+  <li>
+    <a
+      className="p_copy_link"
+      href="#"
+      onClick={[Function]}
+    >
+      Copy group link
+    </a>
+  </li>
+</ul>
+`;

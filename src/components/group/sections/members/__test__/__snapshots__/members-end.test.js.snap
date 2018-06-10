@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MembersEnd Component should match snapshot and show <End/> when members.length > 0 1`] = `
+<div
+  className="page_end"
+  onClick={[Function]}
+>
+  <span>
+    Looks like you've reached the end
+  </span>
+</div>
+`;
+
+exports[`MembersEnd Component should match snapshot and show <Nothing/> when members.length == 0 1`] = `
+<div
+  className="home_last_mssg"
+  style={
+    Object {
+      "border": "",
+    }
+  }
+>
+  <img
+    src="/images/large.jpg"
+  />
+  <span
+    className="nothingMssg"
+  >
+    a groupss group has no members!!
+  </span>
+  <span
+    className="secondMssg"
+  >
+    
+  </span>
+</div>
+`;

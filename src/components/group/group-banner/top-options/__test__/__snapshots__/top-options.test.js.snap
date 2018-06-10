@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GroupTopOptions Component should match snapshot 1`] = `
+<div
+  className="pro_more"
+>
+  <span
+    className="pro_more_horiz"
+    data-tip="Options"
+    onClick={[Function]}
+  >
+    <i
+      className="material-icons"
+    >
+      more_horiz
+    </i>
+  </span>
+</div>
+`;

@@ -9,14 +9,7 @@ import MonHeader from '../../../others/m-on/mon-header'
 import MembersEnd from './Members-end'
 import IsLoading from '../../../others/isLoading'
 
-@connect(store => (
-  {
-    members: store.Group.members,
-    gd: store.Group.group_details
-  }
-))
-
-export default class GroupMembers extends Component {
+class GroupMembers extends Component {
 
   state = {
     loading: true
@@ -75,3 +68,11 @@ export default class GroupMembers extends Component {
     )
   }
 }
+
+const mapStateToProps = store => ({
+  members: store.Group.members,
+  gd: store.Group.group_details
+})
+
+export default connect(mapStateToProps)(GroupMembers)
+export { GroupMembers as PureGroupMembers }

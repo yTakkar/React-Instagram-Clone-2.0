@@ -8,11 +8,7 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import SecondaryButton from '../../../../others/button/secondary-btn'
 
-@connect(store => (
-  { gd: store.Group.group_details }
-))
-
-export default class RemoveMember extends Component {
+class RemoveMember extends Component {
 
   state = {
     showPrompt: false
@@ -41,13 +37,13 @@ export default class RemoveMember extends Component {
   render() {
     let { showPrompt } = this.state
     let { username } = this.props.memberDetails
-    let btnLabel = `Remove ${isAdmin() ? 'as admin' : null}`
+    let btnLabel = `Remove ${isAdmin() ? 'as admin' : ''}`
 
     return (
       <Fragment>
         <SecondaryButton
           label={btnLabel}
-          onClick={showPrompt}
+          onClick={this.showPrompt}
         />
 
         {
@@ -73,3 +69,10 @@ RemoveMember.propTypes = {
     username: PropTypes.string.isRequired
   }).isRequired
 }
+
+const mapStateToProps = store => ({
+  gd: store.Group.group_details
+})
+
+export default connect(mapStateToProps)(RemoveMember)
+export { RemoveMember as PureRemoveMember }

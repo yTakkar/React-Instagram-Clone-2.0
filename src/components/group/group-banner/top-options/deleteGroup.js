@@ -8,11 +8,7 @@ import Prompt from '../../../others/prompt'
 import PropTypes from 'prop-types'
 import { Redirect } from 'react-router'
 
-@connect(store => (
-  { gd: store.Group.group_details }
-))
-
-export default class DeleteGroup extends Component {
+class DeleteGroup extends Component {
 
   state = {
     deleteGrp: false,
@@ -78,3 +74,10 @@ export default class DeleteGroup extends Component {
 DeleteGroup.propTypes = {
   toggleOptions: PropTypes.func.isRequired
 }
+
+const mapStateToProps = store => ({
+  gd: store.Group.group_details
+})
+
+export default connect(mapStateToProps)(DeleteGroup)
+export { DeleteGroup as PureDeleteGroup }

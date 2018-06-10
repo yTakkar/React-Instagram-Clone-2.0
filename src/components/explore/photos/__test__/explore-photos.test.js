@@ -1,15 +1,15 @@
 import React from 'react'
 import { PureExpPhotos } from '../explore-photos'
 import { shallow } from 'enzyme'
-import ShallowRenderer from 'react-test-renderer/shallow'
 
 describe('ExpPhotos Component', () => {
 
   // shallow snapshot testing
   it('should match snapshot', () => {
-    const renderer = new ShallowRenderer()
-    const result = renderer.render(
-      <PureExpPhotos/>
+    const result = shallow(
+      <PureExpPhotos
+        dispatch={jest.fn()}
+      />
     )
     expect(result).toMatchSnapshot()
   })

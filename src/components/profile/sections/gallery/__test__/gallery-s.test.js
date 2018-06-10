@@ -1,7 +1,6 @@
 import React from 'react'
 import { PureGallery } from '../gallery-s'
 import { shallow } from 'enzyme'
-import ShallowRenderer from 'react-test-renderer/shallow'
 import Post from '../../../../../store/mockStore/mock-reducers/Post'
 import User from '../../../../../store/mockStore/mock-reducers/User'
 
@@ -14,10 +13,10 @@ describe('Gallery Component', () => {
 
   // shallow snapshot testing
   it('should match snapshot', () => {
-    const renderer = new ShallowRenderer()
-    const result = renderer.render(
+    const result = shallow(
       <PureGallery
         {...props}
+        dispatch={jest.fn()}
       />
     )
     expect(result).toMatchSnapshot()

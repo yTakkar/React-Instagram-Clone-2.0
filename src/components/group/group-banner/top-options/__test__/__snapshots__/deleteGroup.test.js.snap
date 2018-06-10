@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DeleteGroup Component should match snapshot 1`] = `
+<li>
+  <a
+    className="p_copy_link"
+    href="#"
+    onClick={[Function]}
+  >
+    Delete group 
+  </a>
+</li>
+`;

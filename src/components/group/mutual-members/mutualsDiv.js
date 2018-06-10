@@ -19,8 +19,10 @@ const MutualMembersDiv = ({ group, mutualMembers }) => {
 
   return (
     <div className='mutuals'>
+
       <div className='mutual_info'>
         <span>Members you know</span>
+
         <AppLink
           to={`/group/${group}/members`}
           data-tip='view all'

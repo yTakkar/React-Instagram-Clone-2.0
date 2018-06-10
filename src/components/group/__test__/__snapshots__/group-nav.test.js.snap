@@ -1,0 +1,119 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GroupNav Component should match snapshot 1`] = `
+<div
+  className="pro_nav user_nav"
+>
+  <ul>
+    <li>
+      <a
+        aria-current={false}
+        className="inst_nav"
+        href="/group/11"
+        onClick={[Function]}
+      >
+        Posts
+      </a>
+    </li>
+    <li>
+      <a
+        aria-current={false}
+        className="inst_nav"
+        href="/group/11/members"
+        onClick={[Function]}
+      >
+        Members
+      </a>
+    </li>
+    <li>
+      <a
+        aria-current={false}
+        className="inst_nav"
+        href="/group/11/gallery"
+        onClick={[Function]}
+      >
+        Gallery
+      </a>
+    </li>
+    <li>
+      <a
+        aria-current={false}
+        className="inst_nav"
+        href="/group/11/about"
+        onClick={[Function]}
+      >
+        About
+      </a>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`GroupNav Component should match snapshot and show edit & add-member links also 1`] = `
+<div
+  className="pro_nav user_nav"
+>
+  <ul>
+    <li>
+      <a
+        aria-current={false}
+        className="inst_nav"
+        href="/group/11"
+        onClick={[Function]}
+      >
+        Posts
+      </a>
+    </li>
+    <li>
+      <a
+        aria-current={false}
+        className="inst_nav"
+        href="/group/11/members"
+        onClick={[Function]}
+      >
+        Members
+      </a>
+    </li>
+    <li>
+      <a
+        aria-current={false}
+        className="inst_nav"
+        href="/group/11/gallery"
+        onClick={[Function]}
+      >
+        Gallery
+      </a>
+    </li>
+    <li>
+      <a
+        aria-current={false}
+        className="inst_nav"
+        href="/group/11/edit"
+        onClick={[Function]}
+      >
+        Edit
+      </a>
+    </li>
+    <li>
+      <a
+        aria-current={false}
+        className="inst_nav"
+        href="/group/11/add-members"
+        onClick={[Function]}
+      >
+        Add members
+      </a>
+    </li>
+    <li>
+      <a
+        aria-current={false}
+        className="inst_nav"
+        href="/group/11/about"
+        onClick={[Function]}
+      >
+        About
+      </a>
+    </li>
+  </ul>
+</div>
+`;

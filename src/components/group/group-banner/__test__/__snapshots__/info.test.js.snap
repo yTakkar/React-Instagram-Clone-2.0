@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GroupInfo Component should match snapshot 1`] = `
+<div
+  className="pro_info"
+>
+  <div
+    className="pro_username"
+  >
+    <a
+      className="username"
+      href="/group/11"
+      onClick={[Function]}
+    >
+      a groupss
+    </a>
+  </div>
+  <div
+    className="pro_name"
+  >
+    <span>
+      <i
+        className="fas fa-globe"
+      />
+       Public group
+    </span>
+  </div>
+</div>
+`;
+
+exports[`GroupInfo Component should match snapshot when group_type == private 1`] = `
+<div
+  className="pro_info"
+>
+  <div
+    className="pro_username"
+  >
+    <a
+      className="username"
+      href="/group/11"
+      onClick={[Function]}
+    >
+      a groupss
+    </a>
+  </div>
+  <div
+    className="pro_name"
+  >
+    <span>
+      <i
+        className="fas fa-lock"
+      />
+       Private group
+    </span>
+  </div>
+</div>
+`;

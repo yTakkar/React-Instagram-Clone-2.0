@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Leave Component should match snapshot 1`] = `
+<a
+  className="pri_btn unfollow "
+  href="#"
+  onClick={[Function]}
+>
+  Leave group
+</a>
+`;

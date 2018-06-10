@@ -10,12 +10,9 @@ import ModalBack from '../../others/modal/modal-back'
 import ModalMiddle from '../../others/modal/modal-middle'
 import IsLoading from '../../others/isLoading'
 import Overlay from '../../others/overlay'
+import { number, func } from 'prop-types'
 
-@connect(store => (
-  { users: store.Group.usersToInvite }
-))
-
-export default class Invite extends Component {
+class Invite extends Component {
 
   state = {
     loading: true
@@ -68,3 +65,15 @@ export default class Invite extends Component {
     )
   }
 }
+
+Invite.propTypes = {
+  group: number,
+  back: func.isRequired
+}
+
+const mapStateToProps = store => ({
+  users: store.Group.usersToInvite
+})
+
+export default connect(mapStateToProps)(Invite)
+export { Invite as PureInvite }

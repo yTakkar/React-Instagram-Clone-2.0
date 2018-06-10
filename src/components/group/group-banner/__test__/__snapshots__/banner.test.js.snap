@@ -1,0 +1,100 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GroupBanner Component should match snapshot 1`] = `
+<div
+  className="pro_banner"
+>
+  <div
+    className="pro_top"
+  >
+    <div
+      className="pro_more"
+    >
+      <span
+        className="pro_more_horiz"
+        data-tip="Options"
+        onClick={[Function]}
+      >
+        <i
+          className="material-icons"
+        >
+          more_horiz
+        </i>
+      </span>
+    </div>
+    <div
+      className="pro_ff"
+    >
+      <a
+        className="pri_btn ff"
+        href="/edit-group"
+        onClick={[Function]}
+      >
+        Edit group
+      </a>
+    </div>
+  </div>
+  <div
+    className="pro_avatar"
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <img
+      alt="avatar"
+      src="/groups/11/avatar.jpg"
+    />
+    <div
+      className="pro_avatar_ch_teaser"
+      style={
+        Object {
+          "display": "none",
+        }
+      }
+    >
+      <span
+        className="view_avatar_span"
+        onClick={[Function]}
+      >
+        View
+      </span>
+      <span
+        className="change_pro"
+        onClick={[Function]}
+      >
+        Change
+      </span>
+    </div>
+  </div>
+  <div
+    className="pro_info"
+  >
+    <div
+      className="pro_username"
+    >
+      <a
+        className="username"
+        href="/group/11"
+        onClick={[Function]}
+      >
+        a groupss
+      </a>
+    </div>
+    <div
+      className="pro_name"
+    >
+      <span>
+        <i
+          className="fas fa-globe"
+        />
+         Public group
+      </span>
+    </div>
+  </div>
+  <div
+    className="__react_component_tooltip place-top type-dark "
+    data-id="tooltip"
+  >
+    
+  </div>
+</div>
+`;

@@ -47,3 +47,4 @@ Leave.propTypes = {
 }
 
 export default connect()(Leave)
+export { Leave as PureLeave }

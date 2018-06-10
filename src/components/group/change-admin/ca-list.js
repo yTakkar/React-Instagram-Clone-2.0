@@ -3,6 +3,7 @@ import Prompt from '../../others/prompt'
 import { changeAdmin } from '../../../utils/group-utils'
 import PrimaryButton from '../../others/button/primary-btn'
 import ModalItemInfo from '../../others/modal/modal-item-info'
+import { number, string } from 'prop-types'
 
 export default class ChangeAdminList extends Component {
 
@@ -15,7 +16,7 @@ export default class ChangeAdminList extends Component {
     this.setState({ change: true })
   }
 
-  transfer = async e => {
+  transfer = e => {
     e.preventDefault()
     let { member, group } = this.props
     changeAdmin({ member, group })
@@ -65,4 +66,13 @@ export default class ChangeAdminList extends Component {
       </Fragment>
     )
   }
+}
+
+ChangeAdminList.propTypes = {
+  grp_member_id: number.isRequired,
+  member: number.isRequired,
+  username: string.isRequired,
+  firstname: string.isRequired,
+  surname: string.isRequired,
+  group: number
 }

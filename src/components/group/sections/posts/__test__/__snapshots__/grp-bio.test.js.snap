@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GroupBio Component should match snapshot 1`] = `
+<div
+  className="grp_bio"
+>
+  <div
+    className="grp_bio_h"
+  >
+    <span>
+      Group's bio
+    </span>
+  </div>
+  <div
+    className="grp_bio_main"
+  >
+    <span>
+      <span>
+        <a
+          className="hashtag"
+          href="/hashtag/random"
+          onClick={[Function]}
+        >
+          #random 
+        </a>
+        group 
+      </span>
+    </span>
+    <a
+      className="sec_btn grp_ns"
+      href="/group/11/edit"
+      onClick={[Function]}
+    >
+      Not satisfied
+    </a>
+  </div>
+</div>
+`;
+
+exports[`GroupBio Component should match snapshot and show edit bio button when not admin 1`] = `
+<div
+  className="grp_bio"
+>
+  <div
+    className="grp_bio_h"
+  >
+    <span>
+      Group's bio
+    </span>
+  </div>
+  <div
+    className="grp_bio_main"
+  >
+    <span>
+      <span>
+        <a
+          className="hashtag"
+          href="/hashtag/random"
+          onClick={[Function]}
+        >
+          #random 
+        </a>
+        group 
+      </span>
+    </span>
+  </div>
+</div>
+`;

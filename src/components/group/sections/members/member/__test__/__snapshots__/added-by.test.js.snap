@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MemberAddedBy Component should match snapshot 1`] = `
+<span
+  className="recommend_by"
+>
+  <div>
+    by 
+    <a
+      href="/profile/ghalib"
+      onClick={[Function]}
+    >
+      ghalib
+    </a>
+  </div>
+</span>
+`;
+
+exports[`MemberAddedBy Component should match snapshot and display null when member is not added by anyone 1`] = `
+<span
+  className="recommend_by"
+/>
+`;

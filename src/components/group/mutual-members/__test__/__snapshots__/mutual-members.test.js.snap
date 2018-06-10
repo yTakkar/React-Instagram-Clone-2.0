@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MutualMembers Component should match snapshot 1`] = `
+<div
+  className="mutuals"
+>
+  <div
+    className="mutual_info"
+  >
+    <span>
+      Members you know
+    </span>
+    <a
+      className="view_all_yk"
+      data-tip="view all"
+      href="/group/34/members"
+      onClick={[Function]}
+    >
+      <i
+        className="fas fa-chevron-right"
+      />
+    </a>
+  </div>
+  <div
+    className="mutual_main"
+  >
+    <a
+      className="mutual_links"
+      data-tip="ghalib"
+      href="/profile/ghalib"
+      onClick={[Function]}
+    >
+      <img
+        src="/users/7/avatar.jpg"
+      />
+    </a>
+  </div>
+  <div
+    className="__react_component_tooltip place-top type-dark "
+    data-id="tooltip"
+  >
+    
+  </div>
+</div>
+`;
+
+exports[`MutualMembers Component should match snapshot with null when mutualMembers.length == 0 1`] = `null`;

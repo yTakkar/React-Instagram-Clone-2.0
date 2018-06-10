@@ -1,0 +1,102 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MembersList Component should match snapshot with <RemoveMember/> 1`] = `
+<div
+  className="m_on followers_m_on"
+  onMouseOut={[Function]}
+  onMouseOver={[Function]}
+>
+  <div
+    className="m_top"
+  >
+    <img
+      src="/users/7/avatar.jpg"
+    />
+    <div
+      className="m_top_right"
+    >
+      <a
+        href="/profile/ghalib"
+        onClick={[Function]}
+      >
+        ghalib
+      </a>
+      <span>
+        1 mutual follower
+      </span>
+    </div>
+  </div>
+  <div
+    className="m_bottom"
+  >
+    <span
+      className="recommend_by"
+    >
+      <div>
+        by 
+        <a
+          href="/profile/takkar"
+          onClick={[Function]}
+        >
+          You
+        </a>
+      </div>
+    </span>
+    <a
+      className="sec_btn  "
+      href="#"
+      onClick={[Function]}
+    >
+      Remove 
+    </a>
+  </div>
+</div>
+`;
+
+exports[`MembersList Component should match snapshot with profile link 1`] = `
+<div
+  className="m_on followers_m_on"
+  onMouseOut={[Function]}
+  onMouseOver={[Function]}
+>
+  <div
+    className="m_top"
+  >
+    <img
+      src="/users/24/avatar.jpg"
+    />
+    <div
+      className="m_top_right"
+    >
+      <a
+        href="/profile/takkar"
+        onClick={[Function]}
+      >
+        takkar
+      </a>
+      <span
+        className="grp_admin"
+      >
+        admin
+      </span>
+      <span>
+        Mirza Ghalib
+      </span>
+    </div>
+  </div>
+  <div
+    className="m_bottom"
+  >
+    <span
+      className="recommend_by"
+    />
+    <a
+      className="sec_btn"
+      href="/profile/takkar"
+      onClick={[Function]}
+    >
+      Profile
+    </a>
+  </div>
+</div>
+`;

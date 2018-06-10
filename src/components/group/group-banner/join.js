@@ -25,7 +25,7 @@ const JoinGroup = ({ gd, joined, session, dispatch }) => {
           Me(admin)
             ? <AppLink
               url='/edit-group'
-              label='Edit profile'
+              label='Edit group'
               className='pri_btn ff'
             />
 
@@ -56,3 +56,4 @@ const mapStateToProps = state => (
 )
 
 export default connect(mapStateToProps)(JoinGroup)
+export { JoinGroup as PureJoinGroup }

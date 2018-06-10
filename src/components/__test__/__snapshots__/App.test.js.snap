@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App Component should match snapshot 1`] = `
+<BrowserRouter>
+  <div
+    className="app"
+  >
+    <Header />
+    <Connect(NotiSpeak)
+      un={1}
+    />
+    <SideBar
+      uc={0}
+      un={1}
+    />
+    <AppRoutes />
+  </div>
+</BrowserRouter>
+`;

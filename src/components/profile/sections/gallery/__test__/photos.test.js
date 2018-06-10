@@ -1,5 +1,4 @@
 import React from 'react'
-import ShallowRenderer from 'react-test-renderer/shallow'
 import { PureUserPhotos } from '../photos'
 import User from '../../../../../store/mockStore/mock-reducers/User'
 import Post from '../../../../../store/mockStore/mock-reducers/Post'
@@ -7,7 +6,6 @@ import { shallow, mount } from 'enzyme'
 import { BrowserRouter as Router } from 'react-router-dom'
 
 describe('UserPhotos Component', () => {
-  const renderer = new ShallowRenderer()
 
   const comp = (
     <PureUserPhotos
@@ -18,7 +16,7 @@ describe('UserPhotos Component', () => {
 
   // shallow snapshot
   it('should match snapshot', () => {
-    const tree = renderer.render(comp)
+    const tree = shallow(comp)
     expect(tree).toMatchSnapshot()
   })
 

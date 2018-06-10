@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GrpAboutSection Component should match snapshot with type link 1`] = `
+<div>
+  <span
+    className="a_label"
+  >
+    Group created by
+  </span>
+  <a
+    className="a_info"
+    href="/profile/takkar"
+    onClick={[Function]}
+  >
+    takkar
+  </a>
+</div>
+`;
+
+exports[`GrpAboutSection Component should match snapshot with type text 1`] = `
+<div>
+  <span
+    className="a_label"
+  >
+    Bio
+  </span>
+  <span
+    className="a_info"
+  >
+    A unique bio
+  </span>
+</div>
+`;

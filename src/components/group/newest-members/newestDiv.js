@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 import FAIcon from '../../others/icons/font-awesome-icon'
 import AppLink from '../../others/link/link'
 
-const NewestDiv = ({ group, newestMembers }) => {
+const NewestMembersDiv = ({ group, newestMembers }) => {
   let map_members = newestMembers.map(u =>
     <AppLink
       key={u.user}
@@ -18,8 +18,10 @@ const NewestDiv = ({ group, newestMembers }) => {
 
   return (
     <div className='mutuals'>
+
       <div className='mutual_info'>
         <span>Newest members</span>
+
         <AppLink
           url={`/group/${group}/members`}
           data-tip='view all'
@@ -27,16 +29,17 @@ const NewestDiv = ({ group, newestMembers }) => {
         ><FAIcon icon='chevron-right' />
         </AppLink>
       </div>
+
       <div className='mutual_main'>
         { map_members }
       </div>
+
       <ToolTip/>
     </div>
-
   )
 }
 
-NewestDiv.propTypes = {
+NewestMembersDiv.propTypes = {
   group: PropTypes.number
 }
 
@@ -44,4 +47,4 @@ const mapStateToProps = state => (
   { newestMembers: state.Group.newestMembers }
 )
 
-export default connect(mapStateToProps)(NewestDiv)
+export default connect(mapStateToProps)(NewestMembersDiv)

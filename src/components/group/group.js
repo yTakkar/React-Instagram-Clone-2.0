@@ -12,14 +12,7 @@ import Nothing from '../others/nothing'
 import GroupRoutes from './group-routes'
 import IsLoading from '../others/isLoading'
 
-@connect(store => (
-  {
-    gd: store.Group.group_details,
-    joined: store.Group.joined
-  }
-))
-
-export default class Group extends Component {
+class Group extends Component {
 
   state = {
     loading: true
@@ -96,3 +89,11 @@ export default class Group extends Component {
     )
   }
 }
+
+const mapStateToProps = store => ({
+  gd: store.Group.group_details,
+  joined: store.Group.joined
+})
+
+export default connect(mapStateToProps)(Group)
+export { Group as PureGroup }

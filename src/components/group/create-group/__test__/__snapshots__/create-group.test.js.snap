@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CreateGroup Component should match snapshot 1`] = `
+<div>
+  <div
+    className="recomm_teaser"
+  >
+    <span>
+      Create public or private group of your interest with people you know.
+    </span>
+    <a
+      className="sec_btn  "
+      href="#"
+      onClick={[Function]}
+    >
+      Create group
+    </a>
+  </div>
+</div>
+`;

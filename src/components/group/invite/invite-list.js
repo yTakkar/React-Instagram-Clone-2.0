@@ -4,6 +4,7 @@ import { insta_notify } from '../../../utils/utils'
 import d from '../../../utils/API/DOM'
 import PrimaryButton from '../../others/button/primary-btn'
 import AppLink from '../../others/link/link'
+import { number, string, func } from 'prop-types'
 
 export default class InviteList extends Component {
 
@@ -51,4 +52,14 @@ export default class InviteList extends Component {
       </div>
     )
   }
+}
+
+InviteList.propTypes = {
+  follow_id: number.isRequired,
+  follow_to: number.isRequired,
+  username: string.isRequired,
+  firstname: string.isRequired,
+  surname: string.isRequired,
+  back: func.isRequired,
+  group: number
 }

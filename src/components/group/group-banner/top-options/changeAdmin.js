@@ -3,11 +3,7 @@ import { Me } from '../../../../utils/utils'
 import { connect } from 'react-redux'
 import ChangeAdmin from '../../change-admin/change-admin'
 
-@connect(store => (
-  { gd: store.Group.group_details }
-))
-
-export default class ChangeGroupAdmin extends Component {
+class ChangeGroupAdmin extends Component {
 
   state = {
     change: false,
@@ -51,3 +47,10 @@ export default class ChangeGroupAdmin extends Component {
     )
   }
 }
+
+const mapStateToProps = store => ({
+  gd: store.Group.group_details
+})
+
+export default connect(mapStateToProps)(ChangeGroupAdmin)
+export { ChangeGroupAdmin as PureChangeGroupAdmin }

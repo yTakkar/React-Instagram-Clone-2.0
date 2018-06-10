@@ -10,11 +10,7 @@ import AddEmojis from '../../../others/emojis/add-emojis'
 import SecondaryButton from '../../../others/button/secondary-btn'
 import GroupInstruction from '../../instruction'
 
-@connect(store => (
-  { gd: store.Group.group_details }
-))
-
-export default class EditGroup extends Component {
+class EditGroup extends Component {
 
   state = {
     name: '',
@@ -47,7 +43,7 @@ export default class EditGroup extends Component {
     this.setState({ [what]: value })
   }
 
-  update = async e => {
+  update = e => {
     e.preventDefault()
     let { gd: { group_id }, dispatch } = this.props
     editGroup({
@@ -112,3 +108,10 @@ export default class EditGroup extends Component {
     )
   }
 }
+
+const mapStateToProps = store => ({
+  gd: store.Group.group_details
+})
+
+export default connect(mapStateToProps)(EditGroup)
+export { EditGroup as PureEditGroup }

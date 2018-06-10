@@ -1,0 +1,199 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Group Component should match snapshot 1`] = `
+<div>
+  <div
+    className="group_details"
+    data-group-id="11"
+    data-group-name="a groupss"
+  />
+  <div
+    className="page_loading"
+  >
+    <div
+      className="spinner"
+    >
+      <span />
+      <span />
+      <span />
+    </div>
+  </div>
+  <div
+    className="cLoading"
+    style={
+      Object {
+        "animation": "bcCCNc 300ms ease 0s 1 normal none running",
+        "backfaceVisibility": "visible",
+      }
+    }
+  >
+    <div
+      className="pro_banner"
+    >
+      <div
+        className="pro_top"
+      >
+        <div
+          className="pro_more"
+        >
+          <span
+            className="pro_more_horiz"
+            data-tip="Options"
+            onClick={[Function]}
+          >
+            <i
+              className="material-icons"
+            >
+              more_horiz
+            </i>
+          </span>
+        </div>
+        <div
+          className="pro_ff"
+        >
+          <a
+            className="pri_btn ff"
+            href="/edit-group"
+            onClick={[Function]}
+          >
+            Edit group
+          </a>
+        </div>
+      </div>
+      <div
+        className="pro_avatar"
+        onMouseOut={[Function]}
+        onMouseOver={[Function]}
+      >
+        <img
+          alt="avatar"
+          src="/groups/11/avatar.jpg"
+        />
+        <div
+          className="pro_avatar_ch_teaser"
+          style={
+            Object {
+              "display": "none",
+            }
+          }
+        >
+          <span
+            className="view_avatar_span"
+            onClick={[Function]}
+          >
+            View
+          </span>
+          <span
+            className="change_pro"
+            onClick={[Function]}
+          >
+            Change
+          </span>
+        </div>
+      </div>
+      <div
+        className="pro_info"
+      >
+        <div
+          className="pro_username"
+        >
+          <a
+            className="username"
+            href="/group/11"
+            onClick={[Function]}
+          >
+            a groupss
+          </a>
+        </div>
+        <div
+          className="pro_name"
+        >
+          <span>
+            <i
+              className="fas fa-globe"
+            />
+             Public group
+          </span>
+        </div>
+      </div>
+      <div
+        className="__react_component_tooltip place-top type-dark "
+        data-id="tooltip"
+      >
+        
+      </div>
+    </div>
+    <div>
+      <div
+        className="pro_nav user_nav"
+      >
+        <ul>
+          <li>
+            <a
+              aria-current={false}
+              className="inst_nav"
+              href="/group/11"
+              onClick={[Function]}
+            >
+              Posts
+            </a>
+          </li>
+          <li>
+            <a
+              aria-current={false}
+              className="inst_nav"
+              href="/group/11/members"
+              onClick={[Function]}
+            >
+              Members
+            </a>
+          </li>
+          <li>
+            <a
+              aria-current={false}
+              className="inst_nav"
+              href="/group/11/gallery"
+              onClick={[Function]}
+            >
+              Gallery
+            </a>
+          </li>
+          <li>
+            <a
+              aria-current={false}
+              className="inst_nav"
+              href="/group/11/edit"
+              onClick={[Function]}
+            >
+              Edit
+            </a>
+          </li>
+          <li>
+            <a
+              aria-current={false}
+              className="inst_nav"
+              href="/group/11/add-members"
+              onClick={[Function]}
+            >
+              Add members
+            </a>
+          </li>
+          <li>
+            <a
+              aria-current={false}
+              className="inst_nav"
+              href="/group/11/about"
+              onClick={[Function]}
+            >
+              About
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div
+        className="hmm"
+      />
+    </div>
+  </div>
+</div>
+`;

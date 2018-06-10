@@ -8,15 +8,7 @@ import User from '../../../../store/mockStore/mock-reducers/User'
 import { shallow } from 'enzyme'
 
 describe('BannerAvatar Component', () => {
-  let dataElement
-
-  beforeEach(() =>
-    dataElement = MockDataElement()
-  )
-
-  afterEach(() =>
-    dataElement.remove()
-  )
+  MockDataElement()
 
   const comp = (
     <Provider store={mockStore}>

@@ -1,13 +1,13 @@
 import React, { Fragment } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import NewestDiv from './newestDiv'
+import NewestMembersDiv from './newestDiv'
 
 const NewestMembers = ({ group, len }) => (
   <Fragment>
     {
       len != 0
-        ? <NewestDiv group={group} />
+        ? <NewestMembersDiv group={group} />
         : null
     }
   </Fragment>

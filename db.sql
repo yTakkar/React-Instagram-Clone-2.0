@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 09, 2018 at 07:00 PM
+-- Generation Time: Jun 10, 2018 at 02:16 PM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -496,7 +496,6 @@ INSERT INTO `notifications` (`notify_id`, `notify_by`, `notify_to`, `post_id`, `
 (628, 28, 7, 0, 12, 'change_admin', 0, '1527942673969', 'unread'),
 (629, 24, 16, 0, 0, 'follow', 0, '1528272513475', 'unread'),
 (630, 24, 10, 0, 0, 'new_con', 0, '1528274472284', 'unread'),
-(631, 24, 16, 90, 0, 'tag', 0, '1528387362128', 'unread'),
 (632, 28, 24, 0, 0, 'follow', 0, '1528534489731', 'read');
 
 -- --------------------------------------------------------
@@ -549,8 +548,7 @@ INSERT INTO `posts` (`post_id`, `user`, `description`, `imgSrc`, `filter`, `loca
 (69, 24, 'That''s a #nice place to #travel', 'instagram_1518854775824.jpg', 'filter-normal', '', 'user', 0, '1518854775824'),
 (71, 24, '#travel', 'instagram_1518857912246.jpg', 'filter-normal', '', 'group', 11, '1518857912246'),
 (88, 24, 'Hello @ghalib @takkar #checkout', 'instagram_1518945386167.jpg', 'filter-normal', '', 'user', 0, '1518945386167'),
-(89, 24, 'he @nobita, @doraemon #checkout, #dd #fgf', 'instagram_1518972814710.jpg', 'filter-ashby', 'A-301, 90 Feet Road, Dharavi, Mumbai, Maharashtra 400017, India', 'user', 0, '1518972814710'),
-(90, 24, '', 'instagram_1528387359904.jpg', 'filter-normal', '', 'user', 0, '1528387359905');
+(89, 24, 'he @nobita, @doraemon #checkout, #dd #fgf', 'instagram_1518972814710.jpg', 'filter-ashby', 'A-301, 90 Feet Road, Dharavi, Mumbai, Maharashtra 400017, India', 'user', 0, '1518972814710');
 
 -- --------------------------------------------------------
 
@@ -563,13 +561,6 @@ CREATE TABLE `post_tags` (
   `post_id` int(11) NOT NULL,
   `user` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `post_tags`
---
-
-INSERT INTO `post_tags` (`post_tag_id`, `post_id`, `user`) VALUES
-(1, 90, 16);
 
 -- --------------------------------------------------------
 
@@ -1112,7 +1103,7 @@ ALTER TABLE `comments`
 -- AUTO_INCREMENT for table `conversations`
 --
 ALTER TABLE `conversations`
-  MODIFY `con_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `con_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 --
 -- AUTO_INCREMENT for table `favourites`
 --
@@ -1187,7 +1178,7 @@ ALTER TABLE `tags`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

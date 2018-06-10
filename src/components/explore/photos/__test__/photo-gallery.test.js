@@ -3,10 +3,8 @@ import { PureExplorePhotoGallery } from '../photo-gallery'
 import { shallow, mount } from 'enzyme'
 import Explore from '../../../../store/mockStore/mock-reducers/Explore'
 import { BrowserRouter as Router } from 'react-router-dom'
-import ShallowRenderer from 'react-test-renderer/shallow'
 
 describe('ExplorePhotoGallery Component', () => {
-  const renderer = new ShallowRenderer()
 
   const comp = (
     <PureExplorePhotoGallery
@@ -16,7 +14,7 @@ describe('ExplorePhotoGallery Component', () => {
 
   // shallow snapshot
   it('should match snapshot', () => {
-    const tree = renderer.render(comp)
+    const tree = shallow(comp)
     expect(tree).toMatchSnapshot()
   })
 

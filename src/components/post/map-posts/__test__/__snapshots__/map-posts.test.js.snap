@@ -364,7 +364,7 @@ exports[`MapPosts Component should match snapshot 1`] = `
               className="p_time"
             >
               <span>
-                3 months ago
+                4 months ago
               </span>
             </div>
             <div

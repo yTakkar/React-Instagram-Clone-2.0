@@ -14,14 +14,7 @@ import NotiSpeak from './others/noti-speak'
 import SideBar from './others/sidebar/sidebar'
 import AppRoutes from './App-routes'
 
-@connect(store => (
-  {
-    unreadNotifications: store.Notification.unreadNotifications,
-    unreadMessages: store.Message.unreadMessages
-  }
-))
-
-export default class App extends Component {
+class App extends Component {
 
   componentDidMount = () => {
     let { dispatch } = this.props
@@ -47,3 +40,11 @@ export default class App extends Component {
     )
   }
 }
+
+const mapStateToProps = store => ({
+  unreadNotifications: store.Notification.unreadNotifications,
+  unreadMessages: store.Message.unreadMessages
+})
+
+export default connect(mapStateToProps)(App)
+export { App as PureApp }

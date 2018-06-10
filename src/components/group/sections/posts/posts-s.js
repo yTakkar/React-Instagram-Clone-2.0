@@ -13,15 +13,7 @@ import MapPosts from '../../../post/map-posts/map-posts'
 import SectionsEnd from '../../../others/sections-end'
 import AppLink from '../../../others/link/link'
 
-@connect(store => (
-  {
-    gd: store.Group.group_details,
-    joined: store.Group.joined,
-    posts: store.Post.posts
-  }
-))
-
-export default class GroupPosts extends Component {
+class GroupPosts extends Component {
 
   componentDidMount = () => {
     let { dispatch, grp_id } = this.props
@@ -81,3 +73,12 @@ export default class GroupPosts extends Component {
     )
   }
 }
+
+const mapStateToProps = store => ({
+  gd: store.Group.group_details,
+  joined: store.Group.joined,
+  posts: store.Post.posts
+})
+
+export default connect(mapStateToProps)(GroupPosts)
+export { GroupPosts as PureGroupPosts }

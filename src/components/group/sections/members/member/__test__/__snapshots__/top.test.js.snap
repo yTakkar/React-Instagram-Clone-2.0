@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MemberTop Component should match snapshot 1`] = `
+<div
+  className="m_top"
+>
+  <img
+    src="/users/7/avatar.jpg"
+  />
+  <div
+    className="m_top_right"
+  >
+    <a
+      href="/profile/ghalib"
+      onClick={[Function]}
+    >
+      ghalib
+    </a>
+    <span>
+      Mirza Ghalib
+    </span>
+  </div>
+</div>
+`;
+
+exports[`MemberTop Component should match snapshot and show admin label when member is admin of the group 1`] = `
+<div
+  className="m_top"
+>
+  <img
+    src="/users/7/avatar.jpg"
+  />
+  <div
+    className="m_top_right"
+  >
+    <a
+      href="/profile/ghalib"
+      onClick={[Function]}
+    >
+      ghalib
+    </a>
+    <span
+      className="grp_admin"
+    >
+      admin
+    </span>
+    <span>
+      Mirza Ghalib
+    </span>
+  </div>
+</div>
+`;
+
+exports[`MemberTop Component should match snapshot and show mutual followers 1`] = `
+<div
+  className="m_top"
+>
+  <img
+    src="/users/7/avatar.jpg"
+  />
+  <div
+    className="m_top_right"
+  >
+    <a
+      href="/profile/ghalib"
+      onClick={[Function]}
+    >
+      ghalib
+    </a>
+    <span>
+      2 mutual followers
+    </span>
+  </div>
+</div>
+`;

@@ -27,7 +27,7 @@ exports[`LikeList Component should match snapshot and show <AppLink> 1`] = `
       <span
         className="modal_it_light"
       >
-        4 months ago
+        5 months ago
       </span>
     </div>
     <div
@@ -73,7 +73,7 @@ exports[`LikeList Component should match snapshot and show <Follow/> 1`] = `
       <span
         className="modal_it_light"
       >
-        4 months ago
+        5 months ago
       </span>
     </div>
     <div
@@ -119,7 +119,7 @@ exports[`LikeList Component should match snapshot and show <RemoveLikeAsAdmin> 1
       <span
         className="modal_it_light"
       >
-        4 months ago
+        5 months ago
       </span>
     </div>
     <div
@@ -165,7 +165,7 @@ exports[`LikeList Component should match snapshot and show <Unfollow/> 1`] = `
       <span
         className="modal_it_light"
       >
-        4 months ago
+        5 months ago
       </span>
     </div>
     <div
