@@ -17,7 +17,7 @@ exports[`UserGroupInfo Component should match snapshot 1`] = `
       a groupss
     </a>
     <span>
-      4 months ago
+      Last year
     </span>
   </div>
 </div>
@@ -45,7 +45,7 @@ exports[`UserGroupInfo Component should match snapshot when member is also the a
       admin
     </span>
     <span>
-      4 months ago
+      Last year
     </span>
   </div>
 </div>

@@ -6,7 +6,7 @@ export default {
       username: 'ghalib',
       firstname: 'Mirza',
       surname: 'Ghalib',
-      block_time: '1528222632964',
+      block_time: '1480114098767',
       mutualFollowersCount: 0
     },
     {
@@ -15,7 +15,7 @@ export default {
       username: 'coldplay',
       firstname: 'Cold',
       surname: 'Play',
-      block_time: '1528222631964',
+      block_time: '1480114098767',
       mutualFollowersCount: 2
     }
   ]

@@ -23,7 +23,7 @@ exports[`ExplorePhotoGallery Component should match snapshot 1`] = `
             "height": 15,
             "imgsrc": "instagram_1516524098767.jpg",
             "post_id": 28,
-            "post_time": "1516524098767",
+            "post_time": "1480114098767",
             "src": "/posts/instagram_1516524098767.jpg",
             "surname": "Kinkade",
             "user": 14,

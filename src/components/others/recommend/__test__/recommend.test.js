@@ -1,5 +1,5 @@
 import React from 'react'
-import { create } from 'react-test-renderer';
+import { create } from 'react-test-renderer'
 import Recommend from '../recommend'
 import { shallow } from 'enzyme'
 

@@ -19,7 +19,7 @@ exports[`ConversationInfo Component should match snapshot 1`] = `
     <span
       className="m_m_t_useless"
     >
-      Last active 2 months ago
+      Last active Last year
     </span>
   </div>
 </div>

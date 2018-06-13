@@ -235,7 +235,7 @@ exports[`Posts Component should match snapshot 1`] = `
                       className="p_time"
                     >
                       <span>
-                        3 months ago
+                        Last year
                       </span>
                     </div>
                     <div
@@ -546,7 +546,7 @@ exports[`Posts Component should match snapshot 1`] = `
                       className="p_time"
                     >
                       <span>
-                        4 months ago
+                        Last year
                       </span>
                     </div>
                     <div
@@ -1129,7 +1129,7 @@ exports[`Posts Component should match snapshot when profile is not mine 1`] = `
                       className="p_time"
                     >
                       <span>
-                        3 months ago
+                        Last year
                       </span>
                     </div>
                     <div
@@ -1440,7 +1440,7 @@ exports[`Posts Component should match snapshot when profile is not mine 1`] = `
                       className="p_time"
                     >
                       <span>
-                        4 months ago
+                        Last year
                       </span>
                     </div>
                     <div

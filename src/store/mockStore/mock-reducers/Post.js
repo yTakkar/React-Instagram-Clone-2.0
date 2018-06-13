@@ -8,7 +8,7 @@ export default {
     ...posts[0],
     share_id: 445,
     share_by_username: 'takkar',
-    share_time: '1519113671582'
+    share_time: '1480114098767'
   }],
   bookmarks: [posts[0]],
   photos: [{
@@ -17,7 +17,7 @@ export default {
     username: 'ragnar',
     firstname: 'Ragnar',
     surname: 'Lothbrok',
-    post_time: '1516528062094',
+    post_time: '1480114098767',
     imgsrc: 'instagram_1516528062094.jpg',
     filter: 'filter-normal'
   }],
@@ -32,7 +32,7 @@ export default {
         comment_by: 7,
         comment_by_username: 'ghalib',
         post_id: 89,
-        comment_time: '1519113671582'
+        comment_time: '1480114098767'
       },
       {
         comment_id: 69,
@@ -42,7 +42,7 @@ export default {
         comment_by: 8,
         comment_by_username: 'coldplay',
         post_id: 89,
-        comment_time: '1518972851259'
+        comment_time: '1480114098767'
       },
       {
         comment_id: 104,
@@ -52,7 +52,7 @@ export default {
         comment_by: 24,
         comment_by_username: 'takkar',
         post_id: 43,
-        comment_time: '1527447929485'
+        comment_time: '1480114098767'
       }
     ]
   },
@@ -63,7 +63,7 @@ export default {
     firstname: 'Ragnar',
     surname: 'Lothbrok',
     post_id: 43,
-    like_time: '1516528068337',
+    like_time: '1480114098767',
     isFollowing: false
   }],
   tags: [{
@@ -101,7 +101,7 @@ export default {
     share_by_surname: 'Ghalib',
     share_to: 28,
     share_to_username: 'selena',
-    share_time: '1524496908401',
+    share_time: '1480114098767',
     post_id: 43,
     isFollowing: false,
   }],

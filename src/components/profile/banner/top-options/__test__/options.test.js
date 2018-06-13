@@ -3,7 +3,7 @@ import { create } from 'react-test-renderer'
 import { Provider } from 'react-redux'
 import mockStore from '../../../../../store/mockStore/mockStore'
 import BannerOptions from '../options'
-import MockDataElement from '../../../../../utils/__test__/mock-dataElement';
+import MockDataElement from '../../../../../utils/__test__/mock-dataElement'
 
 describe('BannerOptions Component', () => {
 

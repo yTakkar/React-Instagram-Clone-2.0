@@ -174,7 +174,7 @@ exports[`Shared Component should match snapshot 1`] = `
                 takkar
               </a>
               <span>
-                3 months ago
+                Last year
               </span>
             </div>
             <div>
@@ -218,7 +218,7 @@ exports[`Shared Component should match snapshot 1`] = `
                       className="p_time"
                     >
                       <span>
-                        3 months ago
+                        Last year
                       </span>
                     </div>
                     <div

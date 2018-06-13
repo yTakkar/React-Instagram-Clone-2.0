@@ -1,6 +1,6 @@
 import React from 'react'
-import { create } from 'react-test-renderer';
-import { Provider } from 'react-redux';
+import { create } from 'react-test-renderer'
+import { Provider } from 'react-redux'
 import mockStore from '../../../../../store/mockStore/mockStore'
 import MessagesCount from '../mssgs-count'
 

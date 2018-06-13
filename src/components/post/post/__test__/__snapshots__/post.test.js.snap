@@ -45,7 +45,7 @@ exports[`Post Component should match snapshot 1`] = `
             className="p_time"
           >
             <span>
-              3 months ago
+              Last year
             </span>
           </div>
           <div
@@ -359,7 +359,7 @@ exports[`Post Component should match snapshot with comments 1`] = `
             className="p_time"
           >
             <span>
-              3 months ago
+              Last year
             </span>
           </div>
           <div
@@ -665,7 +665,7 @@ exports[`Post Component should match snapshot with comments 1`] = `
                 <span
                   className="comments_time"
                 >
-                  3 months ago
+                  Last year
                 </span>
               </div>
               <div
@@ -706,7 +706,7 @@ exports[`Post Component should match snapshot with comments 1`] = `
                 <span
                   className="comments_time"
                 >
-                  3 months ago
+                  Last year
                 </span>
               </div>
               <div
@@ -746,7 +746,7 @@ exports[`Post Component should match snapshot with comments 1`] = `
                 <span
                   className="comments_time"
                 >
-                  Last week
+                  Last year
                 </span>
               </div>
               <div

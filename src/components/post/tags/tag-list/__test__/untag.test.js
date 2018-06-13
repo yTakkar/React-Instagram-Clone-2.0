@@ -3,7 +3,7 @@ import { create } from 'react-test-renderer'
 import { Provider } from 'react-redux'
 import mockStore from '../../../../../store/mockStore/mockStore'
 import Untag, { PureUntag } from '../untag'
-import { shallow } from 'enzyme';
+import { shallow } from 'enzyme'
 
 describe('Untag Component', () => {
   const mockFn = jest.fn()

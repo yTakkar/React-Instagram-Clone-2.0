@@ -15,7 +15,7 @@ exports[`GroupPhotos Component should match snapshot 1`] = `
           "height": 15,
           "imgsrc": "instagram_1516528062094.jpg",
           "post_id": 43,
-          "post_time": "1516528062094",
+          "post_time": "1480114098767",
           "src": "/posts/instagram_1516528062094.jpg",
           "surname": "Lothbrok",
           "user": 18,

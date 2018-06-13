@@ -1,7 +1,7 @@
 import React from 'react'
 import { create } from 'react-test-renderer'
 import ConversationTop from '../con-top'
-import { Provider } from 'react-redux';
+import { Provider } from 'react-redux'
 import mockStore from '../../../../../store/mockStore/mockStore'
 import { BrowserRouter as Router } from 'react-router-dom'
 import { shallow } from 'enzyme'

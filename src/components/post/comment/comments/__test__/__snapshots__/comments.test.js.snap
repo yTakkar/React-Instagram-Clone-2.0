@@ -43,7 +43,7 @@ exports[`Comments Component should match snapshot 1`] = `
             <span
               className="comments_time"
             >
-              3 months ago
+              Last year
             </span>
           </div>
           <div
@@ -84,7 +84,7 @@ exports[`Comments Component should match snapshot 1`] = `
             <span
               className="comments_time"
             >
-              3 months ago
+              Last year
             </span>
           </div>
           <div
@@ -124,7 +124,7 @@ exports[`Comments Component should match snapshot 1`] = `
             <span
               className="comments_time"
             >
-              Last week
+              Last year
             </span>
           </div>
           <div

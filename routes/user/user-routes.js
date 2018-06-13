@@ -35,14 +35,16 @@ app.get('/registered', mw.LoggedIn, async (req, res) => {
 app.get('/deep/most/topmost/activate/:id', async (req, res) => {
   let
     { params: { id }, session } = req,
-    { changedRows } = await db.query('UPDATE users SET email_verified=? WHERE id=?', ['yes', id]),
+    { changedRows } = await db.query(
+      'UPDATE users SET email_verified=? WHERE id=?',
+      ['yes', id]
+    ),
     mssg
 
   session.email_verified = 'yes'
   mssg = changedRows == 0 ? 'alr' : 'yes'
 
   res.redirect(`/email-verification/${mssg}`)
-
 })
 
 // USER DEACTIVATE ACCOUNT

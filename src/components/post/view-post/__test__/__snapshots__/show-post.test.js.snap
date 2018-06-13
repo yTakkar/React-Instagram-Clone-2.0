@@ -46,7 +46,7 @@ Array [
               className="p_time"
             >
               <span>
-                3 months ago
+                Last year
               </span>
             </div>
             <div
@@ -352,7 +352,7 @@ Array [
                   <span
                     className="comments_time"
                   >
-                    3 months ago
+                    Last year
                   </span>
                 </div>
                 <div
@@ -393,7 +393,7 @@ Array [
                   <span
                     className="comments_time"
                   >
-                    3 months ago
+                    Last year
                   </span>
                 </div>
                 <div
@@ -433,7 +433,7 @@ Array [
                   <span
                     className="comments_time"
                   >
-                    Last week
+                    Last year
                   </span>
                 </div>
                 <div

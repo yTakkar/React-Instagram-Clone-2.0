@@ -2,8 +2,8 @@ import React from 'react'
 import { create } from 'react-test-renderer'
 import { BrowserRouter as Router } from 'react-router-dom'
 import Notification from '../notification'
-import { Provider } from 'react-redux';
-import mockStore from '../../../../store/mockStore/mockStore';
+import { Provider } from 'react-redux'
+import mockStore from '../../../../store/mockStore/mockStore'
 
 describe('Notification Component', () => {
   const props = {

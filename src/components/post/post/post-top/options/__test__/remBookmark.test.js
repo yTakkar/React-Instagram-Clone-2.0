@@ -4,7 +4,7 @@ import { create } from 'react-test-renderer'
 import { Provider } from 'react-redux'
 import mockStore from '../../../../../../store/mockStore/mockStore'
 import RemBookmarkAsAdmin, { PureRemBookmarkAsAdmin } from '../remBookmark'
-import { shallow } from 'enzyme';
+import { shallow } from 'enzyme'
 
 describe('RemBookmarkAsAdmin Component', () => {
   let dataElement

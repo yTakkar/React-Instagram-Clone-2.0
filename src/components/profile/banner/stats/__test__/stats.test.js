@@ -5,7 +5,7 @@ import { Provider } from 'react-redux'
 import mockStore from '../../../../../store/mockStore/mockStore'
 import BannerStats from '../stats'
 import { BrowserRouter as Router } from 'react-router-dom'
-import User from '../../../../../store/mockStore/mock-reducers/User';
+import User from '../../../../../store/mockStore/mock-reducers/User'
 
 describe('BannerStats Component', () => {
   MockDataElement()

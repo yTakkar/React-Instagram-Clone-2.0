@@ -1,6 +1,6 @@
 import React from 'react'
-import { create } from 'react-test-renderer';
-import HashtagHeader from '../hashtag-header';
+import { create } from 'react-test-renderer'
+import HashtagHeader from '../hashtag-header'
 
 describe('HashtagHeader Component', () => {
 

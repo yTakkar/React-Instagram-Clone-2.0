@@ -4,7 +4,7 @@ import mockStore from '../../../../../../store/mockStore/mockStore'
 import BlockedUsers from '../blocked-users'
 import { create } from 'react-test-renderer'
 import { BrowserRouter as Router } from 'react-router-dom'
-import Setting from '../../../../../../store/mockStore/mock-reducers/Setting';
+import Setting from '../../../../../../store/mockStore/mock-reducers/Setting'
 
 describe('BlockedUsers Component', () => {
 

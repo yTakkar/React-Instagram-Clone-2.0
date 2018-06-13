@@ -1,7 +1,7 @@
 import React from 'react'
 import { create } from 'react-test-renderer'
 import SocialIcons from '../social-icons'
-import { Provider } from 'react-redux';
+import { Provider } from 'react-redux'
 import mockStore from '../../../../../store/mockStore/mockStore'
 import User from '../../../../../store/mockStore/mock-reducers/User'
 

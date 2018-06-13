@@ -11,7 +11,7 @@ exports[`Message Component should match snapshot with message type image 1`] = `
     >
       <div
         className="m_m"
-        title="Last month"
+        title="Last year"
       >
         <img
           className="m_m_img"
@@ -23,7 +23,7 @@ exports[`Message Component should match snapshot with message type image 1`] = `
     <span
       className="m_m_time"
     >
-      Last month
+      Last year
     </span>
   </div>
 </div>
@@ -40,7 +40,7 @@ exports[`Message Component should match snapshot with message type sticker 1`] =
     >
       <div
         className="m_m"
-        title="Last month"
+        title="Last year"
       >
         <img
           className="m_m_sticker"
@@ -51,7 +51,7 @@ exports[`Message Component should match snapshot with message type sticker 1`] =
     <span
       className="m_m_time"
     >
-      Last month
+      Last year
     </span>
   </div>
 </div>
@@ -68,7 +68,7 @@ exports[`Message Component should match snapshot with message type text 1`] = `
     >
       <div
         className="m_m"
-        title="Last month"
+        title="Last year"
       >
         <span>
           kjkjk 
@@ -78,7 +78,7 @@ exports[`Message Component should match snapshot with message type text 1`] = `
     <span
       className="m_m_time"
     >
-      Last month
+      Last year
     </span>
   </div>
 </div>

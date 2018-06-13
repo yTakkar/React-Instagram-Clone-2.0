@@ -24,7 +24,7 @@ export default {
       con_with_surname: 'Ghalib',
       unreadMssgs: 0,
       lastMssg: {
-        lastMssgTime: '1518973051916',
+        lastMssgTime: '1480114098767',
         lastMessage: 'eo',
         lastMssgType: 'text',
         lastMssgBy: 7
@@ -52,7 +52,7 @@ export default {
     con_with_firstname: 'selena',
     con_with_surname: 'gomez',
     isOnline: false,
-    lastOnline: '1523420460736'
+    lastOnline: '1480114098767'
   },
   conAbout: {
     mssgsCount: 6,
@@ -63,7 +63,7 @@ export default {
         mssg_by_username: 'takkar'
       }
     ],
-    con_time: '1523883827593',
+    con_time: '1480114098767',
     mutualFollowersCount: 1
   },
   messages: [
@@ -75,7 +75,7 @@ export default {
       message: 'instagram_message_1525091176544.jpg',
       type: 'sticker',
       status: 'read',
-      message_time: '1525091176544'
+      message_time: '1480114098767'
     },
     {
       message_id: 94,
@@ -85,7 +85,7 @@ export default {
       message: 'kjkjk',
       type: 'text',
       status: 'unread',
-      message_time: '1525809227238'
+      message_time: '1480114098767'
     },
     {
       message_id: 99,
@@ -95,7 +95,7 @@ export default {
       message: 'instagram_message_1525809886884.jpg',
       type: 'sticker',
       status: 'unread',
-      message_time: '1525809886884'
+      message_time: '1480114098767'
     },
     {
       message_id: 102,
@@ -105,7 +105,7 @@ export default {
       message: 'instagram_message_1528278864884.jpg',
       type: 'image',
       status: 'unread',
-      message_time: '1525091176544'
+      message_time: '1480114098767'
     }
   ],
   unreadMessages: 0

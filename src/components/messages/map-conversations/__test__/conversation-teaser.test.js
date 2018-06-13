@@ -2,7 +2,7 @@ import React from 'react'
 import { create } from 'react-test-renderer'
 import ConversationTeaser from '../conversation-teaser'
 import Message from '../../../../store/mockStore/mock-reducers/Message'
-import { shallow } from 'enzyme';
+import { shallow } from 'enzyme'
 
 describe('ConversationTeaser Component', () => {
   let mockFn = jest.fn()

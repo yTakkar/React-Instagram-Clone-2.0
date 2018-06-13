@@ -3,7 +3,7 @@ import { create } from 'react-test-renderer'
 import PostActions from '../post-actions'
 import { Provider } from 'react-redux'
 import mockStore from '../../../../../store/mockStore/mockStore'
-import { shallow } from 'enzyme';
+import { shallow } from 'enzyme'
 
 describe('PostActions Component', () => {
   const postDetails = {

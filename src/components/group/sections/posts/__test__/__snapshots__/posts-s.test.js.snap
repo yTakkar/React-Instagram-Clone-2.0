@@ -256,7 +256,7 @@ exports[`GroupPosts Component should match snapshot 1`] = `
                       className="p_time"
                     >
                       <span>
-                        3 months ago
+                        Last year
                       </span>
                     </div>
                     <div
@@ -567,7 +567,7 @@ exports[`GroupPosts Component should match snapshot 1`] = `
                       className="p_time"
                     >
                       <span>
-                        4 months ago
+                        Last year
                       </span>
                     </div>
                     <div
@@ -1071,7 +1071,7 @@ exports[`GroupPosts Component should match snapshot and hide postItTeaser when j
                       className="p_time"
                     >
                       <span>
-                        3 months ago
+                        Last year
                       </span>
                     </div>
                     <div
@@ -1382,7 +1382,7 @@ exports[`GroupPosts Component should match snapshot and hide postItTeaser when j
                       className="p_time"
                     >
                       <span>
-                        4 months ago
+                        Last year
                       </span>
                     </div>
                     <div

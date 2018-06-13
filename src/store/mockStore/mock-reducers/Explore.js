@@ -37,7 +37,7 @@ export default {
     {
       group_id: 12,
       name: 'nmnmnmnm',
-      created: '1518973077594',
+      created: '1480114098767',
       admin: 7,
       joined: false,
       membersCount: 3,
@@ -46,7 +46,7 @@ export default {
     {
       group_id: 11,
       name: 'a groupss',
-      created: '1518016737587',
+      created: '1480114098767',
       admin: 24,
       joined: false,
       membersCount: 4,
@@ -62,7 +62,7 @@ export default {
       firstname: 'Thomas',
       surname: 'Kinkade',
       post_id: 28,
-      post_time: '1516524098767',
+      post_time: '1480114098767',
     }
   ]
 }

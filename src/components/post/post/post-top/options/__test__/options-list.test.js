@@ -4,7 +4,7 @@ import { Provider } from 'react-redux'
 import mockStore from '../../../../../../store/mockStore/mockStore'
 import PostOptionLists from '../options-list'
 import { BrowserRouter as Router } from 'react-router-dom'
-import MockDataElement from '../../../../../../utils/__test__/mock-dataElement';
+import MockDataElement from '../../../../../../utils/__test__/mock-dataElement'
 
 describe('PostOptionsList Component', () => {
   const mockFn = jest.fn()
