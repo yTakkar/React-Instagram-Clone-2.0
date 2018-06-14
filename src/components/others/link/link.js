@@ -1,6 +1,6 @@
 import React, { Fragment, Component } from 'react'
 import { Link } from 'react-router-dom'
-import { string, oneOfType, func } from 'prop-types'
+import { string } from 'prop-types'
 
 class AppLink extends Component {
   render() {
@@ -25,10 +25,7 @@ AppLink.defaultProps = {
 }
 
 AppLink.propTypes = {
-  label: oneOfType([
-    string,
-    func
-  ]).isRequired,
+  label: string,
   url: string.isRequired,
 }
 
