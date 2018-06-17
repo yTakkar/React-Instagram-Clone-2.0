@@ -1,9 +1,9 @@
 import React from 'react'
 import { create } from 'react-test-renderer'
 import { Provider } from 'react-redux'
-import mockStore from '../../../../../store/mockStore/mockStore'
+import mockStore from '../../../../../store/__mocks__/mockStore'
 import MembersEnd from '../Members-end'
-import Group from '../../../../../store/mockStore/mock-reducers/Group'
+import Group from '../../../../../store/__mocks__/reducers/Group'
 
 describe('MembersEnd Component', () => {
 

@@ -1,9 +1,9 @@
 import React from 'react'
-import MockDataElement from '../../../../utils/__test__/mock-dataElement'
-import User from '../../../../store/mockStore/mock-reducers/User'
+import MockDataElement from '../../../../utils/__mocks__/mock-dataElement'
+import User from '../../../../store/__mocks__/reducers/User'
 import { create } from 'react-test-renderer'
 import { Provider } from 'react-redux'
-import mockStore from '../../../../store/mockStore/mockStore'
+import mockStore from '../../../../store/__mocks__/mockStore'
 import IsOnline from '../isOnline'
 
 describe('IsOnline Component', () => {
@@ -25,7 +25,7 @@ describe('IsOnline Component', () => {
   it('should match snapshot and show last active status', () => {
     User.user_details.id = 7
     User.user_details.isOnline = false
-    User.user_details.lastOnline = '1514718748562'
+    User.user_details.lastOnline = '1480114098767'
     const tree = create(comp).toJSON()
     expect(tree).toMatchSnapshot()
   })

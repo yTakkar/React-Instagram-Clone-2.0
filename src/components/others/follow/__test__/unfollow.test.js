@@ -2,7 +2,7 @@ import React from 'react'
 import { create } from 'react-test-renderer'
 import Unfollow from '../unfollow'
 import { mount } from 'enzyme'
-import mockStore from '../../../../store/mockStore/mockStore'
+import mockStore from '../../../../store/__mocks__/mockStore'
 
 describe('Unfollow Component', () => {
   const props = {

@@ -1,11 +1,11 @@
 import React from 'react'
 import { create } from 'react-test-renderer'
 import { Provider } from 'react-redux'
-import mockStore from '../../../../../store/mockStore/mockStore'
+import mockStore from '../../../../../store/__mocks__/mockStore'
 import AddGroupMembers, { PureAddGroupMembers } from '../add-members-s'
 import { BrowserRouter as Router } from 'react-router-dom'
 import { shallow } from 'enzyme'
-import Group from '../../../../../store/mockStore/mock-reducers/Group'
+import Group from '../../../../../store/__mocks__/reducers/Group'
 
 describe('AddGroupMembers Component', () => {
 
@@ -27,7 +27,7 @@ describe('AddGroupMembers Component', () => {
         session={24}
       />
     )
-    wrapper.find('SearchFollowings').prop('done')()
+    wrapper.find('SearchFollowings').prop('done')(7)
   })
 
 })

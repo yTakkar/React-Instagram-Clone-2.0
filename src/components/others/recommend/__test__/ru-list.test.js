@@ -2,8 +2,8 @@ import React from 'react'
 import { create } from 'react-test-renderer'
 import { BrowserRouter as Router } from 'react-router-dom'
 import RecommendUsersList from '../ru-list'
-import mockStore from '../../../../store/mockStore/mockStore'
-import mockFollowState from '../../../../store/mockStore/mock-reducers/Follow'
+import mockStore from '../../../../store/__mocks__/mockStore'
+import mockFollowState from '../../../../store/__mocks__/reducers/Follow'
 
 describe('RecommendUsers-List Component', () => {
 

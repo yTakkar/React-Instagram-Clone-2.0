@@ -3,7 +3,7 @@ import SideBar from '../sidebar'
 import { create } from 'react-test-renderer'
 import { BrowserRouter as Router } from 'react-router-dom'
 import { mount } from 'enzyme'
-import MockDataElement from '../../../../utils/__test__/mock-dataElement'
+import MockDataElement from '../../../../utils/__mocks__/mock-dataElement'
 
 describe('SideBar Component', () => {
   const comp = (

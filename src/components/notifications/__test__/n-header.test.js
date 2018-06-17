@@ -1,9 +1,9 @@
 import React from 'react'
 import { create } from 'react-test-renderer'
 import { Provider } from 'react-redux'
-import mockStore from '../../../store/mockStore/mockStore'
+import mockStore from '../../../store/__mocks__/mockStore'
 import NotificationsHeader from '../n-header'
-import Notification from '../../../store/mockStore/mock-reducers/Notification'
+import Notification from '../../../store/__mocks__/reducers/Notification'
 
 describe('NotificationsHeader Component', () => {
   const comp = (

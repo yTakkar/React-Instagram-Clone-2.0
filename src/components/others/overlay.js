@@ -26,7 +26,7 @@ Overlay.defaultProps = {
   type: 'black',
   close_on_click: false,
   opacity: 0.5,
-  close: () => { return }
+  close: () => null
 }
 
 Overlay.propTypes = {

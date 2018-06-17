@@ -1,8 +1,8 @@
 import React from 'react'
 import { PureGroupGallery } from '../gallery-s'
 import { shallow } from 'enzyme'
-import Post from '../../../../../store/mockStore/mock-reducers/Post'
-import Group from '../../../../../store/mockStore/mock-reducers/Group'
+import Post from '../../../../../store/__mocks__/reducers/Post'
+import Group from '../../../../../store/__mocks__/reducers/Group'
 
 describe('GroupGallery Component', () => {
   const props = {

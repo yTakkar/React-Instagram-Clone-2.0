@@ -1,10 +1,10 @@
 import React from 'react'
 import { create } from 'react-test-renderer'
 import { Provider } from 'react-redux'
-import mockStore from '../../../../../store/mockStore/mockStore'
+import mockStore from '../../../../../store/__mocks__/mockStore'
 import BannerAddToFavs, { PureBannerAddToFavs } from '../addToFavs'
-import MockDataElement from '../../../../../utils/__test__/mock-dataElement'
-import User from '../../../../../store/mockStore/mock-reducers/User'
+import MockDataElement from '../../../../../utils/__mocks__/mock-dataElement'
+import User from '../../../../../store/__mocks__/reducers/User'
 import { shallow } from 'enzyme'
 
 describe('BannerAddToFavs Component', () => {

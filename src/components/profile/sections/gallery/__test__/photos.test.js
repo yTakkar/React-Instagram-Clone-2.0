@@ -1,7 +1,7 @@
 import React from 'react'
 import { PureUserPhotos } from '../photos'
-import User from '../../../../../store/mockStore/mock-reducers/User'
-import Post from '../../../../../store/mockStore/mock-reducers/Post'
+import User from '../../../../../store/__mocks__/reducers/User'
+import Post from '../../../../../store/__mocks__/reducers/Post'
 import { shallow, mount } from 'enzyme'
 import { BrowserRouter as Router } from 'react-router-dom'
 

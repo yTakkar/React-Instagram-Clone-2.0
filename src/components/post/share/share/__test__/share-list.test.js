@@ -1,9 +1,9 @@
 import React from 'react'
 import { create } from 'react-test-renderer'
 import { Provider } from 'react-redux'
-import mockStore from '../../../../../store/mockStore/mockStore'
+import mockStore from '../../../../../store/__mocks__/mockStore'
 import ShareList from '../share-list'
-import Post from '../../../../../store/mockStore/mock-reducers/Post'
+import Post from '../../../../../store/__mocks__/reducers/Post'
 import { BrowserRouter as Router } from 'react-router-dom'
 
 describe('ShareList Component', () => {

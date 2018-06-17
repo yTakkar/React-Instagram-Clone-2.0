@@ -1,5 +1,5 @@
 import React from 'react'
-import MockDataElement from '../../../utils/__test__/mock-dataElement'
+import MockDataElement from '../../../utils/__mocks__/mock-dataElement'
 import { create } from 'react-test-renderer'
 import { BrowserRouter as Router } from 'react-router-dom'
 import ProfileNav from '../nav'

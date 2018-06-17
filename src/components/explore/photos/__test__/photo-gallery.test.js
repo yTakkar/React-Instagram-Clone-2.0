@@ -1,7 +1,7 @@
 import React from 'react'
 import { PureExplorePhotoGallery } from '../photo-gallery'
 import { shallow, mount } from 'enzyme'
-import Explore from '../../../../store/mockStore/mock-reducers/Explore'
+import Explore from '../../../../store/__mocks__/reducers/Explore'
 import { BrowserRouter as Router } from 'react-router-dom'
 
 describe('ExplorePhotoGallery Component', () => {

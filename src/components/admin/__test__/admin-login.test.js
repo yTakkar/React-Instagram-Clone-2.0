@@ -2,10 +2,10 @@ import React from 'react'
 import { create } from 'react-test-renderer'
 import AdminLogin from '../admin-login'
 import { Provider } from 'react-redux'
-import mockStore from '../../../store/mockStore/mockStore'
+import mockStore from '../../../store/__mocks__/mockStore'
 import { mount, shallow } from 'enzyme'
 import { BrowserRouter as Router } from 'react-router-dom'
-import MockDataElement from '../../../utils/__test__/mock-dataElement'
+import MockDataElement from '../../../utils/__mocks__/mock-dataElement'
 
 describe('Admin-Login Component', () => {
   let dataElement = MockDataElement()

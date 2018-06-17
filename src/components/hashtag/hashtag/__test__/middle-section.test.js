@@ -1,6 +1,6 @@
 import React from 'react'
 import { PureHashtagMiddleSection } from '../middle-section'
-import Hashtag from '../../../../store/mockStore/mock-reducers/Hashtag'
+import Hashtag from '../../../../store/__mocks__/reducers/Hashtag'
 import { shallow } from 'enzyme'
 
 describe('HashtagMiddleSection Component', () => {

@@ -2,10 +2,10 @@ import React from 'react'
 import { create } from 'react-test-renderer'
 import { BrowserRouter as Router } from 'react-router-dom'
 import MapPosts from '../map-posts'
-import MockPostData from '../../../../store/mockStore/mock-reducers/Post'
+import MockPostData from '../../../../store/__mocks__/reducers/Post'
 import Post from '../../post/post'
 import { Provider } from 'react-redux'
-import mockStore from '../../../../store/mockStore/mockStore'
+import mockStore from '../../../../store/__mocks__/mockStore'
 
 describe('MapPosts Component', () => {
 

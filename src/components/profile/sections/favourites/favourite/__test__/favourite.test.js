@@ -1,12 +1,12 @@
 import React from 'react'
-import MockDataElement from '../../../../../../utils/__test__/mock-dataElement'
+import MockDataElement from '../../../../../../utils/__mocks__/mock-dataElement'
 import { create } from 'react-test-renderer'
 import { Provider } from 'react-redux'
-import mockStore from '../../../../../../store/mockStore/mockStore'
+import mockStore from '../../../../../../store/__mocks__/mockStore'
 import Favourite, { PureFavourite } from '../favourite'
 import { BrowserRouter as Router } from 'react-router-dom'
 import { shallow } from 'enzyme'
-import Follow from '../../../../../../store/mockStore/mock-reducers/Follow'
+import Follow from '../../../../../../store/__mocks__/reducers/Follow'
 
 describe('Favourite Component', () => {
   MockDataElement()

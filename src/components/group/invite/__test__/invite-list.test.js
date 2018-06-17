@@ -2,7 +2,7 @@ import React from 'react'
 import { create } from 'react-test-renderer'
 import { BrowserRouter as Router } from 'react-router-dom'
 import InviteList from '../invite-list'
-import Group from '../../../../store/mockStore/mock-reducers/Group'
+import Group from '../../../../store/__mocks__/reducers/Group'
 import { shallow } from 'enzyme'
 
 describe('InviteList Component', () => {

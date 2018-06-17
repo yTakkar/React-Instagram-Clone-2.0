@@ -3,9 +3,9 @@ import { create } from 'react-test-renderer'
 import { Provider } from 'react-redux'
 import { BrowserRouter as Router } from 'react-router-dom'
 import TagItems from '../tag-list'
-import Post from '../../../../../store/mockStore/mock-reducers/Post'
-import MockDataElement from '../../../../../utils/__test__/mock-dataElement'
-import mockStore from '../../../../../store/mockStore/mockStore'
+import Post from '../../../../../store/__mocks__/reducers/Post'
+import MockDataElement from '../../../../../utils/__mocks__/mock-dataElement'
+import mockStore from '../../../../../store/__mocks__/mockStore'
 
 describe('TagItems Component', () => {
   let dataElement

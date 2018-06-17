@@ -1,11 +1,11 @@
 import React from 'react'
-import MockDataElement from '../../../../../../utils/__test__/mock-dataElement'
+import MockDataElement from '../../../../../../utils/__mocks__/mock-dataElement'
 import { BrowserRouter as Router } from 'react-router-dom'
 import { Provider } from 'react-redux'
-import mockStore from '../../../../../../store/mockStore/mockStore'
+import mockStore from '../../../../../../store/__mocks__/mockStore'
 import MembersTop from '../top'
 import { create } from 'react-test-renderer'
-import Group from '../../../../../../store/mockStore/mock-reducers/Group'
+import Group from '../../../../../../store/__mocks__/reducers/Group'
 
 describe('MemberTop Component', () => {
   MockDataElement()

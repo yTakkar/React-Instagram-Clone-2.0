@@ -66,8 +66,8 @@ Prompt.defaultProps = {
   title: 'Title',
   content: 'Main content goes here',
   actionText: 'Action',
-  action: () => { return },
-  back: () => { return },
+  action: () => null,
+  back: () => null,
   blurred: false // chrome blurs it, if blurred, set it true to remove it
 }
 

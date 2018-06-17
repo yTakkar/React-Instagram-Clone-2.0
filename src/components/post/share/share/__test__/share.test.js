@@ -4,8 +4,8 @@ import { Provider } from 'react-redux'
 import { BrowserRouter as Router } from 'react-router-dom'
 import Share, { PureShare } from '../share'
 import { shallow } from 'enzyme'
-import mockStore from '../../../../../store/mockStore/mockStore'
-import Post from '../../../../../store/mockStore/mock-reducers/Post'
+import mockStore from '../../../../../store/__mocks__/mockStore'
+import Post from '../../../../../store/__mocks__/reducers/Post'
 
 describe('Share Component', () => {
   const mockFn = jest.fn()

@@ -2,7 +2,7 @@ import React from 'react'
 import { create } from 'react-test-renderer'
 import Filters from '../filters'
 import { Provider } from 'react-redux'
-import mockStore from '../../../../../store/mockStore/mockStore'
+import mockStore from '../../../../../store/__mocks__/mockStore'
 
 describe('Filters Component', () => {
 

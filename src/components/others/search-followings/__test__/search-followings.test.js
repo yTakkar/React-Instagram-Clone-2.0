@@ -1,10 +1,9 @@
 import React from 'react'
 import { create } from 'react-test-renderer'
 import SearchFollowings from '../search-followings'
-import axios from 'axios'
-import mockAxiosAdapter from 'axios-mock-adapter'
 import { shallow, mount } from 'enzyme'
-import users from './users-mockArray'
+import { mockAxiosRequest } from '../../../../utils/__mocks__/mock-axios'
+import usersMockArray from './users-mockArray'
 
 describe('Search-Followings Component', () => {
   const mockFn = jest.fn()
@@ -14,12 +13,8 @@ describe('Search-Followings Component', () => {
       done={mockFn}
     />
   )
-  const mock = new mockAxiosAdapter(axios)
-
-  // mock request
-  mock
-    .onPost('/api/search-followings')
-    .reply(200, users)
+  
+  mockAxiosRequest('search-followings', usersMockArray)
 
   it('should match snapshot', () => {
     const tree = create(comp).toJSON()

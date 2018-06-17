@@ -2,7 +2,7 @@ import React from 'react'
 import { create } from 'react-test-renderer'
 import { BrowserRouter as Router } from 'react-router-dom'
 import GroupNav from '../group-nav'
-import MockDataElement from '../../../utils/__test__/mock-dataElement'
+import MockDataElement from '../../../utils/__mocks__/mock-dataElement'
 
 describe('GroupNav Component', () => {
   MockDataElement()

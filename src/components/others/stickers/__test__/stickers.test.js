@@ -3,8 +3,8 @@ import Stickers from '../stickers'
 import { create } from 'react-test-renderer'
 import { shallow } from 'enzyme'
 import stickers from './stickers-mockArray'
-import axios from 'axios'
-import MockAdapter from 'axios-mock-adapter'
+import { mockAxiosRequest } from '../../../../utils/__mocks__/mock-axios'
+import stickersMockArray from './stickers-mockArray'
 
 describe('Stickers Component', () => {
   const mockFn = jest.fn()
@@ -15,11 +15,7 @@ describe('Stickers Component', () => {
     />
   )
 
-  // mock axios' AJAX request
-  const mockAxios = new MockAdapter(axios)
-  mockAxios
-    .onPost('/api/get-stickers')
-    .reply(200, stickers)
+  mockAxiosRequest('get-stickers', stickersMockArray)
 
   it('should match snapshot', () => {
     const tree = create(comp).toJSON()

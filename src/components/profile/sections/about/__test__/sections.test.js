@@ -1,7 +1,7 @@
 import React from 'react'
 import { create } from 'react-test-renderer'
 import { Provider } from 'react-redux'
-import mockStore from '../../../../../store/mockStore/mockStore'
+import mockStore from '../../../../../store/__mocks__/mockStore'
 import AboutSections from '../sections'
 import { BrowserRouter as Router } from 'react-router-dom'
 

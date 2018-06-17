@@ -1,8 +1,8 @@
 import React from 'react'
 import { PureGallery } from '../gallery-s'
 import { shallow } from 'enzyme'
-import Post from '../../../../../store/mockStore/mock-reducers/Post'
-import User from '../../../../../store/mockStore/mock-reducers/User'
+import Post from '../../../../../store/__mocks__/reducers/Post'
+import User from '../../../../../store/__mocks__/reducers/User'
 
 describe('Gallery Component', () => {
   const props = {

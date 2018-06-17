@@ -3,9 +3,9 @@ import { create } from 'react-test-renderer'
 import { Provider } from 'react-redux'
 import { BrowserRouter as Router } from 'react-router-dom'
 import Sharers, { PureSharers } from '../sharers'
-import mockStore from '../../../../store/mockStore/mockStore'
+import mockStore from '../../../../store/__mocks__/mockStore'
 import { shallow } from 'enzyme'
-import Post from '../../../../store/mockStore/mock-reducers/Post'
+import Post from '../../../../store/__mocks__/reducers/Post'
 
 describe('Sharers Component', () => {
   const mockFn = jest.fn()

@@ -5,7 +5,7 @@ exports[`IsOnline Component should match snapshot and show last active status 1`
   className="last_online"
 >
   Last active 
-  5 months ago
+  Last year
 </span>
 `;
 

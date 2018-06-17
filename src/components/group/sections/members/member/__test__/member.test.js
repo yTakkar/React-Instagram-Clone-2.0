@@ -4,9 +4,9 @@ import { Provider } from 'react-redux'
 import MembersList, { PureMembersList } from '../member'
 import { BrowserRouter as Router } from 'react-router-dom'
 import { shallow } from 'enzyme'
-import Group from '../../../../../../store/mockStore/mock-reducers/Group'
-import MockDataElement from '../../../../../../utils/__test__/mock-dataElement'
-import mockStore from '../../../../../../store/mockStore/mockStore'
+import Group from '../../../../../../store/__mocks__/reducers/Group'
+import MockDataElement from '../../../../../../utils/__mocks__/mock-dataElement'
+import mockStore from '../../../../../../store/__mocks__/mockStore'
 
 describe('MembersList Component', () => {
   MockDataElement()

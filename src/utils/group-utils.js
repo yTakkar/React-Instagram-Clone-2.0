@@ -85,7 +85,7 @@ export const joinGroup = async options => {
       added_by: null,
       group: null,
       when: '',
-      done: () => { return }
+      done: () => null
     },
     obj = { ...defaults, ...options },
     { user, added_by, group, when, done } = obj,
@@ -125,8 +125,8 @@ export const leaveGroup = async options => {
       user: null,
       group: null,
       updateGroups: false,
-      dispatch: () => { return },
-      done: () => { return }
+      dispatch: () => null,
+      done: () => null
     },
     obj = { ...defaults, ...options },
     { user, group, updateGroups, dispatch, done } = obj,

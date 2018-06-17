@@ -1,10 +1,10 @@
 import React from 'react'
 import { create } from 'react-test-renderer'
 import { Provider } from 'react-redux'
-import mockStore from '../../../../store/mockStore/mockStore'
+import mockStore from '../../../../store/__mocks__/mockStore'
 import GetLocation, { PureGetLocation } from '../getLocation'
 import { shallow } from 'enzyme'
-import Post from '../../../../store/mockStore/mock-reducers/Post'
+import Post from '../../../../store/__mocks__/reducers/Post'
 
 describe('GetLocation Component', () => {
 

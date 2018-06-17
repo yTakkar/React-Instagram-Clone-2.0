@@ -1,8 +1,8 @@
 import React from 'react'
 import { Provider } from 'react-redux'
-import mockStore from '../../../../store/mockStore/mockStore'
+import mockStore from '../../../../store/__mocks__/mockStore'
 import PostItHeader from '../header'
-import Post from '../../../../store/mockStore/mock-reducers/Post'
+import Post from '../../../../store/__mocks__/reducers/Post'
 import { create } from 'react-test-renderer'
 
 describe('PostItHeader Component', () => {

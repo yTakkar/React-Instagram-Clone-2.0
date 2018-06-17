@@ -1,7 +1,7 @@
 import React from 'react'
 import { create } from 'react-test-renderer'
 import MyLastMssg from '../myLastMssg'
-import MockDataElement from '../../../../utils/__test__/mock-dataElement'
+import MockDataElement from '../../../../utils/__mocks__/mock-dataElement'
 
 describe('MyLastMssg Component', () => {
   let dataElement

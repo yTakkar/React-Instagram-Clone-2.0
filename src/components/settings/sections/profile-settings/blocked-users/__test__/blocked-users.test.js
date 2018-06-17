@@ -1,10 +1,10 @@
 import React from 'react'
 import { Provider } from 'react-redux'
-import mockStore from '../../../../../../store/mockStore/mockStore'
+import mockStore from '../../../../../../store/__mocks__/mockStore'
 import BlockedUsers from '../blocked-users'
 import { create } from 'react-test-renderer'
 import { BrowserRouter as Router } from 'react-router-dom'
-import Setting from '../../../../../../store/mockStore/mock-reducers/Setting'
+import Setting from '../../../../../../store/__mocks__/reducers/Setting'
 
 describe('BlockedUsers Component', () => {
 

@@ -4,7 +4,7 @@
 import React from 'react'
 import Title from '../title'
 import { shallow } from 'enzyme'
-import mockStore from '../../../store/mockStore/mockStore'
+import mockStore from '../../../store/__mocks__/mockStore'
 
 describe('Title component', () => {
 

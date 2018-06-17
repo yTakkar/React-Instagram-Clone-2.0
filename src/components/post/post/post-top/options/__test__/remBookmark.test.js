@@ -1,8 +1,8 @@
 import React from 'react'
-import MockDataElement from '../../../../../../utils/__test__/mock-dataElement'
+import MockDataElement from '../../../../../../utils/__mocks__/mock-dataElement'
 import { create } from 'react-test-renderer'
 import { Provider } from 'react-redux'
-import mockStore from '../../../../../../store/mockStore/mockStore'
+import mockStore from '../../../../../../store/__mocks__/mockStore'
 import RemBookmarkAsAdmin, { PureRemBookmarkAsAdmin } from '../remBookmark'
 import { shallow } from 'enzyme'
 

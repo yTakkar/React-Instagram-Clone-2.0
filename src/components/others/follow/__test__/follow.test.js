@@ -2,7 +2,7 @@ import React from 'react'
 import { create } from 'react-test-renderer'
 import Follow from '../follow'
 import { mount } from 'enzyme'
-import mockStore from '../../../../store/mockStore/mockStore'
+import mockStore from '../../../../store/__mocks__/mockStore'
 
 describe('Follow Component', () => {
 

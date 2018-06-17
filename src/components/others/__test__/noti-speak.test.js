@@ -1,7 +1,7 @@
 import React from 'react'
 import NotiSpeak from '../noti-speak'
 import { create } from 'react-test-renderer'
-import mockStore from '../../../store/mockStore/mockStore'
+import mockStore from '../../../store/__mocks__/mockStore'
 
 describe('Noti-Speak Component', () => {
 

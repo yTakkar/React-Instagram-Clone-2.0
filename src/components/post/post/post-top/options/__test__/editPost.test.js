@@ -1,7 +1,7 @@
 import React from 'react'
 import { create } from 'react-test-renderer'
 import EditPostOption from '../editPost'
-import MockDataElement from '../../../../../../utils/__test__/mock-dataElement'
+import MockDataElement from '../../../../../../utils/__mocks__/mock-dataElement'
 import { shallow } from 'enzyme'
 
 describe('EditPostOption Component', () => {

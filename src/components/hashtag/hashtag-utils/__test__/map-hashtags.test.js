@@ -2,7 +2,7 @@ import React from 'react'
 import { create } from 'react-test-renderer'
 import { BrowserRouter as Router } from 'react-router-dom'
 import MapHashtags from '../map-hashtags'
-import { hashtags } from '../../../../store/mockStore/mock-reducers/Hashtag'
+import { hashtags } from '../../../../store/__mocks__/reducers/Hashtag'
 
 describe('MapHashtags Component', () => {
 

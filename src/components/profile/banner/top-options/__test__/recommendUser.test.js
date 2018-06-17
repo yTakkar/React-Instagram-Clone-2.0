@@ -1,10 +1,10 @@
 import React from 'react'
-import MockDataElement from '../../../../../utils/__test__/mock-dataElement'
+import MockDataElement from '../../../../../utils/__mocks__/mock-dataElement'
 import { create } from 'react-test-renderer'
 import { Provider } from 'react-redux'
-import mockStore from '../../../../../store/mockStore/mockStore'
+import mockStore from '../../../../../store/__mocks__/mockStore'
 import BannerRecommendUser, { PureBannerRecommendUser } from '../recommendUser'
-import User from '../../../../../store/mockStore/mock-reducers/User'
+import User from '../../../../../store/__mocks__/reducers/User'
 import { shallow } from 'enzyme'
 
 describe('BannerRecommendUser Component', () => {

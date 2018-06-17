@@ -1,10 +1,10 @@
 import React from 'react'
 import { Provider } from 'react-redux'
-import mockStore from '../../../../store/mockStore/mockStore'
+import mockStore from '../../../../store/__mocks__/mockStore'
 import { BrowserRouter as Router } from 'react-router-dom'
 import NewestMembers from '../newest-members'
 import { create } from 'react-test-renderer'
-import Group from '../../../../store/mockStore/mock-reducers/Group'
+import Group from '../../../../store/__mocks__/reducers/Group'
 
 describe('NewestMembers Component', () => {
 

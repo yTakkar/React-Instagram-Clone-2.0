@@ -5,8 +5,8 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import suggestedMockArray from './suggested-mockArray'
 import { shallow } from 'enzyme'
-import mockStore from '../../../../store/mockStore/mockStore'
-import mockExploreState from '../../../../store/mockStore/mock-reducers/Explore'
+import mockStore from '../../../../store/__mocks__/mockStore'
+import mockExploreState from '../../../../store/__mocks__/reducers/Explore'
 
 describe('Suggested-List Component', () => {
   const comp = (

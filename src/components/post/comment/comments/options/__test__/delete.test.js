@@ -3,7 +3,7 @@ import DeleteCommentOption, { PureDeleteCommentOption } from '../delete'
 import { create } from 'react-test-renderer'
 import { shallow } from 'enzyme'
 import { Provider } from 'react-redux'
-import mockStore from '../../../../../../store/mockStore/mockStore'
+import mockStore from '../../../../../../store/__mocks__/mockStore'
 
 describe('DeleteCommentOption Component', () => {
   const mockFn = jest.fn()

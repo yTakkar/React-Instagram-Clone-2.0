@@ -1,7 +1,7 @@
 import React from 'react'
 import { create } from 'react-test-renderer'
 import Message from '../message'
-import MessageMockData from '../../../../../store/mockStore/mock-reducers/Message'
+import MessageMockData from '../../../../../store/__mocks__/reducers/Message'
 import { shallow } from 'enzyme'
 
 describe('Message Component', () => {

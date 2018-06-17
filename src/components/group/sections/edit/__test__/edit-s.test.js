@@ -1,11 +1,11 @@
 import React from 'react'
-import MockDataElement from '../../../../../utils/__test__/mock-dataElement'
+import MockDataElement from '../../../../../utils/__mocks__/mock-dataElement'
 import { create } from 'react-test-renderer'
 import { Provider } from 'react-redux'
-import mockStore from '../../../../../store/mockStore/mockStore'
+import mockStore from '../../../../../store/__mocks__/mockStore'
 import EditGroup, { PureEditGroup } from '../edit-s'
 import { shallow } from 'enzyme'
-import Group from '../../../../../store/mockStore/mock-reducers/Group'
+import Group from '../../../../../store/__mocks__/reducers/Group'
 
 describe('EditGroup Component', () => {
   MockDataElement()

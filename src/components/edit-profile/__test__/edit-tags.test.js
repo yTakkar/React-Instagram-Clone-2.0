@@ -2,9 +2,9 @@ import React from 'react'
 import { create } from 'react-test-renderer'
 import EditTags from '../edit-tags'
 import { Provider } from 'react-redux'
-import mockStore from '../../../store/mockStore/mockStore'
+import mockStore from '../../../store/__mocks__/mockStore'
 import { mount } from 'enzyme'
-import UserMockData from '../../../store/mockStore/mock-reducers/User'
+import UserMockData from '../../../store/__mocks__/reducers/User'
 
 describe('EditTags Component', () => {
   const mockFn = jest.fn()

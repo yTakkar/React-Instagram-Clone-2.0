@@ -1,9 +1,9 @@
 import React from 'react'
 import { PureGroupPhotos } from '../photos'
-import Post from '../../../../../store/mockStore/mock-reducers/Post'
+import Post from '../../../../../store/__mocks__/reducers/Post'
 import { shallow, mount } from 'enzyme'
 import { BrowserRouter as Router } from 'react-router-dom'
-import Group from '../../../../../store/mockStore/mock-reducers/Group'
+import Group from '../../../../../store/__mocks__/reducers/Group'
 
 describe('GroupPhotos Component', () => {
 

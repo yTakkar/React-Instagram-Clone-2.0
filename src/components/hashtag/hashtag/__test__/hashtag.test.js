@@ -1,6 +1,6 @@
 import React from 'react'
 import { PureHashtag } from '../hashtag'
-import User from '../../../../store/mockStore/mock-reducers/User'
+import User from '../../../../store/__mocks__/reducers/User'
 import { shallow } from 'enzyme'
 
 describe('Hashtag Component', () => {

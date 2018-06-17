@@ -39,8 +39,8 @@ export const follow = async options => {
       surname: null,
       update_followers: false,
       update_followings: false,
-      dispatch: () => { return },
-      done: () => { return }
+      dispatch: () => null,
+      done: () => null
     },
     obj = { ...defaults, ...options },
     {
@@ -113,8 +113,8 @@ export const unfollow = async options => {
     user: null,
     update_followers: false,
     update_followings: false,
-    dispatch: () => { return },
-    done: () => { return }
+    dispatch: () => null,
+    done: () => null
   }
   let obj = { ...defaults, ...options }
   let {

@@ -2,7 +2,7 @@ import React from 'react'
 import { create } from 'react-test-renderer'
 import { BrowserRouter as Router } from 'react-router-dom'
 import PostTopDetails from '../top-details'
-import posts from '../../../../../store/mockStore/mock-reducers/posts'
+import posts from '../../../../../store/__mocks__/reducers/posts'
 
 describe('PostTopDetails Component', () => {
 

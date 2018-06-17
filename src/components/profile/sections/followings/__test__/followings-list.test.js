@@ -1,10 +1,10 @@
 import React from 'react'
-import MockDataElement from '../../../../../utils/__test__/mock-dataElement'
+import MockDataElement from '../../../../../utils/__mocks__/mock-dataElement'
 import { create } from 'react-test-renderer'
 import { Provider } from 'react-redux'
-import mockStore from '../../../../../store/mockStore/mockStore'
+import mockStore from '../../../../../store/__mocks__/mockStore'
 import FollowingsList, { PureFollowingsList } from '../followings-list'
-import f from '../../../../../store/mockStore/mock-reducers/f'
+import f from '../../../../../store/__mocks__/reducers/f'
 import { BrowserRouter as Router } from 'react-router-dom'
 import { shallow } from 'enzyme'
 

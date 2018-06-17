@@ -1,7 +1,7 @@
 import React from 'react'
 import ChangeAvatarAction from '../change-avatar'
 import { create } from 'react-test-renderer'
-import mockStore from '../../../../../store/mockStore/mockStore'
+import mockStore from '../../../../../store/__mocks__/mockStore'
 
 describe('ChangeAvatar-Action Component', () => {
   const mockFn = jest.fn()

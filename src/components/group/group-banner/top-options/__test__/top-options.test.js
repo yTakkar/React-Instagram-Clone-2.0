@@ -2,7 +2,7 @@ import React from 'react'
 import { create } from 'react-test-renderer'
 import GroupTopOptions from '../top-options'
 import { shallow } from 'enzyme'
-import MockDataElement from '../../../../../utils/__test__/mock-dataElement'
+import MockDataElement from '../../../../../utils/__mocks__/mock-dataElement'
 
 describe('GroupTopOptions Component', () => {
   MockDataElement()

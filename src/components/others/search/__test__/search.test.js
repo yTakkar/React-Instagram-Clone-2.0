@@ -2,9 +2,8 @@ import React from 'react'
 import Search from '../search'
 import { create } from 'react-test-renderer'
 import { shallow } from 'enzyme'
-import axios from 'axios'
-import axiosAdapter from 'axios-mock-adapter'
 import searchData, { filterSearch } from './search-mockArray'
+import { mockAxiosRequest } from '../../../../utils/__mocks__/mock-axios'
 
 describe('Search Component', () => {
 
@@ -15,11 +14,7 @@ describe('Search Component', () => {
 
   // mocks search functionality and returns a new wrapper as we need to mock the AJAX request multiple times in the below test
   const mockSearch = async searchTerm => {
-    const mockAxios = new axiosAdapter(axios)
-
-    mockAxios
-      .onPost('/api/search-instagram')
-      .reply(200, filterSearch(searchTerm))
+    mockAxiosRequest('search-instagram', filterSearch(searchTerm))
 
     const wrapper = shallow(<Search/>)
     const mockedEvent = {

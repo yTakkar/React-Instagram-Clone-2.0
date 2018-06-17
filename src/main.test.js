@@ -1,6 +1,6 @@
 import React from 'react'
-import MockDataElement from './utils/__test__/mock-dataElement'
-import mockStore from './store/mockStore/mockStore'
+import MockDataElement from './utils/__mocks__/mock-dataElement'
+import mockStore from './store/__mocks__/mockStore'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import App from './components/App'

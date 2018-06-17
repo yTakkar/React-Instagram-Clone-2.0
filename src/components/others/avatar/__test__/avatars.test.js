@@ -1,10 +1,10 @@
 import React from 'react'
 import { create } from 'react-test-renderer'
 import Avatars from '../avatars'
-import AxiosAdaper from 'axios-mock-adapter'
-import axios from 'axios'
 import avatars from './avatars-mockArray'
 import { shallow } from 'enzyme'
+import { mockAxiosRequest } from '../../../../utils/__mocks__/mock-axios'
+import avatarsMockArray from './avatars-mockArray'
 
 describe('Avatars Component', () => {
   const mockFn = jest.fn()
@@ -16,10 +16,7 @@ describe('Avatars Component', () => {
     />
   )
 
-  const mockAxios = new AxiosAdaper(axios)
-  mockAxios
-    .onPost('/api/get-avatars')
-    .reply(200, avatars)
+  mockAxiosRequest('get-avatars', avatarsMockArray)
 
   it('should match snapshot', () => {
     const tree = create(comp).toJSON()

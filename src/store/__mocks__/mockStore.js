@@ -3,15 +3,15 @@ import thunk from 'redux-thunk'
 import promise from 'redux-promise-middleware'
 
 // mock-reducers
-import User from './mock-reducers/User'
-import Notification from './mock-reducers/Notification'
-import Group from './mock-reducers/Group'
-import Follow from './mock-reducers/Follow'
-import Explore from './mock-reducers/Explore'
-import Post from './mock-reducers/Post'
-import Hashtag from './mock-reducers/Hashtag'
-import Setting from './mock-reducers/Setting'
-import Message from './mock-reducers/Message'
+import User from './reducers/User'
+import Notification from './reducers/Notification'
+import Group from './reducers/Group'
+import Follow from './reducers/Follow'
+import Explore from './reducers/Explore'
+import Post from './reducers/Post'
+import Hashtag from './reducers/Hashtag'
+import Setting from './reducers/Setting'
+import Message from './reducers/Message'
 
 const initialState = {
   User,

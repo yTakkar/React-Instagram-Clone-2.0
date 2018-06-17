@@ -1,12 +1,12 @@
 import React from 'react'
 import { create } from 'react-test-renderer'
 import { Provider } from 'react-redux'
-import mockStore from '../../../../../store/mockStore/mockStore'
+import mockStore from '../../../../../store/__mocks__/mockStore'
 import { BrowserRouter as Router } from 'react-router-dom'
 import PeopleYouKnow, { PurePeopleYouKnow } from '../puk'
-import MockDataElement from '../../../../../utils/__test__/mock-dataElement'
+import MockDataElement from '../../../../../utils/__mocks__/mock-dataElement'
 import { shallow } from 'enzyme'
-import User from '../../../../../store/mockStore/mock-reducers/User'
+import User from '../../../../../store/__mocks__/reducers/User'
 
 describe('PeopleYouKnow Component', () => {
   MockDataElement()

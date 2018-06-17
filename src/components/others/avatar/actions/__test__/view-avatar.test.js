@@ -1,7 +1,7 @@
 import React from 'react'
 import { create } from 'react-test-renderer'
 import ViewAvatarAction from '../view-avatar'
-import mockStore from '../../../../../store/mockStore/mockStore'
+import mockStore from '../../../../../store/__mocks__/mockStore'
 
 describe('ViewAvatar-Action Component', () => {
   const mockFn = jest.fn()

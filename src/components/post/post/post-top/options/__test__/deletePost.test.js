@@ -1,9 +1,9 @@
 import React from 'react'
 import { create } from 'react-test-renderer'
 import { Provider } from 'react-redux'
-import mockStore from '../../../../../../store/mockStore/mockStore'
+import mockStore from '../../../../../../store/__mocks__/mockStore'
 import DeletePostOption, { PureDeletePostOption } from '../deletePost'
-import MockDataElement from '../../../../../../utils/__test__/mock-dataElement'
+import MockDataElement from '../../../../../../utils/__mocks__/mock-dataElement'
 import { shallow } from 'enzyme'
 
 describe('DeletePostOption Component', () => {

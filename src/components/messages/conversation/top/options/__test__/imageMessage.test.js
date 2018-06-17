@@ -1,10 +1,10 @@
 import React from 'react'
 import { create } from 'react-test-renderer'
 import { Provider } from 'react-redux'
-import mockStore from '../../../../../../store/mockStore/mockStore'
+import mockStore from '../../../../../../store/__mocks__/mockStore'
 import ImageMessage, { PureImageMessage } from '../imageMessage'
 import { shallow } from 'enzyme'
-import Message from '../../../../../../store/mockStore/mock-reducers/Message'
+import Message from '../../../../../../store/__mocks__/reducers/Message'
 
 describe('ImageMessage Component', () => {
   const mockFn = jest.fn()
