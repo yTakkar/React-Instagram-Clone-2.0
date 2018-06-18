@@ -2,7 +2,7 @@
 
 exports[`ResendVL Component should match snapshot and show SecondaryButton 1`] = `
 <a
-  className="sec_btn resend_vl "
+  className="sec_btn resend_vl"
   href="#"
   onClick={[Function]}
 >

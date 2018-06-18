@@ -3,7 +3,7 @@
 exports[`Comment Component should match snapshot with type image 1`] = `
 <div>
   <div
-    className="comments "
+    className="comments"
   >
     <img
       className="comments_avatar"
@@ -47,7 +47,7 @@ exports[`Comment Component should match snapshot with type image 1`] = `
 exports[`Comment Component should match snapshot with type sticker 1`] = `
 <div>
   <div
-    className="comments "
+    className="comments"
   >
     <img
       className="comments_avatar"
@@ -90,7 +90,7 @@ exports[`Comment Component should match snapshot with type sticker 1`] = `
 exports[`Comment Component should match snapshot with type text 1`] = `
 <div>
   <div
-    className="comments "
+    className="comments"
   >
     <img
       className="comments_avatar"

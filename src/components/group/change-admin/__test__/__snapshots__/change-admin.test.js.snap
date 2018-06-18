@@ -101,7 +101,7 @@ Array [
                   className="modal_ff"
                 >
                   <a
-                    className="pri_btn  "
+                    className="pri_btn"
                     href="#"
                     onClick={[Function]}
                   >
@@ -170,7 +170,7 @@ Array [
         className="modal_bottom"
       >
         <a
-          className="pri_btn  "
+          className="pri_btn"
           href="#"
           onClick={[Function]}
         >

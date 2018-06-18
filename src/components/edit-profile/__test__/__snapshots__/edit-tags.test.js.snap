@@ -24,7 +24,7 @@ Array [
       value="programmer"
     />
     <a
-      className="sec_btn  "
+      className="sec_btn"
       href="#"
       onClick={[Function]}
     >

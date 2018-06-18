@@ -5,7 +5,7 @@ exports[`PostItActions Component should match snapshot 1`] = `
   className="t_p_act p_act"
 >
   <a
-    className="sec_btn  "
+    className="sec_btn"
     href="#"
     onClick={[Function]}
   >

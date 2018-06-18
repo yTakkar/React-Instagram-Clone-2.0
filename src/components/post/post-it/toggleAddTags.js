@@ -2,15 +2,18 @@ import React from 'react'
 import MaterialIcon from '../../others/icons/material-icon'
 import { connect } from 'react-redux'
 import { CPP } from '../../../actions/post'
+import classNames from 'classnames'
 
 const ToggleAddTags = ({ addTag, dispatch }) => {
 
-  let toggle = () =>
+  let toggle = () => {
+    console.log(addTag)
     dispatch(CPP('addTag', !addTag))
+  }
 
   return (
     <span
-      className={`tag_add ${addTag ? 'p_span_toggle' : ''}`}
+      className={classNames('tag_add', {p_span_toggle: addTag})}
       data-tip='Tag people'
       onClick={toggle}
     ><MaterialIcon icon='loyalty' />
@@ -19,7 +22,7 @@ const ToggleAddTags = ({ addTag, dispatch }) => {
 }
 
 const mapStateToProps = state => (
-  { postIt: state.Post.postIt.addTag }
+  { addTag: state.Post.postIt.addTag }
 )
 
 export default connect(mapStateToProps)(ToggleAddTags)

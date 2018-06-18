@@ -72,7 +72,7 @@ exports[`Notification Component should match snapshot with follow notification 1
     className="noti_right follow_noti_right"
   >
     <a
-      className="pri_btn follow "
+      className="pri_btn follow"
       href="#"
       onClick={[Function]}
     >

@@ -2,12 +2,13 @@ import React from 'react'
 import Nothing from '../nothing'
 import PropTypes from 'prop-types'
 import { cLoading } from '../../../utils/utils'
+import classNames from 'classnames'
 
 const ModalMiddle = ({ loading, list }) => {
   let len = list.length
 
   return (
-    <div className={`modal_main ${cLoading(loading)}`}>
+    <div className={classNames('modal_main', cLoading(loading))}>
       {
         len == 0
           ? <Nothing showMssg={false} />

@@ -97,7 +97,7 @@ exports[`Shared Component should match snapshot 1`] = `
                     className="recomms_ff"
                   >
                     <a
-                      className="pri_btn follow "
+                      className="pri_btn follow"
                       href="#"
                       onClick={[Function]}
                     >
@@ -130,7 +130,7 @@ exports[`Shared Component should match snapshot 1`] = `
                     className="recomms_ff"
                   >
                     <a
-                      className="pri_btn follow "
+                      className="pri_btn follow"
                       href="#"
                       onClick={[Function]}
                     >

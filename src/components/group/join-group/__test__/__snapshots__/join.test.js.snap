@@ -2,7 +2,7 @@
 
 exports[`Join Component should match snapshot 1`] = `
 <a
-  className="pri_btn follow "
+  className="pri_btn follow"
   href="#"
   onClick={[Function]}
 >

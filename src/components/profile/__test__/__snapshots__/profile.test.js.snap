@@ -226,7 +226,7 @@ exports[`Profile Component should match snapshot 1`] = `
     </div>
     <div>
       <div
-        className="pro_nav user_nav "
+        className="pro_nav user_nav"
       >
         <ul>
           <li>

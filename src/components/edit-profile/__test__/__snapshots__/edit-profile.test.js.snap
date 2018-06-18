@@ -137,7 +137,7 @@ exports[`Edit-Profile Component should match snapshot 1`] = `
           className="edit_update"
         >
           <span
-            className="emoji_span  "
+            className="emoji_span"
             data-tip="Add emojis"
             onClick={[Function]}
           >
@@ -154,14 +154,14 @@ exports[`Edit-Profile Component should match snapshot 1`] = `
             
           </div>
           <a
-            className="pri_btn edit_done "
+            className="pri_btn edit_done"
             href="#"
             onClick={[Function]}
           >
             Update profile
           </a>
           <a
-            className="sec_btn resend_vl "
+            className="sec_btn resend_vl"
             href="#"
             onClick={[Function]}
           >
@@ -263,7 +263,7 @@ exports[`Edit-Profile Component should match snapshot 1`] = `
             value=""
           />
           <a
-            className="sec_btn  "
+            className="sec_btn"
             href="#"
             onClick={[Function]}
           >

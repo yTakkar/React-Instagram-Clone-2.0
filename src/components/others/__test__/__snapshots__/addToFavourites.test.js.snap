@@ -11,7 +11,7 @@ exports[`AddToFavourites Component should match snapshot 1`] = `
        to your favourites list.
     </span>
     <a
-      className="sec_btn  "
+      className="sec_btn"
       href="#"
       onClick={[Function]}
     >

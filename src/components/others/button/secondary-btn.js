@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react'
 import { string, func, bool, oneOfType } from 'prop-types'
+import classNames from 'classnames'
 
 const SecondaryButton = ({ label, onClick, extraClass, disabled, ...props }) => {
   let disabledClass = disabled ? 'sec_btn_disabled' : ''
@@ -8,7 +9,7 @@ const SecondaryButton = ({ label, onClick, extraClass, disabled, ...props }) => 
     <Fragment>
       <a
         href='#'
-        className={`sec_btn ${extraClass} ${disabledClass}`}
+        className={classNames('sec_btn', extraClass, disabledClass)}
         onClick={onClick}
         {...props}
       >

@@ -43,14 +43,14 @@ Array [
         className="c_a_bottom modal_bottom"
       >
         <a
-          className="sec_btn  "
+          className="sec_btn"
           href="#"
           onClick={[Function]}
         >
           Cancel
         </a>
         <a
-          className="pri_btn c_a_add "
+          className="pri_btn c_a_add"
           href="#"
           onClick={[Function]}
         >

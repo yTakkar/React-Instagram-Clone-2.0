@@ -135,7 +135,7 @@ Array [
         className="modal_bottom"
       >
         <a
-          className="sec_btn  "
+          className="sec_btn"
           href="#"
           onClick={[Function]}
         >

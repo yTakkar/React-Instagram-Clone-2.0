@@ -8,6 +8,7 @@ import { Redirect } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import MonHeader from '../../../others/m-on/mon-header'
 import MonEnd from '../../../others/m-on/mon-end'
+import classNames from 'classnames'
 
 class PeopleYouKnow extends Component {
 
@@ -29,8 +30,10 @@ class PeopleYouKnow extends Component {
         <FadeIn duration='300ms'>
 
           <div className='senapati pro_senapati'>
-            <div className={ len != 0 ? 'm_div' : 'm_no_div' } >
-
+            <div className={classNames({
+              m_div: len != 0,
+              m_no_div: len == 0
+            })} >
               <MonHeader len={len} forWhat={'puk'} />
 
               <div className='m_wrapper'>

@@ -3,14 +3,14 @@
 exports[`CreateGroupActions Component should match snapshot 1`] = `
 Array [
   <a
-    className="sec_btn  "
+    className="sec_btn"
     href="#"
     onClick={[MockFunction]}
   >
     Back
   </a>,
   <a
-    className="pri_btn c_g_update "
+    className="pri_btn c_g_update"
     href="#"
     onClick={[MockFunction]}
   >

@@ -13,7 +13,7 @@ exports[`Recommend Component should match snapshot 1`] = `
       .
     </span>
     <a
-      className="sec_btn  "
+      className="sec_btn"
       href="#"
       onClick={[Function]}
     >

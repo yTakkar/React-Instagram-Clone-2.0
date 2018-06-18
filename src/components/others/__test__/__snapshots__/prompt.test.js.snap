@@ -59,14 +59,14 @@ Array [
         className="prompt-bottom"
       >
         <a
-          className="sec_btn  "
+          className="sec_btn"
           href="#"
           onClick={[Function]}
         >
           Cancel
         </a>
         <a
-          className="pri_btn prompt-done "
+          className="pri_btn prompt-done"
           href="#"
           onClick={[MockFunction]}
         >
@@ -137,14 +137,14 @@ Array [
         className="prompt-bottom"
       >
         <a
-          className="sec_btn  "
+          className="sec_btn"
           href="#"
           onClick={[Function]}
         >
           Cancel
         </a>
         <a
-          className="pri_btn prompt-done "
+          className="pri_btn prompt-done"
           href="#"
           onClick={[MockFunction]}
         >

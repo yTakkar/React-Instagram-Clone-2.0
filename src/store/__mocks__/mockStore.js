@@ -1,6 +1,5 @@
 import configureStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
-import promise from 'redux-promise-middleware'
 
 // mock-reducers
 import User from './reducers/User'
@@ -25,9 +24,7 @@ const initialState = {
   Message
 }
 
-const middlewares = [
-  promise(), thunk
-]
+const middlewares = [thunk]
 const createStore = configureStore(middlewares)
 const mockStore = createStore(initialState)
 

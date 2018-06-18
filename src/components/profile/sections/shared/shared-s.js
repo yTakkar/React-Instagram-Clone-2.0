@@ -10,6 +10,7 @@ import PropTypes from 'prop-types'
 import MapPosts from '../../../post/map-posts/map-posts'
 import SectionsEnd from '../../../others/sections-end'
 import IsLoading from '../../../others/isLoading'
+import classNames from 'classnames'
 
 class Shared extends Component {
 
@@ -48,7 +49,9 @@ class Shared extends Component {
 
           <Title value={`${username}'s shared posts`} />
 
-          <div className={`senapati pro_senapati ${cLoading(loading)}`} >
+          <div
+            className={classNames('senapati', 'pro_senapati', cLoading(loading))}
+          >
 
             <div className='srajkumar'>
               <Suggested/>

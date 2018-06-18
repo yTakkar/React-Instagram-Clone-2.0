@@ -209,7 +209,7 @@ Array [
         className="modal_bottom"
       >
         <a
-          className="pri_btn  "
+          className="pri_btn"
           href="#"
           onClick={[Function]}
         >

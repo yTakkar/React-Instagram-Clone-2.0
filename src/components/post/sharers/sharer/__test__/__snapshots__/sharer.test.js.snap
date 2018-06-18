@@ -35,7 +35,7 @@ exports[`Sharer Component should match snapshot and show <AdvancedFollow/> 1`] =
       className="modal_ff"
     >
       <a
-        className="pri_btn follow "
+        className="pri_btn follow"
         href="#"
         onClick={[Function]}
       >
@@ -82,7 +82,7 @@ exports[`Sharer Component should match snapshot and show <AdvancedUnfollow/> 1`]
       className="modal_ff"
     >
       <a
-        className="pri_btn unfollow "
+        className="pri_btn unfollow"
         href="#"
         onClick={[Function]}
       >
@@ -176,7 +176,7 @@ exports[`Sharer Component should match snapshot and show <RemoveShare/> 1`] = `
       className="modal_ff"
     >
       <a
-        className="sec_btn  "
+        className="sec_btn"
         href="#"
         onClick={[Function]}
       >
@@ -223,7 +223,7 @@ exports[`Sharer Component should match snapshot and show <RemoveShare/> 2`] = `
       className="modal_ff"
     >
       <a
-        className="sec_btn  "
+        className="sec_btn"
         href="#"
         onClick={[Function]}
       >

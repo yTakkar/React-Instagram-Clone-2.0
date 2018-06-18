@@ -76,7 +76,7 @@ Array [
               className="recomms_ff"
             >
               <a
-                className="pri_btn follow "
+                className="pri_btn follow"
                 href="#"
                 onClick={[Function]}
               >
@@ -109,7 +109,7 @@ Array [
               className="recomms_ff"
             >
               <a
-                className="pri_btn follow "
+                className="pri_btn follow"
                 href="#"
                 onClick={[Function]}
               >
@@ -288,7 +288,7 @@ Array [
               className="recomms_ff"
             >
               <a
-                className="pri_btn follow "
+                className="pri_btn follow"
                 href="#"
                 onClick={[Function]}
               >
@@ -321,7 +321,7 @@ Array [
               className="recomms_ff"
             >
               <a
-                className="pri_btn follow "
+                className="pri_btn follow"
                 href="#"
                 onClick={[Function]}
               >
@@ -389,7 +389,7 @@ Array [
         .
       </span>
       <a
-        className="sec_btn  "
+        className="sec_btn"
         href="#"
         onClick={[Function]}
       >
@@ -407,7 +407,7 @@ Array [
          to your favourites list.
       </span>
       <a
-        className="sec_btn  "
+        className="sec_btn"
         href="#"
         onClick={[Function]}
       >
@@ -426,7 +426,7 @@ Array [
       .
     </span>
     <a
-      className="sec_btn  "
+      className="sec_btn"
       href="#"
       onClick={[Function]}
     >

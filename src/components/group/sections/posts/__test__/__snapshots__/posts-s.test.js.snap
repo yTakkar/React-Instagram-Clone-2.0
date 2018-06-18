@@ -178,7 +178,7 @@ exports[`GroupPosts Component should match snapshot 1`] = `
               Create public or private group of your interest with people you know.
             </span>
             <a
-              className="sec_btn  "
+              className="sec_btn"
               href="#"
               onClick={[Function]}
             >
@@ -993,7 +993,7 @@ exports[`GroupPosts Component should match snapshot and hide postItTeaser when j
               Create public or private group of your interest with people you know.
             </span>
             <a
-              className="sec_btn  "
+              className="sec_btn"
               href="#"
               onClick={[Function]}
             >

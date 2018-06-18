@@ -9,6 +9,7 @@ import PropTypes from 'prop-types'
 import MonHeader from '../../../others/m-on/mon-header'
 import FollowSectionEnd from '../../../others/follow/follow-section-end'
 import IsLoading from '../../../others/isLoading'
+import classNames from 'classnames'
 
 class Followers extends Component {
 
@@ -43,9 +44,13 @@ class Followers extends Component {
         <FadeIn duration='300ms'>
           <IsLoading loading={loading} />
 
-          <div className={`senapati pro_senapati ${cLoading(loading)}`}>
-            <div className={ len != 0 ? 'm_div' : 'm_no_div' } >
-
+          <div
+            className={classNames('senapati', 'pro_senapati', cLoading(loading))}
+          >
+            <div className={classNames({
+              m_div: len != 0,
+              m_no_div: len == 0
+            })} >
               <MonHeader len={len} forWhat={'follower'} />
 
               <div className='m_wrapper'>

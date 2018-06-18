@@ -3,6 +3,7 @@ import { geolocation, getAddress } from '../../../utils/location-utils'
 import MaterialIcon from '../../others/icons/material-icon'
 import { connect } from 'react-redux'
 import { CPP } from '../../../actions/post'
+import classNames from 'classnames'
 
 const GetLocation = ({ postIt, dispatch }) => {
   let { location } = postIt
@@ -21,7 +22,7 @@ const GetLocation = ({ postIt, dispatch }) => {
 
   return (
     <span
-      className={`loc_add ${location ? 'p_span_toggle' : ''}`}
+      className={classNames('loc_add', {p_span_toggle: location})}
       data-tip='Add location'
       onClick={getLocation}
     ><MaterialIcon icon='location_on' />

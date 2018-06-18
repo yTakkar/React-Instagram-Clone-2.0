@@ -2,7 +2,7 @@
 
 exports[`AdvancedUnfollow Component should match snapshot 1`] = `
 <a
-  className="pri_btn unfollow "
+  className="pri_btn unfollow"
   href="#"
   onClick={[Function]}
 >

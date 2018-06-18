@@ -84,7 +84,7 @@ exports[`Notifications Component should match snapshot 1`] = `
           className="noti_right follow_noti_right"
         >
           <a
-            className="pri_btn follow "
+            className="pri_btn follow"
             href="#"
             onClick={[Function]}
           >

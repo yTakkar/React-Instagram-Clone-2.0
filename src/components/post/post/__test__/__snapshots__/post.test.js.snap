@@ -629,7 +629,7 @@ exports[`Post Component should match snapshot with comments 1`] = `
       >
         <div>
           <div
-            className="comments "
+            className="comments"
           >
             <img
               className="comments_avatar"
@@ -679,7 +679,7 @@ exports[`Post Component should match snapshot with comments 1`] = `
         </div>
         <div>
           <div
-            className="comments "
+            className="comments"
           >
             <img
               className="comments_avatar"
@@ -720,7 +720,7 @@ exports[`Post Component should match snapshot with comments 1`] = `
         </div>
         <div>
           <div
-            className="comments "
+            className="comments"
           >
             <img
               className="comments_avatar"

@@ -2,7 +2,7 @@
 
 exports[`Secondary Button Component should match snapshot 1`] = `
 <a
-  className="sec_btn p_add "
+  className="sec_btn p_add"
   href="#"
   onClick={[MockFunction]}
 >
@@ -12,7 +12,7 @@ exports[`Secondary Button Component should match snapshot 1`] = `
 
 exports[`Secondary Button Component should match snapshot with label prop as a function 1`] = `
 <a
-  className="sec_btn  sec_btn_disabled"
+  className="sec_btn sec_btn_disabled"
   href="#"
   onClick={[MockFunction]}
 >

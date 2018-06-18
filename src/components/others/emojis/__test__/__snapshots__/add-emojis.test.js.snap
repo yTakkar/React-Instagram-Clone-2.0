@@ -3,7 +3,7 @@
 exports[`Add-Emojis Component should match snapshot 1`] = `
 Array [
   <span
-    className="emoji_span  "
+    className="emoji_span"
     data-tip="Add emojis"
     onClick={[Function]}
   >
@@ -25,7 +25,7 @@ Array [
 exports[`Add-Emojis Component should match snapshot 2`] = `
 Array [
   <span
-    className="emoji_span emoji_disabled "
+    className="emoji_span emoji_disabled"
     data-tip="Add emojis"
     onClick={[Function]}
   >

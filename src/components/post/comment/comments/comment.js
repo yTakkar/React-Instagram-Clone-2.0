@@ -6,6 +6,7 @@ import CommentType from './comment-type'
 import CommentOptions from './options/comment-options'
 import PropTypes from 'prop-types'
 import AppLink from '../../../others/link/link'
+import classNames from 'classnames'
 
 @connect()
 export default class Comment extends Component {
@@ -35,7 +36,7 @@ export default class Comment extends Component {
     return (
       <div>
         <div
-          className={`comments ${Me(comment_by) ? 'my_comment' : ''}`}
+          className={classNames('comments', {my_comment: Me(comment_by)})}
         >
           <img className='comments_avatar' src={`/users/${comment_by}/avatar.jpg`} />
 

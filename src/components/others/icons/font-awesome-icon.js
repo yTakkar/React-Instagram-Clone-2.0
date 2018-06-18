@@ -1,10 +1,11 @@
 import React, { Fragment } from 'react'
 import { string } from 'prop-types'
+import classNames from 'classnames'
 
 const FAIcon = ({ icon,...props }) => (
   <Fragment>
     <i
-      className={`fas fa-${icon}`}
+      className={classNames('fas', `fa-${icon}`)}
       {...props}
     ></i>
   </Fragment>

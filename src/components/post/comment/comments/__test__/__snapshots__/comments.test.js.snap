@@ -7,7 +7,7 @@ exports[`Comments Component should match snapshot 1`] = `
   >
     <div>
       <div
-        className="comments "
+        className="comments"
       >
         <img
           className="comments_avatar"
@@ -57,7 +57,7 @@ exports[`Comments Component should match snapshot 1`] = `
     </div>
     <div>
       <div
-        className="comments "
+        className="comments"
       >
         <img
           className="comments_avatar"
@@ -98,7 +98,7 @@ exports[`Comments Component should match snapshot 1`] = `
     </div>
     <div>
       <div
-        className="comments "
+        className="comments"
       >
         <img
           className="comments_avatar"

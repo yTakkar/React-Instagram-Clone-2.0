@@ -2,7 +2,7 @@
 
 exports[`ToggleAddTags Component should match snapshot 1`] = `
 <span
-  className="tag_add "
+  className="tag_add"
   data-tip="Tag people"
   onClick={[Function]}
 >

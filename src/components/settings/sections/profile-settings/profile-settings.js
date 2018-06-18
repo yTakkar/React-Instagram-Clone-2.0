@@ -6,6 +6,7 @@ import { getUserDetails } from '../../../../actions/user'
 import { getBlockedUsers } from '../../../../actions/settings'
 import IsLoading from '../../../others/isLoading'
 import { cLoading } from '../../../../utils/utils'
+import classNames from 'classnames'
 
 import BlockedUsers from './blocked-users/blocked-users'
 import ChangeAccountType from './account-type/account-type'
@@ -35,7 +36,7 @@ class ProfileSettings extends Component {
         <FadeIn duration='300ms'>
           <IsLoading loading={loading} />
 
-          <div className={`pro_settings ${cLoading(loading)}`} >
+          <div className={classNames('pro_settings', cLoading(loading))} >
             <ChangeAccountType/>
             <BlockedUsers/>
           </div>

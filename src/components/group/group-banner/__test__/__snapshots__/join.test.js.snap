@@ -19,7 +19,7 @@ exports[`JoinGroup Component should match snapshot and show <Join/> when joined 
   className="pro_ff"
 >
   <a
-    className="pri_btn follow "
+    className="pri_btn follow"
     href="#"
     onClick={[Function]}
   >
@@ -33,7 +33,7 @@ exports[`JoinGroup Component should match snapshot and show <Leave/> when joined
   className="pro_ff"
 >
   <a
-    className="pri_btn unfollow "
+    className="pri_btn unfollow"
     href="#"
     onClick={[Function]}
   >

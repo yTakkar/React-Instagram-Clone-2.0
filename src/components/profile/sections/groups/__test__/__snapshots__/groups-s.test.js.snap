@@ -61,7 +61,7 @@ exports[`UserGroups Component should match snapshot 1`] = `
               className="m_bottom"
             >
               <a
-                className="pri_btn unfollow "
+                className="pri_btn unfollow"
                 href="#"
                 onClick={[Function]}
               >

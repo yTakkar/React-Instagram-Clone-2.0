@@ -9,6 +9,7 @@ import MonHeader from '../../../others/m-on/mon-header'
 import PropTypes from 'prop-types'
 import NoUserGroups from './no-groups'
 import IsLoading from '../../../others/isLoading'
+import classNames from 'classnames'
 
 class UserGroups extends Component {
 
@@ -49,7 +50,10 @@ class UserGroups extends Component {
         <FadeIn duration='300ms' className={cLoading(loading)}>
 
           <div className='senapati pro_senapati' >
-            <div className={ len != 0 ? 'm_div' : 'm_no_div' } >
+            <div className={classNames({
+              m_div: len != 0,
+              m_no_div: len == 0
+            })} >
 
               <MonHeader len={len} forWhat='group' />
 

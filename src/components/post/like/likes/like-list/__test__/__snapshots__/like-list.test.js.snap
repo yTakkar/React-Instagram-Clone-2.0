@@ -80,7 +80,7 @@ exports[`LikeList Component should match snapshot and show <Follow/> 1`] = `
       className="modal_ff"
     >
       <a
-        className="pri_btn follow "
+        className="pri_btn follow"
         href="#"
         onClick={[Function]}
       >
@@ -126,7 +126,7 @@ exports[`LikeList Component should match snapshot and show <RemoveLikeAsAdmin> 1
       className="modal_ff"
     >
       <a
-        className="sec_btn  "
+        className="sec_btn"
         href="#"
         onClick={[Function]}
       >
@@ -172,7 +172,7 @@ exports[`LikeList Component should match snapshot and show <Unfollow/> 1`] = `
       className="modal_ff"
     >
       <a
-        className="pri_btn unfollow "
+        className="pri_btn unfollow"
         href="#"
         onClick={[Function]}
       >

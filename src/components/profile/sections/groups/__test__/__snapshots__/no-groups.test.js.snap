@@ -31,7 +31,7 @@ exports[`NoUserGroups Component should match snapshot and show <End/> when group
           Create public or private group of your interest with people you know.
         </span>
         <a
-          className="sec_btn  "
+          className="sec_btn"
           href="#"
           onClick={[Function]}
         >

@@ -57,14 +57,14 @@ exports[`Favourites Component should match snapshot 1`] = `
               className="m_bottom"
             >
               <a
-                className="sec_btn  "
+                className="sec_btn"
                 href="#"
                 onClick={[Function]}
               >
                 Remove 
               </a>
               <a
-                className="pri_btn follow "
+                className="pri_btn follow"
                 href="#"
                 onClick={[Function]}
               >

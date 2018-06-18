@@ -5,7 +5,7 @@ exports[`BannerFollow Component should match snapshot and show <Follow/> 1`] = `
   className="pro_ff"
 >
   <a
-    className="pri_btn follow "
+    className="pri_btn follow"
     href="#"
     onClick={[Function]}
   >
@@ -19,7 +19,7 @@ exports[`BannerFollow Component should match snapshot and show <Unfollow/> 1`] =
   className="pro_ff"
 >
   <a
-    className="pri_btn unfollow "
+    className="pri_btn unfollow"
     href="#"
     onClick={[Function]}
   >

@@ -34,7 +34,7 @@ exports[`ChangeAdminList Component should match snapshot 1`] = `
       className="modal_ff"
     >
       <a
-        className="pri_btn  "
+        className="pri_btn"
         href="#"
         onClick={[Function]}
       >

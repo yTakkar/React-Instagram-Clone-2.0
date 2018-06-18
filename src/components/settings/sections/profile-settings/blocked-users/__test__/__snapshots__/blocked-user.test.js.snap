@@ -27,7 +27,7 @@ exports[`BlockedUser Component should match snapshot 1`] = `
       </span>
     </div>
     <a
-      className="sec_btn unblock "
+      className="sec_btn unblock"
       href="#"
       onClick={[Function]}
     >
@@ -64,7 +64,7 @@ exports[`BlockedUser Component should match snapshot when mutualFollowersCount >
       </span>
     </div>
     <a
-      className="sec_btn unblock "
+      className="sec_btn unblock"
       href="#"
       onClick={[Function]}
     >

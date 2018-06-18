@@ -7,6 +7,7 @@ import Nothing from '../../others/nothing'
 import ExploreGroupsList from './explore-groups-list'
 import IsLoading from '../../others/isLoading'
 import { cLoading } from '../../../utils/utils'
+import classNames from 'classnames'
 
 class ExploreGroups extends Component {
 
@@ -38,7 +39,7 @@ class ExploreGroups extends Component {
           <IsLoading loading={loading} />
 
           <div
-            className={`m_div ${cLoading(loading)}`}
+            className={classNames('m_div', cLoading(loading))}
             style={{ marginTop: 0 }}
           >
             <div

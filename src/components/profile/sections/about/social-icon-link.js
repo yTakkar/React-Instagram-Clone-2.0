@@ -1,12 +1,15 @@
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
+import classNames from 'classnames'
 
 const SocialIconLink = ({ value, label }) => (
   <Fragment>
     {
       value ?
         <a href={value} target='_blank'>
-          <i className={`fab fa-${label}`}></i>
+          <i
+            className={classNames('fab', `fa-${label}`)}
+          ></i>
         </a>
         : null
     }

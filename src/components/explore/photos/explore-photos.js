@@ -6,6 +6,7 @@ import { getPhotosToExplore } from '../../../actions/explore'
 import ExplorePhotoGallery from './photo-gallery'
 import IsLoading from '../../others/isLoading'
 import { cLoading } from '../../../utils/utils'
+import classNames from 'classnames'
 
 class ExpPhotos extends Component {
 
@@ -27,11 +28,10 @@ class ExpPhotos extends Component {
         <Title value='Explore photos' />
 
         <FadeIn duration='300ms'>
-
           <IsLoading loading={loading} />
 
           <div
-            className={`m_div explore_photos ${cLoading(loading)}`}
+            className={classNames('m_div', 'explore_photos', cLoading(loading))}
             style={{ marginTop: 0 }}
           >
             <ExplorePhotoGallery/>

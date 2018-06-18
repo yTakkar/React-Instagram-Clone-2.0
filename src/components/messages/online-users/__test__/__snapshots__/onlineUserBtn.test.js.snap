@@ -2,7 +2,7 @@
 
 exports[`OnlineUsersButton Component should match snapshot 1`] = `
 <a
-  className="pri_btn  "
+  className="pri_btn"
   href="#"
   onClick={[Function]}
 >

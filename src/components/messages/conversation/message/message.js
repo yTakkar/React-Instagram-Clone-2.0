@@ -4,6 +4,7 @@ import TimeAgo from 'handy-timeago'
 import MessageType from './message-type'
 import MessageTools from './tools/message-tools'
 import PropTypes from 'prop-types'
+import classNames from 'classnames'
 
 export default class Message extends Component {
 
@@ -27,7 +28,7 @@ export default class Message extends Component {
       <div>
 
         <div
-          className={`m_m_divs ${mssgStyle}`}
+          className={classNames('m_m_divs', mssgStyle)}
         >
           <div
             className='toggle_mssg_tools'

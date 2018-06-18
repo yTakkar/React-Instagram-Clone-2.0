@@ -4,6 +4,7 @@ import LastMssg from './lastMssg'
 import UnreadMssgs from './unreadMssgs'
 import MyLastMssg from './myLastMssg'
 import LastMssgTime from './lastMssgTime'
+import classNames from 'classnames'
 
 const ConversationTeaser = props => {
   let {
@@ -13,7 +14,7 @@ const ConversationTeaser = props => {
 
   return (
     <div
-      className={`mssg_sr mt_${con_id}`}
+      className={classNames('mssg_sr',  `mt_${con_id}`)}
       onClick={select}
     >
       <img src={`/users/${con_with}/avatar.jpg`} />

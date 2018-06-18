@@ -26,7 +26,7 @@ exports[`Modal-Middle Component should match snapshot and display nothing compon
 
 exports[`Modal-Middle Component should match snapshot with the list 1`] = `
 <div
-  className="modal_main "
+  className="modal_main"
 >
   <span>
     first

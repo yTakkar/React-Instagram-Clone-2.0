@@ -13,6 +13,7 @@ import ConSince from './con-since'
 import MessagesCount from './mssgs-count'
 import { cLoading } from '../../../../utils/utils'
 import Overlay from '../../../others/overlay'
+import classNames from 'classnames'
 
 class AboutConversation extends Component {
 
@@ -46,7 +47,7 @@ class AboutConversation extends Component {
               <IsLoading loading={loading} />
 
               <div
-                className={`modal_main ${cLoading(loading)}`}
+                className={classNames('modal_main', cLoading(loading))}
                 style={{ padding: 0 }}
               >
                 <div className='about_con'>

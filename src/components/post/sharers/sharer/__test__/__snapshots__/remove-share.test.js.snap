@@ -2,7 +2,7 @@
 
 exports[`RemoveShare Component should match snapshot 1`] = `
 <a
-  className="sec_btn  "
+  className="sec_btn"
   href="#"
   onClick={[Function]}
 >

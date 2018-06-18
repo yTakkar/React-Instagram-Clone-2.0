@@ -98,7 +98,7 @@ exports[`PostIt Component should match snapshot with type group 1`] = `
           }
         >
           <span
-            className="emoji_span  "
+            className="emoji_span"
             data-tip="Add emojis"
             onClick={[Function]}
           >
@@ -115,7 +115,7 @@ exports[`PostIt Component should match snapshot with type group 1`] = `
             
           </div>
           <span
-            className="tag_add "
+            className="tag_add"
             data-tip="Tag people"
             onClick={[Function]}
           >
@@ -141,7 +141,7 @@ exports[`PostIt Component should match snapshot with type group 1`] = `
           className="t_p_act p_act"
         >
           <a
-            className="sec_btn  "
+            className="sec_btn"
             href="#"
             onClick={[Function]}
           >
@@ -265,7 +265,7 @@ exports[`PostIt Component should match snapshot with type user 1`] = `
           }
         >
           <span
-            className="emoji_span  "
+            className="emoji_span"
             data-tip="Add emojis"
             onClick={[Function]}
           >
@@ -282,7 +282,7 @@ exports[`PostIt Component should match snapshot with type user 1`] = `
             
           </div>
           <span
-            className="tag_add "
+            className="tag_add"
             data-tip="Tag people"
             onClick={[Function]}
           >
@@ -308,7 +308,7 @@ exports[`PostIt Component should match snapshot with type user 1`] = `
           className="t_p_act p_act"
         >
           <a
-            className="sec_btn  "
+            className="sec_btn"
             href="#"
             onClick={[Function]}
           >

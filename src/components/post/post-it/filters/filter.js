@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { CPP } from '../../../../actions/post'
 import d from '../../../../utils/API/DOM'
+import classNames from 'classnames'
 
 const Filter = ({ filter, previewImg, dispatch }) => {
 
@@ -17,7 +18,7 @@ const Filter = ({ filter, previewImg, dispatch }) => {
 
   return (
     <div
-      className={`filter_div fp_${filter}`}
+      className={classNames('filter_div', `fp_${filter}`)}
       onClick={select}
     >
       <img className={filter} src={previewImg} />

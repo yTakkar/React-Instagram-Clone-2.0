@@ -5,14 +5,14 @@ exports[`Avatar-Actions Component should match snapshot 1`] = `
   className="pro_ava_bottom_act"
 >
   <a
-    className="sec_btn  "
+    className="sec_btn"
     href="#"
     onClick={[Function]}
   >
     Cancel
   </a>
   <a
-    className="pri_btn btn_select_avatar "
+    className="pri_btn btn_select_avatar"
     href="#"
     onClick={[Function]}
   >

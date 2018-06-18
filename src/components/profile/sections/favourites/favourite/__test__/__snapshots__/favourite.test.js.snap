@@ -32,7 +32,7 @@ exports[`Favourite Component should match snapshot with profile link 1`] = `
     className="m_bottom"
   >
     <a
-      className="sec_btn  "
+      className="sec_btn"
       href="#"
       onClick={[Function]}
     >

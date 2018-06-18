@@ -316,7 +316,7 @@ Array [
         >
           <div>
             <div
-              className="comments "
+              className="comments"
             >
               <img
                 className="comments_avatar"
@@ -366,7 +366,7 @@ Array [
           </div>
           <div>
             <div
-              className="comments "
+              className="comments"
             >
               <img
                 className="comments_avatar"
@@ -407,7 +407,7 @@ Array [
           </div>
           <div>
             <div
-              className="comments "
+              className="comments"
             >
               <img
                 className="comments_avatar"

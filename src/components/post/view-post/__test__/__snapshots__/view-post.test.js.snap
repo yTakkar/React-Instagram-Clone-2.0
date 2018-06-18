@@ -340,7 +340,7 @@ exports[`ViewPost Component should match snapshot 1`] = `
                 >
                   <div>
                     <div
-                      className="comments "
+                      className="comments"
                     >
                       <img
                         className="comments_avatar"
@@ -390,7 +390,7 @@ exports[`ViewPost Component should match snapshot 1`] = `
                   </div>
                   <div>
                     <div
-                      className="comments "
+                      className="comments"
                     >
                       <img
                         className="comments_avatar"
@@ -431,7 +431,7 @@ exports[`ViewPost Component should match snapshot 1`] = `
                   </div>
                   <div>
                     <div
-                      className="comments "
+                      className="comments"
                     >
                       <img
                         className="comments_avatar"
@@ -560,7 +560,7 @@ exports[`ViewPost Component should match snapshot 1`] = `
                     className="recomms_ff"
                   >
                     <a
-                      className="pri_btn follow "
+                      className="pri_btn follow"
                       href="#"
                       onClick={[Function]}
                     >
@@ -593,7 +593,7 @@ exports[`ViewPost Component should match snapshot 1`] = `
                     className="recomms_ff"
                   >
                     <a
-                      className="pri_btn follow "
+                      className="pri_btn follow"
                       href="#"
                       onClick={[Function]}
                     >
@@ -619,7 +619,7 @@ exports[`ViewPost Component should match snapshot 1`] = `
               Create public or private group of your interest with people you know.
             </span>
             <a
-              className="sec_btn  "
+              className="sec_btn"
               href="#"
               onClick={[Function]}
             >

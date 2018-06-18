@@ -29,7 +29,7 @@ exports[`Messages Component should match snapshot 1`] = `
         className="mssg_new"
       >
         <a
-          className="pri_btn  "
+          className="pri_btn"
           href="#"
           onClick={[Function]}
         >
@@ -41,7 +41,7 @@ exports[`Messages Component should match snapshot 1`] = `
           </span>
         </a>
         <a
-          className="pri_btn  "
+          className="pri_btn"
           href="#"
           onClick={[Function]}
         >

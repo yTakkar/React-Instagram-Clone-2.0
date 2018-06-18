@@ -2,7 +2,7 @@
 
 exports[`ModalBack Component should match snapshot with primary button 1`] = `
 <a
-  className="pri_btn  "
+  className="pri_btn"
   href="#"
   onClick={[Function]}
 >
@@ -12,7 +12,7 @@ exports[`ModalBack Component should match snapshot with primary button 1`] = `
 
 exports[`ModalBack Component should match snapshot with secondary button 1`] = `
 <a
-  className="sec_btn  "
+  className="sec_btn"
   href="#"
   onClick={[Function]}
 >

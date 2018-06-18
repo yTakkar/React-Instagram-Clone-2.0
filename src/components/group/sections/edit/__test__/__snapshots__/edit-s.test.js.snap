@@ -100,7 +100,7 @@ exports[`EditGroup Component should match snapshot 1`] = `
             className="g_e_save"
           >
             <span
-              className="emoji_span  "
+              className="emoji_span"
               data-tip="Add emojis"
               onClick={[Function]}
             >
@@ -117,7 +117,7 @@ exports[`EditGroup Component should match snapshot 1`] = `
               
             </div>
             <a
-              className="sec_btn g_e_save_btn "
+              className="sec_btn g_e_save_btn"
               href="#"
               onClick={[Function]}
             >

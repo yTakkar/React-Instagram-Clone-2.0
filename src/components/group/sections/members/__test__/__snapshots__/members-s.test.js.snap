@@ -75,7 +75,7 @@ exports[`GroupMembers Component should match snapshot 1`] = `
                 </div>
               </span>
               <a
-                className="sec_btn  "
+                className="sec_btn"
                 href="#"
                 onClick={[Function]}
               >

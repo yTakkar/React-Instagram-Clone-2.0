@@ -34,7 +34,7 @@ exports[`ShareList Component should match snapshot with <PrimaryButton/> for sha
       className="modal_ff"
     >
       <a
-        className="pri_btn share_btn "
+        className="pri_btn share_btn"
         href="#"
         onClick={[Function]}
       >
@@ -80,7 +80,7 @@ exports[`ShareList Component should match snapshot with <SecondaryButton/> for u
       className="modal_ff"
     >
       <a
-        className="sec_btn share_btn "
+        className="sec_btn share_btn"
         href="#"
         onClick={[Function]}
       >

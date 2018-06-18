@@ -53,7 +53,7 @@ exports[`PeopleYouKnow Component should match snapshot 1`] = `
               className="m_bottom"
             >
               <a
-                className="pri_btn follow "
+                className="pri_btn follow"
                 href="#"
                 onClick={[Function]}
               >

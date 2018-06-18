@@ -11,6 +11,7 @@ import NewConversation from './newConversation'
 import MapConversations from './map-conversations/map-conversations'
 import IsLoading from '../others/isLoading'
 import { cLoading } from '../../utils/utils'
+import classNames from 'classnames'
 
 class Messages extends Component {
 
@@ -43,7 +44,7 @@ class Messages extends Component {
 
         <FadeIn
           duration='300ms'
-          className={`messages_senapati ${cLoading(loading)}`}
+          className={classNames('messages_senapati', cLoading(loading))}
         >
 
           <div className='mssg_left'>

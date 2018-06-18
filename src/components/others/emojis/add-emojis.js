@@ -3,6 +3,7 @@ import Emojis from './emojis'
 import { shape, number, string, func, bool } from 'prop-types'
 import ToolTip from 'react-tooltip'
 import MaterialIcon from '../icons/material-icon'
+import classNames from 'classnames'
 
 export default class AddEmojis extends Component {
 
@@ -25,7 +26,7 @@ export default class AddEmojis extends Component {
     return (
       <Fragment>
         <span
-          className={`emoji_span ${disabledClass} ${addClass}`}
+          className={classNames('emoji_span', disabledClass, addClass)}
           data-tip='Add emojis'
           onClick={this.toggleEmojis}
         >

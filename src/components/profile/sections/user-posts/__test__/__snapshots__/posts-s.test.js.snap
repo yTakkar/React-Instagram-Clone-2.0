@@ -90,7 +90,7 @@ exports[`Posts Component should match snapshot 1`] = `
                     className="recomms_ff"
                   >
                     <a
-                      className="pri_btn follow "
+                      className="pri_btn follow"
                       href="#"
                       onClick={[Function]}
                     >
@@ -123,7 +123,7 @@ exports[`Posts Component should match snapshot 1`] = `
                     className="recomms_ff"
                   >
                     <a
-                      className="pri_btn follow "
+                      className="pri_btn follow"
                       href="#"
                       onClick={[Function]}
                     >
@@ -928,7 +928,7 @@ exports[`Posts Component should match snapshot when profile is not mine 1`] = `
                     className="recomms_ff"
                   >
                     <a
-                      className="pri_btn follow "
+                      className="pri_btn follow"
                       href="#"
                       onClick={[Function]}
                     >
@@ -961,7 +961,7 @@ exports[`Posts Component should match snapshot when profile is not mine 1`] = `
                     className="recomms_ff"
                   >
                     <a
-                      className="pri_btn follow "
+                      className="pri_btn follow"
                       href="#"
                       onClick={[Function]}
                     >
@@ -1029,7 +1029,7 @@ exports[`Posts Component should match snapshot when profile is not mine 1`] = `
               .
             </span>
             <a
-              className="sec_btn  "
+              className="sec_btn"
               href="#"
               onClick={[Function]}
             >
@@ -1047,7 +1047,7 @@ exports[`Posts Component should match snapshot when profile is not mine 1`] = `
                to your favourites list.
             </span>
             <a
-              className="sec_btn  "
+              className="sec_btn"
               href="#"
               onClick={[Function]}
             >
@@ -1066,7 +1066,7 @@ exports[`Posts Component should match snapshot when profile is not mine 1`] = `
             .
           </span>
           <a
-            className="sec_btn  "
+            className="sec_btn"
             href="#"
             onClick={[Function]}
           >

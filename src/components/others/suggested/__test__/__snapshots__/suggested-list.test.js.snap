@@ -26,7 +26,7 @@ exports[`Suggested-List Component should match snapshot with AdvancedFollow comp
     className="recomms_ff"
   >
     <a
-      className="pri_btn follow "
+      className="pri_btn follow"
       href="#"
       onClick={[Function]}
     >

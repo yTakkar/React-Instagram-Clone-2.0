@@ -68,7 +68,7 @@ exports[`CreateGroupModal Component should match snapshot 1`] = `
         className="e_p_bottom modal_bottom"
       >
         <span
-          className="emoji_span  "
+          className="emoji_span"
           data-tip="Add emojis"
           onClick={[Function]}
         >
@@ -85,7 +85,7 @@ exports[`CreateGroupModal Component should match snapshot 1`] = `
           
         </div>
         <a
-          className="sec_btn  "
+          className="sec_btn"
           href="#"
           onClick={[MockFunction]}
         >

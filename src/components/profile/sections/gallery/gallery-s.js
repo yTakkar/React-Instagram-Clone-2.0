@@ -8,6 +8,7 @@ import End from '../../../others/end'
 import PropTypes from 'prop-types'
 import UserPhotos from './photos'
 import IsLoading from '../../../others/isLoading'
+import classNames from 'classnames'
 
 class Gallery extends Component {
 
@@ -44,7 +45,9 @@ class Gallery extends Component {
 
           <IsLoading loading={loading} />
 
-          <div className={`pro_senapati photos_senapati ${cLoading(loading)}`}>
+          <div
+            className={classNames('pro_senapati', 'photos_senapati', cLoading(loading))}
+          >
             <UserPhotos/>
           </div>
 

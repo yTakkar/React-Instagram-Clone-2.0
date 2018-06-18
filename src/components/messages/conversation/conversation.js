@@ -10,6 +10,7 @@ import PropTypes from 'prop-types'
 import d from '../../../utils/API/DOM'
 import IsLoading from '../../others/isLoading'
 import { cLoading } from '../../../utils/utils'
+import classNames from 'classnames'
 
 @connect()
 export default class Conversation extends Component {
@@ -48,7 +49,7 @@ export default class Conversation extends Component {
       <div>
         <IsLoading loading={loading} />
 
-        <div className={`mssg_messages ${cLoading(loading)}`} >
+        <div className={classNames('mssg_messages', cLoading(loading))} >
           <FadeIn duration='300ms'>
 
             <ConversationTop hideConversation={hideConversation} />

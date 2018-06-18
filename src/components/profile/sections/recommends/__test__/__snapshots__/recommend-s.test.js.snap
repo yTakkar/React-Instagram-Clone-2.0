@@ -68,7 +68,7 @@ exports[`Recommendations Component should match snapshot 1`] = `
                 </a>
               </span>
               <a
-                className="sec_btn  "
+                className="sec_btn"
                 href="#"
                 onClick={[Function]}
               >

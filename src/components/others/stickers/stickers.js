@@ -11,6 +11,7 @@ import IsLoading from '../isLoading'
 import { cLoading } from '../../../utils/utils'
 import PrimaryButton from '../button/primary-btn'
 import Overlay from '../overlay'
+import classNames from 'classnames'
 
 export default class Stickers extends Component {
 
@@ -66,7 +67,7 @@ export default class Stickers extends Component {
 
               <IsLoading loading={loading} />
 
-              <div className={`modal_main ${cLoading(loading)}`}>
+              <div className={classNames('modal_main', cLoading(loading))}>
                 <MapStickers stickers={stickers} selectSticker={this.selectSticker} />
               </div>
 

@@ -8,6 +8,7 @@ import Member from './member/member'
 import MonHeader from '../../../others/m-on/mon-header'
 import MembersEnd from './Members-end'
 import IsLoading from '../../../others/isLoading'
+import classNames from 'classnames'
 
 class GroupMembers extends Component {
 
@@ -46,9 +47,15 @@ class GroupMembers extends Component {
 
           <IsLoading loading={loading} />
 
-          <div className={`senapati pro_senapati ${cLoading(loading)}`} >
-            <div className={ len != 0 ? 'm_div' : 'm_no_div' } >
-
+          <div
+            className={classNames('senapati', 'pro_senapati', cLoading(loading))}
+          >
+            <div
+              className={classNames({
+                m_div: len != 0,
+                m_no_div: len == 0
+              })}
+            >
               <MonHeader
                 len={len}
                 forWhat='member'
