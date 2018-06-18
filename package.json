@@ -60,7 +60,6 @@
     "react-tooltip": "^3.4.0",
     "redux": "^3.7.2",
     "redux-logger": "^3.0.6",
-    "redux-promise-middleware": "^5.0.0",
     "redux-thunk": "^2.2.0",
     "serve-favicon": "^2.4.5"
   },

@@ -6,7 +6,6 @@
 import { applyMiddleware, combineReducers, createStore } from 'redux'
 import thunk from 'redux-thunk'
 import logger from 'redux-logger'
-import promise from 'redux-promise-middleware'
 
 // reducers
 import User from './reducers/User/User'
@@ -31,7 +30,7 @@ const reducers = combineReducers({
   Hashtag,
 })
 
-const middlwares = applyMiddleware(promise(), thunk, logger)
+const middlwares = applyMiddleware(thunk, logger)
 
 export default createStore(
   reducers,
