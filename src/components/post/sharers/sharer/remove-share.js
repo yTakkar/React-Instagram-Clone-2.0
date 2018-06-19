@@ -13,7 +13,6 @@ const RemoveShare = ({ share_id, decrementSharers, dispatch }) => {
     await post('/api/remove-share', { share_id })
     decrementSharers()
     dispatch(removeShare(share_id))
-    console.log(share_id)
   }
 
   let btnLabel = `Remove ${isAdmin() ? 'as admin' : 'share'}`

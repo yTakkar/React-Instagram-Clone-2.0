@@ -6,10 +6,8 @@ import classNames from 'classnames'
 
 const ToggleAddTags = ({ addTag, dispatch }) => {
 
-  let toggle = () => {
-    console.log(addTag)
+  let toggle = () => 
     dispatch(CPP('addTag', !addTag))
-  }
 
   return (
     <span
