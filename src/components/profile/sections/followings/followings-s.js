@@ -55,7 +55,7 @@ class Followings extends Component {
               <MonHeader len={len} forWhat={'following'} />
 
               <div className='m_wrapper'>
-                { len != 0 ? map_followings : null }
+                { len != 0 && map_followings }
               </div>
             </div>
 

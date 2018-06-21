@@ -4,7 +4,9 @@ import { object } from 'prop-types'
 import AppLink from '../../../../others/link/link'
 
 const UserGroupInfo = ({ info }) => {
-  let { group_id, name, member, joined_group, admin } = info
+  let {
+    group_id, name, member, joined_group, admin
+  } = info
 
   return (
     <div className='m_top'>
@@ -15,9 +17,8 @@ const UserGroupInfo = ({ info }) => {
           label={name}
         />
         {
-          member == admin
-            ? <span className='grp_admin'>admin</span>
-            : null
+          member == admin &&
+            <span className='grp_admin'>admin</span>
         }
         <span>{ TimeAgo(joined_group) }</span>
       </div>

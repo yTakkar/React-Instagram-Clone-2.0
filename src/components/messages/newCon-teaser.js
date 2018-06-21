@@ -37,7 +37,7 @@ export default class NewConTeaser extends Component {
           />
         </div>
 
-        { messaged ? <Redirect to='/messages' /> : null }
+        { messaged && <Redirect to='/messages' />  }
       </Fragment>
     )
   }

@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BannerMapTags Component should match snapshot and show nothing message 1`] = `"You have no tags!!"`;
+
+exports[`BannerMapTags Component should match snapshot and show tags 1`] = `
+Array [
+  <a
+    aria-current="true"
+    className="tags active"
+    href="/"
+    onClick={[Function]}
+    style={Object {}}
+  >
+    traveler
+  </a>,
+  <a
+    aria-current="true"
+    className="tags active"
+    href="/"
+    onClick={[Function]}
+    style={Object {}}
+  >
+    nature-lover
+  </a>,
+]
+`;

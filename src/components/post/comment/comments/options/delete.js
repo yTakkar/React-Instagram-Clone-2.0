@@ -49,7 +49,7 @@ class DeleteCommentOption extends Component {
         </li>
 
         {
-          deleteComment ?
+          deleteComment &&
             <Prompt
               title='Delete comment'
               content="This comment will be deleted. There's no undo so you won't be able to find it."
@@ -57,7 +57,6 @@ class DeleteCommentOption extends Component {
               action={this.deleteComment}
               back={this.modalBack}
             />
-            : null
         }
 
       </Fragment>

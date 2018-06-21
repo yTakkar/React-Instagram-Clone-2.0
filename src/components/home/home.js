@@ -42,13 +42,12 @@ class Home extends Component {
               <PostItTeaser type='user' disabled={loading} />
 
               {
-                loading ?
+                loading &&
                   <div style={{ marginTop: 20 }} >
                     <Instagram/>
                     <Instagram/>
                     <Instagram/>
                   </div>
-                  : null
               }
 
               <Feed />
@@ -57,7 +56,7 @@ class Home extends Component {
             <div className='srajkumar'>
               <Suggested when='home' />
               <PopularHashtags/>
-              { !loading ? <CreateGroup/> : null }
+              { !loading && <CreateGroup/> }
             </div>
           </div>
 

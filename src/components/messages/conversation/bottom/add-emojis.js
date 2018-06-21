@@ -28,7 +28,7 @@ export default class ConversationAddEmojis extends Component {
         </span>
 
         {
-          showEmojis ?
+          showEmojis &&
             <Emojis
               position={{ top: 308, left: 750 }}
               textArea='.send_mssg'
@@ -36,7 +36,6 @@ export default class ConversationAddEmojis extends Component {
                 updateMssgValue(value)
               }
             />
-            : null
         }
 
         <ToolTip/>

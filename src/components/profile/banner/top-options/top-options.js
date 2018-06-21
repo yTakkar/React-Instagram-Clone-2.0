@@ -26,13 +26,12 @@ export default class BannerTopOptions extends Component {
           </span>
         </div>
         {
-          showOptions ?
+          showOptions &&
             <div className='options pro_banner_options' >
               <BannerOptions
                 toggleOptions={this.toggleOptions}
               />
             </div>
-            : null
         }
       </Fragment>
     )

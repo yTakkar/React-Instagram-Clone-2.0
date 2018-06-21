@@ -24,17 +24,17 @@ class InviteToGroup extends Component {
 
     return (
       <Fragment>
-        <li>
-          <a href='#' onClick={this.showInviteModal} >Invite to group</a>
-        </li>
+        <li><a
+          href='#'
+          onClick={this.showInviteModal}
+        >Invite to group</a></li>
 
         {
-          invite ?
+          invite &&
             <Invite
               back={this.modalBack}
               group={group_id}
             />
-            : null
         }
       </Fragment>
     )

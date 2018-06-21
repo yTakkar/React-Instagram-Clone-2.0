@@ -12,6 +12,7 @@ const GroupBio = ({ gd }) => {
       <div className='grp_bio_h'>
         <span>Group's bio</span>
       </div>
+
       <div className='grp_bio_main'>
         {
           bio
@@ -19,15 +20,15 @@ const GroupBio = ({ gd }) => {
             : <span className='no_grp_bio' >Group has no bio</span>
         }
         {
-          Me(admin)
-            ? <AppLink
+          Me(admin) &&
+            <AppLink
               url={`/group/${group_id}/edit`}
               className='sec_btn grp_ns'
               label='Not satisfied'
             />
-            : null
         }
       </div>
+
     </div>
   )
 }

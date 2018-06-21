@@ -15,13 +15,12 @@ const BannerAddToFavs = ({ id, toggleOptions }) => {
   return (
     <Fragment>
       {
-        !Me(id) ?
+        !Me(id) &&
           <li><a
             href='#'
             className='add_fav'
             onClick={addToFavs}
           >Add to favourites</a></li>
-          : null
       }
     </Fragment>
   )

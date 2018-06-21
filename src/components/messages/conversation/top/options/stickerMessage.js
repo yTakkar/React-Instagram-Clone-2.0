@@ -41,14 +41,13 @@ class StickerMessage extends Component {
         >Send sticker</a></li>
 
         {
-          showStickers ?
+          showStickers &&
             <Stickers
               back={this.modalBack}
               stickerSelected = {sticker =>
                 this.message(sticker)
               }
             />
-            : null
         }
       </Fragment>
     )

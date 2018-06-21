@@ -22,13 +22,12 @@ export default class GroupTopOptions extends Component {
           </span>
         </div>
         {
-          showOptions ?
+          showOptions &&
             <div className='options pro_banner_options' >
               <GroupOptions
                 toggleOptions={this.toggleOptions}
               />
             </div>
-            : null
         }
       </Fragment>
     )

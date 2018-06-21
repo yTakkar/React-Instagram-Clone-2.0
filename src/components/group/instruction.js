@@ -8,7 +8,7 @@ const GroupInstruction = ({ showBtns }) => (
     <div className='sabout_one_info'>
       <span>Update or edit group to make it look more attractive</span>
       {
-        showBtns ?
+        showBtns &&
           <Fragment>
             <AppLink
               url='/'
@@ -21,7 +21,6 @@ const GroupInstruction = ({ showBtns }) => (
               label='Edit group'
             />
           </Fragment>
-          : null
       }
     </div>
   </div>

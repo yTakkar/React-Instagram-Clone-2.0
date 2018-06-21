@@ -49,7 +49,7 @@ class NewConversation extends Component {
         />
 
         {
-          getUsersForNewCon ?
+          getUsersForNewCon &&
             <FadeIn duration='300ms' >
               <SearchFollowings
                 placeholder='Search to message'
@@ -59,7 +59,6 @@ class NewConversation extends Component {
                 }
               />
             </FadeIn>
-            : null
         }
       </Fragment>
     )

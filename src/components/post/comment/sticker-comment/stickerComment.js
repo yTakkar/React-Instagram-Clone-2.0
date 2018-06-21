@@ -43,14 +43,13 @@ class StickerComment extends Component {
         <ToolTip/>
 
         {
-          showStickers ?
+          showStickers &&
             <Stickers
               back={() => this.setState({ showStickers: false })}
               stickerSelected={sticker =>
                 this.stickerComment(sticker)
               }
             />
-            : null
         }
 
       </div>

@@ -32,7 +32,6 @@ exports[`TextMessage Component should match snapshot 1`] = `
   </div>
   <input
     className="pri_btn mssg_send"
-    name=""
     type="submit"
     value="Send"
   />

@@ -6,7 +6,7 @@ exports[`PostItTeaser Component should match snapshot 1`] = `
     className="post_it inst"
     style={
       Object {
-        "marginBottom": null,
+        "marginBottom": false,
       }
     }
   >
@@ -36,7 +36,7 @@ exports[`PostItTeaser Component should match snapshot with disabled prop 1`] = `
     className="post_it inst"
     style={
       Object {
-        "marginBottom": null,
+        "marginBottom": false,
       }
     }
   >

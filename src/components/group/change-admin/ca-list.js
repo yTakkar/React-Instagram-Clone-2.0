@@ -51,7 +51,7 @@ export default class ChangeAdminList extends Component {
         </div>
 
         {
-          change ?
+          change &&
             <Prompt
               title='Transfer admin position'
               content={`${username} will now be the admin of this group. There's no undo and you will no longer be the admin.`}
@@ -60,7 +60,6 @@ export default class ChangeAdminList extends Component {
               back={() => this.setState({ change: false })}
               blurred
             />
-            : null
         }
 
       </Fragment>

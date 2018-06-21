@@ -56,10 +56,12 @@ export default class ShareList extends Component {
         <div className='modal_it_img'>
           <img src={`/users/${follow_to}/avatar.jpg`} />
         </div>
+
         <div className='modal_it_content '>
           <ModalItemInfo
             info={{ username, firstname, surname }}
           />
+
           <div className='modal_ff'>
             {
               didIShare
@@ -76,7 +78,9 @@ export default class ShareList extends Component {
                 />
             }
           </div>
+
         </div>
+
         <hr/>
       </div>
     )

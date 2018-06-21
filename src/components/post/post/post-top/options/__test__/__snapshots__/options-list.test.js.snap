@@ -18,6 +18,7 @@ exports[`PostOptionsList Component should match snapshot 1`] = `
         onClick={[Function]}
       >
         Edit post 
+        
       </a>
     </li>
     <li>

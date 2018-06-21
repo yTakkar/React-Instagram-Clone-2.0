@@ -37,7 +37,7 @@ class Recommendations extends Component {
               <MonHeader len={len} forWhat='recommendation' />
 
               <div className='m_wrapper'>
-                { len != 0 ? map_recommends : null }
+                { len != 0 && map_recommends }
               </div>
 
             </div>
@@ -46,7 +46,8 @@ class Recommendations extends Component {
           <MonEnd
             len={len}
             nothingMssg={
-              Me(id) ? 'You have no recommendations!!'
+              Me(id)
+                ? 'You have no recommendations!!'
                 : `${username} have no recommendations!!`
             }
           />

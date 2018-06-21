@@ -57,7 +57,7 @@ class GroupPhotos extends Component {
         }
 
         {
-          showImage ?
+          showImage &&
             <ImageTheatre
               imgSrc={imgSrc}
               filter={filter}
@@ -66,7 +66,6 @@ class GroupPhotos extends Component {
               link={link}
               back={() => this.setState({ showImage: false })}
             />
-            : null
         }
 
       </Fragment>

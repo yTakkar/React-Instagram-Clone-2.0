@@ -29,14 +29,13 @@ class BannerMessageUser extends Component {
 
     return (
       <Fragment>
-        { messagedUser ? <Redirect to='/messages' /> : null }
+        { messagedUser && <Redirect to='/messages' /> }
         {
-          isFollowing && !Me(id)
-            ? <li><a
+          (isFollowing && !Me(id)) &&
+            <li><a
               href='#'
               onClick={this.messageUser}
             >Message</a></li>
-            : null
         }
       </Fragment>
     )

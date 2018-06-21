@@ -17,12 +17,11 @@ const ProfileNav = ({ url, user }) => {
         <ProfileNavLink url={`${url}/shared`} label='Shared' />
         <ProfileNavLink url={`${url}/gallery`} label='Gallery' />
         {
-          Me(user) ?
+          Me(user) &&
             <ProfileNavLink
               url={`${url}/bookmarks`}
               label='Bookmarks'
             />
-            : null
         }
         <ProfileNavLink url={`${url}/groups`} label='Groups' />
         <ProfileNavLink url={`${url}/about`} label='About' />

@@ -21,7 +21,6 @@ const MutualUsers = ({ mutuals, username }) => {
 
   return (
     <div>
-
       {
         len == 0
           ?
@@ -48,7 +47,6 @@ const MutualUsers = ({ mutuals, username }) => {
             <ToolTip/>
           </div>
       }
-
     </div>
   )
 }

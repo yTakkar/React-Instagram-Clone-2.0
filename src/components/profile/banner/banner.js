@@ -4,7 +4,7 @@ import BannerStats from './stats/stats'
 import IsOnline from './isOnline'
 import BannerAvatar from './avatar'
 import BannerInfo from './info'
-import BannerTags from './tags'
+import BannerTags from './tags/tags'
 import BannerFollow from './follow'
 import BannerTopOptions from './top-options/top-options'
 

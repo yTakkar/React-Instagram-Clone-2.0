@@ -27,23 +27,20 @@ class BannerRecommendUser extends Component {
     return (
       <Fragment>
         {
-          !Me(id) ?
+          !Me(id) &&
             <li><a
               href='#'
               className='pro_recommend'
               onClick={this.toggleRecommendUser}
             >Recommend</a></li>
-            : null
         }
 
         {
-          recommendUser ?
+          recommendUser &&
             <RecommendUsers
               back={this.modalBack}
             />
-            : null
         }
-
       </Fragment>
     )
   }

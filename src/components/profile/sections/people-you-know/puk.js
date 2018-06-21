@@ -37,7 +37,7 @@ class PeopleYouKnow extends Component {
               <MonHeader len={len} forWhat={'puk'} />
 
               <div className='m_wrapper'>
-                { len != 0 ? map_mutuals : null }
+                { len != 0 && map_mutuals }
               </div>
 
             </div>

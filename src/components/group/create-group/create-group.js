@@ -30,11 +30,10 @@ export default class CreateGroup extends Component {
         </div>
 
         {
-          createGroup ?
+          createGroup &&
             <CreateGroupModal
               back={this.toggleCreateGroup}
             />
-            : null
         }
 
       </div>

@@ -24,7 +24,7 @@ const PostTopDetails = ({ details }) => {
           label={username}
         />
         {
-          type == 'group' ?
+          type == 'group' &&
             <div className='its_grp_post' >
               <span className='to_grp_arrow'>
                 <MaterialIcon icon='arrow_drop_up' />
@@ -35,7 +35,6 @@ const PostTopDetails = ({ details }) => {
                 label={group_name}
               />
             </div>
-            : null
         }
         <span
           className='p_i_1_title'

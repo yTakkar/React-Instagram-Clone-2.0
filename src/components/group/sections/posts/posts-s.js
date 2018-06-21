@@ -55,9 +55,8 @@ class GroupPosts extends Component {
 
             <div className='prajkumar'>
               {
-                joined
-                  ? <PostItTeaser type='group' group={group_id} />
-                  : null
+                joined &&
+                  <PostItTeaser type='group' group={group_id} />
               }
               <MapPosts
                 posts={map_posts}

@@ -47,7 +47,7 @@ class RemoveMember extends Component {
         />
 
         {
-          showPrompt ?
+          showPrompt &&
             <Prompt
               title={`Remove ${username}`}
               content='This member will be premanently removed. Member would have to re-join the group.'
@@ -55,7 +55,6 @@ class RemoveMember extends Component {
               action={this.removeMember}
               back={this.hidePrompt}
             />
-            : null
         }
       </Fragment>
     )

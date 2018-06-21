@@ -13,7 +13,7 @@ const MessageTools = ({ messageDetails, updateMessage }) => {
   return (
     <Fragment>
       {
-        Me(mssg_by) || isAdmin() ?
+        (Me(mssg_by) || isAdmin()) &&
           <FadeIn duration='300ms'>
             <DeleteMessage
               messageDetails={messageDetails}
@@ -24,7 +24,6 @@ const MessageTools = ({ messageDetails, updateMessage }) => {
             />
             <ToolTip/>
           </FadeIn>
-          : null
       }
     </Fragment>
   )

@@ -23,7 +23,7 @@ const Feed = ({ feed }) => {
         />
       </div>
 
-      { len != 0 ? <End/> : null }
+      { len != 0 && <End/> }
     </Fragment>
   )
 }

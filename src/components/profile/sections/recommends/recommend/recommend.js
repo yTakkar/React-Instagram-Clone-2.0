@@ -64,12 +64,11 @@ class RecommendList extends Component {
           <RecommendBy username={recommend_by_username} />
 
           {
-            Me(id)
-              ? <SecondaryButton
+            Me(id) &&
+              <SecondaryButton
                 label='Remove'
                 onClick={this.remRecommendation}
               />
-              : null
           }
         </div>
 

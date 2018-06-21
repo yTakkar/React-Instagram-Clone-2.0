@@ -17,8 +17,9 @@ const NotificationsHeader = ({ len, dispatch }) => {
       <span className='noti_count'>
         { len == 0 ? 'No' : len } notifications
       </span>
+
       {
-        len != 0 ?
+        len != 0 &&
           <div>
             <span
               onClick={clear}
@@ -29,8 +30,8 @@ const NotificationsHeader = ({ len, dispatch }) => {
             </span>
             <ToolTip/>
           </div>
-          : null
       }
+
     </div>
   )
 }

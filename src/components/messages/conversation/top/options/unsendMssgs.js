@@ -35,17 +35,16 @@ class UnsendMessages extends Component {
     return (
       <Fragment>
         {
-          messages.length != 0  ?
+          (messages.length != 0)  &&
             <li><a
               href='#'
               className='dlt_mssgs'
               onClick={this.showPrompt}
             >Unsend your mssgs</a></li>
-            : null
         }
 
         {
-          unsend ?
+          unsend &&
             <Prompt
               title='Unsend all your messages'
               content="All your messages will be deleted. There's no undo so you won't be able to find it."
@@ -53,7 +52,6 @@ class UnsendMessages extends Component {
               action={this.unsendAllMssgs}
               back={this.modalBack}
             />
-            : null
         }
       </Fragment>
     )

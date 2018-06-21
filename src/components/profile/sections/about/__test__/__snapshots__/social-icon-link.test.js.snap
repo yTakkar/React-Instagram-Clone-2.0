@@ -11,4 +11,4 @@ exports[`SocialIconLink Component should match snapshot 1`] = `
 </a>
 `;
 
-exports[`SocialIconLink Component should match snapshot with null 1`] = `null`;
+exports[`SocialIconLink Component should match snapshot with null 1`] = `""`;

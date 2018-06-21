@@ -22,12 +22,11 @@ export default class PopularHashtags extends Component {
     return (
       <div>
         {
-          len != 0 ?
+          len != 0 &&
             <div className='recomm user-hashtags'>
               <HashtagHeader text='Popular trends' />
               <MapHashtags hashtags={hashtags} />
             </div>
-            : null
         }
       </div>
     )

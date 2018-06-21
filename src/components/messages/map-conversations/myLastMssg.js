@@ -6,11 +6,10 @@ import MaterialIcon from '../../others/icons/material-icon'
 const MyLastMssg = ({ lastMssgBy }) => (
   <Fragment>
     {
-      Me(lastMssgBy)
-        ? <span className='mssg_sent'>
+      Me(lastMssgBy) &&
+        <span className='mssg_sent'>
           <MaterialIcon icon='done_all' />
         </span>
-        : null
     }
   </Fragment>
 )

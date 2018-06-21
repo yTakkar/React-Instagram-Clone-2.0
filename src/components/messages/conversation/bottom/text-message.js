@@ -41,7 +41,11 @@ class TextMessage extends Component {
               this.setState({ messageValue: value })
             }
           />
-          <input type='submit' name='' value='Send' className='pri_btn mssg_send' />
+          <input
+            type='submit'
+            value='Send'
+            className='pri_btn mssg_send'
+          />
         </form>
       </Fragment>
     )

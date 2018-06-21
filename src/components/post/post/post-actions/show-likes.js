@@ -27,13 +27,12 @@ export default class ShowLikes extends Component {
         </span>
 
         {
-          showLikes ?
+          showLikes &&
             <Likes
               post={post_id}
               back={this.toggleLikes}
               decrementLikes={decrementLikes}
             />
-            : null
         }
       </Fragment>
     )

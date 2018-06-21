@@ -80,7 +80,9 @@ class Group extends Component {
               </div>
               :
               <div style={{ marginTop: 85 }}>
-                <Nothing mssg={`${name} group is private. Join to connect!!`} />
+                <Nothing
+                  mssg={`${name} group is private. Join to connect!!`}
+                />
               </div>
           }
         </FadeIn>

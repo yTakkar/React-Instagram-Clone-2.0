@@ -42,7 +42,7 @@ export default class DeactivateForm extends Component {
         </form>
 
         {
-          showPrompt ?
+          showPrompt &&
             <Prompt
               title='Deactivate account'
               content="Are you sure, you wanna permanently deactivate your account? There's no undo so you won't be able login with this account."
@@ -51,7 +51,6 @@ export default class DeactivateForm extends Component {
               back={() => this.setState({ showPrompt: false })}
               blurred
             />
-            : null
         }
       </Fragment>
     )

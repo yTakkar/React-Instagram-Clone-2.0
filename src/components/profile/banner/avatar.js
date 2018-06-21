@@ -22,6 +22,10 @@ class BannerAvatar extends Component {
     let { id } = this.props.ud
     let { changeAvatar, viewAvatar } = this.state
 
+    let imgSrc = id
+      ? `/users/${id}/avatar.jpg`
+      : '/images/spacecraft.jpg'
+
     return (
       <Fragment>
         <div
@@ -29,10 +33,7 @@ class BannerAvatar extends Component {
           onMouseOver={this.toggleAvatarOptions}
           onMouseOut={this.toggleAvatarOptions}
         >
-          <img
-            src={ id ? `/users/${id}/avatar.jpg` : '/images/spacecraft.jpg' }
-            alt='avatar'
-          />
+          <img src={imgSrc} alt='avatar'/>
 
           <div
             className='pro_avatar_ch_teaser'
@@ -44,12 +45,11 @@ class BannerAvatar extends Component {
             >View</span>
 
             {
-              Me(id) ?
+              Me(id) &&
                 <span
                   className='change_pro'
                   onClick={() => this._toggle('changeAvatar')}
                 >Change</span>
-                : null
             }
           </div>
         </div>

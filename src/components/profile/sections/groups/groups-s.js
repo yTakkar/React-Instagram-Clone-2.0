@@ -58,7 +58,7 @@ class UserGroups extends Component {
               <MonHeader len={len} forWhat='group' />
 
               <div className='m_wrapper'>
-                { len != 0 ? map_groups : null }
+                { len != 0 && map_groups }
               </div>
 
             </div>

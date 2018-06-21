@@ -66,7 +66,9 @@ class Favourite extends Component {
                 />
 
                 : <Follow
-                  userDetails={{ user, username, firstname, surname }}
+                  userDetails={{
+                    user, username, firstname, surname
+                  }}
                   followed={() => this.setState({ isFollowing: true })}
                   updateFollowings={Me(id)}
                 />

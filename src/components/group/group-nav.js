@@ -11,17 +11,15 @@ const GroupNav = ({ url, admin }) => (
       <ProfileNavLink url={`${url}/members`} label='Members' />
       <ProfileNavLink url={`${url}/gallery`} label='Gallery' />
       {
-        Me(admin) || isAdmin() ?
+        (Me(admin) || isAdmin()) &&
           <ProfileNavLink url={`${url}/edit`} label='Edit' />
-          : null
       }
       {
-        Me(admin) ?
+        Me(admin) &&
           <ProfileNavLink
             url={`${url}/add-members`}
             label='Add members'
           />
-          : null
       }
       <ProfileNavLink url={`${url}/about`} label='About' />
     </ul>

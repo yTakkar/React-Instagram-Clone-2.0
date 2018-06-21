@@ -5,14 +5,13 @@ import AppLink from '../../../../others/link/link'
 const OpenPost = ({ when, post_id }) => (
   <Fragment>
     {
-      when != 'viewPost' ?
+      (when != 'viewPost') &&
         <li>
           <AppLink
             url={`/post/${post_id}`}
             label='Open'
           />
         </li>
-        : null
     }
   </Fragment>
 )

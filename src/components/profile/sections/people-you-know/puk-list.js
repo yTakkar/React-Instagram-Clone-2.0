@@ -23,7 +23,9 @@ class PeopleYouKnowList extends Component {
   }
 
   render() {
-    let { user, username, firstname, surname, mutualUsersCount, id } = this.props
+    let {
+      user, username, firstname, surname, mutualUsersCount, id
+    } = this.props
     let { isFollowing } = this.state
 
     return (
@@ -53,7 +55,9 @@ class PeopleYouKnowList extends Component {
                 />
 
                 : <Follow
-                  userDetails={{ user, username, firstname, surname }}
+                  userDetails={{
+                    user, username, firstname, surname
+                  }}
                   followed={() => this.setState({ isFollowing: true })}
                   updateFollowings={Me(id)}
                 />

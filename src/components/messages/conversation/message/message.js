@@ -44,7 +44,7 @@ export default class Message extends Component {
           </span>
 
           {
-            showTools ?
+            showTools &&
               <div className='m_m_tools' >
                 <MessageTools
                   messageDetails={{ message_id, message, type, mssg_by }}
@@ -53,7 +53,6 @@ export default class Message extends Component {
                   }
                 />
               </div>
-              : null
           }
 
         </div>

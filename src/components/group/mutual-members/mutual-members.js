@@ -6,9 +6,8 @@ import MutualMembersDiv from './mutualsDiv'
 const MutualMembers = ({ group, len }) => (
   <Fragment>
     {
-      len != 0
-        ? <MutualMembersDiv group={group} />
-        : null
+      len != 0 &&
+        <MutualMembersDiv group={group} />
     }
   </Fragment>
 )

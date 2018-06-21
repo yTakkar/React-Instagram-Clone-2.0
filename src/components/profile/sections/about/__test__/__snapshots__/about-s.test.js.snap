@@ -58,6 +58,7 @@ exports[`About Component should match snapshot 1`] = `
                 className="fab fa-instagram"
               />
             </a>
+            
             <a
               href="https://github.com/yTakkar/"
               target="_blank"
@@ -66,6 +67,8 @@ exports[`About Component should match snapshot 1`] = `
                 className="fab fa-github"
               />
             </a>
+            
+            
           </div>
         </div>
         <div

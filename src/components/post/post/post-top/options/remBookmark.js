@@ -18,12 +18,11 @@ const RemBookmarkAsAdmin = ({ post_id, user, when, dispatch }) => {
   return (
     <Fragment>
       {
-        when == 'bookmarks' && isAdmin() ?
+        (when == 'bookmarks' && isAdmin()) &&
           <li><a
             href='#'
             onClick={remBookmarkAsAdmin}
           >Remove bookmark as admin</a></li>
-          : null
       }
     </Fragment>
   )

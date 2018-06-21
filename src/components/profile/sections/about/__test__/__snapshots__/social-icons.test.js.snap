@@ -12,6 +12,7 @@ exports[`SocialIcons Component should match snapshot 1`] = `
       className="fab fa-instagram"
     />
   </a>
+  
   <a
     href="https://github.com/yTakkar/"
     target="_blank"
@@ -20,7 +21,9 @@ exports[`SocialIcons Component should match snapshot 1`] = `
       className="fab fa-github"
     />
   </a>
+  
+  
 </div>
 `;
 
-exports[`SocialIcons Component should match snapshot with null 1`] = `null`;
+exports[`SocialIcons Component should match snapshot with null 1`] = `""`;

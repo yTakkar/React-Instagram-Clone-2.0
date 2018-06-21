@@ -38,7 +38,6 @@ class Gallery extends Component {
 
     return (
       <div>
-
         <Title value={`${username}'s gallery`} />
 
         <FadeIn duration='300ms'>
@@ -46,12 +45,14 @@ class Gallery extends Component {
           <IsLoading loading={loading} />
 
           <div
-            className={classNames('pro_senapati', 'photos_senapati', cLoading(loading))}
+            className={classNames(
+              'pro_senapati', 'photos_senapati', cLoading(loading)
+            )}
           >
             <UserPhotos/>
           </div>
 
-          { !loading && len != 0 ? <End/> : null }
+          { (!loading && len != 0) && <End/> }
 
         </FadeIn>
       </div>

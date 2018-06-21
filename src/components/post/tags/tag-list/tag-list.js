@@ -54,7 +54,9 @@ class TagItems extends Component {
                     />
 
                     : <AdvancedFollow
-                      userDetails={{ user, username, firstname, surname }}
+                      userDetails={{
+                        user, username, firstname, surname
+                      }}
                       followed={() => this.setState({ isFollowing: true })}
                     />
             }

@@ -26,9 +26,8 @@ export default class PostOptions extends Component {
           <div className='p_time'>
             <span>
               {
-                post_time
-                  ? TimeAgo(post_time).replace(/\s ago/, '')
-                  : null
+                post_time &&
+                  TimeAgo(post_time).replace(/\s ago/, '')
               }
             </span>
           </div>
@@ -43,7 +42,7 @@ export default class PostOptions extends Component {
         </div>
 
         {
-          showOptions ?
+          showOptions &&
             <div
               className='options p_options'
               style={{
@@ -56,7 +55,6 @@ export default class PostOptions extends Component {
                 updateDescription={updateDescription}
               />
             </div>
-            : null
         }
 
       </div>

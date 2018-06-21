@@ -29,25 +29,23 @@ export default class EditCommentOption extends Component {
     return (
       <Fragment>
         {
-          type == 'text' ?
+          type == 'text' &&
             <li>
               <a
                 href='#'
                 onClick={this.showEditModal}
               >{`Edit comment ${isAdmin() ? 'as admin' : ''}`}</a>
             </li>
-            : null
         }
 
         {
-          editComment ?
+          editComment &&
             <EditComment
               comment={text}
               back={this.modalBack}
               updateComment={value => updateCommentText(value) }
               comment_id={comment_id}
             />
-            : null
         }
       </Fragment>
     )

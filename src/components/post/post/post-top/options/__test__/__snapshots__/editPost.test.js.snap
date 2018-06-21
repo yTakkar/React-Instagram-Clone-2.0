@@ -8,6 +8,7 @@ exports[`EditPostOption Component should match snapshot and show edit option 1`]
     onClick={[Function]}
   >
     Edit post 
+    
   </a>
 </li>
 `;

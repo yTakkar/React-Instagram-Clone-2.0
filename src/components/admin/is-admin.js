@@ -6,7 +6,7 @@ import { isAdmin } from '../../utils/admin-utils'
 
 const IsAdmin = () => (
   <div>
-    { !isAdmin() ? <Redirect to='/admin-login' /> : null }
+    { !isAdmin() && <Redirect to='/admin-login' /> }
 
     <Title
       value='You are the admin'

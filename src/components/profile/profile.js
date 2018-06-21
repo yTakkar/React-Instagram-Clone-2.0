@@ -79,7 +79,11 @@ class Profile extends Component {
               <div style={{ marginTop: 85 }} >
                 <Nothing
                   mssg={`Account is private. Follow to connect with ${username}!!`}
-                  secondMssg={`${ mutuals.length != 0 ? humanReadable(mutuals.length, 'mutual follower') : '' }`}
+                  secondMssg={
+                    mutuals.length != 0
+                      ? humanReadable(mutuals.length, 'mutual follower')
+                      : ''
+                  }
                 />
               </div>
           }

@@ -15,12 +15,11 @@ const HashtagMiddleSection = ({ loading, hashtag, posts }) => {
   return (
     <Fragment>
       {
-        len == 0 || loading
-          ? <div style={{ marginTop: 10 }} />
-          : null
+        (len == 0 || loading) &&
+          <div style={{ marginTop: 10 }} />
       }
 
-      { loading ? <Instagram/> : null }
+      { loading && <Instagram/> }
 
       <MapPosts
         posts={map_posts}

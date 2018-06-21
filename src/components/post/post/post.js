@@ -26,7 +26,7 @@ export default class Post extends Component {
       <div className='posts' >
 
         {
-          when == 'shared' ?
+          when == 'shared' &&
             <div className='post_share_info'>
               by <AppLink
                 url={`/profile/${share_by_username}`}
@@ -34,7 +34,6 @@ export default class Post extends Component {
               />
               <span>{ share_time ? TimeAgo(share_time) : null }</span>
             </div>
-            : null
         }
 
         <PostTop

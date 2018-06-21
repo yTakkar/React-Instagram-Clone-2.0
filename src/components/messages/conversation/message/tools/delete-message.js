@@ -41,7 +41,7 @@ class DeleteMessageTool extends Component {
         </span>
 
         {
-          deleteMessage ?
+          deleteMessage &&
             <Prompt
               title='Delete message'
               content="This message will be deleted. There's no undo so you won't be able to find it."
@@ -49,7 +49,6 @@ class DeleteMessageTool extends Component {
               action={this.delete}
               back={this.toggleDelete}
             />
-            : null
         }
       </Fragment>
     )

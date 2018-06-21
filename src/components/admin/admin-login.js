@@ -37,7 +37,7 @@ export default class AdminLogin extends Component {
     return (
       <div>
 
-        { isAdmin() ? <Redirect to='/is-admin' /> : null }
+        { isAdmin() && <Redirect to='/is-admin' /> }
 
         <Title
           value='Are you the admin?'

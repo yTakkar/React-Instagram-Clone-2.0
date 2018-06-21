@@ -38,7 +38,10 @@ export default class Comment extends Component {
         <div
           className={classNames('comments', {my_comment: Me(comment_by)})}
         >
-          <img className='comments_avatar' src={`/users/${comment_by}/avatar.jpg`} />
+          <img
+            className='comments_avatar'
+            src={`/users/${comment_by}/avatar.jpg`}
+          />
 
           <div className='comments_content'>
             <AppLink

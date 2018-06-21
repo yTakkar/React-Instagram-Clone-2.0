@@ -10,7 +10,7 @@ const SocialIcons = ({ ud }) => {
   return (
     <Fragment>
       {
-        instagram || facebook || github || twitter || website ?
+        (instagram || facebook || github || twitter || website) &&
           <div className='social_div inst'>
             <SocialIconLink value={instagram} label='instagram' />
             <SocialIconLink value={facebook} label='facebook' />
@@ -18,7 +18,6 @@ const SocialIcons = ({ ud }) => {
             <SocialIconLink value={twitter} label='twitter' />
             <SocialIconLink value={website} label='globe' />
           </div>
-          : null
       }
     </Fragment>
   )

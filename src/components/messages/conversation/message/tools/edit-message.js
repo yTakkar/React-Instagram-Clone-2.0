@@ -23,7 +23,7 @@ export default class EditMessageTool extends Component {
     return (
       <Fragment>
         {
-          type == 'text' ?
+          type == 'text' &&
             <span
               className='toggle_edit_mssg'
               data-tip={`Edit ${isAdmin() ? 'as admin' : ''}`}
@@ -31,11 +31,10 @@ export default class EditMessageTool extends Component {
             >
               <MaterialIcon icon='mode_edit' />
             </span>
-            : null
         }
 
         {
-          editMessage ?
+          editMessage &&
             <EditMessage
               back={this.toggleEdit}
               message={message}
@@ -44,7 +43,6 @@ export default class EditMessageTool extends Component {
                 updateMessage(message)
               }
             />
-            : null
         }
       </Fragment>
     )

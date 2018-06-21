@@ -32,13 +32,10 @@ export default class OnlineUsersButton extends Component {
         />
 
         {
-          showOnlineUsers ?
-            <OnlineUsers
-              back={() =>
-                this.setState({ showOnlineUsers: false })
-              }
-            />
-            : null
+          showOnlineUsers &&
+            <OnlineUsers back={() =>
+              this.setState({ showOnlineUsers: false })
+            } />
         }
       </Fragment>
     )

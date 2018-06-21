@@ -13,17 +13,18 @@ const MapMessages = ({ messages }) => {
 
   return (
     <Fragment>
-      <Scrollbars className='m_m_wrapper' style={{ height: 390 }} >
-        <div className='m_m_main'>
+      <Scrollbars className='m_m_wrapper' style={{ height: 390 }}>
 
+        <div className='m_m_main'>
           {
             len == 0
               ? <Nothing showMssg={false} />
               : <FadeIn duration='300ms'>{ map_messages }</FadeIn>
           }
-          <div className='mssg_end' ></div>
 
+          <div className='mssg_end' ></div>
         </div>
+
       </Scrollbars>
     </Fragment>
   )

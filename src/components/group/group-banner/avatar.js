@@ -21,6 +21,7 @@ class GroupAvatar extends Component {
   render() {
     let { group_id, admin } = this.props.gd
     let { viewAvatar, changeAvatar } = this.state
+    let imgSrc = group_id ? `/groups/${group_id}/avatar.jpg` : '/images/wheel.jpg'
 
     return (
       <Fragment>
@@ -29,23 +30,24 @@ class GroupAvatar extends Component {
           onMouseOver={this.toggleOptions}
           onMouseOut={this.toggleOptions}
         >
-          <img
-            src={group_id ? `/groups/${group_id}/avatar.jpg`: '/images/wheel.jpg'}
-            alt='avatar'
-          />
-          <div className='pro_avatar_ch_teaser' style={{ display: 'none' }} >
+          <img src={imgSrc} alt='avatar' />
+          <div
+            className='pro_avatar_ch_teaser'
+            style={{ display: 'none' }}
+          >
             <span
               className='view_avatar_span'
               onClick={() => this._toggle('viewAvatar')}
             >View</span>
+
             {
-              Me(admin)
-                ? <span
+              Me(admin) &&
+                <span
                   className='change_pro'
                   onClick={() => this._toggle('changeAvatar')}
                 >Change</span>
-                : null
             }
+
           </div>
         </div>
 

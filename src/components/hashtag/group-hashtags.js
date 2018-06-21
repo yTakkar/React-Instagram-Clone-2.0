@@ -23,12 +23,11 @@ export default class GroupHashtags extends Component {
     return (
       <div>
         {
-          len != 0 ?
+          len != 0 &&
             <div className='recomm user-hashtags'>
               <HashtagHeader text='Group recent hashtags' />
               <MapHashtags hashtags={hashtags} />
             </div>
-            : null
         }
       </div>
     )

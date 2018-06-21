@@ -30,14 +30,13 @@ export default class ConversationTop extends Component {
         </span>
 
         {
-          showOptions ?
+          showOptions &&
             <div className='mssg_options options' >
               <ConversationOptions
                 hideConversation={hideConversation}
                 toggleOptions={this.toggleOptions}
               />
             </div>
-            : null
         }
 
       </div>

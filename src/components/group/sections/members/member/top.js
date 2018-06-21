@@ -13,16 +13,18 @@ const MemberTop = ({ memberDetails, gd }) => {
   return (
     <div className='m_top'>
       <img src={`/users/${member}/avatar.jpg`} />
+
       <div className='m_top_right'>
         <AppLink
           url={`/profile/${username}`}
           label={username}
         />
+
         {
-          member == admin
-            ? <span className='grp_admin'>admin</span>
-            : null
+          member == admin &&
+            <span className='grp_admin'>admin</span>
         }
+
         <span>
           {
             !Me(member)
@@ -33,6 +35,7 @@ const MemberTop = ({ memberDetails, gd }) => {
           }
         </span>
       </div>
+
     </div>
   )
 }

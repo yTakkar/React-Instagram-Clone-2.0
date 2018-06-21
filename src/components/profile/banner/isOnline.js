@@ -9,20 +9,18 @@ const IsOnline = ({ ud }) => {
   return (
     <Fragment>
       {
-        !Me(id) && isOnline ?
+        (!Me(id) && isOnline) &&
           <span className='grp_admin user_online'>
             <span className='user_online_circle'></span>
             <span>online</span>
           </span>
-          : null
       }
 
       {
-        !Me(id) && !isOnline && lastOnline ?
+        (!Me(id) && !isOnline && lastOnline) &&
           <span className='last_online' >
             Last active {TimeAgo(lastOnline)}
           </span>
-          : null
       }
     </Fragment>
   )

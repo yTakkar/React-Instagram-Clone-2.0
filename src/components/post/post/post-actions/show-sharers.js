@@ -25,13 +25,12 @@ export default class ShowSharers extends Component {
         </span>
 
         {
-          showSharers ?
+          showSharers &&
             <Sharers
               post={post_id}
               back={this.toggleShares}
               decrementSharers={decrementSharers}
             />
-            : null
         }
       </Fragment>
     )

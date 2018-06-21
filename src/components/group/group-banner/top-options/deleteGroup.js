@@ -41,22 +41,21 @@ class DeleteGroup extends Component {
 
     return (
       <Fragment>
-        { deleted ? <Redirect to='/' /> : null }
+        { deleted && <Redirect to='/' /> }
 
         {
-          Me(admin) || isAdmin() ?
+          (Me(admin) || isAdmin()) &&
             <li>
               <a
                 href='#'
                 className='p_copy_link'
                 onClick={this.showDeleteGroup}
-              >Delete group { isAdmin() ? 'as admin' : null }</a>
+              >Delete group { isAdmin() && 'as admin' }</a>
             </li>
-            : null
         }
 
         {
-          deleteGrp ?
+          deleteGrp &&
             <Prompt
               title='Delete group'
               content="This group will be deleted. There's no undo so you won't be able to find it."
@@ -64,7 +63,6 @@ class DeleteGroup extends Component {
               action={this.delete}
               back={this.modalBack}
             />
-            : null
         }
       </Fragment>
     )

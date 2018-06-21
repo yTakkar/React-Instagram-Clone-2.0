@@ -50,7 +50,7 @@ class GroupGallery extends Component {
             <GroupPhotos/>
           </div>
 
-          { !loading && len != 0 ? <End/> : null }
+          { (!loading && len != 0) && <End/> }
 
         </FadeIn>
       </div>

@@ -49,7 +49,7 @@ export default class PostImage extends Component {
         </div>
 
         {
-          showImage ?
+          showImage &&
             <ImageTheatre
               imgSrc={`/posts/${imgSrc}`}
               filter={filter}
@@ -58,7 +58,6 @@ export default class PostImage extends Component {
               link={`/post/${post_id}`}
               back={() => this._toggle('showImage')}
             />
-            : null
         }
 
       </div>

@@ -14,11 +14,10 @@ const Comments = ({ when, comments, decrementComments }) => {
   return (
     <div>
       {
-        when == 'viewPost' ?
+        when == 'viewPost' &&
           <div className='comments_div'>
             { map_comments }
           </div>
-          : null
       }
     </div>
   )

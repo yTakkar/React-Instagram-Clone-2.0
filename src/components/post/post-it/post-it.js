@@ -42,7 +42,7 @@ export default class PostIt extends Component {
         >
           <FadeIn duration='300ms'>
 
-            { fileChanged ? <Filters /> : null }
+            { fileChanged && <Filters /> }
 
             <PostItHeader/>
             <Middle/>
@@ -51,7 +51,7 @@ export default class PostIt extends Component {
             <div className='t_p_bottom p_bottom'>
               <div
                 className='t_p_tag p_tag'
-                style={{ visibility: !fileChanged ? 'hidden' : 'visible' }}
+                style={{ visibility: !fileChanged && 'hidden' }}
               >
                 <AddEmojis
                   position={{ top: 104, left: -215 }}
@@ -73,11 +73,7 @@ export default class PostIt extends Component {
           </FadeIn>
         </div>
 
-        {
-          showOverlay
-            ? <Overlay type='white' />
-            : null
-        }
+        { showOverlay && <Overlay type='white' /> }
 
         <ToolTip/>
       </div>

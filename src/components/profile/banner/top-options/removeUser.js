@@ -26,13 +26,12 @@ const BannerRemoveUser = ({ id }) => {
   return (
     <Fragment>
       {
-        isAdmin() ?
+        isAdmin() &&
           <li><a
             href='#'
             className='rem_user'
             onClick={removeUser}
           >Remove as admin</a></li>
-          : null
       }
     </Fragment>
   )

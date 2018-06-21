@@ -6,9 +6,8 @@ import NewestMembersDiv from './newestDiv'
 const NewestMembers = ({ group, len }) => (
   <Fragment>
     {
-      len != 0
-        ? <NewestMembersDiv group={group} />
-        : null
+      len != 0 &&
+        <NewestMembersDiv group={group} />
     }
   </Fragment>
 )

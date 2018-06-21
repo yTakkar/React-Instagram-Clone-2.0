@@ -9,14 +9,13 @@ const MemberAddedBy = ({ memberDetails }) => {
   return (
     <span className='recommend_by' >
       {
-        member != added_by ?
+        (member != added_by) &&
           <div>
             by <AppLink
               url={`/profile/${added_by_username}`}
               label={Me(added_by) ? 'You' : added_by_username}
             />
           </div>
-          : null
       }
     </span>
   )

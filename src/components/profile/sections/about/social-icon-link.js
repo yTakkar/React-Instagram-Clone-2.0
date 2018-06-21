@@ -5,13 +5,12 @@ import classNames from 'classnames'
 const SocialIconLink = ({ value, label }) => (
   <Fragment>
     {
-      value ?
+      value &&
         <a href={value} target='_blank'>
           <i
             className={classNames('fab', `fa-${label}`)}
           ></i>
         </a>
-        : null
     }
   </Fragment>
 )

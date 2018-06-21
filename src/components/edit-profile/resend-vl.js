@@ -14,12 +14,11 @@ const ResendVL = () => {
     <Fragment>
       {
         !e_v()
-          ? <SecondaryButton
+          && <SecondaryButton
             label='Resend verification link'
             onClick={resend}
             extraClass='resend_vl'
           />
-          : null
       }
     </Fragment>
   )

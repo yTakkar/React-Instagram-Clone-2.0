@@ -30,21 +30,17 @@ export default class EditPostOption extends Component {
     return (
       <Fragment>
         {
-          Me(user) || isAdmin() ?
-            <li>
-              <a
-                href='#'
-                className='edit_post'
-                onClick={this.showEditPost}
-              >
-                Edit post {isAdmin() ? 'as admin' : null}
-              </a>
-            </li>
-            : null
+          (Me(user) || isAdmin()) &&
+            <li><a
+              href='#'
+              className='edit_post'
+              onClick={this.showEditPost}
+            >Edit post {isAdmin() ? 'as admin' : ''}
+            </a></li>
         }
 
         {
-          editPost ?
+          editPost &&
             <EditPost
               post={post_id}
               description={description}
@@ -53,7 +49,6 @@ export default class EditPostOption extends Component {
                 updateDescription(value)
               }
             />
-            : null
         }
       </Fragment>
     )

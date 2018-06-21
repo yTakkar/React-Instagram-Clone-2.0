@@ -64,7 +64,7 @@ class UserPhotos extends Component {
         }
 
         {
-          showImage ?
+          showImage &&
             <ImageTheatre
               imgSrc={imgSrc}
               filter={filter}
@@ -73,7 +73,6 @@ class UserPhotos extends Component {
               link={link}
               back={() => this.setState({ showImage: false })}
             />
-            : null
         }
       </Fragment>
     )

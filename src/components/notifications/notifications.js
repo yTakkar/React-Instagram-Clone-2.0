@@ -48,7 +48,7 @@ class Notifications extends Component {
                 ? <Nothing mssg='You have no notifications!!' />
                 : map_n
             }
-            { len != 0 ? <End/> : null }
+            { len != 0 && <End/> }
           </div>
 
         </FadeIn>

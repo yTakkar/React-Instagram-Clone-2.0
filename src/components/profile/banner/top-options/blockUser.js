@@ -31,17 +31,16 @@ class BannerBlockUser extends Component {
     return (
       <Fragment>
         {
-          !Me(id) ?
+          !Me(id) &&
             <li><a
               href='#'
               className='pro_block'
               onClick={this.toggleBlockUser}
             >Block</a></li>
-            : null
         }
 
         {
-          blockUser ?
+          blockUser &&
             <Prompt
               title={`Block ${username}`}
               content={`${username} will no longer be able to follow, message, comment, recommend or add you in any group. Instagram won't let ghalib know you blocked him/her. You can unblock from settings.`}
@@ -49,7 +48,6 @@ class BannerBlockUser extends Component {
               action={this.blockUser}
               back={this.toggleBlockUser}
             />
-            : null
         }
 
       </Fragment>

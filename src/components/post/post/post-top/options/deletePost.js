@@ -44,20 +44,19 @@ class DeletePostOption extends Component {
 
     return (
       <Fragment>
-        { redirect ? <Redirect to='/' /> : null }
+        { redirect && <Redirect to='/' /> }
 
         {
-          Me(user) || isAdmin() ?
+          (Me(user) || isAdmin()) &&
             <li>
               <a href='#' className='delete_post' onClick={this.showDeletePost}>
                 Delete post {isAdmin() ? 'as admin' : null}
               </a>
             </li>
-            : null
         }
 
         {
-          deletePost ?
+          deletePost &&
             <Prompt
               title='Delete post'
               content="This post will be deleted. There's no undo so you won't be able to find it."
@@ -65,7 +64,6 @@ class DeletePostOption extends Component {
               action={this.delete}
               back={this.modalBack}
             />
-            : null
         }
 
       </Fragment>

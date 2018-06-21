@@ -16,6 +16,7 @@ class AddTags extends Component {
 
   render() {
     let { postIt: { tags, addTag } } = this.props
+
     let map_tags = tags.map(t =>
       <span
         key={t.username}
@@ -32,7 +33,7 @@ class AddTags extends Component {
         </div>
 
         {
-          addTag ?
+          addTag &&
             <SearchFollowings
               when='tag'
               placeholder='Search to tag'
@@ -40,7 +41,6 @@ class AddTags extends Component {
                 this.updateTags(data)
               }
             />
-            : null
         }
 
       </Fragment>

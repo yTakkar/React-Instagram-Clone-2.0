@@ -32,7 +32,7 @@ export default class PostShare extends Component {
         </div>
 
         {
-          showShare ?
+          showShare &&
             <Share
               post={post_id}
               back={() => this._toggle('showShare')}
@@ -40,7 +40,6 @@ export default class PostShare extends Component {
               incrementShares={() => incrementWhat('shares_count')}
               decrementShares={() => decrementWhat('shares_count')}
             />
-            : null
         }
 
       </Fragment>

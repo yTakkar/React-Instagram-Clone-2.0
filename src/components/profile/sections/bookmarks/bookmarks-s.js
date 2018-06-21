@@ -66,7 +66,9 @@ class Bookmarks extends Component {
                         : `${username} has no bookmarked posts!!`
                     }
                   />
-                  : <Nothing mssg={`${username}'s bookmarked posts are private!!`} />
+                  : <Nothing
+                    mssg={`${username}'s bookmarked posts are private!!`}
+                  />
               }
             </div>
 

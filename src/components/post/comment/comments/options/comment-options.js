@@ -29,7 +29,7 @@ class CommentTools extends Component {
     return (
       <Fragment>
         {
-          Me(comment_by) || isAdmin() ?
+          (Me(comment_by) || isAdmin()) &&
             <span
               className='toggle_options'
               data-tip='Options'
@@ -37,11 +37,10 @@ class CommentTools extends Component {
             >
               <MaterialIcon icon='expand_more' />
             </span>
-            : null
         }
 
         {
-          (Me(comment_by) || isAdmin()) && showOptions ?
+          ((Me(comment_by) || isAdmin()) && showOptions) &&
             <div className='options comments_options'>
               <ul>
                 <EditCommentOption
@@ -56,7 +55,6 @@ class CommentTools extends Component {
                 />
               </ul>
             </div>
-            : null
         }
 
         <ToolTip/>

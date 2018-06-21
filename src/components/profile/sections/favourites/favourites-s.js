@@ -36,7 +36,7 @@ class Favourites extends Component {
               <MonHeader len={len} forWhat={'favourite'} />
 
               <div className='m_wrapper'>
-                { len != 0 ? map_favs : null }
+                { len != 0 && map_favs }
               </div>
 
             </div>

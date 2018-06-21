@@ -30,11 +30,10 @@ export default class ConversationShowMore extends Component {
         >More</a></li>
 
         {
-          showMore ?
+          showMore &&
             <AboutConversation
               back={this.modalBack}
             />
-            : null
         }
       </Fragment>
     )

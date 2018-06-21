@@ -5,9 +5,8 @@ import PropTypes from 'prop-types'
 const LastMssgTime = ({ lastMssgTime }) => (
   <span className='m_sr_time'>
     {
-      lastMssgTime
-        ? TimeAgo(lastMssgTime).replace(' ago', '')
-        : null
+      lastMssgTime &&
+        TimeAgo(lastMssgTime).replace(' ago', '')
     }
   </span>
 )

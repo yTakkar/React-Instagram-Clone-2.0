@@ -26,22 +26,20 @@ class ChangeGroupAdmin extends Component {
     return (
       <Fragment>
         {
-          Me(admin) ?
+          Me(admin) &&
             <li><a
               href='#'
               className='p_copy_link'
               onClick={this.showChangeAdmin}
             >Transfer admin position</a></li>
-            : null
         }
 
         {
-          change ?
+          change &&
             <ChangeAdmin
               back={this.modalBack}
               group={group_id}
             />
-            : null
         }
       </Fragment>
     )

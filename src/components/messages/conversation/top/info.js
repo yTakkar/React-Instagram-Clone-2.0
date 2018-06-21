@@ -14,12 +14,14 @@ const ConversationInfo = ({ cd }) => {
         src={`/users/${con_with}/avatar.jpg`}
         className='con_with_avatar'
       />
+
       <div className='m_m_t_c'>
         <AppLink
           url={`/profile/${con_with_username}`}
           className='con_name'
           label={con_with_username}
         />
+
         <span className='m_m_t_useless'>
           {
             isOnline ? 'online'
@@ -27,6 +29,7 @@ const ConversationInfo = ({ cd }) => {
                 : `${con_with_firstname} ${con_with_surname}`
           }
         </span>
+
       </div>
     </div>
   )

@@ -39,7 +39,7 @@ class DeleteConversation extends Component {
         >Delete conversation</a></li>
 
         {
-          deleteCon ?
+          deleteCon &&
             <Prompt
               title='Delete conversation'
               content="This conversation will be deleted. There's no undo so you won't be able to find it."
@@ -47,7 +47,6 @@ class DeleteConversation extends Component {
               action={this.deleteConversation}
               back={this.modalBack}
             />
-            : null
         }
       </Fragment>
     )

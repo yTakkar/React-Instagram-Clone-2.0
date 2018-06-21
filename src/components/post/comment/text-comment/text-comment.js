@@ -25,7 +25,7 @@ export default class TextComment extends Component {
         </div>
 
         {
-          comment ?
+          comment &&
             <TextCommentModal
               post={post_id}
               postOwner={user}
@@ -33,7 +33,6 @@ export default class TextComment extends Component {
               incrementComments={incrementComments}
               when={when}
             />
-            : null
         }
 
       </Fragment>

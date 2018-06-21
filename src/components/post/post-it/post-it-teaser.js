@@ -26,9 +26,12 @@ class PostItTeaser extends Component {
 
         <div
           className='post_it inst'
-          style={{ marginBottom: type == 'group' ? 10 : null }}
+          style={{ marginBottom: type == 'group' && 10 }}
         >
-          <img src={`/users/${id}/avatar.jpg`} alt='Your avatar' />
+          <img
+            src={`/users/${id}/avatar.jpg`}
+            alt='Your avatar'
+          />
           <div className='post_teaser'>
             <span
               className='p_whats_new'
@@ -38,13 +41,12 @@ class PostItTeaser extends Component {
         </div>
 
         {
-          postIt ?
+          postIt &&
             <PostIt
               back={this.togglePostIt}
               type={type}
               group={group}
             />
-            : null
         }
 
       </div>

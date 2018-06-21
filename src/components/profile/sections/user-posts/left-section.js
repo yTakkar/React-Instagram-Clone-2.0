@@ -11,31 +11,21 @@ import NewConTeaser from '../../../messages/newCon-teaser'
 
 const UserPostsLeftSection = ({ username, id }) => (
   <Fragment>
-    {
-      !Me(id)
-        ? <MutualUsers username={username} />
-        : null
-    }
+    { !Me(id) && <MutualUsers username={username} /> }
 
     <Suggested when='profile' params={username} />
     <UserHashtags username={username} />
 
+    { !Me(id) && <Recommend username={username} /> }
+
     {
-      !Me(id)
-        ? <Recommend username={username} />
-        : null
+      !Me(id) &&
+        <AddToFavourites user={id} username={username} />
     }
 
     {
-      !Me(id)
-        ? <AddToFavourites user={id} username={username} />
-        : null
-    }
-
-    {
-      !Me(id) ?
+      !Me(id) &&
         <NewConTeaser userDetails={{ id, username }} />
-        : null
     }
   </Fragment>
 )

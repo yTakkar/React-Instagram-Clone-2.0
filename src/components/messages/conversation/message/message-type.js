@@ -43,13 +43,12 @@ export default class MessageType extends Component {
         </div>
 
         {
-          showImage?
+          showImage &&
             <ImageTheatre
               imgSrc={`/messages/${message}`}
               showInfo={false}
               back={this.toggleShowImage}
             />
-            : null
         }
       </Fragment>
     )

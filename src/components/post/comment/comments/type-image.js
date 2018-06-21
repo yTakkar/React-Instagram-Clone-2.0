@@ -24,13 +24,12 @@ export default class CommentTypeImage extends Component {
         />
 
         {
-          openImage ?
+          openImage &&
             <ImageTheatre
               imgSrc={`/comments/${commentSrc}`}
               showInfo={false}
               back={() => this.setState({ openImage: false })}
             />
-            : null
         }
       </Fragment>
     )

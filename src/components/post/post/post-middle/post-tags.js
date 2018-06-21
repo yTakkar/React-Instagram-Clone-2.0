@@ -25,7 +25,7 @@ export default class PostTags extends Component {
     return (
       <div>
         {
-          tags_count != 0 ?
+          (tags_count != 0) &&
             <div>
               <span
                 className='p_tag_icon'
@@ -36,17 +36,15 @@ export default class PostTags extends Component {
               </span>
               <ToolTip/>
             </div>
-            : null
         }
 
         {
-          showTags ?
+          showTags &&
             <Tags
               post={post_id}
               back={() => this.setState({ showTags: false })}
               decrementTags={this.decrementTags}
             />
-            : null
         }
 
       </div>

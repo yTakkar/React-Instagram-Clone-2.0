@@ -88,9 +88,8 @@ export default class CreateGroupModal extends Component {
         </div>
 
         {
-          created
-            ? <Redirect to={`/group/${groupId}`} />
-            : null
+          created &&
+            <Redirect to={`/group/${groupId}`} />
         }
       </div>
     )
