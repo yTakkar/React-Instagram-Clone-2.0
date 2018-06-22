@@ -37,7 +37,7 @@ export const adminSubmit = async options => {
 }
 
 /**
- * Returns if user is the admin
+ * Returns if user is admin of the app
  */
 export const isAdmin = () =>
   uData('isadmin') == 'true'

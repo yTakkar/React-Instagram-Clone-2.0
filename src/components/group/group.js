@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { FadeIn } from 'animate-components'
 import Title from '../others/title'
 import { connect } from 'react-redux'
@@ -53,6 +53,7 @@ class Group extends Component {
       joined,
       match: { url, params: { grp_id } }
     } = this.props
+    let showContent = Me(admin) || group_type == 'public' || joined || isAdmin()
 
     return (
       <div>
@@ -73,11 +74,11 @@ class Group extends Component {
         <FadeIn duration='300ms' className={cLoading(loading)} >
           <GroupBanner/>
           {
-            Me(admin) || group_type == 'public' || joined || isAdmin() ?
-              <div>
+            showContent ?
+              <Fragment>
                 <GroupNav url={url} admin={admin} />
                 <GroupRoutes url={url} grp_id={grp_id} />
-              </div>
+              </Fragment>
               :
               <div style={{ marginTop: 85 }}>
                 <Nothing
