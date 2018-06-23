@@ -2,13 +2,12 @@
 
 exports[`ToTags Component should match snapshot with complex hashtag string 1`] = `
 <span>
-  <a
+  <Link
     className="hashtag"
-    href="/hashtag/This"
-    onClick={[Function]}
+    to="/hashtag/This"
   >
     #This 
-  </a>
+  </Link>
   is 
   a 
   ##double 
@@ -19,20 +18,18 @@ exports[`ToTags Component should match snapshot with complex hashtag string 1`] 
 exports[`ToTags Component should match snapshot with link string 1`] = `
 <span>
   Hey 
-  <a
+  <Link
     className="hashtag"
-    href="/profile/ghalib"
-    onClick={[Function]}
+    to="/profile/ghalib"
   >
     @ghalib, 
-  </a>
-  <a
+  </Link>
+  <Link
     className="hashtag"
-    href="/hashtag/checkout"
-    onClick={[Function]}
+    to="/hashtag/checkout"
   >
     #checkout 
-  </a>
+  </Link>
   <a
     className="hashtag"
     href="https://github.com/yTakkar/React-Instagram-Clone-2.0"
@@ -47,28 +44,25 @@ exports[`ToTags Component should match snapshot with mention string 1`] = `
 <span>
   A 
   very 
-  <a
+  <Link
     className="hashtag"
-    href="/hashtag/good"
-    onClick={[Function]}
+    to="/hashtag/good"
   >
     #good 
-  </a>
+  </Link>
   ##morning 
-  <a
+  <Link
     className="hashtag"
-    href="/profile/ghalib"
-    onClick={[Function]}
+    to="/profile/ghalib"
   >
     @ghalib, 
-  </a>
-  <a
+  </Link>
+  <Link
     className="hashtag"
-    href="/profile/zayn"
-    onClick={[Function]}
+    to="/profile/zayn"
   >
     @zayn 
-  </a>
+  </Link>
 </span>
 `;
 
@@ -76,13 +70,12 @@ exports[`ToTags Component should match snapshot with simple hashtag string 1`] =
 <span>
   A 
   very 
-  <a
+  <Link
     className="hashtag"
-    href="/hashtag/good"
-    onClick={[Function]}
+    to="/hashtag/good"
   >
     #good 
-  </a>
+  </Link>
   morning 
 </span>
 `;

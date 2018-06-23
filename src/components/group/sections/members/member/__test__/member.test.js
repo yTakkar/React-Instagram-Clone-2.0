@@ -2,7 +2,6 @@ import React from 'react'
 import { create } from 'react-test-renderer'
 import { Provider } from 'react-redux'
 import MembersList, { PureMembersList } from '../member'
-import { BrowserRouter as Router } from 'react-router-dom'
 import { shallow } from 'enzyme'
 import Group from '../../../../../../store/__mocks__/reducers/Group'
 import MockDataElement from '../../../../../../utils/__mocks__/mock-dataElement'
@@ -13,12 +12,10 @@ describe('MembersList Component', () => {
 
   const comp = (extraProps={}) => (
     <Provider store={mockStore}>
-      <Router>
-        <MembersList
-          {...Group.members[0]}
-          {...extraProps}
-        />
-      </Router>
+      <MembersList
+        {...Group.members[0]}
+        {...extraProps}
+      />
     </Provider>
   )
 

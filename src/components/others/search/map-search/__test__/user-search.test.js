@@ -1,7 +1,6 @@
 import React from 'react'
 import { create } from 'react-test-renderer'
 import UserSearch from '../user-search'
-import { BrowserRouter as Router } from 'react-router-dom'
 
 describe('User-Search Component', () => {
   const props = {
@@ -15,23 +14,19 @@ describe('User-Search Component', () => {
 
   it('should match snapshot', () => {
     const tree = create(
-      <Router>
-        <UserSearch
-          {...props}
-        />
-      </Router>
+      <UserSearch
+        {...props}
+      />
     ).toJSON()
     expect(tree).toMatchSnapshot()
   })
 
   it('should match snapshot with mutual followers also hiding firstname & surname', () => {
     const tree = create(
-      <Router>
-        <UserSearch
-          {...props}
-          mutualFollowersCount={3}
-        />
-      </Router>
+      <UserSearch
+        {...props}
+        mutualFollowersCount={3}
+      />
     ).toJSON()
     expect(tree).toMatchSnapshot()
   })

@@ -2,11 +2,10 @@
 
 exports[`HeaderTopLinks Component should match snapshot 1`] = `
 Array [
-  <a
-    aria-current={false}
+  <NavLink
+    activeClassName="ha_active"
     className="notification"
-    href="/notifications"
-    onClick={[Function]}
+    to="/notifications"
   >
     <span
       className="notification_span nav_icon"
@@ -22,12 +21,11 @@ Array [
     >
       Notifications
     </span>
-  </a>,
-  <a
-    aria-current={false}
+  </NavLink>,
+  <NavLink
+    activeClassName="ha_active"
     className="sp"
-    href="/profile/null"
-    onClick={[Function]}
+    to="/profile/null"
   >
     <img
       alt="avatar"
@@ -37,6 +35,6 @@ Array [
     <span
       className="sp_span"
     />
-  </a>,
+  </NavLink>,
 ]
 `;

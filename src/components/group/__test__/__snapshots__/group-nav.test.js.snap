@@ -6,44 +6,44 @@ exports[`GroupNav Component should match snapshot 1`] = `
 >
   <ul>
     <li>
-      <a
-        aria-current={false}
+      <NavLink
+        activeClassName="pro_nav_active"
         className="inst_nav"
-        href="/group/11"
-        onClick={[Function]}
+        exact={true}
+        to="/group/11"
       >
         Posts
-      </a>
+      </NavLink>
     </li>
     <li>
-      <a
-        aria-current={false}
+      <NavLink
+        activeClassName="pro_nav_active"
         className="inst_nav"
-        href="/group/11/members"
-        onClick={[Function]}
+        exact={true}
+        to="/group/11/members"
       >
         Members
-      </a>
+      </NavLink>
     </li>
     <li>
-      <a
-        aria-current={false}
+      <NavLink
+        activeClassName="pro_nav_active"
         className="inst_nav"
-        href="/group/11/gallery"
-        onClick={[Function]}
+        exact={true}
+        to="/group/11/gallery"
       >
         Gallery
-      </a>
+      </NavLink>
     </li>
     <li>
-      <a
-        aria-current={false}
+      <NavLink
+        activeClassName="pro_nav_active"
         className="inst_nav"
-        href="/group/11/about"
-        onClick={[Function]}
+        exact={true}
+        to="/group/11/about"
       >
         About
-      </a>
+      </NavLink>
     </li>
   </ul>
 </div>
@@ -55,64 +55,64 @@ exports[`GroupNav Component should match snapshot and show edit & add-member lin
 >
   <ul>
     <li>
-      <a
-        aria-current={false}
+      <NavLink
+        activeClassName="pro_nav_active"
         className="inst_nav"
-        href="/group/11"
-        onClick={[Function]}
+        exact={true}
+        to="/group/11"
       >
         Posts
-      </a>
+      </NavLink>
     </li>
     <li>
-      <a
-        aria-current={false}
+      <NavLink
+        activeClassName="pro_nav_active"
         className="inst_nav"
-        href="/group/11/members"
-        onClick={[Function]}
+        exact={true}
+        to="/group/11/members"
       >
         Members
-      </a>
+      </NavLink>
     </li>
     <li>
-      <a
-        aria-current={false}
+      <NavLink
+        activeClassName="pro_nav_active"
         className="inst_nav"
-        href="/group/11/gallery"
-        onClick={[Function]}
+        exact={true}
+        to="/group/11/gallery"
       >
         Gallery
-      </a>
+      </NavLink>
     </li>
     <li>
-      <a
-        aria-current={false}
+      <NavLink
+        activeClassName="pro_nav_active"
         className="inst_nav"
-        href="/group/11/edit"
-        onClick={[Function]}
+        exact={true}
+        to="/group/11/edit"
       >
         Edit
-      </a>
+      </NavLink>
     </li>
     <li>
-      <a
-        aria-current={false}
+      <NavLink
+        activeClassName="pro_nav_active"
         className="inst_nav"
-        href="/group/11/add-members"
-        onClick={[Function]}
+        exact={true}
+        to="/group/11/add-members"
       >
         Add members
-      </a>
+      </NavLink>
     </li>
     <li>
-      <a
-        aria-current={false}
+      <NavLink
+        activeClassName="pro_nav_active"
         className="inst_nav"
-        href="/group/11/about"
-        onClick={[Function]}
+        exact={true}
+        to="/group/11/about"
       >
         About
-      </a>
+      </NavLink>
     </li>
   </ul>
 </div>

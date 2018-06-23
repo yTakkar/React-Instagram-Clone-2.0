@@ -1,14 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`BannerAddTagsLink Component should match snapshot and show add link 1`] = `
-<a
-  aria-current={false}
+<NavLink
   className="add_tags"
-  href="/edit-profile"
-  onClick={[Function]}
+  to="/edit-profile"
 >
   add
-</a>
+</NavLink>
 `;
 
 exports[`BannerAddTagsLink Component should match snapshot with null 1`] = `null`;

@@ -17,13 +17,12 @@ exports[`InviteList Component should match snapshot 1`] = `
     <div
       className="modal_it_info"
     >
-      <a
+      <Link
         className="modal_it_username"
-        href="/profile/zayn"
-        onClick={[Function]}
+        to="/profile/zayn"
       >
         zayn
-      </a>
+      </Link>
       <span
         className="modal_it_light"
       >

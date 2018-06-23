@@ -3,15 +3,12 @@ import { create } from 'react-test-renderer'
 import GroupInfo from '../info'
 import { Provider } from 'react-redux'
 import mockStore from '../../../../store/__mocks__/mockStore'
-import { BrowserRouter as Router } from 'react-router-dom'
 import Group from '../../../../store/__mocks__/reducers/Group'
 
 describe('GroupInfo Component', () => {
   const comp = (
     <Provider store={mockStore}>
-      <Router>
-        <GroupInfo/>
-      </Router>
+      <GroupInfo/>
     </Provider>
   )
 

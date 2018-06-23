@@ -44,12 +44,11 @@ Array [
     >
       Bio
     </span>
-    <a
-      href="/edit-profile"
-      onClick={[Function]}
+    <Link
+      to="/edit-profile"
     >
       Add Bio account
-    </a>
+    </Link>
   </div>,
   <div>
     <span
@@ -85,12 +84,11 @@ Array [
     >
       Twitter
     </span>
-    <a
-      href="/edit-profile"
-      onClick={[Function]}
+    <Link
+      to="/edit-profile"
     >
       Add Twitter account
-    </a>
+    </Link>
   </div>,
   <div>
     <span
@@ -98,12 +96,11 @@ Array [
     >
       Facebook
     </span>
-    <a
-      href="/edit-profile"
-      onClick={[Function]}
+    <Link
+      to="/edit-profile"
     >
       Add Facebook account
-    </a>
+    </Link>
   </div>,
   <div>
     <span
@@ -111,12 +108,11 @@ Array [
     >
       Website
     </span>
-    <a
-      href="/edit-profile"
-      onClick={[Function]}
+    <Link
+      to="/edit-profile"
     >
       Add Website account
-    </a>
+    </Link>
   </div>,
   <div>
     <span
@@ -124,12 +120,11 @@ Array [
     >
       Phone
     </span>
-    <a
-      href="/edit-profile"
-      onClick={[Function]}
+    <Link
+      to="/edit-profile"
     >
       Add Phone account
-    </a>
+    </Link>
   </div>,
   <div>
     <span

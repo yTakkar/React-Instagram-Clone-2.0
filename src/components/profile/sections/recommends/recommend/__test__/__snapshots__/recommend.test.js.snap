@@ -15,12 +15,11 @@ exports[`RecommendList Component should match snapshot 1`] = `
     <div
       className="m_top_right"
     >
-      <a
-        href="/profile/gian"
-        onClick={[Function]}
+      <Link
+        to="/profile/gian"
       >
         gian
-      </a>
+      </Link>
       <span>
         Takeshi
          
@@ -35,12 +34,11 @@ exports[`RecommendList Component should match snapshot 1`] = `
       className="recommend_by"
     >
       by
-      <a
-        href="/profile/selena"
-        onClick={[Function]}
+      <Link
+        to="/profile/selena"
       >
          selena
-      </a>
+      </Link>
     </span>
     <a
       className="sec_btn"

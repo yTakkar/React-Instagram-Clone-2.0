@@ -32,12 +32,11 @@ exports[`BannerFollow Component should match snapshot and show editProfile link 
 <div
   className="pro_ff"
 >
-  <a
+  <Link
     className="pri_btn ff"
-    href="/edit-profile"
-    onClick={[Function]}
+    to="/edit-profile"
   >
     Edit profile
-  </a>
+  </Link>
 </div>
 `;

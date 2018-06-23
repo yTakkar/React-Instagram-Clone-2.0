@@ -1,7 +1,6 @@
 import React from 'react'
 import { Provider } from 'react-redux'
 import mockStore from '../../../store/__mocks__/mockStore'
-import { BrowserRouter as Router } from 'react-router-dom'
 import Notifications, { PureNotifications } from '../notifications'
 import { create } from 'react-test-renderer'
 import Notification from '../../../store/__mocks__/reducers/Notification'
@@ -11,9 +10,7 @@ describe('Notifications Component', () => {
 
   const comp = (
     <Provider store={mockStore}>
-      <Router>
-        <Notifications/>
-      </Router>
+      <Notifications/>
     </Provider>
   )
 

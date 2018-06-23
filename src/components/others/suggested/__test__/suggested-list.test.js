@@ -1,7 +1,6 @@
 import React from 'react'
 import { create } from 'react-test-renderer'
 import SuggestedList from '../suggested-list'
-import { BrowserRouter as Router } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import suggestedMockArray from './suggested-mockArray'
 import { shallow } from 'enzyme'
@@ -11,12 +10,10 @@ import mockExploreState from '../../../../store/__mocks__/reducers/Explore'
 describe('Suggested-List Component', () => {
   const comp = (
     <Provider store={mockStore} >
-      <Router>
-        <SuggestedList
-          {...mockExploreState.suggested[0]}
-          when='home'
-        />
-      </Router>
+      <SuggestedList
+        {...mockExploreState.suggested[0]}
+        when='home'
+      />
     </Provider>
   )
 

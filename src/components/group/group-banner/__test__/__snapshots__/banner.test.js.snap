@@ -25,13 +25,12 @@ exports[`GroupBanner Component should match snapshot 1`] = `
     <div
       className="pro_ff"
     >
-      <a
+      <Link
         className="pri_btn ff"
-        href="/edit-group"
-        onClick={[Function]}
+        to="/edit-group"
       >
         Edit group
-      </a>
+      </Link>
     </div>
   </div>
   <div
@@ -71,13 +70,12 @@ exports[`GroupBanner Component should match snapshot 1`] = `
     <div
       className="pro_username"
     >
-      <a
+      <Link
         className="username"
-        href="/group/11"
-        onClick={[Function]}
+        to="/group/11"
       >
         a groupss
-      </a>
+      </Link>
     </div>
     <div
       className="pro_name"

@@ -5,10 +5,9 @@ exports[`Group-Search Component should match snapshot 1`] = `
   className="s_d_peo"
   onClick={[Function]}
 >
-  <a
+  <Link
     className="s_d_p"
-    href="/group/11"
-    onClick={[Function]}
+    to="/group/11"
   >
     <img
       src="/groups/11/avatar.jpg"
@@ -25,7 +24,7 @@ exports[`Group-Search Component should match snapshot 1`] = `
         11 members
       </span>
     </div>
-  </a>
+  </Link>
 </div>
 `;
 
@@ -34,10 +33,9 @@ exports[`Group-Search Component should match snapshot with mutual members also h
   className="s_d_peo"
   onClick={[Function]}
 >
-  <a
+  <Link
     className="s_d_p"
-    href="/group/11"
-    onClick={[Function]}
+    to="/group/11"
   >
     <img
       src="/groups/11/avatar.jpg"
@@ -54,6 +52,6 @@ exports[`Group-Search Component should match snapshot with mutual members also h
         3 mutual members
       </span>
     </div>
-  </a>
+  </Link>
 </div>
 `;

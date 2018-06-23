@@ -1,7 +1,6 @@
 import React from 'react'
 import { create } from 'react-test-renderer'
 import GrpAboutSection from '../section'
-import { BrowserRouter as Router } from 'react-router-dom'
 
 describe('GrpAboutSection Component', () => {
 
@@ -17,14 +16,12 @@ describe('GrpAboutSection Component', () => {
 
   it('should match snapshot with type link', () => {
     const tree = create(
-      <Router>
-        <GrpAboutSection
-          type='link'
-          label='Group created by'
-          value='takkar'
-          url='/profile/takkar'
-        />
-      </Router>
+      <GrpAboutSection
+        type='link'
+        label='Group created by'
+        value='takkar'
+        url='/profile/takkar'
+      />
     ).toJSON()
     expect(tree).toMatchSnapshot()
   })

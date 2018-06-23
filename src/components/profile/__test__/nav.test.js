@@ -1,7 +1,6 @@
 import React from 'react'
 import MockDataElement from '../../../utils/__mocks__/mock-dataElement'
 import { create } from 'react-test-renderer'
-import { BrowserRouter as Router } from 'react-router-dom'
 import ProfileNav from '../nav'
 
 describe('ProfileNav Component', () => {
@@ -9,24 +8,20 @@ describe('ProfileNav Component', () => {
 
   it('should match snapshot', () => {
     const tree = create(
-      <Router>
-        <ProfileNav
-          url='/profile/takkar'
-          user={24}
-        />
-      </Router>
+      <ProfileNav
+        url='/profile/takkar'
+        user={24}
+      />
     ).toJSON()
     expect(tree).toMatchSnapshot()
   })
 
   it('should match snapshot when profile is not mine', () => {
     const tree = create(
-      <Router>
-        <ProfileNav
-          url='/profile/ghalib'
-          user={7}
-        />
-      </Router>
+      <ProfileNav
+        url='/profile/ghalib'
+        user={7}
+      />
     ).toJSON()
     expect(tree).toMatchSnapshot()
   })

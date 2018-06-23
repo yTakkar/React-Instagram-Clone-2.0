@@ -5,16 +5,15 @@ exports[`Hashtag-Search Component should match snapshot 1`] = `
   className="s_d_peo"
   onClick={[MockFunction]}
 >
-  <a
+  <Link
     className="s_d_p h_d_p"
-    href="/hashtag/travel"
-    onClick={[Function]}
+    to="/hashtag/travel"
   >
     <span
       className="s_d_username"
     >
       #travel
     </span>
-  </a>
+  </Link>
 </div>
 `;

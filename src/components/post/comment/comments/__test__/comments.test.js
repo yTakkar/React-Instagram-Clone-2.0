@@ -2,7 +2,6 @@ import React from 'react'
 import { create } from 'react-test-renderer'
 import { Provider } from 'react-redux'
 import mockStore from '../../../../../store/__mocks__/mockStore'
-import { BrowserRouter as Router } from 'react-router-dom'
 import Comments from '../comments'
 import Post from '../../../../../store/__mocks__/reducers/Post'
 
@@ -15,12 +14,10 @@ describe('Comments Component', () => {
 
   const comp = (extraProps={}) => (
     <Provider store={mockStore}>
-      <Router>
-        <Comments
-          {...props}
-          {...extraProps}
-        />
-      </Router>
+      <Comments
+        {...props}
+        {...extraProps}
+      />
     </Provider>
   )
 

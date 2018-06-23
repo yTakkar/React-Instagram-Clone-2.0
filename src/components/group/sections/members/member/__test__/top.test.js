@@ -1,6 +1,5 @@
 import React from 'react'
 import MockDataElement from '../../../../../../utils/__mocks__/mock-dataElement'
-import { BrowserRouter as Router } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import mockStore from '../../../../../../store/__mocks__/mockStore'
 import MembersTop from '../top'
@@ -20,14 +19,12 @@ describe('MemberTop Component', () => {
 
   const comp = (extraProps={}) => (
     <Provider store={mockStore}>
-      <Router>
-        <MembersTop
-          memberDetails={{
-            ...memberDetails,
-            ...extraProps
-          }}
-        />
-      </Router>
+      <MembersTop
+        memberDetails={{
+          ...memberDetails,
+          ...extraProps
+        }}
+      />
     </Provider>
   )
 

@@ -3,17 +3,14 @@ import { create } from 'react-test-renderer'
 import { Provider } from 'react-redux'
 import mockStore from '../../../store/__mocks__/mockStore'
 import GroupHashtags from '../group-hashtags'
-import { BrowserRouter as Router } from 'react-router-dom'
 import Hashtag from '../../../store/__mocks__/reducers/Hashtag'
 
 describe('GroupHashtags Component', () => {
   const comp = (
     <Provider store={mockStore}>
-      <Router>
-        <GroupHashtags
-          group={11}
-        />
-      </Router>
+      <GroupHashtags
+        group={11}
+      />
     </Provider>
   )
 

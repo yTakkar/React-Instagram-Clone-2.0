@@ -1,11 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`NotificationTypeGroup Component should match snapshot 1`] = `
-<a
+<Link
   className="pri_btn"
-  href="/group/11"
-  onClick={[Function]}
+  to="/group/11"
 >
   View group
-</a>
+</Link>
 `;

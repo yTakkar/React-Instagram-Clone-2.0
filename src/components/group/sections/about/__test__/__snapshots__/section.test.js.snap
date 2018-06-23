@@ -7,13 +7,12 @@ exports[`GrpAboutSection Component should match snapshot with type link 1`] = `
   >
     Group created by
   </span>
-  <a
+  <Link
     className="a_info"
-    href="/profile/takkar"
-    onClick={[Function]}
+    to="/profile/takkar"
   >
     takkar
-  </a>
+  </Link>
 </div>
 `;
 

@@ -4,13 +4,12 @@ exports[`ModalItemInfo Component should match snapshot 1`] = `
 <div
   className="modal_it_info"
 >
-  <a
+  <Link
     className="modal_it_username"
-    href="/profile/takkar"
-    onClick={[Function]}
+    to="/profile/takkar"
   >
     takkar
-  </a>
+  </Link>
   <span
     className="modal_it_light"
   >

@@ -20,13 +20,12 @@ exports[`PostTop Component should match snapshot 1`] = `
         }
       }
     >
-      <a
-        href="/profile/takkar"
-        onClick={[Function]}
+      <Link
         title="takkar"
+        to="/profile/takkar"
       >
         takkar
-      </a>
+      </Link>
       <span
         className="p_i_1_title"
         title="A-301, 90 Feet Road, Dharavi, Mumbai, Maharashtra 400017, India"

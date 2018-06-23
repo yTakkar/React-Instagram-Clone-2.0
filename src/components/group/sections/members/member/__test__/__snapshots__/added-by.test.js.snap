@@ -6,12 +6,11 @@ exports[`MemberAddedBy Component should match snapshot 1`] = `
 >
   <div>
     by 
-    <a
-      href="/profile/ghalib"
-      onClick={[Function]}
+    <Link
+      to="/profile/ghalib"
     >
       ghalib
-    </a>
+    </Link>
   </div>
 </span>
 `;

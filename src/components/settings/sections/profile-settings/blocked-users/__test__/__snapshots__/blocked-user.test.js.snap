@@ -13,13 +13,12 @@ exports[`BlockedUser Component should match snapshot 1`] = `
     <div
       className="blocked_info"
     >
-      <a
+      <Link
         className="blocked_username"
-        href="/profile/ghalib"
-        onClick={[Function]}
+        to="/profile/ghalib"
       >
         ghalib
-      </a>
+      </Link>
       <span
         className="blocked_mutual"
       >
@@ -50,13 +49,12 @@ exports[`BlockedUser Component should match snapshot when mutualFollowersCount >
     <div
       className="blocked_info"
     >
-      <a
+      <Link
         className="blocked_username"
-        href="/profile/coldplay"
-        onClick={[Function]}
+        to="/profile/coldplay"
       >
         coldplay
-      </a>
+      </Link>
       <span
         className="blocked_mutual"
       >

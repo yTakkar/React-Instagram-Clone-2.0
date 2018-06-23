@@ -11,27 +11,25 @@ exports[`HeaderOptions Component should match snapshot 1`] = `
       className="o_li"
       onClick={[Function]}
     >
-      <a
+      <Link
         alt="Settings"
         className="o_a"
-        href="/settings"
-        onClick={[Function]}
+        to="/settings"
       >
         Settings
-      </a>
+      </Link>
     </li>
     <li
       className="o_li"
       onClick={[Function]}
     >
-      <a
+      <Link
         alt="Edit"
         className="o_a"
-        href="/edit-profile"
-        onClick={[Function]}
+        to="/edit-profile"
       >
         Edit
-      </a>
+      </Link>
     </li>
     <li
       className="o_li"

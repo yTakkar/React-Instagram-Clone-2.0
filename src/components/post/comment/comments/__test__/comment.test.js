@@ -4,18 +4,15 @@ import { Provider } from 'react-redux'
 import mockStore from '../../../../../store/__mocks__/mockStore'
 import Comment from '../comment'
 import Post from '../../../../../store/__mocks__/reducers/Post'
-import { BrowserRouter as Router } from 'react-router-dom'
 
 describe('Comment Component', () => {
 
   const comp = (index=0) => (
     <Provider store={mockStore}>
-      <Router>
-        <Comment
-          {...Post.viewPost.comments[index]}
-          decrementComments={jest.fn()}
-        />
-      </Router>
+      <Comment
+        {...Post.viewPost.comments[index]}
+        decrementComments={jest.fn()}
+      />
     </Provider>
   )
 

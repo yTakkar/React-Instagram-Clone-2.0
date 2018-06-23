@@ -3,7 +3,6 @@ import { create } from 'react-test-renderer'
 import { Provider } from 'react-redux'
 import IsAdmin from '../is-admin'
 import mockStore from '../../../store/__mocks__/mockStore'
-import { BrowserRouter as Router } from 'react-router-dom'
 import { shallow } from 'enzyme'
 import MockDataElement from '../../../utils/__mocks__/mock-dataElement'
 
@@ -14,9 +13,7 @@ describe('IsAdmin Component', () => {
   it('should match snapshot', () => {
     const tree = create(
       <Provider store={mockStore} >
-        <Router>
-          <IsAdmin/>
-        </Router>
+        <IsAdmin/>
       </Provider>
     ).toJSON()
     expect(tree).toMatchSnapshot()

@@ -13,12 +13,11 @@ exports[`UserGroupList Component should match snapshot with group page link 1`] 
     <div
       className="m_top_right"
     >
-      <a
-        href="/group/11"
-        onClick={[Function]}
+      <Link
+        to="/group/11"
       >
         a groupss
-      </a>
+      </Link>
       <span
         className="grp_admin"
       >
@@ -32,13 +31,12 @@ exports[`UserGroupList Component should match snapshot with group page link 1`] 
   <div
     className="m_bottom"
   >
-    <a
+    <Link
       className="sec_btn"
-      href="/group/11"
-      onClick={[Function]}
+      to="/group/11"
     >
       View group
-    </a>
+    </Link>
   </div>
 </div>
 `;

@@ -2,7 +2,6 @@ import React from 'react'
 import { create } from 'react-test-renderer'
 import { Provider } from 'react-redux'
 import mockStore from '../../../../store/__mocks__/mockStore'
-import { BrowserRouter as Router } from 'react-router-dom'
 import MapConversations, { PureMapConversations } from '../map-conversations'
 import Message from '../../../../store/__mocks__/reducers/Message'
 import { shallow } from 'enzyme'
@@ -13,11 +12,9 @@ describe('MapConversations Component', () => {
   it('should match snapshot', () => {
     const tree = create(
       <Provider store={mockStore}>
-        <Router>
-          <MapConversations
-            showConversation={mockFn}
-          />
-        </Router>
+        <MapConversations
+          showConversation={mockFn}
+        />
       </Provider>
     ).toJSON()
     expect(tree).toMatchSnapshot()

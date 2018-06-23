@@ -1,6 +1,5 @@
 import React from 'react'
 import { create } from 'react-test-renderer'
-import { BrowserRouter as Router } from 'react-router-dom'
 import MapPosts from '../map-posts'
 import MockPostData from '../../../../store/__mocks__/reducers/Post'
 import Post from '../../post/post'
@@ -18,12 +17,10 @@ describe('MapPosts Component', () => {
   it('should match snapshot', () => {
     const tree = create(
       <Provider store={mockStore}>
-        <Router>
-          <MapPosts
-            posts={map(MockPostData.feed)}
-            nothingMssg='No posts!!'
-          />
-        </Router>
+        <MapPosts
+          posts={map(MockPostData.feed)}
+          nothingMssg='No posts!!'
+        />
       </Provider>
     ).toJSON()
     expect(tree).toMatchSnapshot()
@@ -32,12 +29,10 @@ describe('MapPosts Component', () => {
   it('should match snapshot when posts.length == 0', () => {
     const tree = create(
       <Provider store={mockStore}>
-        <Router>
-          <MapPosts
-            posts={map([])}
-            nothingMssg='No posts!!'
-          />
-        </Router>
+        <MapPosts
+          posts={map([])}
+          nothingMssg='No posts!!'
+        />
       </Provider>
     ).toJSON()
     expect(tree).toMatchSnapshot()

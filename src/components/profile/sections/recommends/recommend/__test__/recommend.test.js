@@ -3,7 +3,6 @@ import MockDataElement from '../../../../../../utils/__mocks__/mock-dataElement'
 import { create } from 'react-test-renderer'
 import { Provider } from 'react-redux'
 import mockStore from '../../../../../../store/__mocks__/mockStore'
-import { BrowserRouter as Router } from 'react-router-dom'
 import RecommendList, { PureRecommendList } from '../recommend'
 import { shallow } from 'enzyme'
 import Follow from '../../../../../../store/__mocks__/reducers/Follow'
@@ -15,12 +14,10 @@ describe('RecommendList Component', () => {
   it('should match snapshot', () => {
     const tree = create(
       <Provider store={mockStore}>
-        <Router>
-          <RecommendList
-            param='takkar'
-            {...Follow.recommendations[0]}
-          />
-        </Router>
+        <RecommendList
+          param='takkar'
+          {...Follow.recommendations[0]}
+        />
       </Provider>
     ).toJSON()
     expect(tree).toMatchSnapshot()

@@ -18,12 +18,11 @@ exports[`ConversationWith Component should match snapshot 1`] = `
     <div
       className="sli_with_cont"
     >
-      <a
-        href="/profile/selena"
-        onClick={[Function]}
+      <Link
+        to="/profile/selena"
       >
         selena
-      </a>
+      </Link>
       <span
         className="sli_w"
       >
@@ -52,12 +51,11 @@ exports[`ConversationWith Component should match snapshot when mutualFollowersCo
     <div
       className="sli_with_cont"
     >
-      <a
-        href="/profile/selena"
-        onClick={[Function]}
+      <Link
+        to="/profile/selena"
       >
         selena
-      </a>
+      </Link>
       <span
         className="sli_w"
       >

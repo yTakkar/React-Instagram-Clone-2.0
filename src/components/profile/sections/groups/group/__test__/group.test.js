@@ -3,7 +3,6 @@ import { create } from 'react-test-renderer'
 import { Provider } from 'react-redux'
 import mockStore from '../../../../../../store/__mocks__/mockStore'
 import UserGroupList, { PureUserGroupList } from '../group'
-import { BrowserRouter as Router } from 'react-router-dom'
 import { shallow } from 'enzyme'
 import Group from '../../../../../../store/__mocks__/reducers/Group'
 import MockDataElement from '../../../../../../utils/__mocks__/mock-dataElement'
@@ -15,12 +14,10 @@ describe('UserGroupList Component', () => {
   it('should match snapshot with group page link', () => {
     const tree = create(
       <Provider store={mockStore}>
-        <Router>
-          <UserGroupList
-            {...Group.userGroups[0]}
-            admin={24}
-          />
-        </Router>
+        <UserGroupList
+          {...Group.userGroups[0]}
+          admin={24}
+        />
       </Provider>
     ).toJSON()
     expect(tree).toMatchSnapshot()

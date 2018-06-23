@@ -43,16 +43,15 @@ exports[`Shared Component should match snapshot 1`] = `
                   className="fas fa-sync-alt"
                 />
               </a>
-              <a
+              <Link
                 className="recomm_all"
                 data-tip="view all"
-                href="/explore"
-                onClick={[Function]}
+                to="/explore"
               >
                 <i
                   className="fas fa-chevron-right"
                 />
-              </a>
+              </Link>
             </div>
             <div
               className="recomm_main"
@@ -82,13 +81,12 @@ exports[`Shared Component should match snapshot 1`] = `
                   <div
                     className="recomms_cont"
                   >
-                    <a
+                    <Link
                       className="recomms_username"
-                      href="/profile/ghalib"
-                      onClick={[Function]}
+                      to="/profile/ghalib"
                     >
                       ghalib
-                    </a>
+                    </Link>
                     <span>
                       1 mutual follower
                     </span>
@@ -115,13 +113,12 @@ exports[`Shared Component should match snapshot 1`] = `
                   <div
                     className="recomms_cont"
                   >
-                    <a
+                    <Link
                       className="recomms_username"
-                      href="/profile/coldplay"
-                      onClick={[Function]}
+                      to="/profile/coldplay"
                     >
                       coldplay
-                    </a>
+                    </Link>
                     <span>
                       cold play
                     </span>
@@ -167,12 +164,11 @@ exports[`Shared Component should match snapshot 1`] = `
               className="post_share_info"
             >
               by 
-              <a
-                href="/profile/takkar"
-                onClick={[Function]}
+              <Link
+                to="/profile/takkar"
               >
                 takkar
-              </a>
+              </Link>
               <span>
                 Last year
               </span>
@@ -196,13 +192,12 @@ exports[`Shared Component should match snapshot 1`] = `
                     }
                   }
                 >
-                  <a
-                    href="/profile/takkar"
-                    onClick={[Function]}
+                  <Link
                     title="takkar"
+                    to="/profile/takkar"
                   >
                     takkar
-                  </a>
+                  </Link>
                   <span
                     className="p_i_1_title"
                     title="A-301, 90 Feet Road, Dharavi, Mumbai, Maharashtra 400017, India"
@@ -258,41 +253,36 @@ exports[`Shared Component should match snapshot 1`] = `
                     <p>
                       <span>
                         he 
-                        <a
+                        <Link
                           className="hashtag"
-                          href="/profile/nobita"
-                          onClick={[Function]}
+                          to="/profile/nobita"
                         >
                           @nobita, 
-                        </a>
-                        <a
+                        </Link>
+                        <Link
                           className="hashtag"
-                          href="/profile/doraemon"
-                          onClick={[Function]}
+                          to="/profile/doraemon"
                         >
                           @doraemon 
-                        </a>
-                        <a
+                        </Link>
+                        <Link
                           className="hashtag"
-                          href="/hashtag/checkout"
-                          onClick={[Function]}
+                          to="/hashtag/checkout"
                         >
                           #checkout, 
-                        </a>
-                        <a
+                        </Link>
+                        <Link
                           className="hashtag"
-                          href="/hashtag/dd"
-                          onClick={[Function]}
+                          to="/hashtag/dd"
                         >
                           #dd 
-                        </a>
-                        <a
+                        </Link>
+                        <Link
                           className="hashtag"
-                          href="/hashtag/fgf"
-                          onClick={[Function]}
+                          to="/hashtag/fgf"
                         >
                           #fgf 
-                        </a>
+                        </Link>
                       </span>
                     </p>
                   </div>
@@ -401,13 +391,12 @@ exports[`Shared Component should match snapshot 1`] = `
             </div>
             <hr />
             <div>
-              <a
+              <Link
                 className="p_comments"
-                href="/post/89"
-                onClick={[Function]}
+                to="/post/89"
               >
                 2 comments
-              </a>
+              </Link>
               <div
                 className="p_cit"
               >

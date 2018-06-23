@@ -4,7 +4,6 @@ import { Provider } from 'react-redux'
 import mockStore from '../../../../../store/__mocks__/mockStore'
 import ShareList from '../share-list'
 import Post from '../../../../../store/__mocks__/reducers/Post'
-import { BrowserRouter as Router } from 'react-router-dom'
 
 describe('ShareList Component', () => {
   const mockFn = jest.fn()
@@ -18,12 +17,10 @@ describe('ShareList Component', () => {
 
   const comp = (extraProps={}) => (
     <Provider store={mockStore}>
-      <Router>
-        <ShareList
-          {...props}
-          {...extraProps}
-        />
-      </Router>
+      <ShareList
+        {...props}
+        {...extraProps}
+      />
     </Provider>
   )
 

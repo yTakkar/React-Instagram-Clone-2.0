@@ -15,12 +15,11 @@ exports[`FollowersList Component should match snapshot with profile link 1`] = `
     <div
       className="m_top_right"
     >
-      <a
-        href="/profile/steve_jobs"
-        onClick={[Function]}
+      <Link
+        to="/profile/steve_jobs"
       >
         steve_jobs
-      </a>
+      </Link>
       <span>
         steve
          
@@ -31,13 +30,12 @@ exports[`FollowersList Component should match snapshot with profile link 1`] = `
   <div
     className="m_bottom"
   >
-    <a
+    <Link
       className="sec_btn"
-      href="/profile/steve_jobs"
-      onClick={[Function]}
+      to="/profile/steve_jobs"
     >
       Profile
-    </a>
+    </Link>
   </div>
 </div>
 `;

@@ -16,10 +16,9 @@ exports[`Map-Search Component should match snapshot with given search data 1`] =
       className="s_d_peo"
       onClick={[MockFunction]}
     >
-      <a
+      <Link
         className="s_d_p"
-        href="/profile/coldplay"
-        onClick={[Function]}
+        to="/profile/coldplay"
       >
         <img
           src="/users/8/avatar.jpg"
@@ -36,7 +35,7 @@ exports[`Map-Search Component should match snapshot with given search data 1`] =
             cold play
           </span>
         </div>
-      </a>
+      </Link>
     </div>
   </div>
   <div
@@ -51,10 +50,9 @@ exports[`Map-Search Component should match snapshot with given search data 1`] =
       className="s_d_peo"
       onClick={[MockFunction]}
     >
-      <a
+      <Link
         className="s_d_p"
-        href="/group/11"
-        onClick={[Function]}
+        to="/group/11"
       >
         <img
           src="/groups/11/avatar.jpg"
@@ -71,7 +69,7 @@ exports[`Map-Search Component should match snapshot with given search data 1`] =
             1 mutual member
           </span>
         </div>
-      </a>
+      </Link>
     </div>
   </div>
   <div

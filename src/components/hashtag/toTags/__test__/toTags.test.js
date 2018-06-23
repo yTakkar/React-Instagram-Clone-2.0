@@ -1,14 +1,11 @@
 import React from 'react'
-import { BrowserRouter as Router } from 'react-router-dom'
 import ToTags from '../toTags'
 import { create } from 'react-test-renderer'
 
 describe('ToTags Component', () => {
 
   const comp = str => (
-    <Router>
-      <ToTags str={str} />
-    </Router>
+    <ToTags str={str} />
   )
 
   it('should match snapshot with simple hashtag string', () => {

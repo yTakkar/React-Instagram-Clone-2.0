@@ -47,12 +47,11 @@ exports[`ExpGroups Component should match snapshot 1`] = `
             <div
               className="m_top_right"
             >
-              <a
-                href="/group/12"
-                onClick={[Function]}
+              <Link
+                to="/group/12"
               >
                 nmnmnmnm
-              </a>
+              </Link>
               <span>
                 3 mutual members
               </span>
@@ -84,12 +83,11 @@ exports[`ExpGroups Component should match snapshot 1`] = `
             <div
               className="m_top_right"
             >
-              <a
-                href="/group/11"
-                onClick={[Function]}
+              <Link
+                to="/group/11"
               >
                 a groupss
-              </a>
+              </Link>
               <span>
                 4 members
               </span>

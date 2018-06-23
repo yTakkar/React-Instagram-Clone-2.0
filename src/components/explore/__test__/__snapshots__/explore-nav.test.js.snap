@@ -3,34 +3,32 @@
 exports[`ExploreNav Component should match snapshot 1`] = `
 <ul>
   <li>
-    <a
-      aria-current={false}
+    <NavLink
+      activeClassName="exp_nav_active"
       className="exp_nav_link"
-      href="/explore"
-      onClick={[Function]}
+      exact={true}
+      to="/explore"
     >
       Users
-    </a>
+    </NavLink>
   </li>
   <li>
-    <a
-      aria-current={false}
+    <NavLink
+      activeClassName="exp_nav_active"
       className="exp_nav_link"
-      href="/explore/explore-photos"
-      onClick={[Function]}
+      to="/explore/explore-photos"
     >
       Photos
-    </a>
+    </NavLink>
   </li>
   <li>
-    <a
-      aria-current={false}
+    <NavLink
+      activeClassName="exp_nav_active"
       className="exp_nav_link"
-      href="/explore/explore-groups"
-      onClick={[Function]}
+      to="/explore/explore-groups"
     >
       Groups
-    </a>
+    </NavLink>
   </li>
 </ul>
 `;

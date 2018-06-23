@@ -4,23 +4,17 @@ exports[`BannerMapTags Component should match snapshot and show nothing message 
 
 exports[`BannerMapTags Component should match snapshot and show tags 1`] = `
 Array [
-  <a
-    aria-current="true"
-    className="tags active"
-    href="/"
-    onClick={[Function]}
-    style={Object {}}
+  <NavLink
+    className="tags"
+    to="/"
   >
     traveler
-  </a>,
-  <a
-    aria-current="true"
-    className="tags active"
-    href="/"
-    onClick={[Function]}
-    style={Object {}}
+  </NavLink>,
+  <NavLink
+    className="tags"
+    to="/"
   >
     nature-lover
-  </a>,
+  </NavLink>,
 ]
 `;

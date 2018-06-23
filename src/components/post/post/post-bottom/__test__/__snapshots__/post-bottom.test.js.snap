@@ -2,13 +2,12 @@
 
 exports[`PostBottom Component should match snapshot 1`] = `
 <div>
-  <a
+  <Link
     className="p_comments"
-    href="/post/44"
-    onClick={[Function]}
+    to="/post/44"
   >
     2 comments
-  </a>
+  </Link>
   <div
     className="p_cit"
   >

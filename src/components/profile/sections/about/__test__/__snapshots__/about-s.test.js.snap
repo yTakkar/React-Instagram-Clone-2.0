@@ -31,20 +31,18 @@ exports[`About Component should match snapshot 1`] = `
               <span>
                 Update or edit you profile to make it look more attractive
               </span>
-              <a
+              <Link
                 className="sec_btn"
-                href="/"
-                onClick={[Function]}
+                to="/"
               >
                 Update profile
-              </a>
-              <a
+              </Link>
+              <Link
                 className="pri_btn"
-                href="/edit-profile"
-                onClick={[Function]}
+                to="/edit-profile"
               >
                 Edit profile
-              </a>
+              </Link>
             </div>
           </div>
           <div
@@ -85,16 +83,15 @@ exports[`About Component should match snapshot 1`] = `
               }
             }
           >
-            <a
-              href="/edit-profile"
-              onClick={[Function]}
+            <Link
+              to="/edit-profile"
             >
               <i
                 className="material-icons"
               >
                 mode_edit
               </i>
-            </a>
+            </Link>
             <div
               className="__react_component_tooltip place-top type-dark "
               data-id="tooltip"
@@ -144,12 +141,11 @@ exports[`About Component should match snapshot 1`] = `
             >
               Bio
             </span>
-            <a
-              href="/edit-profile"
-              onClick={[Function]}
+            <Link
+              to="/edit-profile"
             >
               Add Bio account
-            </a>
+            </Link>
           </div>
           <div>
             <span
@@ -185,12 +181,11 @@ exports[`About Component should match snapshot 1`] = `
             >
               Twitter
             </span>
-            <a
-              href="/edit-profile"
-              onClick={[Function]}
+            <Link
+              to="/edit-profile"
             >
               Add Twitter account
-            </a>
+            </Link>
           </div>
           <div>
             <span
@@ -198,12 +193,11 @@ exports[`About Component should match snapshot 1`] = `
             >
               Facebook
             </span>
-            <a
-              href="/edit-profile"
-              onClick={[Function]}
+            <Link
+              to="/edit-profile"
             >
               Add Facebook account
-            </a>
+            </Link>
           </div>
           <div>
             <span
@@ -211,12 +205,11 @@ exports[`About Component should match snapshot 1`] = `
             >
               Website
             </span>
-            <a
-              href="/edit-profile"
-              onClick={[Function]}
+            <Link
+              to="/edit-profile"
             >
               Add Website account
-            </a>
+            </Link>
           </div>
           <div>
             <span
@@ -224,12 +217,11 @@ exports[`About Component should match snapshot 1`] = `
             >
               Phone
             </span>
-            <a
-              href="/edit-profile"
-              onClick={[Function]}
+            <Link
+              to="/edit-profile"
             >
               Add Phone account
-            </a>
+            </Link>
           </div>
           <div>
             <span

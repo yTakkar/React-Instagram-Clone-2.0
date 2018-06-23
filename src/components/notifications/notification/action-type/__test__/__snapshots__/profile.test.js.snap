@@ -1,11 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`NotificationTypeProfile Component should match snapshot 1`] = `
-<a
+<Link
   className="pri_btn"
-  href="/profile/ghalib"
-  onClick={[Function]}
+  to="/profile/ghalib"
 >
   View ghalib
-</a>
+</Link>
 `;

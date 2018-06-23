@@ -2,7 +2,6 @@ import React from 'react'
 import { create } from 'react-test-renderer'
 import { Provider } from 'react-redux'
 import mockStore from '../../../../store/__mocks__/mockStore'
-import { BrowserRouter as Router } from 'react-router-dom'
 import BannerFollow from '../follow'
 import User from '../../../../store/__mocks__/reducers/User'
 import MockDataElement from '../../../../utils/__mocks__/mock-dataElement'
@@ -13,9 +12,7 @@ describe('BannerFollow Component', () => {
 
   const comp = (
     <Provider store={mockStore}>
-      <Router>
-        <BannerFollow/>
-      </Router>
+      <BannerFollow/>
     </Provider>
   )
 

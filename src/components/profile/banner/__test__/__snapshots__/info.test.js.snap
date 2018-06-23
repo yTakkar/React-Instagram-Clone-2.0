@@ -7,13 +7,12 @@ exports[`BannerInfo Component should match snapshot 1`] = `
   <div
     className="pro_username"
   >
-    <a
+    <Link
       className="username"
-      href="/"
-      onClick={[Function]}
+      to="/"
     >
       takkar
-    </a>
+    </Link>
   </div>
   <div
     className="pro_name"

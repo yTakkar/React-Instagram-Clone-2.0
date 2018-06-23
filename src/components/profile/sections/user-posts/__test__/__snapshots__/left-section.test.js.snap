@@ -22,16 +22,15 @@ Array [
             className="fas fa-sync-alt"
           />
         </a>
-        <a
+        <Link
           className="recomm_all"
           data-tip="view all"
-          href="/explore"
-          onClick={[Function]}
+          to="/explore"
         >
           <i
             className="fas fa-chevron-right"
           />
-        </a>
+        </Link>
       </div>
       <div
         className="recomm_main"
@@ -61,13 +60,12 @@ Array [
             <div
               className="recomms_cont"
             >
-              <a
+              <Link
                 className="recomms_username"
-                href="/profile/ghalib"
-                onClick={[Function]}
+                to="/profile/ghalib"
               >
                 ghalib
-              </a>
+              </Link>
               <span>
                 1 mutual follower
               </span>
@@ -94,13 +92,12 @@ Array [
             <div
               className="recomms_cont"
             >
-              <a
+              <Link
                 className="recomms_username"
-                href="/profile/coldplay"
-                onClick={[Function]}
+                to="/profile/coldplay"
               >
                 coldplay
-              </a>
+              </Link>
               <span>
                 cold play
               </span>
@@ -141,27 +138,24 @@ Array [
       <div
         className="recomm_main"
       >
-        <a
+        <Link
           className="uh_link"
-          href="/hashtag/travel"
-          onClick={[Function]}
+          to="/hashtag/travel"
         >
           #travel
-        </a>
-        <a
+        </Link>
+        <Link
           className="uh_link"
-          href="/hashtag/cool"
-          onClick={[Function]}
+          to="/hashtag/cool"
         >
           #cool
-        </a>
-        <a
+        </Link>
+        <Link
           className="uh_link"
-          href="/hashtag/hmm"
-          onClick={[Function]}
+          to="/hashtag/hmm"
         >
           #hmm
-        </a>
+        </Link>
       </div>
     </div>
   </div>,
@@ -181,30 +175,28 @@ Array [
           1 follower
            you might know
         </span>
-        <a
+        <Link
           className="view_all_yk"
           data-tip="view all"
-          href="/profile/ghalib/people-you-know"
-          onClick={[Function]}
+          to="/profile/ghalib/people-you-know"
         >
           <i
             className="fas fa-chevron-right"
           />
-        </a>
+        </Link>
       </div>
       <div
         className="mutual_main"
       >
-        <a
+        <Link
           className="mutual_links"
           data-tip="nobita"
-          href="/profile/nobita"
-          onClick={[Function]}
+          to="/profile/nobita"
         >
           <img
             src="/users/11/avatar.jpg"
           />
-        </a>
+        </Link>
       </div>
       <div
         className="__react_component_tooltip place-top type-dark "
@@ -234,16 +226,15 @@ Array [
             className="fas fa-sync-alt"
           />
         </a>
-        <a
+        <Link
           className="recomm_all"
           data-tip="view all"
-          href="/explore"
-          onClick={[Function]}
+          to="/explore"
         >
           <i
             className="fas fa-chevron-right"
           />
-        </a>
+        </Link>
       </div>
       <div
         className="recomm_main"
@@ -273,13 +264,12 @@ Array [
             <div
               className="recomms_cont"
             >
-              <a
+              <Link
                 className="recomms_username"
-                href="/profile/ghalib"
-                onClick={[Function]}
+                to="/profile/ghalib"
               >
                 ghalib
-              </a>
+              </Link>
               <span>
                 1 mutual follower
               </span>
@@ -306,13 +296,12 @@ Array [
             <div
               className="recomms_cont"
             >
-              <a
+              <Link
                 className="recomms_username"
-                href="/profile/coldplay"
-                onClick={[Function]}
+                to="/profile/coldplay"
               >
                 coldplay
-              </a>
+              </Link>
               <span>
                 cold play
               </span>
@@ -353,27 +342,24 @@ Array [
       <div
         className="recomm_main"
       >
-        <a
+        <Link
           className="uh_link"
-          href="/hashtag/travel"
-          onClick={[Function]}
+          to="/hashtag/travel"
         >
           #travel
-        </a>
-        <a
+        </Link>
+        <Link
           className="uh_link"
-          href="/hashtag/cool"
-          onClick={[Function]}
+          to="/hashtag/cool"
         >
           #cool
-        </a>
-        <a
+        </Link>
+        <Link
           className="uh_link"
-          href="/hashtag/hmm"
-          onClick={[Function]}
+          to="/hashtag/hmm"
         >
           #hmm
-        </a>
+        </Link>
       </div>
     </div>
   </div>,

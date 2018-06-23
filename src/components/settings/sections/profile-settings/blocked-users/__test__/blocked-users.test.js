@@ -3,16 +3,13 @@ import { Provider } from 'react-redux'
 import mockStore from '../../../../../../store/__mocks__/mockStore'
 import BlockedUsers from '../blocked-users'
 import { create } from 'react-test-renderer'
-import { BrowserRouter as Router } from 'react-router-dom'
 import Setting from '../../../../../../store/__mocks__/reducers/Setting'
 
 describe('BlockedUsers Component', () => {
 
   const comp = (
     <Provider store={mockStore}>
-      <Router>
-        <BlockedUsers/>
-      </Router>
+      <BlockedUsers/>
     </Provider>
   )
 

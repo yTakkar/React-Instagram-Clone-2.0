@@ -3,17 +3,14 @@ import { create } from 'react-test-renderer'
 import { Provider } from 'react-redux'
 import mockStore from '../../../store/__mocks__/mockStore'
 import UserHashtags from '../user-hashtags'
-import { BrowserRouter as Router } from 'react-router-dom'
 import Hashtag from '../../../store/__mocks__/reducers/Hashtag'
 
 describe('UserHashtags Component', () => {
   const comp = (
     <Provider store={mockStore}>
-      <Router>
-        <UserHashtags
-          username='takkar'
-        />
-      </Router>
+      <UserHashtags
+        username='takkar'
+      />
     </Provider>
   )
 

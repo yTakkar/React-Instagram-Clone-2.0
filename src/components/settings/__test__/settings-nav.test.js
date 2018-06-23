@@ -7,11 +7,11 @@ describe('SettingsNav Component', () => {
 
   it('should match snapshot', () => {
     const tree = create(
-      <Router>
-        <SettingsNav
-          url='/settings'
-        />
-      </Router>
+      
+      <SettingsNav
+        url='/settings'
+      />
+      
     ).toJSON()
     expect(tree).toMatchSnapshot()
   })

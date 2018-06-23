@@ -1,6 +1,5 @@
 import React from 'react'
 import { create } from 'react-test-renderer'
-import { BrowserRouter as Router } from 'react-router-dom'
 import OnlineUser, { PureOnlineUser } from '../onlineUser'
 import Message from '../../../../store/__mocks__/reducers/Message'
 import mockStore from '../../../../store/__mocks__/mockStore'
@@ -12,12 +11,10 @@ describe('OnlineUser Component', () => {
 
   const comp = index => (
     <Provider store={mockStore}>
-      <Router>
-        <OnlineUser
-          {...Message.onlineUsers[index]}
-          back={mockFn}
-        />
-      </Router>
+      <OnlineUser
+        {...Message.onlineUsers[index]}
+        back={mockFn}
+      />
     </Provider>
   )
 

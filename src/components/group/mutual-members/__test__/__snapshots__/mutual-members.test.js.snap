@@ -10,30 +10,28 @@ exports[`MutualMembers Component should match snapshot 1`] = `
     <span>
       Members you know
     </span>
-    <a
+    <Link
       className="view_all_yk"
       data-tip="view all"
-      href="/group/34/members"
-      onClick={[Function]}
+      to="/group/34/members"
     >
       <i
         className="fas fa-chevron-right"
       />
-    </a>
+    </Link>
   </div>
   <div
     className="mutual_main"
   >
-    <a
+    <Link
       className="mutual_links"
       data-tip="ghalib"
-      href="/profile/ghalib"
-      onClick={[Function]}
+      to="/profile/ghalib"
     >
       <img
         src="/users/7/avatar.jpg"
       />
-    </a>
+    </Link>
   </div>
   <div
     className="__react_component_tooltip place-top type-dark "

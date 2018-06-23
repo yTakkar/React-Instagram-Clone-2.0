@@ -25,13 +25,12 @@ exports[`Banner Component should match snapshot 1`] = `
     <div
       className="pro_ff"
     >
-      <a
+      <Link
         className="pri_btn ff"
-        href="/edit-profile"
-        onClick={[Function]}
+        to="/edit-profile"
       >
         Edit profile
-      </a>
+      </Link>
     </div>
   </div>
   <div
@@ -71,13 +70,12 @@ exports[`Banner Component should match snapshot 1`] = `
     <div
       className="pro_username"
     >
-      <a
+      <Link
         className="username"
-        href="/"
-        onClick={[Function]}
+        to="/"
       >
         takkar
-      </a>
+      </Link>
     </div>
     <div
       className="pro_name"
@@ -130,9 +128,8 @@ exports[`Banner Component should match snapshot 1`] = `
         Posts
       </span>
     </div>
-    <a
-      href="/profile/takkar/followers"
-      onClick={[Function]}
+    <Link
+      to="/profile/takkar/followers"
     >
       <span
         className="pro_hg"
@@ -144,10 +141,9 @@ exports[`Banner Component should match snapshot 1`] = `
       >
         Followers
       </span>
-    </a>
-    <a
-      href="/profile/takkar/followings"
-      onClick={[Function]}
+    </Link>
+    <Link
+      to="/profile/takkar/followings"
     >
       <span
         className="pro_hg"
@@ -159,10 +155,9 @@ exports[`Banner Component should match snapshot 1`] = `
       >
         Followings
       </span>
-    </a>
-    <a
-      href="/profile/takkar/recommendations"
-      onClick={[Function]}
+    </Link>
+    <Link
+      to="/profile/takkar/recommendations"
     >
       <span
         className="pro_hg"
@@ -174,7 +169,7 @@ exports[`Banner Component should match snapshot 1`] = `
       >
         Recommendations
       </span>
-    </a>
+    </Link>
     <div
       className="pro_post stat_disabled"
     >

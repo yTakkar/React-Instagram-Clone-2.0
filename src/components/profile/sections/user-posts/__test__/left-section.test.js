@@ -4,7 +4,6 @@ import { create } from 'react-test-renderer'
 import { Provider } from 'react-redux'
 import mockStore from '../../../../../store/__mocks__/mockStore'
 import UserPostsLeftSection from '../left-section'
-import { BrowserRouter as Router } from 'react-router-dom'
 import User from '../../../../../store/__mocks__/reducers/User'
 
 describe('UserPostsLeftSection Component', () => {
@@ -12,11 +11,9 @@ describe('UserPostsLeftSection Component', () => {
 
   const comp = (username='takkar') => (
     <Provider store={mockStore}>
-      <Router>
-        <UserPostsLeftSection
-          username={username}
-        />
-      </Router>
+      <UserPostsLeftSection
+        username={username}
+      />
     </Provider>
   )
 

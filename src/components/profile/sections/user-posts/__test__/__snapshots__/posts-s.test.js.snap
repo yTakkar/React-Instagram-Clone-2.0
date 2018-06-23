@@ -36,16 +36,15 @@ exports[`Posts Component should match snapshot 1`] = `
                   className="fas fa-sync-alt"
                 />
               </a>
-              <a
+              <Link
                 className="recomm_all"
                 data-tip="view all"
-                href="/explore"
-                onClick={[Function]}
+                to="/explore"
               >
                 <i
                   className="fas fa-chevron-right"
                 />
-              </a>
+              </Link>
             </div>
             <div
               className="recomm_main"
@@ -75,13 +74,12 @@ exports[`Posts Component should match snapshot 1`] = `
                   <div
                     className="recomms_cont"
                   >
-                    <a
+                    <Link
                       className="recomms_username"
-                      href="/profile/ghalib"
-                      onClick={[Function]}
+                      to="/profile/ghalib"
                     >
                       ghalib
-                    </a>
+                    </Link>
                     <span>
                       1 mutual follower
                     </span>
@@ -108,13 +106,12 @@ exports[`Posts Component should match snapshot 1`] = `
                   <div
                     className="recomms_cont"
                   >
-                    <a
+                    <Link
                       className="recomms_username"
-                      href="/profile/coldplay"
-                      onClick={[Function]}
+                      to="/profile/coldplay"
                     >
                       coldplay
-                    </a>
+                    </Link>
                     <span>
                       cold play
                     </span>
@@ -155,27 +152,24 @@ exports[`Posts Component should match snapshot 1`] = `
             <div
               className="recomm_main"
             >
-              <a
+              <Link
                 className="uh_link"
-                href="/hashtag/travel"
-                onClick={[Function]}
+                to="/hashtag/travel"
               >
                 #travel
-              </a>
-              <a
+              </Link>
+              <Link
                 className="uh_link"
-                href="/hashtag/cool"
-                onClick={[Function]}
+                to="/hashtag/cool"
               >
                 #cool
-              </a>
-              <a
+              </Link>
+              <Link
                 className="uh_link"
-                href="/hashtag/hmm"
-                onClick={[Function]}
+                to="/hashtag/hmm"
               >
                 #hmm
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -213,13 +207,12 @@ exports[`Posts Component should match snapshot 1`] = `
                     }
                   }
                 >
-                  <a
-                    href="/profile/takkar"
-                    onClick={[Function]}
+                  <Link
                     title="takkar"
+                    to="/profile/takkar"
                   >
                     takkar
-                  </a>
+                  </Link>
                   <span
                     className="p_i_1_title"
                     title="A-301, 90 Feet Road, Dharavi, Mumbai, Maharashtra 400017, India"
@@ -275,41 +268,36 @@ exports[`Posts Component should match snapshot 1`] = `
                     <p>
                       <span>
                         he 
-                        <a
+                        <Link
                           className="hashtag"
-                          href="/profile/nobita"
-                          onClick={[Function]}
+                          to="/profile/nobita"
                         >
                           @nobita, 
-                        </a>
-                        <a
+                        </Link>
+                        <Link
                           className="hashtag"
-                          href="/profile/doraemon"
-                          onClick={[Function]}
+                          to="/profile/doraemon"
                         >
                           @doraemon 
-                        </a>
-                        <a
+                        </Link>
+                        <Link
                           className="hashtag"
-                          href="/hashtag/checkout"
-                          onClick={[Function]}
+                          to="/hashtag/checkout"
                         >
                           #checkout, 
-                        </a>
-                        <a
+                        </Link>
+                        <Link
                           className="hashtag"
-                          href="/hashtag/dd"
-                          onClick={[Function]}
+                          to="/hashtag/dd"
                         >
                           #dd 
-                        </a>
-                        <a
+                        </Link>
+                        <Link
                           className="hashtag"
-                          href="/hashtag/fgf"
-                          onClick={[Function]}
+                          to="/hashtag/fgf"
                         >
                           #fgf 
-                        </a>
+                        </Link>
                       </span>
                     </p>
                   </div>
@@ -418,13 +406,12 @@ exports[`Posts Component should match snapshot 1`] = `
             </div>
             <hr />
             <div>
-              <a
+              <Link
                 className="p_comments"
-                href="/post/89"
-                onClick={[Function]}
+                to="/post/89"
               >
                 2 comments
-              </a>
+              </Link>
               <div
                 className="p_cit"
               >
@@ -524,13 +511,12 @@ exports[`Posts Component should match snapshot 1`] = `
                     }
                   }
                 >
-                  <a
-                    href="/profile/takkar"
-                    onClick={[Function]}
+                  <Link
                     title="takkar"
+                    to="/profile/takkar"
                   >
                     takkar
-                  </a>
+                  </Link>
                   <span
                     className="p_i_1_title"
                     title={null}
@@ -586,27 +572,24 @@ exports[`Posts Component should match snapshot 1`] = `
                     <p>
                       <span>
                         Hello 
-                        <a
+                        <Link
                           className="hashtag"
-                          href="/profile/ghalib"
-                          onClick={[Function]}
+                          to="/profile/ghalib"
                         >
                           @ghalib 
-                        </a>
-                        <a
+                        </Link>
+                        <Link
                           className="hashtag"
-                          href="/profile/takkar"
-                          onClick={[Function]}
+                          to="/profile/takkar"
                         >
                           @takkar 
-                        </a>
-                        <a
+                        </Link>
+                        <Link
                           className="hashtag"
-                          href="/hashtag/checkout"
-                          onClick={[Function]}
+                          to="/hashtag/checkout"
                         >
                           #checkout 
-                        </a>
+                        </Link>
                       </span>
                     </p>
                   </div>
@@ -695,13 +678,12 @@ exports[`Posts Component should match snapshot 1`] = `
             </div>
             <hr />
             <div>
-              <a
+              <Link
                 className="p_comments"
-                href="/post/88"
-                onClick={[Function]}
+                to="/post/88"
               >
                 3 comments
-              </a>
+              </Link>
               <div
                 className="p_cit"
               >
@@ -821,30 +803,28 @@ exports[`Posts Component should match snapshot when profile is not mine 1`] = `
                 1 follower
                  you might know
               </span>
-              <a
+              <Link
                 className="view_all_yk"
                 data-tip="view all"
-                href="/profile/ghalib/people-you-know"
-                onClick={[Function]}
+                to="/profile/ghalib/people-you-know"
               >
                 <i
                   className="fas fa-chevron-right"
                 />
-              </a>
+              </Link>
             </div>
             <div
               className="mutual_main"
             >
-              <a
+              <Link
                 className="mutual_links"
                 data-tip="nobita"
-                href="/profile/nobita"
-                onClick={[Function]}
+                to="/profile/nobita"
               >
                 <img
                   src="/users/11/avatar.jpg"
                 />
-              </a>
+              </Link>
             </div>
             <div
               className="__react_component_tooltip place-top type-dark "
@@ -874,16 +854,15 @@ exports[`Posts Component should match snapshot when profile is not mine 1`] = `
                   className="fas fa-sync-alt"
                 />
               </a>
-              <a
+              <Link
                 className="recomm_all"
                 data-tip="view all"
-                href="/explore"
-                onClick={[Function]}
+                to="/explore"
               >
                 <i
                   className="fas fa-chevron-right"
                 />
-              </a>
+              </Link>
             </div>
             <div
               className="recomm_main"
@@ -913,13 +892,12 @@ exports[`Posts Component should match snapshot when profile is not mine 1`] = `
                   <div
                     className="recomms_cont"
                   >
-                    <a
+                    <Link
                       className="recomms_username"
-                      href="/profile/ghalib"
-                      onClick={[Function]}
+                      to="/profile/ghalib"
                     >
                       ghalib
-                    </a>
+                    </Link>
                     <span>
                       1 mutual follower
                     </span>
@@ -946,13 +924,12 @@ exports[`Posts Component should match snapshot when profile is not mine 1`] = `
                   <div
                     className="recomms_cont"
                   >
-                    <a
+                    <Link
                       className="recomms_username"
-                      href="/profile/coldplay"
-                      onClick={[Function]}
+                      to="/profile/coldplay"
                     >
                       coldplay
-                    </a>
+                    </Link>
                     <span>
                       cold play
                     </span>
@@ -993,27 +970,24 @@ exports[`Posts Component should match snapshot when profile is not mine 1`] = `
             <div
               className="recomm_main"
             >
-              <a
+              <Link
                 className="uh_link"
-                href="/hashtag/travel"
-                onClick={[Function]}
+                to="/hashtag/travel"
               >
                 #travel
-              </a>
-              <a
+              </Link>
+              <Link
                 className="uh_link"
-                href="/hashtag/cool"
-                onClick={[Function]}
+                to="/hashtag/cool"
               >
                 #cool
-              </a>
-              <a
+              </Link>
+              <Link
                 className="uh_link"
-                href="/hashtag/hmm"
-                onClick={[Function]}
+                to="/hashtag/hmm"
               >
                 #hmm
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -1107,13 +1081,12 @@ exports[`Posts Component should match snapshot when profile is not mine 1`] = `
                     }
                   }
                 >
-                  <a
-                    href="/profile/takkar"
-                    onClick={[Function]}
+                  <Link
                     title="takkar"
+                    to="/profile/takkar"
                   >
                     takkar
-                  </a>
+                  </Link>
                   <span
                     className="p_i_1_title"
                     title="A-301, 90 Feet Road, Dharavi, Mumbai, Maharashtra 400017, India"
@@ -1169,41 +1142,36 @@ exports[`Posts Component should match snapshot when profile is not mine 1`] = `
                     <p>
                       <span>
                         he 
-                        <a
+                        <Link
                           className="hashtag"
-                          href="/profile/nobita"
-                          onClick={[Function]}
+                          to="/profile/nobita"
                         >
                           @nobita, 
-                        </a>
-                        <a
+                        </Link>
+                        <Link
                           className="hashtag"
-                          href="/profile/doraemon"
-                          onClick={[Function]}
+                          to="/profile/doraemon"
                         >
                           @doraemon 
-                        </a>
-                        <a
+                        </Link>
+                        <Link
                           className="hashtag"
-                          href="/hashtag/checkout"
-                          onClick={[Function]}
+                          to="/hashtag/checkout"
                         >
                           #checkout, 
-                        </a>
-                        <a
+                        </Link>
+                        <Link
                           className="hashtag"
-                          href="/hashtag/dd"
-                          onClick={[Function]}
+                          to="/hashtag/dd"
                         >
                           #dd 
-                        </a>
-                        <a
+                        </Link>
+                        <Link
                           className="hashtag"
-                          href="/hashtag/fgf"
-                          onClick={[Function]}
+                          to="/hashtag/fgf"
                         >
                           #fgf 
-                        </a>
+                        </Link>
                       </span>
                     </p>
                   </div>
@@ -1312,13 +1280,12 @@ exports[`Posts Component should match snapshot when profile is not mine 1`] = `
             </div>
             <hr />
             <div>
-              <a
+              <Link
                 className="p_comments"
-                href="/post/89"
-                onClick={[Function]}
+                to="/post/89"
               >
                 2 comments
-              </a>
+              </Link>
               <div
                 className="p_cit"
               >
@@ -1418,13 +1385,12 @@ exports[`Posts Component should match snapshot when profile is not mine 1`] = `
                     }
                   }
                 >
-                  <a
-                    href="/profile/takkar"
-                    onClick={[Function]}
+                  <Link
                     title="takkar"
+                    to="/profile/takkar"
                   >
                     takkar
-                  </a>
+                  </Link>
                   <span
                     className="p_i_1_title"
                     title={null}
@@ -1480,27 +1446,24 @@ exports[`Posts Component should match snapshot when profile is not mine 1`] = `
                     <p>
                       <span>
                         Hello 
-                        <a
+                        <Link
                           className="hashtag"
-                          href="/profile/ghalib"
-                          onClick={[Function]}
+                          to="/profile/ghalib"
                         >
                           @ghalib 
-                        </a>
-                        <a
+                        </Link>
+                        <Link
                           className="hashtag"
-                          href="/profile/takkar"
-                          onClick={[Function]}
+                          to="/profile/takkar"
                         >
                           @takkar 
-                        </a>
-                        <a
+                        </Link>
+                        <Link
                           className="hashtag"
-                          href="/hashtag/checkout"
-                          onClick={[Function]}
+                          to="/hashtag/checkout"
                         >
                           #checkout 
-                        </a>
+                        </Link>
                       </span>
                     </p>
                   </div>
@@ -1589,13 +1552,12 @@ exports[`Posts Component should match snapshot when profile is not mine 1`] = `
             </div>
             <hr />
             <div>
-              <a
+              <Link
                 className="p_comments"
-                href="/post/88"
-                onClick={[Function]}
+                to="/post/88"
               >
                 3 comments
-              </a>
+              </Link>
               <div
                 className="p_cit"
               >

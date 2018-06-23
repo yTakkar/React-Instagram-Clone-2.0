@@ -9,18 +9,17 @@ exports[`ImageTheatre Component should match snapshot with complete details 1`] 
   >
     by takkar (4 months)
   </span>
-  <a
+  <Link
     className="img_s_window"
     data-tip="Open separately"
-    href="/"
-    onClick={[Function]}
+    to="/"
   >
     <i
       className="material-icons"
     >
       open_in_new
     </i>
-  </a>
+  </Link>
 </div>
 `;
 

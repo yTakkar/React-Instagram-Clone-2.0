@@ -3,10 +3,12 @@ import MockDataElement from '../../../utils/__mocks__/mock-dataElement'
 import { create } from 'react-test-renderer'
 import { Provider } from 'react-redux'
 import mockStore from '../../../store/__mocks__/mockStore'
-import { BrowserRouter as Router } from 'react-router-dom'
 import Group, { PureGroup } from '../group'
 import { shallow } from 'enzyme'
 import GroupMockData from '../../../store/__mocks__/reducers/Group'
+import { MemoryRouter } from 'react-router-dom'
+
+jest.unmock('react-router-dom')
 
 describe('Group Component', () => {
   MockDataElement()
@@ -20,11 +22,11 @@ describe('Group Component', () => {
 
   it('should match snapshot', () => {
     const tree = create(
-      <Provider store={mockStore}>
-        <Router>
+      <MemoryRouter>
+        <Provider store={mockStore}>
           <Group {...props} />
-        </Router>
-      </Provider>
+        </Provider>
+      </MemoryRouter>
     ).toJSON()
     expect(tree).toMatchSnapshot()
   })

@@ -7,15 +7,14 @@ exports[`Header component should match snapshot 1`] = `
   <div
     className="logo"
   >
-    <a
-      href="/"
-      onClick={[Function]}
+    <Link
+      to="/"
     >
       <img
         alt="Instagram"
         src="/images/instagram.jpg"
       />
-    </a>
+    </Link>
   </div>
   <div>
     <div
@@ -45,11 +44,10 @@ exports[`Header component should match snapshot 1`] = `
   <div
     className="header_right"
   >
-    <a
-      aria-current={false}
+    <NavLink
+      activeClassName="ha_active"
       className="notification"
-      href="/notifications"
-      onClick={[Function]}
+      to="/notifications"
     >
       <span
         className="notification_span nav_icon"
@@ -65,12 +63,11 @@ exports[`Header component should match snapshot 1`] = `
       >
         Notifications
       </span>
-    </a>
-    <a
-      aria-current={false}
+    </NavLink>
+    <NavLink
+      activeClassName="ha_active"
       className="sp"
-      href="/profile/null"
-      onClick={[Function]}
+      to="/profile/null"
     >
       <img
         alt="avatar"
@@ -80,7 +77,7 @@ exports[`Header component should match snapshot 1`] = `
       <span
         className="sp_span"
       />
-    </a>
+    </NavLink>
     <span
       className="show_more"
       onClick={[Function]}

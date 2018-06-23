@@ -3,17 +3,14 @@ import { create } from 'react-test-renderer'
 import { Provider } from 'react-redux'
 import mockStore from '../../../../../store/__mocks__/mockStore'
 import BannerStat from '../stat.js'
-import { BrowserRouter as Router } from 'react-router-dom'
 
 describe('BannerStat Component', () => {
 
   const comp = (props={}) => (
     <Provider store={mockStore}>
-      <Router>
-        <BannerStat
-          {...props}
-        />
-      </Router>
+      <BannerStat
+        {...props}
+      />
     </Provider>
   )
 

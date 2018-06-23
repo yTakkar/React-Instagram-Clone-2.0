@@ -1,6 +1,5 @@
 import React from 'react'
 import { create } from 'react-test-renderer'
-import { BrowserRouter as Router } from 'react-router-dom'
 import ImageTheatreInfo from '../info'
 
 describe('ImageTheatre Component', () => {
@@ -16,16 +15,13 @@ describe('ImageTheatre Component', () => {
 
   it('should match snapshot with complete details', () => {
     const tree = create(
-      <Router>
-        <ImageTheatreInfo
-          showInfo
-          username='takkar'
-          link='/'
-          time='1518972814710'
-        />
-      </Router>
+      <ImageTheatreInfo
+        showInfo
+        username='takkar'
+        link='/'
+        time='1518972814710'
+      />
     ).toJSON()
-
     expect(tree).toMatchSnapshot()
   })
 

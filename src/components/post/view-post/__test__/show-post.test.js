@@ -3,15 +3,12 @@ import { create } from 'react-test-renderer'
 import { Provider } from 'react-redux'
 import mockStore from '../../../../store/__mocks__/mockStore'
 import ShowPost from '../show-post'
-import { BrowserRouter as Router } from 'react-router-dom'
 import Post from '../../../../store/__mocks__/reducers/Post'
 
 describe('ShowPost Component', () => {
   const comp = (
     <Provider store={mockStore}>
-      <Router>
-        <ShowPost/>
-      </Router>
+      <ShowPost/>
     </Provider>
   )
 

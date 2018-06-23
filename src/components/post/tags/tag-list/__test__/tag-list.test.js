@@ -1,7 +1,6 @@
 import React from 'react'
 import { create } from 'react-test-renderer'
 import { Provider } from 'react-redux'
-import { BrowserRouter as Router } from 'react-router-dom'
 import TagItems from '../tag-list'
 import Post from '../../../../../store/__mocks__/reducers/Post'
 import MockDataElement from '../../../../../utils/__mocks__/mock-dataElement'
@@ -20,13 +19,11 @@ describe('TagItems Component', () => {
 
   const comp = (extraProps={}) => (
     <Provider store={mockStore}>
-      <Router>
-        <TagItems
-          {...Post.tags[0]}
-          decrementTags={jest.fn()}
-          {...extraProps}
-        />
-      </Router>
+      <TagItems
+        {...Post.tags[0]}
+        decrementTags={jest.fn()}
+        {...extraProps}
+      />
     </Provider>
   )
 

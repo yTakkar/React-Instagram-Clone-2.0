@@ -40,13 +40,12 @@ Array [
                 }
               }
             >
-              <a
-                href="/profile/takkar"
-                onClick={[Function]}
+              <Link
                 title="takkar"
+                to="/profile/takkar"
               >
                 takkar
-              </a>
+              </Link>
               <span
                 className="p_i_1_title"
                 title="A-301, 90 Feet Road, Dharavi, Mumbai, Maharashtra 400017, India"
@@ -102,41 +101,36 @@ Array [
                 <p>
                   <span>
                     he 
-                    <a
+                    <Link
                       className="hashtag"
-                      href="/profile/nobita"
-                      onClick={[Function]}
+                      to="/profile/nobita"
                     >
                       @nobita, 
-                    </a>
-                    <a
+                    </Link>
+                    <Link
                       className="hashtag"
-                      href="/profile/doraemon"
-                      onClick={[Function]}
+                      to="/profile/doraemon"
                     >
                       @doraemon 
-                    </a>
-                    <a
+                    </Link>
+                    <Link
                       className="hashtag"
-                      href="/hashtag/checkout"
-                      onClick={[Function]}
+                      to="/hashtag/checkout"
                     >
                       #checkout, 
-                    </a>
-                    <a
+                    </Link>
+                    <Link
                       className="hashtag"
-                      href="/hashtag/dd"
-                      onClick={[Function]}
+                      to="/hashtag/dd"
                     >
                       #dd 
-                    </a>
-                    <a
+                    </Link>
+                    <Link
                       className="hashtag"
-                      href="/hashtag/fgf"
-                      onClick={[Function]}
+                      to="/hashtag/fgf"
                     >
                       #fgf 
-                    </a>
+                    </Link>
                   </span>
                 </p>
               </div>
@@ -245,13 +239,12 @@ Array [
         </div>
         <hr />
         <div>
-          <a
+          <Link
             className="p_comments"
-            href="/post/89"
-            onClick={[Function]}
+            to="/post/89"
           >
             2 comments
-          </a>
+          </Link>
           <div
             className="p_cit"
           >
@@ -351,13 +344,12 @@ Array [
                 }
               }
             >
-              <a
-                href="/profile/takkar"
-                onClick={[Function]}
+              <Link
                 title="takkar"
+                to="/profile/takkar"
               >
                 takkar
-              </a>
+              </Link>
               <span
                 className="p_i_1_title"
                 title={null}
@@ -413,27 +405,24 @@ Array [
                 <p>
                   <span>
                     Hello 
-                    <a
+                    <Link
                       className="hashtag"
-                      href="/profile/ghalib"
-                      onClick={[Function]}
+                      to="/profile/ghalib"
                     >
                       @ghalib 
-                    </a>
-                    <a
+                    </Link>
+                    <Link
                       className="hashtag"
-                      href="/profile/takkar"
-                      onClick={[Function]}
+                      to="/profile/takkar"
                     >
                       @takkar 
-                    </a>
-                    <a
+                    </Link>
+                    <Link
                       className="hashtag"
-                      href="/hashtag/checkout"
-                      onClick={[Function]}
+                      to="/hashtag/checkout"
                     >
                       #checkout 
-                    </a>
+                    </Link>
                   </span>
                 </p>
               </div>
@@ -522,13 +511,12 @@ Array [
         </div>
         <hr />
         <div>
-          <a
+          <Link
             className="p_comments"
-            href="/post/88"
-            onClick={[Function]}
+            to="/post/88"
           >
             3 comments
-          </a>
+          </Link>
           <div
             className="p_cit"
           >

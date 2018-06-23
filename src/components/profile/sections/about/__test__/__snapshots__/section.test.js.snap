@@ -39,11 +39,10 @@ exports[`AboutSection Component should match snapshot with null 1`] = `
   >
     Firstname
   </span>
-  <a
-    href="/edit-profile"
-    onClick={[Function]}
+  <Link
+    to="/edit-profile"
   >
     Add Firstname account
-  </a>
+  </Link>
 </div>
 `;

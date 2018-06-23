@@ -40,12 +40,11 @@ exports[`Favourites Component should match snapshot 1`] = `
               <div
                 className="m_top_right"
               >
-                <a
-                  href="/profile/kinkade"
-                  onClick={[Function]}
+                <Link
+                  to="/profile/kinkade"
                 >
                   kinkade
-                </a>
+                </Link>
                 <span>
                   Thomas
                    

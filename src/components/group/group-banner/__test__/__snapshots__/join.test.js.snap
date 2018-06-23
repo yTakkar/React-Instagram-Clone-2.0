@@ -4,13 +4,12 @@ exports[`JoinGroup Component should match snapshot 1`] = `
 <div
   className="pro_ff"
 >
-  <a
+  <Link
     className="pri_btn ff"
-    href="/edit-group"
-    onClick={[Function]}
+    to="/edit-group"
   >
     Edit group
-  </a>
+  </Link>
 </div>
 `;
 

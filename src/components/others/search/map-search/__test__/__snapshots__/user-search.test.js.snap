@@ -5,10 +5,9 @@ exports[`User-Search Component should match snapshot 1`] = `
   className="s_d_peo"
   onClick={[Function]}
 >
-  <a
+  <Link
     className="s_d_p"
-    href="/profile/ghalib"
-    onClick={[Function]}
+    to="/profile/ghalib"
   >
     <img
       src="/users/7/avatar.jpg"
@@ -25,7 +24,7 @@ exports[`User-Search Component should match snapshot 1`] = `
         Mirza Ghalib
       </span>
     </div>
-  </a>
+  </Link>
 </div>
 `;
 
@@ -34,10 +33,9 @@ exports[`User-Search Component should match snapshot with mutual followers also 
   className="s_d_peo"
   onClick={[Function]}
 >
-  <a
+  <Link
     className="s_d_p"
-    href="/profile/ghalib"
-    onClick={[Function]}
+    to="/profile/ghalib"
   >
     <img
       src="/users/7/avatar.jpg"
@@ -54,6 +52,6 @@ exports[`User-Search Component should match snapshot with mutual followers also 
         3 mutual followers
       </span>
     </div>
-  </a>
+  </Link>
 </div>
 `;

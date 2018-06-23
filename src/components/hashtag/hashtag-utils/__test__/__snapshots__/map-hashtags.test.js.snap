@@ -4,26 +4,23 @@ exports[`MapHashtags Component should match snapshot 1`] = `
 <div
   className="recomm_main"
 >
-  <a
+  <Link
     className="uh_link"
-    href="/hashtag/travel"
-    onClick={[Function]}
+    to="/hashtag/travel"
   >
     #travel
-  </a>
-  <a
+  </Link>
+  <Link
     className="uh_link"
-    href="/hashtag/cool"
-    onClick={[Function]}
+    to="/hashtag/cool"
   >
     #cool
-  </a>
-  <a
+  </Link>
+  <Link
     className="uh_link"
-    href="/hashtag/hmm"
-    onClick={[Function]}
+    to="/hashtag/hmm"
   >
     #hmm
-  </a>
+  </Link>
 </div>
 `;

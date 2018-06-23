@@ -30,20 +30,18 @@ exports[`Error Component should match snapshot with no param 1`] = `
       <div
         className="error_bottom"
       >
-        <a
+        <Link
           className="sec_btn error_home"
-          href="/profile/takkar"
-          onClick={[Function]}
+          to="/profile/takkar"
         >
           View profile
-        </a>
-        <a
+        </Link>
+        <Link
           className="pri_btn error_login"
-          href="/"
-          onClick={[Function]}
+          to="/"
         >
           Try going to homepage
-        </a>
+        </Link>
       </div>
     </div>
   </div>
@@ -80,20 +78,18 @@ exports[`Error Component should match snapshot with no-post error 1`] = `
       <div
         className="error_bottom"
       >
-        <a
+        <Link
           className="sec_btn error_home"
-          href="/profile/takkar"
-          onClick={[Function]}
+          to="/profile/takkar"
         >
           View profile
-        </a>
-        <a
+        </Link>
+        <Link
           className="pri_btn error_login"
-          href="/"
-          onClick={[Function]}
+          to="/"
         >
           Try going to homepage
-        </a>
+        </Link>
       </div>
     </div>
   </div>
@@ -130,20 +126,18 @@ exports[`Error Component should match snapshot with no-user error 1`] = `
       <div
         className="error_bottom"
       >
-        <a
+        <Link
           className="sec_btn error_home"
-          href="/profile/takkar"
-          onClick={[Function]}
+          to="/profile/takkar"
         >
           View profile
-        </a>
-        <a
+        </Link>
+        <Link
           className="pri_btn error_login"
-          href="/"
-          onClick={[Function]}
+          to="/"
         >
           Try going to homepage
-        </a>
+        </Link>
       </div>
     </div>
   </div>

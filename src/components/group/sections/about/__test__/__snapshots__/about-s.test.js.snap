@@ -31,20 +31,18 @@ exports[`AboutGroup Component should match snapshot 1`] = `
               <span>
                 Update or edit group to make it look more attractive
               </span>
-              <a
+              <Link
                 className="sec_btn"
-                href="/"
-                onClick={[Function]}
+                to="/"
               >
                 Update group
-              </a>
-              <a
+              </Link>
+              <Link
                 className="pri_btn"
-                href="/edit-profile"
-                onClick={[Function]}
+                to="/edit-profile"
               >
                 Edit group
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -62,16 +60,15 @@ exports[`AboutGroup Component should match snapshot 1`] = `
               }
             }
           >
-            <a
-              href="/group/11/edit"
-              onClick={[Function]}
+            <Link
+              to="/group/11/edit"
             >
               <i
                 className="material-icons"
               >
                 mode_edit
               </i>
-            </a>
+            </Link>
             <div
               className="__react_component_tooltip place-top type-dark "
               data-id="tooltip"
@@ -133,13 +130,12 @@ exports[`AboutGroup Component should match snapshot 1`] = `
             >
               Group created by
             </span>
-            <a
+            <Link
               className="a_info"
-              href="/profile/takkar"
-              onClick={[Function]}
+              to="/profile/takkar"
             >
               takkar
-            </a>
+            </Link>
           </div>
           <div>
             <span

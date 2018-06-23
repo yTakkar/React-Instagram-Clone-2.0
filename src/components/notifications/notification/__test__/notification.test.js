@@ -1,6 +1,5 @@
 import React from 'react'
 import { create } from 'react-test-renderer'
-import { BrowserRouter as Router } from 'react-router-dom'
 import Notification from '../notification'
 import { Provider } from 'react-redux'
 import mockStore from '../../../../store/__mocks__/mockStore'
@@ -21,12 +20,10 @@ describe('Notification Component', () => {
 
   const comp = (extraProps={}) => (
     <Provider store={mockStore} >
-      <Router>
-        <Notification
-          {...props}
-          {...extraProps}
-        />
-      </Router>
+      <Notification
+        {...props}
+        {...extraProps}
+      />
     </Provider>
   )
 

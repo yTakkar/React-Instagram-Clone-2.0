@@ -47,12 +47,11 @@ exports[`Followings Component should match snapshot 1`] = `
               <div
                 className="m_top_right"
               >
-                <a
-                  href="/profile/steve_jobs"
-                  onClick={[Function]}
+                <Link
+                  to="/profile/steve_jobs"
                 >
                   steve_jobs
-                </a>
+                </Link>
                 <span>
                   steve
                    
@@ -86,12 +85,11 @@ exports[`Followings Component should match snapshot 1`] = `
               <div
                 className="m_top_right"
               >
-                <a
-                  href="/profile/ghalib"
-                  onClick={[Function]}
+                <Link
+                  to="/profile/ghalib"
                 >
                   ghalib
-                </a>
+                </Link>
                 <span>
                   Mirza
                    

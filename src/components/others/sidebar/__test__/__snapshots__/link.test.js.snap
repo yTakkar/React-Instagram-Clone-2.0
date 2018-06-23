@@ -4,12 +4,11 @@ exports[`SideBarLink Component should match snapshot & display + if number > 9 1
 <li
   className="m_n_li"
 >
-  <a
-    aria-current="true"
-    className="m_n_a sidebar_active"
-    href="/"
-    onClick={[Function]}
-    style={Object {}}
+  <NavLink
+    activeClassName="sidebar_active"
+    className="m_n_a"
+    exact={true}
+    to="/"
   >
     <span
       className="m_n_text"
@@ -21,7 +20,7 @@ exports[`SideBarLink Component should match snapshot & display + if number > 9 1
     >
       +
     </span>
-  </a>
+  </NavLink>
 </li>
 `;
 
@@ -29,12 +28,11 @@ exports[`SideBarLink Component should match snapshot & show number (eg. unread n
 <li
   className="m_n_li"
 >
-  <a
-    aria-current="true"
-    className="m_n_a sidebar_active"
-    href="/"
-    onClick={[Function]}
-    style={Object {}}
+  <NavLink
+    activeClassName="sidebar_active"
+    className="m_n_a"
+    exact={true}
+    to="/"
   >
     <span
       className="m_n_text"
@@ -46,7 +44,7 @@ exports[`SideBarLink Component should match snapshot & show number (eg. unread n
     >
       4
     </span>
-  </a>
+  </NavLink>
 </li>
 `;
 
@@ -54,18 +52,17 @@ exports[`SideBarLink Component should match snapshot 1`] = `
 <li
   className="m_n_li"
 >
-  <a
-    aria-current="true"
-    className="m_n_a sidebar_active"
-    href="/"
-    onClick={[Function]}
-    style={Object {}}
+  <NavLink
+    activeClassName="sidebar_active"
+    className="m_n_a"
+    exact={true}
+    to="/"
   >
     <span
       className="m_n_text"
     >
       A label
     </span>
-  </a>
+  </NavLink>
 </li>
 `;

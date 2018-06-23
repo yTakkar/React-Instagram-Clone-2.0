@@ -5,11 +5,10 @@ exports[`RecommendBy Component should match snapshot 1`] = `
   className="recommend_by"
 >
   by
-  <a
-    href="/profile/ghalib"
-    onClick={[Function]}
+  <Link
+    to="/profile/ghalib"
   >
      ghalib
-  </a>
+  </Link>
 </span>
 `;

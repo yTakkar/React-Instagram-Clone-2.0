@@ -7,13 +7,12 @@ exports[`GroupInfo Component should match snapshot 1`] = `
   <div
     className="pro_username"
   >
-    <a
+    <Link
       className="username"
-      href="/group/11"
-      onClick={[Function]}
+      to="/group/11"
     >
       a groupss
-    </a>
+    </Link>
   </div>
   <div
     className="pro_name"
@@ -35,13 +34,12 @@ exports[`GroupInfo Component should match snapshot when group_type == private 1`
   <div
     className="pro_username"
   >
-    <a
+    <Link
       className="username"
-      href="/group/11"
-      onClick={[Function]}
+      to="/group/11"
     >
       a groupss
-    </a>
+    </Link>
   </div>
   <div
     className="pro_name"

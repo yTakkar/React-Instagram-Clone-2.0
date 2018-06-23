@@ -1,11 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`NotificationTypePost Component should match snapshot 1`] = `
-<a
+<Link
   className="pri_btn"
-  href="/post/23"
-  onClick={[Function]}
+  to="/post/23"
 >
   Open post
-</a>
+</Link>
 `;

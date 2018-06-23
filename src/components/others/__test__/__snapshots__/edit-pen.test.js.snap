@@ -10,16 +10,15 @@ exports[`EditPen Component should match snapshot 1`] = `
     }
   }
 >
-  <a
-    href="/edit-profile"
-    onClick={[Function]}
+  <Link
+    to="/edit-profile"
   >
     <i
       className="material-icons"
     >
       mode_edit
     </i>
-  </a>
+  </Link>
   <div
     className="__react_component_tooltip place-top type-dark "
     data-id="tooltip"

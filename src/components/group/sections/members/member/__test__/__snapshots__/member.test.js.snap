@@ -15,12 +15,11 @@ exports[`MembersList Component should match snapshot with <RemoveMember/> 1`] = 
     <div
       className="m_top_right"
     >
-      <a
-        href="/profile/ghalib"
-        onClick={[Function]}
+      <Link
+        to="/profile/ghalib"
       >
         ghalib
-      </a>
+      </Link>
       <span>
         1 mutual follower
       </span>
@@ -34,12 +33,11 @@ exports[`MembersList Component should match snapshot with <RemoveMember/> 1`] = 
     >
       <div>
         by 
-        <a
-          href="/profile/takkar"
-          onClick={[Function]}
+        <Link
+          to="/profile/takkar"
         >
           You
-        </a>
+        </Link>
       </div>
     </span>
     <a
@@ -68,12 +66,11 @@ exports[`MembersList Component should match snapshot with profile link 1`] = `
     <div
       className="m_top_right"
     >
-      <a
-        href="/profile/takkar"
-        onClick={[Function]}
+      <Link
+        to="/profile/takkar"
       >
         takkar
-      </a>
+      </Link>
       <span
         className="grp_admin"
       >
@@ -90,13 +87,12 @@ exports[`MembersList Component should match snapshot with profile link 1`] = `
     <span
       className="recommend_by"
     />
-    <a
+    <Link
       className="sec_btn"
-      href="/profile/takkar"
-      onClick={[Function]}
+      to="/profile/takkar"
     >
       Profile
-    </a>
+    </Link>
   </div>
 </div>
 `;

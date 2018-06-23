@@ -12,13 +12,12 @@ exports[`ConversationTop Component should match snapshot 1`] = `
     <div
       className="m_m_t_c"
     >
-      <a
+      <Link
         className="con_name"
-        href="/profile/selena"
-        onClick={[Function]}
+        to="/profile/selena"
       >
         selena
-      </a>
+      </Link>
       <span
         className="m_m_t_useless"
       >

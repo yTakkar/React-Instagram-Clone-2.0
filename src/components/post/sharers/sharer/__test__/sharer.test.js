@@ -2,7 +2,6 @@ import React from 'react'
 import { create } from 'react-test-renderer'
 import { Provider } from 'react-redux'
 import mockStore from '../../../../../store/__mocks__/mockStore'
-import { BrowserRouter as Router } from 'react-router-dom'
 import Sharer from '../sharer'
 import Post from '../../../../../store/__mocks__/reducers/Post'
 import MockDataElement from '../../../../../utils/__mocks__/mock-dataElement'
@@ -20,13 +19,11 @@ describe('Sharer Component', () => {
 
   const comp = (extraProps={}) => (
     <Provider store={mockStore}>
-      <Router>
-        <Sharer
-          {...Post.sharers[0]}
-          decrementSharers={jest.fn()}
-          {...extraProps}
-        />
-      </Router>
+      <Sharer
+        {...Post.sharers[0]}
+        decrementSharers={jest.fn()}
+        {...extraProps}
+      />
     </Provider>
   )
 

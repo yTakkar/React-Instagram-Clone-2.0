@@ -1,15 +1,12 @@
 import React from 'react'
 import SideBar from '../sidebar'
 import { create } from 'react-test-renderer'
-import { BrowserRouter as Router } from 'react-router-dom'
 import { mount } from 'enzyme'
 import MockDataElement from '../../../../utils/__mocks__/mock-dataElement'
 
 describe('SideBar Component', () => {
   const comp = (
-    <Router>
-      <SideBar uc={0} un={4} />
-    </Router>
+    <SideBar uc={0} un={4} />
   )
   let dataElement
 

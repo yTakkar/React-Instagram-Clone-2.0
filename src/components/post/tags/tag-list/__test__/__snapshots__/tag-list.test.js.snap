@@ -17,13 +17,12 @@ exports[`TagItems Component should match snapshot and show <AdvancedFollow/> 1`]
     <div
       className="modal_it_info"
     >
-      <a
+      <Link
         className="modal_it_username"
-        href="/profile/zayn"
-        onClick={[Function]}
+        to="/profile/zayn"
       >
         zayn
-      </a>
+      </Link>
       <span
         className="modal_it_light"
       >
@@ -63,13 +62,12 @@ exports[`TagItems Component should match snapshot and show <AdvancedUnfollow/> 1
     <div
       className="modal_it_info"
     >
-      <a
+      <Link
         className="modal_it_username"
-        href="/profile/zayn"
-        onClick={[Function]}
+        to="/profile/zayn"
       >
         zayn
-      </a>
+      </Link>
       <span
         className="modal_it_light"
       >
@@ -109,13 +107,12 @@ exports[`TagItems Component should match snapshot and show <Untag/> 1`] = `
     <div
       className="modal_it_info"
     >
-      <a
+      <Link
         className="modal_it_username"
-        href="/profile/zayn"
-        onClick={[Function]}
+        to="/profile/zayn"
       >
         zayn
-      </a>
+      </Link>
       <span
         className="modal_it_light"
       >
@@ -155,13 +152,12 @@ exports[`TagItems Component should match snapshot and show <Untag/> 2`] = `
     <div
       className="modal_it_info"
     >
-      <a
+      <Link
         className="modal_it_username"
-        href="/profile/zayn"
-        onClick={[Function]}
+        to="/profile/zayn"
       >
         zayn
-      </a>
+      </Link>
       <span
         className="modal_it_light"
       >
@@ -201,13 +197,12 @@ exports[`TagItems Component should match snapshot and show <Untag/> 3`] = `
     <div
       className="modal_it_info"
     >
-      <a
+      <Link
         className="modal_it_username"
-        href="/profile/zayn"
-        onClick={[Function]}
+        to="/profile/zayn"
       >
         zayn
-      </a>
+      </Link>
       <span
         className="modal_it_light"
       >

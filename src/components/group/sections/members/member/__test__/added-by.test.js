@@ -1,6 +1,5 @@
 import React from 'react'
 import { create } from 'react-test-renderer'
-import { BrowserRouter as Router } from 'react-router-dom'
 import MemberAddedBy from '../added_by'
 
 describe('MemberAddedBy Component', () => {
@@ -12,25 +11,21 @@ describe('MemberAddedBy Component', () => {
 
   it('should match snapshot', () => {
     const tree = create(
-      <Router>
-        <MemberAddedBy
-          memberDetails={memberDetails}
-        />
-      </Router>
+      <MemberAddedBy
+        memberDetails={memberDetails}
+      />
     ).toJSON()
     expect(tree).toMatchSnapshot()
   })
 
   it('should match snapshot and display null when member is not added by anyone', () => {
     const tree = create(
-      <Router>
-        <MemberAddedBy
-          memberDetails={{
-            ...memberDetails,
-            member: 7
-          }}
-        />
-      </Router>
+      <MemberAddedBy
+        memberDetails={{
+          ...memberDetails,
+          member: 7
+        }}
+      />
     ).toJSON()
     expect(tree).toMatchSnapshot()
   })

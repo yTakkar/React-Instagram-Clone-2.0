@@ -3,7 +3,6 @@ import { create } from 'react-test-renderer'
 import { Provider } from 'react-redux'
 import mockStore from '../../../../../store/__mocks__/mockStore'
 import Likes, { PureLikes } from '../likes'
-import { BrowserRouter as Router } from 'react-router-dom'
 import { shallow } from 'enzyme'
 import Post from '../../../../../store/__mocks__/reducers/Post'
 
@@ -18,9 +17,7 @@ describe('Likes Component', () => {
   it('should match snapshot', () => {
     const tree = create(
       <Provider store={mockStore}>
-        <Router>
-          <Likes {...props} />
-        </Router>
+        <Likes {...props} />
       </Provider>
     ).toJSON()
     expect(tree).toMatchSnapshot()

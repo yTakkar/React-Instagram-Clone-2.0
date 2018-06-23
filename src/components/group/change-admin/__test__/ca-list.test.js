@@ -3,7 +3,6 @@ import Group from '../../../../store/__mocks__/reducers/Group'
 import { create } from 'react-test-renderer'
 import { Provider } from 'react-redux'
 import mockStore from '../../../../store/__mocks__/mockStore'
-import { BrowserRouter as Router } from 'react-router-dom'
 import ChangeAdminList from '../ca-list'
 import { shallow } from 'enzyme'
 
@@ -16,9 +15,7 @@ describe('ChangeAdminList Component', () => {
   it('should match snapshot', () => {
     const tree = create(
       <Provider store={mockStore} >
-        <Router>
-          <ChangeAdminList {...props} />
-        </Router>
+        <ChangeAdminList {...props} />
       </Provider>
     ).toJSON()
     expect(tree).toMatchSnapshot()

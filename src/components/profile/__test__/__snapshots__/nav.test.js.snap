@@ -6,74 +6,74 @@ exports[`ProfileNav Component should match snapshot 1`] = `
 >
   <ul>
     <li>
-      <a
-        aria-current={false}
+      <NavLink
+        activeClassName="pro_nav_active"
         className="inst_nav"
-        href="/profile/takkar"
-        onClick={[Function]}
+        exact={true}
+        to="/profile/takkar"
       >
         Posts
-      </a>
+      </NavLink>
     </li>
     <li>
-      <a
-        aria-current={false}
+      <NavLink
+        activeClassName="pro_nav_active"
         className="inst_nav"
-        href="/profile/takkar/tagged"
-        onClick={[Function]}
+        exact={true}
+        to="/profile/takkar/tagged"
       >
         Tagged
-      </a>
+      </NavLink>
     </li>
     <li>
-      <a
-        aria-current={false}
+      <NavLink
+        activeClassName="pro_nav_active"
         className="inst_nav"
-        href="/profile/takkar/shared"
-        onClick={[Function]}
+        exact={true}
+        to="/profile/takkar/shared"
       >
         Shared
-      </a>
+      </NavLink>
     </li>
     <li>
-      <a
-        aria-current={false}
+      <NavLink
+        activeClassName="pro_nav_active"
         className="inst_nav"
-        href="/profile/takkar/gallery"
-        onClick={[Function]}
+        exact={true}
+        to="/profile/takkar/gallery"
       >
         Gallery
-      </a>
+      </NavLink>
     </li>
     <li>
-      <a
-        aria-current={false}
+      <NavLink
+        activeClassName="pro_nav_active"
         className="inst_nav"
-        href="/profile/takkar/bookmarks"
-        onClick={[Function]}
+        exact={true}
+        to="/profile/takkar/bookmarks"
       >
         Bookmarks
-      </a>
+      </NavLink>
     </li>
     <li>
-      <a
-        aria-current={false}
+      <NavLink
+        activeClassName="pro_nav_active"
         className="inst_nav"
-        href="/profile/takkar/groups"
-        onClick={[Function]}
+        exact={true}
+        to="/profile/takkar/groups"
       >
         Groups
-      </a>
+      </NavLink>
     </li>
     <li>
-      <a
-        aria-current={false}
+      <NavLink
+        activeClassName="pro_nav_active"
         className="inst_nav"
-        href="/profile/takkar/about"
-        onClick={[Function]}
+        exact={true}
+        to="/profile/takkar/about"
       >
         About
-      </a>
+      </NavLink>
     </li>
   </ul>
 </div>
@@ -85,64 +85,64 @@ exports[`ProfileNav Component should match snapshot when profile is not mine 1`]
 >
   <ul>
     <li>
-      <a
-        aria-current={false}
+      <NavLink
+        activeClassName="pro_nav_active"
         className="inst_nav"
-        href="/profile/ghalib"
-        onClick={[Function]}
+        exact={true}
+        to="/profile/ghalib"
       >
         Posts
-      </a>
+      </NavLink>
     </li>
     <li>
-      <a
-        aria-current={false}
+      <NavLink
+        activeClassName="pro_nav_active"
         className="inst_nav"
-        href="/profile/ghalib/tagged"
-        onClick={[Function]}
+        exact={true}
+        to="/profile/ghalib/tagged"
       >
         Tagged
-      </a>
+      </NavLink>
     </li>
     <li>
-      <a
-        aria-current={false}
+      <NavLink
+        activeClassName="pro_nav_active"
         className="inst_nav"
-        href="/profile/ghalib/shared"
-        onClick={[Function]}
+        exact={true}
+        to="/profile/ghalib/shared"
       >
         Shared
-      </a>
+      </NavLink>
     </li>
     <li>
-      <a
-        aria-current={false}
+      <NavLink
+        activeClassName="pro_nav_active"
         className="inst_nav"
-        href="/profile/ghalib/gallery"
-        onClick={[Function]}
+        exact={true}
+        to="/profile/ghalib/gallery"
       >
         Gallery
-      </a>
+      </NavLink>
     </li>
     <li>
-      <a
-        aria-current={false}
+      <NavLink
+        activeClassName="pro_nav_active"
         className="inst_nav"
-        href="/profile/ghalib/groups"
-        onClick={[Function]}
+        exact={true}
+        to="/profile/ghalib/groups"
       >
         Groups
-      </a>
+      </NavLink>
     </li>
     <li>
-      <a
-        aria-current={false}
+      <NavLink
+        activeClassName="pro_nav_active"
         className="inst_nav"
-        href="/profile/ghalib/about"
-        onClick={[Function]}
+        exact={true}
+        to="/profile/ghalib/about"
       >
         About
-      </a>
+      </NavLink>
     </li>
   </ul>
 </div>

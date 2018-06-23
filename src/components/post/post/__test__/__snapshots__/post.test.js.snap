@@ -23,13 +23,12 @@ exports[`Post Component should match snapshot 1`] = `
           }
         }
       >
-        <a
-          href="/profile/takkar"
-          onClick={[Function]}
+        <Link
           title="takkar"
+          to="/profile/takkar"
         >
           takkar
-        </a>
+        </Link>
         <span
           className="p_i_1_title"
           title="A-301, 90 Feet Road, Dharavi, Mumbai, Maharashtra 400017, India"
@@ -85,41 +84,36 @@ exports[`Post Component should match snapshot 1`] = `
           <p>
             <span>
               he 
-              <a
+              <Link
                 className="hashtag"
-                href="/profile/nobita"
-                onClick={[Function]}
+                to="/profile/nobita"
               >
                 @nobita, 
-              </a>
-              <a
+              </Link>
+              <Link
                 className="hashtag"
-                href="/profile/doraemon"
-                onClick={[Function]}
+                to="/profile/doraemon"
               >
                 @doraemon 
-              </a>
-              <a
+              </Link>
+              <Link
                 className="hashtag"
-                href="/hashtag/checkout"
-                onClick={[Function]}
+                to="/hashtag/checkout"
               >
                 #checkout, 
-              </a>
-              <a
+              </Link>
+              <Link
                 className="hashtag"
-                href="/hashtag/dd"
-                onClick={[Function]}
+                to="/hashtag/dd"
               >
                 #dd 
-              </a>
-              <a
+              </Link>
+              <Link
                 className="hashtag"
-                href="/hashtag/fgf"
-                onClick={[Function]}
+                to="/hashtag/fgf"
               >
                 #fgf 
-              </a>
+              </Link>
             </span>
           </p>
         </div>
@@ -228,13 +222,12 @@ exports[`Post Component should match snapshot 1`] = `
   </div>
   <hr />
   <div>
-    <a
+    <Link
       className="p_comments"
-      href="/post/89"
-      onClick={[Function]}
+      to="/post/89"
     >
       2 comments
-    </a>
+    </Link>
     <div
       className="p_cit"
     >
@@ -337,13 +330,12 @@ exports[`Post Component should match snapshot with comments 1`] = `
           }
         }
       >
-        <a
-          href="/profile/takkar"
-          onClick={[Function]}
+        <Link
           title="takkar"
+          to="/profile/takkar"
         >
           takkar
-        </a>
+        </Link>
         <span
           className="p_i_1_title"
           title="A-301, 90 Feet Road, Dharavi, Mumbai, Maharashtra 400017, India"
@@ -399,41 +391,36 @@ exports[`Post Component should match snapshot with comments 1`] = `
           <p>
             <span>
               he 
-              <a
+              <Link
                 className="hashtag"
-                href="/profile/nobita"
-                onClick={[Function]}
+                to="/profile/nobita"
               >
                 @nobita, 
-              </a>
-              <a
+              </Link>
+              <Link
                 className="hashtag"
-                href="/profile/doraemon"
-                onClick={[Function]}
+                to="/profile/doraemon"
               >
                 @doraemon 
-              </a>
-              <a
+              </Link>
+              <Link
                 className="hashtag"
-                href="/hashtag/checkout"
-                onClick={[Function]}
+                to="/hashtag/checkout"
               >
                 #checkout, 
-              </a>
-              <a
+              </Link>
+              <Link
                 className="hashtag"
-                href="/hashtag/dd"
-                onClick={[Function]}
+                to="/hashtag/dd"
               >
                 #dd 
-              </a>
-              <a
+              </Link>
+              <Link
                 className="hashtag"
-                href="/hashtag/fgf"
-                onClick={[Function]}
+                to="/hashtag/fgf"
               >
                 #fgf 
-              </a>
+              </Link>
             </span>
           </p>
         </div>
@@ -542,13 +529,12 @@ exports[`Post Component should match snapshot with comments 1`] = `
   </div>
   <hr />
   <div>
-    <a
+    <Link
       className="p_comments"
-      href="/post/89"
-      onClick={[Function]}
+      to="/post/89"
     >
       2 comments
-    </a>
+    </Link>
     <div
       className="p_cit"
     >
@@ -638,13 +624,12 @@ exports[`Post Component should match snapshot with comments 1`] = `
             <div
               className="comments_content"
             >
-              <a
+              <Link
                 className="comments_user"
-                href="/profile/ghalib"
-                onClick={[Function]}
+                to="/profile/ghalib"
               >
                 ghalib
-              </a>
+              </Link>
               <p
                 className="ce"
               >
@@ -688,13 +673,12 @@ exports[`Post Component should match snapshot with comments 1`] = `
             <div
               className="comments_content"
             >
-              <a
+              <Link
                 className="comments_user"
-                href="/profile/coldplay"
-                onClick={[Function]}
+                to="/profile/coldplay"
               >
                 coldplay
-              </a>
+              </Link>
               <img
                 className="comments_img"
                 onClick={[Function]}
@@ -729,13 +713,12 @@ exports[`Post Component should match snapshot with comments 1`] = `
             <div
               className="comments_content"
             >
-              <a
+              <Link
                 className="comments_user"
-                href="/profile/takkar"
-                onClick={[Function]}
+                to="/profile/takkar"
               >
                 takkar
-              </a>
+              </Link>
               <img
                 className="comments_sticker"
                 src="/comments/instagram_comment_1527447929485.jpg"

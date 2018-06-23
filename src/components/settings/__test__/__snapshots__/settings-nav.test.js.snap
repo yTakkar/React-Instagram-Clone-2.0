@@ -6,34 +6,32 @@ exports[`SettingsNav Component should match snapshot 1`] = `
 >
   <ul>
     <li>
-      <a
-        aria-current={false}
+      <NavLink
+        activeClassName="settings_nav_active"
         className="settings_nav"
-        href="/settings"
-        onClick={[Function]}
+        exact={true}
+        to="/settings"
       >
         Profile settings
-      </a>
+      </NavLink>
     </li>
     <li>
-      <a
-        aria-current={false}
+      <NavLink
+        activeClassName="settings_nav_active"
         className="settings_nav"
-        href="/settings/change-password"
-        onClick={[Function]}
+        to="/settings/change-password"
       >
         Change password
-      </a>
+      </NavLink>
     </li>
     <li>
-      <a
-        aria-current={false}
+      <NavLink
+        activeClassName="settings_nav_active"
         className="settings_nav"
-        href="/settings/deactivate"
-        onClick={[Function]}
+        to="/settings/deactivate"
       >
         Deactivate
-      </a>
+      </NavLink>
     </li>
   </ul>
 </div>

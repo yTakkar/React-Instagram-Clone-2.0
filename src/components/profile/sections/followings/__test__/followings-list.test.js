@@ -5,7 +5,6 @@ import { Provider } from 'react-redux'
 import mockStore from '../../../../../store/__mocks__/mockStore'
 import FollowingsList, { PureFollowingsList } from '../followings-list'
 import f from '../../../../../store/__mocks__/reducers/f'
-import { BrowserRouter as Router } from 'react-router-dom'
 import { shallow } from 'enzyme'
 
 describe('FollowingsList Component', () => {
@@ -14,12 +13,10 @@ describe('FollowingsList Component', () => {
   it('should match snapshot with profile link', () => {
     const tree = create(
       <Provider store={mockStore}>
-        <Router>
-          <FollowingsList
-            {...f[0]}
-            follow_to={24}
-          />
-        </Router>
+        <FollowingsList
+          {...f[0]}
+          follow_to={24}
+        />
       </Provider>
     ).toJSON()
     expect(tree).toMatchSnapshot()

@@ -21,16 +21,15 @@ exports[`Suggested Component should match snapshot 1`] = `
           className="fas fa-sync-alt"
         />
       </a>
-      <a
+      <Link
         className="recomm_all"
         data-tip="view all"
-        href="/explore"
-        onClick={[Function]}
+        to="/explore"
       >
         <i
           className="fas fa-chevron-right"
         />
-      </a>
+      </Link>
     </div>
     <div
       className="recomm_main"
@@ -60,13 +59,12 @@ exports[`Suggested Component should match snapshot 1`] = `
           <div
             className="recomms_cont"
           >
-            <a
+            <Link
               className="recomms_username"
-              href="/profile/ghalib"
-              onClick={[Function]}
+              to="/profile/ghalib"
             >
               ghalib
-            </a>
+            </Link>
             <span>
               1 mutual follower
             </span>
@@ -93,13 +91,12 @@ exports[`Suggested Component should match snapshot 1`] = `
           <div
             className="recomms_cont"
           >
-            <a
+            <Link
               className="recomms_username"
-              href="/profile/coldplay"
-              onClick={[Function]}
+              to="/profile/coldplay"
             >
               coldplay
-            </a>
+            </Link>
             <span>
               cold play
             </span>

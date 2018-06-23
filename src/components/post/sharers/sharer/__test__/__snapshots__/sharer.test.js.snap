@@ -17,13 +17,12 @@ exports[`Sharer Component should match snapshot and show <AdvancedFollow/> 1`] =
     <div
       className="modal_it_info"
     >
-      <a
+      <Link
         className="modal_it_username"
-        href="/profile/ghalib"
-        onClick={[Function]}
+        to="/profile/ghalib"
       >
         ghalib
-      </a>
+      </Link>
       <span
         className="modal_it_light"
       >
@@ -64,13 +63,12 @@ exports[`Sharer Component should match snapshot and show <AdvancedUnfollow/> 1`]
     <div
       className="modal_it_info"
     >
-      <a
+      <Link
         className="modal_it_username"
-        href="/profile/ghalib"
-        onClick={[Function]}
+        to="/profile/ghalib"
       >
         ghalib
-      </a>
+      </Link>
       <span
         className="modal_it_light"
       >
@@ -111,13 +109,12 @@ exports[`Sharer Component should match snapshot and show <AppLink/> 1`] = `
     <div
       className="modal_it_info"
     >
-      <a
+      <Link
         className="modal_it_username"
-        href="/profile/ghalib"
-        onClick={[Function]}
+        to="/profile/ghalib"
       >
         You
-      </a>
+      </Link>
       <span
         className="modal_it_light"
       >
@@ -128,13 +125,12 @@ exports[`Sharer Component should match snapshot and show <AppLink/> 1`] = `
     <div
       className="modal_ff"
     >
-      <a
+      <Link
         className="pri_btn follow"
-        href="/profile/ghalib"
-        onClick={[Function]}
+        to="/profile/ghalib"
       >
         Profile
-      </a>
+      </Link>
     </div>
   </div>
   <hr />
@@ -158,13 +154,12 @@ exports[`Sharer Component should match snapshot and show <RemoveShare/> 1`] = `
     <div
       className="modal_it_info"
     >
-      <a
+      <Link
         className="modal_it_username"
-        href="/profile/ghalib"
-        onClick={[Function]}
+        to="/profile/ghalib"
       >
         ghalib
-      </a>
+      </Link>
       <span
         className="modal_it_light"
       >
@@ -205,13 +200,12 @@ exports[`Sharer Component should match snapshot and show <RemoveShare/> 2`] = `
     <div
       className="modal_it_info"
     >
-      <a
+      <Link
         className="modal_it_username"
-        href="/profile/ghalib"
-        onClick={[Function]}
+        to="/profile/ghalib"
       >
         ghalib
-      </a>
+      </Link>
       <span
         className="modal_it_light"
       >

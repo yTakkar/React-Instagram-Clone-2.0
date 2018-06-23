@@ -10,12 +10,11 @@ exports[`MemberTop Component should match snapshot 1`] = `
   <div
     className="m_top_right"
   >
-    <a
-      href="/profile/ghalib"
-      onClick={[Function]}
+    <Link
+      to="/profile/ghalib"
     >
       ghalib
-    </a>
+    </Link>
     <span>
       Mirza Ghalib
     </span>
@@ -33,12 +32,11 @@ exports[`MemberTop Component should match snapshot and show admin label when mem
   <div
     className="m_top_right"
   >
-    <a
-      href="/profile/ghalib"
-      onClick={[Function]}
+    <Link
+      to="/profile/ghalib"
     >
       ghalib
-    </a>
+    </Link>
     <span
       className="grp_admin"
     >
@@ -61,12 +59,11 @@ exports[`MemberTop Component should match snapshot and show mutual followers 1`]
   <div
     className="m_top_right"
   >
-    <a
-      href="/profile/ghalib"
-      onClick={[Function]}
+    <Link
+      to="/profile/ghalib"
     >
       ghalib
-    </a>
+    </Link>
     <span>
       2 mutual followers
     </span>

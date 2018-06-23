@@ -47,12 +47,11 @@ exports[`GroupMembers Component should match snapshot 1`] = `
               <div
                 className="m_top_right"
               >
-                <a
-                  href="/profile/ghalib"
-                  onClick={[Function]}
+                <Link
+                  to="/profile/ghalib"
                 >
                   ghalib
-                </a>
+                </Link>
                 <span>
                   1 mutual follower
                 </span>
@@ -66,12 +65,11 @@ exports[`GroupMembers Component should match snapshot 1`] = `
               >
                 <div>
                   by 
-                  <a
-                    href="/profile/takkar"
-                    onClick={[Function]}
+                  <Link
+                    to="/profile/takkar"
                   >
                     You
-                  </a>
+                  </Link>
                 </div>
               </span>
               <a

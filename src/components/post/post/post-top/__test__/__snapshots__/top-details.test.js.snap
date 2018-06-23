@@ -17,13 +17,12 @@ Array [
       }
     }
   >
-    <a
-      href="/profile/takkar"
-      onClick={[Function]}
+    <Link
       title="takkar"
+      to="/profile/takkar"
     >
       takkar
-    </a>
+    </Link>
     <span
       className="p_i_1_title"
       title="A-301, 90 Feet Road, Dharavi, Mumbai, Maharashtra 400017, India"
@@ -51,13 +50,12 @@ Array [
       }
     }
   >
-    <a
-      href="/profile/takkar"
-      onClick={[Function]}
+    <Link
       title="takkar"
+      to="/profile/takkar"
     >
       takkar
-    </a>
+    </Link>
     <span
       className="p_i_1_title"
       title={null}
@@ -85,13 +83,12 @@ Array [
       }
     }
   >
-    <a
-      href="/profile/takkar"
-      onClick={[Function]}
+    <Link
       title="takkar"
+      to="/profile/takkar"
     >
       takkar
-    </a>
+    </Link>
     <div
       className="its_grp_post"
     >
@@ -104,13 +101,12 @@ Array [
           arrow_drop_up
         </i>
       </span>
-      <a
+      <Link
         className="to_grp_name"
-        href="/group/11"
-        onClick={[Function]}
+        to="/group/11"
       >
         cool group
-      </a>
+      </Link>
     </div>
     <span
       className="p_i_1_title"

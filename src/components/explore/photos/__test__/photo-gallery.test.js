@@ -2,7 +2,6 @@ import React from 'react'
 import { PureExplorePhotoGallery } from '../photo-gallery'
 import { shallow, mount } from 'enzyme'
 import Explore from '../../../../store/__mocks__/reducers/Explore'
-import { BrowserRouter as Router } from 'react-router-dom'
 
 describe('ExplorePhotoGallery Component', () => {
 
@@ -26,9 +25,7 @@ describe('ExplorePhotoGallery Component', () => {
   })
 
   it('should show <ImageTheatre/> when clicked on a gallery photo', () => {
-    const wrapper = mount(
-      <Router>{comp}</Router>
-    )
+    const wrapper = mount(comp)
     wrapper.find('Gallery img').simulate('click')
 
     let imgTheatre = wrapper.find('ImageTheatre')

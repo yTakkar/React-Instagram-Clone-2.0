@@ -12,30 +12,28 @@ exports[`MutualUsers Component should match snapshot 1`] = `
         1 follower
          you might know
       </span>
-      <a
+      <Link
         className="view_all_yk"
         data-tip="view all"
-        href="/profile/ghalib/people-you-know"
-        onClick={[Function]}
+        to="/profile/ghalib/people-you-know"
       >
         <i
           className="fas fa-chevron-right"
         />
-      </a>
+      </Link>
     </div>
     <div
       className="mutual_main"
     >
-      <a
+      <Link
         className="mutual_links"
         data-tip="nobita"
-        href="/profile/nobita"
-        onClick={[Function]}
+        to="/profile/nobita"
       >
         <img
           src="/users/11/avatar.jpg"
         />
-      </a>
+      </Link>
     </div>
     <div
       className="__react_component_tooltip place-top type-dark "

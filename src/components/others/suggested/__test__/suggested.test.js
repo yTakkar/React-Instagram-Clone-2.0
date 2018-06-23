@@ -1,16 +1,13 @@
 import React from 'react'
 import { create } from 'react-test-renderer'
 import Suggested from '../suggested'
-import { BrowserRouter as Router } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import mockStore from '../../../../store/__mocks__/mockStore'
 
 describe('Suggested Component', () => {
   const comp = (
     <Provider store={mockStore} >
-      <Router>
-        <Suggested when='home' />
-      </Router>
+      <Suggested when='home' />
     </Provider>
   )
 

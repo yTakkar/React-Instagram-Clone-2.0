@@ -1,14 +1,11 @@
 import React from 'react'
 import Header from '../header'
 import { create } from 'react-test-renderer'
-import { BrowserRouter as Router } from 'react-router-dom'
 import { mount } from 'enzyme'
 
 describe('Header component', () => {
   const comp = (
-    <Router>
-      <Header/>
-    </Router>
+    <Header/>
   )
 
   it('should match snapshot', () => {

@@ -2,13 +2,13 @@
 
 exports[`Profile Navlink should match snapshot 1`] = `
 <li>
-  <a
-    aria-current={false}
+  <NavLink
+    activeClassName="pro_nav_active"
     className="inst_nav"
-    href="/profile/takkar/bookmarks"
-    onClick={[Function]}
+    exact={true}
+    to="/profile/takkar/bookmarks"
   >
     Bookmarks
-  </a>
+  </NavLink>
 </li>
 `;

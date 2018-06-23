@@ -1,7 +1,6 @@
 import React from 'react'
 import { create } from 'react-test-renderer'
 import { Provider } from 'react-redux'
-import { BrowserRouter as Router } from 'react-router-dom'
 import Sharers, { PureSharers } from '../sharers'
 import mockStore from '../../../../store/__mocks__/mockStore'
 import { shallow } from 'enzyme'
@@ -18,9 +17,7 @@ describe('Sharers Component', () => {
   it('should match snapshot', () => {
     const tree = create(
       <Provider store={mockStore}>
-        <Router>
-          <Sharers {...props} />
-        </Router>
+        <Sharers {...props} />
       </Provider>
     ).toJSON()
     expect(tree).toMatchSnapshot()

@@ -93,12 +93,11 @@ Array [
                   <div
                     className="sli_with_cont"
                   >
-                    <a
-                      href="/profile/selena"
-                      onClick={[Function]}
+                    <Link
+                      to="/profile/selena"
                     >
                       selena
-                    </a>
+                    </Link>
                     <span
                       className="sli_w"
                     >

@@ -17,13 +17,12 @@ exports[`LikeList Component should match snapshot and show <AppLink> 1`] = `
     <div
       className="modal_it_info"
     >
-      <a
+      <Link
         className="modal_it_username"
-        href="/profile/ragnar"
-        onClick={[Function]}
+        to="/profile/ragnar"
       >
         You
-      </a>
+      </Link>
       <span
         className="modal_it_light"
       >
@@ -33,13 +32,12 @@ exports[`LikeList Component should match snapshot and show <AppLink> 1`] = `
     <div
       className="modal_ff"
     >
-      <a
+      <Link
         className="pri_btn follow"
-        href="/profile/ragnar"
-        onClick={[Function]}
+        to="/profile/ragnar"
       >
         Profile
-      </a>
+      </Link>
     </div>
   </div>
   <hr />
@@ -63,13 +61,12 @@ exports[`LikeList Component should match snapshot and show <Follow/> 1`] = `
     <div
       className="modal_it_info"
     >
-      <a
+      <Link
         className="modal_it_username"
-        href="/profile/ragnar"
-        onClick={[Function]}
+        to="/profile/ragnar"
       >
         ragnar
-      </a>
+      </Link>
       <span
         className="modal_it_light"
       >
@@ -109,13 +106,12 @@ exports[`LikeList Component should match snapshot and show <RemoveLikeAsAdmin> 1
     <div
       className="modal_it_info"
     >
-      <a
+      <Link
         className="modal_it_username"
-        href="/profile/ragnar"
-        onClick={[Function]}
+        to="/profile/ragnar"
       >
         ragnar
-      </a>
+      </Link>
       <span
         className="modal_it_light"
       >
@@ -155,13 +151,12 @@ exports[`LikeList Component should match snapshot and show <Unfollow/> 1`] = `
     <div
       className="modal_it_info"
     >
-      <a
+      <Link
         className="modal_it_username"
-        href="/profile/ragnar"
-        onClick={[Function]}
+        to="/profile/ragnar"
       >
         ragnar
-      </a>
+      </Link>
       <span
         className="modal_it_light"
       >

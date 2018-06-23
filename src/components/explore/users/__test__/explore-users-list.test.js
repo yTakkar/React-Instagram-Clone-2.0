@@ -4,18 +4,15 @@ import mockStore from '../../../../store/__mocks__/mockStore'
 import ExploreUsersList, { PureExploreUsersList } from '../explore-users-list'
 import Explore from '../../../../store/__mocks__/reducers/Explore'
 import { create } from 'react-test-renderer'
-import { BrowserRouter as Router } from 'react-router-dom'
 import { shallow } from 'enzyme'
 
 describe('ExploreUsersList Component', () => {
 
   const comp = (index=0) => (
     <Provider store={mockStore}>
-      <Router>
-        <ExploreUsersList
-          {...Explore.users[index]}
-        />
-      </Router>
+      <ExploreUsersList
+        {...Explore.users[index]}
+      />
     </Provider>
   )
 

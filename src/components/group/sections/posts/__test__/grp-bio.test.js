@@ -3,7 +3,6 @@ import MockDataElement from '../../../../../utils/__mocks__/mock-dataElement'
 import { create } from 'react-test-renderer'
 import { Provider } from 'react-redux'
 import mockStore from '../../../../../store/__mocks__/mockStore'
-import { BrowserRouter as Router } from 'react-router-dom'
 import GroupBio from '../grp-bio'
 import Group from '../../../../../store/__mocks__/reducers/Group'
 
@@ -12,9 +11,7 @@ describe('GroupBio Component', () => {
 
   const comp = (
     <Provider store={mockStore}>
-      <Router>
-        <GroupBio />
-      </Router>
+      <GroupBio />
     </Provider>
   )
 

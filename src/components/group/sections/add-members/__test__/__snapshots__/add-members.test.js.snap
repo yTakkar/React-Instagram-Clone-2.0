@@ -28,20 +28,18 @@ exports[`AddGroupMembers Component should match snapshot 1`] = `
             <span>
               Update or edit group to make it look more attractive
             </span>
-            <a
+            <Link
               className="sec_btn"
-              href="/"
-              onClick={[Function]}
+              to="/"
             >
               Update group
-            </a>
-            <a
+            </Link>
+            <Link
               className="pri_btn"
-              href="/edit-profile"
-              onClick={[Function]}
+              to="/edit-profile"
             >
               Edit group
-            </a>
+            </Link>
           </div>
         </div>
       </div>

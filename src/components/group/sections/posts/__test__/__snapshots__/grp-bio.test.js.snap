@@ -16,23 +16,21 @@ exports[`GroupBio Component should match snapshot 1`] = `
   >
     <span>
       <span>
-        <a
+        <Link
           className="hashtag"
-          href="/hashtag/random"
-          onClick={[Function]}
+          to="/hashtag/random"
         >
           #random 
-        </a>
+        </Link>
         group 
       </span>
     </span>
-    <a
+    <Link
       className="sec_btn grp_ns"
-      href="/group/11/edit"
-      onClick={[Function]}
+      to="/group/11/edit"
     >
       Not satisfied
-    </a>
+    </Link>
   </div>
 </div>
 `;
@@ -53,13 +51,12 @@ exports[`GroupBio Component should match snapshot and show edit bio button when 
   >
     <span>
       <span>
-        <a
+        <Link
           className="hashtag"
-          href="/hashtag/random"
-          onClick={[Function]}
+          to="/hashtag/random"
         >
           #random 
-        </a>
+        </Link>
         group 
       </span>
     </span>

@@ -18,9 +18,8 @@ exports[`BannerStats Component should match snapshot with favourites stat 1`] = 
       Posts
     </span>
   </div>
-  <a
-    href="/profile/takkar/followers"
-    onClick={[Function]}
+  <Link
+    to="/profile/takkar/followers"
   >
     <span
       className="pro_hg"
@@ -32,10 +31,9 @@ exports[`BannerStats Component should match snapshot with favourites stat 1`] = 
     >
       Followers
     </span>
-  </a>
-  <a
-    href="/profile/takkar/followings"
-    onClick={[Function]}
+  </Link>
+  <Link
+    to="/profile/takkar/followings"
   >
     <span
       className="pro_hg"
@@ -47,10 +45,9 @@ exports[`BannerStats Component should match snapshot with favourites stat 1`] = 
     >
       Followings
     </span>
-  </a>
-  <a
-    href="/profile/takkar/favourites"
-    onClick={[Function]}
+  </Link>
+  <Link
+    to="/profile/takkar/favourites"
   >
     <span
       className="pro_hg"
@@ -62,7 +59,7 @@ exports[`BannerStats Component should match snapshot with favourites stat 1`] = 
     >
       Favourites
     </span>
-  </a>
+  </Link>
   <div
     className="pro_post stat_disabled"
   >
@@ -98,9 +95,8 @@ exports[`BannerStats Component should match snapshot with recommendation stat 1`
       Posts
     </span>
   </div>
-  <a
-    href="/profile/takkar/followers"
-    onClick={[Function]}
+  <Link
+    to="/profile/takkar/followers"
   >
     <span
       className="pro_hg"
@@ -112,10 +108,9 @@ exports[`BannerStats Component should match snapshot with recommendation stat 1`
     >
       Followers
     </span>
-  </a>
-  <a
-    href="/profile/takkar/followings"
-    onClick={[Function]}
+  </Link>
+  <Link
+    to="/profile/takkar/followings"
   >
     <span
       className="pro_hg"
@@ -127,10 +122,9 @@ exports[`BannerStats Component should match snapshot with recommendation stat 1`
     >
       Followings
     </span>
-  </a>
-  <a
-    href="/profile/takkar/recommendations"
-    onClick={[Function]}
+  </Link>
+  <Link
+    to="/profile/takkar/recommendations"
   >
     <span
       className="pro_hg"
@@ -142,7 +136,7 @@ exports[`BannerStats Component should match snapshot with recommendation stat 1`
     >
       Recommendations
     </span>
-  </a>
+  </Link>
   <div
     className="pro_post stat_disabled"
   >

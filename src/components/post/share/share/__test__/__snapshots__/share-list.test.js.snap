@@ -17,13 +17,12 @@ exports[`ShareList Component should match snapshot with <PrimaryButton/> for sha
     <div
       className="modal_it_info"
     >
-      <a
+      <Link
         className="modal_it_username"
-        href="/profile/zayn"
-        onClick={[Function]}
+        to="/profile/zayn"
       >
         zayn
-      </a>
+      </Link>
       <span
         className="modal_it_light"
       >
@@ -63,13 +62,12 @@ exports[`ShareList Component should match snapshot with <SecondaryButton/> for u
     <div
       className="modal_it_info"
     >
-      <a
+      <Link
         className="modal_it_username"
-        href="/profile/zayn"
-        onClick={[Function]}
+        to="/profile/zayn"
       >
         zayn
-      </a>
+      </Link>
       <span
         className="modal_it_light"
       >

@@ -2,6 +2,9 @@
 
 exports[`PeopleYouKnow Component should match snapshot 1`] = `
 <div>
+  <Redirect
+    to="/profile/takkar"
+  />
   <div
     style={
       Object {
@@ -38,12 +41,11 @@ exports[`PeopleYouKnow Component should match snapshot 1`] = `
               <div
                 className="m_top_right"
               >
-                <a
-                  href="/profile/nobita"
-                  onClick={[Function]}
+                <Link
+                  to="/profile/nobita"
                 >
                   nobita
-                </a>
+                </Link>
                 <span>
                   nobita nobi
                 </span>
