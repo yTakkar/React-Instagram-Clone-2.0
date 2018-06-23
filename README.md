@@ -11,7 +11,9 @@ A reactive Single-Page Instagram-Clone with some new features!!
 4. [Contribute](#contribute)
 5. [Image Copyright Claims](#image-copyright-claims)
 
-Here's a video which will take you on a tour of this project!!
+Here's a video which will take you on a tour of this project.
+
+Note: Many improvements were done after recording this video.
 
 [![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/VBZD5lfvi4U/0.jpg)](https://www.youtube.com/watch?v=VBZD5lfvi4U)
 
