@@ -2,8 +2,8 @@ require('dotenv').config()
 const { PORT } = process.env
 
 module.exports = {
-  setupFiles: ['<rootDir>/enzyme.config.js'],
-  setupTestFrameworkScriptFile: '<rootDir>/jest.setup.js',
+  setupFiles: ['<rootDir>/jest.setup.js'],
+  setupTestFrameworkScriptFile: '<rootDir>/jest.setupScriptFile.js',
   testURL: `http://localhost:${PORT}`,
   watchPlugins: [
     'jest-watch-typeahead/filename',
