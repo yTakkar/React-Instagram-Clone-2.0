@@ -3,7 +3,7 @@
  * GitHub repo: https://github.com/yTakkar/React-Instagram-Clone-2.0
  */
 
-import { post } from 'axios'
+import axios, { post } from 'axios'
 import Notify from 'handy-notification'
 import { getUserDetails, getMutualUsers } from '../actions/user'
 import { isFollowing, getUserStats } from '../actions/follow'
@@ -250,7 +250,6 @@ export const dispatchHelper = (type, url, data={}) => {
     post(`/api/${url}`, data)
       .then(p => dispatch({ type, payload: p.data }))
       .catch(e => console.log(e))
-
 }
 
 /**
@@ -280,3 +279,18 @@ export const wait = () => {
  */
 export const cLoading = loading =>
   `${loading ? 'cLoading' : ''}`
+
+
+/**
+ * Request a response from an API endpoint.
+ * @param {String} url Url to get response from
+ * @param {Object} data Optional data to pass
+ * @param {String} method Method type. Default is post
+ */
+export const APIRequest = (url, data={}, method='post') => {
+  return new Promise((resolve, reject) => {
+    axios[method](url, data)
+      .then(resp => resolve(resp))
+      .catch(err => reject(err))
+  })
+}

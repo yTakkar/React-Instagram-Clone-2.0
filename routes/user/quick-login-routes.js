@@ -3,6 +3,7 @@
 const app = require('express').Router()
 
 // QUICK LOGIN = USER ONLY HAVE TO PROVIDE PASSWORD, USERNAME IS STORED IN COOKIE
+
 // REMOVE QUICK LOGIN
 app.post('/remove-quick-login', (req, res) => {
   let

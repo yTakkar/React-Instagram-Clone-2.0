@@ -63,7 +63,7 @@ app.post('/user/signup', async (req, res) => {
     db.c_validator('surname', req)
 
     req.checkBody('email', 'Email is empty!!').notEmpty()
-    req.checkBody('email', 'Invalid empty!!').isEmail()
+    req.checkBody('email', 'Invalid email!!').isEmail()
     req.checkBody('password', 'Password field is empty').notEmpty()
 
     let errors = await req.getValidationResult()
@@ -86,18 +86,17 @@ app.post('/user/signup', async (req, res) => {
         res.json({ mssg: 'Email already exists!!' })
       } else {
 
-        let
-          newUser = {
-            username,
-            firstname,
-            surname,
-            email,
-            password,
-            joined: new Date().getTime(),
-            email_verified: 'no',
-            isOnline: 'yes'
-          },
-          { insertId, affectedRows } = await User.create_user(newUser)
+        let newUser = {
+          username,
+          firstname,
+          surname,
+          email,
+          password,
+          joined: new Date().getTime(),
+          email_verified: 'no',
+          isOnline: 'yes'
+        }
+        let { insertId, affectedRows } = await User.create_user(newUser)
 
         if (affectedRows == 1) {
 
