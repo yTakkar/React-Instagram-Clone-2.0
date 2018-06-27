@@ -41,7 +41,7 @@ exports[`PostTop Component should match snapshot 1`] = `
           className="p_time"
         >
           <span>
-            Last year
+            a month ago
           </span>
         </div>
         <div

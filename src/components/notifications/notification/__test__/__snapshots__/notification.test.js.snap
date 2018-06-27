@@ -23,7 +23,7 @@ exports[`Notification Component should match snapshot with change_admin notifica
     <span
       className="noti_time"
     >
-      4 months ago
+      a month ago
     </span>
   </div>
   <div
@@ -62,7 +62,7 @@ exports[`Notification Component should match snapshot with follow notification 1
     <span
       className="noti_time"
     >
-      4 months ago
+      a month ago
     </span>
   </div>
   <div
@@ -102,7 +102,7 @@ exports[`Notification Component should match snapshot with like notification 1`]
     <span
       className="noti_time"
     >
-      4 months ago
+      a month ago
     </span>
   </div>
   <div
@@ -141,7 +141,7 @@ exports[`Notification Component should match snapshot with mention_post notifica
     <span
       className="noti_time"
     >
-      4 months ago
+      a month ago
     </span>
   </div>
   <div
@@ -180,7 +180,7 @@ exports[`Notification Component should match snapshot with recommend notificatio
     <span
       className="noti_time"
     >
-      4 months ago
+      a month ago
     </span>
   </div>
   <div
@@ -219,7 +219,7 @@ exports[`Notification Component should match snapshot with tag notification 1`] 
     <span
       className="noti_time"
     >
-      4 months ago
+      a month ago
     </span>
   </div>
   <div

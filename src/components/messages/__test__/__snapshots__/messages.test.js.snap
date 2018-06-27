@@ -90,7 +90,7 @@ exports[`Messages Component should match snapshot 1`] = `
           <span
             className="m_sr_time"
           >
-            Last year
+            a month
           </span>
         </div>
         <div

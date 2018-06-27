@@ -13,7 +13,7 @@ exports[`LikeInfo Component should match snapshot 1`] = `
   <span
     className="modal_it_light"
   >
-    5 months ago
+    a month ago
   </span>
 </div>
 `;

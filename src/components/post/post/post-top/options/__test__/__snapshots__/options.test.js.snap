@@ -9,7 +9,7 @@ exports[`PostOptions Component should match snapshot 1`] = `
       className="p_time"
     >
       <span>
-        4 months ago
+        a month ago
       </span>
     </div>
     <div

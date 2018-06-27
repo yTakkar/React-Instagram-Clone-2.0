@@ -45,7 +45,7 @@ Array [
               className="p_time"
             >
               <span>
-                Last year
+                a month ago
               </span>
             </div>
             <div
@@ -344,7 +344,7 @@ Array [
                   <span
                     className="comments_time"
                   >
-                    Last year
+                    a month ago
                   </span>
                 </div>
                 <div
@@ -384,7 +384,7 @@ Array [
                   <span
                     className="comments_time"
                   >
-                    Last year
+                    a month ago
                   </span>
                 </div>
                 <div
@@ -423,7 +423,7 @@ Array [
                   <span
                     className="comments_time"
                   >
-                    Last year
+                    a month ago
                   </span>
                 </div>
                 <div

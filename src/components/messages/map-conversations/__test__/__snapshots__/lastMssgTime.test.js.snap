@@ -4,7 +4,7 @@ exports[`LastMssgTime Component should match snapshot 1`] = `
 <span
   className="m_sr_time"
 >
-  4 months
+  a month
 </span>
 `;
 

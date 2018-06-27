@@ -3,7 +3,7 @@
 exports[`MessageType Component should match snapshot with null when !message 1`] = `
 <div
   className="m_m"
-  title="Last month"
+  title="a month ago"
 >
   <span
     style={
@@ -20,7 +20,7 @@ exports[`MessageType Component should match snapshot with null when !message 1`]
 exports[`MessageType Component should match snapshot with type image 1`] = `
 <div
   className="m_m"
-  title="Last month"
+  title="a month ago"
 >
   <img
     className="m_m_img"
@@ -33,7 +33,7 @@ exports[`MessageType Component should match snapshot with type image 1`] = `
 exports[`MessageType Component should match snapshot with type sticker 1`] = `
 <div
   className="m_m"
-  title="Last month"
+  title="a month ago"
 >
   <img
     className="m_m_sticker"
@@ -45,7 +45,7 @@ exports[`MessageType Component should match snapshot with type sticker 1`] = `
 exports[`MessageType Component should match snapshot with type text 1`] = `
 <div
   className="m_m"
-  title="Last month"
+  title="a month ago"
 >
   <span>
     kjkjk 

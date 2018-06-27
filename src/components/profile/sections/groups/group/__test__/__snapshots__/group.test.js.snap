@@ -24,7 +24,7 @@ exports[`UserGroupList Component should match snapshot with group page link 1`] 
         admin
       </span>
       <span>
-        Last year
+        a month ago
       </span>
     </div>
   </div>

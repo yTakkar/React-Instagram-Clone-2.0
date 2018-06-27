@@ -52,7 +52,7 @@ exports[`UserGroups Component should match snapshot 1`] = `
                   a groupss
                 </Link>
                 <span>
-                  Last year
+                  a month ago
                 </span>
               </div>
             </div>

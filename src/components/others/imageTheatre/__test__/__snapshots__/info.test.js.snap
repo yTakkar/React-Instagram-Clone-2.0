@@ -7,7 +7,7 @@ exports[`ImageTheatre Component should match snapshot with complete details 1`] 
   <span
     className="img_s_by"
   >
-    by takkar (4 months)
+    by takkar (a month)
   </span>
   <Link
     className="img_s_window"

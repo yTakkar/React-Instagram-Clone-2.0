@@ -146,7 +146,7 @@ exports[`AboutGroup Component should match snapshot 1`] = `
             <span
               className="a_info"
             >
-              Last year
+              a month ago
             </span>
           </div>
         </div>

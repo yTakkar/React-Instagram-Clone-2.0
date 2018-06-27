@@ -29,7 +29,7 @@ exports[`Comment Component should match snapshot with type image 1`] = `
         <span
           className="comments_time"
         >
-          Last year
+          a month ago
         </span>
       </div>
       <div
@@ -71,7 +71,7 @@ exports[`Comment Component should match snapshot with type sticker 1`] = `
         <span
           className="comments_time"
         >
-          Last year
+          a month ago
         </span>
       </div>
       <div
@@ -123,7 +123,7 @@ exports[`Comment Component should match snapshot with type text 1`] = `
         <span
           className="comments_time"
         >
-          Last year
+          a month ago
         </span>
       </div>
       <div
