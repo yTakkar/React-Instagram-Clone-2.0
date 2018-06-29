@@ -1,4 +1,6 @@
 const { join } = require('path')
+const ProgressBarPlugin = require('progress-bar-webpack-plugin')
+const chalk = require('chalk')
 
 module.exports = {
   entry: './src/main.js',
@@ -37,5 +39,10 @@ module.exports = {
       }
     ]
   },
+  plugins: [
+    new ProgressBarPlugin({
+      format: '  build [:bar] ' + chalk.green.bold(':percent') + ' (:elapsed seconds)',
+    })
+  ],
   watch: true
 }

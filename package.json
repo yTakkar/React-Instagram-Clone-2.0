@@ -5,8 +5,8 @@
   "main": "app.js",
   "scripts": {
     "start": "./node_modules/.bin/nodemon app.js",
-    "dev": "webpack -d --watch",
-    "prod": "webpack -p --watch",
+    "dev": "./node_modules/.bin/webpack -d --watch",
+    "prod": "./node_modules/.bin/webpack -p --watch",
     "env": "./node_modules/.bin/handy-client-env",
     "test": "jest",
     "test:watch": "jest --watchAll",
@@ -86,6 +86,7 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
+    "chalk": "^2.4.1",
     "css-loader": "^0.28.11",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
@@ -97,8 +98,11 @@
     "jest-extended": "^0.7.1",
     "jest-watch-typeahead": "^0.1.0",
     "nodemon": "^1.17.5",
+    "progress-bar-webpack-plugin": "^1.11.0",
     "react-test-renderer": "^16.3.2",
     "redux-mock-store": "^1.5.1",
-    "style-loader": "^0.21.0"
+    "style-loader": "^0.21.0",
+    "webpack": "^4.13.0",
+    "webpack-cli": "^3.0.8"
   }
 }
