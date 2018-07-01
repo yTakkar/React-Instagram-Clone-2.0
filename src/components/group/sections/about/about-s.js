@@ -10,9 +10,7 @@ import EditPen from '../../../others/edit-pen'
 import { bottomScroll } from '../../../../utils/utils'
 
 class AboutGroup extends Component {
-
-  togglePen = () =>
-    new d('.a_edit').toggle()
+  togglePen = () => new d('.a_edit').toggle()
 
   componentDidMount = () => bottomScroll()
 
@@ -21,50 +19,55 @@ class AboutGroup extends Component {
 
     return (
       <div>
+        <Title value="About" />
 
-        <Title value='About' />
-
-        <FadeIn duration='300ms' >
-          <div className='senapati pro_senapati'>
-            <div className='about'>
-
-              <div className='sabout'>
-                <GroupInstruction/>
+        <FadeIn duration="300ms">
+          <div className="senapati pro_senapati">
+            <div className="about">
+              <div className="sabout">
+                <GroupInstruction />
               </div>
 
               <div
-                className='fabout'
+                className="fabout"
                 onMouseOver={this.togglePen}
                 onMouseOut={this.togglePen}
               >
-                <EditPen to={`/group/${gd.group_id}/edit`} when='group' />
+                <EditPen to={`/group/${gd.group_id}/edit`} when="group" />
 
-                <GrpAboutSection label='Group name' value={`${gd.name}`} />
-                <GrpAboutSection label='Bio' value={`${gd.bio}`} />
-                <GrpAboutSection label='No of posts' value={`${gd.postsCount}`} />
-                <GrpAboutSection label='Group type' value={`${gd.group_type}`} />
+                <GrpAboutSection label="Group name" value={`${gd.name}`} />
+                <GrpAboutSection label="Bio" value={`${gd.bio}`} />
+                <GrpAboutSection
+                  label="No of posts"
+                  value={`${gd.postsCount}`}
+                />
+                <GrpAboutSection
+                  label="Group type"
+                  value={`${gd.group_type}`}
+                />
 
                 <GrpAboutSection
-                  label='Group created by'
+                  label="Group created by"
                   value={`${gd.admin_username}`}
-                  type='link'
+                  type="link"
                   url={`/profile/${gd.admin_username}`}
                 />
 
-                <GrpAboutSection label='Group created' value={`${TimeAgo(gd.created)}`} />
+                <GrpAboutSection
+                  label="Group created"
+                  value={`${TimeAgo(gd.created)}`}
+                />
               </div>
-
             </div>
           </div>
         </FadeIn>
-
       </div>
     )
   }
 }
 
 const mapStateToProps = store => ({
-  gd: store.Group.group_details
+  gd: store.Group.group_details,
 })
 
 export default connect(mapStateToProps)(AboutGroup)

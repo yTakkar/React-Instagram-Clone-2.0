@@ -22,17 +22,18 @@ const GetLocation = ({ postIt, dispatch }) => {
 
   return (
     <span
-      className={classNames('loc_add', {p_span_toggle: location})}
-      data-tip='Add location'
+      className={classNames('loc_add', { p_span_toggle: location })}
+      data-tip="Add location"
       onClick={getLocation}
-    ><MaterialIcon icon='location_on' />
+    >
+      <MaterialIcon icon="location_on" />
     </span>
   )
 }
 
-const mapStateToProps = state => (
-  { postIt: state.Post.postIt }
-)
+const mapStateToProps = state => ({
+  postIt: state.Post.postIt,
+})
 
 export default connect(mapStateToProps)(GetLocation)
 export { GetLocation as PureGetLocation }

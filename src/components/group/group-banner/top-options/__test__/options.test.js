@@ -11,12 +11,9 @@ describe('GroupOptions Component', () => {
   it('should match snapshot', () => {
     const tree = create(
       <Provider store={mockStore}>
-        <GroupOptions
-          toggleOptions={jest.fn()}
-        />
+        <GroupOptions toggleOptions={jest.fn()} />
       </Provider>
     ).toJSON()
     expect(tree).toMatchSnapshot()
   })
-
 })

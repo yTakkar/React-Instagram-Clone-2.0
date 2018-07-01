@@ -4,10 +4,10 @@
 import initialState from './initialState'
 import * as methods from './methods'
 
-export default (state=initialState, action) => {
+export default (state = initialState, action) => {
   let py = action.payload
 
-  switch(action.type) {
+  switch (action.type) {
     case 'GET_USER_POSTS':
       return { ...state, posts: py }
       break
@@ -47,21 +47,21 @@ export default (state=initialState, action) => {
     case 'ADD_USER_POST':
       return {
         ...state,
-        feed: methods.addPost(state.feed, py)
+        feed: methods.addPost(state.feed, py),
       }
       break
 
     case 'ADD_GROUP_POST':
       return {
         ...state,
-        posts: methods.addPost(state.posts, py)
+        posts: methods.addPost(state.posts, py),
       }
       break
 
     case 'EDIT_POST':
       return {
         ...state,
-        posts: methods.editPost(state.posts, py)
+        posts: methods.editPost(state.posts, py),
       }
       break
 
@@ -69,7 +69,7 @@ export default (state=initialState, action) => {
       return {
         ...state,
         posts: methods.deletePost(state.posts, py),
-        feed:  methods.deletePost(state.feed, py)
+        feed: methods.deletePost(state.feed, py),
       }
       break
 
@@ -77,14 +77,14 @@ export default (state=initialState, action) => {
       return {
         ...state,
         likes: py.likes,
-        isPostMine: py.isPostMine
+        isPostMine: py.isPostMine,
       }
       break
 
     case 'REMOVE_LIKE':
       return {
         ...state,
-        likes: methods.removeLike(state.likes, py)
+        likes: methods.removeLike(state.likes, py),
       }
       break
 
@@ -92,14 +92,14 @@ export default (state=initialState, action) => {
       return {
         ...state,
         tags: py.tags,
-        isPostMine: py.isPostMine
+        isPostMine: py.isPostMine,
       }
       break
 
     case 'UNTAG':
       return {
         ...state,
-        tags: methods.untag(state.tags, py)
+        tags: methods.untag(state.tags, py),
       }
       break
 
@@ -114,35 +114,35 @@ export default (state=initialState, action) => {
     case 'UNBOOKMARK':
       return {
         ...state,
-        bookmarks: methods.unbookmark(state.bookmarks, py)
+        bookmarks: methods.unbookmark(state.bookmarks, py),
       }
       break
 
     case 'REMOVE_SHARE':
       return {
         ...state,
-        sharers: methods.removeShare(state.sharers, py)
+        sharers: methods.removeShare(state.sharers, py),
       }
       break
 
     case 'COMMENT':
       return {
         ...state,
-        viewPost: methods.comment(state.viewPost, py)
+        viewPost: methods.comment(state.viewPost, py),
       }
       break
 
     case 'DELETE_COMMENT':
       return {
         ...state,
-        viewPost: methods.deleteComment(state.viewPost, py)
+        viewPost: methods.deleteComment(state.viewPost, py),
       }
       break
 
     case 'EDIT_COMMENT':
       return {
         ...state,
-        viewPost: methods.editComment(state.viewPost, py)
+        viewPost: methods.editComment(state.viewPost, py),
       }
       break
 
@@ -150,13 +150,13 @@ export default (state=initialState, action) => {
     case 'CHANGE_POSTIT_PROPS':
       return {
         ...state,
-        postIt: methods.changePostIt(state.postIt, py)
+        postIt: methods.changePostIt(state.postIt, py),
       }
 
     case 'RESET_POSTIT':
       return {
         ...state,
-        postIt: methods.resetPostItProperties()
+        postIt: methods.resetPostItProperties(),
       }
   }
 

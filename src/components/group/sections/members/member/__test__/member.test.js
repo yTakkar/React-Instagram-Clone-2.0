@@ -10,12 +10,9 @@ import mockStore from '../../../../../../store/__mocks__/mockStore'
 describe('MembersList Component', () => {
   MockDataElement()
 
-  const comp = (extraProps={}) => (
+  const comp = (extraProps = {}) => (
     <Provider store={mockStore}>
-      <MembersList
-        {...Group.members[0]}
-        {...extraProps}
-      />
+      <MembersList {...Group.members[0]} {...extraProps} />
     </Provider>
   )
 
@@ -25,10 +22,12 @@ describe('MembersList Component', () => {
   })
 
   it('should match snapshot with profile link', () => {
-    const tree = create(comp({
-      member: 24,
-      username: 'takkar'
-    })).toJSON()
+    const tree = create(
+      comp({
+        member: 24,
+        username: 'takkar',
+      })
+    ).toJSON()
     expect(tree).toMatchSnapshot()
   })
 
@@ -38,7 +37,7 @@ describe('MembersList Component', () => {
         {...Group.members[0]}
         gd={{
           ...Group.group_details,
-          admin: 7
+          admin: 7,
         }}
       />
     )
@@ -52,12 +51,11 @@ describe('MembersList Component', () => {
         {...Group.members[0]}
         gd={{
           ...Group.group_details,
-          admin: 7
+          admin: 7,
         }}
       />
     )
     wrapper.setState({ isFollowing: true })
     expect(wrapper.find('Connect(Unfollow)').exists()).toBe(true)
   })
-
 })

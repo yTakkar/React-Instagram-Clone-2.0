@@ -3,11 +3,8 @@ import NotificationType from '../type'
 import { create } from 'react-test-renderer'
 
 describe('NotificationType Component', () => {
-  const comp = (type, username='') => (
-    <NotificationType
-      type={type}
-      user_username={username}
-    />
+  const comp = (type, username = '') => (
+    <NotificationType type={type} user_username={username} />
   )
 
   it('should match snapshot with type "follow"', () => {
@@ -44,5 +41,4 @@ describe('NotificationType Component', () => {
     const tree = create(comp('mention_post'))
     expect(tree).toMatchSnapshot()
   })
-
 })

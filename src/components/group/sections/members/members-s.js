@@ -11,9 +11,8 @@ import IsLoading from '../../../others/isLoading'
 import classNames from 'classnames'
 
 class GroupMembers extends Component {
-
   state = {
-    loading: true
+    loading: true,
   }
 
   componentDidMount = () => {
@@ -22,55 +21,49 @@ class GroupMembers extends Component {
   }
 
   componentWillReceiveProps = ({ dispatch, gd }) => {
-    this.props.gd != gd
-      ? dispatch(getGroupMembers(gd.group_id))
-      : null
-    this.setState({ loading : false })
+    this.props.gd != gd ? dispatch(getGroupMembers(gd.group_id)) : null
+    this.setState({ loading: false })
   }
 
   componentDidUpdate = () => bottomScroll()
 
   render() {
-    let
-      { loading } = this.state,
-      { gd: { name }, members } = this.props,
+    let { loading } = this.state,
+      {
+        gd: { name },
+        members,
+      } = this.props,
       len = members.length,
-      map_members = members.map(m =>
-        <Member key={m.grp_member_id} {...m} />
-      )
+      map_members = members.map(m => <Member key={m.grp_member_id} {...m} />)
 
     return (
       <div>
         <Title value={`${name}'s members`} />
 
-        <FadeIn duration='300ms'>
-
+        <FadeIn duration="300ms">
           <IsLoading loading={loading} />
 
           <div
-            className={classNames('senapati', 'pro_senapati', cLoading(loading))}
+            className={classNames(
+              'senapati',
+              'pro_senapati',
+              cLoading(loading)
+            )}
           >
             <div
               className={classNames({
                 m_div: len != 0,
-                m_no_div: len == 0
+                m_no_div: len == 0,
               })}
             >
-              <MonHeader
-                len={len}
-                forWhat='member'
-              />
+              <MonHeader len={len} forWhat="member" />
 
-              <div className='m_wrapper'>
-                { len != 0 ? map_members : null }
-              </div>
-
+              <div className="m_wrapper">{len != 0 ? map_members : null}</div>
             </div>
           </div>
 
           <MembersEnd loading={loading} />
         </FadeIn>
-
       </div>
     )
   }
@@ -78,7 +71,7 @@ class GroupMembers extends Component {
 
 const mapStateToProps = store => ({
   members: store.Group.members,
-  gd: store.Group.group_details
+  gd: store.Group.group_details,
 })
 
 export default connect(mapStateToProps)(GroupMembers)

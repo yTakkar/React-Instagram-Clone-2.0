@@ -8,25 +8,15 @@ describe('Primary Button Component', () => {
 
   it('should match snapshot', () => {
     const tree = create(
-      <PrimaryButton
-        label='Add post'
-        onClick={mockFn}
-        extraClass='p_add'
-      />
+      <PrimaryButton label="Add post" onClick={mockFn} extraClass="p_add" />
     ).toJSON()
     expect(tree).toMatchSnapshot()
   })
 
   it('should match snapshot with label as a function and disabled=true', () => {
-    let label = () => (
-      <img src='/images/spacecraft.jpg' />
-    )
+    let label = () => <img src="/images/spacecraft.jpg" />
     const tree = create(
-      <PrimaryButton
-        label={label}
-        onClick={mockFn}
-        disabled
-      />
+      <PrimaryButton label={label} onClick={mockFn} disabled />
     ).toJSON()
 
     expect(tree).toMatchSnapshot()
@@ -34,17 +24,9 @@ describe('Primary Button Component', () => {
 
   it('should simulate click events', () => {
     const wrapper = shallow(
-      <PrimaryButton
-        label='Add post'
-        onClick={mockFn}
-        extraClass='p_add'
-      />
+      <PrimaryButton label="Add post" onClick={mockFn} extraClass="p_add" />
     )
 
-    wrapper.find('a').simulate(
-      'click',
-      { preventDefault() {} }
-    )
+    wrapper.find('a').simulate('click', { preventDefault() {} })
   })
-
 })

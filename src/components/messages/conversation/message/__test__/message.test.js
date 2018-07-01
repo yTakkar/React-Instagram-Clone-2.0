@@ -5,12 +5,7 @@ import MessageMockData from '../../../../../store/__mocks__/reducers/Message'
 import { shallow } from 'enzyme'
 
 describe('Message Component', () => {
-
-  const comp = index => (
-    <Message
-      {...MessageMockData.messages[index]}
-    />
-  )
+  const comp = index => <Message {...MessageMockData.messages[index]} />
 
   it('should match snapshot with message type sticker', () => {
     const tree = create(comp(0)).toJSON()
@@ -32,5 +27,4 @@ describe('Message Component', () => {
     wrapper.find('.toggle_mssg_tools').simulate('click')
     expect(wrapper.find('MessageTools').exists()).toBe(true)
   })
-
 })

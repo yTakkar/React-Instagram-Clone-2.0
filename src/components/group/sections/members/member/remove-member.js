@@ -9,9 +9,8 @@ import PropTypes from 'prop-types'
 import SecondaryButton from '../../../../others/button/secondary-btn'
 
 class RemoveMember extends Component {
-
   state = {
-    showPrompt: false
+    showPrompt: false,
   }
 
   showPrompt = e => {
@@ -19,8 +18,7 @@ class RemoveMember extends Component {
     this.setState({ showPrompt: true })
   }
 
-  hidePrompt = () =>
-    this.setState({ showPrompt: false })
+  hidePrompt = () => this.setState({ showPrompt: false })
 
   removeMember = async e => {
     e.preventDefault()
@@ -41,21 +39,17 @@ class RemoveMember extends Component {
 
     return (
       <Fragment>
-        <SecondaryButton
-          label={btnLabel}
-          onClick={this.showPrompt}
-        />
+        <SecondaryButton label={btnLabel} onClick={this.showPrompt} />
 
-        {
-          showPrompt &&
-            <Prompt
-              title={`Remove ${username}`}
-              content='This member will be premanently removed. Member would have to re-join the group.'
-              actionText='Delete'
-              action={this.removeMember}
-              back={this.hidePrompt}
-            />
-        }
+        {showPrompt && (
+          <Prompt
+            title={`Remove ${username}`}
+            content="This member will be premanently removed. Member would have to re-join the group."
+            actionText="Delete"
+            action={this.removeMember}
+            back={this.hidePrompt}
+          />
+        )}
       </Fragment>
     )
   }
@@ -65,12 +59,12 @@ RemoveMember.propTypes = {
   memberDetails: PropTypes.shape({
     grp_member_id: PropTypes.number.isRequired,
     member: PropTypes.number.isRequired,
-    username: PropTypes.string.isRequired
-  }).isRequired
+    username: PropTypes.string.isRequired,
+  }).isRequired,
 }
 
 const mapStateToProps = store => ({
-  gd: store.Group.group_details
+  gd: store.Group.group_details,
 })
 
 export default connect(mapStateToProps)(RemoveMember)

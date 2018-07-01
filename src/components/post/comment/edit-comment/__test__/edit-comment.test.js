@@ -11,30 +11,22 @@ describe('EditComment Component', () => {
     comment: 'a comment',
     comment_id: 33,
     back: mockFn,
-    updateComment: mockFn
+    updateComment: mockFn,
   }
 
   it('should match snapshot', () => {
     const tree = create(
       <Provider store={mockStore}>
-        <EditComment
-          {...props}
-        />
+        <EditComment {...props} />
       </Provider>
     ).toJSON()
     expect(tree).toMatchSnapshot()
   })
 
   it('should mock updateComment action', () => {
-    const wrapper = shallow(
-      <PureEditComment
-        {...props}
-        dispatch={mockFn}
-      />
-    )
+    const wrapper = shallow(<PureEditComment {...props} dispatch={mockFn} />)
     wrapper.find('PrimaryButton').simulate('click', {
-      preventDefault() {}
+      preventDefault() {},
     })
   })
-
 })

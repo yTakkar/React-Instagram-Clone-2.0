@@ -3,11 +3,7 @@ import { PureHome } from '../home'
 import { shallow } from 'enzyme'
 
 describe('Home Component', () => {
-  const comp = (
-    <PureHome
-      dispatch={jest.fn()}
-    />
-  )
+  const comp = <PureHome dispatch={jest.fn()} />
 
   // shallow snapshot
   it('should match snapshot', () => {
@@ -20,5 +16,4 @@ describe('Home Component', () => {
     wrapper.setState({ loading: true })
     expect(wrapper.find('InstagramStyle').length).toBe(3)
   })
-
 })

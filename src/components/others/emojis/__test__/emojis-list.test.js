@@ -5,14 +5,13 @@ import { shallow } from 'enzyme'
 import d from '../../../../utils/API/DOM'
 
 describe('EmojisList component', () => {
-
   const props = {
     position: {
       top: 10,
-      left: 40
+      left: 40,
     },
     textArea: '#testing-textarea',
-    updateStateValue() {}
+    updateStateValue() {},
   }
 
   beforeAll(() => {
@@ -23,14 +22,11 @@ describe('EmojisList component', () => {
   })
 
   afterAll(() => {
-    document.querySelector('#testing-textarea')
-      .remove()
+    document.querySelector('#testing-textarea').remove()
   })
 
   it('should match snapshot of EmojisList component', () => {
-    const tree = create(
-      <EmojisList {...props} />
-    ).toJSON()
+    const tree = create(<EmojisList {...props} />).toJSON()
     expect(tree).toMatchSnapshot()
   })
 
@@ -39,28 +35,31 @@ describe('EmojisList component', () => {
     const wrapper = shallow(
       <EmojisList
         {...props}
-        updateStateValue={value =>
-          updatedValue = value
-        }
+        updateStateValue={value => (updatedValue = value)}
       />
     )
     const mockedEvent = {
       target: {
         classList: {
-          add() {}
-        }
-      }
+          add() {},
+        },
+      },
     }
     const textarea = new d('#testing-textarea')
 
     // when clicked on first emoji, expect the below result
-    wrapper.find('li').first().simulate('click', mockedEvent)
+    wrapper
+      .find('li')
+      .first()
+      .simulate('click', mockedEvent)
     expect(updatedValue).toEqual('😀Hello')
 
     // when clicked on 15th emoji and textArea's seclectionStart property set to 3, it should expect the below result
     textarea.toDOM().selectionStart = 3
-    wrapper.find('li').at(14).simulate('click', mockedEvent)
+    wrapper
+      .find('li')
+      .at(14)
+      .simulate('click', mockedEvent)
     expect(updatedValue).toEqual('Hel😎lo')
   })
-
 })

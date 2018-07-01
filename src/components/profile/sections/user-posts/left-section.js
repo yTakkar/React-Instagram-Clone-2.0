@@ -11,32 +11,24 @@ import NewConTeaser from '../../../messages/newCon-teaser'
 
 const UserPostsLeftSection = ({ username, id }) => (
   <Fragment>
-    { !Me(id) && <MutualUsers username={username} /> }
+    {!Me(id) && <MutualUsers username={username} />}
 
-    <Suggested when='profile' params={username} />
+    <Suggested when="profile" params={username} />
     <UserHashtags username={username} />
 
-    { !Me(id) && <Recommend username={username} /> }
-
-    {
-      !Me(id) &&
-        <AddToFavourites user={id} username={username} />
-    }
-
-    {
-      !Me(id) &&
-        <NewConTeaser userDetails={{ id, username }} />
-    }
+    {!Me(id) && <Recommend username={username} />}
+    {!Me(id) && <AddToFavourites user={id} username={username} />}
+    {!Me(id) && <NewConTeaser userDetails={{ id, username }} />}
   </Fragment>
 )
 
 UserPostsLeftSection.propTypes = {
-  username: PropTypes.string.isRequired
+  username: PropTypes.string.isRequired,
 }
 
-const mapStateToProps = state => (
-  { id: state.User.user_details.id }
-)
+const mapStateToProps = state => ({
+  id: state.User.user_details.id,
+})
 
 export default connect(mapStateToProps)(UserPostsLeftSection)
 export { UserPostsLeftSection as PureUserPostsLeftSection }

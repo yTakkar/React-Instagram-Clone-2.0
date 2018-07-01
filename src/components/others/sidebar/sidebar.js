@@ -9,7 +9,6 @@ import SidebarLink from './link'
 import { uData } from '../../../utils/utils'
 
 const SideBar = ({ uc, un }) => {
-
   let username = uData('username')
   let profile = `/profile/${username}`
 
@@ -18,51 +17,64 @@ const SideBar = ({ uc, un }) => {
     await post('/api/admin-logout')
     Notify({
       value: 'Logged out as admin',
-      done: () => location.reload()
+      done: () => location.reload(),
     })
   }
 
   return (
-    <div className='m_n_wrapper'>
-      <div className='m_n'>
-        <ul className='m_n_ul'>
+    <div className="m_n_wrapper">
+      <div className="m_n">
+        <ul className="m_n_ul">
           <SidebarLink link={profile} label={`@${username}`} />
-          <SidebarLink link='/' label='Home' />
-          <SidebarLink link='/explore' label='Explore' />
-          <SidebarLink link='/notifications' label='Notifications' showNumbers numbers={un} />
-          <SidebarLink link='/messages' label='Messages' showNumbers numbers={uc} />
-          <SidebarLink link={`${profile}/bookmarks`} label='Bookmarks' />
-          <SidebarLink link={`${profile}/gallery`} label='Gallery' />
-          <SidebarLink link={`${profile}/favourites`} label='Favourites' />
-          <SidebarLink link={`${profile}/groups`} label='Groups' />
-          <SidebarLink link={`${profile}/recommendations`} label='Recommendations' />
-          <SidebarLink link='/edit-profile' label='Edit profile' />
-          <SidebarLink link='/settings' label='Settings' />
+          <SidebarLink link="/" label="Home" />
+          <SidebarLink link="/explore" label="Explore" />
+          <SidebarLink
+            link="/notifications"
+            label="Notifications"
+            showNumbers
+            numbers={un}
+          />
+          <SidebarLink
+            link="/messages"
+            label="Messages"
+            showNumbers
+            numbers={uc}
+          />
+          <SidebarLink link={`${profile}/bookmarks`} label="Bookmarks" />
+          <SidebarLink link={`${profile}/gallery`} label="Gallery" />
+          <SidebarLink link={`${profile}/favourites`} label="Favourites" />
+          <SidebarLink link={`${profile}/groups`} label="Groups" />
+          <SidebarLink
+            link={`${profile}/recommendations`}
+            label="Recommendations"
+          />
+          <SidebarLink link="/edit-profile" label="Edit profile" />
+          <SidebarLink link="/settings" label="Settings" />
           <li>
-            {
-              isAdmin() ?
-                <a
-                  href='#'
-                  className='admin-logout'
-                  onClick={adminLogout}
-                >Log out as admin</a>
-                : <NavLink
-                  to={`/admin-login?to=${location.pathname}`}
-                  className='m_n_a_admin'
-                >Are you admin?</NavLink>
-            }
+            {isAdmin() ? (
+              <a href="#" className="admin-logout" onClick={adminLogout}>
+                Log out as admin
+              </a>
+            ) : (
+              <NavLink
+                to={`/admin-login?to=${location.pathname}`}
+                className="m_n_a_admin"
+              >
+                Are you admin?
+              </NavLink>
+            )}
           </li>
         </ul>
       </div>
 
-      <SidebarBottom/>
+      <SidebarBottom />
     </div>
   )
 }
 
 SideBar.propTypes = {
   un: PropTypes.number.isRequired,
-  uc: PropTypes.number.isRequired
+  uc: PropTypes.number.isRequired,
 }
 
 export default SideBar

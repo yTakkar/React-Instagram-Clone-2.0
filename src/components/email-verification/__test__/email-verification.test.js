@@ -5,12 +5,11 @@ import { Provider } from 'react-redux'
 import mockStore from '../../../store/__mocks__/mockStore'
 
 describe('EmailVerification Component', () => {
-
   const comp = is => (
-    <Provider store={mockStore} >
+    <Provider store={mockStore}>
       <EmailVerification
         match={{
-          params: { is }
+          params: { is },
         }}
       />
     </Provider>
@@ -30,5 +29,4 @@ describe('EmailVerification Component', () => {
     const tree = create(comp('jewnkjen')).toJSON()
     expect(tree).toMatchSnapshot()
   })
-
 })

@@ -10,16 +10,13 @@ import classNames from 'classnames'
 
 @connect()
 export default class Comment extends Component {
-
   state = {
-    text: ''
+    text: '',
   }
 
-  componentDidMount = () =>
-    this.setState({ text: this.props.text })
+  componentDidMount = () => this.setState({ text: this.props.text })
 
-  _toggle = what =>
-    this.setState({ [what]: !this.state[what] })
+  _toggle = what => this.setState({ [what]: !this.state[what] })
 
   render() {
     let {
@@ -29,48 +26,44 @@ export default class Comment extends Component {
       type,
       commentSrc,
       comment_time,
-      decrementComments
+      decrementComments,
     } = this.props
     let { text } = this.state
 
     return (
       <div>
-        <div
-          className={classNames('comments', {my_comment: Me(comment_by)})}
-        >
+        <div className={classNames('comments', { my_comment: Me(comment_by) })}>
           <img
-            className='comments_avatar'
+            className="comments_avatar"
             src={`/users/${comment_by}/avatar.jpg`}
           />
 
-          <div className='comments_content'>
+          <div className="comments_content">
             <AppLink
               url={`/profile/${comment_by_username}`}
-              className='comments_user'
+              className="comments_user"
               label={comment_by_username}
             />
 
-            <CommentType
-              type={type}
-              text={text}
-              commentSrc={commentSrc}
-            />
+            <CommentType type={type} text={text} commentSrc={commentSrc} />
 
-            <div className='comments_bottom'>
-              <span className='comments_time'>{ TimeAgo(comment_time) }</span>
+            <div className="comments_bottom">
+              <span className="comments_time">{TimeAgo(comment_time)}</span>
             </div>
 
             <CommentOptions
-              commentDetails={{ comment_id, comment_by, text, type, commentSrc }}
+              commentDetails={{
+                comment_id,
+                comment_by,
+                text,
+                type,
+                commentSrc,
+              }}
               decrementComments={decrementComments}
-              updateCommentText={value =>
-                this.setState({ text: value })
-              }
+              updateCommentText={value => this.setState({ text: value })}
             />
-
           </div>
         </div>
-
       </div>
     )
   }
@@ -84,6 +77,6 @@ Comment.propTypes = {
   post_id: PropTypes.number.isRequired,
   commentSrc: PropTypes.string,
   text: PropTypes.string,
-  type: PropTypes.oneOf([ 'text', 'sticker', 'image' ]).isRequired,
-  decrementComments: PropTypes.func.isRequired
+  type: PropTypes.oneOf(['text', 'sticker', 'image']).isRequired,
+  decrementComments: PropTypes.func.isRequired,
 }

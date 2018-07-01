@@ -5,14 +5,12 @@ import mockStore from '../../../../store/__mocks__/mockStore'
 import BannerInfo from '../info'
 
 describe('BannerInfo Component', () => {
-
   it('should match snapshot', () => {
     const tree = create(
       <Provider store={mockStore}>
-        <BannerInfo/>
+        <BannerInfo />
       </Provider>
     ).toJSON()
     expect(tree).toMatchSnapshot()
   })
-
 })

@@ -12,8 +12,8 @@ describe('IsAdmin Component', () => {
 
   it('should match snapshot', () => {
     const tree = create(
-      <Provider store={mockStore} >
-        <IsAdmin/>
+      <Provider store={mockStore}>
+        <IsAdmin />
       </Provider>
     ).toJSON()
     expect(tree).toMatchSnapshot()
@@ -21,8 +21,7 @@ describe('IsAdmin Component', () => {
 
   it('should redirect to /admin-login route when user is not an admin', () => {
     dataElement.setAttribute('data-isadmin', 'false')
-    const wrapper = shallow(<IsAdmin/>)
+    const wrapper = shallow(<IsAdmin />)
     expect(wrapper.find('Redirect').exists()).toBe(true)
   })
-
 })

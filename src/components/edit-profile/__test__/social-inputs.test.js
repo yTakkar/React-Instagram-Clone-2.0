@@ -10,18 +10,13 @@ describe('Social-Inputs Component', () => {
       twitter: 'https://twitter.com/shtakkar',
       facebook: 'https://www.facebook.com/profile.php?id=100009110960262',
       website: '',
-      phone: ''
+      phone: '',
     },
-    change: jest.fn()
+    change: jest.fn(),
   }
 
   it('should match snapshot', () => {
-    const tree = create(
-      <SocialInputs
-        {...props}
-      />
-    ).toJSON()
+    const tree = create(<SocialInputs {...props} />).toJSON()
     expect(tree).toMatchSnapshot()
   })
-
 })

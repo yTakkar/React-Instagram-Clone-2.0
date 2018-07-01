@@ -5,12 +5,9 @@ import mockStore from '../../../../store/__mocks__/mockStore'
 import MutualMembersDiv from '../mutualsDiv'
 
 describe('MutualMembersDiv Component', () => {
-
   const comp = (
     <Provider store={mockStore}>
-      <MutualMembersDiv
-        group={34}
-      />
+      <MutualMembersDiv group={34} />
     </Provider>
   )
 
@@ -18,5 +15,4 @@ describe('MutualMembersDiv Component', () => {
     const tree = create(comp).toJSON()
     expect(tree).toMatchSnapshot()
   })
-
 })

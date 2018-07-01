@@ -4,13 +4,13 @@ export default [
     username: 'ghalib',
     firstname: 'Mirza',
     surname: 'Ghalib',
-    mutualUsersCount: 1
+    mutualUsersCount: 1,
   },
   {
     id: 8,
     username: 'coldplay',
     firstname: 'cold',
     surname: 'play',
-    mutualUsersCount: 0
-  }
+    mutualUsersCount: 0,
+  },
 ]

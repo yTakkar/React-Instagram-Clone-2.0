@@ -11,8 +11,7 @@ import { commonLogin } from './user-system-utils'
  * @param {String} options.username
  */
 export const quickLogin = options => {
-  let
-    { id, username } = options,
+  let { id, username } = options,
     usernameDiv = new d('.q_l_username'),
     imgDiv = new d('.q_l_m_img'),
     icon = new d('.s_p_ql'),
@@ -21,9 +20,7 @@ export const quickLogin = options => {
   new d('.overlay-2-black').show()
   new d('.q_l_model').show()
 
-  password
-    .focus()
-    .setAttr('type', 'password')
+  password.focus().setAttr('type', 'password')
 
   icon.html('<i class="fas fa-lock"></i>')
   icon.css('color', 'darkturquoise')
@@ -43,7 +40,7 @@ export const quickLogin = options => {
     await post('/api/remove-quick-login', { id })
     Notify({
       value: `Removed ${username} from quick login!!`,
-      done: () => location.reload()
+      done: () => location.reload(),
     })
   })
 
@@ -51,10 +48,9 @@ export const quickLogin = options => {
   new d('.s_p_ql').on('click', () => {
     viewPassword({
       input: '#q_l_password',
-      icon: '.s_p_ql'
+      icon: '.s_p_ql',
     })
   })
-
 }
 
 /**
@@ -66,11 +62,10 @@ const quickLoginSubmit = username => {
   if (!password) {
     Notify({ value: 'Password is missing!!' })
   } else {
-
     let loginOpt = {
       data: {
         username,
-        password
+        password,
       },
       when: 'login',
       btn: '.q_l_submit',
@@ -79,6 +74,5 @@ const quickLoginSubmit = username => {
       defBtnValue: 'Login To Continue',
     }
     commonLogin(loginOpt)
-
   }
 }

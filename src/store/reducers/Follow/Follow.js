@@ -4,10 +4,10 @@
 import initialState from './initialState'
 import * as methods from './methods'
 
-export default (state=initialState, action) => {
+export default (state = initialState, action) => {
   let py = action.payload
 
-  switch(action.type) {
+  switch (action.type) {
     case 'IS_FOLLOWING':
       return { ...state, isFollowing: py }
       break
@@ -23,7 +23,7 @@ export default (state=initialState, action) => {
         followings: py.followings,
         profile_views: py.views_count,
         favourites: py.favourites,
-        recommendations: py.recommendations
+        recommendations: py.recommendations,
       }
       break
 
@@ -36,35 +36,35 @@ export default (state=initialState, action) => {
     case 'FOLLOWER':
       return {
         ...state,
-        followers: methods.follower(state.followers, py)
+        followers: methods.follower(state.followers, py),
       }
       break
 
     case 'UNFOLLOWER':
       return {
         ...state,
-        followers: methods.unfollower(state.followers, py)
+        followers: methods.unfollower(state.followers, py),
       }
       break
 
     case 'FOLLOWING':
       return {
         ...state,
-        followings: methods.following(state.followings, py)
+        followings: methods.following(state.followings, py),
       }
       break
 
     case 'UNFOLLOWING':
       return {
         ...state,
-        followings: methods.unfollowing(state.followings, py)
+        followings: methods.unfollowing(state.followings, py),
       }
       break
 
     case 'REMOVE_FAVOURITES':
       return {
         ...state,
-        favourites: methods.remFav(state.favourites, py)
+        favourites: methods.remFav(state.favourites, py),
       }
       break
 
@@ -75,10 +75,9 @@ export default (state=initialState, action) => {
     case 'REMOVE_RECOMMENDATION':
       return {
         ...state,
-        recommendations: methods.remRec(state.recommendations, py)
+        recommendations: methods.remRec(state.recommendations, py),
       }
       break
-
   }
   return state
 }

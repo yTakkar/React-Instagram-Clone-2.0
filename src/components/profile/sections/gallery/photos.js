@@ -6,14 +6,13 @@ import PhotoGallery from 'react-photo-gallery'
 import ImageTheatre from '../../../others/imageTheatre/imageTheatre'
 
 class UserPhotos extends Component {
-
   state = {
     showImage: false,
     imgSrc: '',
     filter: '',
     username: '',
     time: '',
-    link: ''
+    link: '',
   }
 
   selectPhoto = (e, { photo }) => {
@@ -30,9 +29,17 @@ class UserPhotos extends Component {
 
   render() {
     let {
-      showImage, imgSrc, filter, username: imgUsername, time, link
+      showImage,
+      imgSrc,
+      filter,
+      username: imgUsername,
+      time,
+      link,
     } = this.state
-    let { photos, ud: { id, username } } = this.props
+    let {
+      photos,
+      ud: { id, username },
+    } = this.props
     let len = photos.length
     let PHOTO_SET = []
 
@@ -42,38 +49,37 @@ class UserPhotos extends Component {
         src: `/posts/${f.imgsrc}`,
         width: 15,
         height: 15,
-        className: `g_photo ${f.filter}`
+        className: `g_photo ${f.filter}`,
       })
     }
 
     return (
       <Fragment>
-        {
-          len == 0 ?
-            <Nothing mssg={
-              Me(id)
-                ? 'You have no photos!!'
-                : `${username} has no photos!!`
-            } />
-            : <PhotoGallery
-              photos={PHOTO_SET}
-              columns={4}
-              margin={7}
-              onClick={this.selectPhoto}
-            />
-        }
+        {len == 0 ? (
+          <Nothing
+            mssg={
+              Me(id) ? 'You have no photos!!' : `${username} has no photos!!`
+            }
+          />
+        ) : (
+          <PhotoGallery
+            photos={PHOTO_SET}
+            columns={4}
+            margin={7}
+            onClick={this.selectPhoto}
+          />
+        )}
 
-        {
-          showImage &&
-            <ImageTheatre
-              imgSrc={imgSrc}
-              filter={filter}
-              username={imgUsername}
-              time={time}
-              link={link}
-              back={() => this.setState({ showImage: false })}
-            />
-        }
+        {showImage && (
+          <ImageTheatre
+            imgSrc={imgSrc}
+            filter={filter}
+            username={imgUsername}
+            time={time}
+            link={link}
+            back={() => this.setState({ showImage: false })}
+          />
+        )}
       </Fragment>
     )
   }
@@ -81,7 +87,7 @@ class UserPhotos extends Component {
 
 const mapStateToProps = store => ({
   ud: store.User.user_details,
-  photos: store.Post.photos
+  photos: store.Post.photos,
 })
 
 export default connect(mapStateToProps)(UserPhotos)

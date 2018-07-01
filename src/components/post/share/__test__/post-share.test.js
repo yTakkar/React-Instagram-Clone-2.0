@@ -10,31 +10,24 @@ describe('PostShare Component', () => {
   const props = {
     postDetails: {
       post_id: 44,
-      user: 7
+      user: 7,
     },
     incrementWhat: mockFn,
-    decrementWhat: mockFn
+    decrementWhat: mockFn,
   }
 
   it('should match snapshot', () => {
     const tree = create(
       <Provider store={mockStore}>
-        <PostShare
-          {...props}
-        />
+        <PostShare {...props} />
       </Provider>
     ).toJSON()
     expect(tree).toMatchSnapshot()
   })
 
   it('should show <Share/> when showShare == true', () => {
-    const wrapper = shallow(
-      <PostShare
-        {...props}
-      />
-    )
+    const wrapper = shallow(<PostShare {...props} />)
     wrapper.setState({ showShare: true })
     expect(wrapper.find('Connect(Share)').exists()).toBe(true)
   })
-
 })

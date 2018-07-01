@@ -4,12 +4,7 @@ import { shallow, mount } from 'enzyme'
 import Explore from '../../../../store/__mocks__/reducers/Explore'
 
 describe('ExplorePhotoGallery Component', () => {
-
-  const comp = (
-    <PureExplorePhotoGallery
-      photos={Explore.photos}
-    />
-  )
+  const comp = <PureExplorePhotoGallery photos={Explore.photos} />
 
   // shallow snapshot
   it('should match snapshot', () => {
@@ -33,13 +28,8 @@ describe('ExplorePhotoGallery Component', () => {
   })
 
   it('should show <Nothing/> when photos.length == 0', () => {
-    const wrapper = shallow(
-      <PureExplorePhotoGallery
-        photos={[]}
-      />
-    )
+    const wrapper = shallow(<PureExplorePhotoGallery photos={[]} />)
     expect(wrapper.find('Nothing').exists()).toBe(true)
     expect(wrapper.find('Gallery').exists()).toBe(false)
   })
-
 })

@@ -5,11 +5,7 @@ import { shallow } from 'enzyme'
 
 describe('CreateGroupActions Component', () => {
   const comp = (
-    <CreateGroupActions
-      back={jest.fn()}
-      create={jest.fn()}
-      name='dd'
-    />
+    <CreateGroupActions back={jest.fn()} create={jest.fn()} name="dd" />
   )
 
   it('should match snapshot', () => {
@@ -22,13 +18,12 @@ describe('CreateGroupActions Component', () => {
 
     // create
     wrapper.find('PrimaryButton').simulate('click', {
-      preventDefault() {}
+      preventDefault() {},
     })
 
     // back
     wrapper.find('SecondaryButton').simulate('click', {
-      preventDefault() {}
+      preventDefault() {},
     })
   })
-
 })

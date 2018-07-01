@@ -14,10 +14,9 @@ import Unfollow from '../../../../others/follow/unfollow'
 import AppLink from '../../../../others/link/link'
 
 class MembersList extends Component {
-
   state = {
     isFollowing: false,
-    showTime: false
+    showTime: false,
   }
 
   componentDidMount = async () => {
@@ -33,59 +32,62 @@ class MembersList extends Component {
 
   render() {
     let {
-      grp_member_id, member, username, firstname, surname,
-      added_by, added_by_username, mutualUsersCount, joined_group, gd
+      grp_member_id,
+      member,
+      username,
+      firstname,
+      surname,
+      added_by,
+      added_by_username,
+      mutualUsersCount,
+      joined_group,
+      gd,
     } = this.props
     let { isFollowing, showTime } = this.state
 
     return (
       <div
-        className='m_on followers_m_on'
+        className="m_on followers_m_on"
         onMouseOver={this.showTime}
         onMouseOut={this.hideTime}
       >
         <MemberTop
           memberDetails={{
-            member, username, firstname, surname, mutualUsersCount
+            member,
+            username,
+            firstname,
+            surname,
+            mutualUsersCount,
           }}
         />
 
-        <MonSticky
-          show={showTime}
-          text={TimeAgo(joined_group)}
-        />
+        <MonSticky show={showTime} text={TimeAgo(joined_group)} />
 
-        <div className='m_bottom'>
+        <div className="m_bottom">
           <MemberAddedBy
             memberDetails={{ member, added_by, added_by_username }}
           />
 
-          {
-            Me(member)
-              ? <AppLink
-                url={`/profile/${username}`}
-                className='sec_btn'
-                label='Profile'
-              />
-
-              : Me(gd.admin) || isAdmin()
-                ? <RemoveMember
-                  memberDetails={{ grp_member_id, member, username }}
-                />
-
-                : isFollowing
-                  ? <Unfollow
-                    user={member}
-                    unfollowed={() => this.setState({ isFollowing: false })}
-                  />
-
-                  : <Follow
-                    userDetails={{ user: member, username }}
-                    followed={() => this.setState({ isFollowing: true })}
-                  />
-          }
+          {Me(member) ? (
+            <AppLink
+              url={`/profile/${username}`}
+              className="sec_btn"
+              label="Profile"
+            />
+          ) : Me(gd.admin) || isAdmin() ? (
+            <RemoveMember memberDetails={{ grp_member_id, member, username }} />
+          ) : isFollowing ? (
+            <Unfollow
+              user={member}
+              unfollowed={() => this.setState({ isFollowing: false })}
+            />
+          ) : (
+            <Follow
+              userDetails={{ user: member, username }}
+              followed={() => this.setState({ isFollowing: true })}
+            />
+          )}
         </div>
-
       </div>
     )
   }
@@ -105,7 +107,7 @@ MembersList.propTypes = {
 }
 
 const mapStateToProps = store => ({
-  gd: store.Group.group_details
+  gd: store.Group.group_details,
 })
 
 export default connect(mapStateToProps)(MembersList)

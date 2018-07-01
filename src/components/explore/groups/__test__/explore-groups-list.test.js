@@ -1,19 +1,18 @@
 import React from 'react'
 import { Provider } from 'react-redux'
 import mockStore from '../../../../store/__mocks__/mockStore'
-import ExploreGroupsList, { PureExploreGroupsList } from '../explore-groups-list'
+import ExploreGroupsList, {
+  PureExploreGroupsList,
+} from '../explore-groups-list'
 import Explore from '../../../../store/__mocks__/reducers/Explore'
 import { create } from 'react-test-renderer'
 import { shallow } from 'enzyme'
 import User from '../../../../store/__mocks__/reducers/User'
 
 describe('ExploreGroupsList Component', () => {
-
-  const comp = (index=0) => (
+  const comp = (index = 0) => (
     <Provider store={mockStore}>
-      <ExploreGroupsList
-        {...Explore.groups[index]}
-      />
+      <ExploreGroupsList {...Explore.groups[index]} />
     </Provider>
   )
 
@@ -29,10 +28,7 @@ describe('ExploreGroupsList Component', () => {
 
   it('should toggle <MonSticky/> when hovered over the top-parent div', () => {
     const wrapper = shallow(
-      <PureExploreGroupsList
-        session={User.session}
-        {...Explore.groups[0]}
-      />
+      <PureExploreGroupsList session={User.session} {...Explore.groups[0]} />
     )
 
     // should show
@@ -43,5 +39,4 @@ describe('ExploreGroupsList Component', () => {
     wrapper.find('.m_on').simulate('mouseOut')
     expect(wrapper.find('MonSticky').prop('show')).toEqual(false)
   })
-
 })

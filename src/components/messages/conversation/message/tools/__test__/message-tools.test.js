@@ -16,16 +16,12 @@ describe('MessageTools Component', () => {
       type: 'text',
       mssg_by: 20,
     },
-    updateMessage: mockFn
+    updateMessage: mockFn,
   }
 
-  beforeAll(() =>
-    dataElement = MockDataElement()
-  )
+  beforeAll(() => (dataElement = MockDataElement()))
 
-  afterAll(() =>
-    dataElement.remove()
-  )
+  afterAll(() => dataElement.remove())
 
   it('should match snapshot with null when post is not mine & iam not an admin', () => {
     const tree = create(
@@ -42,7 +38,7 @@ describe('MessageTools Component', () => {
         <MessageTools
           messageDetails={{
             ...props.messageDetails,
-            mssg_by: 24
+            mssg_by: 24,
           }}
           updateMessage={mockFn}
         />
@@ -60,5 +56,4 @@ describe('MessageTools Component', () => {
     ).toJSON()
     expect(tree).toMatchSnapshot()
   })
-
 })

@@ -9,11 +9,8 @@ import mockExploreState from '../../../../store/__mocks__/reducers/Explore'
 
 describe('Suggested-List Component', () => {
   const comp = (
-    <Provider store={mockStore} >
-      <SuggestedList
-        {...mockExploreState.suggested[0]}
-        when='home'
-      />
+    <Provider store={mockStore}>
+      <SuggestedList {...mockExploreState.suggested[0]} when="home" />
     </Provider>
   )
 
@@ -24,16 +21,9 @@ describe('Suggested-List Component', () => {
 
   it('should show AdvancedUnfollow comp when isFollowing state is false', () => {
     const wrapper = shallow(
-      <SuggestedList
-        {...suggestedMockArray[0]}
-        when='home'
-      />
+      <SuggestedList {...suggestedMockArray[0]} when="home" />
     )
     wrapper.setState({ isFollowing: true })
-
-    expect(
-      wrapper.find('Connect(AdvancedUnfollow)').exists()
-    ).toBe(true)
+    expect(wrapper.find('Connect(AdvancedUnfollow)').exists()).toBe(true)
   })
-
 })

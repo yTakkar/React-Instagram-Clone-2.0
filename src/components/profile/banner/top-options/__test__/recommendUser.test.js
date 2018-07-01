@@ -15,9 +15,7 @@ describe('BannerRecommendUser Component', () => {
     User.user_details.id = 7
     const tree = create(
       <Provider store={mockStore}>
-        <BannerRecommendUser
-          toggleOptions={mockFn}
-        />
+        <BannerRecommendUser toggleOptions={mockFn} />
       </Provider>
     ).toJSON()
     expect(tree).toMatchSnapshot()
@@ -25,18 +23,12 @@ describe('BannerRecommendUser Component', () => {
 
   it('should show <RecommendUsers/> when clicked on recommend option', () => {
     const wrapper = shallow(
-      <PureBannerRecommendUser
-        toggleOptions={mockFn}
-        id={7}
-      />
+      <PureBannerRecommendUser toggleOptions={mockFn} id={7} />
     )
     wrapper.find('li > a').simulate('click', {
-      preventDefault() {}
+      preventDefault() {},
     })
 
-    expect(
-      wrapper.find('Connect(RecommendUsers)').exists()
-    ).toBe(true)
+    expect(wrapper.find('Connect(RecommendUsers)').exists()).toBe(true)
   })
-
 })

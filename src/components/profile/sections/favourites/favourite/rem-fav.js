@@ -9,11 +9,10 @@ import PropTypes from 'prop-types'
 import SecondaryButton from '../../../../others/button/secondary-btn'
 
 const RemoveFav = ({ fav_id, username, id, dispatch }) => {
-
   let removeFav = async e => {
     e.preventDefault()
     let {
-      data: { success, mssg }
+      data: { success, mssg },
     } = await post('/api/remove-favourites', { fav_id })
 
     if (success) {
@@ -22,33 +21,27 @@ const RemoveFav = ({ fav_id, username, id, dispatch }) => {
     } else {
       Notify({ value: mssg })
     }
-
   }
 
   let btnLabel = `Remove ${isAdmin() ? 'as admin' : ''}`
 
   return (
     <Fragment>
-      {
-        Me(id) || isAdmin() ?
-          <SecondaryButton
-            label={btnLabel}
-            onClick={removeFav}
-          />
-          : null
-      }
+      {Me(id) || isAdmin() ? (
+        <SecondaryButton label={btnLabel} onClick={removeFav} />
+      ) : null}
     </Fragment>
   )
 }
 
 RemoveFav.propTypes = {
   fav_id: PropTypes.number.isRequired,
-  username: PropTypes.string.isRequired
+  username: PropTypes.string.isRequired,
 }
 
-const mapStateToProps = state => (
-  { id: state.User.user_details.id }
-)
+const mapStateToProps = state => ({
+  id: state.User.user_details.id,
+})
 
 export default connect(mapStateToProps)(RemoveFav)
 export { RemoveFav as PureRemoveFav }

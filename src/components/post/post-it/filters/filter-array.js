@@ -42,5 +42,5 @@ export default [
   'filter-vesper',
   'filter-walden',
   'filter-willow',
-  'filter-xpro-ii'
+  'filter-xpro-ii',
 ]

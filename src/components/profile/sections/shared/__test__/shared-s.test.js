@@ -14,7 +14,7 @@ describe('Shared Component', () => {
   it('should match snapshot', () => {
     const tree = create(
       <Provider store={mockStore}>
-        <Shared param='takkar' />
+        <Shared param="takkar" />
       </Provider>
     ).toJSON()
     expect(tree).toMatchSnapshot()
@@ -24,7 +24,7 @@ describe('Shared Component', () => {
     const wrapper = shallow(
       <PureShared
         dispatch={jest.fn()}
-        param='ghalib'
+        param="ghalib"
         ud={User.user_details}
         shared={Post.shared}
       />
@@ -32,5 +32,4 @@ describe('Shared Component', () => {
     wrapper.setState({ loading: false })
     expect(wrapper.find('IsLoading').prop('loading')).toBe(false)
   })
-
 })

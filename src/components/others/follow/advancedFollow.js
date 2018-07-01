@@ -6,20 +6,16 @@ import PropTypes from 'prop-types'
 import PrimaryButton from '../button/primary-btn'
 
 const AdvancedFollow = ({ userDetails, followed, ud, dispatch }) => {
-
-  let {
-    user, username, firstname, surname,
-  } = userDetails
+  let { user, username, firstname, surname } = userDetails
   let { id } = ud
 
   let followUser = e => {
     e.preventDefault()
-    let
-      profile_page = location.pathname.includes('/profile'),
+    let profile_page = location.pathname.includes('/profile'),
       def = {
         user,
         username,
-        done: () => followed()
+        done: () => followed(),
       },
       obj
 
@@ -32,7 +28,7 @@ const AdvancedFollow = ({ userDetails, followed, ud, dispatch }) => {
           firstname,
           surname,
           dispatch,
-          update_followings: true
+          update_followings: true,
         }
       } else if (user == id) {
         obj = { ...def, dispatch, update_followers: true }
@@ -45,11 +41,7 @@ const AdvancedFollow = ({ userDetails, followed, ud, dispatch }) => {
   }
 
   return (
-    <PrimaryButton
-      label='Follow'
-      onClick={followUser}
-      extraClass='follow'
-    />
+    <PrimaryButton label="Follow" onClick={followUser} extraClass="follow" />
   )
 }
 
@@ -60,11 +52,11 @@ AdvancedFollow.propTypes = {
     firstname: PropTypes.string.isRequired,
     surname: PropTypes.string.isRequired,
   }).isRequired,
-  followed: PropTypes.func.isRequired
+  followed: PropTypes.func.isRequired,
 }
 
-const mapStateToProps = state => (
-  { ud: state.User.user_details }
-)
+const mapStateToProps = state => ({
+  ud: state.User.user_details,
+})
 
 export default connect(mapStateToProps)(AdvancedFollow)

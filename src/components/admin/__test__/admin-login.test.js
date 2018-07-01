@@ -10,10 +10,8 @@ describe('Admin-Login Component', () => {
   let dataElement = MockDataElement()
 
   const comp = (
-    <Provider store={mockStore} >
-      <AdminLogin
-        location={{ search: '/' }}
-      />
+    <Provider store={mockStore}>
+      <AdminLogin location={{ search: '/' }} />
     </Provider>
   )
 
@@ -24,20 +22,12 @@ describe('Admin-Login Component', () => {
 
   it('should mock admin-login submit action', () => {
     const wrapper = mount(comp)
-    wrapper.find('form').simulate(
-      'submit',
-      { preventDefault() {} }
-    )
+    wrapper.find('form').simulate('submit', { preventDefault() {} })
   })
 
   it('should redirect to /is-admin route when user is admin', () => {
     dataElement.setAttribute('data-isadmin', 'true')
-    const wrapper = shallow(
-      <AdminLogin
-        location={{ search: '/' }}
-      />
-    )
+    const wrapper = shallow(<AdminLogin location={{ search: '/' }} />)
     expect(wrapper.find('Redirect').exists()).toBe(true)
   })
-
 })

@@ -9,11 +9,10 @@
 require('dotenv').config()
 
 // Require Dependencies
-const
-  express = require('express'),
+const express = require('express'),
   app = express(),
   {
-    env: { PORT, SESSION_SECRET_LETTER }
+    env: { PORT, SESSION_SECRET_LETTER },
   } = process,
   { rainbow } = require('handy-log'),
   favicon = require('serve-favicon'),
@@ -29,29 +28,32 @@ const { variables } = require('./config/Middlewares')
 const AppRoutes = require('./app-routes')
 
 // View engine
-app.engine('hbs', hbs({
-  extname: 'hbs'
-}))
+app.engine(
+  'hbs',
+  hbs({
+    extname: 'hbs',
+  })
+)
 app.set('view engine', 'hbs')
 
 // Middlewares
-app.use(favicon(
-  join(__dirname, '/dist/images/favicon/favicon.png')
-))
+app.use(favicon(join(__dirname, '/dist/images/favicon/favicon.png')))
 app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({
-  extended: false
-}))
+app.use(
+  bodyParser.urlencoded({
+    extended: false,
+  })
+)
 app.use(validator())
-app.use(express.static(
-  join(__dirname, '/dist')
-))
-app.use(session({
-  cookieName: 'session',
-  secret: SESSION_SECRET_LETTER,
-  duration: 24 * 60 * 60 * 1000,
-  activeDuration: 5 * 60 * 1000
-}))
+app.use(express.static(join(__dirname, '/dist')))
+app.use(
+  session({
+    cookieName: 'session',
+    secret: SESSION_SECRET_LETTER,
+    duration: 24 * 60 * 60 * 1000,
+    activeDuration: 5 * 60 * 1000,
+  })
+)
 app.use(cookieParser())
 
 // Middleware for some local variables to be used in the template
@@ -61,6 +63,4 @@ app.use(variables)
 AppRoutes(app)
 
 // Listening to PORT
-app.listen(PORT, () =>
-  rainbow('App running..')
-)
+app.listen(PORT, () => rainbow('App running..'))

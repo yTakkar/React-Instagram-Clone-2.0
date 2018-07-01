@@ -12,9 +12,7 @@ describe('OnlineUsers Component', () => {
   it('should match snapshot', () => {
     const tree = create(
       <Provider store={mockStore}>
-        <OnlineUsers
-          back={mockFn}
-        />
+        <OnlineUsers back={mockFn} />
       </Provider>
     ).toJSON()
     expect(tree).toMatchSnapshot()
@@ -31,5 +29,4 @@ describe('OnlineUsers Component', () => {
     wrapper.setState({ loading: false })
     expect(wrapper.find('IsLoading').prop('loading')).toEqual(false)
   })
-
 })

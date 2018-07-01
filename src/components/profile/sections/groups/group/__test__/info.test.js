@@ -4,13 +4,8 @@ import UserGroupInfo from '../info'
 import Group from '../../../../../../store/__mocks__/reducers/Group'
 
 describe('UserGroupInfo Component', () => {
-
   it('should match snapshot', () => {
-    const tree = create(
-      <UserGroupInfo
-        info={Group.userGroups[0]}
-      />
-    ).toJSON()
+    const tree = create(<UserGroupInfo info={Group.userGroups[0]} />).toJSON()
     expect(tree).toMatchSnapshot()
   })
 
@@ -19,11 +14,10 @@ describe('UserGroupInfo Component', () => {
       <UserGroupInfo
         info={{
           ...Group.userGroups[0],
-          admin: 24
+          admin: 24,
         }}
       />
     ).toJSON()
     expect(tree).toMatchSnapshot()
   })
-
 })

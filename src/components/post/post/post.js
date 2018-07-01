@@ -8,7 +8,6 @@ import PostBottom from './post-bottom/post-bottom'
 import AppLink from '../../others/link/link'
 
 export default class Post extends Component {
-
   state = {
     description: '',
   }
@@ -17,54 +16,41 @@ export default class Post extends Component {
     this.setState({ description: this.props.description })
 
   render() {
-    let {
-      when, share_by_username, share_time,
-    } = this.props
+    let { when, share_by_username, share_time } = this.props
     let { description } = this.state
 
     return (
-      <div className='posts' >
-
-        {
-          when == 'shared' &&
-            <div className='post_share_info'>
-              by <AppLink
-                url={`/profile/${share_by_username}`}
-                label={share_by_username}
-              />
-              <span>{ share_time ? TimeAgo(share_time) : null }</span>
-            </div>
-        }
+      <div className="posts">
+        {when == 'shared' && (
+          <div className="post_share_info">
+            by{' '}
+            <AppLink
+              url={`/profile/${share_by_username}`}
+              label={share_by_username}
+            />
+            <span>{share_time ? TimeAgo(share_time) : null}</span>
+          </div>
+        )}
 
         <PostTop
           postDetails={{
             ...this.props,
-            description
+            description,
           }}
-          updateDescription={value =>
-            this.setState({ description: value })
-          }
+          updateDescription={value => this.setState({ description: value })}
         />
 
         <PostImage
           postDetails={{
             ...this.props,
-            description
+            description,
           }}
         />
 
-        <hr className='img_d_hr' />
-
-        <PostActions
-          postDetails={{ ...this.props }}
-        />
-
+        <hr className="img_d_hr" />
+        <PostActions postDetails={{ ...this.props }} />
         <hr />
-
-        <PostBottom
-          postDetails={{ ...this.props }}
-        />
-
+        <PostBottom postDetails={{ ...this.props }} />
       </div>
     )
   }
@@ -80,20 +66,25 @@ Post.propTypes = {
   location: PropTypes.string.isRequired,
   filter: PropTypes.string.isRequired,
   imgSrc: PropTypes.string.isRequired,
-  type: PropTypes.oneOf([
-    'user', 'group'
-  ]).isRequired,
+  type: PropTypes.oneOf(['user', 'group']).isRequired,
   group_id: PropTypes.number,
   group_name: PropTypes.string,
   post_time: PropTypes.string.isRequired,
   share_by_username: PropTypes.string,
   share_time: PropTypes.string,
   when: PropTypes.oneOf([
-    'feed', 'viewPost', 'userPosts', 'bookmarks', 'shared', 'tagged', 'groupPosts', 'hashtag'
+    'feed',
+    'viewPost',
+    'userPosts',
+    'bookmarks',
+    'shared',
+    'tagged',
+    'groupPosts',
+    'hashtag',
   ]).isRequired,
   likes_count: PropTypes.number.isRequired,
   shares_count: PropTypes.number.isRequired,
   comments_count: PropTypes.number.isRequired,
   tags_count: PropTypes.number.isRequired,
-  comments: PropTypes.array
+  comments: PropTypes.array,
 }

@@ -12,15 +12,12 @@ describe('ShareList Component', () => {
     post: 44,
     incrementShares: mockFn,
     decrementShares: mockFn,
-    postOwner: 7
+    postOwner: 7,
   }
 
-  const comp = (extraProps={}) => (
+  const comp = (extraProps = {}) => (
     <Provider store={mockStore}>
-      <ShareList
-        {...props}
-        {...extraProps}
-      />
+      <ShareList {...props} {...extraProps} />
     </Provider>
   )
 
@@ -30,10 +27,11 @@ describe('ShareList Component', () => {
   })
 
   it('should match snapshot with <SecondaryButton/> for unshare', () => {
-    const tree = create(comp({
-      didIShare: true
-    })).toJSON()
+    const tree = create(
+      comp({
+        didIShare: true,
+      })
+    ).toJSON()
     expect(tree).toMatchSnapshot()
   })
-
 })

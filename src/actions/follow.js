@@ -15,42 +15,42 @@ export const getFollowings = user =>
 export const toggleFollow = f => {
   return {
     type: 'FOLLOW_TOGGLE',
-    payload: f
+    payload: f,
   }
 }
 
 export const Follower = follower => {
   return {
     type: 'FOLLOWER',
-    payload: follower
+    payload: follower,
   }
 }
 
 export const Unfollower = unfollower => {
   return {
     type: 'UNFOLLOWER',
-    payload: unfollower
+    payload: unfollower,
   }
 }
 
 export const Following = following => {
   return {
     type: 'FOLLOWING',
-    payload: following
+    payload: following,
   }
 }
 
 export const Unfollowing = unfollowing => {
   return {
     type: 'UNFOLLOWING',
-    payload: unfollowing
+    payload: unfollowing,
   }
 }
 
 export const removeFavourites = fav_id => {
   return {
     type: 'REMOVE_FAVOURITES',
-    payload: fav_id
+    payload: fav_id,
   }
 }
 
@@ -60,6 +60,6 @@ export const getUsersToRecommend = user =>
 export const removeRecommendation = recommend_id => {
   return {
     type: 'REMOVE_RECOMMENDATION',
-    payload: recommend_id
+    payload: recommend_id,
   }
 }

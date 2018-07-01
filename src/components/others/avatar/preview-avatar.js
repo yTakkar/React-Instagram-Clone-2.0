@@ -9,28 +9,24 @@ import Overlay from '../overlay'
 const PreviewAvatar = ({ previewAvatar, back, upload }) => {
   return (
     <Fragment>
-      <Overlay/>
+      <Overlay />
 
-      <div className='preview_avatar modal' >
-        <FadeIn duration='300ms' >
-          <ModalHeader title='Change Avatar' />
+      <div className="preview_avatar modal">
+        <FadeIn duration="300ms">
+          <ModalHeader title="Change Avatar" />
 
-          <div className='c_a_middle' >
+          <div className="c_a_middle">
             <img src={previewAvatar} />
           </div>
 
-          <div className='c_a_bottom modal_bottom'>
-            <SecondaryButton
-              label='Cancel'
-              onClick={back}
-            />
+          <div className="c_a_bottom modal_bottom">
+            <SecondaryButton label="Cancel" onClick={back} />
             <PrimaryButton
-              label='Change avatar'
+              label="Change avatar"
               onClick={upload}
-              extraClass='c_a_add'
+              extraClass="c_a_add"
             />
           </div>
-
         </FadeIn>
       </div>
     </Fragment>
@@ -40,7 +36,7 @@ const PreviewAvatar = ({ previewAvatar, back, upload }) => {
 PreviewAvatar.propTypes = {
   previewAvatar: PropTypes.string.isRequired,
   back: PropTypes.func.isRequired,
-  upload: PropTypes.func.isRequired
+  upload: PropTypes.func.isRequired,
 }
 
 export default PreviewAvatar

@@ -3,7 +3,6 @@ import { create } from 'react-test-renderer'
 import SharerInfo from '../sharer-info'
 
 describe('SharerInfo Component', () => {
-
   it('should match snapshot', () => {
     const tree = create(
       <SharerInfo
@@ -17,5 +16,4 @@ describe('SharerInfo Component', () => {
     ).toJSON()
     expect(tree).toMatchSnapshot()
   })
-
 })

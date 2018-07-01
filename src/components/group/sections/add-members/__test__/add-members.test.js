@@ -7,11 +7,10 @@ import { shallow } from 'enzyme'
 import Group from '../../../../../store/__mocks__/reducers/Group'
 
 describe('AddGroupMembers Component', () => {
-
   it('should match snapshot', () => {
     const tree = create(
       <Provider store={mockStore}>
-        <AddGroupMembers/>
+        <AddGroupMembers />
       </Provider>
     ).toJSON()
     expect(tree).toMatchSnapshot()
@@ -19,12 +18,8 @@ describe('AddGroupMembers Component', () => {
 
   it('should mock addMember action', () => {
     const wrapper = shallow(
-      <PureAddGroupMembers
-        gd={Group.group_details}
-        session={24}
-      />
+      <PureAddGroupMembers gd={Group.group_details} session={24} />
     )
     wrapper.find('SearchFollowings').prop('done')(7)
   })
-
 })

@@ -4,23 +4,27 @@ export default {
   feed: posts,
   posts,
   tagged: posts,
-  shared: [{
-    ...posts[0],
-    share_id: 445,
-    share_by_username: 'takkar',
-    share_time: '1480114098767'
-  }],
+  shared: [
+    {
+      ...posts[0],
+      share_id: 445,
+      share_by_username: 'takkar',
+      share_time: '1480114098767',
+    },
+  ],
   bookmarks: [posts[0]],
-  photos: [{
-    post_id: 43,
-    user: 18,
-    username: 'ragnar',
-    firstname: 'Ragnar',
-    surname: 'Lothbrok',
-    post_time: '1480114098767',
-    imgsrc: 'instagram_1516528062094.jpg',
-    filter: 'filter-normal'
-  }],
+  photos: [
+    {
+      post_id: 43,
+      user: 18,
+      username: 'ragnar',
+      firstname: 'Ragnar',
+      surname: 'Lothbrok',
+      post_time: '1480114098767',
+      imgsrc: 'instagram_1516528062094.jpg',
+      filter: 'filter-normal',
+    },
+  ],
   viewPost: {
     ...posts[0],
     comments: [
@@ -32,7 +36,7 @@ export default {
         comment_by: 7,
         comment_by_username: 'ghalib',
         post_id: 89,
-        comment_time: '1480114098767'
+        comment_time: '1480114098767',
       },
       {
         comment_id: 69,
@@ -42,7 +46,7 @@ export default {
         comment_by: 8,
         comment_by_username: 'coldplay',
         post_id: 89,
-        comment_time: '1480114098767'
+        comment_time: '1480114098767',
       },
       {
         comment_id: 104,
@@ -52,29 +56,33 @@ export default {
         comment_by: 24,
         comment_by_username: 'takkar',
         post_id: 43,
-        comment_time: '1480114098767'
-      }
-    ]
+        comment_time: '1480114098767',
+      },
+    ],
   },
-  likes: [{
-    like_id: 42,
-    like_by: 18,
-    username: 'ragnar',
-    firstname: 'Ragnar',
-    surname: 'Lothbrok',
-    post_id: 43,
-    like_time: '1480114098767',
-    isFollowing: false
-  }],
-  tags: [{
-    post_tag_id: 1,
-    post_id: 89,
-    user: 16,
-    username: 'zayn',
-    firstname: 'Zayn',
-    surname: 'Malik',
-    isFollowing: false
-  }],
+  likes: [
+    {
+      like_id: 42,
+      like_by: 18,
+      username: 'ragnar',
+      firstname: 'Ragnar',
+      surname: 'Lothbrok',
+      post_id: 43,
+      like_time: '1480114098767',
+      isFollowing: false,
+    },
+  ],
+  tags: [
+    {
+      post_tag_id: 1,
+      post_id: 89,
+      user: 16,
+      username: 'zayn',
+      firstname: 'Zayn',
+      surname: 'Malik',
+      isFollowing: false,
+    },
+  ],
   isPostMine: false,
   usersToShare: [
     {
@@ -83,28 +91,31 @@ export default {
       username: 'zayn',
       firstname: 'Zayn',
       surname: 'Malik',
-      didIShare: false
-    }, {
+      didIShare: false,
+    },
+    {
       follow_id: 289,
       follow_to: 10,
       username: 'noddy',
       firstname: 'your',
       surname: 'noddy',
-      didIShare: false
-    }
+      didIShare: false,
+    },
   ],
-  sharers: [{
-    share_id: 103,
-    share_by: 7,
-    share_by_username: 'ghalib',
-    share_by_firstname: 'Mirza',
-    share_by_surname: 'Ghalib',
-    share_to: 28,
-    share_to_username: 'selena',
-    share_time: '1480114098767',
-    post_id: 43,
-    isFollowing: false,
-  }],
+  sharers: [
+    {
+      share_id: 103,
+      share_by: 7,
+      share_by_username: 'ghalib',
+      share_by_firstname: 'Mirza',
+      share_by_surname: 'Ghalib',
+      share_to: 28,
+      share_to_username: 'selena',
+      share_time: '1480114098767',
+      post_id: 43,
+      isFollowing: false,
+    },
+  ],
   postIt: {
     fileInput: '', // file input value
     fileChanged: false, // for checking file has changed
@@ -118,11 +129,11 @@ export default {
     tags: [
       {
         user: 7,
-        username: 'ghalib'
-      }
+        username: 'ghalib',
+      },
     ],
     showOverlay: false,
     type: 'user',
-    group: 0
-  }
+    group: 0,
+  },
 }

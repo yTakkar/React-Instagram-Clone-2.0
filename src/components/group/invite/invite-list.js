@@ -7,7 +7,6 @@ import AppLink from '../../others/link/link'
 import { number, string, func } from 'prop-types'
 
 export default class InviteList extends Component {
-
   invite = async e => {
     e.preventDefault()
     new d('.invite_btn').blur()
@@ -25,30 +24,31 @@ export default class InviteList extends Component {
     let { follow_to, username, firstname, surname } = this.props
 
     return (
-      <div className='modal_items'>
-        <div className='modal_it_img'>
+      <div className="modal_items">
+        <div className="modal_it_img">
           <img src={`/users/${follow_to}/avatar.jpg`} />
         </div>
 
-        <div className='modal_it_content '>
-          <div className='modal_it_info'>
+        <div className="modal_it_content ">
+          <div className="modal_it_info">
             <AppLink
-              url={`/profile/${username}`} className='modal_it_username'
+              url={`/profile/${username}`}
+              className="modal_it_username"
               label={username}
             />
-            <span className='modal_it_light' >{`${firstname} ${surname}`}</span>
+            <span className="modal_it_light">{`${firstname} ${surname}`}</span>
           </div>
 
-          <div className='modal_ff'>
+          <div className="modal_ff">
             <PrimaryButton
-              label='Invite'
+              label="Invite"
               onClick={this.invite}
-              extraClass='invite_btn'
+              extraClass="invite_btn"
             />
           </div>
         </div>
 
-        <hr/>
+        <hr />
       </div>
     )
   }
@@ -61,5 +61,5 @@ InviteList.propTypes = {
   firstname: string.isRequired,
   surname: string.isRequired,
   back: func.isRequired,
-  group: number
+  group: number,
 }

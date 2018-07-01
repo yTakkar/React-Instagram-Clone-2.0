@@ -3,7 +3,7 @@
 
 import initialState from './initialState'
 
-export default (state=initialState, action) => {
+export default (state = initialState, action) => {
   let py = action.payload
 
   switch (action.type) {

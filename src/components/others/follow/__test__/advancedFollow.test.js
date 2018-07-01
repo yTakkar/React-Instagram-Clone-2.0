@@ -10,29 +10,20 @@ describe('AdvancedFollow Component', () => {
       user: 7,
       username: 'ghalib',
       firstname: 'Mirza',
-      surname: 'Ghalib'
+      surname: 'Ghalib',
     },
     followed() {},
   }
 
   it('should match snapshot', () => {
     const tree = create(
-      <AdvancedFollow
-        {...props}
-        store={mockStore}
-      />
+      <AdvancedFollow {...props} store={mockStore} />
     ).toJSON()
     expect(tree).toMatchSnapshot()
   })
 
   it('should mock follow action when clicked', () => {
-    const wrapper = mount(
-      <AdvancedFollow
-        {...props}
-        store={mockStore}
-      />
-    )
+    const wrapper = mount(<AdvancedFollow {...props} store={mockStore} />)
     wrapper.find('PrimaryButton').simulate('click')
   })
-
 })

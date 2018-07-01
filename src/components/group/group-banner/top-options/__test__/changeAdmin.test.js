@@ -13,22 +13,17 @@ describe('ChangeGroupAdmin Component', () => {
   it('should match snapshot', () => {
     const tree = create(
       <Provider store={mockStore}>
-        <ChangeGroupAdmin/>
+        <ChangeGroupAdmin />
       </Provider>
     ).toJSON()
     expect(tree).toMatchSnapshot()
   })
 
   it('should show <ChangeAdmin/> when change option is clicked', () => {
-    const wrapper = shallow(
-      <PureChangeGroupAdmin
-        gd={Group.group_details}
-      />
-    )
+    const wrapper = shallow(<PureChangeGroupAdmin gd={Group.group_details} />)
     wrapper.find('li > a').simulate('click', {
-      preventDefault() {}
+      preventDefault() {},
     })
     expect(wrapper.find('Connect(ChangeAdmin)').exists()).toBe(true)
   })
-
 })

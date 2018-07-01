@@ -12,7 +12,6 @@ import TextArea from '../../others/input/textArea'
 import Overlay from '../../others/overlay'
 
 class EditPost extends Component {
-
   state = {
     description: '',
     ogDescription: '',
@@ -22,7 +21,7 @@ class EditPost extends Component {
     let { description } = this.props
     this.setState({
       description,
-      ogDescription: description
+      ogDescription: description,
     })
   }
 
@@ -52,7 +51,7 @@ class EditPost extends Component {
       description,
       dispatch,
       done: () => back(),
-      failed: this.returnOgDescription()
+      failed: this.returnOgDescription(),
     })
   }
 
@@ -61,49 +60,40 @@ class EditPost extends Component {
 
     return (
       <div>
-        <Overlay/>
+        <Overlay />
 
-        <div className='edit_post modal'>
-          <FadeIn duration='300ms'>
-            <ModalHeader title='Edit post' />
+        <div className="edit_post modal">
+          <FadeIn duration="300ms">
+            <ModalHeader title="Edit post" />
 
-            <div className='e_p_middle modal_middle'>
+            <div className="e_p_middle modal_middle">
               <TextArea
-                placeholder='Description..'
-                className='e_p_textarea'
+                placeholder="Description.."
+                className="e_p_textarea"
                 autoFocus
                 value={description}
                 valueChange={this.descChange}
               />
             </div>
 
-            <div
-              className='e_p_bottom modal_bottom'
-              style={{ marginTop: 0 }}
-            >
+            <div className="e_p_bottom modal_bottom" style={{ marginTop: 0 }}>
               <AddEmojis
                 position={{ top: -32, left: -217 }}
-                textArea='.e_p_textarea'
-                updateTextArea={value =>
-                  this.setState({ description: value })
-                }
+                textArea=".e_p_textarea"
+                updateTextArea={value => this.setState({ description: value })}
                 recenterEmojis
               />
 
-              <ModalBack
-                back={this.back}
-                btnType='secondary'
-              />
+              <ModalBack back={this.back} btnType="secondary" />
 
               <PrimaryButton
-                label='Update post'
+                label="Update post"
                 onClick={this.updatePost}
-                extraClass='e_p_update'
+                extraClass="e_p_update"
               />
             </div>
           </FadeIn>
         </div>
-
       </div>
     )
   }
@@ -113,7 +103,7 @@ EditPost.propTypes = {
   post: PropTypes.number.isRequired,
   description: PropTypes.string.isRequired,
   back: PropTypes.func.isRequired,
-  changeDesc: PropTypes.func.isRequired
+  changeDesc: PropTypes.func.isRequired,
 }
 
 export default connect()(EditPost)

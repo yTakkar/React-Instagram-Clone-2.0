@@ -3,31 +3,17 @@ import PostTopDetails from './top-details'
 import PostOptions from './options/options'
 import PropTypes from 'prop-types'
 
-const PostTop = ({ postDetails, updateDescription }) => {
-  let {
-    post_id, group_id, type, location, when, post_time, group_name, description,
-    user, username, firstname, surname,
-  } = postDetails
-
-  return (
-    <div>
-      <div className='p_i'>
-        <PostTopDetails
-          details={{
-            user, username, firstname, surname, group_id, group_name, type, location
-          }}
-        />
-        <PostOptions
-          postDetails={{
-            user, post_id, when, post_time, description
-          }}
-          updateDescription={updateDescription}
-        />
-      </div>
-
+const PostTop = ({ postDetails, updateDescription }) => (
+  <div>
+    <div className="p_i">
+      <PostTopDetails details={{ ...postDetails }} />
+      <PostOptions
+        postDetails={{ ...postDetails }}
+        updateDescription={updateDescription}
+      />
     </div>
-  )
-}
+  </div>
+)
 
 PostTop.propTypes = {
   postDetails: PropTypes.shape({
@@ -44,7 +30,7 @@ PostTop.propTypes = {
     firstname: PropTypes.string.isRequired,
     surname: PropTypes.string.isRequired,
   }).isRequired,
-  updateDescription: PropTypes.func.isRequired
+  updateDescription: PropTypes.func.isRequired,
 }
 
 export default PostTop

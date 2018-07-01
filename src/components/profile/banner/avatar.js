@@ -6,73 +6,67 @@ import ChangeAvatarAction from '../../others/avatar/actions/change-avatar'
 import ViewAvatarAction from '../../others/avatar/actions/view-avatar'
 
 class BannerAvatar extends Component {
-
   state = {
     viewAvatar: false,
     changeAvatar: false,
   }
 
-  toggleAvatarOptions = () =>
-    toggle(new d('.pro_avatar_ch_teaser').toDOM())
+  toggleAvatarOptions = () => toggle(new d('.pro_avatar_ch_teaser').toDOM())
 
-  _toggle = what =>
-    this.setState({ [what]: !this.state[what] })
+  _toggle = what => this.setState({ [what]: !this.state[what] })
 
   render() {
     let { id } = this.props.ud
     let { changeAvatar, viewAvatar } = this.state
 
-    let imgSrc = id
-      ? `/users/${id}/avatar.jpg`
-      : '/images/spacecraft.jpg'
+    let imgSrc = id ? `/users/${id}/avatar.jpg` : '/images/spacecraft.jpg'
 
     return (
       <Fragment>
         <div
-          className='pro_avatar'
+          className="pro_avatar"
           onMouseOver={this.toggleAvatarOptions}
           onMouseOut={this.toggleAvatarOptions}
         >
-          <img src={imgSrc} alt='avatar'/>
+          <img src={imgSrc} alt="avatar" />
 
-          <div
-            className='pro_avatar_ch_teaser'
-            style={{ display: 'none' }}
-          >
+          <div className="pro_avatar_ch_teaser" style={{ display: 'none' }}>
             <span
-              className='view_avatar_span'
+              className="view_avatar_span"
               onClick={() => this._toggle('viewAvatar')}
-            >View</span>
+            >
+              View
+            </span>
 
-            {
-              Me(id) &&
-                <span
-                  className='change_pro'
-                  onClick={() => this._toggle('changeAvatar')}
-                >Change</span>
-            }
+            {Me(id) && (
+              <span
+                className="change_pro"
+                onClick={() => this._toggle('changeAvatar')}
+              >
+                Change
+              </span>
+            )}
           </div>
         </div>
 
         <ChangeAvatarAction
           change={changeAvatar}
           back={() => this._toggle('changeAvatar')}
-          when='user'
+          when="user"
         />
 
         <ViewAvatarAction
           view={viewAvatar}
           back={() => this._toggle('viewAvatar')}
-          when='user'
+          when="user"
         />
-
       </Fragment>
     )
   }
 }
 
 const mapStateToProps = store => ({
-  ud: store.User.user_details
+  ud: store.User.user_details,
 })
 
 export default connect(mapStateToProps)(BannerAvatar)

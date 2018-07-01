@@ -4,12 +4,12 @@ import EditMessageTool from '../edit-message'
 import { shallow } from 'enzyme'
 
 describe('EditMessageTool Component', () => {
-  const comp = (type='text') => (
+  const comp = (type = 'text') => (
     <EditMessageTool
       messageDetails={{
         message: 'some message',
         message_id: 44,
-        type
+        type,
       }}
       updateMessage={jest.fn()}
     />
@@ -30,5 +30,4 @@ describe('EditMessageTool Component', () => {
     const tree = create(comp('image')).toJSON()
     expect(tree).toMatchSnapshot()
   })
-
 })

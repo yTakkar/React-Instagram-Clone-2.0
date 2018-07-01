@@ -7,35 +7,23 @@ import { shallow } from 'enzyme'
 describe('ResendVL Component', () => {
   let dataElement
 
-  beforeAll(() =>
-    dataElement = MockDataElement()
-  )
+  beforeAll(() => (dataElement = MockDataElement()))
 
-  afterAll(() =>
-    dataElement.remove()
-  )
+  afterAll(() => dataElement.remove())
 
   it('should match snapshot and show SecondaryButton', () => {
-    const tree = create(
-      <ResendVL/>
-    ).toJSON()
+    const tree = create(<ResendVL />).toJSON()
     expect(tree).toMatchSnapshot()
   })
 
   it('should mock resend-vl action when clicked', () => {
-    const wrapper = shallow(<ResendVL/>)
-    wrapper.find('SecondaryButton').simulate(
-      'click',
-      { preventDefault() {} }
-    )
+    const wrapper = shallow(<ResendVL />)
+    wrapper.find('SecondaryButton').simulate('click', { preventDefault() {} })
   })
 
   it('should match snapshot with null', () => {
     dataElement.setAttribute('data-email-verified', 'yes')
-    const tree = create(
-      <ResendVL/>
-    ).toJSON()
+    const tree = create(<ResendVL />).toJSON()
     expect(tree).toMatchSnapshot()
   })
-
 })

@@ -15,8 +15,7 @@ export const getSharedPosts = user =>
 export const getPhotos = user =>
   dispatchHelper('GET_PHOTOS', 'get-photos', { user })
 
-export const getFeed = () =>
-  dispatchHelper('GET_FEED', 'get-feed')
+export const getFeed = () => dispatchHelper('GET_FEED', 'get-feed')
 
 export const getGroupPosts = group =>
   dispatchHelper('GET_GROUP_POSTS', 'get-group-posts', { group })
@@ -24,14 +23,14 @@ export const getGroupPosts = group =>
 export const addUserPost = post => {
   return {
     type: 'ADD_USER_POST',
-    payload: post
+    payload: post,
   }
 }
 
 export const addGroupPost = post => {
   return {
     type: 'ADD_GROUP_POST',
-    payload: post
+    payload: post,
   }
 }
 
@@ -44,14 +43,14 @@ export const getPost = post_id =>
 export const editPost = post_details => {
   return {
     type: 'EDIT_POST',
-    payload: post_details
+    payload: post_details,
   }
 }
 
 export const deletePost = post => {
   return {
     type: 'DELETE_POST',
-    payload: post
+    payload: post,
   }
 }
 
@@ -67,7 +66,7 @@ export const getPostTags = post =>
 export const untag = user => {
   return {
     type: 'UNTAG',
-    payload: user
+    payload: user,
   }
 }
 
@@ -80,35 +79,35 @@ export const getPostSharers = post =>
 export const unbookmark = post => {
   return {
     type: 'UNBOOKMARK',
-    payload: post
+    payload: post,
   }
 }
 
 export const removeShare = share_id => {
   return {
     type: 'REMOVE_SHARE',
-    payload: share_id
+    payload: share_id,
   }
 }
 
 export const comment = comment => {
   return {
     type: 'COMMENT',
-    payload: comment
+    payload: comment,
   }
 }
 
 export const deleteComment = comment_id => {
   return {
     type: 'DELETE_COMMENT',
-    payload: comment_id
+    payload: comment_id,
   }
 }
 
 export const editComment = comment => {
   return {
     type: 'EDIT_COMMENT',
-    payload: comment
+    payload: comment,
   }
 }
 
@@ -116,12 +115,12 @@ export const editComment = comment => {
 export const CPP = (what, value) => {
   return {
     type: 'CHANGE_POSTIT_PROPS',
-    payload: { what, value }
+    payload: { what, value },
   }
 }
 
 export const resetPostIt = () => {
   return {
-    type: 'RESET_POSTIT'
+    type: 'RESET_POSTIT',
   }
 }

@@ -31,8 +31,7 @@ import { insta_notify, uData } from './utils'
  * @param {Function} options.done
  */
 export const follow = async options => {
-  let
-    defaults = {
+  let defaults = {
       user: null,
       username: null,
       firstname: null,
@@ -40,7 +39,7 @@ export const follow = async options => {
       update_followers: false,
       update_followings: false,
       dispatch: () => null,
-      done: () => null
+      done: () => null,
     },
     obj = { ...defaults, ...options },
     {
@@ -51,10 +50,10 @@ export const follow = async options => {
       dispatch,
       update_followers,
       update_followings,
-      done
+      done,
     } = obj,
     {
-      data: { mssg, success, ff }
+      data: { mssg, success, ff },
     } = await post('/api/follow', { user, username })
 
   if (success) {
@@ -66,20 +65,16 @@ export const follow = async options => {
       firstname,
       surname,
       isFollowing: true,
-      follow_time: ff.follow_time
+      follow_time: ff.follow_time,
     }
 
-    update_followers
-      ? dispatch(followA.Follower(ff))
-      : null
+    update_followers ? dispatch(followA.Follower(ff)) : null
 
-    update_followings
-      ? dispatch(followA.Following(fwing))
-      : null
+    update_followings ? dispatch(followA.Following(fwing)) : null
 
     insta_notify({
       to: user,
-      type: 'follow'
+      type: 'follow',
     })
 
     done()
@@ -114,30 +109,20 @@ export const unfollow = async options => {
     update_followers: false,
     update_followings: false,
     dispatch: () => null,
-    done: () => null
+    done: () => null,
   }
   let obj = { ...defaults, ...options }
-  let {
-    user,
-    dispatch,
-    update_followers,
-    update_followings,
-    done
-  } = obj
+  let { user, dispatch, update_followers, update_followings, done } = obj
   let session = uData('session')
 
   let {
-    data: { success, mssg }
+    data: { success, mssg },
   } = await post('/api/unfollow', { user })
 
   if (success) {
-    update_followers
-      ? dispatch(followA.Unfollower(session))
-      : null
+    update_followers ? dispatch(followA.Unfollower(session)) : null
 
-    update_followings
-      ? dispatch(followA.Unfollowing(user))
-      : null
+    update_followings ? dispatch(followA.Unfollowing(user)) : null
     done()
   }
 
@@ -150,13 +135,13 @@ export const unfollow = async options => {
  */
 export const addToFavourites = async user => {
   let {
-    data: { success, mssg }
+    data: { success, mssg },
   } = await post('/api/add-to-favourites', { user })
 
   if (success) {
     insta_notify({
       to: user,
-      type: 'favourites'
+      type: 'favourites',
     })
   }
 
@@ -172,14 +157,14 @@ export const addToFavourites = async user => {
 export const recommendUser = async options => {
   let { recommend_to, user } = options
   let {
-    data: { mssg, success }
+    data: { mssg, success },
   } = await post('/api/recommend-user', { user, recommend_to: recommend_to })
 
   if (success) {
     insta_notify({
       to: recommend_to,
       type: 'recommend',
-      user
+      user,
     })
   }
 

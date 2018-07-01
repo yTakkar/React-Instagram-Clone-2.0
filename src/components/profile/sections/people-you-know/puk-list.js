@@ -9,9 +9,8 @@ import { connect } from 'react-redux'
 import AppLink from '../../../others/link/link'
 
 class PeopleYouKnowList extends Component {
-
   state = {
-    isFollowing: false
+    isFollowing: false,
   }
 
   componentDidMount = async () => {
@@ -24,46 +23,54 @@ class PeopleYouKnowList extends Component {
 
   render() {
     let {
-      user, username, firstname, surname, mutualUsersCount, id
+      user,
+      username,
+      firstname,
+      surname,
+      mutualUsersCount,
+      id,
     } = this.props
     let { isFollowing } = this.state
 
     return (
-      <div className='m_on followers_m_on' >
-
+      <div className="m_on followers_m_on">
         <MonTopInfo
           info={{
-            user, username, firstname, surname, mutuals: mutualUsersCount
+            user,
+            username,
+            firstname,
+            surname,
+            mutuals: mutualUsersCount,
           }}
           basedOnMutuals
         />
 
-        <div className='m_bottom'>
-          {
-            Me(user)
-              ? <AppLink
-                url={`/profile/${username}`}
-                className='sec_btn '
-                label='Profile'
-              />
-
-              : isFollowing
-                ? <Unfollow
-                  user={user}
-                  unfollowed={() => this.setState({ isFollowing: false })}
-                  updateFollowings={Me(id)}
-                />
-
-                : <Follow
-                  userDetails={{
-                    user, username, firstname, surname
-                  }}
-                  followed={() => this.setState({ isFollowing: true })}
-                  updateFollowings={Me(id)}
-                />
-          }
+        <div className="m_bottom">
+          {Me(user) ? (
+            <AppLink
+              url={`/profile/${username}`}
+              className="sec_btn "
+              label="Profile"
+            />
+          ) : isFollowing ? (
+            <Unfollow
+              user={user}
+              unfollowed={() => this.setState({ isFollowing: false })}
+              updateFollowings={Me(id)}
+            />
+          ) : (
+            <Follow
+              userDetails={{
+                user,
+                username,
+                firstname,
+                surname,
+              }}
+              followed={() => this.setState({ isFollowing: true })}
+              updateFollowings={Me(id)}
+            />
+          )}
         </div>
-
       </div>
     )
   }
@@ -79,7 +86,7 @@ PeopleYouKnowList.propTypes = {
 }
 
 const mapStateToProps = store => ({
-  id: store.User.user_details.id
+  id: store.User.user_details.id,
 })
 
 export default connect(mapStateToProps)(PeopleYouKnowList)

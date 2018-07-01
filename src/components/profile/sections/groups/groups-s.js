@@ -12,9 +12,8 @@ import IsLoading from '../../../others/isLoading'
 import classNames from 'classnames'
 
 class UserGroups extends Component {
-
   state = {
-    loading: true
+    loading: true,
   }
 
   componentDidMount = () => {
@@ -23,62 +22,52 @@ class UserGroups extends Component {
   }
 
   componentWillReceiveProps = ({ dispatch, ud }) => {
-    this.props.ud != ud
-      ? dispatch(getUserGroups(ud.id))
-      : null
+    this.props.ud != ud ? dispatch(getUserGroups(ud.id)) : null
     this.setState({ loading: false })
   }
 
   componentDidUpdate = () => bottomScroll()
 
   render() {
-    let
-      { loading } = this.state,
+    let { loading } = this.state,
       { param: username, groups } = this.props,
       len = groups.length,
-      map_groups = groups.map(g =>
-        <UserGroup key={g.group_id} {...g} />
-      )
+      map_groups = groups.map(g => <UserGroup key={g.group_id} {...g} />)
 
     return (
       <div>
-
         <Title value={`@${username}'s groups`} />
 
         <IsLoading loading={loading} />
 
-        <FadeIn duration='300ms' className={cLoading(loading)}>
+        <FadeIn duration="300ms" className={cLoading(loading)}>
+          <div className="senapati pro_senapati">
+            <div
+              className={classNames({
+                m_div: len != 0,
+                m_no_div: len == 0,
+              })}
+            >
+              <MonHeader len={len} forWhat="group" />
 
-          <div className='senapati pro_senapati' >
-            <div className={classNames({
-              m_div: len != 0,
-              m_no_div: len == 0
-            })} >
-
-              <MonHeader len={len} forWhat='group' />
-
-              <div className='m_wrapper'>
-                { len != 0 && map_groups }
-              </div>
-
+              <div className="m_wrapper">{len != 0 && map_groups}</div>
             </div>
           </div>
 
-          <NoUserGroups/>
+          <NoUserGroups />
         </FadeIn>
-
       </div>
     )
   }
 }
 
 UserGroups.propTypes = {
-  param: PropTypes.string.isRequired
+  param: PropTypes.string.isRequired,
 }
 
 const mapStateToProps = store => ({
   groups: store.Group.userGroups,
-  ud: store.User.user_details
+  ud: store.User.user_details,
 })
 
 export default connect(mapStateToProps)(UserGroups)

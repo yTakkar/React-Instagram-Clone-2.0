@@ -3,9 +3,8 @@ import CreateGroupModal from './cg-modal'
 import SecondaryButton from '../../others/button/secondary-btn'
 
 export default class CreateGroup extends Component {
-
   state = {
-    createGroup: false
+    createGroup: false,
   }
 
   toggleCreateGroup = e => {
@@ -18,24 +17,19 @@ export default class CreateGroup extends Component {
 
     return (
       <div>
-        <div className='recomm_teaser' >
+        <div className="recomm_teaser">
           <span>
-            Create public or private group of your interest with people you know.
+            Create public or private group of your interest with people you
+            know.
           </span>
 
           <SecondaryButton
-            label='Create group'
+            label="Create group"
             onClick={this.toggleCreateGroup}
           />
         </div>
 
-        {
-          createGroup &&
-            <CreateGroupModal
-              back={this.toggleCreateGroup}
-            />
-        }
-
+        {createGroup && <CreateGroupModal back={this.toggleCreateGroup} />}
       </div>
     )
   }

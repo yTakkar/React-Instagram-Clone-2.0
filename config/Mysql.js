@@ -1,11 +1,8 @@
 // RETUNS MYSQL DATABASE
 
-const
-  mysql = require('mysql'),
+const mysql = require('mysql'),
   { error } = require('handy-log'),
-  {
-    MYSQL_HOST, MYSQL_USER, MYSQL_PASSWORD, MYSQL_DATABASE
-  } = process.env
+  { MYSQL_HOST, MYSQL_USER, MYSQL_PASSWORD, MYSQL_DATABASE } = process.env
 
 // CREATES A DB CONNECTION
 const db = mysql.createConnection({
@@ -13,7 +10,7 @@ const db = mysql.createConnection({
   user: MYSQL_USER,
   password: MYSQL_PASSWORD,
   database: MYSQL_DATABASE,
-  charset: 'utf8mb4'
+  charset: 'utf8mb4',
 })
 
 // CONNECTS DB

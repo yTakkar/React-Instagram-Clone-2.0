@@ -22,14 +22,13 @@ const PostOptionLists = ({ postDetails, toggleOptions, updateDescription }) => {
           postDetails={{ post_id, user, when }}
           toggleOptions={toggleOptions}
         />
-        <RemBookmarkAsAdmin {...postDetails}  />
+        <RemBookmarkAsAdmin {...postDetails} />
         <CopyLink
           url={`${location.origin}/post/${post_id}`}
-          label='Copy link'
+          label="Copy link"
           done={toggleOptions}
         />
       </ul>
-
     </div>
   )
 }
@@ -42,7 +41,7 @@ PostOptionLists.propTypes = {
     description: PropTypes.string.isRequired,
   }).isRequired,
   toggleOptions: PropTypes.func.isRequired,
-  updateDescription: PropTypes.func.isRequired
+  updateDescription: PropTypes.func.isRequired,
 }
 
 export default PostOptionLists

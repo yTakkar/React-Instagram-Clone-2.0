@@ -8,18 +8,14 @@ import MockDataElement from '../../../../../utils/__mocks__/mock-dataElement'
 describe('Posts Component', () => {
   let dataElement
 
-  beforeEach(() =>
-    dataElement = MockDataElement()
-  )
+  beforeEach(() => (dataElement = MockDataElement()))
 
-  afterEach(() =>
-    dataElement.remove()
-  )
+  afterEach(() => dataElement.remove())
 
   it('should match snapshot', () => {
     const tree = create(
       <Provider store={mockStore}>
-        <Posts param='takkar' />
+        <Posts param="takkar" />
       </Provider>
     ).toJSON()
     expect(tree).toMatchSnapshot()
@@ -29,10 +25,9 @@ describe('Posts Component', () => {
     dataElement.setAttribute('data-session', '7')
     const tree = create(
       <Provider store={mockStore}>
-        <Posts param='ghalib' />
+        <Posts param="ghalib" />
       </Provider>
     ).toJSON()
     expect(tree).toMatchSnapshot()
   })
-
 })

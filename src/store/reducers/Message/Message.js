@@ -4,10 +4,10 @@
 import initialState from './initialState'
 import * as methods from './methods'
 
-export default (state=initialState, action) => {
+export default (state = initialState, action) => {
   let py = action.payload
 
-  switch(action.type) {
+  switch (action.type) {
     case 'GET_CONVERSATIONS':
       return { ...state, conversations: py }
       break
@@ -15,7 +15,7 @@ export default (state=initialState, action) => {
     case 'CONVERSATION_ADDED':
       return {
         ...state,
-        conversations: methods.addCon(state.conversations, py)
+        conversations: methods.addCon(state.conversations, py),
       }
       break
 
@@ -26,35 +26,36 @@ export default (state=initialState, action) => {
     case 'MESSAGE':
       return {
         ...state,
-        messages: methods.message(state.messages, py)
+        messages: methods.message(state.messages, py),
       }
       break
 
     case 'CHANGE_LAST_MSSG':
       return {
         ...state,
-        conversations: methods.changeLastMssg(state.conversations, py, 'user')
+        conversations: methods.changeLastMssg(state.conversations, py, 'user'),
       }
       break
 
     case 'DELETE_MESSAGE':
       return {
         ...state,
-        messages: methods.deleteMssg(state.messages, py)
+        messages: methods.deleteMssg(state.messages, py),
       }
       break
 
     case 'UNSEND_ALL_MSSGS':
       return {
         ...state,
-        messages: methods.unsendAllMssgs(state.messages, py)
+        messages: methods.unsendAllMssgs(state.messages, py),
       }
       break
 
     case 'DELETE_CONVERSATION':
       return {
         ...state,
-        conversations: methods.deleteConversation(state.conversations, py)}
+        conversations: methods.deleteConversation(state.conversations, py),
+      }
       break
 
     case 'GET_CONVERSATION_ABOUT':
@@ -68,14 +69,14 @@ export default (state=initialState, action) => {
     case 'READ_CONVERSATION':
       return {
         ...state,
-        conversations: methods.readCon(state.conversations, py)
+        conversations: methods.readCon(state.conversations, py),
       }
       break
 
     case 'UPDATE_UNREAD_CONVERSATIONS':
       return {
         ...state,
-        unreadMessages: state.unreadMessages - py
+        unreadMessages: state.unreadMessages - py,
       }
       break
 
@@ -89,4 +90,3 @@ export default (state=initialState, action) => {
   }
   return state
 }
-

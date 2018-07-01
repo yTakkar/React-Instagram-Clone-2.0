@@ -5,23 +5,20 @@ import PreviewAvatar from './preview-avatar'
 import FileInput from '../input/file'
 
 export default class UploadAvatar extends Component {
-
   state = {
-    fileAvatarChanged: false,       // to toggle previewAvatar component
-    fileInput: '',                  // file input value
+    fileAvatarChanged: false, // to toggle previewAvatar component
+    fileInput: '', // file input value
     previewAvatar: '/images/spacecraft.jpg', // preview Image for previewAvatar component
-    targetFile: ''   // file when input[type='file'] has changed. eg. files[0]
+    targetFile: '', // file when input[type='file'] has changed. eg. files[0]
   }
 
   previewAvatar = e => {
     this.setState({ fileAvatarChanged: true })
     this.setState({ fileInput: e.target.value })
-    let
-      reader = new FileReader(),
+    let reader = new FileReader(),
       file = e.target.files[0]
     this.setState({ targetFile: file })
-    reader.onload = e =>
-      this.setState({ previewAvatar: e.target.result })
+    reader.onload = e => this.setState({ previewAvatar: e.target.result })
     reader.readAsDataURL(file)
   }
 
@@ -36,7 +33,9 @@ export default class UploadAvatar extends Component {
     let { targetFile } = this.state
     let { of, group } = this.props
     upload_avatar({
-      file: targetFile, of, group
+      file: targetFile,
+      of,
+      group,
     })
   }
 
@@ -45,30 +44,32 @@ export default class UploadAvatar extends Component {
 
     return (
       <Fragment>
-        <form className='pro_ch_form' method='post' encType='multipart/formdata'>
+        <form
+          className="pro_ch_form"
+          method="post"
+          encType="multipart/formdata"
+        >
           <FileInput
             value={fileInput}
             fileChange={this.previewAvatar}
-            label='Upload avatar'
-            labelClass='sec_btn'
+            label="Upload avatar"
+            labelClass="sec_btn"
           />
         </form>
 
-        {
-          fileAvatarChanged ?
-            <PreviewAvatar
-              previewAvatar={previewAvatar}
-              back={this.previewAvatarBack}
-              upload={this.uploadAvatar}
-            />
-            : null
-        }
+        {fileAvatarChanged ? (
+          <PreviewAvatar
+            previewAvatar={previewAvatar}
+            back={this.previewAvatarBack}
+            upload={this.uploadAvatar}
+          />
+        ) : null}
       </Fragment>
     )
   }
 }
 
 UploadAvatar.propTypes = {
-  of: PropTypes.oneOf([ 'user', 'group' ]).isRequired,
-  group: PropTypes.number
+  of: PropTypes.oneOf(['user', 'group']).isRequired,
+  group: PropTypes.number,
 }

@@ -10,6 +10,6 @@ export default {
     con_with_firstname: '',
     con_with_surname: '',
     isOnline: 'no',
-    lastOnline: ''
-  }
+    lastOnline: '',
+  },
 }

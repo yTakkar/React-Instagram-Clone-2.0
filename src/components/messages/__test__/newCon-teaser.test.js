@@ -8,7 +8,7 @@ describe('NewConTeaser Component', () => {
     <NewConTeaser
       userDetails={{
         id: 7,
-        username: 'ghalib'
+        username: 'ghalib',
       }}
     />
   )
@@ -21,7 +21,7 @@ describe('NewConTeaser Component', () => {
   it('should mock message action when button is clicked', () => {
     const wrapper = shallow(comp)
     wrapper.find('SecondaryButton').simulate('click', {
-      preventDefault() {}
+      preventDefault() {},
     })
   })
 
@@ -30,5 +30,4 @@ describe('NewConTeaser Component', () => {
     wrapper.setState({ messaged: true })
     expect(wrapper.find('Redirect').exists()).toBe(true)
   })
-
 })

@@ -9,7 +9,6 @@ import PropTypes from 'prop-types'
 import { Redirect } from 'react-router'
 
 class DeleteGroup extends Component {
-
   state = {
     deleteGrp: false,
     deleted: false,
@@ -26,7 +25,7 @@ class DeleteGroup extends Component {
     await post('/api/delete-group', { group: group_id })
     Notify({
       value: 'Group deleted!!',
-      done: () => this.setState({ deleted: true })
+      done: () => this.setState({ deleted: true }),
     })
   }
 
@@ -36,45 +35,43 @@ class DeleteGroup extends Component {
   }
 
   render() {
-    let { gd: { admin } } = this.props
+    let {
+      gd: { admin },
+    } = this.props
     let { deleteGrp, deleted } = this.state
 
     return (
       <Fragment>
-        { deleted && <Redirect to='/' /> }
+        {deleted && <Redirect to="/" />}
 
-        {
-          (Me(admin) || isAdmin()) &&
-            <li>
-              <a
-                href='#'
-                className='p_copy_link'
-                onClick={this.showDeleteGroup}
-              >Delete group { isAdmin() && 'as admin' }</a>
-            </li>
-        }
+        {(Me(admin) || isAdmin()) && (
+          <li>
+            <a href="#" className="p_copy_link" onClick={this.showDeleteGroup}>
+              Delete group {isAdmin() && 'as admin'}
+            </a>
+          </li>
+        )}
 
-        {
-          deleteGrp &&
-            <Prompt
-              title='Delete group'
-              content="This group will be deleted. There's no undo so you won't be able to find it."
-              actionText= 'Delete'
-              action={this.delete}
-              back={this.modalBack}
-            />
-        }
+        {deleteGrp && (
+          <Prompt
+            title="Delete group"
+            content="This group will be deleted. There's no undo so you won't be able to find it."
+            actionText="Delete"
+            action={this.delete}
+            back={this.modalBack}
+          />
+        )}
       </Fragment>
     )
   }
 }
 
 DeleteGroup.propTypes = {
-  toggleOptions: PropTypes.func.isRequired
+  toggleOptions: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = store => ({
-  gd: store.Group.group_details
+  gd: store.Group.group_details,
 })
 
 export default connect(mapStateToProps)(DeleteGroup)

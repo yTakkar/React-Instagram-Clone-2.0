@@ -10,7 +10,7 @@ describe('ChangeAdmin Component', () => {
   const mockFn = jest.fn()
   const props = {
     group: 11,
-    back: mockFn
+    back: mockFn,
   }
 
   it('should match snapshot', () => {
@@ -33,5 +33,4 @@ describe('ChangeAdmin Component', () => {
     wrapper.setState({ loading: false })
     expect(wrapper.find('IsLoading').prop('loading')).toBe(false)
   })
-
 })

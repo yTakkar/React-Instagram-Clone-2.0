@@ -7,17 +7,16 @@ import GroupTopOptions from './top-options/top-options'
 
 const GroupBanner = () => {
   return (
-    <div className='pro_banner'>
-
-      <div className='pro_top'>
-        <GroupTopOptions/>
-        <JoinGroup/>
+    <div className="pro_banner">
+      <div className="pro_top">
+        <GroupTopOptions />
+        <JoinGroup />
       </div>
 
-      <GroupAvatar/>
-      <GroupInfo/>
+      <GroupAvatar />
+      <GroupInfo />
 
-      <ToolTip/>
+      <ToolTip />
     </div>
   )
 }

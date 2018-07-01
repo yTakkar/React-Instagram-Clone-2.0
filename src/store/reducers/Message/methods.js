@@ -1,10 +1,10 @@
 export const addCon = (cons, con) => {
-  cons = [ con, ...cons ]
+  cons = [con, ...cons]
   return cons
 }
 
 export const message = (messages, message) => {
-  messages = [ ...messages, message ]
+  messages = [...messages, message]
   return messages
 }
 

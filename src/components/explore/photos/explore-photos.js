@@ -9,43 +9,37 @@ import { cLoading } from '../../../utils/utils'
 import classNames from 'classnames'
 
 class ExpPhotos extends Component {
-
   state = {
-    loading: true
+    loading: true,
   }
 
-  componentDidMount = () =>
-    this.props.dispatch(getPhotosToExplore())
+  componentDidMount = () => this.props.dispatch(getPhotosToExplore())
 
-  componentWillReceiveProps = () =>
-    this.setState({ loading: false })
+  componentWillReceiveProps = () => this.setState({ loading: false })
 
   render() {
     let { loading } = this.state
 
     return (
       <div>
-        <Title value='Explore photos' />
+        <Title value="Explore photos" />
 
-        <FadeIn duration='300ms'>
+        <FadeIn duration="300ms">
           <IsLoading loading={loading} />
 
           <div
             className={classNames('m_div', 'explore_photos', cLoading(loading))}
             style={{ marginTop: 0 }}
           >
-            <ExplorePhotoGallery/>
+            <ExplorePhotoGallery />
           </div>
-
         </FadeIn>
       </div>
     )
   }
 }
 
-const mapStateToProps = store => (
-  { store }
-)
+const mapStateToProps = store => ({ store })
 
 export default connect(mapStateToProps)(ExpPhotos)
 export { ExpPhotos as PureExpPhotos }

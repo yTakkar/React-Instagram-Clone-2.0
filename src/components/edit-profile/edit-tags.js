@@ -7,12 +7,10 @@ import d from '../../utils/API/DOM'
 import SecondaryButton from '../others/button/secondary-btn'
 import TextInput from '../others/input/text'
 
-@connect(store => (
-  { ud: store.User.user_details }
-))
-
+@connect(store => ({
+  ud: store.User.user_details,
+}))
 export default class EditTags extends Component {
-
   addTag = e => {
     e.preventDefault()
     new d('.add_tag_text').focus()
@@ -20,21 +18,22 @@ export default class EditTags extends Component {
       newTag: value,
       ud: { id: user },
       dispatch,
-      emptyTagsInput
+      emptyTagsInput,
     } = this.props
     Edit.addUserTags({ value, user, dispatch })
     emptyTagsInput()
   }
 
-  deleteTag = tag =>
-    this.props.dispatch(deleteTag(tag))
+  deleteTag = tag => this.props.dispatch(deleteTag(tag))
 
   mapTags = t => (
     <span
       key={t.tag}
       onClick={() => this.deleteTag(t.tag)}
-      className='tir_btn t_a_tag'
-    >{t.tag}</span>
+      className="tir_btn t_a_tag"
+    >
+      {t.tag}
+    </span>
   )
 
   render() {
@@ -43,24 +42,19 @@ export default class EditTags extends Component {
 
     return (
       <Fragment>
-        <div className='edit_tags_info'>
+        <div className="edit_tags_info">
           <span>Edit tags (click tags to remove)</span>
         </div>
-        <div className='add_tag'>
+        <div className="add_tag">
           <TextInput
-            placeholder='Add a tag'
+            placeholder="Add a tag"
             value={newTag}
             valueChange={e => change('addTag', e)}
-            className='add_tag_text'
+            className="add_tag_text"
           />
-          <SecondaryButton
-            label='Add'
-            onClick={this.addTag}
-          />
+          <SecondaryButton label="Add" onClick={this.addTag} />
         </div>
-        <div className='tags_all'>
-          {map_tags}
-        </div>
+        <div className="tags_all">{map_tags}</div>
       </Fragment>
     )
   }

@@ -1,11 +1,10 @@
 // ALL THE AVATAR/IMAGE-RELATED ROUTES ARE HANDLED BY THIS FILE
 
-const
-  app = require('express').Router(),
+const app = require('express').Router(),
   fs = require('fs'),
   root = process.cwd(),
   upload = require('multer')({
-    dest: `${root}/dist/temp/`
+    dest: `${root}/dist/temp/`,
   }),
   { ProcessImage, DeleteAllOfFolder } = require('handy-image-processor'),
   { catchError } = require('../../config/db')
@@ -25,23 +24,20 @@ app.post('/get-stickers', async (req, res) => {
 // CHANGE AVATAR [REQ = AVATAR, OF, GROUP]
 app.post('/change-avatar', async (req, res) => {
   try {
-
-    let
-      { avatar, of, group } = req.body,
+    let { avatar, of, group } = req.body,
       { id } = req.session,
       src = `${root}/dist/images/avatars/${avatar}`,
-      dest = of == 'user'
-        ? `${root}/dist/users/${id}/avatar.jpg`
-        : `${root}/dist/groups/${group}/avatar.jpg`
+      dest =
+        of == 'user'
+          ? `${root}/dist/users/${id}/avatar.jpg`
+          : `${root}/dist/groups/${group}/avatar.jpg`
 
-    await fs.createReadStream(src)
-      .pipe(fs.createWriteStream(dest))
+    await fs.createReadStream(src).pipe(fs.createWriteStream(dest))
 
     res.json({
       success: true,
-      mssg: 'Avatar Changed!!'
+      mssg: 'Avatar Changed!!',
     })
-
   } catch (error) {
     catchError(error, res)
   }
@@ -50,17 +46,20 @@ app.post('/change-avatar', async (req, res) => {
 // UPLOAD AVATAR [REQ = OF, GROUP, AVATAR(FILE)]
 app.post('/upload-avatar', upload.single('avatar'), async (req, res) => {
   try {
-
-    let
-      { file, session, body: { of, group } } = req,
+    let {
+        file,
+        session,
+        body: { of, group },
+      } = req,
       dest =
-        of == 'user' ? `${root}/dist/users/${session.id}/avatar.jpg`
+        of == 'user'
+          ? `${root}/dist/users/${session.id}/avatar.jpg`
           : `${root}/dist/groups/${group}/avatar.jpg`,
       obj = {
         srcFile: file.path,
         width: 200,
         height: 200,
-        destFile: dest
+        destFile: dest,
       }
 
     await ProcessImage(obj)
@@ -68,9 +67,8 @@ app.post('/upload-avatar', upload.single('avatar'), async (req, res) => {
 
     res.json({
       success: true,
-      mssg: 'Avatar changed!!'
+      mssg: 'Avatar changed!!',
     })
-
   } catch (error) {
     catchError(error, res)
   }

@@ -13,10 +13,10 @@ const EditGroupFields = ({ fields, changeValue, admin }) => {
 
   return (
     <Fragment>
-      <div className='g_e_name'>
-        <span className='g_e_span'>Group name</span>
+      <div className="g_e_name">
+        <span className="g_e_span">Group name</span>
         <TextInput
-          placeholder='Group name..'
+          placeholder="Group name.."
           autoFocus
           disabled={disabled}
           value={name}
@@ -24,25 +24,25 @@ const EditGroupFields = ({ fields, changeValue, admin }) => {
         />
       </div>
 
-      <div className='g_e_bio'>
-        <span className='g_e_span'>Group bio</span>
+      <div className="g_e_bio">
+        <span className="g_e_span">Group bio</span>
         <TextArea
-          placeholder='Group bio..'
+          placeholder="Group bio.."
           value={bio}
           valueChange={e => changeValue('bio', e)}
           disabled={disabled}
-          className='gen_bio'
+          className="gen_bio"
         />
       </div>
 
-      <div className='g_e_pri'>
+      <div className="g_e_pri">
         <CheckBox
-          label='Private group'
+          label="Private group"
           disabled={disabled}
           checked={isPrivate}
           changeValue={e => changeValue('isPrivate', e)}
         />
-        <span className='g_e_p_info'>
+        <span className="g_e_p_info">
           Private: Only members can interact with group
         </span>
       </div>
@@ -54,14 +54,14 @@ EditGroupFields.propTypes = {
   fields: PropTypes.shape({
     name: PropTypes.string.isRequired,
     bio: PropTypes.string.isRequired,
-    isPrivate: PropTypes.bool.isRequired
+    isPrivate: PropTypes.bool.isRequired,
   }).isRequired,
   changeValue: PropTypes.func.isRequired,
 }
 
-const mapStateToProps = state => (
-  { admin: state.Group.group_details.admin }
-)
+const mapStateToProps = state => ({
+  admin: state.Group.group_details.admin,
+})
 
 export default connect(mapStateToProps)(EditGroupFields)
 export { EditGroupFields as PureEditGroupFields }

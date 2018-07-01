@@ -3,13 +3,8 @@ import { create } from 'react-test-renderer'
 import ImageTheatreInfo from '../info'
 
 describe('ImageTheatre Component', () => {
-
   it('should match snapshot with null', () => {
-    const tree = create(
-      <ImageTheatreInfo
-        showInfo={false}
-      />
-    ).toJSON()
+    const tree = create(<ImageTheatreInfo showInfo={false} />).toJSON()
     expect(tree).toMatchSnapshot()
   })
 
@@ -17,12 +12,11 @@ describe('ImageTheatre Component', () => {
     const tree = create(
       <ImageTheatreInfo
         showInfo
-        username='takkar'
-        link='/'
-        time='1518972814710'
+        username="takkar"
+        link="/"
+        time="1518972814710"
       />
     ).toJSON()
     expect(tree).toMatchSnapshot()
   })
-
 })

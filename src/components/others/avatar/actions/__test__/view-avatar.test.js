@@ -10,7 +10,7 @@ describe('ViewAvatar-Action Component', () => {
     const tree = create(
       <ViewAvatarAction
         view={false}
-        when='user'
+        when="user"
         back={mockFn}
         store={mockStore}
       />
@@ -20,14 +20,8 @@ describe('ViewAvatar-Action Component', () => {
 
   it('should match snapshot with ViewAvatar Component', () => {
     const tree = create(
-      <ViewAvatarAction
-        view
-        when='user'
-        back={mockFn}
-        store={mockStore}
-      />
+      <ViewAvatarAction view when="user" back={mockFn} store={mockStore} />
     ).toJSON()
     expect(tree).toMatchSnapshot()
   })
-
 })

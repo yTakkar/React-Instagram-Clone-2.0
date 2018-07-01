@@ -11,7 +11,6 @@ import Overlay from '../../../others/overlay'
 import { string, number, func } from 'prop-types'
 
 export default class EditMessage extends Component {
-
   state = {
     message: '',
     ogMessage: '',
@@ -21,7 +20,7 @@ export default class EditMessage extends Component {
     let { message } = this.props
     this.setState({
       message,
-      ogMessage: message
+      ogMessage: message,
     })
   }
 
@@ -45,15 +44,10 @@ export default class EditMessage extends Component {
     e.preventDefault()
     let { message } = this.state
     let { message_id, back } = this.props
-
     let {
-      data: { success, mssg }
+      data: { success, mssg },
     } = await post('/api/edit-message', { message, message_id })
-
-    success
-      ? back()
-      : this.returnOgMessage()
-
+    success ? back() : this.returnOgMessage()
     Notify({ value: mssg })
   }
 
@@ -62,48 +56,44 @@ export default class EditMessage extends Component {
 
     return (
       <div>
-        <Overlay/>
+        <Overlay />
 
-        <div className='edit_post modal'>
-          <FadeIn duration='300ms'>
-            <ModalHeader title='Edit message' />
+        <div className="edit_post modal">
+          <FadeIn duration="300ms">
+            <ModalHeader title="Edit message" />
 
-            <div className='e_p_middle modal_middle'>
+            <div className="e_p_middle modal_middle">
               <TextArea
-                placeholder='Message..'
-                className='e_p_textarea'
+                placeholder="Message.."
+                className="e_p_textarea"
                 autoFocus
                 value={message}
                 valueChange={this.descChange}
               />
             </div>
 
-            <div className='e_p_bottom modal_bottom'>
+            <div className="e_p_bottom modal_bottom">
               <AddEmojis
                 position={{ top: -30, left: -217 }}
-                textArea='.e_p_textarea'
-                updateTextArea={value =>
-                  this.setState({ message: value })
-                }
+                textArea=".e_p_textarea"
+                updateTextArea={value => this.setState({ message: value })}
                 recenterEmojis
               />
 
               <ModalBack
                 back={this.back}
-                btnType='secondary'
+                btnType="secondary"
                 disabled={!message}
               />
 
               <PrimaryButton
-                label='Update message'
+                label="Update message"
                 onClick={this.updateMessage}
                 disabled={!message}
               />
             </div>
-
           </FadeIn>
         </div>
-
       </div>
     )
   }
@@ -113,5 +103,5 @@ EditMessage.propTypes = {
   message: string.isRequired,
   message_id: number.isRequired,
   changeMessage: func.isRequired,
-  back: func.isRequired
+  back: func.isRequired,
 }

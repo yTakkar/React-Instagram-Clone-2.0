@@ -5,14 +5,11 @@ import { c_first } from '../../utils/utils'
 import { fieldsToArray } from '../../utils/edit-profile-utils'
 
 export default class SocialInputs extends Component {
-
   map = ({ key, value }) => (
     <TextInput
       placeholder={c_first(key)}
       value={value}
-      valueChange={e =>
-        this.props.change(key, e)
-      }
+      valueChange={e => this.props.change(key, e)}
       maxLength={key == 'phone' ? '10' : '255'}
     />
   )
@@ -27,9 +24,9 @@ export default class SocialInputs extends Component {
     let mappedInputs = array.map(this.map)
 
     return (
-      <div className='edit_sm_div'>
-        <span className='edit_span'>Connections</span>
-        { mappedInputs }
+      <div className="edit_sm_div">
+        <span className="edit_span">Connections</span>
+        {mappedInputs}
       </div>
     )
   }
@@ -42,7 +39,7 @@ SocialInputs.propTypes = {
     twitter: PropTypes.string.isRequired,
     facebook: PropTypes.string.isRequired,
     website: PropTypes.string.isRequired,
-    phone: PropTypes.string.isRequired
+    phone: PropTypes.string.isRequired,
   }).isRequired,
   change: PropTypes.func.isRequired,
 }

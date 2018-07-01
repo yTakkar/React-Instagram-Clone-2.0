@@ -9,21 +9,13 @@ import mockStore from '../../../../../store/__mocks__/mockStore'
 describe('TagItems Component', () => {
   let dataElement
 
-  beforeEach(() =>
-    dataElement = MockDataElement()
-  )
+  beforeEach(() => (dataElement = MockDataElement()))
 
-  afterEach(() =>
-    dataElement.remove()
-  )
+  afterEach(() => dataElement.remove())
 
-  const comp = (extraProps={}) => (
+  const comp = (extraProps = {}) => (
     <Provider store={mockStore}>
-      <TagItems
-        {...Post.tags[0]}
-        decrementTags={jest.fn()}
-        {...extraProps}
-      />
+      <TagItems {...Post.tags[0]} decrementTags={jest.fn()} {...extraProps} />
     </Provider>
   )
 
@@ -33,9 +25,11 @@ describe('TagItems Component', () => {
   })
 
   it('should match snapshot and show <AdvancedUnfollow/>', () => {
-    const tree = create(comp({
-      isFollowing: true
-    })).toJSON()
+    const tree = create(
+      comp({
+        isFollowing: true,
+      })
+    ).toJSON()
     expect(tree).toMatchSnapshot()
   })
 
@@ -58,5 +52,4 @@ describe('TagItems Component', () => {
     Post.tags[0].user = 24
     expect(tree3).toMatchSnapshot()
   })
-
 })

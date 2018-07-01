@@ -12,35 +12,35 @@ import BlockedUsers from './blocked-users/blocked-users'
 import ChangeAccountType from './account-type/account-type'
 
 class ProfileSettings extends Component {
-
   state = {
     loading: true,
   }
 
   componentDidMount = () => {
-    let { dispatch, session: { username } } = this.props
+    let {
+      dispatch,
+      session: { username },
+    } = this.props
     dispatch(getUserDetails(username))
     dispatch(getBlockedUsers())
   }
 
-  componentWillReceiveProps = () =>
-    this.setState({ loading: false })
+  componentWillReceiveProps = () => this.setState({ loading: false })
 
   render() {
     let { loading } = this.state
 
     return (
       <div>
-        <Title value='Profile settings' />
+        <Title value="Profile settings" />
 
-        <FadeIn duration='300ms'>
+        <FadeIn duration="300ms">
           <IsLoading loading={loading} />
 
-          <div className={classNames('pro_settings', cLoading(loading))} >
-            <ChangeAccountType/>
-            <BlockedUsers/>
+          <div className={classNames('pro_settings', cLoading(loading))}>
+            <ChangeAccountType />
+            <BlockedUsers />
           </div>
-
         </FadeIn>
       </div>
     )
@@ -52,7 +52,7 @@ const mapStateToProps = store => ({
   // imp. as component removes the spinner when data is fetched & stored.
   // So we must return something that has been updated.
   // Since session data is never updated only initialized.
-  session: store.User.session
+  session: store.User.session,
 })
 
 export default connect(mapStateToProps)(ProfileSettings)

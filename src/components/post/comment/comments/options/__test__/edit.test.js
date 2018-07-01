@@ -12,15 +12,11 @@ describe('EditCommentOption Component', () => {
       type: 'text',
     },
     updateCommentText: mockFn,
-    toggleOptions: mockFn
+    toggleOptions: mockFn,
   }
 
   it('should match snapshot', () => {
-    const tree = create(
-      <EditCommentOption
-        {...props}
-      />
-    ).toJSON()
+    const tree = create(<EditCommentOption {...props} />).toJSON()
     expect(tree).toMatchSnapshot()
   })
 
@@ -29,7 +25,7 @@ describe('EditCommentOption Component', () => {
       <EditCommentOption
         commentDetails={{
           ...props.commentDetails,
-          type: 'image'
+          type: 'image',
         }}
         updateCommentText={mockFn}
         toggleOptions={mockFn}
@@ -39,15 +35,10 @@ describe('EditCommentOption Component', () => {
   })
 
   it('should show <EditComment/> when clicked on edit option', () => {
-    const wrapper = shallow(
-      <EditCommentOption
-        {...props}
-      />
-    )
+    const wrapper = shallow(<EditCommentOption {...props} />)
     wrapper.find('li > a').simulate('click', {
-      preventDefault() {}
+      preventDefault() {},
     })
     expect(wrapper.find('Connect(EditComment)').exists()).toBe(true)
   })
-
 })

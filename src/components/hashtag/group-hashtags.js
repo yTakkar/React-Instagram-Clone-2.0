@@ -5,12 +5,10 @@ import PropTypes from 'prop-types'
 import MapHashtags from './hashtag-utils/map-hashtags'
 import HashtagHeader from './hashtag-utils/hashtag-header'
 
-@connect(store => (
-  { hashtags: store.Hashtag.groupHashtags }
-))
-
+@connect(store => ({
+  hashtags: store.Hashtag.groupHashtags,
+}))
 export default class GroupHashtags extends Component {
-
   componentDidMount = async () => {
     let { group, dispatch } = this.props
     dispatch(getGroupHashtags(group))
@@ -22,18 +20,17 @@ export default class GroupHashtags extends Component {
 
     return (
       <div>
-        {
-          len != 0 &&
-            <div className='recomm user-hashtags'>
-              <HashtagHeader text='Group recent hashtags' />
-              <MapHashtags hashtags={hashtags} />
-            </div>
-        }
+        {len != 0 && (
+          <div className="recomm user-hashtags">
+            <HashtagHeader text="Group recent hashtags" />
+            <MapHashtags hashtags={hashtags} />
+          </div>
+        )}
       </div>
     )
   }
 }
 
 GroupHashtags.propTypes = {
-  group: PropTypes.number
+  group: PropTypes.number,
 }

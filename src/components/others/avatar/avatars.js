@@ -9,11 +9,10 @@ import MaterialIcon from '../icons/material-icon'
 import Overlay from '../overlay'
 
 export default class Avatars extends Component {
-
   state = {
     loading: true,
     avatars: [],
-    selectedAvatar: ''
+    selectedAvatar: '',
   }
 
   componentDidMount = async () => {
@@ -38,15 +37,15 @@ export default class Avatars extends Component {
 
     return (
       <Fragment>
-        <Overlay/>
+        <Overlay />
 
-        <div className='pro_avatars'>
-          <div className='pro_ava_top'>
-            <div className='pro_ava_info'>
+        <div className="pro_avatars">
+          <div className="pro_ava_top">
+            <div className="pro_ava_info">
               <span>Change your avatar</span>
             </div>
-            <span className='pro_ava_close' onClick={back} >
-              <MaterialIcon icon='close' />
+            <span className="pro_ava_close" onClick={back}>
+              <MaterialIcon icon="close" />
             </span>
           </div>
           <MapAvatars
@@ -54,7 +53,7 @@ export default class Avatars extends Component {
             loading={loading}
             selectAvatar={this.selectAvatar}
           />
-          <div className='pro_ava_bottom'>
+          <div className="pro_ava_bottom">
             <UploadAvatar of={of} group={group} />
 
             <AvatarActions
@@ -63,7 +62,6 @@ export default class Avatars extends Component {
               {...this.props}
             />
           </div>
-
         </div>
       </Fragment>
     )
@@ -72,6 +70,6 @@ export default class Avatars extends Component {
 
 Avatars.propTypes = {
   back: PropTypes.func.isRequired,
-  of: PropTypes.oneOf([ 'user', 'group' ]).isRequired,
-  group: PropTypes.number
+  of: PropTypes.oneOf(['user', 'group']).isRequired,
+  group: PropTypes.number,
 }

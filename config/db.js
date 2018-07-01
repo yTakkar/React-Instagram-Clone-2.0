@@ -15,9 +15,7 @@ const db = require('./Mysql')
  */
 const query = (q, data) => {
   return new Promise((resolve, reject) => {
-    db.query(q, data, (err, res) =>
-      err ? reject(err) : resolve(res)
-    )
+    db.query(q, data, (err, res) => (err ? reject(err) : resolve(res)))
   })
 }
 
@@ -50,21 +48,19 @@ const toHashtag = async (str, user, post) => {
           hashtag: h,
           post_id: post,
           user: user,
-          hashtag_time: new Date().getTime()
+          hashtag_time: new Date().getTime(),
         }
         await query('INSERT INTO hashtags SET ?', newHashtag)
       }
     }
   }
-
 }
 
 /**
  * Returns boolean based on value. Useful when querying
  * @param {Number} value
  */
-const tf = value =>
-  value == 1 ? true : false
+const tf = value => (value == 1 ? true : false)
 
 /**
  * Function for outputting error created by try-catch block on express routes
@@ -82,5 +78,5 @@ module.exports = {
   c_validator,
   toHashtag,
   tf,
-  catchError
+  catchError,
 }

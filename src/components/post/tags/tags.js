@@ -14,9 +14,8 @@ import IsLoading from '../../others/isLoading'
 import Overlay from '../../others/overlay'
 
 class Tags extends Component {
-
   state = {
-    loading: true
+    loading: true,
   }
 
   componentDidMount = () => {
@@ -24,8 +23,7 @@ class Tags extends Component {
     dispatch(getPostTags(post))
   }
 
-  componentWillReceiveProps = () =>
-    this.setState({ loading: false })
+  componentWillReceiveProps = () => this.setState({ loading: false })
 
   componentDidUpdate = () => llr()
 
@@ -33,35 +31,29 @@ class Tags extends Component {
     let { loading } = this.state
     let { tags, decrementTags, back } = this.props
 
-    let map_tags = tags.map(t =>
-      <TagItems
-        key={t.post_tag_id}
-        {...t}
-        decrementTags={decrementTags}
-      />
-    )
+    let map_tags = tags.map(t => (
+      <TagItems key={t.post_tag_id} {...t} decrementTags={decrementTags} />
+    ))
 
     return (
       <Fragment>
-        <Overlay/>
+        <Overlay />
 
-        <div className='tags_model modal modal_big' >
+        <div className="tags_model modal modal_big">
+          <Title value="Tags" />
 
-          <Title value='Tags' />
+          <FadeIn duration="300ms">
+            <ModalHeader title="Tagged in this post" />
 
-          <FadeIn duration='300ms' >
-            <ModalHeader title='Tagged in this post' />
-
-            <Scrollbars style={{ height: 450 }} className='modal_middle' >
+            <Scrollbars style={{ height: 450 }} className="modal_middle">
               <IsLoading loading={loading} />
               <ModalMiddle loading={loading} list={map_tags} />
             </Scrollbars>
 
-            <div className='modal_bottom'>
+            <div className="modal_bottom">
               <ModalBack back={back} />
             </div>
           </FadeIn>
-
         </div>
       </Fragment>
     )
@@ -71,11 +63,11 @@ class Tags extends Component {
 Tags.propTypes = {
   post: PropTypes.number.isRequired,
   back: PropTypes.func.isRequired,
-  decrementTags: PropTypes.func.isRequired
+  decrementTags: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = store => ({
-  tags: store.Post.tags
+  tags: store.Post.tags,
 })
 
 export default connect(mapStateToProps)(Tags)

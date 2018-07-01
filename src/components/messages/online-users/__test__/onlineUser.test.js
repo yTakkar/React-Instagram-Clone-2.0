@@ -11,10 +11,7 @@ describe('OnlineUser Component', () => {
 
   const comp = index => (
     <Provider store={mockStore}>
-      <OnlineUser
-        {...Message.onlineUsers[index]}
-        back={mockFn}
-      />
+      <OnlineUser {...Message.onlineUsers[index]} back={mockFn} />
     </Provider>
   )
 
@@ -30,14 +27,10 @@ describe('OnlineUser Component', () => {
 
   it('should mock message action', () => {
     const wrapper = shallow(
-      <PureOnlineUser
-        {...Message.onlineUsers[0]}
-        back={mockFn}
-      />
+      <PureOnlineUser {...Message.onlineUsers[0]} back={mockFn} />
     )
     wrapper.find('PrimaryButton').simulate('click', {
-      preventDefault() {}
+      preventDefault() {},
     })
   })
-
 })

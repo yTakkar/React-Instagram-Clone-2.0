@@ -8,26 +8,24 @@ import classNames from 'classnames'
 
 const ConversationTeaser = props => {
   let {
-    con_id, con_with, con_with_username, unreadMssgs, select,
-    lastMssg: { lastMssgTime, lastMessage, lastMssgBy, lastMssgType }
+    con_id,
+    con_with,
+    con_with_username,
+    unreadMssgs,
+    select,
+    lastMssg: { lastMssgTime, lastMessage, lastMssgBy, lastMssgType },
   } = props
 
   return (
-    <div
-      className={classNames('mssg_sr',  `mt_${con_id}`)}
-      onClick={select}
-    >
+    <div className={classNames('mssg_sr', `mt_${con_id}`)} onClick={select}>
       <img src={`/users/${con_with}/avatar.jpg`} />
 
-      <div className='m_sr_content'>
-        <span className='m_sr_username'>{con_with_username}</span>
-        <span className='m_sr_light'>
+      <div className="m_sr_content">
+        <span className="m_sr_username">{con_with_username}</span>
+        <span className="m_sr_light">
           <MyLastMssg lastMssgBy={lastMssgBy} />
 
-          <LastMssg
-            lastMessage={lastMessage}
-            lastMssgType={lastMssgType}
-          />
+          <LastMssg lastMessage={lastMessage} lastMssgType={lastMssgType} />
         </span>
       </div>
 
@@ -44,14 +42,9 @@ ConversationTeaser.propTypes = {
   unreadMssgs: PropTypes.number.isRequired,
   lastMssg: PropTypes.shape({
     lastMessage: PropTypes.string,
-    lastMssgBy: PropTypes.oneOfType([
-      PropTypes.number,
-      PropTypes.string
-    ]), // if no last message, it's an empty string else it's a number
+    lastMssgBy: PropTypes.oneOfType([PropTypes.number, PropTypes.string]), // if no last message, it's an empty string else it's a number
     lastMssgTime: PropTypes.string,
-    lastMssgType: PropTypes.oneOf([
-      'text', 'image', 'sticker', ''
-    ]),
+    lastMssgType: PropTypes.oneOf(['text', 'image', 'sticker', '']),
   }),
   select: PropTypes.func.isRequired,
 }

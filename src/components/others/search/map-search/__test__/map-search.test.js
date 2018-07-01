@@ -4,7 +4,6 @@ import MapSearch from '../map-search'
 import searchData from '../../__test__/search-mockArray'
 
 describe('Map-Search Component', () => {
-
   it('should match snapshot with given search data', () => {
     const tree = create(
       <MapSearch
@@ -16,5 +15,4 @@ describe('Map-Search Component', () => {
     ).toJSON()
     expect(tree).toMatchSnapshot()
   })
-
 })

@@ -4,44 +4,41 @@ import PropTypes from 'prop-types'
 import MaterialIcon from '../../others/icons/material-icon'
 
 export default class PostShare extends Component {
-
   state = {
-    showShare: false
+    showShare: false,
   }
 
-  _toggle = what =>
-    this.setState({ [what]: !this.state[what] })
+  _toggle = what => this.setState({ [what]: !this.state[what] })
 
   render() {
     let {
-      postDetails: { post_id, user, },
+      postDetails: { post_id, user },
       incrementWhat,
-      decrementWhat
+      decrementWhat,
     } = this.props
     let { showShare } = this.state
 
     return (
       <Fragment>
-        <div className='p_send_wra'>
+        <div className="p_send_wra">
           <span
-            className='p_send'
-            data-tip='Share'
+            className="p_send"
+            data-tip="Share"
             onClick={() => this._toggle('showShare')}
-          ><MaterialIcon icon='send' />
+          >
+            <MaterialIcon icon="send" />
           </span>
         </div>
 
-        {
-          showShare &&
-            <Share
-              post={post_id}
-              back={() => this._toggle('showShare')}
-              postOwner={user}
-              incrementShares={() => incrementWhat('shares_count')}
-              decrementShares={() => decrementWhat('shares_count')}
-            />
-        }
-
+        {showShare && (
+          <Share
+            post={post_id}
+            back={() => this._toggle('showShare')}
+            postOwner={user}
+            incrementShares={() => incrementWhat('shares_count')}
+            decrementShares={() => decrementWhat('shares_count')}
+          />
+        )}
       </Fragment>
     )
   }
@@ -50,8 +47,8 @@ export default class PostShare extends Component {
 PostShare.propTypes = {
   postDetails: PropTypes.shape({
     post_id: PropTypes.number.isRequired,
-    user: PropTypes.number.isRequired
+    user: PropTypes.number.isRequired,
   }).isRequired,
   incrementWhat: PropTypes.func.isRequired,
-  decrementWhat: PropTypes.func.isRequired
+  decrementWhat: PropTypes.func.isRequired,
 }

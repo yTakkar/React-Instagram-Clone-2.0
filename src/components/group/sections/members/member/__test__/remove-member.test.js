@@ -10,15 +10,13 @@ describe('RemoveMember Component', () => {
   const memberDetails = {
     grp_member_id: 45,
     member: 7,
-    username: 'ghalib'
+    username: 'ghalib',
   }
 
   it('should match snapshot', () => {
     const tree = create(
       <Provider store={mockStore}>
-        <RemoveMember
-          memberDetails={memberDetails}
-        />
+        <RemoveMember memberDetails={memberDetails} />
       </Provider>
     ).toJSON()
     expect(tree).toMatchSnapshot()
@@ -32,12 +30,11 @@ describe('RemoveMember Component', () => {
       />
     )
     wrapper.find('SecondaryButton').simulate('click', {
-      preventDefault() {}
+      preventDefault() {},
     })
     expect(wrapper.find('Prompt').exists()).toBe(true)
     wrapper.find('Prompt').prop('action')({
-      preventDefault() {}
+      preventDefault() {},
     })
   })
-
 })

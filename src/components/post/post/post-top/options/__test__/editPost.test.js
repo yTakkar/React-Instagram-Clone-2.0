@@ -7,41 +7,29 @@ import { shallow } from 'enzyme'
 describe('EditPostOption Component', () => {
   let dataElement
 
-  beforeEach(() =>
-    dataElement = MockDataElement()
-  )
+  beforeEach(() => (dataElement = MockDataElement()))
 
-  afterEach(() =>
-    dataElement.remove()
-  )
+  afterEach(() => dataElement.remove())
 
   const mockFn = jest.fn()
   const props = {
     postDetails: {
       user: 24,
       post_id: 11,
-      description: 'desc'
+      description: 'desc',
     },
     toggleOptions: mockFn,
-    updateDescription: mockFn
+    updateDescription: mockFn,
   }
 
   it('should match snapshot and show edit option', () => {
     // when post is mine
-    const tree = create(
-      <EditPostOption
-        {...props}
-      />
-    ).toJSON()
+    const tree = create(<EditPostOption {...props} />).toJSON()
     expect(tree).toMatchSnapshot()
 
     // when I am the admin
     dataElement.setAttribute('data-isadmin', 'true')
-    const tree2 = create(
-      <EditPostOption
-        {...props}
-      />
-    ).toJSON()
+    const tree2 = create(<EditPostOption {...props} />).toJSON()
     expect(tree2).toMatchSnapshot()
   })
 
@@ -50,7 +38,7 @@ describe('EditPostOption Component', () => {
       <EditPostOption
         postDetails={{
           ...props.postDetails,
-          user: 7
+          user: 7,
         }}
         toggleOptions={mockFn}
         updateDescription={mockFn}
@@ -60,14 +48,8 @@ describe('EditPostOption Component', () => {
   })
 
   it('should show <EditPost/> when clicked on edit option', () => {
-    const wrapper = shallow(
-      <EditPostOption
-        {...props}
-        dispatch={mockFn}
-      />
-    )
+    const wrapper = shallow(<EditPostOption {...props} dispatch={mockFn} />)
     wrapper.find('li > a').simulate('click')
     expect(wrapper.find('Connect(EditPost)').exists()).toBe(true)
   })
-
 })

@@ -5,7 +5,6 @@ import { c_first } from '../../utils/utils'
 import { fieldsToArray } from '../../utils/edit-profile-utils'
 
 const RequiredInputs = ({ fields, change }) => {
-
   // For disabled key warning
   // Key helps React update virtual DOM, but when we provide key to component of map function, text input inside that component looses focus.
   console.error = () => {}
@@ -17,14 +16,14 @@ const RequiredInputs = ({ fields, change }) => {
     let type = key == 'email' ? 'email' : 'text'
 
     return (
-      <div className='edit_un_div'>
-        <span className='edit_span'>{c}</span>
+      <div className="edit_un_div">
+        <span className="edit_span">{c}</span>
         <TextInput
           type={type}
           placeholder={c}
           value={value}
           valueChange={e => change(key, e)}
-          maxLength='32'
+          maxLength="32"
         />
       </div>
     )
@@ -32,11 +31,7 @@ const RequiredInputs = ({ fields, change }) => {
 
   let mappedFields = array.map(map)
 
-  return (
-    <Fragment>
-      { mappedFields }
-    </Fragment>
-  )
+  return <Fragment>{mappedFields}</Fragment>
 }
 
 RequiredInputs.propTypes = {
@@ -46,7 +41,7 @@ RequiredInputs.propTypes = {
     surname: PropTypes.string.isRequired,
     email: PropTypes.string.isRequired,
   }).isRequired,
-  change: PropTypes.func.isRequired
+  change: PropTypes.func.isRequired,
 }
 
 export default RequiredInputs

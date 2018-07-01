@@ -10,28 +10,24 @@ describe('CommentOptions Component', () => {
   let dataElement
   const mockFn = jest.fn()
 
-  beforeEach(() =>
-    dataElement = MockDataElement()
-  )
+  beforeEach(() => (dataElement = MockDataElement()))
 
-  afterEach(() =>
-    dataElement.remove()
-  )
+  afterEach(() => dataElement.remove())
 
   const commentDetails = {
     comment_id: 4,
     comment_by: 7,
     type: 'text',
     text: 'some comment',
-    commentSrc: 'instagram_comment_1518972851259.jpg'
+    commentSrc: 'instagram_comment_1518972851259.jpg',
   }
 
-  const comp = (extraDetails={}) => (
+  const comp = (extraDetails = {}) => (
     <Provider store={mockStore}>
       <CommentOptions
         commentDetails={{
           ...commentDetails,
-          ...extraDetails
+          ...extraDetails,
         }}
         decrementComments={mockFn}
         updateCommentText={mockFn}
@@ -46,9 +42,11 @@ describe('CommentOptions Component', () => {
 
   it('should match snapshot and show toggle icon', () => {
     // when comment is mine
-    const tree = create(comp({
-      comment_by: 24
-    })).toJSON()
+    const tree = create(
+      comp({
+        comment_by: 24,
+      })
+    ).toJSON()
     expect(tree).toMatchSnapshot()
 
     // when iam the admin
@@ -62,7 +60,7 @@ describe('CommentOptions Component', () => {
       <PureCommentTools
         commentDetails={{
           ...commentDetails,
-          comment_by: 24
+          comment_by: 24,
         }}
         decrementComments={mockFn}
         updateCommentText={mockFn}
@@ -83,5 +81,4 @@ describe('CommentOptions Component', () => {
     )
     expect(wrapper.find('.comments_options').exists()).toBe(false)
   })
-
 })

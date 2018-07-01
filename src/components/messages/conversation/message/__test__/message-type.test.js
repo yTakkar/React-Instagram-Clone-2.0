@@ -4,14 +4,13 @@ import MessageType from '../message-type'
 import { shallow } from 'enzyme'
 
 describe('MessageType Component', () => {
-
   it('should match snapshot with type text', () => {
     const tree = create(
       <MessageType
         messageDetails={{
           type: 'text',
           message: 'kjkjk',
-          message_time: '1525809227238'
+          message_time: '1525809227238',
         }}
       />
     ).toJSON()
@@ -24,7 +23,7 @@ describe('MessageType Component', () => {
         messageDetails={{
           type: 'sticker',
           message: 'instagram_message_1525091176544.jpg',
-          message_time: '1525809227238'
+          message_time: '1525809227238',
         }}
       />
     ).toJSON()
@@ -37,7 +36,7 @@ describe('MessageType Component', () => {
         messageDetails={{
           type: 'image',
           message: 'instagram_message_1525091176544.jpg',
-          message_time: '1525809227238'
+          message_time: '1525809227238',
         }}
       />
     ).toJSON()
@@ -50,7 +49,7 @@ describe('MessageType Component', () => {
         messageDetails={{
           type: 'image',
           message: 'instagram_message_1525091176544.jpg',
-          message_time: '1525809227238'
+          message_time: '1525809227238',
         }}
       />
     )
@@ -64,11 +63,10 @@ describe('MessageType Component', () => {
         messageDetails={{
           type: 'text',
           message: '',
-          message_time: '1525809227238'
+          message_time: '1525809227238',
         }}
       />
     ).toJSON()
     expect(tree).toMatchSnapshot()
   })
-
 })

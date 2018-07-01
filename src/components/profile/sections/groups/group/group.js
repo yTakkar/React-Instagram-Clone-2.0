@@ -8,52 +8,48 @@ import Leave from '../../../../group/join-group/leave'
 import AppLink from '../../../../others/link/link'
 
 class UserGroupList extends Component {
-
   state = {
-    joined: false
+    joined: false,
   }
 
-  componentDidMount = () =>
-    this.setState({ joined: this.props.joined })
+  componentDidMount = () => this.setState({ joined: this.props.joined })
 
   render() {
     let {
-      group_id, admin, session: { id: user }
+      group_id,
+      admin,
+      session: { id: user },
     } = this.props
     let { joined } = this.state
 
     return (
-      <div className='m_on followers_m_on'>
+      <div className="m_on followers_m_on">
+        <UserGroupInfo info={{ ...this.props }} />
 
-        <UserGroupInfo
-          info={{ ...this.props }}
-        />
-
-        <div className='m_bottom'>
-          {
-            Me(admin) ?
-              <AppLink
-                url={`/group/${group_id}`}
-                className='sec_btn'
-                label='View group'
-              />
-
-              : joined ?
-                <Leave
-                  leaveDetails={{ user, group_id }}
-                  leaved={() => this.setState({ joined: false })}
-                  updateGroups
-                />
-
-                : <Join
-                  joinDetails={{
-                    user, addedBy: user, group_id
-                  }}
-                  joined={() => this.setState({ joined: true })}
-                />
-          }
+        <div className="m_bottom">
+          {Me(admin) ? (
+            <AppLink
+              url={`/group/${group_id}`}
+              className="sec_btn"
+              label="View group"
+            />
+          ) : joined ? (
+            <Leave
+              leaveDetails={{ user, group_id }}
+              leaved={() => this.setState({ joined: false })}
+              updateGroups
+            />
+          ) : (
+            <Join
+              joinDetails={{
+                user,
+                addedBy: user,
+                group_id,
+              }}
+              joined={() => this.setState({ joined: true })}
+            />
+          )}
         </div>
-
       </div>
     )
   }
@@ -69,7 +65,7 @@ UserGroupList.propTypes = {
 }
 
 const mapStateToProps = store => ({
-  session: store.User.session
+  session: store.User.session,
 })
 
 export default connect(mapStateToProps)(UserGroupList)

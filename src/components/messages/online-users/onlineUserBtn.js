@@ -4,9 +4,8 @@ import FAIcon from '../../others/icons/font-awesome-icon'
 import PrimaryButton from '../../others/button/primary-btn'
 
 export default class OnlineUsersButton extends Component {
-
   state = {
-    showOnlineUsers: false
+    showOnlineUsers: false,
   }
 
   show = e => {
@@ -16,7 +15,7 @@ export default class OnlineUsersButton extends Component {
 
   btnLabel = () => (
     <Fragment>
-      <FAIcon icon='globe' />
+      <FAIcon icon="globe" />
       <span>Online users</span>
     </Fragment>
   )
@@ -26,17 +25,11 @@ export default class OnlineUsersButton extends Component {
 
     return (
       <Fragment>
-        <PrimaryButton
-          label={this.btnLabel}
-          onClick={this.show}
-        />
+        <PrimaryButton label={this.btnLabel} onClick={this.show} />
 
-        {
-          showOnlineUsers &&
-            <OnlineUsers back={() =>
-              this.setState({ showOnlineUsers: false })
-            } />
-        }
+        {showOnlineUsers && (
+          <OnlineUsers back={() => this.setState({ showOnlineUsers: false })} />
+        )}
       </Fragment>
     )
   }

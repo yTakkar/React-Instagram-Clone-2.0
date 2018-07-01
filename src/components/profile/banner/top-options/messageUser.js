@@ -6,37 +6,43 @@ import { Redirect } from 'react-router'
 import PropTypes from 'prop-types'
 
 class BannerMessageUser extends Component {
-
   state = {
-    messagedUser: false
+    messagedUser: false,
   }
 
   messageUser = e => {
     e.preventDefault()
-    let { ud: { id, username }, toggleOptions } = this.props
+    let {
+      ud: { id, username },
+      toggleOptions,
+    } = this.props
     newConversation({
       user: id,
       username,
       updateConversations: false,
-      done: () => this.setState({ messagedUser: true })
+      done: () => this.setState({ messagedUser: true }),
     })
     toggleOptions()
   }
 
   render() {
-    let { ud: { id }, isFollowing } = this.props
+    let {
+      ud: { id },
+      isFollowing,
+    } = this.props
     let { messagedUser } = this.state
 
     return (
       <Fragment>
-        { messagedUser && <Redirect to='/messages' /> }
-        {
-          (isFollowing && !Me(id)) &&
-            <li><a
-              href='#'
-              onClick={this.messageUser}
-            >Message</a></li>
-        }
+        {messagedUser && <Redirect to="/messages" />}
+        {isFollowing &&
+          !Me(id) && (
+            <li>
+              <a href="#" onClick={this.messageUser}>
+                Message
+              </a>
+            </li>
+          )}
       </Fragment>
     )
   }
@@ -48,7 +54,7 @@ BannerMessageUser.propTypes = {
 
 const mapStateToProps = store => ({
   ud: store.User.user_details,
-  isFollowing: store.Follow.isFollowing
+  isFollowing: store.Follow.isFollowing,
 })
 
 export default connect(mapStateToProps)(BannerMessageUser)

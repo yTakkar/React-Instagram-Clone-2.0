@@ -7,7 +7,7 @@ export default {
       firstname: 'Mirza',
       surname: 'Ghalib',
       block_time: '1480114098767',
-      mutualFollowersCount: 0
+      mutualFollowersCount: 0,
     },
     {
       block_id: 15,
@@ -16,7 +16,7 @@ export default {
       firstname: 'Cold',
       surname: 'Play',
       block_time: '1480114098767',
-      mutualFollowersCount: 2
-    }
-  ]
+      mutualFollowersCount: 2,
+    },
+  ],
 }

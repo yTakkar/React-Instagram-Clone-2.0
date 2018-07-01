@@ -4,12 +4,10 @@ import { getPopularHashtags } from '../../actions/hashtag'
 import MapHashtags from './hashtag-utils/map-hashtags'
 import HashtagHeader from './hashtag-utils/hashtag-header'
 
-@connect(store => (
-  { hashtags: store.Hashtag.popularHashtags }
-))
-
+@connect(store => ({
+  hashtags: store.Hashtag.popularHashtags,
+}))
 export default class PopularHashtags extends Component {
-
   componentDidMount = async () => {
     let { dispatch } = this.props
     dispatch(getPopularHashtags())
@@ -21,13 +19,12 @@ export default class PopularHashtags extends Component {
 
     return (
       <div>
-        {
-          len != 0 &&
-            <div className='recomm user-hashtags'>
-              <HashtagHeader text='Popular trends' />
-              <MapHashtags hashtags={hashtags} />
-            </div>
-        }
+        {len != 0 && (
+          <div className="recomm user-hashtags">
+            <HashtagHeader text="Popular trends" />
+            <MapHashtags hashtags={hashtags} />
+          </div>
+        )}
       </div>
     )
   }

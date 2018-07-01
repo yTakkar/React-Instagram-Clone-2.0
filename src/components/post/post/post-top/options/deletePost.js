@@ -8,7 +8,6 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
 class DeletePostOption extends Component {
-
   state = {
     deletePost: false,
     redirect: false,
@@ -23,11 +22,13 @@ class DeletePostOption extends Component {
     e.preventDefault()
     let {
       postDetails: { post_id, when },
-      dispatch
+      dispatch,
     } = this.props
     deletePost({
-      post_id, when, dispatch,
-      redirect: () => this.setState({ redirect: true })
+      post_id,
+      when,
+      dispatch,
+      redirect: () => this.setState({ redirect: true }),
     })
   }
 
@@ -44,28 +45,25 @@ class DeletePostOption extends Component {
 
     return (
       <Fragment>
-        { redirect && <Redirect to='/' /> }
+        {redirect && <Redirect to="/" />}
 
-        {
-          (Me(user) || isAdmin()) &&
-            <li>
-              <a href='#' className='delete_post' onClick={this.showDeletePost}>
-                Delete post {isAdmin() ? 'as admin' : null}
-              </a>
-            </li>
-        }
+        {(Me(user) || isAdmin()) && (
+          <li>
+            <a href="#" className="delete_post" onClick={this.showDeletePost}>
+              Delete post {isAdmin() ? 'as admin' : null}
+            </a>
+          </li>
+        )}
 
-        {
-          deletePost &&
-            <Prompt
-              title='Delete post'
-              content="This post will be deleted. There's no undo so you won't be able to find it."
-              actionText= 'Delete'
-              action={this.delete}
-              back={this.modalBack}
-            />
-        }
-
+        {deletePost && (
+          <Prompt
+            title="Delete post"
+            content="This post will be deleted. There's no undo so you won't be able to find it."
+            actionText="Delete"
+            action={this.delete}
+            back={this.modalBack}
+          />
+        )}
       </Fragment>
     )
   }
@@ -75,9 +73,9 @@ DeletePostOption.propTypes = {
   postDetails: PropTypes.shape({
     user: PropTypes.number.isRequired,
     post_id: PropTypes.number.isRequired,
-    when: PropTypes.string.isRequired
+    when: PropTypes.string.isRequired,
   }).isRequired,
-  toggleOptions: PropTypes.func.isRequired
+  toggleOptions: PropTypes.func.isRequired,
 }
 
 export default connect()(DeletePostOption)

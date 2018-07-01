@@ -7,11 +7,10 @@ import { shallow } from 'enzyme'
 import User from '../../../../../store/__mocks__/reducers/User'
 
 describe('ProfileSettings Component', () => {
-
   it('should match snapshot', () => {
     const tree = create(
       <Provider store={mockStore}>
-        <ProfileSettings/>
+        <ProfileSettings />
       </Provider>
     ).toJSON()
     expect(tree).toMatchSnapshot()
@@ -19,13 +18,9 @@ describe('ProfileSettings Component', () => {
 
   it('should hide spinner when loading=false', () => {
     const wrapper = shallow(
-      <PureProfileSettings
-        session={User.session}
-        dispatch={jest.fn()}
-      />
+      <PureProfileSettings session={User.session} dispatch={jest.fn()} />
     )
     wrapper.setState({ loading: false })
     expect(wrapper.find('IsLoading').prop('loading')).toEqual(false)
   })
-
 })

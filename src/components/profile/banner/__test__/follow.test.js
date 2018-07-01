@@ -12,7 +12,7 @@ describe('BannerFollow Component', () => {
 
   const comp = (
     <Provider store={mockStore}>
-      <BannerFollow/>
+      <BannerFollow />
     </Provider>
   )
 
@@ -33,5 +33,4 @@ describe('BannerFollow Component', () => {
     const tree = create(comp).toJSON()
     expect(tree).toMatchSnapshot()
   })
-
 })

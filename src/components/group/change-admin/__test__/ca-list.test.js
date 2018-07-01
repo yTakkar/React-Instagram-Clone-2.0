@@ -9,12 +9,12 @@ import { shallow } from 'enzyme'
 describe('ChangeAdminList Component', () => {
   const props = {
     ...Group.usersToMakeAdmin[0],
-    group: 11
+    group: 11,
   }
 
   it('should match snapshot', () => {
     const tree = create(
-      <Provider store={mockStore} >
+      <Provider store={mockStore}>
         <ChangeAdminList {...props} />
       </Provider>
     ).toJSON()
@@ -22,27 +22,18 @@ describe('ChangeAdminList Component', () => {
   })
 
   it('should show <Prompt/> when clicked on transfer button', () => {
-    const wrapper = shallow(
-      <ChangeAdminList
-        {...props}
-      />
-    )
+    const wrapper = shallow(<ChangeAdminList {...props} />)
     wrapper.find('PrimaryButton').simulate('click', {
-      preventDefault() {}
+      preventDefault() {},
     })
     expect(wrapper.find('Prompt').exists()).toBe(true)
   })
 
   it('should mock transfer action', () => {
-    const wrapper = shallow(
-      <ChangeAdminList
-        {...props}
-      />
-    )
+    const wrapper = shallow(<ChangeAdminList {...props} />)
     wrapper.setState({ change: true })
     wrapper.find('Prompt').prop('action')({
-      preventDefault() {}
+      preventDefault() {},
     })
   })
-
 })

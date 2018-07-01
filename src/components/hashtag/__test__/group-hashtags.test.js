@@ -8,9 +8,7 @@ import Hashtag from '../../../store/__mocks__/reducers/Hashtag'
 describe('GroupHashtags Component', () => {
   const comp = (
     <Provider store={mockStore}>
-      <GroupHashtags
-        group={11}
-      />
+      <GroupHashtags group={11} />
     </Provider>
   )
 
@@ -24,5 +22,4 @@ describe('GroupHashtags Component', () => {
     const tree = create(comp).toJSON()
     expect(tree).toMatchSnapshot()
   })
-
 })

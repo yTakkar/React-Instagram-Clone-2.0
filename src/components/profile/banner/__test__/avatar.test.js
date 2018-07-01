@@ -12,7 +12,7 @@ describe('BannerAvatar Component', () => {
 
   const comp = (
     <Provider store={mockStore}>
-      <BannerAvatar/>
+      <BannerAvatar />
     </Provider>
   )
 
@@ -22,15 +22,11 @@ describe('BannerAvatar Component', () => {
   })
 
   it('should toggle state values when clicked on options', () => {
-    const wrapper = shallow(
-      <PureBannerAvatar
-        ud={User.user_details}
-      />
-    )
+    const wrapper = shallow(<PureBannerAvatar ud={User.user_details} />)
 
     expect(wrapper.state()).toContainEntries([
       ['viewAvatar', false],
-      ['changeAvatar', false]
+      ['changeAvatar', false],
     ])
 
     wrapper.find('.view_avatar_span').simulate('click')
@@ -38,8 +34,7 @@ describe('BannerAvatar Component', () => {
 
     expect(wrapper.state()).toContainEntries([
       ['viewAvatar', true],
-      ['changeAvatar', true]
+      ['changeAvatar', true],
     ])
   })
-
 })

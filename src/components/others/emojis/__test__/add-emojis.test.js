@@ -7,18 +7,14 @@ describe('Add-Emojis Component', () => {
   const props = {
     position: {
       top: 10,
-      left: 50
+      left: 50,
     },
     textArea: '.some-textarea',
-    updateTextArea() {}
+    updateTextArea() {},
   }
 
   it('should match snapshot', () => {
-    const tree = create(
-      <AddEmojis
-        {...props}
-      />
-    ).toJSON()
+    const tree = create(<AddEmojis {...props} />).toJSON()
     expect(tree).toMatchSnapshot()
 
     const tree2 = create(
@@ -26,16 +22,14 @@ describe('Add-Emojis Component', () => {
         {...props}
         disabled
         addClassOnClicked
-        className='.emoji-modal-shown'
+        className=".emoji-modal-shown"
       />
     ).toJSON()
     expect(tree2).toMatchSnapshot()
   })
 
   it('should toggle Emojis Component on click', () => {
-    const wrapper = shallow(
-      <AddEmojis {...props} />
-    )
+    const wrapper = shallow(<AddEmojis {...props} />)
 
     expect(wrapper.state().showEmojis).toBeFalse()
     expect(wrapper.find('Emojis').exists()).toBeFalse()
@@ -44,5 +38,4 @@ describe('Add-Emojis Component', () => {
 
     expect(wrapper.find('Emojis').exists()).toBeTrue()
   })
-
 })

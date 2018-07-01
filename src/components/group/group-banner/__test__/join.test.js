@@ -11,7 +11,7 @@ describe('JoinGroup Component', () => {
 
   const comp = (
     <Provider store={mockStore}>
-      <JoinGroup/>
+      <JoinGroup />
     </Provider>
   )
 
@@ -32,5 +32,4 @@ describe('JoinGroup Component', () => {
     const tree = create(comp).toJSON()
     expect(tree).toMatchSnapshot()
   })
-
 })

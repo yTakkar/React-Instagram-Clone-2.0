@@ -4,7 +4,6 @@ const Post = require('../Post')
 const { user1, user2, postID } = require('./test.config')
 
 describe('User config tests', () => {
-
   test('should return whether user liked post or not', async () => {
     let liked = await Post.likedOrNot(user1, postID)
     expect(liked).toBeBoolean()
@@ -35,5 +34,4 @@ describe('User config tests', () => {
       comments_count: expect.any(Number),
     })
   })
-
 })

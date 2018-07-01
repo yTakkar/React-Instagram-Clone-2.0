@@ -9,14 +9,11 @@ import UpdateInstruction from './update-instruction'
 import EditPen from '../../../others/edit-pen'
 import d from '../../../../utils/API/DOM'
 
-@connect(store => (
-  { ud: store.User.user_details }
-))
-
+@connect(store => ({
+  ud: store.User.user_details,
+}))
 export default class About extends Component {
-
-  toggleEdit = () =>
-    new d('.a_edit').toggle()
+  toggleEdit = () => new d('.a_edit').toggle()
 
   componentDidMount = () => bottomScroll()
 
@@ -25,33 +22,27 @@ export default class About extends Component {
 
     return (
       <div>
+        <Title value={`About @${username} (${firstname} ${surname})`} />
 
-        <Title
-          value={`About @${username} (${firstname} ${surname})`}
-        />
-
-        <FadeIn duration='300ms' >
-          <div className='senapati pro_senapati'>
-            <div className='about'>
-
-              <div className='sabout'>
-                <UpdateInstruction/>
+        <FadeIn duration="300ms">
+          <div className="senapati pro_senapati">
+            <div className="about">
+              <div className="sabout">
+                <UpdateInstruction />
                 <SocialIcons />
               </div>
 
               <div
-                className='fabout'
+                className="fabout"
                 onMouseOver={this.toggleEdit}
                 onMouseOut={this.toggleEdit}
               >
-                <EditPen to='/edit-profile' when='profile' />
+                <EditPen to="/edit-profile" when="profile" />
                 <AboutSections />
               </div>
-
             </div>
           </div>
         </FadeIn>
-
       </div>
     )
   }

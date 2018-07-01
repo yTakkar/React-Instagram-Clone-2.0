@@ -5,20 +5,24 @@ import ConversationAddEmojis from './add-emojis'
 import TextArea from '../../../others/input/textArea'
 
 class TextMessage extends Component {
-
   state = {
-    messageValue: ''
+    messageValue: '',
   }
 
-  changeMssgValue = e =>
-    this.setState({ messageValue: e.target.value })
+  changeMssgValue = e => this.setState({ messageValue: e.target.value })
 
   message = e => {
     e.preventDefault()
     let { messageValue } = this.state
-    let { cd: { con_id, con_with }, dispatch } = this.props
+    let {
+      cd: { con_id, con_with },
+      dispatch,
+    } = this.props
     textMessage({
-      message: messageValue, con_id, con_with, dispatch
+      message: messageValue,
+      con_id,
+      con_with,
+      dispatch,
     })
     this.setState({ messageValue: '' })
   }
@@ -28,24 +32,18 @@ class TextMessage extends Component {
 
     return (
       <Fragment>
-        <form className='add_mssg_form' onSubmit={this.message} >
+        <form className="add_mssg_form" onSubmit={this.message}>
           <TextArea
-            placeholder='Send message..'
-            className='send_mssg'
+            placeholder="Send message.."
+            className="send_mssg"
             required
             value={messageValue}
             valueChange={this.changeMssgValue}
           />
           <ConversationAddEmojis
-            updateMssgValue={value =>
-              this.setState({ messageValue: value })
-            }
+            updateMssgValue={value => this.setState({ messageValue: value })}
           />
-          <input
-            type='submit'
-            value='Send'
-            className='pri_btn mssg_send'
-          />
+          <input type="submit" value="Send" className="pri_btn mssg_send" />
         </form>
       </Fragment>
     )
@@ -53,7 +51,7 @@ class TextMessage extends Component {
 }
 
 const mapStateToProps = store => ({
-  cd: store.Message.conDetails
+  cd: store.Message.conDetails,
 })
 
 export default connect(mapStateToProps)(TextMessage)

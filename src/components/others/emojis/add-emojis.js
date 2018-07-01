@@ -6,18 +6,22 @@ import MaterialIcon from '../icons/material-icon'
 import classNames from 'classnames'
 
 export default class AddEmojis extends Component {
-
   state = {
     showEmojis: false,
   }
 
-  toggleEmojis = () =>
-    this.setState({ showEmojis: !this.state.showEmojis })
+  toggleEmojis = () => this.setState({ showEmojis: !this.state.showEmojis })
 
   render() {
     let { showEmojis } = this.state
     let {
-      position, textArea, updateTextArea, recenterEmojis, disabled, addClassOnClicked, className
+      position,
+      textArea,
+      updateTextArea,
+      recenterEmojis,
+      disabled,
+      addClassOnClicked,
+      className,
     } = this.props
 
     let addClass = addClassOnClicked && showEmojis ? className : ''
@@ -27,26 +31,22 @@ export default class AddEmojis extends Component {
       <Fragment>
         <span
           className={classNames('emoji_span', disabledClass, addClass)}
-          data-tip='Add emojis'
+          data-tip="Add emojis"
           onClick={this.toggleEmojis}
         >
-          <MaterialIcon icon='sentiment_very_satisfied' />
+          <MaterialIcon icon="sentiment_very_satisfied" />
         </span>
 
-        {
-          showEmojis ?
-            <Emojis
-              position={position}
-              textArea={textArea}
-              updateStateValue={value =>
-                updateTextArea(value)
-              }
-              recenterEmojis={recenterEmojis}
-            />
-            : null
-        }
+        {showEmojis ? (
+          <Emojis
+            position={position}
+            textArea={textArea}
+            updateStateValue={value => updateTextArea(value)}
+            recenterEmojis={recenterEmojis}
+          />
+        ) : null}
 
-        <ToolTip/>
+        <ToolTip />
       </Fragment>
     )
   }
@@ -55,18 +55,18 @@ export default class AddEmojis extends Component {
 AddEmojis.defaultProps = {
   recenterEmojis: false,
   disabled: false,
-  addClassOnClicked: false
+  addClassOnClicked: false,
 }
 
 AddEmojis.propTypes = {
   position: shape({
     top: number.isRequired,
-    left: number.isRequired
+    left: number.isRequired,
   }).isRequired,
   textArea: string.isRequired,
   updateTextArea: func.isRequired,
   recenterEmojis: bool,
   disabled: bool,
   addClassOnClicked: bool,
-  className: string
+  className: string,
 }

@@ -1,4 +1,4 @@
 export default {
   notifications: [],
-  unreadNotifications: 0
+  unreadNotifications: 0,
 }

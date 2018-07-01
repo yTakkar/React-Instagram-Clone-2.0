@@ -1,8 +1,7 @@
 // ALL ROUTES OF A NOT LOGGEDIN USER IS HANDLED BY THIS FILE.
 // ALSO THE PAGE IS RESPONSIBLE FOR RENDERING REACT FOR A LOGGEDIN USER.
 
-const
-  app = require('express').Router(),
+const app = require('express').Router(),
   mw = require('../config/Middlewares')
 
 // WELCOME ROUTE

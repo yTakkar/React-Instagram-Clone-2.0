@@ -5,14 +5,13 @@ import ImageTheatre from '../../../others/imageTheatre/imageTheatre'
 import { connect } from 'react-redux'
 
 class GroupPhotos extends Component {
-
   state = {
     showImage: false,
     imgSrc: '',
     filter: '',
     username: '',
     time: '',
-    link: ''
+    link: '',
   }
 
   selectPhoto = (e, { photo }) => {
@@ -28,7 +27,10 @@ class GroupPhotos extends Component {
   }
 
   render() {
-    let { photos, gd: { name } } = this.props
+    let {
+      photos,
+      gd: { name },
+    } = this.props
     let len = photos.length
     let { showImage, imgSrc, filter, username, time, link } = this.state
     let PHOTO_SET = []
@@ -39,35 +41,33 @@ class GroupPhotos extends Component {
         src: `/posts/${f.imgsrc}`,
         width: 15,
         height: 15,
-        className: `g_photo ${f.filter}`
+        className: `g_photo ${f.filter}`,
       })
     }
 
     return (
       <Fragment>
-        {
-          len == 0 ?
-            <Nothing mssg={`${name} group has no photos!!`} />
-            : <PhotoGallery
-              photos={PHOTO_SET}
-              columns={4}
-              margin={7}
-              onClick={this.selectPhoto}
-            />
-        }
+        {len == 0 ? (
+          <Nothing mssg={`${name} group has no photos!!`} />
+        ) : (
+          <PhotoGallery
+            photos={PHOTO_SET}
+            columns={4}
+            margin={7}
+            onClick={this.selectPhoto}
+          />
+        )}
 
-        {
-          showImage &&
-            <ImageTheatre
-              imgSrc={imgSrc}
-              filter={filter}
-              username={username}
-              time={time}
-              link={link}
-              back={() => this.setState({ showImage: false })}
-            />
-        }
-
+        {showImage && (
+          <ImageTheatre
+            imgSrc={imgSrc}
+            filter={filter}
+            username={username}
+            time={time}
+            link={link}
+            back={() => this.setState({ showImage: false })}
+          />
+        )}
       </Fragment>
     )
   }
@@ -75,7 +75,7 @@ class GroupPhotos extends Component {
 
 const mapStateToProps = store => ({
   gd: store.Group.group_details,
-  photos: store.Post.photos
+  photos: store.Post.photos,
 })
 
 export default connect(mapStateToProps)(GroupPhotos)

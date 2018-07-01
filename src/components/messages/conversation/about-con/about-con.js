@@ -16,18 +16,19 @@ import Overlay from '../../../others/overlay'
 import classNames from 'classnames'
 
 class AboutConversation extends Component {
-
   state = {
     loading: true,
   }
 
   componentDidMount = () => {
-    let { dispatch, cd: { con_id, con_with } } = this.props
+    let {
+      dispatch,
+      cd: { con_id, con_with },
+    } = this.props
     dispatch(getConAbout(con_id, con_with))
   }
 
-  componentWillReceiveProps = () =>
-    this.setState({ loading: false })
+  componentWillReceiveProps = () => this.setState({ loading: false })
 
   render() {
     let { loading } = this.state
@@ -35,36 +36,32 @@ class AboutConversation extends Component {
 
     return (
       <Fragment>
-        <Overlay/>
+        <Overlay />
 
-        <div className='modal modal_big' >
+        <div className="modal modal_big">
+          <FadeIn duration="300ms">
+            <ModalHeader title="About conversation" />
 
-          <FadeIn duration='300ms' >
-            <ModalHeader title='About conversation' />
-
-            <Scrollbars style={{ height: 450 }} className='modal_middle' >
-
+            <Scrollbars style={{ height: 450 }} className="modal_middle">
               <IsLoading loading={loading} />
 
               <div
                 className={classNames('modal_main', cLoading(loading))}
                 style={{ padding: 0 }}
               >
-                <div className='about_con'>
-                  <ConversationWith/>
-                  <ConSince/>
-                  <MessagesCount/>
-                  <ConversationMedia/>
+                <div className="about_con">
+                  <ConversationWith />
+                  <ConSince />
+                  <MessagesCount />
+                  <ConversationMedia />
                 </div>
               </div>
-
             </Scrollbars>
 
-            <div className='modal_bottom'>
+            <div className="modal_bottom">
               <ModalBack back={back} />
             </div>
           </FadeIn>
-
         </div>
       </Fragment>
     )
@@ -72,12 +69,12 @@ class AboutConversation extends Component {
 }
 
 AboutConversation.propTypes = {
-  back: PropTypes.func.isRequired
+  back: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = store => ({
   store,
-  cd: store.Message.conDetails
+  cd: store.Message.conDetails,
 })
 
 export default connect(mapStateToProps)(AboutConversation)

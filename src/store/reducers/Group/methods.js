@@ -3,7 +3,7 @@ export const update = (group, { name, bio, group_type }) => {
     ...group,
     name,
     bio,
-    group_type
+    group_type,
   }
   return updated
 }

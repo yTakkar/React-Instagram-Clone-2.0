@@ -11,23 +11,12 @@ describe('Unfollow Component', () => {
   }
 
   it('should match snapshot', () => {
-    const tree = create(
-      <Unfollow
-        {...props}
-        store={mockStore}
-      />
-    ).toJSON()
+    const tree = create(<Unfollow {...props} store={mockStore} />).toJSON()
     expect(tree).toMatchSnapshot()
   })
 
   it('should mock unfollow action when clicked', () => {
-    const wrapper = mount(
-      <Unfollow
-        {...props}
-        store={mockStore}
-      />
-    )
+    const wrapper = mount(<Unfollow {...props} store={mockStore} />)
     wrapper.find('PrimaryButton').simulate('click')
   })
-
 })

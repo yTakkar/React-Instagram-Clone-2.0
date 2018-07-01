@@ -10,8 +10,7 @@ import Action from './API/Action'
  * @param {Number} options.group
  */
 export const upload_avatar = async options => {
-  let
-    { file: userFile, of, group } = options,
+  let { file: userFile, of, group } = options,
     form = new FormData(),
     file = await imageCompressor(userFile),
     action = new Action('.c_a_add')
@@ -26,15 +25,14 @@ export const upload_avatar = async options => {
     form.append('group', group)
 
     let {
-      data: { success, mssg }
+      data: { success, mssg },
     } = await post('/api/upload-avatar', form)
 
     Notify({
       value: mssg,
-      done: () => success ? location.reload() : null
+      done: () => (success ? location.reload() : null),
     })
 
     action.end('Change avatar')
   }
-
 }

@@ -8,50 +8,52 @@ import AppLink from '../../others/link/link'
 
 const OnlineUser = props => {
   let {
-    user, username, firstname, surname, mutualUsersCount, back, dispatch
+    user,
+    username,
+    firstname,
+    surname,
+    mutualUsersCount,
+    back,
+    dispatch,
   } = props
 
   let message = e => {
     e.preventDefault()
     newConversation({
-      user, username, dispatch,
-      done: () => back()
+      user,
+      username,
+      dispatch,
+      done: () => back(),
     })
   }
 
   return (
-    <div className='modal_items fer_items' >
-      <div className='modal_it_img'>
+    <div className="modal_items fer_items">
+      <div className="modal_it_img">
         <img src={`/users/${user}/avatar.jpg`} />
       </div>
 
-      <div className='modal_it_content'>
-        <div className='modal_it_info'>
+      <div className="modal_it_content">
+        <div className="modal_it_info">
           <AppLink
             url={`/profile/${username}`}
-            className='modal_it_username'
+            className="modal_it_username"
             label={username}
           />
 
-          <span className='modal_it_light' >
-            {
-              mutualUsersCount == 0
-                ? `${firstname} ${surname}`
-                : humanReadable(mutualUsersCount, 'mutual follower')
-            }
+          <span className="modal_it_light">
+            {mutualUsersCount == 0
+              ? `${firstname} ${surname}`
+              : humanReadable(mutualUsersCount, 'mutual follower')}
           </span>
         </div>
 
-        <div className='modal_ff'>
-          <PrimaryButton
-            label='Message'
-            onClick={message}
-          />
+        <div className="modal_ff">
+          <PrimaryButton label="Message" onClick={message} />
         </div>
       </div>
 
       <hr />
-
     </div>
   )
 }

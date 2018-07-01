@@ -7,7 +7,7 @@ import { create } from 'react-test-renderer'
 describe('Feed Component', () => {
   const comp = (
     <Provider store={mockStore}>
-      <Feed/>
+      <Feed />
     </Provider>
   )
 
@@ -15,5 +15,4 @@ describe('Feed Component', () => {
     const tree = create(comp).toJSON()
     expect(tree).toMatchSnapshot()
   })
-
 })

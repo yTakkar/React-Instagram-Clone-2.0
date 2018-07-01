@@ -13,7 +13,7 @@ describe('PeopleYouKnow Component', () => {
   it('should match snapshot', () => {
     const tree = create(
       <Provider store={mockStore}>
-        <PeopleYouKnow param='takkar' />
+        <PeopleYouKnow param="takkar" />
       </Provider>
     ).toJSON()
     expect(tree).toMatchSnapshot()
@@ -22,7 +22,7 @@ describe('PeopleYouKnow Component', () => {
   it('should redirect to /profile if it is my profile page', () => {
     const wrapper = shallow(
       <PurePeopleYouKnow
-        param='takkar'
+        param="takkar"
         ud={User.user_details}
         mutuals={User.mutualUsers}
       />
@@ -31,18 +31,16 @@ describe('PeopleYouKnow Component', () => {
   })
 
   it('should redirect to /profile if it is my profile page', () => {
-
     const wrapper = shallow(
       <PurePeopleYouKnow
-        param='takkar'
+        param="takkar"
         ud={{
           ...User.user_details,
-          id: 7
+          id: 7,
         }}
         mutuals={User.mutualUsers}
       />
     )
     expect(wrapper.find('Redirect').exists()).toBe(false)
   })
-
 })

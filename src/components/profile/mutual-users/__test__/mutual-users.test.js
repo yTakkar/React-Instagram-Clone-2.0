@@ -8,9 +8,7 @@ import User from '../../../../store/__mocks__/reducers/User'
 describe('MutualUsers Component', () => {
   const comp = (
     <Provider store={mockStore}>
-      <MutualUsers
-        username='ghalib'
-      />
+      <MutualUsers username="ghalib" />
     </Provider>
   )
 
@@ -24,5 +22,4 @@ describe('MutualUsers Component', () => {
     const tree = create(comp).toJSON()
     expect(tree).toMatchSnapshot()
   })
-
 })

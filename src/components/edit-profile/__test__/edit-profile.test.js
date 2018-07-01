@@ -8,8 +8,8 @@ import User from '../../../store/__mocks__/reducers/User'
 
 describe('Edit-Profile Component', () => {
   const comp = (
-    <Provider store={mockStore} >
-      <EditProfile/>
+    <Provider store={mockStore}>
+      <EditProfile />
     </Provider>
   )
 
@@ -29,10 +29,7 @@ describe('Edit-Profile Component', () => {
 
   it('should mock update-profile action when clicked', () => {
     const wrapper = shallow(pureComp)
-    wrapper.find('PrimaryButton').simulate(
-      'click',
-      { preventDefault() {} }
-    )
+    wrapper.find('PrimaryButton').simulate('click', { preventDefault() {} })
   })
 
   it('should hide spinner when loading=false', () => {
@@ -40,5 +37,4 @@ describe('Edit-Profile Component', () => {
     wrapper.setState({ loading: false })
     expect(wrapper.find('IsLoading').prop('loading')).toEqual(false)
   })
-
 })

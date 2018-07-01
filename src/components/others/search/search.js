@@ -5,14 +5,13 @@ import FAIcon from '../icons/font-awesome-icon'
 import TextInput from '../input/text'
 
 export default class Search extends Component {
-
   state = {
     value: '',
     search: {
       users: [],
       groups: [],
-      hashtags: []
-    }
+      hashtags: [],
+    },
   }
 
   hide = () => {
@@ -20,8 +19,8 @@ export default class Search extends Component {
       search: {
         users: [],
         groups: [],
-        hashtags: []
-      }
+        hashtags: [],
+      },
     })
   }
 
@@ -43,38 +42,33 @@ export default class Search extends Component {
   render() {
     let {
       value,
-      search: { users, groups, hashtags }
+      search: { users, groups, hashtags },
     } = this.state
 
     return (
       <div>
-
-        <div className='search_box'>
+        <div className="search_box">
           <TextInput
-            placeholder='Search Instagram'
+            placeholder="Search Instagram"
             autoFocus
             value={value}
             valueChange={this.search}
-            className='search'
+            className="search"
           />
-          <span className='search_icon'>
-            <FAIcon icon='search' />
+          <span className="search_icon">
+            <FAIcon icon="search" />
           </span>
         </div>
 
-        {
-          users.length > 0 || groups.length > 0 || hashtags.length > 0 ?
-            <MapSearch
-              users={users}
-              groups={groups}
-              hashtags={hashtags}
-              clicked={this.clicked}
-            />
-            : null
-        }
-
+        {users.length > 0 || groups.length > 0 || hashtags.length > 0 ? (
+          <MapSearch
+            users={users}
+            groups={groups}
+            hashtags={hashtags}
+            clicked={this.clicked}
+          />
+        ) : null}
       </div>
     )
   }
 }
-

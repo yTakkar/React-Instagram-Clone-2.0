@@ -9,7 +9,7 @@ import IsOnline from '../isOnline'
 describe('IsOnline Component', () => {
   const comp = (
     <Provider store={mockStore}>
-      <IsOnline/>
+      <IsOnline />
     </Provider>
   )
 
@@ -29,5 +29,4 @@ describe('IsOnline Component', () => {
     const tree = create(comp).toJSON()
     expect(tree).toMatchSnapshot()
   })
-
 })

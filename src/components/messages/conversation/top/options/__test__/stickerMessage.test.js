@@ -15,9 +15,7 @@ describe('StickerMessage Component', () => {
   it('should match snapshot', () => {
     const tree = create(
       <Provider store={mockStore}>
-        <StickerMessage
-          {...props}
-        />
+        <StickerMessage {...props} />
       </Provider>
     ).toJSON()
     expect(tree).toMatchSnapshot()
@@ -25,26 +23,19 @@ describe('StickerMessage Component', () => {
 
   it('should show <Stickers/> when showStickers == true', () => {
     const wrapper = shallow(
-      <PureStickerMessage
-        {...props}
-        cd={Message.conDetails}
-      />
+      <PureStickerMessage {...props} cd={Message.conDetails} />
     )
     wrapper.find('.mssg_sticker').simulate('click', {
-      preventDefault() {}
+      preventDefault() {},
     })
     expect(wrapper.find('Stickers').exists()).toBe(true)
   })
 
   it('should mock stickerMessage when sticker is selected', () => {
     const wrapper = shallow(
-      <PureStickerMessage
-        {...props}
-        cd={Message.conDetails}
-      />
+      <PureStickerMessage {...props} cd={Message.conDetails} />
     )
     wrapper.setState({ showStickers: true })
     wrapper.find('Stickers').prop('stickerSelected')()
   })
-
 })

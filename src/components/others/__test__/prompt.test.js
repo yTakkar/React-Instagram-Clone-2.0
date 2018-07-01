@@ -14,35 +14,19 @@ describe('Prompt Component', () => {
   }
 
   it('should match snapshot', () => {
-    const tree = create(
-      <Prompt {...defaultProps} />
-    ).toJSON()
+    const tree = create(<Prompt {...defaultProps} />).toJSON()
     expect(tree).toMatchSnapshot()
   })
 
   it('should match snapshot with blurred prop', () => {
-    const tree = create(
-      <Prompt
-        {...defaultProps}
-        blurred
-      />
-    ).toJSON()
+    const tree = create(<Prompt {...defaultProps} blurred />).toJSON()
     expect(tree).toMatchSnapshot()
   })
 
-
   it('should simulate click events', () => {
-    const wrapper = shallow(
-      <Prompt
-        {...defaultProps}
-      />
-    )
+    const wrapper = shallow(<Prompt {...defaultProps} />)
 
     wrapper.find('PrimaryButton').simulate('click')
-    wrapper.find('SecondaryButton').simulate(
-      'click',
-      { preventDefault() {} }
-    )
+    wrapper.find('SecondaryButton').simulate('click', { preventDefault() {} })
   })
-
 })

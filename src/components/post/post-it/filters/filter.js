@@ -7,7 +7,6 @@ import d from '../../../../utils/API/DOM'
 import classNames from 'classnames'
 
 const Filter = ({ filter, previewImg, dispatch }) => {
-
   let f = filter.replace('filter-', '')
 
   let select = () => {
@@ -17,10 +16,7 @@ const Filter = ({ filter, previewImg, dispatch }) => {
   }
 
   return (
-    <div
-      className={classNames('filter_div', `fp_${filter}`)}
-      onClick={select}
-    >
+    <div className={classNames('filter_div', `fp_${filter}`)} onClick={select}>
       <img className={filter} src={previewImg} />
       <span>{c_first(f)}</span>
     </div>
@@ -31,9 +27,9 @@ Filter.propTypes = {
   filter: PropTypes.string.isRequired,
 }
 
-const mapStateToProps = state => (
-  { previewImg: state.Post.postIt.previewImg }
-)
+const mapStateToProps = state => ({
+  previewImg: state.Post.postIt.previewImg,
+})
 
 export default connect(mapStateToProps)(Filter)
 export { Filter as PureFilter }

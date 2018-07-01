@@ -9,8 +9,8 @@ import Explore from '../../../../store/__mocks__/reducers/Explore'
 
 describe('ExpGroups Component', () => {
   const comp = (
-    <Provider store={mockStore} >
-      <ExploreGroups/>
+    <Provider store={mockStore}>
+      <ExploreGroups />
     </Provider>
   )
 
@@ -27,15 +27,9 @@ describe('ExpGroups Component', () => {
 
   it('should hide spinner when loading = false', () => {
     const wrapper = shallow(
-      <PureExploreGroups
-        groups={Explore.groups}
-        dispatch={jest.fn()}
-      />
+      <PureExploreGroups groups={Explore.groups} dispatch={jest.fn()} />
     )
     wrapper.setState({ loading: false })
-    expect(
-      wrapper.find('IsLoading').prop('loading')
-    ).toEqual(false)
+    expect(wrapper.find('IsLoading').prop('loading')).toEqual(false)
   })
-
 })

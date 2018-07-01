@@ -13,7 +13,7 @@ const GroupOptions = ({ toggleOptions }) => {
         <ChangeGroupAdmin toggleOptions={toggleOptions} />
         <DeleteGroup toggleOptions={toggleOptions} />
         <CopyLink
-          label='Copy group link'
+          label="Copy group link"
           url={location.href}
           done={toggleOptions}
         />
@@ -23,7 +23,7 @@ const GroupOptions = ({ toggleOptions }) => {
 }
 
 GroupOptions.propTypes = {
-  toggleOptions: PropTypes.func.isRequired
+  toggleOptions: PropTypes.func.isRequired,
 }
 
 export default GroupOptions

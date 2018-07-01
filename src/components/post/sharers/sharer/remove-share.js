@@ -7,7 +7,6 @@ import PropTypes from 'prop-types'
 import SecondaryButton from '../../../others/button/secondary-btn'
 
 const RemoveShare = ({ share_id, decrementSharers, dispatch }) => {
-
   let remove = async e => {
     e.preventDefault()
     await post('/api/remove-share', { share_id })
@@ -17,17 +16,12 @@ const RemoveShare = ({ share_id, decrementSharers, dispatch }) => {
 
   let btnLabel = `Remove ${isAdmin() ? 'as admin' : 'share'}`
 
-  return (
-    <SecondaryButton
-      label={btnLabel}
-      onClick={remove}
-    />
-  )
+  return <SecondaryButton label={btnLabel} onClick={remove} />
 }
 
 RemoveShare.propTypes = {
   share_id: PropTypes.number.isRequired,
-  decrementSharers: PropTypes.func.isRequired
+  decrementSharers: PropTypes.func.isRequired,
 }
 
 export default connect()(RemoveShare)

@@ -7,18 +7,13 @@ describe('PostTop Component', () => {
   const props = {
     postDetails: {
       ...posts[0],
-      when: 'feed'
+      when: 'feed',
     },
-    updateDescription: jest.fn()
+    updateDescription: jest.fn(),
   }
 
   it('should match snapshot', () => {
-    const tree = create(
-      <PostTop
-        {...props}
-      />
-    ).toJSON()
+    const tree = create(<PostTop {...props} />).toJSON()
     expect(tree).toMatchSnapshot()
   })
-
 })

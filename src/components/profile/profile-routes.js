@@ -17,7 +17,7 @@ import PeopleYouKnow from './sections/people-you-know/puk'
 import UserGroups from './sections/groups/groups-s'
 
 const ProfileRoutes = ({ url, param: username }) => (
-  <div className='hmm'>
+  <div className="hmm">
     <Switch>
       <Route
         path={`${url}`}
@@ -40,10 +40,7 @@ const ProfileRoutes = ({ url, param: username }) => (
         path={`${url}/bookmarks`}
         component={() => <Bookmarks param={username} />}
       />
-      <Route
-        path={`${url}/about`}
-        component={About}
-      />
+      <Route path={`${url}/about`} component={About} />
       <Route
         path={`${url}/groups`}
         component={() => <UserGroups param={username} />}
@@ -62,20 +59,20 @@ const ProfileRoutes = ({ url, param: username }) => (
       />
       <Route
         path={`${url}/recommendations`}
-        component={() => <Recommendations param={username}/> }
+        component={() => <Recommendations param={username} />}
       />
       <Route
         path={`${url}/people-you-know`}
-        component={() => <PeopleYouKnow param={username} /> }
+        component={() => <PeopleYouKnow param={username} />}
       />
-      <Redirect to='/error' />
+      <Redirect to="/error" />
     </Switch>
   </div>
 )
 
 ProfileRoutes.propTypes = {
   url: PropTypes.string.isRequired,
-  param: PropTypes.string.isRequired
+  param: PropTypes.string.isRequired,
 }
 
 export default ProfileRoutes

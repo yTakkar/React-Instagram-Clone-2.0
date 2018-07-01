@@ -11,26 +11,17 @@ describe('PostImage Component', () => {
     imgSrc: 'instagram_1518972814710.jpg',
     filter: 'filter-ashby',
     tags_count: 1,
-    username: 'ghalib'
+    username: 'ghalib',
   }
 
   it('should match snapshot', () => {
-    const tree = create(
-      <PostImage
-        postDetails={postDetails}
-      />
-    ).toJSON()
+    const tree = create(<PostImage postDetails={postDetails} />).toJSON()
     expect(tree).toMatchSnapshot()
   })
 
   it('should show <ImageTheatre/> when showImage=true', () => {
-    const wrapper = shallow(
-      <PostImage
-        postDetails={postDetails}
-      />
-    )
+    const wrapper = shallow(<PostImage postDetails={postDetails} />)
     wrapper.setState({ showImage: true })
     expect(wrapper.find('ImageTheatre').exists()).toBe(true)
   })
-
 })

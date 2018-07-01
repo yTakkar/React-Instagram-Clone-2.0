@@ -6,8 +6,7 @@ import Comment from '../comment'
 import Post from '../../../../../store/__mocks__/reducers/Post'
 
 describe('Comment Component', () => {
-
-  const comp = (index=0) => (
+  const comp = (index = 0) => (
     <Provider store={mockStore}>
       <Comment
         {...Post.viewPost.comments[index]}
@@ -30,5 +29,4 @@ describe('Comment Component', () => {
     const tree = create(comp(2)).toJSON()
     expect(tree).toMatchSnapshot()
   })
-
 })

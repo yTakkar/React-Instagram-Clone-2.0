@@ -10,7 +10,7 @@ import Action from './API/Action'
  */
 export const block = async user => {
   let {
-    data: { mssg }
+    data: { mssg },
   } = await post('/api/block', { user })
   Notify({ value: mssg })
 }
@@ -25,7 +25,7 @@ export const block = async user => {
 export const unblock = async options => {
   let { block_id, username, dispatch } = options
   let {
-    data: { success, mssg }
+    data: { success, mssg },
   } = await post('/api/unblock-user', { block_id })
 
   if (success) {
@@ -48,30 +48,27 @@ export const changePassword = async (old, new_, new_a) => {
   if (!old || !new_ || !new_a) {
     Notify({ value: 'Some values are missing!!' })
   } else if (new_ != new_a) {
-    Notify({ value: 'New passwords don\'t match' })
+    Notify({ value: "New passwords don't match" })
   } else {
-
     action.start('Changing password..')
     wait()
 
     let {
-      data: { mssg, success }
+      data: { mssg, success },
     } = await post('/user/change-password', { old, new_, new_a })
 
     if (success) {
       Notify({
         value: mssg,
-        done: () => location.reload()
+        done: () => location.reload(),
       })
-
     } else {
       Notify({
-        value: ObjectMssg(mssg)
+        value: ObjectMssg(mssg),
       })
 
       action.end('Change password')
     }
-
   }
 }
 
@@ -86,7 +83,7 @@ export const deactivateAccount = async (password, hidePrompt) => {
   wait()
 
   let {
-    data: { mssg, success }
+    data: { mssg, success },
   } = await post('/user/deactivate-account', { password })
 
   action.end('Deactivate')
@@ -94,10 +91,7 @@ export const deactivateAccount = async (password, hidePrompt) => {
   Notify({
     value: mssg,
     done: () => {
-      success ?
-        location.href = '/login'
-        : hidePrompt()
-    }
-
+      success ? (location.href = '/login') : hidePrompt()
+    },
   })
 }

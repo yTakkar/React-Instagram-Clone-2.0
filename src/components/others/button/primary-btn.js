@@ -8,16 +8,12 @@ const PrimaryButton = ({ label, onClick, extraClass, disabled, ...props }) => {
   return (
     <Fragment>
       <a
-        href='#'
+        href="#"
         className={classNames('pri_btn', extraClass, disabledClass)}
         onClick={onClick}
         {...props}
       >
-        {
-          typeof(label) == 'function'
-            ? label()
-            : label
-        }
+        {typeof label == 'function' ? label() : label}
       </a>
     </Fragment>
   )
@@ -26,14 +22,11 @@ const PrimaryButton = ({ label, onClick, extraClass, disabled, ...props }) => {
 PrimaryButton.defaultProps = {
   label: '',
   disabled: false,
-  extraClass: ''
+  extraClass: '',
 }
 
 PrimaryButton.propTypes = {
-  label: oneOfType([
-    string,
-    func
-  ]).isRequired,
+  label: oneOfType([string, func]).isRequired,
   onClick: func.isRequired,
   extraClass: string,
   disabled: bool,

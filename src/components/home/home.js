@@ -13,9 +13,8 @@ import { Instagram } from 'react-content-loader'
 import Feed from './feed'
 
 class Home extends Component {
-
   state = {
-    loading: true
+    loading: true,
   }
 
   componentDidMount = () => {
@@ -25,41 +24,37 @@ class Home extends Component {
     dispatch(getUnreadMessages())
   }
 
-  componentWillReceiveProps = () =>
-    this.setState({ loading: false })
+  componentWillReceiveProps = () => this.setState({ loading: false })
 
   render() {
     let { loading } = this.state
 
     return (
       <div>
-        <Title value='Home' />
+        <Title value="Home" />
 
-        <FadeIn duration='300ms'>
+        <FadeIn duration="300ms">
+          <div className="senapati home_senapati">
+            <div className="prajkumar">
+              <PostItTeaser type="user" disabled={loading} />
 
-          <div className='senapati home_senapati' >
-            <div className='prajkumar'>
-              <PostItTeaser type='user' disabled={loading} />
-
-              {
-                loading &&
-                  <div style={{ marginTop: 20 }} >
-                    <Instagram/>
-                    <Instagram/>
-                    <Instagram/>
-                  </div>
-              }
+              {loading && (
+                <div style={{ marginTop: 20 }}>
+                  <Instagram />
+                  <Instagram />
+                  <Instagram />
+                </div>
+              )}
 
               <Feed />
             </div>
 
-            <div className='srajkumar'>
-              <Suggested when='home' />
-              <PopularHashtags/>
-              { !loading && <CreateGroup/> }
+            <div className="srajkumar">
+              <Suggested when="home" />
+              <PopularHashtags />
+              {!loading && <CreateGroup />}
             </div>
           </div>
-
         </FadeIn>
       </div>
     )
@@ -67,7 +62,7 @@ class Home extends Component {
 }
 
 const mapStateToProps = store => ({
-  store
+  store,
 })
 
 export default connect(mapStateToProps)(Home)

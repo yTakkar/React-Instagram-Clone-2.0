@@ -3,13 +3,9 @@ import { create } from 'react-test-renderer'
 import AboutSection from '../section'
 
 describe('AboutSection Component', () => {
-
   it('should match snapshot', () => {
     const tree = create(
-      <AboutSection
-        label='Username'
-        value='takkar'
-      />
+      <AboutSection label="Username" value="takkar" />
     ).toJSON()
     expect(tree).toMatchSnapshot()
   })
@@ -17,8 +13,8 @@ describe('AboutSection Component', () => {
   it('should match snapshot with isLink prop', () => {
     const tree = create(
       <AboutSection
-        label='Github'
-        value='https://www.github.com/yTakkar'
+        label="Github"
+        value="https://www.github.com/yTakkar"
         isLink
       />
     ).toJSON()
@@ -26,13 +22,7 @@ describe('AboutSection Component', () => {
   })
 
   it('should match snapshot with null', () => {
-    const tree = create(
-      <AboutSection
-        label='Firstname'
-        value=''
-      />
-    ).toJSON()
+    const tree = create(<AboutSection label="Firstname" value="" />).toJSON()
     expect(tree).toMatchSnapshot()
   })
-
 })

@@ -29,15 +29,17 @@ export default {
     },
     {
       tag: 'nature-lover',
-      user: 24
-    }
+      user: 24,
+    },
   ],
-  mutualUsers: [{
-    user: 11,
-    username: 'nobita',
-    firstname: 'nobita',
-    surname: 'nobi',
-    follow_id: 261,
-    mutualUsersCount: 0
-  }]
+  mutualUsers: [
+    {
+      user: 11,
+      username: 'nobita',
+      firstname: 'nobita',
+      surname: 'nobi',
+      follow_id: 261,
+      mutualUsersCount: 0,
+    },
+  ],
 }

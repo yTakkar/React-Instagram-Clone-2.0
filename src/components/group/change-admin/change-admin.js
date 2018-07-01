@@ -13,9 +13,8 @@ import Overlay from '../../others/overlay'
 import { func, number } from 'prop-types'
 
 class ChangeAdmin extends Component {
-
   state = {
-    loading: true
+    loading: true,
   }
 
   componentDidMount = () => {
@@ -23,42 +22,34 @@ class ChangeAdmin extends Component {
     dispatch(getUsersToMakeAdmin(group))
   }
 
-  componentWillReceiveProps = () =>
-    this.setState({ loading: false })
+  componentWillReceiveProps = () => this.setState({ loading: false })
 
   componentDidUpdate = () => llr()
 
   render() {
-    let
-      { loading } = this.state,
+    let { loading } = this.state,
       { members, group, back } = this.props,
-      map_users = members.map(u =>
-        <InviteList
-          key={u.grp_member_id}
-          {...u}
-          group={group}
-        />
-      )
+      map_users = members.map(u => (
+        <InviteList key={u.grp_member_id} {...u} group={group} />
+      ))
 
     return (
       <Fragment>
-        <Overlay/>
+        <Overlay />
 
-        <div className='likes modal modal_big' >
+        <div className="likes modal modal_big">
+          <FadeIn duration="300ms">
+            <ModalHeader title="Transfer admin position" />
 
-          <FadeIn duration='300ms' >
-            <ModalHeader title='Transfer admin position' />
-
-            <Scrollbars style={{ height: 450 }} className='modal_middle' >
+            <Scrollbars style={{ height: 450 }} className="modal_middle">
               <IsLoading loading={loading} />
               <ModalMiddle loading={loading} list={map_users} />
             </Scrollbars>
 
-            <div className='modal_bottom' >
+            <div className="modal_bottom">
               <ModalBack back={back} />
             </div>
           </FadeIn>
-
         </div>
       </Fragment>
     )
@@ -67,11 +58,11 @@ class ChangeAdmin extends Component {
 
 ChangeAdmin.propTypes = {
   group: number,
-  back: func.isRequired
+  back: func.isRequired,
 }
 
 const mapStateToProps = store => ({
-  members: store.Group.usersToMakeAdmin
+  members: store.Group.usersToMakeAdmin,
 })
 
 export default connect(mapStateToProps)(ChangeAdmin)

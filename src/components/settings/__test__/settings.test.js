@@ -8,14 +8,13 @@ import { MemoryRouter } from 'react-router-dom'
 jest.unmock('react-router-dom')
 
 describe('Settings Component', () => {
-
   it('should match snapshot', () => {
     const tree = create(
       <Provider store={mockStore}>
         <MemoryRouter>
           <Settings
             match={{
-              url: '/settings'
+              url: '/settings',
             }}
           />
         </MemoryRouter>
@@ -23,5 +22,4 @@ describe('Settings Component', () => {
     ).toJSON()
     expect(tree).toMatchSnapshot()
   })
-
 })

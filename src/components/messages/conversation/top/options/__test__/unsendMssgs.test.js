@@ -15,9 +15,7 @@ describe('UnsendMessages Component', () => {
   it('should match snapshot', () => {
     const tree = create(
       <Provider store={mockStore}>
-        <UnsendMessages
-          {...props}
-        />
+        <UnsendMessages {...props} />
       </Provider>
     ).toJSON()
     expect(tree).toMatchSnapshot()
@@ -32,12 +30,12 @@ describe('UnsendMessages Component', () => {
       />
     )
     wrapper.find('.dlt_mssgs').simulate('click', {
-      preventDefault() {}
+      preventDefault() {},
     })
     expect(wrapper.find('Prompt').exists()).toBe(true)
   })
 
-  it('should mock unsendMessages action when clicked on Prompt\'s action button', () => {
+  it("should mock unsendMessages action when clicked on Prompt's action button", () => {
     const wrapper = shallow(
       <PureUnsendMessages
         {...props}
@@ -47,7 +45,7 @@ describe('UnsendMessages Component', () => {
     )
     wrapper.setState({ unsend: true })
     wrapper.find('Prompt').prop('action')({
-      preventDefault() {}
+      preventDefault() {},
     })
   })
 
@@ -55,12 +53,9 @@ describe('UnsendMessages Component', () => {
     Message.messages = []
     const tree = create(
       <Provider store={mockStore}>
-        <UnsendMessages
-          {...props}
-        />
+        <UnsendMessages {...props} />
       </Provider>
     ).toJSON()
     expect(tree).toMatchSnapshot()
   })
-
 })

@@ -8,7 +8,7 @@ import Group from '../../../../store/__mocks__/reducers/Group'
 describe('GroupInfo Component', () => {
   const comp = (
     <Provider store={mockStore}>
-      <GroupInfo/>
+      <GroupInfo />
     </Provider>
   )
 
@@ -22,5 +22,4 @@ describe('GroupInfo Component', () => {
     const tree = create(comp).toJSON()
     expect(tree).toMatchSnapshot()
   })
-
 })

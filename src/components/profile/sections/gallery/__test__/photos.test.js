@@ -5,13 +5,7 @@ import Post from '../../../../../store/__mocks__/reducers/Post'
 import { shallow, mount } from 'enzyme'
 
 describe('UserPhotos Component', () => {
-
-  const comp = (
-    <PureUserPhotos
-      ud={User.user_details}
-      photos={Post.photos}
-    />
-  )
+  const comp = <PureUserPhotos ud={User.user_details} photos={Post.photos} />
 
   // shallow snapshot
   it('should match snapshot', () => {
@@ -36,13 +30,9 @@ describe('UserPhotos Component', () => {
 
   it('should show <Nothing/> when photos.length == 0', () => {
     const wrapper = shallow(
-      <PureUserPhotos
-        photos={[]}
-        ud={User.user_details}
-      />
+      <PureUserPhotos photos={[]} ud={User.user_details} />
     )
     expect(wrapper.find('Nothing').exists()).toBe(true)
     expect(wrapper.find('Gallery').exists()).toBe(false)
   })
-
 })

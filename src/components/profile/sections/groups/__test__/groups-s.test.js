@@ -14,7 +14,7 @@ describe('UserGroups Component', () => {
   it('should match snapshot', () => {
     const tree = create(
       <Provider store={mockStore}>
-        <UserGroups param='takkar' />
+        <UserGroups param="takkar" />
       </Provider>
     ).toJSON()
     expect(tree).toMatchSnapshot()
@@ -24,7 +24,7 @@ describe('UserGroups Component', () => {
     const wrapper = shallow(
       <PureUserGroups
         dispatch={jest.fn()}
-        param='ghalib'
+        param="ghalib"
         ud={User.user_details}
         groups={Group.userGroups}
       />
@@ -32,5 +32,4 @@ describe('UserGroups Component', () => {
     wrapper.setState({ loading: false })
     expect(wrapper.find('IsLoading').prop('loading')).toBe(false)
   })
-
 })

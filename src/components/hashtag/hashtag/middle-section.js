@@ -8,18 +8,13 @@ import { bool, string } from 'prop-types'
 
 const HashtagMiddleSection = ({ loading, hashtag, posts }) => {
   let len = posts.length
-  let map_posts = posts.map(p =>
-    <Post key={p.post_id} {...p} when='hashtag' />
-  )
+  let map_posts = posts.map(p => <Post key={p.post_id} {...p} when="hashtag" />)
 
   return (
     <Fragment>
-      {
-        (len == 0 || loading) &&
-          <div style={{ marginTop: 10 }} />
-      }
+      {(len == 0 || loading) && <div style={{ marginTop: 10 }} />}
 
-      { loading && <Instagram/> }
+      {loading && <Instagram />}
 
       <MapPosts
         posts={map_posts}
@@ -34,14 +29,12 @@ const HashtagMiddleSection = ({ loading, hashtag, posts }) => {
 
 HashtagMiddleSection.propTypes = {
   loading: bool.isRequired,
-  hashtag: string.isRequired
+  hashtag: string.isRequired,
 }
 
-const mapStateToProps = state => (
-  { posts: state.Hashtag.hashtagPosts }
-)
+const mapStateToProps = state => ({
+  posts: state.Hashtag.hashtagPosts,
+})
 
 export default connect(mapStateToProps)(HashtagMiddleSection)
-export {
-  HashtagMiddleSection as PureHashtagMiddleSection
-}
+export { HashtagMiddleSection as PureHashtagMiddleSection }

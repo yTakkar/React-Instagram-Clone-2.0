@@ -9,7 +9,7 @@ describe('DeleteMessageTool Component', () => {
       messageDetails={{
         message: 'some message',
         message_id: 44,
-        type: 'text'
+        type: 'text',
       }}
     />
   )
@@ -29,8 +29,7 @@ describe('DeleteMessageTool Component', () => {
     const wrapper = shallow(comp)
     wrapper.setState({ deleteMessage: true })
     wrapper.find('Prompt').prop('action')({
-      preventDefault() {}
+      preventDefault() {},
     })
   })
-
 })

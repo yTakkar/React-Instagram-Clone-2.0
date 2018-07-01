@@ -7,11 +7,8 @@ const Emojis = props => {
   let { position } = props
 
   return (
-    <div className='emoji' style={position} >
-      <Scrollbars
-        style={{ height: '300px' }}
-        className='emoji_wrapper'
-      >
+    <div className="emoji" style={position}>
+      <Scrollbars style={{ height: '300px' }} className="emoji_wrapper">
         <EmojisList {...props} />
       </Scrollbars>
     </div>
@@ -29,7 +26,7 @@ Emojis.defaultProps = {
 export const EmojisPropTypes = {
   position: PropTypes.shape({
     top: PropTypes.number,
-    left: PropTypes.number
+    left: PropTypes.number,
   }).isRequired,
   textArea: PropTypes.string.isRequired,
   updateStateValue: PropTypes.func.isRequired,

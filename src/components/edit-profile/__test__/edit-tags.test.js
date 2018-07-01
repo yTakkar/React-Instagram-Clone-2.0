@@ -13,11 +13,11 @@ describe('EditTags Component', () => {
     newTag: 'programmer',
     change: mockFn,
     tags: UserMockData.tags,
-    emptyTagsInput: mockFn
+    emptyTagsInput: mockFn,
   }
 
   const comp = (
-    <Provider store={mockStore} >
+    <Provider store={mockStore}>
       <EditTags {...props} />
     </Provider>
   )
@@ -34,7 +34,9 @@ describe('EditTags Component', () => {
 
   it('should mock deleteTag action when clicked on a specific tag', () => {
     const wrapper = mount(comp)
-    wrapper.find('.t_a_tag').first().simulate('click')
+    wrapper
+      .find('.t_a_tag')
+      .first()
+      .simulate('click')
   })
-
 })

@@ -5,13 +5,11 @@ import MaterialIcon from '../../../others/icons/material-icon'
 import ToolTip from 'react-tooltip'
 
 export default class ConversationAddEmojis extends Component {
-
   state = {
     showEmojis: false,
   }
 
-  toggleEmojis = () =>
-    this.setState({ showEmojis: !this.state.showEmojis })
+  toggleEmojis = () => this.setState({ showEmojis: !this.state.showEmojis })
 
   render() {
     let { showEmojis } = this.state
@@ -20,30 +18,27 @@ export default class ConversationAddEmojis extends Component {
     return (
       <Fragment>
         <span
-          className='mssg_emoji_btn'
-          data-tip='Add emojis'
+          className="mssg_emoji_btn"
+          data-tip="Add emojis"
           onClick={this.toggleEmojis}
         >
-          <MaterialIcon icon='sentiment_very_satisfied'/>
+          <MaterialIcon icon="sentiment_very_satisfied" />
         </span>
 
-        {
-          showEmojis &&
-            <Emojis
-              position={{ top: 308, left: 750 }}
-              textArea='.send_mssg'
-              updateStateValue={value =>
-                updateMssgValue(value)
-              }
-            />
-        }
+        {showEmojis && (
+          <Emojis
+            position={{ top: 308, left: 750 }}
+            textArea=".send_mssg"
+            updateStateValue={value => updateMssgValue(value)}
+          />
+        )}
 
-        <ToolTip/>
+        <ToolTip />
       </Fragment>
     )
   }
 }
 
 ConversationAddEmojis.propTypes = {
-  updateMssgValue: PropTypes.func.isRequired
+  updateMssgValue: PropTypes.func.isRequired,
 }

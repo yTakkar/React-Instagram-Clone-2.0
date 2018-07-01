@@ -9,7 +9,6 @@ import RefreshExplores from './refresh'
 
 @connect()
 export default class Explore extends Component {
-
   componentDidMount = () => {
     let { dispatch } = this.props
     dispatch(getUnreadNotifications())
@@ -17,13 +16,14 @@ export default class Explore extends Component {
   }
 
   render() {
-    let { match: { url } } = this.props
+    let {
+      match: { url },
+    } = this.props
 
     return (
       <div>
-        <FadeIn duration='300ms'>
-
-          <div className='exp_nav'>
+        <FadeIn duration="300ms">
+          <div className="exp_nav">
             <ExploreNav url={url} />
             <RefreshExplores url={url} />
           </div>

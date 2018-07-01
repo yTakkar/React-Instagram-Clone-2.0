@@ -9,32 +9,22 @@ describe('ConversationTeaser Component', () => {
 
   it('should match snapshot', () => {
     const tree = create(
-      <ConversationTeaser
-        {...Message.conversations[0]}
-        select={mockFn}
-      />
+      <ConversationTeaser {...Message.conversations[0]} select={mockFn} />
     ).toJSON()
     expect(tree).toMatchSnapshot()
   })
 
   it('should match snapshot when conversation has no last message', () => {
     const tree = create(
-      <ConversationTeaser
-        {...Message.conversations[1]}
-        select={mockFn}
-      />
+      <ConversationTeaser {...Message.conversations[1]} select={mockFn} />
     ).toJSON()
     expect(tree).toMatchSnapshot()
   })
 
   it('should mock selectConversation action when clicked on a conversation', () => {
     const wrapper = shallow(
-      <ConversationTeaser
-        {...Message.conversations[0]}
-        select={mockFn}
-      />
+      <ConversationTeaser {...Message.conversations[0]} select={mockFn} />
     )
     wrapper.find('.mssg_sr').simulate('click')
   })
-
 })

@@ -10,22 +10,16 @@ describe('Avatar-Actions Component', () => {
     back() {},
     avatar: avatarsMockArray[0],
     of: 'user',
-    group: 1
+    group: 1,
   }
 
   it('should match snapshot', () => {
-    const tree = create(
-      <AvatarActions
-        {...props}
-      />
-    ).toJSON()
+    const tree = create(<AvatarActions {...props} />).toJSON()
     expect(tree).toMatchSnapshot()
   })
 
   it('should perform some click events', () => {
-    const wrapper = shallow(
-      <AvatarActions {...props} />
-    )
+    const wrapper = shallow(<AvatarActions {...props} />)
     const mockedEvent = {
       preventDefault() {},
     }
@@ -33,5 +27,4 @@ describe('Avatar-Actions Component', () => {
     wrapper.find('SecondaryButton').simulate('click', mockedEvent)
     wrapper.find('PrimaryButton').simulate('click', mockedEvent)
   })
-
 })

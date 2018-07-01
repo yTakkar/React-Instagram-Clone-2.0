@@ -4,17 +4,12 @@ import ViewAvatar from '../viewAvatar'
 import { shallow } from 'enzyme'
 
 describe('ViewAvatar Component', () => {
-  const comp = (
-    <ViewAvatar
-      imgSrc='/images/music.jpg'
-      back={jest.fn()}
-    />
-  )
+  const comp = <ViewAvatar imgSrc="/images/music.jpg" back={jest.fn()} />
 
   // changed input's value to given value
   const changeRange = (wrapper, value) => {
     let mockedEvent = {
-      target: { value }
+      target: { value },
     }
     wrapper.find('RangeInput').simulate('change', mockedEvent)
   }
@@ -24,7 +19,7 @@ describe('ViewAvatar Component', () => {
     expect(tree).toMatchSnapshot()
   })
 
-  it('should change img\'s width based on state', () => {
+  it("should change img's width based on state", () => {
     const wrapper = shallow(comp)
 
     // image's width should be 300 when range=300
@@ -35,5 +30,4 @@ describe('ViewAvatar Component', () => {
     changeRange(wrapper, 400)
     expect(wrapper.find('img').prop('style').width).toBe('400px')
   })
-
 })

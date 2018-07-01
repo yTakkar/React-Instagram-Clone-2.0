@@ -6,9 +6,8 @@ import ModalItemInfo from '../../others/modal/modal-item-info'
 import { number, string } from 'prop-types'
 
 export default class ChangeAdminList extends Component {
-
   state = {
-    change: false
+    change: false,
   }
 
   toggleChange = e => {
@@ -28,40 +27,31 @@ export default class ChangeAdminList extends Component {
 
     return (
       <Fragment>
-
-        <div className='modal_items'>
-          <div className='modal_it_img'>
+        <div className="modal_items">
+          <div className="modal_it_img">
             <img src={`/users/${member}/avatar.jpg`} />
           </div>
 
-          <div className='modal_it_content '>
-            <ModalItemInfo
-              info={{ username, firstname, surname }}
-            />
-            <div className='modal_ff'>
-              <PrimaryButton
-                label='Transfer'
-                onClick={this.toggleChange}
-              />
+          <div className="modal_it_content ">
+            <ModalItemInfo info={{ username, firstname, surname }} />
+            <div className="modal_ff">
+              <PrimaryButton label="Transfer" onClick={this.toggleChange} />
             </div>
           </div>
 
-          <hr/>
-
+          <hr />
         </div>
 
-        {
-          change &&
-            <Prompt
-              title='Transfer admin position'
-              content={`${username} will now be the admin of this group. There's no undo and you will no longer be the admin.`}
-              actionText='Transfer'
-              action={this.transfer}
-              back={() => this.setState({ change: false })}
-              blurred
-            />
-        }
-
+        {change && (
+          <Prompt
+            title="Transfer admin position"
+            content={`${username} will now be the admin of this group. There's no undo and you will no longer be the admin.`}
+            actionText="Transfer"
+            action={this.transfer}
+            back={() => this.setState({ change: false })}
+            blurred
+          />
+        )}
       </Fragment>
     )
   }
@@ -73,5 +63,5 @@ ChangeAdminList.propTypes = {
   username: string.isRequired,
   firstname: string.isRequired,
   surname: string.isRequired,
-  group: number
+  group: number,
 }

@@ -8,7 +8,7 @@ import Post from '../../../../store/__mocks__/reducers/Post'
 describe('ShowPost Component', () => {
   const comp = (
     <Provider store={mockStore}>
-      <ShowPost/>
+      <ShowPost />
     </Provider>
   )
 
@@ -22,5 +22,4 @@ describe('ShowPost Component', () => {
     const tree = create(comp).toJSON()
     expect(tree).toMatchSnapshot()
   })
-
 })

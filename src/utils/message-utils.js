@@ -1,7 +1,12 @@
 import { post } from 'axios'
 import Notify from 'handy-notification'
 import {
-  conversationAdded, messaged, changeLastMssg, unsendAllMessages, deleteCon, deleteMssg
+  conversationAdded,
+  messaged,
+  changeLastMssg,
+  unsendAllMessages,
+  deleteCon,
+  deleteMssg,
 } from '../actions/message'
 import { insta_notify, imageCompressor, uData, wait } from './utils'
 import d from './API/DOM'
@@ -24,11 +29,9 @@ export const messageScroll = () => {
  * @param {Function} options.done
  */
 export const newConversation = async options => {
+  let { user, username, updateConversations, dispatch, done } = options
   let {
-    user, username, updateConversations, dispatch, done
-  } = options
-  let {
-    data: { mssg, success, con_id }
+    data: { mssg, success, con_id },
   } = await post('/api/create-new-conversation', { user })
 
   wait()
@@ -37,24 +40,26 @@ export const newConversation = async options => {
     done()
 
     if (updateConversations) {
-      dispatch(conversationAdded({
-        key: con_id,
-        con_id,
-        con_with: user,
-        con_with_username: username,
-        lastMssg: {
-          lastMessage: '',
-          lastMssgBy: null,
-          lastMssgTime: null,
-          lastMssgType: ''
-        },
-        unreadMssgs: 0,
-      }))
+      dispatch(
+        conversationAdded({
+          key: con_id,
+          con_id,
+          con_with: user,
+          con_with_username: username,
+          lastMssg: {
+            lastMessage: '',
+            lastMssgBy: null,
+            lastMssgTime: null,
+            lastMssgType: '',
+          },
+          unreadMssgs: 0,
+        })
+      )
     }
 
     insta_notify({
       to: user,
-      type: 'new_con'
+      type: 'new_con',
     })
   }
 
@@ -66,31 +71,33 @@ export const newConversation = async options => {
  * @param {Object} options
  */
 const messageDispatchHelper = async options => {
-  let {
-    con_id, con_with, message_id, message, messageType, dispatch
-  } = options
+  let { con_id, con_with, message_id, message, messageType, dispatch } = options
   let session = uData('session')
 
-  dispatch(messaged({
-    con_id,
-    message,
-    message_id,
-    message_time: `${new Date().getTime()}`,
-    mssg_by: Number(session),
-    mssg_to: con_with,
-    type: messageType,
-    status: 'read'
-  }))
+  dispatch(
+    messaged({
+      con_id,
+      message,
+      message_id,
+      message_time: `${new Date().getTime()}`,
+      mssg_by: Number(session),
+      mssg_to: con_with,
+      type: messageType,
+      status: 'read',
+    })
+  )
 
-  dispatch(changeLastMssg({
-    con_id,
-    lastMssg: {
-      lastMessage: message,
-      lastMssgBy: session,
-      lastMssgTime: `${new Date().getTime()}`,
-      lastMssgType: messageType
-    }
-  }))
+  dispatch(
+    changeLastMssg({
+      con_id,
+      lastMssg: {
+        lastMessage: message,
+        lastMssgBy: session,
+        lastMssgTime: `${new Date().getTime()}`,
+        lastMssgType: messageType,
+      },
+    })
+  )
 }
 
 /**
@@ -102,7 +109,7 @@ const messageDispatchHelper = async options => {
  * @param {Function} options.dispatch
  */
 export const textMessage = async options => {
-  let { message, con_id, con_with, dispatch, } = options
+  let { message, con_id, con_with, dispatch } = options
   let action = new Action('.mssg_send')
 
   action.start()
@@ -111,7 +118,7 @@ export const textMessage = async options => {
     Notify({ value: 'Comment field is empty!!' })
   } else {
     let {
-      data: { success, mssg, message_id }
+      data: { success, mssg, message_id },
     } = await post('/api/text-message', { message, con_id, con_with })
 
     if (success) {
@@ -126,7 +133,6 @@ export const textMessage = async options => {
     } else {
       Notify({ value: mssg })
     }
-
   }
 
   messageScroll()
@@ -142,8 +148,7 @@ export const textMessage = async options => {
  * @param {Function} options.dispatch
  */
 export const imageMessage = async options => {
-  let
-    { file: messageFile, con_id, con_with, dispatch } = options,
+  let { file: messageFile, con_id, con_with, dispatch } = options,
     form = new FormData(),
     file = await imageCompressor(messageFile),
     o = new d('.overlay-2')
@@ -156,7 +161,7 @@ export const imageMessage = async options => {
   form.append('con_with', con_with)
 
   let {
-    data: { success, mssg, message_id, filename }
+    data: { success, mssg, message_id, filename },
   } = await post('/api/image-message', form)
 
   if (success) {
@@ -166,7 +171,7 @@ export const imageMessage = async options => {
       message_id,
       message: filename,
       messageType: 'image',
-      dispatch
+      dispatch,
     })
   }
 
@@ -186,7 +191,7 @@ export const imageMessage = async options => {
 export const stickerMessage = async options => {
   let { con_id, con_with, sticker, dispatch } = options
   let {
-    data: { success, mssg, filename, message_id }
+    data: { success, mssg, filename, message_id },
   } = await post('/api/sticker-message', { con_id, con_with, sticker })
 
   wait()
@@ -198,7 +203,7 @@ export const stickerMessage = async options => {
       message_id,
       message: filename,
       messageType: 'sticker',
-      dispatch
+      dispatch,
     })
   }
 
@@ -218,12 +223,10 @@ export const deleteYourMssgs = async options => {
   wait()
 
   let {
-    data: { success, mssg }
+    data: { success, mssg },
   } = await post('/api/unsend-all-mssgs', { con_id })
 
-  success
-    ? dispatch(unsendAllMessages(session))
-    : null
+  success ? dispatch(unsendAllMessages(session)) : null
 
   Notify({ value: mssg })
 }
@@ -238,7 +241,7 @@ export const deleteYourMssgs = async options => {
 export const deleteConversation = async options => {
   let { con_id, dispatch, hideConversation } = options
   let {
-    data: { success, mssg }
+    data: { success, mssg },
   } = await post('/api/delete-conversation', { con_id })
 
   wait()
@@ -261,12 +264,10 @@ export const deleteConversation = async options => {
  * @param {Function} options.done
  */
 export const deleteMessage = async options => {
-  let {
-    message_id, message, type, dispatch, done
-  } = options
+  let { message_id, message, type, dispatch, done } = options
 
   let {
-    data: { success, mssg }
+    data: { success, mssg },
   } = await post('/api/delete-message', { message_id, message, type })
 
   if (success) {

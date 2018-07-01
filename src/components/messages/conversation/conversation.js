@@ -2,7 +2,11 @@ import React, { Component } from 'react'
 import { FadeIn } from 'animate-components'
 import { messageScroll } from '../../../utils/message-utils'
 import { connect } from 'react-redux'
-import { getConversationMessages, readConversation, getConDetails } from '../../../actions/message'
+import {
+  getConversationMessages,
+  readConversation,
+  getConDetails,
+} from '../../../actions/message'
 import MapMessages from './message/map-messages'
 import TextMessage from './bottom/text-message'
 import ConversationTop from './top/con-top'
@@ -12,15 +16,16 @@ import IsLoading from '../../others/isLoading'
 import { cLoading } from '../../../utils/utils'
 import classNames from 'classnames'
 
-@connect()
-export default class Conversation extends Component {
-
+class Conversation extends Component {
   state = {
-    loading: true
+    loading: true,
   }
 
   componentDidMount = () => {
-    let { dispatch, con: { con_id, unreadMssgs } } = this.props
+    let {
+      dispatch,
+      con: { con_id, unreadMssgs },
+    } = this.props
     dispatch(getConDetails(con_id))
     dispatch(getConversationMessages(con_id))
     dispatch(readConversation(con_id, unreadMssgs))
@@ -49,16 +54,14 @@ export default class Conversation extends Component {
       <div>
         <IsLoading loading={loading} />
 
-        <div className={classNames('mssg_messages', cLoading(loading))} >
-          <FadeIn duration='300ms'>
-
+        <div className={classNames('mssg_messages', cLoading(loading))}>
+          <FadeIn duration="300ms">
             <ConversationTop hideConversation={hideConversation} />
-            <MapMessages/>
+            <MapMessages />
 
-            <div className='m_m_bottom' >
+            <div className="m_m_bottom">
               <TextMessage />
             </div>
-
           </FadeIn>
         </div>
       </div>
@@ -71,5 +74,8 @@ Conversation.propTypes = {
     con_id: PropTypes.number.isRequired,
     unreadMssgs: PropTypes.number.isRequired,
   }).isRequired,
-  hideConversation: PropTypes.func.isRequired
+  hideConversation: PropTypes.func.isRequired,
 }
+
+export default connect()(Conversation)
+export { Conversation as PureConversation }

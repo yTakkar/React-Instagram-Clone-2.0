@@ -7,9 +7,8 @@ import { deleteMessage } from '../../../../../utils/message-utils'
 import MaterialIcon from '../../../../others/icons/material-icon'
 
 class DeleteMessageTool extends Component {
-
   state = {
-    deleteMessage: false
+    deleteMessage: false,
   }
 
   toggleDelete = () =>
@@ -19,11 +18,14 @@ class DeleteMessageTool extends Component {
     e.preventDefault()
     let {
       messageDetails: { message_id, message, type },
-      dispatch
+      dispatch,
     } = this.props
     deleteMessage({
-      message_id, message, type, dispatch,
-      done: () => this.toggleDelete()
+      message_id,
+      message,
+      type,
+      dispatch,
+      done: () => this.toggleDelete(),
     })
   }
 
@@ -33,23 +35,22 @@ class DeleteMessageTool extends Component {
     return (
       <Fragment>
         <span
-          className='toggle_dlt_mssg'
+          className="toggle_dlt_mssg"
           data-tip={`Delete ${isAdmin() ? 'as admin' : ''}`}
           onClick={this.toggleDelete}
         >
-          <MaterialIcon icon='delete' />
+          <MaterialIcon icon="delete" />
         </span>
 
-        {
-          deleteMessage &&
-            <Prompt
-              title='Delete message'
-              content="This message will be deleted. There's no undo so you won't be able to find it."
-              actionText='Delete'
-              action={this.delete}
-              back={this.toggleDelete}
-            />
-        }
+        {deleteMessage && (
+          <Prompt
+            title="Delete message"
+            content="This message will be deleted. There's no undo so you won't be able to find it."
+            actionText="Delete"
+            action={this.delete}
+            back={this.toggleDelete}
+          />
+        )}
       </Fragment>
     )
   }
@@ -60,7 +61,7 @@ DeleteMessageTool.propTypes = {
     message_id: PropTypes.number.isRequired,
     message: PropTypes.string,
     type: PropTypes.string.isRequired,
-  }).isRequired
+  }).isRequired,
 }
 
 export default connect()(DeleteMessageTool)

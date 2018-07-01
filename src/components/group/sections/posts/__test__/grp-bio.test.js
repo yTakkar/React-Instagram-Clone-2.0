@@ -25,5 +25,4 @@ describe('GroupBio Component', () => {
     const tree = create(comp).toJSON()
     expect(tree).toMatchSnapshot()
   })
-
 })

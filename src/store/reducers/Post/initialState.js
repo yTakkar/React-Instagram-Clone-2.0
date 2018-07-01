@@ -14,5 +14,5 @@ export default {
   isPostMine: false,
   usersToShare: [],
   sharers: [],
-  postIt: PostItInitialState
+  postIt: PostItInitialState,
 }

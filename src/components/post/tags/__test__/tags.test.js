@@ -11,7 +11,7 @@ describe('Tags Component', () => {
   const props = {
     post: 44,
     back: mockFn,
-    decrementTags: mockFn
+    decrementTags: mockFn,
   }
 
   it('should match snapshot', () => {
@@ -25,14 +25,9 @@ describe('Tags Component', () => {
 
   it('should hide spinner when loading == false', () => {
     const wrapper = shallow(
-      <PureTags
-        {...props}
-        tags={Post.tags}
-        dispatch={mockFn}
-      />
+      <PureTags {...props} tags={Post.tags} dispatch={mockFn} />
     )
     wrapper.setState({ loading: false })
     expect(wrapper.find('IsLoading').prop('loading')).toBe(false)
   })
-
 })

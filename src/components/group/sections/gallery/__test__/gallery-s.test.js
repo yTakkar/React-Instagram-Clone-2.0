@@ -8,15 +8,10 @@ describe('GroupGallery Component', () => {
   const props = {
     param: 'takkar',
     photos: Post.photos,
-    gd: Group.group_details
+    gd: Group.group_details,
   }
 
-  const comp = (
-    <PureGroupGallery
-      {...props}
-      dispatch={jest.fn()}
-    />
-  )
+  const comp = <PureGroupGallery {...props} dispatch={jest.fn()} />
 
   // shallow snapshot testing
   it('should match snapshot', () => {
@@ -27,9 +22,6 @@ describe('GroupGallery Component', () => {
   it('should hide spinner when loading=false', () => {
     const wrapper = shallow(comp)
     wrapper.setState({ loading: false })
-    expect(
-      wrapper.find('IsLoading').prop('loading')
-    ).toEqual(false)
+    expect(wrapper.find('IsLoading').prop('loading')).toEqual(false)
   })
-
 })

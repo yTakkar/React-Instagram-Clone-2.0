@@ -6,9 +6,8 @@ import searchData, { filterSearch } from './search-mockArray'
 import { mockAxiosRequest } from '../../../../utils/__mocks__/mock-axios'
 
 describe('Search Component', () => {
-
   it('should match snapshot', () => {
-    const tree = create(<Search/>).toJSON()
+    const tree = create(<Search />).toJSON()
     expect(tree).toMatchSnapshot()
   })
 
@@ -16,11 +15,11 @@ describe('Search Component', () => {
   const mockSearch = async searchTerm => {
     mockAxiosRequest('search-instagram', filterSearch(searchTerm))
 
-    const wrapper = shallow(<Search/>)
+    const wrapper = shallow(<Search />)
     const mockedEvent = {
       target: {
-        value: searchTerm
-      }
+        value: searchTerm,
+      },
     }
 
     await wrapper.find('TextInput.search').prop('valueChange')(mockedEvent)
@@ -49,5 +48,4 @@ describe('Search Component', () => {
     expect(wrapper.state().search.groups).toBeArrayOfSize(0)
     expect(wrapper.state().search.hashtags).toBeArrayOfSize(0)
   })
-
 })

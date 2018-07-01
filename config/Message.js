@@ -1,7 +1,6 @@
 // HANDY METHODS FOR MESSAGE ROUTES
 
-const
-  db = require('./db'),
+const db = require('./db'),
   { promisify } = require('util'),
   { unlink } = require('fs'),
   root = process.cwd()
@@ -29,7 +28,7 @@ const getLastMssg = async con_id => {
   )
   let l = await db.query(
     'SELECT message, type, mssg_by FROM messages WHERE message_id=?',
-    [ last ]
+    [last]
   )
   return l[0]
 }
@@ -40,8 +39,10 @@ const getLastMssg = async con_id => {
  */
 const deleteCon = async con_id => {
   try {
-    let
-      messages = await db.query('SELECT message, type FROM messages WHERE con_id=?', [ con_id ]),
+    let messages = await db.query(
+        'SELECT message, type FROM messages WHERE con_id=?',
+        [con_id]
+      ),
       deleteMessageFile = promisify(unlink)
 
     for (let m of messages) {
@@ -50,9 +51,8 @@ const deleteCon = async con_id => {
       }
     }
 
-    await db.query('DELETE FROM messages WHERE con_id=?', [ con_id ])
-    await db.query('DELETE FROM conversations WHERE con_id=?', [ con_id ])
-
+    await db.query('DELETE FROM messages WHERE con_id=?', [con_id])
+    await db.query('DELETE FROM conversations WHERE con_id=?', [con_id])
   } catch (error) {
     console.log(error)
   }
@@ -61,5 +61,5 @@ const deleteCon = async con_id => {
 module.exports = {
   getLastMssgTime,
   getLastMssg,
-  deleteCon
+  deleteCon,
 }

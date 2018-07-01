@@ -5,14 +5,12 @@ import mockStore from '../../../../../store/__mocks__/mockStore'
 import Deactivate from '../deactivate'
 
 describe('Deactivate Component', () => {
-
   it('should match snapshot', () => {
     const tree = create(
       <Provider store={mockStore}>
-        <Deactivate/>
+        <Deactivate />
       </Provider>
     ).toJSON()
     expect(tree).toMatchSnapshot()
   })
-
 })

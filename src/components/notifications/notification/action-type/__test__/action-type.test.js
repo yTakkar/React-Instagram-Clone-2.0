@@ -13,16 +13,12 @@ describe('NotificationActionType Component', () => {
       notify_by_username: 'ghalib',
       post_id: 24,
       group_id: 0,
-      isFollowing: false
-    }
+      isFollowing: false,
+    },
   }
 
   it('should match snapshot with <Follow/>', () => {
-    const tree = shallow(
-      <NotificationActionType
-        {...props}
-      />
-    )
+    const tree = shallow(<NotificationActionType {...props} />)
     expect(tree).toMatchSnapshot()
   })
 
@@ -31,7 +27,7 @@ describe('NotificationActionType Component', () => {
       <NotificationActionType
         details={{
           ...props.details,
-          isFollowing: true
+          isFollowing: true,
         }}
       />
     )
@@ -43,7 +39,7 @@ describe('NotificationActionType Component', () => {
       <NotificationActionType
         details={{
           ...props.details,
-          type: 'tag'
+          type: 'tag',
         }}
       />
     )
@@ -56,7 +52,7 @@ describe('NotificationActionType Component', () => {
         details={{
           ...props.details,
           type: 'recommend',
-          user_username: 'zayn'
+          user_username: 'zayn',
         }}
       />
     )
@@ -69,7 +65,7 @@ describe('NotificationActionType Component', () => {
         details={{
           ...props.details,
           type: 'change_admin',
-          group_id: 17
+          group_id: 17,
         }}
       />
     )
@@ -87,5 +83,4 @@ describe('NotificationActionType Component', () => {
     )
     expect(tree).toMatchSnapshot()
   })
-
 })

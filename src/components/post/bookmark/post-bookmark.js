@@ -6,34 +6,42 @@ import PropTypes from 'prop-types'
 import MaterialIcon from '../../others/icons/material-icon'
 
 class PostBookmark extends Component {
-
   state = {
-    bookmarked: false
+    bookmarked: false,
   }
 
   componentDidMount = async () => {
-    let
-      { postDetails: { post_id } } = this.props,
-      { data: bookmarked } = await post('/api/bookmarked-or-not', { post: post_id })
+    let {
+        postDetails: { post_id },
+      } = this.props,
+      { data: bookmarked } = await post('/api/bookmarked-or-not', {
+        post: post_id,
+      })
     this.setState({ bookmarked })
   }
 
   bookmark = async () => {
-    let { postDetails: { post_id } } = this.props
+    let {
+      postDetails: { post_id },
+    } = this.props
     PostUtils.bookmark({
       post_id,
-      done: () => this.setState({ bookmarked: true })
+      done: () => this.setState({ bookmarked: true }),
     })
   }
 
   unbookmark = async () => {
     let {
       postDetails: { post_id, when },
-      dispatch, ud: { id }
+      dispatch,
+      ud: { id },
     } = this.props
     PostUtils.unbookmark({
-      post_id, when, user: id, dispatch,
-      done: () => this.setState({ bookmarked: false })
+      post_id,
+      when,
+      user: id,
+      dispatch,
+      done: () => this.setState({ bookmarked: false }),
     })
   }
 
@@ -42,22 +50,24 @@ class PostBookmark extends Component {
 
     return (
       <Fragment>
-        <div className='p_bmrk_wra'>
-          {
-            bookmarked
-              ? <span
-                className='p_bookmark undo_bookmark'
-                data-tip='Undo bookmark'
-                onClick={this.unbookmark}
-              ><MaterialIcon icon='bookmark' />
-              </span>
-              : <span
-                className='p_bookmark'
-                data-tip='Bookmark'
-                onClick={this.bookmark}
-              ><MaterialIcon icon='bookmark_border' />
-              </span>
-          }
+        <div className="p_bmrk_wra">
+          {bookmarked ? (
+            <span
+              className="p_bookmark undo_bookmark"
+              data-tip="Undo bookmark"
+              onClick={this.unbookmark}
+            >
+              <MaterialIcon icon="bookmark" />
+            </span>
+          ) : (
+            <span
+              className="p_bookmark"
+              data-tip="Bookmark"
+              onClick={this.bookmark}
+            >
+              <MaterialIcon icon="bookmark_border" />
+            </span>
+          )}
         </div>
       </Fragment>
     )
@@ -67,12 +77,12 @@ class PostBookmark extends Component {
 PostBookmark.propTypes = {
   postDetails: PropTypes.shape({
     post_id: PropTypes.number.isRequired,
-    when: PropTypes.string.isRequired
+    when: PropTypes.string.isRequired,
   }).isRequired,
 }
 
 const mapStateToProps = store => ({
-  ud: store.User.user_details
+  ud: store.User.user_details,
 })
 
 export default connect(mapStateToProps)(PostBookmark)

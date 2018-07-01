@@ -9,31 +9,25 @@ import { shallow } from 'enzyme'
 describe('DeletePostOption Component', () => {
   let dataElement
 
-  beforeEach(() =>
-    dataElement = MockDataElement()
-  )
+  beforeEach(() => (dataElement = MockDataElement()))
 
-  afterEach(() =>
-    dataElement.remove()
-  )
+  afterEach(() => dataElement.remove())
 
   const mockFn = jest.fn()
   const props = {
     postDetails: {
       user: 24,
       post_id: 11,
-      when: 'feed'
+      when: 'feed',
     },
-    toggleOptions: mockFn
+    toggleOptions: mockFn,
   }
 
   it('should match snapshot and show delete option', () => {
     // when post is mine
     const tree = create(
       <Provider store={mockStore}>
-        <DeletePostOption
-          {...props}
-        />
+        <DeletePostOption {...props} />
       </Provider>
     ).toJSON()
     expect(tree).toMatchSnapshot()
@@ -42,9 +36,7 @@ describe('DeletePostOption Component', () => {
     dataElement.setAttribute('data-isadmin', 'true')
     const tree2 = create(
       <Provider store={mockStore}>
-        <DeletePostOption
-          {...props}
-        />
+        <DeletePostOption {...props} />
       </Provider>
     ).toJSON()
     expect(tree2).toMatchSnapshot()
@@ -56,7 +48,7 @@ describe('DeletePostOption Component', () => {
         <DeletePostOption
           postDetails={{
             ...props.postDetails,
-            user: 7
+            user: 7,
           }}
           toggleOptions={mockFn}
         />
@@ -67,10 +59,7 @@ describe('DeletePostOption Component', () => {
 
   it('should show <Prompt/> when clicked on delete option', () => {
     const wrapper = shallow(
-      <PureDeletePostOption
-        {...props}
-        dispatch={mockFn}
-      />
+      <PureDeletePostOption {...props} dispatch={mockFn} />
     )
     wrapper.find('li > a').simulate('click')
     expect(wrapper.find('Prompt').exists()).toBe(true)
@@ -78,19 +67,15 @@ describe('DeletePostOption Component', () => {
 
   it('should mock deletePost action and redirect when post is deleted', () => {
     const wrapper = shallow(
-      <PureDeletePostOption
-        {...props}
-        dispatch={mockFn}
-      />
+      <PureDeletePostOption {...props} dispatch={mockFn} />
     )
     wrapper.setState({ deletePost: true })
     wrapper.find('Prompt').prop('action')({
-      preventDefault() {}
+      preventDefault() {},
     })
 
     // should redirect
     wrapper.setState({ redirect: true })
     expect(wrapper.find('Redirect').exists()).toBe(true)
   })
-
 })

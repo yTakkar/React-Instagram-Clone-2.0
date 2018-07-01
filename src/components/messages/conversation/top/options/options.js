@@ -25,7 +25,7 @@ const ConversationOptions = ({ hideConversation, toggleOptions }) => {
 
 ConversationOptions.propTypes = {
   toggleOptions: PropTypes.func.isRequired,
-  hideConversation: PropTypes.func.isRequired
+  hideConversation: PropTypes.func.isRequired,
 }
 
 export default ConversationOptions

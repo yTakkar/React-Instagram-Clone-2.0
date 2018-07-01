@@ -10,11 +10,10 @@ const AdvancedUnfollow = ({ user, unfollowed, ud, dispatch }) => {
 
   let unfollowUser = e => {
     e.preventDefault()
-    let
-      profile_page = location.pathname.includes('/profile'),
+    let profile_page = location.pathname.includes('/profile'),
       def = {
         user,
-        done: () => unfollowed()
+        done: () => unfollowed(),
       },
       obj
 
@@ -35,20 +34,20 @@ const AdvancedUnfollow = ({ user, unfollowed, ud, dispatch }) => {
 
   return (
     <PrimaryButton
-      label='Unfollow'
+      label="Unfollow"
       onClick={unfollowUser}
-      extraClass='unfollow'
+      extraClass="unfollow"
     />
   )
 }
 
 AdvancedUnfollow.propTypes = {
   user: PropTypes.number.isRequired,
-  unfollowed: PropTypes.func.isRequired
+  unfollowed: PropTypes.func.isRequired,
 }
 
-const mapStateToProps = state => (
-  { ud: state.User.user_details }
-)
+const mapStateToProps = state => ({
+  ud: state.User.user_details,
+})
 
 export default connect(mapStateToProps)(AdvancedUnfollow)

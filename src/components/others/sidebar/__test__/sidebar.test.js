@@ -5,18 +5,12 @@ import { mount } from 'enzyme'
 import MockDataElement from '../../../../utils/__mocks__/mock-dataElement'
 
 describe('SideBar Component', () => {
-  const comp = (
-    <SideBar uc={0} un={4} />
-  )
+  const comp = <SideBar uc={0} un={4} />
   let dataElement
 
-  beforeAll(() =>
-    dataElement = MockDataElement()
-  )
+  beforeAll(() => (dataElement = MockDataElement()))
 
-  afterAll(() =>
-    dataElement.remove()
-  )
+  afterAll(() => dataElement.remove())
 
   it('should match snapshot and admin should be logged-out', () => {
     const tree = create(comp).toJSON()
@@ -30,10 +24,6 @@ describe('SideBar Component', () => {
     dataElement.setAttribute('data-isadmin', 'true')
     const wrapper = mount(comp)
 
-    wrapper.find('.admin-logout').simulate(
-      'click',
-      { preventDefault() {} }
-    )
+    wrapper.find('.admin-logout').simulate('click', { preventDefault() {} })
   })
-
 })

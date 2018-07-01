@@ -4,7 +4,7 @@
 import InitialState from './intialState'
 import * as methods from './methods'
 
-export default (state=InitialState, action) => {
+export default (state = InitialState, action) => {
   let py = action.payload
 
   switch (action.type) {
@@ -12,7 +12,7 @@ export default (state=InitialState, action) => {
       return {
         ...state,
         user_details: py.details,
-        tags: py.tags
+        tags: py.tags,
       }
       break
 

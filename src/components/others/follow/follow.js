@@ -10,8 +10,13 @@ import PrimaryButton from '../button/primary-btn'
  * Provide firstname & surname when update_followings=true
  */
 
-const Follow = ({ userDetails, followed, updateFollowings, updateFollowers, dispatch }) => {
-
+const Follow = ({
+  userDetails,
+  followed,
+  updateFollowings,
+  updateFollowers,
+  dispatch,
+}) => {
   let { user, username, firstname, surname } = userDetails
 
   let followUser = e => {
@@ -24,25 +29,21 @@ const Follow = ({ userDetails, followed, updateFollowings, updateFollowers, disp
       dispatch,
       update_followings: updateFollowings,
       update_followers: updateFollowers,
-      done: () => followed()
+      done: () => followed(),
     }
     follow(obj)
   }
 
   return (
     <Fragment>
-      <PrimaryButton
-        label='Follow'
-        onClick={followUser}
-        extraClass='follow'
-      />
+      <PrimaryButton label="Follow" onClick={followUser} extraClass="follow" />
     </Fragment>
   )
 }
 
 Follow.defaultProps = {
   updateFollowings: false,
-  updateFollowers: false
+  updateFollowers: false,
 }
 
 Follow.propTypes = {
@@ -50,11 +51,11 @@ Follow.propTypes = {
     user: number.isRequired,
     username: string.isRequired,
     firstname: string,
-    surname: string
+    surname: string,
   }).isRequired,
   followed: func.isRequired,
   updateFollowings: bool,
-  updateFollowers: bool
+  updateFollowers: bool,
 }
 
 export default connect()(Follow)

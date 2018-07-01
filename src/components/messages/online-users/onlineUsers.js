@@ -14,52 +14,42 @@ import IsLoading from '../../others/isLoading'
 import Overlay from '../../others/overlay'
 
 class OnlineUsers extends Component {
-
   state = {
-    loading: true
+    loading: true,
   }
 
-  componentDidMount = () =>
-    this.props.dispatch(getOnlineUsers())
+  componentDidMount = () => this.props.dispatch(getOnlineUsers())
 
-  componentWillReceiveProps = () =>
-    this.setState({ loading: false })
+  componentWillReceiveProps = () => this.setState({ loading: false })
 
   componentDidUpdate = () => llr()
 
   render() {
-    let
-      { loading } = this.state,
+    let { loading } = this.state,
       { back, onlineUsers } = this.props,
-      map_users = onlineUsers.map(user =>
-        <OnlineUser
-          key={user.user}
-          {...user}
-          back={back}
-        />
-      )
+      map_users = onlineUsers.map(user => (
+        <OnlineUser key={user.user} {...user} back={back} />
+      ))
 
     return (
       <Fragment>
-        <Overlay/>
+        <Overlay />
 
-        <div className='modal modal_big' >
+        <div className="modal modal_big">
+          <Title value="Online members" />
 
-          <Title value='Online members' />
+          <FadeIn duration="300ms">
+            <ModalHeader title="Online members" />
 
-          <FadeIn duration='300ms' >
-            <ModalHeader title='Online members' />
-
-            <Scrollbars style={{ height: 450 }} className='modal_middle' >
+            <Scrollbars style={{ height: 450 }} className="modal_middle">
               <IsLoading loading={loading} />
               <ModalMiddle loading={loading} list={map_users} />
             </Scrollbars>
 
-            <div className='modal_bottom'>
+            <div className="modal_bottom">
               <ModalBack back={back} />
             </div>
           </FadeIn>
-
         </div>
       </Fragment>
     )
@@ -67,11 +57,11 @@ class OnlineUsers extends Component {
 }
 
 OnlineUsers.propTypes = {
-  back: PropTypes.func.isRequired
+  back: PropTypes.func.isRequired,
 }
 
 const mapsStateToProps = store => ({
-  onlineUsers: store.Message.onlineUsers
+  onlineUsers: store.Message.onlineUsers,
 })
 
 export default connect(mapsStateToProps)(OnlineUsers)

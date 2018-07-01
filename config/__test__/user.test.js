@@ -7,36 +7,35 @@ const { user1, user2 } = require('./test.config')
 let createdUser = {}
 
 describe('User config tests', () => {
-
   // delete the created user when all the tests are complete
   afterAll(async () => {
-    await db.query('DELETE FROM users WHERE id=?', [ createdUser.id ])
+    await db.query('DELETE FROM users WHERE id=?', [createdUser.id])
     createdUser = {}
   })
 
   test('should create a new user', async () => {
     let newUser = await User.create_user({
       username: 'testuser',
-      firstname:'testfirstname',
+      firstname: 'testfirstname',
       surname: 'testsurname',
       email: 'testemail@gmail.com',
       password: 'testPassword',
       joined: new Date().getTime(),
       email_verified: 'no',
-      isOnline: 'yes'
+      isOnline: 'yes',
     })
     expect(newUser).toBeObject()
-    expect(newUser).toContainKeys([ 'insertId', 'affectedRows' ])
+    expect(newUser).toContainKeys(['insertId', 'affectedRows'])
     createdUser = {
       id: newUser.insertId,
-      hashPassword: bcrypt.hashSync('testPassword')
+      hashPassword: bcrypt.hashSync('testPassword'),
     }
   })
 
   test('should change the password', async () => {
     let changedPassword = await User.change_password({
       password: 'testPasswordChanged',
-      id: createdUser.id
+      id: createdUser.id,
     })
     expect(changedPassword).toBeBoolean()
     expect(changedPassword).toBe(true)
@@ -44,13 +43,16 @@ describe('User config tests', () => {
 
   test('should compare the password and return true', async () => {
     let compare1 = User.comparePassword(
-      'testPasswordChanged', createdUser.hashPassword
+      'testPasswordChanged',
+      createdUser.hashPassword
     )
     let compare2 = User.comparePassword(
-      'testPassword', createdUser.hashPassword
+      'testPassword',
+      createdUser.hashPassword
     )
     let compare3 = User.comparePassword(
-      'testPasswordChanged', bcrypt.hashSync('testPasswordChanged')
+      'testPasswordChanged',
+      bcrypt.hashSync('testPasswordChanged')
     )
     expect(compare1).toBe(false)
     expect(compare2).toBe(true)
@@ -62,7 +64,7 @@ describe('User config tests', () => {
     expect(isF).toBeBoolean()
   })
 
-  test('should return whether user1 is user2\'s favourite or not', async () => {
+  test("should return whether user1 is user2's favourite or not", async () => {
     let isFav = await User.favouriteOrNot(user2, user1)
     expect(isFav).toBeBoolean()
   })
@@ -102,5 +104,4 @@ describe('User config tests', () => {
     expect(firstname).toEqual('iam_')
     expect(surname).toEqual('takkar')
   })
-
 })

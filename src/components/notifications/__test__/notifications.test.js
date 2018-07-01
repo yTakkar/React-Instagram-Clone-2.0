@@ -7,10 +7,9 @@ import Notification from '../../../store/__mocks__/reducers/Notification'
 import { shallow } from 'enzyme'
 
 describe('Notifications Component', () => {
-
   const comp = (
     <Provider store={mockStore}>
-      <Notifications/>
+      <Notifications />
     </Provider>
   )
 
@@ -35,5 +34,4 @@ describe('Notifications Component', () => {
     wrapper.setState({ loading: false })
     expect(wrapper.find('IsLoading').prop('loading')).toBe(false)
   })
-
 })

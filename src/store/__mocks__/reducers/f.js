@@ -6,7 +6,7 @@ export default [
     username: 'steve_jobs',
     firstname: 'steve',
     surname: 'jobs',
-    follow_time: '1480114098767'
+    follow_time: '1480114098767',
   },
   {
     follow_id: 246,
@@ -15,6 +15,6 @@ export default [
     username: 'ghalib',
     firstname: 'Mirza',
     surname: 'Ghalib',
-    follow_time: '1480114098767'
-  }
+    follow_time: '1480114098767',
+  },
 ]

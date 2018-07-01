@@ -12,10 +12,9 @@ import { connect } from 'react-redux'
 import AppLink from '../../../../others/link/link'
 
 class Favourite extends Component {
-
   state = {
     isFollowing: false,
-    showTime: false
+    showTime: false,
   }
 
   componentDidMount = async () => {
@@ -30,51 +29,54 @@ class Favourite extends Component {
   hideTime = () => this.setState({ showTime: false })
 
   render() {
-    let { fav_id, user, username, firstname, surname, fav_time, id } = this.props
+    let {
+      fav_id,
+      user,
+      username,
+      firstname,
+      surname,
+      fav_time,
+      id,
+    } = this.props
     let { isFollowing, showTime } = this.state
 
     return (
       <div
-        className='m_on followers_m_on'
+        className="m_on followers_m_on"
         onMouseOver={this.showTime}
         onMouseOut={this.hideTime}
       >
-        <MonTopInfo
-          info={{ user, username, firstname, surname }}
-        />
+        <MonTopInfo info={{ user, username, firstname, surname }} />
 
-        <MonSticky
-          show={showTime}
-          text={TimeAgo(fav_time)}
-        />
+        <MonSticky show={showTime} text={TimeAgo(fav_time)} />
 
-        <div className='m_bottom'>
+        <div className="m_bottom">
           <RemoveFav fav_id={fav_id} username={username} />
-          {
-            Me(user)
-              ? <AppLink
-                url={`/profile/${username}`}
-                className='sec_btn'
-                label='Profile'
-              />
-
-              : isFollowing
-                ? <Unfollow
-                  user={user}
-                  unfollowed={() => this.setState({ isFollowing: false })}
-                  updateFollowings={Me(id)}
-                />
-
-                : <Follow
-                  userDetails={{
-                    user, username, firstname, surname
-                  }}
-                  followed={() => this.setState({ isFollowing: true })}
-                  updateFollowings={Me(id)}
-                />
-          }
+          {Me(user) ? (
+            <AppLink
+              url={`/profile/${username}`}
+              className="sec_btn"
+              label="Profile"
+            />
+          ) : isFollowing ? (
+            <Unfollow
+              user={user}
+              unfollowed={() => this.setState({ isFollowing: false })}
+              updateFollowings={Me(id)}
+            />
+          ) : (
+            <Follow
+              userDetails={{
+                user,
+                username,
+                firstname,
+                surname,
+              }}
+              followed={() => this.setState({ isFollowing: true })}
+              updateFollowings={Me(id)}
+            />
+          )}
         </div>
-
       </div>
     )
   }
@@ -91,7 +93,7 @@ Favourite.propTypes = {
 }
 
 const mapStateToProps = store => ({
-  id: store.User.user_details.id
+  id: store.User.user_details.id,
 })
 
 export default connect(mapStateToProps)(Favourite)

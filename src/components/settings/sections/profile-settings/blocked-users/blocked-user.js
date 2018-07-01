@@ -8,7 +8,13 @@ import AppLink from '../../../../others/link/link'
 
 const BlockedUser = props => {
   let {
-    block_id, user, username, firstname, surname, mutualFollowersCount, dispatch
+    block_id,
+    user,
+    username,
+    firstname,
+    surname,
+    mutualFollowersCount,
+    dispatch,
   } = props
 
   let unblockUser = e => {
@@ -17,33 +23,30 @@ const BlockedUser = props => {
   }
 
   return (
-    <div className='blocked_users' >
+    <div className="blocked_users">
       <img src={`/users/${user}/avatar.jpg`} />
 
-      <div className='blocked_u_content'>
-        <div className='blocked_info'>
+      <div className="blocked_u_content">
+        <div className="blocked_info">
           <AppLink
             url={`/profile/${username}`}
-            className='blocked_username'
+            className="blocked_username"
             label={username}
           />
 
-          <span className='blocked_mutual'>
-            {
-              mutualFollowersCount == 0
-                ? `${firstname} ${surname}`
-                : humanReadable(mutualFollowersCount, 'mutual follower')
-            }
+          <span className="blocked_mutual">
+            {mutualFollowersCount == 0
+              ? `${firstname} ${surname}`
+              : humanReadable(mutualFollowersCount, 'mutual follower')}
           </span>
         </div>
 
         <SecondaryButton
-          label='Unblock'
+          label="Unblock"
           onClick={unblockUser}
-          extraClass='unblock'
+          extraClass="unblock"
         />
       </div>
-
     </div>
   )
 }
@@ -55,7 +58,7 @@ BlockedUser.propTypes = {
   username: PropTypes.string.isRequired,
   firstname: PropTypes.string.isRequired,
   surname: PropTypes.string.isRequired,
-  mutualFollowersCount: PropTypes.number.isRequired
+  mutualFollowersCount: PropTypes.number.isRequired,
 }
 
 export default connect()(BlockedUser)

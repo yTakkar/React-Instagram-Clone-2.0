@@ -7,15 +7,11 @@ describe('Mon-TopInfo Component', () => {
     user: 24,
     username: 'takkar',
     firstname: 'iam',
-    surname: '_takkar'
+    surname: '_takkar',
   }
 
   it('should match snapshot', () => {
-    const tree = create(
-      <MonTopInfo
-        info={info}
-      />
-    ).toJSON()
+    const tree = create(<MonTopInfo info={info} />).toJSON()
     expect(tree).toMatchSnapshot()
   })
 
@@ -24,12 +20,11 @@ describe('Mon-TopInfo Component', () => {
       <MonTopInfo
         info={{
           ...info,
-          mutuals: 3
+          mutuals: 3,
         }}
         basedOnMutuals
       />
     ).toJSON()
     expect(tree).toMatchSnapshot()
   })
-
 })

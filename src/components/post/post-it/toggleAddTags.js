@@ -5,23 +5,22 @@ import { CPP } from '../../../actions/post'
 import classNames from 'classnames'
 
 const ToggleAddTags = ({ addTag, dispatch }) => {
-
-  let toggle = () => 
-    dispatch(CPP('addTag', !addTag))
+  let toggle = () => dispatch(CPP('addTag', !addTag))
 
   return (
     <span
-      className={classNames('tag_add', {p_span_toggle: addTag})}
-      data-tip='Tag people'
+      className={classNames('tag_add', { p_span_toggle: addTag })}
+      data-tip="Tag people"
       onClick={toggle}
-    ><MaterialIcon icon='loyalty' />
+    >
+      <MaterialIcon icon="loyalty" />
     </span>
   )
 }
 
-const mapStateToProps = state => (
-  { addTag: state.Post.postIt.addTag }
-)
+const mapStateToProps = state => ({
+  addTag: state.Post.postIt.addTag,
+})
 
 export default connect(mapStateToProps)(ToggleAddTags)
 export { ToggleAddTags as PureToggleAddTags }

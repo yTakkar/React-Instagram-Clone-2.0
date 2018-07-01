@@ -8,18 +8,13 @@ describe('Required-fields Component', () => {
       username: 'takkar',
       firstname: 'iam_',
       surname: 'Takkar',
-      email: 'takkar@gmail.com'
+      email: 'takkar@gmail.com',
     },
-    change: jest.fn()
+    change: jest.fn(),
   }
 
   it('should match snapshot', () => {
-    const tree = create(
-      <RequiredInputs
-        {...props}
-      />
-    ).toJSON()
+    const tree = create(<RequiredInputs {...props} />).toJSON()
     expect(tree).toMatchSnapshot()
   })
-
 })

@@ -19,5 +19,4 @@ describe('App Component', () => {
     )
     expect(tree).toMatchSnapshot()
   })
-
 })

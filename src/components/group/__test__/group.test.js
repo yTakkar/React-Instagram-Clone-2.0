@@ -16,8 +16,8 @@ describe('Group Component', () => {
   const props = {
     match: {
       params: { grp_id: '11' },
-      url: '/group/11'
-    }
+      url: '/group/11',
+    },
   }
 
   it('should match snapshot', () => {
@@ -43,5 +43,4 @@ describe('Group Component', () => {
     wrapper.setState({ loading: false })
     expect(wrapper.find('IsLoading').prop('loading')).toBe(false)
   })
-
 })

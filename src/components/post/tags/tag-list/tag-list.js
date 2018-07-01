@@ -9,9 +9,8 @@ import AdvancedUnfollow from '../../../others/follow/advancedUnfollow'
 import ModalItemInfo from '../../../others/modal/modal-item-info'
 
 class TagItems extends Component {
-
   state = {
-    isFollowing: false
+    isFollowing: false,
   }
 
   componentDidMount = () =>
@@ -22,44 +21,50 @@ class TagItems extends Component {
 
   render() {
     let {
-      user, username, firstname, surname, post_id, decrementTags, isPostMine
+      user,
+      username,
+      firstname,
+      surname,
+      post_id,
+      decrementTags,
+      isPostMine,
     } = this.props
     let { isFollowing } = this.state
     let untagOptions = {
-      post_id, user, decrementTags
+      post_id,
+      user,
+      decrementTags,
     }
 
     return (
-      <div className='modal_items fer_items' >
-        <div className='modal_it_img'>
+      <div className="modal_items fer_items">
+        <div className="modal_it_img">
           <img src={`/users/${user}/avatar.jpg`} />
         </div>
-        <div className='modal_it_content'>
-          <ModalItemInfo
-            info={{ username, firstname, surname }}
-          />
+        <div className="modal_it_content">
+          <ModalItemInfo info={{ username, firstname, surname }} />
 
-          <div className='modal_ff'>
-            {
-              isPostMine || isAdmin() ?
-                <Untag {...untagOptions} />
-
-                : Me(user) ?
-                  <Untag {...untagOptions} />
-
-                  : isFollowing ?
-                    <AdvancedUnfollow
-                      user={user}
-                      unfollowed={() => this.setState({ isFollowing: false })}
-                    />
-
-                    : <AdvancedFollow
-                      userDetails={{
-                        user, username, firstname, surname
-                      }}
-                      followed={() => this.setState({ isFollowing: true })}
-                    />
-            }
+          <div className="modal_ff">
+            {isPostMine || isAdmin() ? (
+              <Untag {...untagOptions} />
+            ) : Me(user) ? (
+              <Untag {...untagOptions} />
+            ) : isFollowing ? (
+              <AdvancedUnfollow
+                user={user}
+                unfollowed={() => this.setState({ isFollowing: false })}
+              />
+            ) : (
+              <AdvancedFollow
+                userDetails={{
+                  user,
+                  username,
+                  firstname,
+                  surname,
+                }}
+                followed={() => this.setState({ isFollowing: true })}
+              />
+            )}
           </div>
         </div>
         <hr />
@@ -76,12 +81,12 @@ TagItems.propTypes = {
   firstname: PropTypes.string.isRequired,
   surname: PropTypes.string.isRequired,
   isFollowing: PropTypes.bool.isRequired,
-  decrementTags: PropTypes.func.isRequired
+  decrementTags: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = store => ({
   isPostMine: store.Post.isPostMine,
-  ud: store.User.user_details
+  ud: store.User.user_details,
 })
 
 export default connect(mapStateToProps)(TagItems)

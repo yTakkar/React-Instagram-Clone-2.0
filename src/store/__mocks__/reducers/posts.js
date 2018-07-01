@@ -16,7 +16,7 @@ export default [
     likes_count: 3,
     shares_count: 3,
     comments_count: 2,
-    group_name: ''
+    group_name: '',
   },
   {
     post_id: 88,
@@ -35,6 +35,6 @@ export default [
     likes_count: 0,
     shares_count: 1,
     comments_count: 3,
-    group_name: ''
-  }
+    group_name: '',
+  },
 ]

@@ -8,15 +8,13 @@ import User from '../../../../store/__mocks__/reducers/User'
 
 describe('PostItTeaser Component', () => {
   const props = {
-    type: 'user'
+    type: 'user',
   }
 
   it('should match snapshot', () => {
     const tree = create(
       <Provider store={mockStore}>
-        <PostItTeaser
-          {...props}
-        />
+        <PostItTeaser {...props} />
       </Provider>
     ).toJSON()
     expect(tree).toMatchSnapshot()
@@ -25,10 +23,7 @@ describe('PostItTeaser Component', () => {
   it('should match snapshot with disabled prop', () => {
     const tree = create(
       <Provider store={mockStore}>
-        <PostItTeaser
-          {...props}
-          disabled
-        />
+        <PostItTeaser {...props} disabled />
       </Provider>
     ).toJSON()
     expect(tree).toMatchSnapshot()
@@ -36,13 +31,9 @@ describe('PostItTeaser Component', () => {
 
   it('should show <PostIt/> when state.postIt == true', () => {
     const wrapper = shallow(
-      <PurePostItTeaser
-        {...props}
-        session={User.session}
-      />
+      <PurePostItTeaser {...props} session={User.session} />
     )
     wrapper.find('.p_whats_new').simulate('click')
     expect(wrapper.find('Connect(PostIt)').exists()).toBe(true)
   })
-
 })

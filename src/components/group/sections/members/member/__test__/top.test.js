@@ -14,15 +14,15 @@ describe('MemberTop Component', () => {
     username: 'ghalib',
     firstname: 'Mirza',
     surname: 'Ghalib',
-    mutualUsersCount: 0
+    mutualUsersCount: 0,
   }
 
-  const comp = (extraProps={}) => (
+  const comp = (extraProps = {}) => (
     <Provider store={mockStore}>
       <MembersTop
         memberDetails={{
           ...memberDetails,
-          ...extraProps
+          ...extraProps,
         }}
       />
     </Provider>
@@ -34,9 +34,11 @@ describe('MemberTop Component', () => {
   })
 
   it('should match snapshot and show mutual followers', () => {
-    const tree = create(comp({
-      mutualUsersCount: 2
-    })).toJSON()
+    const tree = create(
+      comp({
+        mutualUsersCount: 2,
+      })
+    ).toJSON()
     expect(tree).toMatchSnapshot()
   })
 
@@ -45,5 +47,4 @@ describe('MemberTop Component', () => {
     const tree = create(comp()).toJSON()
     expect(tree).toMatchSnapshot()
   })
-
 })

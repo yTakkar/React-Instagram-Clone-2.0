@@ -11,12 +11,11 @@ import TextInput from '../../others/input/text'
 import Overlay from '../../others/overlay'
 
 export default class CreateGroupModal extends Component {
-
   state = {
     name: '',
     bio: '',
     created: false,
-    groupId: null
+    groupId: null,
   }
 
   valueChange = (what, { target: { value } }) =>
@@ -40,17 +39,17 @@ export default class CreateGroupModal extends Component {
 
     return (
       <div>
-        <Overlay/>
+        <Overlay />
 
-        <div className='create_group modal'>
-          <FadeIn duration='300ms'>
-            <ModalHeader title='Create group' />
+        <div className="create_group modal">
+          <FadeIn duration="300ms">
+            <ModalHeader title="Create group" />
 
-            <div className='c_g_middle modal_middle'>
+            <div className="c_g_middle modal_middle">
               <div>
                 <span>Name your group</span>
                 <TextInput
-                  placeholder='Name..'
+                  placeholder="Name.."
                   autoFocus
                   value={name}
                   valueChange={e => this.valueChange('name', e)}
@@ -60,21 +59,19 @@ export default class CreateGroupModal extends Component {
               <div>
                 <span>Add bio to your group</span>
                 <TextArea
-                  placeholder='Bio..'
+                  placeholder="Bio.."
                   value={bio}
                   valueChange={e => this.valueChange('bio', e)}
-                  className='c_g_textarea'
+                  className="c_g_textarea"
                 />
               </div>
             </div>
 
-            <div className='e_p_bottom modal_bottom'>
+            <div className="e_p_bottom modal_bottom">
               <AddEmojis
                 position={{ top: 60, left: -217 }}
-                textArea='.c_g_textarea'
-                updateTextArea={value =>
-                  this.setState({ bio: value })
-                }
+                textArea=".c_g_textarea"
+                updateTextArea={value => this.setState({ bio: value })}
                 recenterEmojis
               />
 
@@ -87,15 +84,12 @@ export default class CreateGroupModal extends Component {
           </FadeIn>
         </div>
 
-        {
-          created &&
-            <Redirect to={`/group/${groupId}`} />
-        }
+        {created && <Redirect to={`/group/${groupId}`} />}
       </div>
     )
   }
 }
 
 CreateGroupModal.propTypes = {
-  back: func.isRequired
+  back: func.isRequired,
 }

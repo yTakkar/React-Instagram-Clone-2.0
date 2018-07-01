@@ -5,15 +5,15 @@ export default {
       username: 'zayn',
       firstname: 'Zayn',
       surname: 'Malik',
-      mutualUsersCount: 0
+      mutualUsersCount: 0,
     },
     {
       user: 7,
       username: 'ghalib',
       firstname: 'Mirza',
       surname: 'Ghalib',
-      mutualUsersCount: 1
-    }
+      mutualUsersCount: 1,
+    },
   ],
   conversations: [
     {
@@ -27,8 +27,8 @@ export default {
         lastMssgTime: '1480114098767',
         lastMessage: 'eo',
         lastMssgType: 'text',
-        lastMssgBy: 7
-      }
+        lastMssgBy: 7,
+      },
     },
     {
       con_id: 40,
@@ -41,9 +41,9 @@ export default {
         lastMssgTime: null,
         lastMessage: '',
         lastMssgType: '',
-        lastMssgBy: ''
-      }
-    }
+        lastMssgBy: '',
+      },
+    },
   ],
   conDetails: {
     con_id: 29,
@@ -52,7 +52,7 @@ export default {
     con_with_firstname: 'selena',
     con_with_surname: 'gomez',
     isOnline: false,
-    lastOnline: '1480114098767'
+    lastOnline: '1480114098767',
   },
   conAbout: {
     mssgsCount: 6,
@@ -60,11 +60,11 @@ export default {
       {
         imgSrc: 'instagram_message_1528278864884.jpg',
         mssg_by: 24,
-        mssg_by_username: 'takkar'
-      }
+        mssg_by_username: 'takkar',
+      },
     ],
     con_time: '1480114098767',
-    mutualFollowersCount: 1
+    mutualFollowersCount: 1,
   },
   messages: [
     {
@@ -75,7 +75,7 @@ export default {
       message: 'instagram_message_1525091176544.jpg',
       type: 'sticker',
       status: 'read',
-      message_time: '1480114098767'
+      message_time: '1480114098767',
     },
     {
       message_id: 94,
@@ -85,7 +85,7 @@ export default {
       message: 'kjkjk',
       type: 'text',
       status: 'unread',
-      message_time: '1480114098767'
+      message_time: '1480114098767',
     },
     {
       message_id: 99,
@@ -95,7 +95,7 @@ export default {
       message: 'instagram_message_1525809886884.jpg',
       type: 'sticker',
       status: 'unread',
-      message_time: '1480114098767'
+      message_time: '1480114098767',
     },
     {
       message_id: 102,
@@ -105,8 +105,8 @@ export default {
       message: 'instagram_message_1528278864884.jpg',
       type: 'image',
       status: 'unread',
-      message_time: '1480114098767'
-    }
+      message_time: '1480114098767',
+    },
   ],
-  unreadMessages: 0
+  unreadMessages: 0,
 }

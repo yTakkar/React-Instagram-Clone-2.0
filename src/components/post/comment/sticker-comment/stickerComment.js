@@ -7,16 +7,15 @@ import PropTypes from 'prop-types'
 import MaterialIcon from '../../../others/icons/material-icon'
 
 class StickerComment extends Component {
-
   state = {
-    showStickers: false
+    showStickers: false,
   }
 
   stickerComment = sticker => {
     let {
       postDetails: { post_id, when, user },
       incrementComments,
-      dispatch
+      dispatch,
     } = this.props
     stickerComment({
       sticker,
@@ -24,7 +23,7 @@ class StickerComment extends Component {
       user,
       when,
       dispatch,
-      done: () => incrementComments()
+      done: () => incrementComments(),
     })
   }
 
@@ -34,24 +33,21 @@ class StickerComment extends Component {
     return (
       <div>
         <span
-          className='c_sticker'
-          data-tip='Add sticker'
+          className="c_sticker"
+          data-tip="Add sticker"
           onClick={() => this.setState({ showStickers: true })}
-        ><MaterialIcon icon='face' />
+        >
+          <MaterialIcon icon="face" />
         </span>
 
-        <ToolTip/>
+        <ToolTip />
 
-        {
-          showStickers &&
-            <Stickers
-              back={() => this.setState({ showStickers: false })}
-              stickerSelected={sticker =>
-                this.stickerComment(sticker)
-              }
-            />
-        }
-
+        {showStickers && (
+          <Stickers
+            back={() => this.setState({ showStickers: false })}
+            stickerSelected={sticker => this.stickerComment(sticker)}
+          />
+        )}
       </div>
     )
   }

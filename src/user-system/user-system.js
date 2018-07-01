@@ -10,19 +10,15 @@ import axios from 'axios'
 import d from '../utils/API/DOM'
 import { quickLogin } from '../utils/quick-login-utils'
 
-new d('.nh_logo').on('click', () =>
-  location.href = '/welcome'
-)
+new d('.nh_logo').on('click', () => (location.href = '/welcome'))
 
-new d('.h_logo').on('click', () =>
-  location.href = '/'
-)
+new d('.h_logo').on('click', () => (location.href = '/'))
 
 // View Password for signup
 new d('.s_p_s').on('click', () =>
   fn.viewPassword({
     input: '#s_password',
-    icon: '.s_p_s'
+    icon: '.s_p_s',
   })
 )
 
@@ -30,7 +26,7 @@ new d('.s_p_s').on('click', () =>
 new d('.s_p_l').on('click', () =>
   fn.viewPassword({
     input: '#l_password',
-    icon: '.s_p_l'
+    icon: '.s_p_l',
   })
 )
 
@@ -46,8 +42,7 @@ User.username_checker('.s_username')
 new d('form.form_register').on('submit', e => {
   e.preventDefault()
 
-  let
-    username = new d('.s_username').val(),
+  let username = new d('.s_username').val(),
     firstname = new d('.s_firstname').val(),
     surname = new d('.s_surname').val(),
     email = new d('.s_email').val(),
@@ -55,8 +50,7 @@ new d('form.form_register').on('submit', e => {
 
   if (!username || !firstname || !surname || !email || !password) {
     Notify({ value: 'Values are missing!!' })
-  }  else {
-
+  } else {
     let signupOpt = {
       data: {
         username,
@@ -72,7 +66,6 @@ new d('form.form_register').on('submit', e => {
       defBtnValue: 'Signup For Free',
     }
     User.commonLogin(signupOpt)
-
   }
 })
 
@@ -86,11 +79,10 @@ new d('form.form_login').on('submit', e => {
   if (!username || !password) {
     Notify({ value: 'Values are missing!!' })
   } else {
-
     let loginOpt = {
       data: {
         username,
-        password
+        password,
       },
       when: 'login',
       btn: '.l_submit',
@@ -99,7 +91,6 @@ new d('form.form_login').on('submit', e => {
       defBtnValue: 'Login To Continue',
     }
     User.commonLogin(loginOpt)
-
   }
 })
 
@@ -125,7 +116,7 @@ new d('.clear_all_ql').on('click', async e => {
   await axios.post('/api/clear-all-quick-logins')
   Notify({
     value: 'Cleared all quick logins!!',
-    done: () => location.reload()
+    done: () => location.reload(),
   })
 })
 
@@ -137,7 +128,6 @@ new d('form.form_fp').on('submit', async e => {
   if (!email) {
     Notify({ value: 'Email field is empty!!' })
   } else {
-
     let fpOpt = {
       data: { email },
       when: 'forgot_password',
@@ -148,5 +138,4 @@ new d('form.form_fp').on('submit', async e => {
     }
     User.commonLogin(fpOpt)
   }
-
 })

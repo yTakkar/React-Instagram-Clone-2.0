@@ -8,26 +8,18 @@ describe('Group-Search Component', () => {
     name: 'a groupss',
     membersCount: 11,
     mutualMembersCount: 0,
-    clicked() {}
+    clicked() {},
   }
 
   it('should match snapshot', () => {
-    const tree = create(
-      <GroupSearch
-        {...props}
-      />
-    ).toJSON()
+    const tree = create(<GroupSearch {...props} />).toJSON()
     expect(tree).toMatchSnapshot()
   })
 
   it('should match snapshot with mutual members also hide members count', () => {
     const tree = create(
-      <GroupSearch
-        {...props}
-        mutualMembersCount={3}
-      />
+      <GroupSearch {...props} mutualMembersCount={3} />
     ).toJSON()
     expect(tree).toMatchSnapshot()
   })
-
 })

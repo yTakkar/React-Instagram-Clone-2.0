@@ -5,19 +5,19 @@ const TextArea = ({ value, placeholder, valueChange, ...props }) => {
   return (
     <Fragment>
       <textarea
-        spellCheck='false'
+        spellCheck="false"
         placeholder={placeholder}
         value={value}
         onChange={valueChange}
         {...props}
-      ></textarea>
+      />
     </Fragment>
   )
 }
 
 TextArea.defaultProps = {
   value: '',
-  placeholder: ''
+  placeholder: '',
 }
 
 TextArea.propTypes = {

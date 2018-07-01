@@ -8,7 +8,7 @@ import { create } from 'react-test-renderer'
 describe('PostItHeader Component', () => {
   const comp = (
     <Provider store={mockStore}>
-      <PostItHeader/>
+      <PostItHeader />
     </Provider>
   )
 
@@ -24,5 +24,4 @@ describe('PostItHeader Component', () => {
     const tree = create(comp).toJSON()
     expect(tree).toMatchSnapshot()
   })
-
 })

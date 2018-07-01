@@ -10,61 +10,56 @@ import MonEnd from '../../../others/m-on/mon-end'
 import classNames from 'classnames'
 
 class Favourites extends Component {
-
   componentDidUpdate = () => bottomScroll()
 
   render() {
-    let
-      { favourites, param: username, ud: { id } } = this.props,
+    let {
+        favourites,
+        param: username,
+        ud: { id },
+      } = this.props,
       len = favourites.length,
-      map_favs = favourites.map(f =>
-        <Favourite key={f.fav_id} {...f} />
-      )
+      map_favs = favourites.map(f => <Favourite key={f.fav_id} {...f} />)
 
     return (
       <div>
         <Title value={`@${username}'s favourites`} />
 
-        <FadeIn duration='300ms'>
-
-          <div className='senapati pro_senapati'>
-            <div className={classNames({
-              m_div: len != 0,
-              m_no_div: len == 0
-            })} >
-
+        <FadeIn duration="300ms">
+          <div className="senapati pro_senapati">
+            <div
+              className={classNames({
+                m_div: len != 0,
+                m_no_div: len == 0,
+              })}
+            >
               <MonHeader len={len} forWhat={'favourite'} />
 
-              <div className='m_wrapper'>
-                { len != 0 && map_favs }
-              </div>
-
+              <div className="m_wrapper">{len != 0 && map_favs}</div>
             </div>
           </div>
 
           <MonEnd
             len={len}
-            nothingMssg = {
+            nothingMssg={
               Me(id)
                 ? 'You have no favourites!!'
                 : `${username} have no favourites!!`
             }
           />
-
         </FadeIn>
-
       </div>
     )
   }
 }
 
 Favourites.propTypes = {
-  param: PropTypes.string.isRequired
+  param: PropTypes.string.isRequired,
 }
 
 const mapStateToProps = store => ({
   ud: store.User.user_details,
-  favourites: store.Follow.favourites
+  favourites: store.Follow.favourites,
 })
 
 export default connect(mapStateToProps)(Favourites)

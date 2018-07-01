@@ -8,20 +8,18 @@ const MapPosts = ({ posts, nothingMssg }) => {
 
   return (
     <Fragment>
-      {
-        len == 0
-          ? <Nothing
-            mssg={nothingMssg}
-          />
-          : <FadeIn duration='500ms'>{ posts }</FadeIn>
-      }
+      {len == 0 ? (
+        <Nothing mssg={nothingMssg} />
+      ) : (
+        <FadeIn duration="500ms">{posts}</FadeIn>
+      )}
     </Fragment>
   )
 }
 
 MapPosts.propTypes = {
   posts: PropTypes.arrayOf(PropTypes.node).isRequired,
-  nothingMssg: PropTypes.string.isRequired
+  nothingMssg: PropTypes.string.isRequired,
 }
 
 export default MapPosts

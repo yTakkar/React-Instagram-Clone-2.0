@@ -6,11 +6,9 @@ const HashtagSearch = ({ hashtag, clicked }) => {
   let url = `/hashtag/${hashtag.slice(1)}`
 
   return (
-    <div className='s_d_peo' onClick={clicked} >
-      <AppLink
-        className='s_d_p h_d_p'
-        url={url}
-      ><span className='s_d_username'>{hashtag}</span>
+    <div className="s_d_peo" onClick={clicked}>
+      <AppLink className="s_d_p h_d_p" url={url}>
+        <span className="s_d_username">{hashtag}</span>
       </AppLink>
     </div>
   )

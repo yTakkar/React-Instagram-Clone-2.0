@@ -6,12 +6,7 @@ describe('HeaderOptions Component', () => {
   const mockFn = jest.fn()
 
   it('should match snapshot', () => {
-    const tree = create(
-      <HeaderOptions
-        toggleOptions={mockFn}
-      />
-    ).toJSON()
+    const tree = create(<HeaderOptions toggleOptions={mockFn} />).toJSON()
     expect(tree).toMatchSnapshot()
   })
-
 })

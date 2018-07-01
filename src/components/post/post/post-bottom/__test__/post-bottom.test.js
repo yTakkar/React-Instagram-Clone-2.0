@@ -11,29 +11,22 @@ describe('PostBottom Component', () => {
     post_id: 44,
     when: 'feed',
     user: 7,
-    comments: []
+    comments: [],
   }
 
   it('should match snapshot', () => {
     const tree = create(
       <Provider store={mockStore}>
-        <PostBottom
-          postDetails={postDetails}
-        />
+        <PostBottom postDetails={postDetails} />
       </Provider>
     ).toJSON()
     expect(tree).toMatchSnapshot()
   })
 
   it('should increments comments count', () => {
-    const wrapper = shallow(
-      <PurePostBottom
-        postDetails={postDetails}
-      />
-    )
+    const wrapper = shallow(<PurePostBottom postDetails={postDetails} />)
     expect(wrapper.state().comments_count).toBe(2)
     wrapper.instance().incrementComments()
     expect(wrapper.state().comments_count).toBe(3)
   })
-
 })

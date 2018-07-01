@@ -5,14 +5,13 @@ import { connect } from 'react-redux'
 import ImageTheatre from '../../others/imageTheatre/imageTheatre'
 
 class ExplorePhotoGallery extends Component {
-
   state = {
     showImage: false,
     src: '',
     filter: '',
     username: '',
     time: '',
-    link: ''
+    link: '',
   }
 
   selectPhoto = (e, { photo }) => {
@@ -28,9 +27,7 @@ class ExplorePhotoGallery extends Component {
   }
 
   render() {
-    let {
-      showImage, src, filter, username, time, link
-    } = this.state
+    let { showImage, src, filter, username, time, link } = this.state
     let { photos } = this.props
     let len = photos.length
     let PHOTO_SET = []
@@ -41,49 +38,43 @@ class ExplorePhotoGallery extends Component {
         src: `/posts/${f.imgsrc}`,
         width: 15,
         height: 15,
-        className: `${f.filter}`
+        className: `${f.filter}`,
       })
     }
 
     return (
       <Fragment>
-        <div
-          className='m_wrapper'
-          style={{ width: len == 0 ? 500 : null }}
-        >
-          {
-            len == 0 ?
-              <Nothing value='Sorry, no photos to explore!!' />
-              : <Gallery
-                photos={PHOTO_SET}
-                columns={4}
-                margin={7}
-                onClick={this.selectPhoto}
-              />
-          }
+        <div className="m_wrapper" style={{ width: len == 0 ? 500 : null }}>
+          {len == 0 ? (
+            <Nothing value="Sorry, no photos to explore!!" />
+          ) : (
+            <Gallery
+              photos={PHOTO_SET}
+              columns={4}
+              margin={7}
+              onClick={this.selectPhoto}
+            />
+          )}
         </div>
 
-        {
-          showImage &&
-            <ImageTheatre
-              imgSrc={src}
-              filter={filter}
-              username={username}
-              time={time}
-              link={link}
-              back={() => this.setState({ showImage: false })}
-            />
-        }
+        {showImage && (
+          <ImageTheatre
+            imgSrc={src}
+            filter={filter}
+            username={username}
+            time={time}
+            link={link}
+            back={() => this.setState({ showImage: false })}
+          />
+        )}
       </Fragment>
     )
   }
 }
 
-const mapStateToProps = store => (
-  { photos: store.Explore.photos }
-)
+const mapStateToProps = store => ({
+  photos: store.Explore.photos,
+})
 
 export default connect(mapStateToProps)(ExplorePhotoGallery)
-export {
-  ExplorePhotoGallery as PureExplorePhotoGallery
-}
+export { ExplorePhotoGallery as PureExplorePhotoGallery }

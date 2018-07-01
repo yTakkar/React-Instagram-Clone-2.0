@@ -4,7 +4,6 @@ import PrimaryButton from '../button/primary-btn'
 import SecondaryButton from '../button/secondary-btn'
 
 const ModalBack = ({ back, btnType, label, disabled }) => {
-
   let b = e => {
     e ? e.preventDefault() : null
     back()
@@ -13,21 +12,16 @@ const ModalBack = ({ back, btnType, label, disabled }) => {
   let defaults = {
     label,
     onClick: b,
-    disabled
+    disabled,
   }
 
   return (
     <Fragment>
-      {
-        btnType == 'primary' ?
-          <PrimaryButton
-            {...defaults}
-          />
-          :
-          <SecondaryButton
-            {...defaults}
-          />
-      }
+      {btnType == 'primary' ? (
+        <PrimaryButton {...defaults} />
+      ) : (
+        <SecondaryButton {...defaults} />
+      )}
     </Fragment>
   )
 }
@@ -35,14 +29,14 @@ const ModalBack = ({ back, btnType, label, disabled }) => {
 ModalBack.defaultProps = {
   label: 'Back',
   disabled: false,
-  btnType: 'primary'
+  btnType: 'primary',
 }
 
 ModalBack.propTypes = {
   back: PropTypes.func.isRequired,
-  btnType: PropTypes.oneOf([ 'primary', 'secondary' ]),
+  btnType: PropTypes.oneOf(['primary', 'secondary']),
   label: PropTypes.string,
-  disabled: PropTypes.bool
+  disabled: PropTypes.bool,
 }
 
 export default ModalBack

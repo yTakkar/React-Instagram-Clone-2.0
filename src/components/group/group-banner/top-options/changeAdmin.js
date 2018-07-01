@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 import ChangeAdmin from '../../change-admin/change-admin'
 
 class ChangeGroupAdmin extends Component {
-
   state = {
     change: false,
   }
@@ -20,34 +19,29 @@ class ChangeGroupAdmin extends Component {
   }
 
   render() {
-    let { gd: {admin, group_id } } = this.props
+    let {
+      gd: { admin, group_id },
+    } = this.props
     let { change } = this.state
 
     return (
       <Fragment>
-        {
-          Me(admin) &&
-            <li><a
-              href='#'
-              className='p_copy_link'
-              onClick={this.showChangeAdmin}
-            >Transfer admin position</a></li>
-        }
+        {Me(admin) && (
+          <li>
+            <a href="#" className="p_copy_link" onClick={this.showChangeAdmin}>
+              Transfer admin position
+            </a>
+          </li>
+        )}
 
-        {
-          change &&
-            <ChangeAdmin
-              back={this.modalBack}
-              group={group_id}
-            />
-        }
+        {change && <ChangeAdmin back={this.modalBack} group={group_id} />}
       </Fragment>
     )
   }
 }
 
 const mapStateToProps = store => ({
-  gd: store.Group.group_details
+  gd: store.Group.group_details,
 })
 
 export default connect(mapStateToProps)(ChangeGroupAdmin)

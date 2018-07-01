@@ -12,19 +12,16 @@ const MessageTools = ({ messageDetails, updateMessage }) => {
 
   return (
     <Fragment>
-      {
-        (Me(mssg_by) || isAdmin()) &&
-          <FadeIn duration='300ms'>
-            <DeleteMessage
-              messageDetails={messageDetails}
-            />
-            <EditMessageTool
-              messageDetails={messageDetails}
-              updateMessage={updateMessage}
-            />
-            <ToolTip/>
-          </FadeIn>
-      }
+      {(Me(mssg_by) || isAdmin()) && (
+        <FadeIn duration="300ms">
+          <DeleteMessage messageDetails={messageDetails} />
+          <EditMessageTool
+            messageDetails={messageDetails}
+            updateMessage={updateMessage}
+          />
+          <ToolTip />
+        </FadeIn>
+      )}
     </Fragment>
   )
 }
@@ -34,7 +31,7 @@ MessageTools.propTypes = {
     message_id: PropTypes.number.isRequired,
     message: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,
-    mssg_by: PropTypes.number.isRequired
+    mssg_by: PropTypes.number.isRequired,
   }).isRequired,
   updateMessage: PropTypes.func.isRequired,
 }

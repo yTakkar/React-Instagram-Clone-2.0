@@ -14,9 +14,7 @@ describe('BannerAddToFavs Component', () => {
 
   const comp = (
     <Provider store={mockStore}>
-      <BannerAddToFavs
-        toggleOptions={mockFn}
-      />
+      <BannerAddToFavs toggleOptions={mockFn} />
     </Provider>
   )
 
@@ -27,13 +25,10 @@ describe('BannerAddToFavs Component', () => {
 
   it('should mock addToFavs action when option is clicked', () => {
     const wrapper = shallow(
-      <PureBannerAddToFavs
-        toggleOptions={mockFn}
-        id={7}
-      />
+      <PureBannerAddToFavs toggleOptions={mockFn} id={7} />
     )
     wrapper.find('.add_fav').simulate('click', {
-      preventDefault() {}
+      preventDefault() {},
     })
   })
 
@@ -42,5 +37,4 @@ describe('BannerAddToFavs Component', () => {
     const tree = create(comp).toJSON()
     expect(tree).toMatchSnapshot()
   })
-
 })

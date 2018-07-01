@@ -5,7 +5,7 @@ import AppLink from '../../../others/link/link'
 const NotificationTypeProfile = ({ user_username }) => (
   <AppLink
     url={`/profile/${user_username}`}
-    className='pri_btn'
+    className="pri_btn"
     label={`View ${user_username}`}
   />
 )

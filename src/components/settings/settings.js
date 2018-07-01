@@ -8,7 +8,6 @@ import SettingsRoutes from './settings-routes'
 
 @connect()
 export default class Settings extends Component {
-
   componentDidMount = () => {
     let { dispatch } = this.props
     dispatch(getUnreadNotifications())
@@ -16,20 +15,20 @@ export default class Settings extends Component {
   }
 
   render() {
-    let { match: { url } } = this.props
+    let {
+      match: { url },
+    } = this.props
 
     return (
       <div>
-        <FadeIn duration='300ms'>
-
-          <div className='senapati'>
-            <div className='srajkumar settings_srajkumar'>
+        <FadeIn duration="300ms">
+          <div className="senapati">
+            <div className="srajkumar settings_srajkumar">
               <SettingsNav url={url} />
             </div>
 
             <SettingsRoutes url={url} />
           </div>
-
         </FadeIn>
       </div>
     )

@@ -13,9 +13,8 @@ import IsLoading from '../../../others/isLoading'
 import classNames from 'classnames'
 
 class Tagged extends Component {
-
   state = {
-    loading: true
+    loading: true,
   }
 
   componentDidMount = () => {
@@ -24,40 +23,41 @@ class Tagged extends Component {
   }
 
   componentWillReceiveProps = ({ dispatch, ud }) => {
-    this.props.ud != ud
-      ? dispatch(getTaggedPosts(ud.id))
-      : null
+    this.props.ud != ud ? dispatch(getTaggedPosts(ud.id)) : null
     this.setState({ loading: false })
   }
 
   componentDidUpdate = () => bottomScroll()
 
   render() {
-    let
-      { loading } = this.state,
-      { tagged, param: username, ud: { id } } = this.props,
+    let { loading } = this.state,
+      {
+        tagged,
+        param: username,
+        ud: { id },
+      } = this.props,
       len = tagged.length,
-      map_posts = tagged.map(p =>
-        <Post key={p.post_id} {...p} when='tagged' />
-      )
+      map_posts = tagged.map(p => <Post key={p.post_id} {...p} when="tagged" />)
 
     return (
       <div>
-        <FadeIn duration='300ms' >
-
+        <FadeIn duration="300ms">
           <IsLoading loading={loading} />
 
           <Title value={`${username}'s tagged posts`} />
 
           <div
-            className={classNames('senapati', 'pro_senapati', cLoading(loading))}
+            className={classNames(
+              'senapati',
+              'pro_senapati',
+              cLoading(loading)
+            )}
           >
-
-            <div className='srajkumar'>
-              <Suggested when='profile' />
+            <div className="srajkumar">
+              <Suggested when="profile" />
             </div>
 
-            <div className='prajkumar'>
+            <div className="prajkumar">
               <MapPosts
                 posts={map_posts}
                 nothingMssg={
@@ -67,11 +67,9 @@ class Tagged extends Component {
                 }
               />
             </div>
-
           </div>
 
           <SectionsEnd len={len} loading={loading} />
-
         </FadeIn>
       </div>
     )
@@ -79,12 +77,12 @@ class Tagged extends Component {
 }
 
 Tagged.propTypes = {
-  param: PropTypes.string.isRequired
+  param: PropTypes.string.isRequired,
 }
 
 const mapStateToProps = store => ({
   ud: store.User.user_details,
-  tagged: store.Post.tagged
+  tagged: store.Post.tagged,
 })
 
 export default connect(mapStateToProps)(Tagged)

@@ -11,5 +11,5 @@ export default {
   tags: [],
   showOverlay: false,
   type: '',
-  group: null
+  group: null,
 }

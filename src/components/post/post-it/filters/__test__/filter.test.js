@@ -8,7 +8,7 @@ import Post from '../../../../../store/__mocks__/reducers/Post'
 
 describe('Filter Component', () => {
   const props = {
-    filter: 'filter-ashby'
+    filter: 'filter-ashby',
   }
 
   it('should match snapshot', () => {
@@ -30,5 +30,4 @@ describe('Filter Component', () => {
     )
     wrapper.find('.filter_div').simulate('click')
   })
-
 })

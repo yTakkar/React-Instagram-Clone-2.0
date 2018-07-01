@@ -7,12 +7,11 @@ import d from '../../../utils/API/DOM'
 import TextInput from '../input/text'
 
 export default class SearchFollowings extends Component {
-
   state = {
     value: '',
     data: [],
     followings: [],
-    selected: []
+    selected: [],
   }
 
   componentDidMount = async () => {
@@ -22,15 +21,14 @@ export default class SearchFollowings extends Component {
   }
 
   getFollowings = async e => {
-    let
-      value = e.target.value.trim(),
+    let value = e.target.value.trim(),
       { data } = this.state,
-      ff = !value ? [] : data.filter(f =>
-        f.follow_to_username.toLowerCase().includes(value)
-      )
+      ff = !value
+        ? []
+        : data.filter(f => f.follow_to_username.toLowerCase().includes(value))
     await this.setState({
       value,
-      followings: ff
+      followings: ff,
     })
   }
 
@@ -42,7 +40,7 @@ export default class SearchFollowings extends Component {
     this.setState({
       selected,
       value: '',
-      followings: []
+      followings: [],
     })
 
     new d('.p_add_taggings_text').focus()
@@ -51,10 +49,13 @@ export default class SearchFollowings extends Component {
     this.setState({ selected: f_users })
 
     /* eslint-disable indent */
-    when == 'tag' ? done(f_users)
-    : when == 'add_grp_members' ? done(user)
-    : when == 'new_con' ? done(user, username)
-    : null
+    when == 'tag'
+      ? done(f_users)
+      : when == 'add_grp_members'
+        ? done(user)
+        : when == 'new_con'
+          ? done(user, username)
+          : null
     /* eslint-enable indent */
   }
 
@@ -63,11 +64,10 @@ export default class SearchFollowings extends Component {
     let { placeholder, disabled } = this.props
 
     return (
-      <div className='search_followings' >
-
-        <div className='p_add_taggings' >
+      <div className="search_followings">
+        <div className="p_add_taggings">
           <TextInput
-            className='p_add_taggings_text'
+            className="p_add_taggings_text"
             placeholder={placeholder}
             disabled={disabled}
             value={value}
@@ -75,11 +75,7 @@ export default class SearchFollowings extends Component {
           />
         </div>
 
-        <MapSFUsers
-          followings={followings}
-          selectUser={this.selectUser}
-        />
-
+        <MapSFUsers followings={followings} selectUser={this.selectUser} />
       </div>
     )
   }
@@ -87,14 +83,12 @@ export default class SearchFollowings extends Component {
 
 SearchFollowings.defaulProps = {
   placeholder: 'Search',
-  disabled: false
+  disabled: false,
 }
 
 SearchFollowings.propTypes = {
-  when: PropTypes.oneOf([
-    'tag', 'add_grp_members', 'new_con'
-  ]).isRequired,
+  when: PropTypes.oneOf(['tag', 'add_grp_members', 'new_con']).isRequired,
   done: PropTypes.func.isRequired,
   placeholder: PropTypes.string,
-  disabled: PropTypes.bool
+  disabled: PropTypes.bool,
 }

@@ -12,9 +12,7 @@ describe('AboutConversation Component', () => {
   it('should match snapshot', () => {
     const tree = create(
       <Provider store={mockStore}>
-        <AboutConversation
-          back={mockFn}
-        />
+        <AboutConversation back={mockFn} />
       </Provider>
     ).toJSON()
     expect(tree).toMatchSnapshot()
@@ -31,5 +29,4 @@ describe('AboutConversation Component', () => {
     wrapper.setState({ loading: false })
     expect(wrapper.find('IsLoading').prop('loading')).toBe(false)
   })
-
 })

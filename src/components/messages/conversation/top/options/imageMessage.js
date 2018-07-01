@@ -14,19 +14,19 @@ const ImageMessage = ({ cd, toggleOptions, dispatch }) => {
       con_id,
       con_with,
       file: e.target.files[0],
-      dispatch
+      dispatch,
     })
   }
 
   return (
     <Fragment>
       <li>
-        <form className='mssg_add_img_form' >
+        <form className="mssg_add_img_form">
           <FileInput
-            value=''
+            value=""
             fileChange={message}
-            label='Send image'
-            labelClass='mssg_img'
+            label="Send image"
+            labelClass="mssg_img"
           />
         </form>
       </li>
@@ -35,12 +35,12 @@ const ImageMessage = ({ cd, toggleOptions, dispatch }) => {
 }
 
 ImageMessage.propTypes = {
-  toggleOptions: PropTypes.func.isRequired
+  toggleOptions: PropTypes.func.isRequired,
 }
 
-const mapStateToProps = state => (
-  { cd: state.Message.conDetails }
-)
+const mapStateToProps = state => ({
+  cd: state.Message.conDetails,
+})
 
 export default connect(mapStateToProps)(ImageMessage)
 export { ImageMessage as PureImageMessage }

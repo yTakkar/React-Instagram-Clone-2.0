@@ -9,19 +9,18 @@ import { shape, number, string, array } from 'prop-types'
 import AppLink from '../../../others/link/link'
 
 class PostBottom extends Component {
-
   state = {
-    comments_count: 0
+    comments_count: 0,
   }
 
   componentDidMount = () =>
     this.setState({
-      comments_count: this.props.postDetails.comments_count
+      comments_count: this.props.postDetails.comments_count,
     })
 
   incrementComments = () =>
     this.setState({
-      comments_count: ++this.state.comments_count
+      comments_count: ++this.state.comments_count,
     })
 
   render() {
@@ -29,40 +28,33 @@ class PostBottom extends Component {
     let {
       postDetails,
       postDetails: { post_id, when, comments },
-      session
+      session,
     } = this.props
 
     let childProps = {
       postDetails,
-      incrementComments: this.incrementComments
+      incrementComments: this.incrementComments,
     }
 
     return (
       <div>
         <AppLink
           url={`/post/${post_id}`}
-          className='p_comments'
-          label={ humanReadable(comments_count, 'comment') }
+          className="p_comments"
+          label={humanReadable(comments_count, 'comment')}
         />
-        <div className='p_cit'>
-          <div className='p_cit_img'>
+        <div className="p_cit">
+          <div className="p_cit_img">
             <img src={`/users/${session}/avatar.jpg`} />
           </div>
 
-          <div className='p_cit_main'>
-            <TextComment
-              {...childProps}
-            />
+          <div className="p_cit_main">
+            <TextComment {...childProps} />
 
-            <div className='p_cit_tool'>
-              <StickerComment
-                { ...childProps }
-              />
-              <ImageComment
-                { ...childProps }
-              />
+            <div className="p_cit_tool">
+              <StickerComment {...childProps} />
+              <ImageComment {...childProps} />
             </div>
-
           </div>
         </div>
 
@@ -73,7 +65,6 @@ class PostBottom extends Component {
             this.setState({ comments_count: --comments_count })
           }
         />
-
       </div>
     )
   }
@@ -85,12 +76,12 @@ PostBottom.propTypes = {
     post_id: number.isRequired,
     when: string.isRequired,
     user: number.isRequired,
-    comments: array
-  }).isRequired
+    comments: array,
+  }).isRequired,
 }
 
 const mapStateToProps = store => ({
-  session: store.User.session.id
+  session: store.User.session.id,
 })
 
 export default connect(mapStateToProps)(PostBottom)

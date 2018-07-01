@@ -14,9 +14,8 @@ import IsLoading from '../../others/isLoading'
 import Overlay from '../../others/overlay'
 
 class Sharers extends Component {
-
   state = {
-    loading: true
+    loading: true,
   }
 
   componentDidMount = () => {
@@ -24,44 +23,36 @@ class Sharers extends Component {
     dispatch(getPostSharers(post))
   }
 
-  componentWillReceiveProps = () =>
-    this.setState({ loading: false })
+  componentWillReceiveProps = () => this.setState({ loading: false })
 
   componentDidUpdate = () => llr()
 
   render() {
-    let
-      { loading } = this.state,
+    let { loading } = this.state,
       { sharers, decrementSharers, back } = this.props,
-      map_sharers = sharers.map(s =>
-        <Sharer
-          key={s.share_id}
-          {...s}
-          decrementSharers={decrementSharers}
-        />
-      )
+      map_sharers = sharers.map(s => (
+        <Sharer key={s.share_id} {...s} decrementSharers={decrementSharers} />
+      ))
 
     return (
       <Fragment>
-        <Overlay/>
+        <Overlay />
 
-        <div className='modal modal_big' >
+        <div className="modal modal_big">
+          <Title value="Post shared by" />
 
-          <Title value='Post shared by' />
+          <FadeIn duration="300ms">
+            <ModalHeader title="Post shared by" />
 
-          <FadeIn duration='300ms' >
-            <ModalHeader title='Post shared by' />
-
-            <Scrollbars style={{ height: 450 }} className='modal_middle' >
+            <Scrollbars style={{ height: 450 }} className="modal_middle">
               <IsLoading loading={loading} />
               <ModalMiddle loading={loading} list={map_sharers} />
             </Scrollbars>
 
-            <div className='modal_bottom'>
+            <div className="modal_bottom">
               <ModalBack back={back} />
             </div>
           </FadeIn>
-
         </div>
       </Fragment>
     )
@@ -71,11 +62,11 @@ class Sharers extends Component {
 Sharers.propTypes = {
   post: PropTypes.number.isRequired,
   back: PropTypes.func.isRequired,
-  decrementSharers: PropTypes.func.isRequired
+  decrementSharers: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = store => ({
-  sharers: store.Post.sharers
+  sharers: store.Post.sharers,
 })
 
 export default connect(mapStateToProps)(Sharers)

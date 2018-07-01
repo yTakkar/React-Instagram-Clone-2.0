@@ -7,18 +7,18 @@ import ExplorePhotos from './photos/explore-photos'
 import ExploreGroups from './groups/explore-groups'
 
 const ExploreRoutes = ({ url }) => (
-  <div className='exp_hmm'>
+  <div className="exp_hmm">
     <Switch>
       <Route path={`${url}`} exact component={ExploreUsers} />
       <Route path={`${url}/explore-photos`} component={ExplorePhotos} />
       <Route path={`${url}/explore-groups`} component={ExploreGroups} />
-      <Redirect to='/error' />
+      <Redirect to="/error" />
     </Switch>
   </div>
 )
 
 ExploreRoutes.propTypes = {
-  url: string.isRequired
+  url: string.isRequired,
 }
 
 export default ExploreRoutes

@@ -5,5 +5,5 @@ export default {
   profile_views: 0,
   favourites: [],
   usersToRecommend: [],
-  recommendations: []
+  recommendations: [],
 }

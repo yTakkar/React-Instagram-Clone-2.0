@@ -10,7 +10,7 @@ import User from '../../../../store/__mocks__/reducers/User'
 describe('PostItMiddle Component', () => {
   const comp = (
     <Provider store={mockStore}>
-      <PostItMiddle/>
+      <PostItMiddle />
     </Provider>
   )
 
@@ -28,15 +28,15 @@ describe('PostItMiddle Component', () => {
       />
     )
     const file = new Blob(['foo'], {
-      type: 'text/plain'
+      type: 'text/plain',
     })
 
     wrapper.find('FileInput').prop('fileChange')({
       preventDefault() {},
       target: {
         value: '',
-        files: [file]
-      }
+        files: [file],
+      },
     })
   })
 
@@ -45,5 +45,4 @@ describe('PostItMiddle Component', () => {
     const tree = create(comp).toJSON()
     expect(tree).toMatchSnapshot()
   })
-
 })

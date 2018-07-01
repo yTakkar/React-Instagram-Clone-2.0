@@ -8,7 +8,7 @@ import { shallow } from 'enzyme'
 describe('ChangeAccountType Component', () => {
   const comp = (
     <Provider store={mockStore}>
-      <ChangeAccountType/>
+      <ChangeAccountType />
     </Provider>
   )
 
@@ -17,14 +17,13 @@ describe('ChangeAccountType Component', () => {
     expect(tree).toMatchSnapshot()
   })
 
-  const simulate = (wrapper, type) => (
+  const simulate = (wrapper, type) =>
     wrapper.find('select').simulate('change', {
-      target: { value: type }
+      target: { value: type },
     })
-  )
 
   it('should change accountType when select is changed', () => {
-    const wrapper = shallow(<PureChangeAccountType/>)
+    const wrapper = shallow(<PureChangeAccountType />)
 
     simulate(wrapper, 'private')
     expect(wrapper.find('.type_indicator').text()).toEqual('private')
@@ -33,5 +32,4 @@ describe('ChangeAccountType Component', () => {
     simulate(wrapper, 'public')
     expect(wrapper.find('.type_indicator').text()).toEqual('public')
   })
-
 })

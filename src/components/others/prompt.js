@@ -8,9 +8,7 @@ import SecondaryButton from './button/secondary-btn'
 import Overlay from './overlay'
 
 export default class Prompt extends Component {
-
-  componentDidMount = () =>
-    new d('.prompt-done').focus()
+  componentDidMount = () => new d('.prompt-done').focus()
 
   close = e => {
     e.preventDefault()
@@ -18,43 +16,36 @@ export default class Prompt extends Component {
   }
 
   render() {
-    let {
-      title, content, actionText, action, blurred
-    } = this.props
+    let { title, content, actionText, action, blurred } = this.props
     let style = {
-      marginBottom: blurred ? 9 : 10
+      marginBottom: blurred ? 9 : 10,
     }
 
     return (
       <Fragment>
-        <Overlay/>
+        <Overlay />
 
-        <div className='prompt'>
-          <FadeIn duration='300ms'>
-
-            <div className='prompt-top'>
-              <span className='prompt-title'>{title}</span>
-              <span onClick={this.close} >
-                <MaterialIcon icon='close' />
+        <div className="prompt">
+          <FadeIn duration="300ms">
+            <div className="prompt-top">
+              <span className="prompt-title">{title}</span>
+              <span onClick={this.close}>
+                <MaterialIcon icon="close" />
               </span>
             </div>
 
-            <div className='prompt-middle' style={style} >
-              <span className='prompt-content'>{content}</span>
+            <div className="prompt-middle" style={style}>
+              <span className="prompt-content">{content}</span>
             </div>
 
-            <div className='prompt-bottom'>
-              <SecondaryButton
-                label='Cancel'
-                onClick={this.close}
-              />
+            <div className="prompt-bottom">
+              <SecondaryButton label="Cancel" onClick={this.close} />
               <PrimaryButton
                 label={actionText}
                 onClick={action}
-                extraClass='prompt-done'
+                extraClass="prompt-done"
               />
             </div>
-
           </FadeIn>
         </div>
       </Fragment>
@@ -68,7 +59,7 @@ Prompt.defaultProps = {
   actionText: 'Action',
   action: () => null,
   back: () => null,
-  blurred: false // chrome blurs it, if blurred, set it true to remove it
+  blurred: false, // chrome blurs it, if blurred, set it true to remove it
 }
 
 Prompt.propTypes = {
@@ -77,5 +68,5 @@ Prompt.propTypes = {
   actionText: PropTypes.string.isRequired,
   action: PropTypes.func.isRequired,
   back: PropTypes.func.isRequired,
-  blurred: PropTypes.bool
+  blurred: PropTypes.bool,
 }

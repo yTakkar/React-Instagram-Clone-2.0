@@ -6,18 +6,14 @@ import SecondaryButton from '../../../others/button/secondary-btn'
 import PrimaryButton from '../../../others/button/primary-btn'
 
 export default class ShareList extends Component {
-
   state = {
-    didIShare: false
+    didIShare: false,
   }
 
-  componentDidMount = () =>
-    this.setState({ didIShare: this.props.didIShare })
+  componentDidMount = () => this.setState({ didIShare: this.props.didIShare })
 
   componentWillReceiveProps = ({ didIShare }) => {
-    this.props.didIShare != didIShare
-      ? this.setState({ didIShare })
-      : null
+    this.props.didIShare != didIShare ? this.setState({ didIShare }) : null
   }
 
   share = async e => {
@@ -30,7 +26,7 @@ export default class ShareList extends Component {
       done: () => {
         incrementShares()
         this.setState({ didIShare: true })
-      }
+      },
     })
   }
 
@@ -43,7 +39,7 @@ export default class ShareList extends Component {
       done: () => {
         this.setState({ didIShare: false })
         decrementShares()
-      }
+      },
     })
   }
 
@@ -52,36 +48,32 @@ export default class ShareList extends Component {
     let { didIShare } = this.state
 
     return (
-      <div className='modal_items'>
-        <div className='modal_it_img'>
+      <div className="modal_items">
+        <div className="modal_it_img">
           <img src={`/users/${follow_to}/avatar.jpg`} />
         </div>
 
-        <div className='modal_it_content '>
-          <ModalItemInfo
-            info={{ username, firstname, surname }}
-          />
+        <div className="modal_it_content ">
+          <ModalItemInfo info={{ username, firstname, surname }} />
 
-          <div className='modal_ff'>
-            {
-              didIShare
-                ? <SecondaryButton
-                  label='Unshare'
-                  onClick={this.unshare}
-                  extraClass='share_btn'
-                />
-
-                : <PrimaryButton
-                  label='Share'
-                  onClick={this.share}
-                  extraClass='share_btn'
-                />
-            }
+          <div className="modal_ff">
+            {didIShare ? (
+              <SecondaryButton
+                label="Unshare"
+                onClick={this.unshare}
+                extraClass="share_btn"
+              />
+            ) : (
+              <PrimaryButton
+                label="Share"
+                onClick={this.share}
+                extraClass="share_btn"
+              />
+            )}
           </div>
-
         </div>
 
-        <hr/>
+        <hr />
       </div>
     )
   }

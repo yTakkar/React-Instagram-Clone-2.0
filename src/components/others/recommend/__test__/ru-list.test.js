@@ -5,7 +5,6 @@ import mockStore from '../../../../store/__mocks__/mockStore'
 import mockFollowState from '../../../../store/__mocks__/reducers/Follow'
 
 describe('RecommendUsers-List Component', () => {
-
   it('should match snapshot', () => {
     const tree = create(
       <RecommendUsersList
@@ -15,5 +14,4 @@ describe('RecommendUsers-List Component', () => {
     ).toJSON()
     expect(tree).toMatchSnapshot()
   })
-
 })

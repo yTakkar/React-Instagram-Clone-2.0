@@ -15,15 +15,12 @@ describe('Notification Component', () => {
     user_username: '',
     post_id: 0,
     group_id: 0,
-    isFollowing: false
+    isFollowing: false,
   }
 
-  const comp = (extraProps={}) => (
-    <Provider store={mockStore} >
-      <Notification
-        {...props}
-        {...extraProps}
-      />
+  const comp = (extraProps = {}) => (
+    <Provider store={mockStore}>
+      <Notification {...props} {...extraProps} />
     </Provider>
   )
 
@@ -35,7 +32,7 @@ describe('Notification Component', () => {
   it('should match snapshot with tag notification', () => {
     const ep = {
       type: 'tag',
-      post_id: 23
+      post_id: 23,
     }
     const tree = create(comp(ep)).toJSON()
     expect(tree).toMatchSnapshot()
@@ -45,7 +42,7 @@ describe('Notification Component', () => {
     const ep = {
       type: 'recommend',
       user: 8,
-      user_username: 'coldplay'
+      user_username: 'coldplay',
     }
     const tree = create(comp(ep)).toJSON()
     expect(tree).toMatchSnapshot()
@@ -77,5 +74,4 @@ describe('Notification Component', () => {
     const tree = create(comp(ep)).toJSON()
     expect(tree).toMatchSnapshot()
   })
-
 })

@@ -9,22 +9,14 @@ describe('Map-Avatars Component', () => {
 
   it('should match snapshot with Spinner', () => {
     const tree = create(
-      <MapAvatars
-        avatars={[]}
-        loading
-        selectAvatar={mockFn}
-      />
+      <MapAvatars avatars={[]} loading selectAvatar={mockFn} />
     ).toJSON()
     expect(tree).toMatchSnapshot()
   })
 
   it('should match snapshot and show avatars list', () => {
     const tree = create(
-      <MapAvatars
-        loading={false}
-        avatars={avatars}
-        selectAvatar={mockFn}
-      />
+      <MapAvatars loading={false} avatars={avatars} selectAvatar={mockFn} />
     ).toJSON()
     expect(tree).toMatchSnapshot()
   })
@@ -35,19 +27,22 @@ describe('Map-Avatars Component', () => {
       <MapAvatars
         loading={false}
         avatars={avatars}
-        selectAvatar={avatar =>
-          selectedAvatar = avatar
-        }
+        selectAvatar={avatar => (selectedAvatar = avatar)}
       />
     )
 
     // when clicked on the first avatar
-    wrapper.find('.pro_ava_avts').first().simulate('click')
+    wrapper
+      .find('.pro_ava_avts')
+      .first()
+      .simulate('click')
     expect(selectedAvatar).toEqual(avatars[0])
 
     // when clicked on the third avatar
-    wrapper.find('.pro_ava_avts').at(2).simulate('click')
+    wrapper
+      .find('.pro_ava_avts')
+      .at(2)
+      .simulate('click')
     expect(selectedAvatar).toEqual(avatars[2])
   })
-
 })

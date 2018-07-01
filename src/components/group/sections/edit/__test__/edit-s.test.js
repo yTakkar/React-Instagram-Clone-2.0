@@ -13,7 +13,7 @@ describe('EditGroup Component', () => {
   it('should match snapshot', () => {
     const tree = create(
       <Provider store={mockStore}>
-        <EditGroup/>
+        <EditGroup />
       </Provider>
     ).toJSON()
     expect(tree).toMatchSnapshot()
@@ -21,14 +21,10 @@ describe('EditGroup Component', () => {
 
   it('should mock updateGroup action when button is clicked', () => {
     const wrapper = shallow(
-      <PureEditGroup
-        gd={Group.group_details}
-        dispatch={jest.fn()}
-      />
+      <PureEditGroup gd={Group.group_details} dispatch={jest.fn()} />
     )
     wrapper.find('SecondaryButton').simulate('click', {
-      preventDefault() {}
+      preventDefault() {},
     })
   })
-
 })

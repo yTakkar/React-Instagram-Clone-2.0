@@ -11,29 +11,22 @@ describe('EditPost Component', () => {
     post: 14,
     description: 'some desc',
     back: mockFn,
-    changeDesc: mockFn
+    changeDesc: mockFn,
   }
 
   it('should match snapshot', () => {
     const tree = create(
       <Provider store={mockStore}>
-        <EditPost
-          {...props}
-        />
+        <EditPost {...props} />
       </Provider>
     ).toJSON()
     expect(tree).toMatchSnapshot()
   })
 
   it('should mock updatePost action when button is clicked', () => {
-    const wrapper = shallow(
-      <PureEditPost
-        {...props}
-      />
-    )
+    const wrapper = shallow(<PureEditPost {...props} />)
     wrapper.find('PrimaryButton').simulate('click', {
-      preventDefault() {}
+      preventDefault() {},
     })
   })
-
 })

@@ -11,13 +11,13 @@ const BannerOptions = ({ toggleOptions }) => (
   <Fragment>
     <ul>
       <BannerBlockUser toggleOptions={toggleOptions} />
-      <BannerRecommendUser toggleOptions={toggleOptions}  />
+      <BannerRecommendUser toggleOptions={toggleOptions} />
       <BannerAddToFavs toggleOptions={toggleOptions} />
       <BannerMessageUser toggleOptions={toggleOptions} />
-      <BannerRemoveUser/>
+      <BannerRemoveUser />
       <CopyLink
         url={location.href}
-        label='Copy profile link'
+        label="Copy profile link"
         done={toggleOptions}
       />
     </ul>
@@ -25,7 +25,7 @@ const BannerOptions = ({ toggleOptions }) => (
 )
 
 BannerOptions.propTypes = {
-  toggleOptions: PropTypes.func.isRequired
+  toggleOptions: PropTypes.func.isRequired,
 }
 
 export default BannerOptions

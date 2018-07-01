@@ -19,7 +19,7 @@ export const geolocation = success => {
  */
 export const geolocationError = ({ code }) => {
   let mssg =
-    /* eslint-disable indent */
+    /* eslint-disable */
     code == 1 ? 'Location permission denied!!'
     : code == 2 ? 'Location signal lost!!'
     : code == 3 ? 'Location request timed out!!'
@@ -35,9 +35,10 @@ export const geolocationError = ({ code }) => {
  * @param {Object} pos
  */
 export const getAddress = async pos => {
-  let
-    { latitude, longitude } = pos.coords,
-    { data: { results } } = await post(
+  let { latitude, longitude } = pos.coords,
+    {
+      data: { results },
+    } = await post(
       `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${GOOGLE_GEOLOCATION_KEY}`
     ),
     loc = results[0].formatted_address

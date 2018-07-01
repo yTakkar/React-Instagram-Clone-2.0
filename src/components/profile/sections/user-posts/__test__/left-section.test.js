@@ -9,11 +9,9 @@ import User from '../../../../../store/__mocks__/reducers/User'
 describe('UserPostsLeftSection Component', () => {
   MockDataElement()
 
-  const comp = (username='takkar') => (
+  const comp = (username = 'takkar') => (
     <Provider store={mockStore}>
-      <UserPostsLeftSection
-        username={username}
-      />
+      <UserPostsLeftSection username={username} />
     </Provider>
   )
 
@@ -27,5 +25,4 @@ describe('UserPostsLeftSection Component', () => {
     const tree = create(comp('ghalib')).toJSON()
     expect(tree).toMatchSnapshot()
   })
-
 })

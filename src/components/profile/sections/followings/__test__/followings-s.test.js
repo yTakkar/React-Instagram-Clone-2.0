@@ -14,7 +14,7 @@ describe('Followings Component', () => {
   it('should match snapshot', () => {
     const tree = create(
       <Provider store={mockStore}>
-        <Followings param='takkar' />
+        <Followings param="takkar" />
       </Provider>
     ).toJSON()
     expect(tree).toMatchSnapshot()
@@ -24,7 +24,7 @@ describe('Followings Component', () => {
     const wrapper = shallow(
       <PureFollowings
         dispatch={jest.fn()}
-        param='ghalib'
+        param="ghalib"
         ud={User.user_details}
         followings={Follow.followings}
       />
@@ -32,5 +32,4 @@ describe('Followings Component', () => {
     wrapper.setState({ loading: false })
     expect(wrapper.find('IsLoading').prop('loading')).toBe(false)
   })
-
 })

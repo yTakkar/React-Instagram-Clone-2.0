@@ -14,9 +14,8 @@ import IsLoading from '../../../others/isLoading'
 import Overlay from '../../../others/overlay'
 
 class Share extends Component {
-
   state = {
-    loading: true
+    loading: true,
   }
 
   componentDidMount = () => {
@@ -24,18 +23,22 @@ class Share extends Component {
     dispatch(getUsersToShare(post))
   }
 
-  componentWillReceiveProps = () =>
-    this.setState({ loading: false })
+  componentWillReceiveProps = () => this.setState({ loading: false })
 
   componentDidUpdate = () => llr()
 
   render() {
     let { loading } = this.state
     let {
-      users, post, incrementShares, decrementShares, postOwner, back
+      users,
+      post,
+      incrementShares,
+      decrementShares,
+      postOwner,
+      back,
     } = this.props
 
-    let map_users = users.map(u =>
+    let map_users = users.map(u => (
       <ShareList
         key={u.follow_id}
         {...u}
@@ -44,29 +47,27 @@ class Share extends Component {
         decrementShares={decrementShares}
         postOwner={postOwner}
       />
-    )
+    ))
 
     return (
       <Fragment>
-        <Overlay/>
+        <Overlay />
 
-        <div className='modal modal_big' >
+        <div className="modal modal_big">
+          <Title value="Share post" />
 
-          <Title value='Share post' />
+          <FadeIn duration="300ms">
+            <ModalHeader title="Share post to" />
 
-          <FadeIn duration='300ms' >
-            <ModalHeader title='Share post to' />
-
-            <Scrollbars style={{ height: 450 }} className='modal_middle' >
+            <Scrollbars style={{ height: 450 }} className="modal_middle">
               <IsLoading loading={loading} />
               <ModalMiddle loading={loading} list={map_users} />
             </Scrollbars>
 
-            <div className='modal_bottom'>
+            <div className="modal_bottom">
               <ModalBack back={back} />
             </div>
           </FadeIn>
-
         </div>
       </Fragment>
     )
@@ -78,11 +79,11 @@ Share.propTypes = {
   postOwner: PropTypes.number.isRequired,
   back: PropTypes.func.isRequired,
   incrementShares: PropTypes.func.isRequired,
-  decrementShares: PropTypes.func.isRequired
+  decrementShares: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = store => ({
-  users: store.Post.usersToShare
+  users: store.Post.usersToShare,
 })
 
 export default connect(mapStateToProps)(Share)

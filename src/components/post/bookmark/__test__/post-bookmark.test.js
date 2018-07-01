@@ -10,16 +10,14 @@ describe('PostBookmark Component', () => {
   const props = {
     postDetails: {
       post_id: 13,
-      when: 'bookmark'
-    }
+      when: 'bookmark',
+    },
   }
 
   it('should match snapshot', () => {
     const tree = create(
       <Provider store={mockStore}>
-        <PostBookmark
-          {...props}
-        />
+        <PostBookmark {...props} />
       </Provider>
     ).toJSON()
     expect(tree).toMatchSnapshot()
@@ -27,10 +25,7 @@ describe('PostBookmark Component', () => {
 
   it('should show bookmark icon and mock bookmark action when bookmarked == false', () => {
     const wrapper = shallow(
-      <PurePostBookmark
-        {...props}
-        ud={User.user_details}
-      />
+      <PurePostBookmark {...props} ud={User.user_details} />
     )
     wrapper.setState({ bookmarked: false })
     expect(wrapper.find('.p_bookmark').exists()).toBe(true)
@@ -39,14 +34,10 @@ describe('PostBookmark Component', () => {
 
   it('should show unbookmark icon and mock unbookmark action when bookmarked == true', () => {
     const wrapper = shallow(
-      <PurePostBookmark
-        {...props}
-        ud={User.user_details}
-      />
+      <PurePostBookmark {...props} ud={User.user_details} />
     )
     wrapper.setState({ bookmarked: true })
     expect(wrapper.find('.undo_bookmark').exists()).toBe(true)
     wrapper.find('.undo_bookmark').simulate('click')
   })
-
 })

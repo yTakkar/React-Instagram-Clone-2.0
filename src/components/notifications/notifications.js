@@ -12,7 +12,6 @@ import IsLoading from '../others/isLoading'
 import { cLoading } from '../../utils/utils'
 
 class Notifications extends Component {
-
   state = { loading: true }
 
   componentDidMount = () => {
@@ -22,45 +21,35 @@ class Notifications extends Component {
     dispatch(getUnreadMessages())
   }
 
-  componentWillReceiveProps = () =>
-    this.setState({ loading: false })
+  componentWillReceiveProps = () => this.setState({ loading: false })
 
   render() {
-    let
-      { notifications } = this.props,
+    let { notifications } = this.props,
       { loading } = this.state,
       len = notifications.length,
-      map_n = notifications.map(n =>
-        <Notification key={n.notify_id} {...n} />
-      )
+      map_n = notifications.map(n => <Notification key={n.notify_id} {...n} />)
 
     return (
       <div>
-        <IsLoading loading={loading} when='page' />
+        <IsLoading loading={loading} when="page" />
 
-        <Title value='Notifications' />
+        <Title value="Notifications" />
 
-        <FadeIn duration='300ms' className={cLoading(loading)} >
-          <div className='notifications_div'>
-            <NotificationsHeader/>
-            {
-              len == 0
-                ? <Nothing mssg='You have no notifications!!' />
-                : map_n
-            }
-            { len != 0 && <End/> }
+        <FadeIn duration="300ms" className={cLoading(loading)}>
+          <div className="notifications_div">
+            <NotificationsHeader />
+            {len == 0 ? <Nothing mssg="You have no notifications!!" /> : map_n}
+            {len != 0 && <End />}
           </div>
-
         </FadeIn>
-
       </div>
     )
   }
 }
 
-const mapStateToProps = store => (
-  { notifications: store.Notification.notifications }
-)
+const mapStateToProps = store => ({
+  notifications: store.Notification.notifications,
+})
 
 export default connect(mapStateToProps)(Notifications)
 export { Notifications as PureNotifications }

@@ -10,13 +10,9 @@ describe('ConversationOptions Component', () => {
   it('should match snapshot', () => {
     const tree = create(
       <Provider store={mockStore}>
-        <ConversationOptions
-          toggleOptions={mockFn}
-          hideConversation={mockFn}
-        />
+        <ConversationOptions toggleOptions={mockFn} hideConversation={mockFn} />
       </Provider>
     ).toJSON()
     expect(tree).toMatchSnapshot()
   })
-
 })

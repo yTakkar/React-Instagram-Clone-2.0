@@ -4,10 +4,10 @@
 import initialState from './initialState'
 import * as methods from './methods'
 
-export default (state=initialState, action) => {
+export default (state = initialState, action) => {
   let py = action.payload
 
-  switch(action.type){
+  switch (action.type) {
     case 'GET_GROUP_DETAILS':
       return { ...state, group_details: py }
       break
@@ -23,7 +23,7 @@ export default (state=initialState, action) => {
     case 'UPDATE_GROUP':
       return {
         ...state,
-        group_details: methods.update(state.group_details, py)
+        group_details: methods.update(state.group_details, py),
       }
       break
 
@@ -34,7 +34,7 @@ export default (state=initialState, action) => {
     case 'REMOVE_MEMBER':
       return {
         ...state,
-        members: methods.remMember(state.members, py)
+        members: methods.remMember(state.members, py),
       }
       break
 
@@ -42,7 +42,7 @@ export default (state=initialState, action) => {
       return {
         ...state,
         mutualMembers: py.mutualMembers,
-        newestMembers: py.newestMembers
+        newestMembers: py.newestMembers,
       }
       break
 
@@ -53,7 +53,7 @@ export default (state=initialState, action) => {
     case 'LEFT_GROUP':
       return {
         ...state,
-        userGroups: methods.leftGroup(state.userGroups, py)
+        userGroups: methods.leftGroup(state.userGroups, py),
       }
       break
 

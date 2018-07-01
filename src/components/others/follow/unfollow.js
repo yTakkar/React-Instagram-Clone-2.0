@@ -8,8 +8,13 @@ import PrimaryButton from '../button/primary-btn'
  * If there's no need to update store, then only provide user (within userDetails) & followed arguements.
  */
 
-const Unfollow = ({ user, unfollowed, updateFollowings, updateFollowers, dispatch }) => {
-
+const Unfollow = ({
+  user,
+  unfollowed,
+  updateFollowings,
+  updateFollowers,
+  dispatch,
+}) => {
   let unfollowUser = e => {
     e.preventDefault()
     let obj = {
@@ -17,7 +22,7 @@ const Unfollow = ({ user, unfollowed, updateFollowings, updateFollowers, dispatc
       dispatch,
       update_followings: updateFollowings,
       update_followers: updateFollowers,
-      done: () => unfollowed()
+      done: () => unfollowed(),
     }
     unfollow(obj)
   }
@@ -25,9 +30,9 @@ const Unfollow = ({ user, unfollowed, updateFollowings, updateFollowers, dispatc
   return (
     <Fragment>
       <PrimaryButton
-        label='Unfollow'
+        label="Unfollow"
         onClick={unfollowUser}
-        extraClass='unfollow'
+        extraClass="unfollow"
       />
     </Fragment>
   )
@@ -35,14 +40,14 @@ const Unfollow = ({ user, unfollowed, updateFollowings, updateFollowers, dispatc
 
 Unfollow.defaultProps = {
   updateFollowings: false,
-  updateFollowers: false
+  updateFollowers: false,
 }
 
 Unfollow.propTypes = {
   user: number.isRequired,
   unfollowed: func.isRequired,
   updateFollowings: bool,
-  updateFollowers: bool
+  updateFollowers: bool,
 }
 
 export default connect()(Unfollow)

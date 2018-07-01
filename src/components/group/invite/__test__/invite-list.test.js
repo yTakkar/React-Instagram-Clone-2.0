@@ -8,23 +8,18 @@ describe('InviteList Component', () => {
   const props = {
     ...Group.usersToInvite[0],
     back: jest.fn(),
-    group: 45
+    group: 45,
   }
 
   it('should match snapshot', () => {
-    const tree = create(
-      <InviteList {...props} />
-    ).toJSON()
+    const tree = create(<InviteList {...props} />).toJSON()
     expect(tree).toMatchSnapshot()
   })
 
   it('should match snapshot', () => {
-    const wrapper = shallow(
-      <InviteList {...props} />
-    )
+    const wrapper = shallow(<InviteList {...props} />)
     wrapper.find('PrimaryButton').simulate('click', {
-      preventDefault() {}
+      preventDefault() {},
     })
   })
-
 })

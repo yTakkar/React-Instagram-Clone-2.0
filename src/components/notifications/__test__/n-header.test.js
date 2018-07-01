@@ -8,7 +8,7 @@ import Notification from '../../../store/__mocks__/reducers/Notification'
 describe('NotificationsHeader Component', () => {
   const comp = (
     <Provider store={mockStore}>
-      <NotificationsHeader/>
+      <NotificationsHeader />
     </Provider>
   )
 
@@ -22,5 +22,4 @@ describe('NotificationsHeader Component', () => {
     const tree = create(comp).toJSON()
     expect(tree).toMatchSnapshot()
   })
-
 })

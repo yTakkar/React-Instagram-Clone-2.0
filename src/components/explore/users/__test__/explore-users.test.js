@@ -9,8 +9,8 @@ import Explore from '../../../../store/__mocks__/reducers/Explore'
 
 describe('ExpUsers Component', () => {
   const comp = (
-    <Provider store={mockStore} >
-      <ExploreUsers/>
+    <Provider store={mockStore}>
+      <ExploreUsers />
     </Provider>
   )
 
@@ -27,15 +27,9 @@ describe('ExpUsers Component', () => {
 
   it('should hide spinner when loading = false', () => {
     const wrapper = shallow(
-      <PureExploreUsers
-        users={Explore.users}
-        dispatch={jest.fn()}
-      />
+      <PureExploreUsers users={Explore.users} dispatch={jest.fn()} />
     )
     wrapper.setState({ loading: false })
-    expect(
-      wrapper.find('IsLoading').prop('loading')
-    ).toEqual(false)
+    expect(wrapper.find('IsLoading').prop('loading')).toEqual(false)
   })
-
 })

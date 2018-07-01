@@ -17,22 +17,22 @@ import IsAdmin from './admin/is-admin'
 import Error from './error/error'
 
 const AppRoutes = () => (
-  <div className='badshah'>
+  <div className="badshah">
     <Switch>
-      <Route path='/' exact component={Home} />
-      <Route path='/profile/:username' component={Profile} />
-      <Route path='/error/:what' component={Error} />
-      <Route path='/email-verification/:is' component={EmailVerification} />
-      <Route path='/notifications' component={Notifications} />
-      <Route path='/edit-profile' component={EditProfile} />
-      <Route path='/post/:post_id' component={ViewPost} />
-      <Route path='/explore' component={Explore} />
-      <Route path='/settings' component={Settings} />
-      <Route path='/group/:grp_id' component={Group} />
-      <Route path='/messages' component={Messages} />
-      <Route path='/hashtag/:hashtag' component={Hashtag} />
-      <Route path='/admin-login' component={AdminLogin} />
-      <Route path='/is-admin' component={IsAdmin} />
+      <Route path="/" exact component={Home} />
+      <Route path="/profile/:username" component={Profile} />
+      <Route path="/error/:what" component={Error} />
+      <Route path="/email-verification/:is" component={EmailVerification} />
+      <Route path="/notifications" component={Notifications} />
+      <Route path="/edit-profile" component={EditProfile} />
+      <Route path="/post/:post_id" component={ViewPost} />
+      <Route path="/explore" component={Explore} />
+      <Route path="/settings" component={Settings} />
+      <Route path="/group/:grp_id" component={Group} />
+      <Route path="/messages" component={Messages} />
+      <Route path="/hashtag/:hashtag" component={Hashtag} />
+      <Route path="/admin-login" component={AdminLogin} />
+      <Route path="/is-admin" component={IsAdmin} />
       <Route component={Error} />
     </Switch>
   </div>

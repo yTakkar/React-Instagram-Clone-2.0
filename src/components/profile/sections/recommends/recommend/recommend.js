@@ -12,9 +12,8 @@ import RecommendBy from './recommend-by'
 import SecondaryButton from '../../../../others/button/secondary-btn'
 
 class RecommendList extends Component {
-
   state = {
-    showTime: false
+    showTime: false,
   }
 
   showTime = () => this.setState({ showTime: true })
@@ -36,13 +35,13 @@ class RecommendList extends Component {
       recommend_of_surname,
       recommend_by_username,
       recommend_time,
-      ud: { id }
+      ud: { id },
     } = this.props
     let { showTime } = this.state
 
     return (
       <div
-        className='m_on followers_m_on'
+        className="m_on followers_m_on"
         onMouseOver={this.showTime}
         onMouseOut={this.hideTime}
       >
@@ -51,27 +50,19 @@ class RecommendList extends Component {
             user: recommend_of,
             username: recommend_of_username,
             firstname: recommend_of_firstname,
-            surname: recommend_of_surname
+            surname: recommend_of_surname,
           }}
         />
 
-        <MonSticky
-          show={showTime}
-          text={TimeAgo(recommend_time)}
-        />
+        <MonSticky show={showTime} text={TimeAgo(recommend_time)} />
 
-        <div className='m_bottom'>
+        <div className="m_bottom">
           <RecommendBy username={recommend_by_username} />
 
-          {
-            Me(id) &&
-              <SecondaryButton
-                label='Remove'
-                onClick={this.remRecommendation}
-              />
-          }
+          {Me(id) && (
+            <SecondaryButton label="Remove" onClick={this.remRecommendation} />
+          )}
         </div>
-
       </div>
     )
   }
@@ -90,7 +81,7 @@ RecommendList.propTypes = {
 }
 
 const mapStateToProps = store => ({
-  ud: store.User.user_details
+  ud: store.User.user_details,
 })
 
 export default connect(mapStateToProps)(RecommendList)

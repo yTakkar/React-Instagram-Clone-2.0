@@ -6,13 +6,12 @@ import ViewPost, { PureViewPost } from '../view-post'
 import { shallow } from 'enzyme'
 
 describe('ViewPost Component', () => {
-
   it('should match snapshot', () => {
     const tree = create(
       <Provider store={mockStore}>
         <ViewPost
           match={{
-            params: { post_id: 45 }
+            params: { post_id: 45 },
           }}
         />
       </Provider>
@@ -24,7 +23,7 @@ describe('ViewPost Component', () => {
     const wrapper = shallow(
       <PureViewPost
         match={{
-          params: { post_id: 45 }
+          params: { post_id: 45 },
         }}
         dispatch={jest.fn()}
       />
@@ -32,5 +31,4 @@ describe('ViewPost Component', () => {
     wrapper.setState({ loading: false })
     expect(wrapper.find('IsLoading').prop('loading')).toBe(false)
   })
-
 })

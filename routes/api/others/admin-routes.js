@@ -4,8 +4,7 @@ const app = require('express').Router()
 
 // CHECKS IF USER US ADMIN [REQ = PASSWORD]
 app.post('/check-is-admin', async (req, res) => {
-  let
-    { password } = req.body,
+  let { password } = req.body,
     { ADMIN_PASSWORD } = process.env
 
   if (password != ADMIN_PASSWORD) {
@@ -14,10 +13,9 @@ app.post('/check-is-admin', async (req, res) => {
     req.session.isadmin = true
     res.json({
       mssg: 'Hello admin!!',
-      success: true
+      success: true,
     })
   }
-
 })
 
 // ADMIN LOGOUT

@@ -21,18 +21,20 @@ export const username_checker = el => {
       let html
 
       if (count == 0) {
-        html = '<span class="checker_text">username is available</span><span class="checker_icon"><i class="far fa-smile"></i></span>'
+        html =
+          '<span class="checker_text">username is available</span><span class="checker_icon"><i class="far fa-smile"></i></span>'
 
         uc.mutipleCSS({
           width: '160px',
-          right: '-188px'
+          right: '-188px',
         })
       } else {
-        html = '<span class="checker_text">username already taken</span><span class="checker_icon"><i class="far fa-frown"></i></span>'
+        html =
+          '<span class="checker_text">username already taken</span><span class="checker_icon"><i class="far fa-frown"></i></span>'
 
         uc.mutipleCSS({
           width: '167px',
-          right: '-194px'
+          right: '-194px',
         })
       }
 
@@ -42,9 +44,7 @@ export const username_checker = el => {
     }
   })
 
-  element.on('blur', () =>
-    uc.hide()
-  )
+  element.on('blur', () => uc.hide())
 }
 
 /**
@@ -58,8 +58,7 @@ export const username_checker = el => {
  * @param {String} options.defBtnValue
  */
 export const commonLogin = options => {
-  let
-    { data, btn, url, redirect, defBtnValue } = options,
+  let { data, btn, url, redirect, defBtnValue } = options,
     overlay2 = new d('.overlay-2'),
     button = new d(btn),
     action = new Action(btn)
@@ -68,20 +67,21 @@ export const commonLogin = options => {
 
   post(url, data)
     .then(s => {
-      let { data: { mssg, success } } = s
+      let {
+        data: { mssg, success },
+      } = s
 
       if (success) {
         Notify({
           value: mssg,
-          done: () => location.href = redirect
+          done: () => (location.href = redirect),
         })
 
         button.setValue('Redirecting..')
         overlay2.show()
-
       } else {
         Notify({
-          value: ObjectMssg(mssg)
+          value: ObjectMssg(mssg),
         })
 
         action.end(defBtnValue)

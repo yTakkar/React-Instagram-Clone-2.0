@@ -5,15 +5,12 @@ import SecondaryButton from '../../others/button/secondary-btn'
 
 const CreateGroupActions = ({ back, create, name }) => (
   <Fragment>
-    <SecondaryButton
-      label='Back'
-      onClick={back}
-    />
+    <SecondaryButton label="Back" onClick={back} />
     <PrimaryButton
-      label='Create group'
+      label="Create group"
       onClick={create}
       disabled={!name}
-      extraClass='c_g_update'
+      extraClass="c_g_update"
     />
   </Fragment>
 )
@@ -21,7 +18,7 @@ const CreateGroupActions = ({ back, create, name }) => (
 CreateGroupActions.propTypes = {
   back: PropTypes.func.isRequired,
   create: PropTypes.func.isRequired,
-  name: PropTypes.string.isRequired
+  name: PropTypes.string.isRequired,
 }
 
 export default CreateGroupActions

@@ -7,15 +7,13 @@ import PrimaryButton from '../../../others/button/primary-btn'
 import { fieldsToArray } from '../../../../utils/edit-profile-utils'
 
 export default class ChangePassword extends Component {
-
   state = {
     oldP: '',
     newP: '',
-    newPagain: ''
+    newPagain: '',
   }
 
-  changeValue = (what, e) =>
-    this.setState({ [what]: e.target.value })
+  changeValue = (what, e) => this.setState({ [what]: e.target.value })
 
   change = e => {
     e.preventDefault()
@@ -25,8 +23,10 @@ export default class ChangePassword extends Component {
 
   decideLabel = key => {
     let label =
-      key == 'oldP' ? 'Current password'
-        : key == 'newP' ? 'New password'
+      key == 'oldP'
+        ? 'Current password'
+        : key == 'newP'
+          ? 'New password'
           : 'Confirm new password'
 
     return label
@@ -56,26 +56,23 @@ export default class ChangePassword extends Component {
 
     return (
       <div>
-        <Title value='Change password' />
+        <Title value="Change password" />
 
-        <FadeIn duration='300ms'>
-
-          <div className='change_pass'>
-            <div className='c_p_header'>
+        <FadeIn duration="300ms">
+          <div className="change_pass">
+            <div className="c_p_header">
               <span>CHANGE PASSWORD</span>
             </div>
 
-            <div className='c_p_main'>
-              { mappedFields }
+            <div className="c_p_main">
+              {mappedFields}
               <PrimaryButton
-                label='Change password'
+                label="Change password"
                 onClick={this.change}
-                extraClass='c_p_btn'
+                extraClass="c_p_btn"
               />
             </div>
-
           </div>
-
         </FadeIn>
       </div>
     )

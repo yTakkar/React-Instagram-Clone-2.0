@@ -6,14 +6,10 @@ import Post from '../post'
 import MockPostData from '../../../../store/__mocks__/reducers/Post'
 
 describe('Post Component', () => {
-
   it('should match snapshot', () => {
     const tree = create(
       <Provider store={mockStore}>
-        <Post
-          {...MockPostData.feed[0]}
-          when='feed'
-        />
+        <Post {...MockPostData.feed[0]} when="feed" />
       </Provider>
     ).toJSON()
     expect(tree).toMatchSnapshot()
@@ -22,13 +18,9 @@ describe('Post Component', () => {
   it('should match snapshot with comments', () => {
     const tree = create(
       <Provider store={mockStore}>
-        <Post
-          {...MockPostData.viewPost}
-          when='viewPost'
-        />
+        <Post {...MockPostData.viewPost} when="viewPost" />
       </Provider>
     ).toJSON()
     expect(tree).toMatchSnapshot()
   })
-
 })

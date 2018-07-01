@@ -7,28 +7,20 @@ describe('Follow-Section-End Component', () => {
   const props = {
     loading: false,
     len: 0,
-    when: 'followers'
+    when: 'followers',
   }
 
   it('should match snapshot and show Nothing component', () => {
     const tree = create(
-      <FollowSectionEnd
-        {...props}
-        store={mockStore}
-      />
+      <FollowSectionEnd {...props} store={mockStore} />
     ).toJSON()
     expect(tree).toMatchSnapshot()
   })
 
   it('should match snapshot and show End component', () => {
     const tree = create(
-      <FollowSectionEnd
-        {...props}
-        len={10}
-        store={mockStore}
-      />
+      <FollowSectionEnd {...props} len={10} store={mockStore} />
     ).toJSON()
     expect(tree).toMatchSnapshot()
   })
-
 })

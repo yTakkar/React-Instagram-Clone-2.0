@@ -10,7 +10,7 @@ describe('Untag Component', () => {
   const props = {
     post_id: 44,
     user: 7,
-    decrementTags: mockFn
+    decrementTags: mockFn,
   }
 
   it('should match snapshot', () => {
@@ -23,15 +23,9 @@ describe('Untag Component', () => {
   })
 
   it('should mock untag action', () => {
-    const wrapper = shallow(
-      <PureUntag
-        {...props}
-        dispatch={mockFn}
-      />
-    )
+    const wrapper = shallow(<PureUntag {...props} dispatch={mockFn} />)
     wrapper.find('SecondaryButton').simulate('click', {
-      preventDefault() {}
+      preventDefault() {},
     })
   })
-
 })

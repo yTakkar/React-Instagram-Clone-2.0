@@ -14,10 +14,12 @@ import Action from './API/Action'
 export const addUserTags = options => {
   let { value, user, dispatch } = options
   if (value) {
-    dispatch(addTag({
-      user,
-      tag: value
-    }))
+    dispatch(
+      addTag({
+        user,
+        tag: value,
+      })
+    )
   } else {
     Notify({ value: 'Please enter a tag!!' })
   }
@@ -33,39 +35,41 @@ export const addUserTags = options => {
  * @param {String} options.values.email
  */
 export const editProfile = async options => {
-  let
-    {
-      susername, semail, values, values: { username, email }
+  let {
+      susername,
+      semail,
+      values,
+      values: { username, email },
     } = options,
-    { data: uCount} = await post(
-      '/api/what-exists', { what: 'username', value: username }
-    ),
-    { data: eCount } = await post(
-      '/api/what-exists', { what: 'email', value: email }
-    ),
+    { data: uCount } = await post('/api/what-exists', {
+      what: 'username',
+      value: username,
+    }),
+    { data: eCount } = await post('/api/what-exists', {
+      what: 'email',
+      value: email,
+    }),
     action = new Action('.edit_done')
 
   action.start('Processing..')
 
-  if(!username) {
+  if (!username) {
     Notify({ value: 'Username must not be empty!!' })
-  } else if(!email) {
+  } else if (!email) {
     Notify({ value: 'Email must not be empty!!' })
-  } else if(uCount == 1 && username != susername) {
+  } else if (uCount == 1 && username != susername) {
     Notify({ value: 'Username already exists!!' })
-  } else if(eCount == 1 && email != semail) {
+  } else if (eCount == 1 && email != semail) {
     Notify({ value: 'Email already exists!!' })
   } else {
-
     let {
-      data: { mssg, success }
+      data: { mssg, success },
     } = await post('/api/edit-profile', values)
 
     Notify({
       value: ObjectMssg(mssg),
-      done: () => success ? location.reload() : null
+      done: () => (success ? location.reload() : null),
     })
-
   }
 
   action.end('Done Editing')
@@ -80,7 +84,9 @@ export const resend_vl = async () => {
   action.start('Sending verification link..')
   wait()
 
-  let { data: { mssg } } = await post('/api/resend_vl')
+  let {
+    data: { mssg },
+  } = await post('/api/resend_vl')
 
   Notify({ value: mssg })
   action.end('Resend verification link')
@@ -97,7 +103,7 @@ export const fieldsToArray = fields => {
   for (let key in fields) {
     array.push({
       key,
-      value: fields[key]
+      value: fields[key],
     })
   }
 

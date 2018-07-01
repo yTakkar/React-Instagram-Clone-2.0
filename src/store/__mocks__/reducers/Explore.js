@@ -5,15 +5,15 @@ export default {
       username: 'ghalib',
       firstname: 'Mirza',
       surname: 'Ghalib',
-      mutualUsersCount: 1
+      mutualUsersCount: 1,
     },
     {
       id: 8,
       username: 'coldplay',
       firstname: 'cold',
       surname: 'play',
-      mutualUsersCount: 0
-    }
+      mutualUsersCount: 0,
+    },
   ],
   users: [
     {
@@ -30,8 +30,8 @@ export default {
       firstname: 'cold',
       surname: 'play',
       mutualUsersCount: 0,
-      followers_count: 4
-    }
+      followers_count: 4,
+    },
   ],
   groups: [
     {
@@ -51,7 +51,7 @@ export default {
       joined: false,
       membersCount: 4,
       mutualMembersCount: 0,
-    }
+    },
   ],
   photos: [
     {
@@ -63,6 +63,6 @@ export default {
       surname: 'Kinkade',
       post_id: 28,
       post_time: '1480114098767',
-    }
-  ]
+    },
+  ],
 }

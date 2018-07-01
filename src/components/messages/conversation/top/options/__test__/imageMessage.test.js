@@ -15,9 +15,7 @@ describe('ImageMessage Component', () => {
   it('should match snapshot', () => {
     const tree = create(
       <Provider store={mockStore}>
-        <ImageMessage
-          {...props}
-        />
+        <ImageMessage {...props} />
       </Provider>
     ).toJSON()
     expect(tree).toMatchSnapshot()
@@ -25,16 +23,11 @@ describe('ImageMessage Component', () => {
 
   it('should mock imageMessage action when file input is changed', () => {
     const wrapper = shallow(
-      <PureImageMessage
-        {...props}
-        cd={Message.conDetails}
-        dispatch={mockFn}
-      />
+      <PureImageMessage {...props} cd={Message.conDetails} dispatch={mockFn} />
     )
     wrapper.find('FileInput').prop('fileChange')({
       preventDefault() {},
-      target: { files: [] }
+      target: { files: [] },
     })
   })
-
 })

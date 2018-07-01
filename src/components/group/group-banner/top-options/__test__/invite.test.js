@@ -13,22 +13,17 @@ describe('InviteToGroup Component', () => {
   it('should match snapshot', () => {
     const tree = create(
       <Provider store={mockStore}>
-        <InviteToGroup/>
+        <InviteToGroup />
       </Provider>
     ).toJSON()
     expect(tree).toMatchSnapshot()
   })
 
   it('should show <Invite/> when invite option is clicked', () => {
-    const wrapper = shallow(
-      <PureInviteToGroup
-        gd={Group.group_details}
-      />
-    )
+    const wrapper = shallow(<PureInviteToGroup gd={Group.group_details} />)
     wrapper.find('li > a').simulate('click', {
-      preventDefault() {}
+      preventDefault() {},
     })
     expect(wrapper.find('Connect(Invite)').exists()).toBe(true)
   })
-
 })

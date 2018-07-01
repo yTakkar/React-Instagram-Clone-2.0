@@ -10,7 +10,7 @@ describe('Invite Component', () => {
   const mockFn = jest.fn()
   const props = {
     group: 11,
-    back: mockFn
+    back: mockFn,
   }
 
   it('should match snapshot', () => {
@@ -24,14 +24,9 @@ describe('Invite Component', () => {
 
   it('should match snapshot', () => {
     const wrapper = shallow(
-      <PureInvite
-        {...props}
-        users={Group.usersToInvite}
-        dispatch={mockFn}
-      />
+      <PureInvite {...props} users={Group.usersToInvite} dispatch={mockFn} />
     )
     wrapper.setState({ loading: false })
     expect(wrapper.find('IsLoading').prop('loading')).toBe(false)
   })
-
 })

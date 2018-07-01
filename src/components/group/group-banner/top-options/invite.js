@@ -3,7 +3,6 @@ import Invite from '../../invite/invite'
 import { connect } from 'react-redux'
 
 class InviteToGroup extends Component {
-
   state = {
     invite: false,
   }
@@ -20,29 +19,26 @@ class InviteToGroup extends Component {
 
   render() {
     let { invite } = this.state
-    let { gd: { group_id } } = this.props
+    let {
+      gd: { group_id },
+    } = this.props
 
     return (
       <Fragment>
-        <li><a
-          href='#'
-          onClick={this.showInviteModal}
-        >Invite to group</a></li>
+        <li>
+          <a href="#" onClick={this.showInviteModal}>
+            Invite to group
+          </a>
+        </li>
 
-        {
-          invite &&
-            <Invite
-              back={this.modalBack}
-              group={group_id}
-            />
-        }
+        {invite && <Invite back={this.modalBack} group={group_id} />}
       </Fragment>
     )
   }
 }
 
 const mapStateToProps = store => ({
-  gd: store.Group.group_details
+  gd: store.Group.group_details,
 })
 
 export default connect(mapStateToProps)(InviteToGroup)

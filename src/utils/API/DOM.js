@@ -22,8 +22,7 @@ class DOM {
   }
 
   // returns all DOM elements
-  toAll = () =>
-    document.querySelectorAll(this.element)
+  toAll = () => document.querySelectorAll(this.element)
 
   // Perform a function/method on element only if element is [not null/present]
   ifElement = fn => {
@@ -33,41 +32,31 @@ class DOM {
 
   // focuses the element
   focus = () => {
-    this.ifElement(() =>
-      this.toDOM().focus()
-    )
+    this.ifElement(() => this.toDOM().focus())
     return this
   }
 
   // blurs the element
   blur = () => {
-    this.ifElement(() =>
-      this.toDOM().blur()
-    )
+    this.ifElement(() => this.toDOM().blur())
     return this
   }
 
   // changes the text of the element
   text = t => {
-    this.ifElement(() =>
-      this.toDOM().innerText = t
-    )
+    this.ifElement(() => (this.toDOM().innerText = t))
     return this
   }
 
   // changes the html of the element
   html = body => {
-    this.ifElement(() =>
-      this.toDOM().innerHTML = body
-    )
+    this.ifElement(() => (this.toDOM().innerHTML = body))
     return this
   }
 
   // helper for adding or removing class
   doWhat = (operation, className) => {
-    let all = Array.from(
-      document.querySelectorAll(this.element)
-    )
+    let all = Array.from(document.querySelectorAll(this.element))
     for (let elem of all) {
       elem.classList[operation](className)
     }
@@ -75,81 +64,61 @@ class DOM {
 
   // adds a class to element
   addClass = className => {
-    this.ifElement(() =>
-      this.doWhat('add', className)
-    )
+    this.ifElement(() => this.doWhat('add', className))
     return this
   }
 
   // removes a class from the element
   removeClass = className => {
-    this.ifElement(() =>
-      this.doWhat('remove', className)
-    )
+    this.ifElement(() => this.doWhat('remove', className))
     return this
   }
 
   // toggle class of the element
   toggleClass = className => {
-    this.ifElement(() =>
-      this.toDOM().classList.toggle(className)
-    )
+    this.ifElement(() => this.toDOM().classList.toggle(className))
     return this
   }
 
   // returns the attribute of the element
   getAttr = attr => {
     let el = this.toDOM()
-    return el ?
-      el.getAttribute(attr)
-      : null
+    return el ? el.getAttribute(attr) : null
   }
 
   // sets/changes attributes of the element
   setAttr = (name, value) => {
-    this.ifElement(() =>
-      this.toDOM().setAttribute(name, value)
-    )
+    this.ifElement(() => this.toDOM().setAttribute(name, value))
     return this
   }
 
   // toggle (hide/show) element
   toggle = () => {
-    this.ifElement(() =>
-      toggle(this.toDOM())
-    )
+    this.ifElement(() => toggle(this.toDOM()))
     return this
   }
 
   // hides the element
   hide = () => {
-    this.ifElement(() =>
-      this.toDOM().style.display = 'none'
-    )
+    this.ifElement(() => (this.toDOM().style.display = 'none'))
     return this
   }
 
   // shows the element
   show = () => {
-    this.ifElement(() =>
-      this.toDOM().style.display = 'block'
-    )
+    this.ifElement(() => (this.toDOM().style.display = 'block'))
     return this
   }
 
   // Applies CSS to the element
   css = (styleName, styleValue) => {
-    this.ifElement(() =>
-      this.toDOM().style[styleName] = styleValue
-    )
+    this.ifElement(() => (this.toDOM().style[styleName] = styleValue))
     return this
   }
 
   // Applies multiple CSS rules to the element
   mutipleCSS = styles => {
-    this.ifElement(() =>
-      Object.assign(this.toDOM(), styles)
-    )
+    this.ifElement(() => Object.assign(this.toDOM(), styles))
     return this
   }
 
@@ -160,9 +129,7 @@ class DOM {
   }
 
   setValue = value => {
-    this.ifElement(() =>
-      this.toDOM().value = value
-    )
+    this.ifElement(() => (this.toDOM().value = value))
     return this
   }
 
@@ -176,10 +143,8 @@ class DOM {
   }
 
   // Scrolls to top
-  scrollTop = (behavior='smooth') => {
-    this.ifElement(() =>
-      this.toDOM().scrollIntoView({ behavior: behavior })
-    )
+  scrollTop = (behavior = 'smooth') => {
+    this.ifElement(() => this.toDOM().scrollIntoView({ behavior: behavior }))
     return this
   }
 
@@ -191,20 +156,15 @@ class DOM {
 
   // removes the element
   remove = () => {
-    this.ifElement(() =>
-      this.toDOM().remove()
-    )
+    this.ifElement(() => this.toDOM().remove())
     return this
   }
 
   // returns data of the element from dataset
   data = what => {
     let element = this.toDOM()
-    return element
-      ? element.dataset[what]
-      : null
+    return element ? element.dataset[what] : null
   }
-
 }
 
 const d = DOM

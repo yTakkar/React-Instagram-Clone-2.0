@@ -11,7 +11,7 @@ describe('Likes Component', () => {
   const props = {
     post: 44,
     back: mockFn,
-    decrementLikes: mockFn
+    decrementLikes: mockFn,
   }
 
   it('should match snapshot', () => {
@@ -25,14 +25,9 @@ describe('Likes Component', () => {
 
   it('should show spinner when loading == false', () => {
     const wrapper = shallow(
-      <PureLikes
-        {...props}
-        likes={Post.likes}
-        dispatch={mockFn}
-      />
+      <PureLikes {...props} likes={Post.likes} dispatch={mockFn} />
     )
     wrapper.setState({ loading: false })
     expect(wrapper.find('IsLoading').prop('loading')).toEqual(false)
   })
-
 })

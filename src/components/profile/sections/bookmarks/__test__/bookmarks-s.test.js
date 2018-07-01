@@ -14,7 +14,7 @@ describe('Bookmarks Component', () => {
   it('should match snapshot', () => {
     const tree = create(
       <Provider store={mockStore}>
-        <Bookmarks param='takkar' />
+        <Bookmarks param="takkar" />
       </Provider>
     ).toJSON()
     expect(tree).toMatchSnapshot()
@@ -24,7 +24,7 @@ describe('Bookmarks Component', () => {
     const wrapper = shallow(
       <PureBookmarks
         dispatch={jest.fn()}
-        param='ghalib'
+        param="ghalib"
         ud={User.user_details}
         bookmarks={Post.bookmarks}
       />
@@ -32,5 +32,4 @@ describe('Bookmarks Component', () => {
     wrapper.setState({ loading: false })
     expect(wrapper.find('IsLoading').prop('loading')).toBe(false)
   })
-
 })

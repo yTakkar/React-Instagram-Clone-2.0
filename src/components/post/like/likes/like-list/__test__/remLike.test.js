@@ -9,15 +9,13 @@ describe('RemoveLikeAsAdmin Component', () => {
   const mockFn = jest.fn()
   const props = {
     like_id: 44,
-    decrementLikes: mockFn
+    decrementLikes: mockFn,
   }
 
   it('should match snapshot', () => {
     const tree = create(
       <Provider store={mockStore}>
-        <RemoveLikeAsAdmin
-          {...props}
-        />
+        <RemoveLikeAsAdmin {...props} />
       </Provider>
     ).toJSON()
     expect(tree).toMatchSnapshot()
@@ -25,14 +23,10 @@ describe('RemoveLikeAsAdmin Component', () => {
 
   it('should mock removeLike action when button is clicked', () => {
     const wrapper = shallow(
-      <PureRemoveLikeAsAdmin
-        {...props}
-        dispatch={mockFn}
-      />
+      <PureRemoveLikeAsAdmin {...props} dispatch={mockFn} />
     )
     wrapper.find('SecondaryButton').simulate('click', {
-      preventDefault() {}
+      preventDefault() {},
     })
   })
-
 })

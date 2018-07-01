@@ -13,9 +13,7 @@ describe('PostItActions Component', () => {
   it('should match snapshot', () => {
     const tree = create(
       <Provider store={mockStore}>
-        <PostItActions
-          back={mockFn}
-        />
+        <PostItActions back={mockFn} />
       </Provider>
     ).toJSON()
     expect(tree).toMatchSnapshot()
@@ -31,11 +29,10 @@ describe('PostItActions Component', () => {
       />
     )
     wrapper.find('PrimaryButton').simulate('click', {
-      preventDefault() {}
+      preventDefault() {},
     })
     wrapper.find('SecondaryButton').simulate('click', {
-      preventDefault() {}
+      preventDefault() {},
     })
   })
-
 })

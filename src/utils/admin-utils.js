@@ -11,8 +11,7 @@ import Action from './API/Action'
  * @param {String} options.search
  */
 export const adminSubmit = async options => {
-  let
-    { password, search } = options,
+  let { password, search } = options,
     toURL = qs.parse(search),
     action = new Action('.al_submit')
 
@@ -22,24 +21,20 @@ export const adminSubmit = async options => {
     action.start('Please wait..')
 
     let {
-      data: { mssg, success }
+      data: { mssg, success },
     } = await post('/api/check-is-admin', { password })
     let to = toURL.to ? toURL.to : '/is-admin'
 
     Notify({
       value: mssg,
-      done: () => success ? location.href = to : null
+      done: () => (success ? (location.href = to) : null),
     })
 
     action.end('Continue as admin')
   }
-
 }
 
 /**
  * Returns if user is admin of the app
  */
-export const isAdmin = () =>
-  uData('isadmin') == 'true'
-    ? true
-    : false
+export const isAdmin = () => (uData('isadmin') == 'true' ? true : false)

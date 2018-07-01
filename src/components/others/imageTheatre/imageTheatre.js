@@ -10,27 +10,19 @@ const ImageTheatre = props => {
 
   return (
     <Fragment>
-      <Overlay
-        close_on_click
-        close={back}
-        opacity={0.9}
-      />
+      <Overlay close_on_click close={back} opacity={0.9} />
 
-      <div className='image_show'>
-        <FadeIn duration='300ms'>
-
-          <div className='img_s_img'>
+      <div className="image_show">
+        <FadeIn duration="300ms">
+          <div className="img_s_img">
             <img src={imgSrc} className={filter} />
 
-            <ImageTheatreInfo
-              {...props}
-            />
+            <ImageTheatreInfo {...props} />
           </div>
 
-          <ToolTip/>
+          <ToolTip />
         </FadeIn>
       </div>
-
     </Fragment>
   )
 }
@@ -38,7 +30,7 @@ const ImageTheatre = props => {
 ImageTheatre.defaultProps = {
   showInfo: true,
   imgSrc: '/images/location.jpg',
-  filter: ''
+  filter: '',
 }
 
 ImageTheatre.propTypes = {

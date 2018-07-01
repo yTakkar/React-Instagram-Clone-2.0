@@ -1,0 +1,297 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Conversation Component should match snapshot 1`] = `
+<div>
+  <div
+    className="spinner"
+  >
+    <span />
+    <span />
+    <span />
+  </div>
+  <div
+    className="mssg_messages cLoading"
+  >
+    <div
+      style={
+        Object {
+          "animation": "bcCCNc 300ms ease 0s 1 normal none running",
+          "backfaceVisibility": "visible",
+        }
+      }
+    >
+      <div
+        className="m_m_top"
+      >
+        <div>
+          <img
+            className="con_with_avatar"
+            src="/users/28/avatar.jpg"
+          />
+          <div
+            className="m_m_t_c"
+          >
+            <Link
+              className="con_name"
+              to="/profile/selena"
+            >
+              selena
+            </Link>
+            <span
+              className="m_m_t_useless"
+            >
+              Last active a month ago
+            </span>
+          </div>
+        </div>
+        <span
+          className="m_m_exp"
+          data-tip="Options"
+          onClick={[Function]}
+        >
+          <i
+            className="material-icons"
+          >
+            expand_more
+          </i>
+        </span>
+      </div>
+      <div
+        className="m_m_wrapper"
+        style={
+          Object {
+            "height": 390,
+            "overflow": "hidden",
+            "position": "relative",
+            "width": "100%",
+          }
+        }
+      >
+        <div
+          style={
+            Object {
+              "WebkitOverflowScrolling": "touch",
+              "bottom": 0,
+              "left": 0,
+              "marginBottom": 0,
+              "marginRight": 0,
+              "overflow": "scroll",
+              "position": "absolute",
+              "right": 0,
+              "top": 0,
+            }
+          }
+        >
+          <div
+            className="m_m_main"
+          >
+            <div
+              style={
+                Object {
+                  "animation": "bcCCNc 300ms ease 0s 1 normal none running",
+                  "backfaceVisibility": "visible",
+                }
+              }
+            >
+              <div>
+                <div
+                  className="m_m_divs not_my_mm_div"
+                >
+                  <div
+                    className="toggle_mssg_tools"
+                    onClick={[Function]}
+                  >
+                    <div
+                      className="m_m"
+                      title="a month ago"
+                    >
+                      <img
+                        className="m_m_sticker"
+                        src="/messages/instagram_message_1525091176544.jpg"
+                      />
+                    </div>
+                  </div>
+                  <span
+                    className="m_m_time"
+                  >
+                    a month
+                  </span>
+                </div>
+              </div>
+              <div>
+                <div
+                  className="m_m_divs not_my_mm_div"
+                >
+                  <div
+                    className="toggle_mssg_tools"
+                    onClick={[Function]}
+                  >
+                    <div
+                      className="m_m"
+                      title="a month ago"
+                    >
+                      <span>
+                        kjkjk 
+                      </span>
+                    </div>
+                  </div>
+                  <span
+                    className="m_m_time"
+                  >
+                    a month
+                  </span>
+                </div>
+              </div>
+              <div>
+                <div
+                  className="m_m_divs not_my_mm_div"
+                >
+                  <div
+                    className="toggle_mssg_tools"
+                    onClick={[Function]}
+                  >
+                    <div
+                      className="m_m"
+                      title="a month ago"
+                    >
+                      <img
+                        className="m_m_sticker"
+                        src="/messages/instagram_message_1525809886884.jpg"
+                      />
+                    </div>
+                  </div>
+                  <span
+                    className="m_m_time"
+                  >
+                    a month
+                  </span>
+                </div>
+              </div>
+              <div>
+                <div
+                  className="m_m_divs not_my_mm_div"
+                >
+                  <div
+                    className="toggle_mssg_tools"
+                    onClick={[Function]}
+                  >
+                    <div
+                      className="m_m"
+                      title="a month ago"
+                    >
+                      <img
+                        className="m_m_img"
+                        onClick={[Function]}
+                        src="/messages/instagram_message_1528278864884.jpg"
+                      />
+                    </div>
+                  </div>
+                  <span
+                    className="m_m_time"
+                  >
+                    a month
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div
+              className="mssg_end"
+            />
+          </div>
+        </div>
+        <div
+          style={
+            Object {
+              "borderRadius": 3,
+              "bottom": 2,
+              "display": "none",
+              "height": 6,
+              "left": 2,
+              "position": "absolute",
+              "right": 2,
+            }
+          }
+        >
+          <div
+            style={
+              Object {
+                "backgroundColor": "rgba(0,0,0,.2)",
+                "borderRadius": "inherit",
+                "cursor": "pointer",
+                "display": "block",
+                "height": "100%",
+                "position": "relative",
+              }
+            }
+          />
+        </div>
+        <div
+          style={
+            Object {
+              "borderRadius": 3,
+              "bottom": 2,
+              "display": "none",
+              "position": "absolute",
+              "right": 2,
+              "top": 2,
+              "width": 6,
+            }
+          }
+        >
+          <div
+            style={
+              Object {
+                "backgroundColor": "rgba(0,0,0,.2)",
+                "borderRadius": "inherit",
+                "cursor": "pointer",
+                "display": "block",
+                "position": "relative",
+                "width": "100%",
+              }
+            }
+          />
+        </div>
+      </div>
+      <div
+        className="m_m_bottom"
+      >
+        <form
+          className="add_mssg_form"
+          onSubmit={[Function]}
+        >
+          <textarea
+            className="send_mssg"
+            onChange={[Function]}
+            placeholder="Send message.."
+            required={true}
+            spellCheck="false"
+            value=""
+          />
+          <span
+            className="mssg_emoji_btn"
+            data-tip="Add emojis"
+            onClick={[Function]}
+          >
+            <i
+              className="material-icons"
+            >
+              sentiment_very_satisfied
+            </i>
+          </span>
+          <div
+            className="__react_component_tooltip place-top type-dark "
+            data-id="tooltip"
+          >
+            
+          </div>
+          <input
+            className="pri_btn mssg_send"
+            type="submit"
+            value="Send"
+          />
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+`;

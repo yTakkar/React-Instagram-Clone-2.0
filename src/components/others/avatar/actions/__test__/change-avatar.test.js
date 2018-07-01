@@ -11,7 +11,7 @@ describe('ChangeAvatar-Action Component', () => {
       <ChangeAvatarAction
         store={mockStore}
         change={false}
-        when='group'
+        when="group"
         back={mockFn}
       />
     ).toJSON()
@@ -20,14 +20,8 @@ describe('ChangeAvatar-Action Component', () => {
 
   it('should match snapshot with Avatars Component', () => {
     const tree = create(
-      <ChangeAvatarAction
-        change
-        when='user'
-        back={mockFn}
-        store={mockStore}
-      />
+      <ChangeAvatarAction change when="user" back={mockFn} store={mockStore} />
     ).toJSON()
     expect(tree).toMatchSnapshot()
   })
-
 })

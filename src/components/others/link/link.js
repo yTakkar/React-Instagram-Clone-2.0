@@ -8,11 +8,8 @@ class AppLink extends Component {
 
     return (
       <Fragment>
-        <Link
-          to={url}
-          {...props}
-        >
-          { children ? children : label }
+        <Link to={url} {...props}>
+          {children ? children : label}
         </Link>
       </Fragment>
     )
@@ -21,7 +18,7 @@ class AppLink extends Component {
 
 AppLink.defaultProps = {
   label: '',
-  url: ''
+  url: '',
 }
 
 AppLink.propTypes = {

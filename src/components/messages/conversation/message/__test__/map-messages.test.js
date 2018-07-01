@@ -6,11 +6,10 @@ import MapMessages from '../map-messages'
 import Message from '../../../../../store/__mocks__/reducers/Message'
 
 describe('MapMessages Component', () => {
-
   it('should match snapshot', () => {
     const tree = create(
       <Provider store={mockStore}>
-        <MapMessages/>
+        <MapMessages />
       </Provider>
     ).toJSON()
     expect(tree).toMatchSnapshot()
@@ -20,10 +19,9 @@ describe('MapMessages Component', () => {
     Message.messages = []
     const tree = create(
       <Provider store={mockStore}>
-        <MapMessages/>
+        <MapMessages />
       </Provider>
     ).toJSON()
     expect(tree).toMatchSnapshot()
   })
-
 })

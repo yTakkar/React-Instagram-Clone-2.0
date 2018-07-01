@@ -9,10 +9,7 @@ describe('MapSFUsers Component', () => {
 
   it('should match snapshot with null', () => {
     const tree = create(
-      <MapSFUsers
-        followings={[]}
-        selectUser={mockFn}
-      />
+      <MapSFUsers followings={[]} selectUser={mockFn} />
     ).toJSON()
     expect(tree).toMatchSnapshot()
   })
@@ -20,31 +17,25 @@ describe('MapSFUsers Component', () => {
   it('should match snapshot with list of 2 users', () => {
     const followings = users.slice(0, 2)
     const tree = create(
-      <MapSFUsers
-        followings={followings}
-        selectUser={mockFn}
-      />
+      <MapSFUsers followings={followings} selectUser={mockFn} />
     ).toJSON()
     expect(tree).toMatchSnapshot()
   })
 
-  it('should perform click event on the first user and return user\'s id & username', () => {
+  it("should perform click event on the first user and return user's id & username", () => {
     const followings = users.slice(0, 2)
     let selectedUser = {}
     const wrapper = shallow(
       <MapSFUsers
         followings={followings}
-        selectUser={(user, username) =>
-          selectedUser = { user, username }
-        }
+        selectUser={(user, username) => (selectedUser = { user, username })}
       />
     )
 
-    wrapper.find('li').first().simulate('click')
-    expect(selectedUser).toContainEntries([
-      [ 'user', 7 ],
-      [ 'username', 'ghalib' ]
-    ])
+    wrapper
+      .find('li')
+      .first()
+      .simulate('click')
+    expect(selectedUser).toContainEntries([['user', 7], ['username', 'ghalib']])
   })
-
 })

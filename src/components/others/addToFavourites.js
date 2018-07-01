@@ -5,7 +5,6 @@ import d from '../../utils/API/DOM'
 import SecondaryButton from './button/secondary-btn'
 
 const AddToFavourites = ({ user, username }) => {
-
   let add = e => {
     e.preventDefault()
     addToFavourites(user)
@@ -14,12 +13,9 @@ const AddToFavourites = ({ user, username }) => {
 
   return (
     <div>
-      <div className='recomm_teaser'>
+      <div className="recomm_teaser">
         <span>Wanna add {username} to your favourites list.</span>
-        <SecondaryButton
-          label='Add'
-          onClick={add}
-        />
+        <SecondaryButton label="Add" onClick={add} />
       </div>
     </div>
   )
@@ -27,7 +23,7 @@ const AddToFavourites = ({ user, username }) => {
 
 AddToFavourites.propTypes = {
   user: PropTypes.number,
-  username: PropTypes.string.isRequired
+  username: PropTypes.string.isRequired,
 }
 
 export default AddToFavourites

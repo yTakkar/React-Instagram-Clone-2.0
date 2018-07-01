@@ -8,12 +8,7 @@ import stickersMockArray from './stickers-mockArray'
 
 describe('Stickers Component', () => {
   const mockFn = jest.fn()
-  const comp = (
-    <Stickers
-      back={mockFn}
-      stickerSelected={mockFn}
-    />
-  )
+  const comp = <Stickers back={mockFn} stickerSelected={mockFn} />
 
   mockAxiosRequest('get-stickers', stickersMockArray)
 
@@ -26,17 +21,14 @@ describe('Stickers Component', () => {
     const wrapper = shallow(comp)
     wrapper.setState({ loading: false })
 
-    expect(
-      wrapper.find('IsLoading').prop('loading')
-    ).toBe(false)
+    expect(wrapper.find('IsLoading').prop('loading')).toBe(false)
   })
 
   it('should get stickers from API in componentDidMount', async () => {
     const wrapper = shallow(comp)
     await wrapper.instance().componentDidMount()
     expect(wrapper.state().stickers).toBeArray()
-    expect(wrapper.state().stickers)
-      .toIncludeAnyMembers([ stickers[0] ])
+    expect(wrapper.state().stickers).toIncludeAnyMembers([stickers[0]])
   })
 
   it('should perform some click actions', async () => {
@@ -46,15 +38,10 @@ describe('Stickers Component', () => {
     wrapper.setState({
       loading: false,
       // we assume first sticker is selected and it's file path is return by stickerSelected prop
-      selectedSticker: wrapper.state().stickers[0]
+      selectedSticker: wrapper.state().stickers[0],
     })
 
     wrapper.find('ModalBack').simulate('click')
-    wrapper.find('PrimaryButton').simulate(
-      'click',
-      { preventDefault() {} }
-    )
-
+    wrapper.find('PrimaryButton').simulate('click', { preventDefault() {} })
   })
-
 })

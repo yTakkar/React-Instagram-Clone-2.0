@@ -10,33 +10,31 @@ const NoUserGroups = ({ len, ud }) => {
 
   return (
     <Fragment>
-      {
-        len == 0 ?
-          <div className='senapati' >
-            <div className='srajkumar' style={{ marginTop: -8 }} >
-              <CreateGroup/>
-            </div>
-            <div className='prajkumar' >
-              <Nothing
-                mssg={
-                  Me(id)
-                    ? 'You\'re not a member of any group!!'
-                    : `${username} is not a member of any group!!`
-                }
-              />
-            </div>
+      {len == 0 ? (
+        <div className="senapati">
+          <div className="srajkumar" style={{ marginTop: -8 }}>
+            <CreateGroup />
           </div>
-          : <End/>
-      }
+          <div className="prajkumar">
+            <Nothing
+              mssg={
+                Me(id)
+                  ? "You're not a member of any group!!"
+                  : `${username} is not a member of any group!!`
+              }
+            />
+          </div>
+        </div>
+      ) : (
+        <End />
+      )}
     </Fragment>
   )
 }
 
-const mapStateToProps = state => (
-  {
-    len: state.Group.userGroups.length,
-    ud: state.User.user_details
-  }
-)
+const mapStateToProps = state => ({
+  len: state.Group.userGroups.length,
+  ud: state.User.user_details,
+})
 
 export default connect(mapStateToProps)(NoUserGroups)

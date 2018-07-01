@@ -14,56 +14,50 @@ import SectionsEnd from '../../../others/sections-end'
 import AppLink from '../../../others/link/link'
 
 class GroupPosts extends Component {
-
   componentDidMount = () => {
     let { dispatch, grp_id } = this.props
     dispatch(getMutualAndNewestMembers(grp_id))
   }
 
   render() {
-    let
-      {
-        gd: { group_id, name }, posts, joined
+    let {
+        gd: { group_id, name },
+        posts,
+        joined,
       } = this.props,
       len = posts.length,
-      map_posts = posts.map(p =>
-        <Post key={p.post_id} {...p} when='groupPosts' />
-      )
+      map_posts = posts.map(p => (
+        <Post key={p.post_id} {...p} when="groupPosts" />
+      ))
 
     return (
       <div>
-        <FadeIn duration='300ms' >
-          <div className='senapati pro_senapati' >
-
-            <div className='srajkumar'>
-
-              <GroupBio/>
+        <FadeIn duration="300ms">
+          <div className="senapati pro_senapati">
+            <div className="srajkumar">
+              <GroupBio />
               <NewestMembers group={group_id} />
               <MutualMembers group={group_id} />
               <GroupHashtags group={group_id} />
-              <CreateGroup/>
+              <CreateGroup />
 
-              <div className='recomm_teaser'>
+              <div className="recomm_teaser">
                 <span>Explore more groups from all around Instagram.</span>
                 <AppLink
-                  url='/explore/explore-groups'
-                  className='sec_btn'
-                  label='Explore'
+                  url="/explore/explore-groups"
+                  className="sec_btn"
+                  label="Explore"
                 />
               </div>
             </div>
 
-            <div className='prajkumar'>
-              {
-                joined &&
-                  <PostItTeaser type='group' group={group_id} />
-              }
+            <div className="prajkumar">
+              {joined && <PostItTeaser type="group" group={group_id} />}
               <MapPosts
                 posts={map_posts}
                 nothingMssg={`${name} group has no posts!!`}
               />
             </div>
-
           </div>
 
           <SectionsEnd len={len} />
@@ -76,7 +70,7 @@ class GroupPosts extends Component {
 const mapStateToProps = store => ({
   gd: store.Group.group_details,
   joined: store.Group.joined,
-  posts: store.Post.posts
+  posts: store.Post.posts,
 })
 
 export default connect(mapStateToProps)(GroupPosts)

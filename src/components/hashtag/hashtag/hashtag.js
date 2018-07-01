@@ -9,13 +9,15 @@ import HashtagInfo from './info'
 import MiddleSection from './middle-section'
 
 class Hashtag extends Component {
-
   state = {
-    loading: true
+    loading: true,
   }
 
   componentDidMount = () => {
-    let { dispatch, match: { params } } = this.props
+    let {
+      dispatch,
+      match: { params },
+    } = this.props
     dispatch(getHashtagPosts(params.hashtag))
   }
 
@@ -29,45 +31,39 @@ class Hashtag extends Component {
   render() {
     let { loading } = this.state
     let {
-      match: { params: { hashtag } },
-      session: { username }
+      match: {
+        params: { hashtag },
+      },
+      session: { username },
     } = this.props
 
     return (
       <div>
+        <Title value={`#${hashtag}`} desc={`View posts with #${hashtag}`} />
 
-        <Title
-          value={`#${hashtag}`}
-          desc={`View posts with #${hashtag}`}
-        />
-
-        <FadeIn duration='300ms'>
+        <FadeIn duration="300ms">
           <HashtagInfo hashtag={hashtag} />
 
-          <div className='senapati' >
-
-            <div className='prajkumar'>
+          <div className="senapati">
+            <div className="prajkumar">
               <MiddleSection loading={loading} hashtag={hashtag} />
             </div>
 
-            <div className='srajkumar'>
-              <PopularHashtags/>
+            <div className="srajkumar">
+              <PopularHashtags />
               <UserHashtags username={username} />
             </div>
           </div>
         </FadeIn>
-
       </div>
     )
   }
 }
 
-const mapStateToProps = store => (
-  {
-    store,
-    session: store.User.session
-  }
-)
+const mapStateToProps = store => ({
+  store,
+  session: store.User.session,
+})
 
 export default connect(mapStateToProps)(Hashtag)
 export { Hashtag as PureHashtag }

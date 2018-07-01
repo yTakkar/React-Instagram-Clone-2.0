@@ -9,15 +9,12 @@ describe('Comments Component', () => {
   const props = {
     when: 'viewPost',
     comments: Post.viewPost.comments,
-    decrementComments: jest.fn()
+    decrementComments: jest.fn(),
   }
 
-  const comp = (extraProps={}) => (
+  const comp = (extraProps = {}) => (
     <Provider store={mockStore}>
-      <Comments
-        {...props}
-        {...extraProps}
-      />
+      <Comments {...props} {...extraProps} />
     </Provider>
   )
 
@@ -27,17 +24,20 @@ describe('Comments Component', () => {
   })
 
   it('should match snapshot when comments.length == 0', () => {
-    const tree = create(comp({
-      comments: []
-    })).toJSON()
+    const tree = create(
+      comp({
+        comments: [],
+      })
+    ).toJSON()
     expect(tree).toMatchSnapshot()
   })
 
   it('should match snapshot when null when prop.when != viewPost', () => {
-    const tree = create(comp({
-      when: 'feed'
-    })).toJSON()
+    const tree = create(
+      comp({
+        when: 'feed',
+      })
+    ).toJSON()
     expect(tree).toMatchSnapshot()
   })
-
 })

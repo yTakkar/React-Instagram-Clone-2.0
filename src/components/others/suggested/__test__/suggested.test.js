@@ -6,8 +6,8 @@ import mockStore from '../../../../store/__mocks__/mockStore'
 
 describe('Suggested Component', () => {
   const comp = (
-    <Provider store={mockStore} >
-      <Suggested when='home' />
+    <Provider store={mockStore}>
+      <Suggested when="home" />
     </Provider>
   )
 
@@ -15,5 +15,4 @@ describe('Suggested Component', () => {
     const tree = create(comp).toJSON()
     expect(tree).toMatchSnapshot()
   })
-
 })

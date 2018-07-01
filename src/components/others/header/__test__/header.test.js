@@ -4,9 +4,7 @@ import { create } from 'react-test-renderer'
 import { mount } from 'enzyme'
 
 describe('Header component', () => {
-  const comp = (
-    <Header/>
-  )
+  const comp = <Header />
 
   it('should match snapshot', () => {
     const tree = create(comp).toJSON()
@@ -20,5 +18,4 @@ describe('Header component', () => {
     wrapper.find('.show_more').simulate('click')
     expect(wrapper.find('HeaderOptions').exists()).toBeTrue()
   })
-
 })

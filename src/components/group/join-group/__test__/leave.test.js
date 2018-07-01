@@ -7,25 +7,20 @@ describe('Leave Component', () => {
   const props = {
     leaveDetails: {
       user: 7,
-      group_id: 45
+      group_id: 45,
     },
-    leaved: jest.fn()
+    leaved: jest.fn(),
   }
 
   it('should match snapshot', () => {
-    const tree = create(
-      <PureLeave {...props} />
-    ).toJSON()
+    const tree = create(<PureLeave {...props} />).toJSON()
     expect(tree).toMatchSnapshot()
   })
 
   it('should should mock leave action when button is clicked', () => {
-    const wrapper = shallow(
-      <PureLeave {...props} />
-    )
+    const wrapper = shallow(<PureLeave {...props} />)
     wrapper.find('PrimaryButton').simulate('click', {
-      preventDefault() {}
+      preventDefault() {},
     })
   })
-
 })

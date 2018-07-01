@@ -5,13 +5,7 @@ import { shallow, mount } from 'enzyme'
 import Group from '../../../../../store/__mocks__/reducers/Group'
 
 describe('GroupPhotos Component', () => {
-
-  const comp = (
-    <PureGroupPhotos
-      gd={Group.group_details}
-      photos={Post.photos}
-    />
-  )
+  const comp = <PureGroupPhotos gd={Group.group_details} photos={Post.photos} />
 
   // shallow snapshot
   it('should match snapshot', () => {
@@ -36,13 +30,9 @@ describe('GroupPhotos Component', () => {
 
   it('should show <Nothing/> when photos.length == 0', () => {
     const wrapper = shallow(
-      <PureGroupPhotos
-        photos={[]}
-        gd={Group.group_details}
-      />
+      <PureGroupPhotos photos={[]} gd={Group.group_details} />
     )
     expect(wrapper.find('Nothing').exists()).toBe(true)
     expect(wrapper.find('Gallery').exists()).toBe(false)
   })
-
 })

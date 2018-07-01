@@ -6,16 +6,15 @@ import MaterialIcon from '../../../others/icons/material-icon'
 import FileInput from '../../../others/input/file'
 
 class ImageComment extends Component {
-
   state = {
-    commentFile: ''
+    commentFile: '',
   }
 
   commentFileChanged = async e => {
     let {
       postDetails: { post_id, when, user },
       dispatch,
-      incrementComments
+      incrementComments,
     } = this.props
     this.setState({ commentFile: e.target.value })
     await imageComment({
@@ -24,14 +23,14 @@ class ImageComment extends Component {
       when,
       user,
       file: e.target.files[0],
-      done: () => incrementComments()
+      done: () => incrementComments(),
     })
   }
 
   fileLabel = () => (
     <Fragment>
-      <div data-tip='Attach a file' >
-        <MaterialIcon icon='attach_file' />
+      <div data-tip="Attach a file">
+        <MaterialIcon icon="attach_file" />
       </div>
     </Fragment>
   )
@@ -41,7 +40,7 @@ class ImageComment extends Component {
 
     return (
       <div>
-        <form className='p_comment_form' encType='multipart/form-data'>
+        <form className="p_comment_form" encType="multipart/form-data">
           <FileInput
             value={commentFile}
             fileChange={this.commentFileChanged}

@@ -3,13 +3,11 @@ import ImageTheatre from '../../../others/imageTheatre/imageTheatre'
 import PropTypes from 'prop-types'
 
 export default class CommentTypeImage extends Component {
-
   state = {
-    openImage: false
+    openImage: false,
   }
 
-  toggleImage = () =>
-    this.setState({ openImage: !this.state.openImage })
+  toggleImage = () => this.setState({ openImage: !this.state.openImage })
 
   render() {
     let { commentSrc } = this.props
@@ -18,24 +16,23 @@ export default class CommentTypeImage extends Component {
     return (
       <Fragment>
         <img
-          className='comments_img'
+          className="comments_img"
           onClick={() => this.setState({ openImage: true })}
           src={`/comments/${commentSrc}`}
         />
 
-        {
-          openImage &&
-            <ImageTheatre
-              imgSrc={`/comments/${commentSrc}`}
-              showInfo={false}
-              back={() => this.setState({ openImage: false })}
-            />
-        }
+        {openImage && (
+          <ImageTheatre
+            imgSrc={`/comments/${commentSrc}`}
+            showInfo={false}
+            back={() => this.setState({ openImage: false })}
+          />
+        )}
       </Fragment>
     )
   }
 }
 
 CommentTypeImage.propTypes = {
-  commentSrc: PropTypes.string.isRequired
+  commentSrc: PropTypes.string.isRequired,
 }

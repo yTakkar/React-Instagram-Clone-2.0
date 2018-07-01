@@ -7,24 +7,18 @@ import classNames from 'classnames'
 const ProfileNav = ({ url, user }) => {
   return (
     <div
-      className={classNames(
-        'pro_nav', 'user_nav', { not_me_nav: !Me(user) }
-      )}
+      className={classNames('pro_nav', 'user_nav', { not_me_nav: !Me(user) })}
     >
       <ul>
-        <ProfileNavLink url={url} label='Posts' />
-        <ProfileNavLink url={`${url}/tagged`} label='Tagged' />
-        <ProfileNavLink url={`${url}/shared`} label='Shared' />
-        <ProfileNavLink url={`${url}/gallery`} label='Gallery' />
-        {
-          Me(user) &&
-            <ProfileNavLink
-              url={`${url}/bookmarks`}
-              label='Bookmarks'
-            />
-        }
-        <ProfileNavLink url={`${url}/groups`} label='Groups' />
-        <ProfileNavLink url={`${url}/about`} label='About' />
+        <ProfileNavLink url={url} label="Posts" />
+        <ProfileNavLink url={`${url}/tagged`} label="Tagged" />
+        <ProfileNavLink url={`${url}/shared`} label="Shared" />
+        <ProfileNavLink url={`${url}/gallery`} label="Gallery" />
+        {Me(user) && (
+          <ProfileNavLink url={`${url}/bookmarks`} label="Bookmarks" />
+        )}
+        <ProfileNavLink url={`${url}/groups`} label="Groups" />
+        <ProfileNavLink url={`${url}/about`} label="About" />
       </ul>
     </div>
   )
@@ -32,7 +26,7 @@ const ProfileNav = ({ url, user }) => {
 
 ProfileNav.propTypes = {
   url: PropTypes.string.isRequired,
-  user: PropTypes.number
+  user: PropTypes.number,
 }
 
 export default ProfileNav

@@ -4,11 +4,10 @@ import Hashtag from '../../../../store/__mocks__/reducers/Hashtag'
 import { shallow } from 'enzyme'
 
 describe('HashtagMiddleSection Component', () => {
-
-  const comp = (loading=false) => (
+  const comp = (loading = false) => (
     <PureHashtagMiddleSection
       loading={loading}
-      hashtag='travel'
+      hashtag="travel"
       posts={Hashtag.hashtagPosts}
     />
   )
@@ -22,5 +21,4 @@ describe('HashtagMiddleSection Component', () => {
     const tree = shallow(comp(true))
     expect(tree).toMatchSnapshot()
   })
-
 })

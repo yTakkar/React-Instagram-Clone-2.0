@@ -7,7 +7,6 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
 const RemBookmarkAsAdmin = ({ post_id, user, when, dispatch }) => {
-
   let remBookmarkAsAdmin = async e => {
     e.preventDefault()
     await post('/api/unbookmark-post', { post: post_id, user })
@@ -17,13 +16,14 @@ const RemBookmarkAsAdmin = ({ post_id, user, when, dispatch }) => {
 
   return (
     <Fragment>
-      {
-        (when == 'bookmarks' && isAdmin()) &&
-          <li><a
-            href='#'
-            onClick={remBookmarkAsAdmin}
-          >Remove bookmark as admin</a></li>
-      }
+      {when == 'bookmarks' &&
+        isAdmin() && (
+          <li>
+            <a href="#" onClick={remBookmarkAsAdmin}>
+              Remove bookmark as admin
+            </a>
+          </li>
+        )}
     </Fragment>
   )
 }
@@ -31,7 +31,7 @@ const RemBookmarkAsAdmin = ({ post_id, user, when, dispatch }) => {
 RemBookmarkAsAdmin.propTypes = {
   post_id: PropTypes.number.isRequired,
   user: PropTypes.number.isRequired,
-  when: PropTypes.string.isRequired
+  when: PropTypes.string.isRequired,
 }
 
 export default connect()(RemBookmarkAsAdmin)

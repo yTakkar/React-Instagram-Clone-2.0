@@ -7,12 +7,9 @@ import { create } from 'react-test-renderer'
 import { shallow } from 'enzyme'
 
 describe('ExploreUsersList Component', () => {
-
-  const comp = (index=0) => (
+  const comp = (index = 0) => (
     <Provider store={mockStore}>
-      <ExploreUsersList
-        {...Explore.users[index]}
-      />
+      <ExploreUsersList {...Explore.users[index]} />
     </Provider>
   )
 
@@ -27,11 +24,7 @@ describe('ExploreUsersList Component', () => {
   })
 
   it('should toggle <MonSticky/> when hovered over the top-parent div', () => {
-    const wrapper = shallow(
-      <PureExploreUsersList
-        {...Explore.users[0]}
-      />
-    )
+    const wrapper = shallow(<PureExploreUsersList {...Explore.users[0]} />)
 
     // should show
     wrapper.find('.m_on').simulate('mouseOver')
@@ -41,5 +34,4 @@ describe('ExploreUsersList Component', () => {
     wrapper.find('.m_on').simulate('mouseOut')
     expect(wrapper.find('MonSticky').prop('show')).toEqual(false)
   })
-
 })

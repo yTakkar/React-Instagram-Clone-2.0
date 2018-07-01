@@ -24,12 +24,12 @@ export default class Action {
     return this
   }
 
-  start = (text='Wait..') => {
+  start = (text = 'Wait..') => {
     new d(this.button)
       .text(text)
       .addClass(this.disabledClass)
       .blur()
-      .setValue(text)  // if it's an input button
+      .setValue(text) // if it's an input button
 
     this.ifWithOverlay(() => this.overlay.show())
     return this
@@ -39,10 +39,9 @@ export default class Action {
     new d(this.button)
       .text(text)
       .removeClass(this.disabledClass)
-      .setValue(text)  // if it's an input button
+      .setValue(text) // if it's an input button
 
     this.ifWithOverlay(() => this.overlay.hide())
     return this
   }
-
 }

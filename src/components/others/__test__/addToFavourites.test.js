@@ -4,12 +4,7 @@ import { create } from 'react-test-renderer'
 import { mount } from 'enzyme'
 
 describe('AddToFavourites Component', () => {
-  const comp = (
-    <AddToFavourites
-      user={7}
-      username='ghalib'
-    />
-  )
+  const comp = <AddToFavourites user={7} username="ghalib" />
 
   it('should match snapshot', () => {
     const tree = create(comp).toJSON()
@@ -19,10 +14,6 @@ describe('AddToFavourites Component', () => {
   it('should mock add-to-favs action when clicked', () => {
     const wrapper = mount(comp)
 
-    wrapper.find('SecondaryButton').simulate(
-      'click',
-      { preventDefault() {} }
-    )
+    wrapper.find('SecondaryButton').simulate('click', { preventDefault() {} })
   })
-
 })

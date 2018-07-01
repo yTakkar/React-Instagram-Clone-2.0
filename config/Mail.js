@@ -7,8 +7,8 @@ let transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
     user: MAIL,
-    pass: MAIL_PASSWORD
-  }
+    pass: MAIL_PASSWORD,
+  },
 })
 
 /**
@@ -23,15 +23,12 @@ let mail = options =>
   new Promise((resolve, reject) => {
     let o = {
       from: `Instagram <${MAIL}>`,
-      ...options
+      ...options,
     }
 
     transporter.sendMail(o, err => {
-      err
-        ? reject(err)
-        : resolve('Mail Sent!!')
+      err ? reject(err) : resolve('Mail Sent!!')
     })
-
   })
 
 module.exports = mail

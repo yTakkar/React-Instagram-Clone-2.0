@@ -6,12 +6,9 @@ import { create } from 'react-test-renderer'
 import Group from '../../../../store/__mocks__/reducers/Group'
 
 describe('NewestMembers Component', () => {
-
   const comp = (
     <Provider store={mockStore}>
-      <NewestMembers
-        group={34}
-      />
+      <NewestMembers group={34} />
     </Provider>
   )
 
@@ -25,5 +22,4 @@ describe('NewestMembers Component', () => {
     const tree = create(comp).toJSON()
     expect(tree).toMatchSnapshot()
   })
-
 })

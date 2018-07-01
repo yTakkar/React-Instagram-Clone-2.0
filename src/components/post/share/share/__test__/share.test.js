@@ -13,7 +13,7 @@ describe('Share Component', () => {
     postOwner: 7,
     back: mockFn,
     incrementShares: mockFn,
-    decrementShares: mockFn
+    decrementShares: mockFn,
   }
 
   it('should match snapshot', () => {
@@ -27,14 +27,9 @@ describe('Share Component', () => {
 
   it('should hide spinner when loading == false', () => {
     const wrapper = shallow(
-      <PureShare
-        {...props}
-        users={Post.usersToShare}
-        dispatch={mockFn}
-      />
+      <PureShare {...props} users={Post.usersToShare} dispatch={mockFn} />
     )
     wrapper.setState({ loading: false })
     expect(wrapper.find('IsLoading').prop('loading')).toBe(false)
   })
-
 })

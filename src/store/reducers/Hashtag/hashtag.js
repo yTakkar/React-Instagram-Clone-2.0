@@ -3,10 +3,10 @@
 
 import initialState from './initialState'
 
-export default (state=initialState, action) => {
+export default (state = initialState, action) => {
   let py = action.payload
 
-  switch(action.type) {
+  switch (action.type) {
     case 'GET_USER_HASHTAGS':
       return { ...state, userHashtags: py }
       break

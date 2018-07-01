@@ -4,8 +4,7 @@ import PropTypes from 'prop-types'
 const NotificationType = ({ type, user_username }) => {
   return (
     <span>
-      {
-        /* eslint-disable indent */
+      {/* eslint-disable */
 
         type == 'follow' ? ' started following you'
         : type == 'tag' ? ' tagged you in a post'
@@ -22,8 +21,7 @@ const NotificationType = ({ type, user_username }) => {
         : type == 'mention_post' ? ' mentioned you in a post'
         : type == 'mention_comment' ? ' mentioned you in a comment'
         : null
-
-        /* eslint-enable indent */
+        /** eslint-enable */
       }
     </span>
   )

@@ -12,7 +12,7 @@ describe('GroupAvatar Component', () => {
 
   const comp = (
     <Provider store={mockStore}>
-      <GroupAvatar/>
+      <GroupAvatar />
     </Provider>
   )
 
@@ -22,15 +22,11 @@ describe('GroupAvatar Component', () => {
   })
 
   it('should toggle state values when clicked on options', () => {
-    const wrapper = shallow(
-      <PureGroupAvatar
-        gd={Group.group_details}
-      />
-    )
+    const wrapper = shallow(<PureGroupAvatar gd={Group.group_details} />)
 
     expect(wrapper.state()).toContainEntries([
       ['viewAvatar', false],
-      ['changeAvatar', false]
+      ['changeAvatar', false],
     ])
 
     wrapper.find('.view_avatar_span').simulate('click')
@@ -38,8 +34,7 @@ describe('GroupAvatar Component', () => {
 
     expect(wrapper.state()).toContainEntries([
       ['viewAvatar', true],
-      ['changeAvatar', true]
+      ['changeAvatar', true],
     ])
   })
-
 })

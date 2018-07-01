@@ -6,13 +6,10 @@ import BannerOptions from '../options'
 import MockDataElement from '../../../../../utils/__mocks__/mock-dataElement'
 
 describe('BannerOptions Component', () => {
-
   it('should match snapshot', () => {
     const tree = create(
       <Provider store={mockStore}>
-        <BannerOptions
-          toggleOptions={jest.fn()}
-        />
+        <BannerOptions toggleOptions={jest.fn()} />
       </Provider>
     ).toJSON()
     expect(tree).toMatchSnapshot()
@@ -22,12 +19,9 @@ describe('BannerOptions Component', () => {
     MockDataElement()
     const tree = create(
       <Provider store={mockStore}>
-        <BannerOptions
-          toggleOptions={jest.fn()}
-        />
+        <BannerOptions toggleOptions={jest.fn()} />
       </Provider>
     ).toJSON()
     expect(tree).toMatchSnapshot()
   })
-
 })

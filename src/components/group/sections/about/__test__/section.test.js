@@ -3,13 +3,9 @@ import { create } from 'react-test-renderer'
 import GrpAboutSection from '../section'
 
 describe('GrpAboutSection Component', () => {
-
   it('should match snapshot with type text', () => {
     const tree = create(
-      <GrpAboutSection
-        label='Bio'
-        value='A unique bio'
-      />
+      <GrpAboutSection label="Bio" value="A unique bio" />
     ).toJSON()
     expect(tree).toMatchSnapshot()
   })
@@ -17,13 +13,12 @@ describe('GrpAboutSection Component', () => {
   it('should match snapshot with type link', () => {
     const tree = create(
       <GrpAboutSection
-        type='link'
-        label='Group created by'
-        value='takkar'
-        url='/profile/takkar'
+        type="link"
+        label="Group created by"
+        value="takkar"
+        url="/profile/takkar"
       />
     ).toJSON()
     expect(tree).toMatchSnapshot()
   })
-
 })

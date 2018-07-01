@@ -15,9 +15,7 @@ describe('BannerBlockUser Component', () => {
     User.user_details.id = 7
     const tree = create(
       <Provider store={mockStore}>
-        <BannerBlockUser
-          toggleOptions={mockFn}
-        />
+        <BannerBlockUser toggleOptions={mockFn} />
       </Provider>
     ).toJSON()
     expect(tree).toMatchSnapshot()
@@ -28,18 +26,17 @@ describe('BannerBlockUser Component', () => {
       <PureBannerBlockUser
         ud={{
           ...User.user_details,
-          id: 7
+          id: 7,
         }}
         toggleOptions={mockFn}
       />
     )
     wrapper.find('.pro_block').simulate('click', {
-      preventDefault() {}
+      preventDefault() {},
     })
     expect(wrapper.find('Prompt').exists()).toBe(true)
     wrapper.find('Prompt').prop('action')({
-      preventDefault() {}
+      preventDefault() {},
     })
   })
-
 })

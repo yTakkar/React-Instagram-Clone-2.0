@@ -7,7 +7,7 @@ describe('EditMessage Component', () => {
   const mockFn = jest.fn()
   const comp = (
     <EditMessage
-      message='cool message'
+      message="cool message"
       message_id={44}
       changeMessage={mockFn}
       back={mockFn}
@@ -22,8 +22,7 @@ describe('EditMessage Component', () => {
   it('should mock updateMessage action when button is clicked', () => {
     const wrapper = shallow(comp)
     wrapper.find('PrimaryButton').simulate('click', {
-      preventDefault() {}
+      preventDefault() {},
     })
   })
-
 })

@@ -5,15 +5,15 @@ const CheckBox = ({ label, checked, disabled, changeValue, ...props }) => {
   return (
     <Fragment>
       <input
-        type='checkbox'
-        className='inst_checkbox'
-        id='grp_private'
+        type="checkbox"
+        className="inst_checkbox"
+        id="grp_private"
         disabled={disabled}
         checked={checked}
         onChange={changeValue}
         {...props}
       />
-      <label for='grp_private'>{label}</label>
+      <label for="grp_private">{label}</label>
     </Fragment>
   )
 }
@@ -21,7 +21,7 @@ const CheckBox = ({ label, checked, disabled, changeValue, ...props }) => {
 CheckBox.defaultProps = {
   checked: false,
   disabled: false,
-  label: ''
+  label: '',
 }
 
 CheckBox.propTypes = {

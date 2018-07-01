@@ -5,13 +5,11 @@ import RangeInput from '../input/range'
 import Overlay from '../overlay'
 
 export default class ViewAvatar extends Component {
-
   state = {
-    range: 200
+    range: 200,
   }
 
-  rangeChange = e =>
-    this.setState({ range: e.target.value })
+  rangeChange = e => this.setState({ range: e.target.value })
 
   render() {
     let { range } = this.state
@@ -19,22 +17,15 @@ export default class ViewAvatar extends Component {
 
     return (
       <Fragment>
-        <Overlay
-          close_on_click
-          close={back}
-          opacity={0.9}
-        />
+        <Overlay close_on_click close={back} opacity={0.9} />
 
-        <div className='view_avatar'>
-          <FadeIn duration='300ms'>
-            <div className='v_a_img'>
-              <img
-                src={imgSrc} alt=''
-                style={{ width: `${range}px` }}
-              />
+        <div className="view_avatar">
+          <FadeIn duration="300ms">
+            <div className="v_a_img">
+              <img src={imgSrc} alt="" style={{ width: `${range}px` }} />
             </div>
 
-            <div className='v_a_inc'>
+            <div className="v_a_inc">
               <RangeInput
                 min={200}
                 max={500}
@@ -50,10 +41,10 @@ export default class ViewAvatar extends Component {
 }
 
 ViewAvatar.defaultProps = {
-  imgSrc: '/images/spacecraft.jpg'
+  imgSrc: '/images/spacecraft.jpg',
 }
 
 ViewAvatar.propTypes = {
   imgSrc: PropTypes.string.isRequired,
-  back: PropTypes.func.isRequired
+  back: PropTypes.func.isRequired,
 }

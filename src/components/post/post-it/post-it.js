@@ -14,12 +14,10 @@ import AddEmojis from '../../others/emojis/add-emojis'
 import { CPP } from '../../../actions/post'
 import { connect } from 'react-redux'
 
-@connect(store => (
-  { postIt: store.Post.postIt }
-))
-
+@connect(store => ({
+  postIt: store.Post.postIt,
+}))
 export default class PostIt extends Component {
-
   componentDidMount = () => {
     let { type, group, dispatch } = this.props
     dispatch(CPP('type', type))
@@ -29,53 +27,47 @@ export default class PostIt extends Component {
   render() {
     let {
       postIt: { fileChanged, showOverlay },
-      dispatch, back
+      dispatch,
+      back,
     } = this.props
 
     return (
       <div>
-        <Overlay/>
+        <Overlay />
 
-        <div
-          className='post'
-          style={{ left: fileChanged ? '41%' : '50%' }}
-        >
-          <FadeIn duration='300ms'>
+        <div className="post" style={{ left: fileChanged ? '41%' : '50%' }}>
+          <FadeIn duration="300ms">
+            {fileChanged && <Filters />}
 
-            { fileChanged && <Filters /> }
+            <PostItHeader />
+            <Middle />
+            <AddTags />
 
-            <PostItHeader/>
-            <Middle/>
-            <AddTags/>
-
-            <div className='t_p_bottom p_bottom'>
+            <div className="t_p_bottom p_bottom">
               <div
-                className='t_p_tag p_tag'
+                className="t_p_tag p_tag"
                 style={{ visibility: !fileChanged && 'hidden' }}
               >
                 <AddEmojis
                   position={{ top: 104, left: -215 }}
-                  textArea='.t_p_ta'
-                  updateTextArea={value =>
-                    dispatch(CPP('desc', value))
-                  }
+                  textArea=".t_p_ta"
+                  updateTextArea={value => dispatch(CPP('desc', value))}
                   addClassOnClicked
-                  className='p_span_toggle'
+                  className="p_span_toggle"
                 />
 
-                <ToggleAddTags/>
-                <GetLocation/>
+                <ToggleAddTags />
+                <GetLocation />
               </div>
 
               <PostItActions back={back} />
             </div>
-
           </FadeIn>
         </div>
 
-        { showOverlay && <Overlay type='white' /> }
+        {showOverlay && <Overlay type="white" />}
 
-        <ToolTip/>
+        <ToolTip />
       </div>
     )
   }
@@ -83,6 +75,6 @@ export default class PostIt extends Component {
 
 PostIt.propTypes = {
   back: func.isRequired,
-  type: oneOf([ 'user', 'group' ]).isRequired,
-  group: number
+  type: oneOf(['user', 'group']).isRequired,
+  group: number,
 }

@@ -11,7 +11,7 @@ export default {
       user_username: '',
       post_id: 0,
       group_id: 0,
-      isFollowing: false
+      isFollowing: false,
     },
     {
       notify_id: 57,
@@ -23,7 +23,7 @@ export default {
       user_username: 'coldplay',
       post_id: 0,
       group_id: 0,
-      isFollowing: false
+      isFollowing: false,
     },
     {
       notify_id: 58,
@@ -35,7 +35,7 @@ export default {
       user_username: '',
       post_id: 27,
       group_id: 0,
-      isFollowing: false
+      isFollowing: false,
     },
     {
       notify_id: 59,
@@ -47,7 +47,7 @@ export default {
       user_username: '',
       post_id: 0,
       group_id: 11,
-      isFollowing: false
-    }
-  ]
+      isFollowing: false,
+    },
+  ],
 }

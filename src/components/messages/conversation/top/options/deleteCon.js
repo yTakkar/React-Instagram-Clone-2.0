@@ -5,9 +5,8 @@ import PropTypes from 'prop-types'
 import { deleteConversation } from '../../../../../utils/message-utils'
 
 class DeleteConversation extends Component {
-
   state = {
-    deleteCon: false
+    deleteCon: false,
   }
 
   showDltCon = e => {
@@ -32,22 +31,21 @@ class DeleteConversation extends Component {
 
     return (
       <Fragment>
-        <li><a
-          href='#'
-          className='dlt_con'
-          onClick={this.showDltCon}
-        >Delete conversation</a></li>
+        <li>
+          <a href="#" className="dlt_con" onClick={this.showDltCon}>
+            Delete conversation
+          </a>
+        </li>
 
-        {
-          deleteCon &&
-            <Prompt
-              title='Delete conversation'
-              content="This conversation will be deleted. There's no undo so you won't be able to find it."
-              actionText='Delete'
-              action={this.deleteConversation}
-              back={this.modalBack}
-            />
-        }
+        {deleteCon && (
+          <Prompt
+            title="Delete conversation"
+            content="This conversation will be deleted. There's no undo so you won't be able to find it."
+            actionText="Delete"
+            action={this.deleteConversation}
+            back={this.modalBack}
+          />
+        )}
       </Fragment>
     )
   }
@@ -55,11 +53,11 @@ class DeleteConversation extends Component {
 
 DeleteConversation.propTypes = {
   toggleOptions: PropTypes.func.isRequired,
-  hideConversation: PropTypes.func.isRequired
+  hideConversation: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = store => ({
-  con_id: store.Message.conDetails.con_id
+  con_id: store.Message.conDetails.con_id,
 })
 
 export default connect(mapStateToProps)(DeleteConversation)

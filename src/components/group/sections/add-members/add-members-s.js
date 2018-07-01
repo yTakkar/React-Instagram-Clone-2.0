@@ -8,7 +8,6 @@ import { joinGroup } from '../../../../utils/group-utils'
 import GroupInstruction from '../../instruction'
 
 class AddGroupMembers extends Component {
-
   componentDidMount = () => bottomScroll()
 
   addMember = user => {
@@ -17,7 +16,7 @@ class AddGroupMembers extends Component {
       user,
       added_by: session,
       group: gd.group_id,
-      when: 'add_grp_member'
+      when: 'add_grp_member',
     })
   }
 
@@ -26,39 +25,32 @@ class AddGroupMembers extends Component {
 
     return (
       <div>
-        <Title value='Add members' />
+        <Title value="Add members" />
 
-        <FadeIn duration='300ms'>
-          <div className='senapati pro_senapati'>
-
-            <div className='srajkumar'>
-              <GroupInstruction/>
+        <FadeIn duration="300ms">
+          <div className="senapati pro_senapati">
+            <div className="srajkumar">
+              <GroupInstruction />
             </div>
 
-            <div className='prajkumar'>
-
-              <div className='a_m'>
-                <div className='a_m_header'>
+            <div className="prajkumar">
+              <div className="a_m">
+                <div className="a_m_header">
                   <span>Add members</span>
                 </div>
 
-                <div className='a_m_main'>
+                <div className="a_m_main">
                   <SearchFollowings
-                    placeholder='Search to add'
-                    when='add_grp_members'
+                    placeholder="Search to add"
+                    when="add_grp_members"
                     disabled={!Me(gd.admin)}
-                    done={user =>
-                      this.addMember(user)
-                    }
+                    done={user => this.addMember(user)}
                   />
                 </div>
               </div>
-
             </div>
-
           </div>
         </FadeIn>
-
       </div>
     )
   }
@@ -66,7 +58,7 @@ class AddGroupMembers extends Component {
 
 const mapStateToProps = store => ({
   gd: store.Group.group_details,
-  session: store.User.session.id
+  session: store.User.session.id,
 })
 
 export default connect(mapStateToProps)(AddGroupMembers)

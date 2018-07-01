@@ -3,18 +3,11 @@ import { create } from 'react-test-renderer'
 import SearchSection from '../section'
 
 describe('Search Section Component', () => {
-  const map = list => (
-    list.map(l =>
-      <span key={l} >{l}</span>
-    )
-  )
+  const map = list => list.map(l => <span key={l}>{l}</span>)
 
   it('should match snapshot for users search', () => {
     const tree = create(
-      <SearchSection
-        searchList={map(['first', 'second'])}
-        listFor='member'
-      />
+      <SearchSection searchList={map(['first', 'second'])} listFor="member" />
     ).toJSON()
     expect(tree).toMatchSnapshot()
   })
@@ -23,7 +16,7 @@ describe('Search Section Component', () => {
     const tree = create(
       <SearchSection
         searchList={map(['#first', '#second'])}
-        listFor='hashtag'
+        listFor="hashtag"
       />
     ).toJSON()
     expect(tree).toMatchSnapshot()
@@ -33,10 +26,9 @@ describe('Search Section Component', () => {
     const tree = create(
       <SearchSection
         searchList={map(['normal-grp', 'crazy-group'])}
-        listFor='group'
+        listFor="group"
       />
     ).toJSON()
     expect(tree).toMatchSnapshot()
   })
-
 })

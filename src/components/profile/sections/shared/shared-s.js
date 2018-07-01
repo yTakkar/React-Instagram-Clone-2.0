@@ -13,9 +13,8 @@ import IsLoading from '../../../others/isLoading'
 import classNames from 'classnames'
 
 class Shared extends Component {
-
   state = {
-    loading: true
+    loading: true,
   }
 
   componentDidMount = () => {
@@ -24,50 +23,53 @@ class Shared extends Component {
   }
 
   componentWillReceiveProps = ({ dispatch, ud }) => {
-    this.props.ud != ud
-      ? dispatch(getSharedPosts(ud.id))
-      : null
+    this.props.ud != ud ? dispatch(getSharedPosts(ud.id)) : null
     this.setState({ loading: false })
   }
 
   componentDidUpdate = () => bottomScroll()
 
   render() {
-    let
-      { loading } = this.state,
-      { shared, param: username, ud: { id } } = this.props,
+    let { loading } = this.state,
+      {
+        shared,
+        param: username,
+        ud: { id },
+      } = this.props,
       len = shared.length,
-      map_posts = shared.map(p =>
-        <Post key={p.share_id} {...p} when='shared' />
-      )
+      map_posts = shared.map(p => (
+        <Post key={p.share_id} {...p} when="shared" />
+      ))
 
     return (
       <div>
-        <FadeIn duration='300ms' >
-
+        <FadeIn duration="300ms">
           <IsLoading loading={loading} />
 
           <Title value={`${username}'s shared posts`} />
 
           <div
-            className={classNames('senapati', 'pro_senapati', cLoading(loading))}
+            className={classNames(
+              'senapati',
+              'pro_senapati',
+              cLoading(loading)
+            )}
           >
-
-            <div className='srajkumar'>
-              <Suggested/>
+            <div className="srajkumar">
+              <Suggested />
             </div>
 
-            <div className='prajkumar'>
+            <div className="prajkumar">
               <MapPosts
                 posts={map_posts}
-                nothingMssg={`No one shared posts with ${Me(id) ? 'you' : username}!!`}
+                nothingMssg={`No one shared posts with ${
+                  Me(id) ? 'you' : username
+                }!!`}
               />
             </div>
-
           </div>
 
           <SectionsEnd len={len} loading={loading} />
-
         </FadeIn>
       </div>
     )
@@ -75,12 +77,12 @@ class Shared extends Component {
 }
 
 Shared.propTypes = {
-  param: PropTypes.string.isRequired
+  param: PropTypes.string.isRequired,
 }
 
 const mapStateToProps = store => ({
   ud: store.User.user_details,
-  shared: store.Post.shared
+  shared: store.Post.shared,
 })
 
 export default connect(mapStateToProps)(Shared)

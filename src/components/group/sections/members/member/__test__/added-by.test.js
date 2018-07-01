@@ -6,14 +6,12 @@ describe('MemberAddedBy Component', () => {
   const memberDetails = {
     member: 18,
     added_by: 7,
-    added_by_username: 'ghalib'
+    added_by_username: 'ghalib',
   }
 
   it('should match snapshot', () => {
     const tree = create(
-      <MemberAddedBy
-        memberDetails={memberDetails}
-      />
+      <MemberAddedBy memberDetails={memberDetails} />
     ).toJSON()
     expect(tree).toMatchSnapshot()
   })
@@ -23,11 +21,10 @@ describe('MemberAddedBy Component', () => {
       <MemberAddedBy
         memberDetails={{
           ...memberDetails,
-          member: 7
+          member: 7,
         }}
       />
     ).toJSON()
     expect(tree).toMatchSnapshot()
   })
-
 })

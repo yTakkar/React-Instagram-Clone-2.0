@@ -8,9 +8,8 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
 class DeleteCommentOption extends Component {
-
   state = {
-    deleteComment: false
+    deleteComment: false,
   }
 
   showPrompt = e => {
@@ -23,7 +22,7 @@ class DeleteCommentOption extends Component {
     let {
       commentDetails: { comment_id, type, commentSrc },
       dispatch,
-      decrementComments
+      decrementComments,
     } = this.props
     await post('/api/delete-comment', { comment_id, type, commentSrc })
     dispatch(deleteComment(comment_id))
@@ -42,23 +41,20 @@ class DeleteCommentOption extends Component {
     return (
       <Fragment>
         <li>
-          <a
-            href='#'
-            onClick={this.showPrompt}
-          >{`Delete comment ${isAdmin() ? 'as admin' : ''}`}</a>
+          <a href="#" onClick={this.showPrompt}>{`Delete comment ${
+            isAdmin() ? 'as admin' : ''
+          }`}</a>
         </li>
 
-        {
-          deleteComment &&
-            <Prompt
-              title='Delete comment'
-              content="This comment will be deleted. There's no undo so you won't be able to find it."
-              actionText= 'Delete'
-              action={this.deleteComment}
-              back={this.modalBack}
-            />
-        }
-
+        {deleteComment && (
+          <Prompt
+            title="Delete comment"
+            content="This comment will be deleted. There's no undo so you won't be able to find it."
+            actionText="Delete"
+            action={this.deleteComment}
+            back={this.modalBack}
+          />
+        )}
       </Fragment>
     )
   }
@@ -68,10 +64,10 @@ DeleteCommentOption.propTypes = {
   commentDetails: PropTypes.shape({
     comment_id: PropTypes.number.isRequired,
     type: PropTypes.string.isRequired,
-    commentSrc: PropTypes.string.isRequired
+    commentSrc: PropTypes.string.isRequired,
   }).isRequired,
   decrementComments: PropTypes.func.isRequired,
-  toggleOptions: PropTypes.func.isRequired
+  toggleOptions: PropTypes.func.isRequired,
 }
 
 export default connect()(DeleteCommentOption)

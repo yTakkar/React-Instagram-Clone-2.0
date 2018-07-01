@@ -6,6 +6,6 @@ export const getBlockedUsers = () =>
 export const unblockUser = block_id => {
   return {
     type: 'UNBLOCK_USER',
-    payload: block_id
+    payload: block_id,
   }
 }

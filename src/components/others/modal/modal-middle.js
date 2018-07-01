@@ -9,18 +9,14 @@ const ModalMiddle = ({ loading, list }) => {
 
   return (
     <div className={classNames('modal_main', cLoading(loading))}>
-      {
-        len == 0
-          ? <Nothing showMssg={false} />
-          : list
-      }
+      {len == 0 ? <Nothing showMssg={false} /> : list}
     </div>
   )
 }
 
 ModalMiddle.propTypes = {
   loading: PropTypes.bool.isRequired,
-  list: PropTypes.arrayOf(PropTypes.node).isRequired
+  list: PropTypes.arrayOf(PropTypes.node).isRequired,
 }
 
 export default ModalMiddle

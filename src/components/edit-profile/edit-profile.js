@@ -17,7 +17,6 @@ import AddEmojis from '../others/emojis/add-emojis'
 import PrimaryButton from '../others/button/primary-btn'
 
 class EditProfile extends Component {
-
   state = {
     loading: true,
     username: '',
@@ -43,94 +42,100 @@ class EditProfile extends Component {
   }
 
   componentWillReceiveProps = ({ ud, tags }) => {
-    let {
-      username, firstname, surname, email, bio,
-      instagram, twitter, facebook, github, website, phone
-    } = ud
-    this.setState({
-      loading: false,
-      username, firstname, surname, email, bio,
-      instagram, twitter, facebook, github, website, phone,
-      tags
-    })
+    for (let key in ud) {
+      this.state[key] != undefined &&
+        this.setState({
+          loading: false,
+          ...ud,
+          tags,
+        })
+    }
   }
 
-  change = (what, { target: { value } }) =>
-    this.setState({ [what]: value })
+  change = (what, e) => this.setState({ [what]: e.target.value })
 
   update = e => {
     e.preventDefault()
     let {
-      ud: { username: susername, email: semail }
+      ud: { username: susername, email: semail },
     } = this.props
     editProfile({
       susername,
       semail,
-      values: this.state
+      values: this.state,
     })
   }
 
   render() {
     let {
-      username, firstname, surname, email, bio,
-      instagram, github, twitter, website, facebook, phone,
-      addTag, tags, loading
+      username,
+      firstname,
+      surname,
+      email,
+      bio,
+      instagram,
+      github,
+      twitter,
+      website,
+      facebook,
+      phone,
+      addTag,
+      tags,
+      loading,
     } = this.state
-    let { ud: { id } } = this.props
+    let {
+      ud: { id },
+    } = this.props
 
     return (
       <div>
-
         <Title
-          value='Edit profile'
-          desc='Edit your profile, add tags and links'
+          value="Edit profile"
+          desc="Edit your profile, add tags and links"
         />
 
-        <IsLoading loading={loading} when='page' />
+        <IsLoading loading={loading} when="page" />
 
-        <FadeIn duration='300ms' className={cLoading(loading)} >
-
-          <div className='edit_profile'>
-
-            <div className='edit_info'>
-              <img src={`/users/${id}/avatar.jpg`} alt='' />
+        <FadeIn duration="300ms" className={cLoading(loading)}>
+          <div className="edit_profile">
+            <div className="edit_info">
+              <img src={`/users/${id}/avatar.jpg`} alt="" />
               <span>@{username}</span>
             </div>
 
-            <div className='edit_main'>
+            <div className="edit_main">
               <RequiredInputs
                 fields={{ username, firstname, surname, email }}
                 change={this.change}
               />
-              <BioInput
-                value={bio}
-                change={this.change}
-              />
+              <BioInput value={bio} change={this.change} />
 
-              <div className='edit_update'>
+              <div className="edit_update">
                 <AddEmojis
                   position={{ top: 260, left: 73 }}
-                  textArea='.edit_ta'
-                  updateTextArea={bio =>
-                    this.setState({ bio })
-                  }
+                  textArea=".edit_ta"
+                  updateTextArea={bio => this.setState({ bio })}
                 />
 
                 <PrimaryButton
-                  label='Update profile'
+                  label="Update profile"
                   onClick={this.update}
-                  extraClass='edit_done'
+                  extraClass="edit_done"
                 />
 
-                <ResendVL/>
+                <ResendVL />
               </div>
-
             </div>
 
-            <div className='edit_tags'>
+            <div className="edit_tags">
               <SocialInputs
                 inputs={{
-                  instagram, github, twitter, facebook, website, phone
+                  instagram,
+                  github,
+                  twitter,
+                  facebook,
+                  website,
+                  phone,
                 }}
                 change={this.change}
               />
@@ -138,27 +143,21 @@ class EditProfile extends Component {
                 newTag={addTag}
                 change={this.change}
                 tags={tags}
-                emptyTagsInput={() =>
-                  this.setState({ addTag: '' })
-                }
+                emptyTagsInput={() => this.setState({ addTag: '' })}
               />
             </div>
-
           </div>
-
         </FadeIn>
       </div>
     )
   }
 }
 
-const mapStateToProps = store => (
-  {
-    ud: store.User.user_details,
-    tags: store.User.tags,
-    session: store.User.session
-  }
-)
+const mapStateToProps = store => ({
+  ud: store.User.user_details,
+  tags: store.User.tags,
+  session: store.User.session,
+})
 
 export default connect(mapStateToProps)(EditProfile)
 export { EditProfile as PureEditProfile }

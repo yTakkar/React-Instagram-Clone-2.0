@@ -13,9 +13,8 @@ import Overlay from '../../others/overlay'
 import { number, func } from 'prop-types'
 
 class Invite extends Component {
-
   state = {
-    loading: true
+    loading: true,
   }
 
   componentDidMount = () => {
@@ -23,43 +22,34 @@ class Invite extends Component {
     dispatch(getUsersToInvite())
   }
 
-  componentWillReceiveProps = () =>
-    this.setState({ loading: false })
+  componentWillReceiveProps = () => this.setState({ loading: false })
 
   componentDidUpdate = () => llr()
 
   render() {
-    let
-      { loading } = this.state,
+    let { loading } = this.state,
       { users, back, group } = this.props,
-      map_users = users.map(u =>
-        <InviteList
-          key={u.follow_id}
-          {...u}
-          back={back}
-          group={group}
-        />
-      )
+      map_users = users.map(u => (
+        <InviteList key={u.follow_id} {...u} back={back} group={group} />
+      ))
 
     return (
       <Fragment>
-        <Overlay/>
+        <Overlay />
 
-        <div className='likes modal modal_big' >
+        <div className="likes modal modal_big">
+          <FadeIn duration="300ms">
+            <ModalHeader title="Invite" />
 
-          <FadeIn duration='300ms' >
-            <ModalHeader title='Invite' />
-
-            <Scrollbars style={{ height: 450 }} className='modal_middle' >
+            <Scrollbars style={{ height: 450 }} className="modal_middle">
               <IsLoading loading={loading} />
               <ModalMiddle loading={loading} list={map_users} />
             </Scrollbars>
 
-            <div className='modal_bottom' >
+            <div className="modal_bottom">
               <ModalBack back={back} />
             </div>
           </FadeIn>
-
         </div>
       </Fragment>
     )
@@ -68,11 +58,11 @@ class Invite extends Component {
 
 Invite.propTypes = {
   group: number,
-  back: func.isRequired
+  back: func.isRequired,
 }
 
 const mapStateToProps = store => ({
-  users: store.Group.usersToInvite
+  users: store.Group.usersToInvite,
 })
 
 export default connect(mapStateToProps)(Invite)

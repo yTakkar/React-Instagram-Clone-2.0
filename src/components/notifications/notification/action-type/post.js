@@ -3,11 +3,7 @@ import PropTypes from 'prop-types'
 import AppLink from '../../../others/link/link'
 
 const NotificationTypePost = ({ post_id }) => (
-  <AppLink
-    url={`/post/${post_id}`}
-    className='pri_btn'
-    label='Open post'
-  />
+  <AppLink url={`/post/${post_id}`} className="pri_btn" label="Open post" />
 )
 
 NotificationTypePost.propTypes = {

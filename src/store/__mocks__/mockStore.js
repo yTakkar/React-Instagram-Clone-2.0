@@ -21,7 +21,7 @@ const initialState = {
   Post,
   Hashtag,
   Setting,
-  Message
+  Message,
 }
 
 const middlewares = [thunk]

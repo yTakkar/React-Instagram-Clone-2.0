@@ -4,10 +4,10 @@
 import initialState from './initialState'
 import * as methods from './methods'
 
-export default (state=initialState, action) => {
+export default (state = initialState, action) => {
   let py = action.payload
 
-  switch(action.type) {
+  switch (action.type) {
     case 'GET_BLOCKED_USERS':
       return { ...state, blockedUsers: py }
       break
@@ -15,7 +15,7 @@ export default (state=initialState, action) => {
     case 'UNBLOCK_USER':
       return {
         ...state,
-        blockedUsers: methods.unblockU(state.blockedUsers, py)
+        blockedUsers: methods.unblockU(state.blockedUsers, py),
       }
       break
   }

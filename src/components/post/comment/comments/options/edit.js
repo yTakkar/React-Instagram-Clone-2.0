@@ -4,9 +4,8 @@ import EditComment from '../../edit-comment/edit-comment'
 import PropTypes from 'prop-types'
 
 export default class EditCommentOption extends Component {
-
   state = {
-    editComment: false
+    editComment: false,
   }
 
   showEditModal = e => {
@@ -22,31 +21,28 @@ export default class EditCommentOption extends Component {
   render() {
     let {
       commentDetails: { comment_id, type, text },
-      updateCommentText
+      updateCommentText,
     } = this.props
     let { editComment } = this.state
 
     return (
       <Fragment>
-        {
-          type == 'text' &&
-            <li>
-              <a
-                href='#'
-                onClick={this.showEditModal}
-              >{`Edit comment ${isAdmin() ? 'as admin' : ''}`}</a>
-            </li>
-        }
+        {type == 'text' && (
+          <li>
+            <a href="#" onClick={this.showEditModal}>{`Edit comment ${
+              isAdmin() ? 'as admin' : ''
+            }`}</a>
+          </li>
+        )}
 
-        {
-          editComment &&
-            <EditComment
-              comment={text}
-              back={this.modalBack}
-              updateComment={value => updateCommentText(value) }
-              comment_id={comment_id}
-            />
-        }
+        {editComment && (
+          <EditComment
+            comment={text}
+            back={this.modalBack}
+            updateComment={value => updateCommentText(value)}
+            comment_id={comment_id}
+          />
+        )}
       </Fragment>
     )
   }

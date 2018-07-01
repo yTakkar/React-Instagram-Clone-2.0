@@ -10,9 +10,8 @@ import IsLoading from '../../../others/isLoading'
 import classNames from 'classnames'
 
 class GroupGallery extends Component {
-
   state = {
-    loading: true
+    loading: true,
   }
 
   componentDidMount = () => {
@@ -21,37 +20,38 @@ class GroupGallery extends Component {
   }
 
   componentWillReceiveProps = ({ dispatch, gd }) => {
-    this.props.gd != gd
-      ? dispatch(getGroupPhotos(gd.group_id))
-      : null
+    this.props.gd != gd && dispatch(getGroupPhotos(gd.group_id))
     this.setState({ loading: false })
   }
 
   componentDidUpdate = () => bottomScroll()
 
   render() {
-    let
-      { loading } = this.state,
-      { gd: { name }, photos } = this.props,
+    let { loading } = this.state,
+      {
+        gd: { name },
+        photos,
+      } = this.props,
       len = photos.length
 
     return (
       <div>
-
         <Title value={`${name} group's gallery`} />
 
-        <FadeIn duration='300ms'>
-
+        <FadeIn duration="300ms">
           <IsLoading loading={loading} />
 
           <div
-            className={classNames('pro_senapati', 'photos_senapati', cLoading(loading))}
+            className={classNames(
+              'pro_senapati',
+              'photos_senapati',
+              cLoading(loading)
+            )}
           >
-            <GroupPhotos/>
+            <GroupPhotos />
           </div>
 
-          { (!loading && len != 0) && <End/> }
-
+          {!loading && len != 0 && <End />}
         </FadeIn>
       </div>
     )
@@ -60,7 +60,7 @@ class GroupGallery extends Component {
 
 const mapStateToProps = store => ({
   gd: store.Group.group_details,
-  photos: store.Post.photos
+  photos: store.Post.photos,
 })
 
 export default connect(mapStateToProps)(GroupGallery)

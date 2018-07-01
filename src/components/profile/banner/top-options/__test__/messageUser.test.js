@@ -17,9 +17,7 @@ describe('BannerMessageUser Component', () => {
     User.user_details.id = 7
     const tree = create(
       <Provider store={mockStore}>
-        <BannerMessageUser
-          toggleOptions={mockFn}
-        />
+        <BannerMessageUser toggleOptions={mockFn} />
       </Provider>
     ).toJSON()
     expect(tree).toMatchSnapshot()
@@ -31,18 +29,17 @@ describe('BannerMessageUser Component', () => {
         toggleOptions={mockFn}
         ud={{
           ...User.user_details,
-          id: 7
+          id: 7,
         }}
         isFollowing
       />
     )
     wrapper.find('li > a').simulate('click', {
-      preventDefault() {}
+      preventDefault() {},
     })
 
     // should redirect
     wrapper.setState({ messagedUser: true })
     expect(wrapper.find('Redirect').exists()).toBe(true)
   })
-
 })

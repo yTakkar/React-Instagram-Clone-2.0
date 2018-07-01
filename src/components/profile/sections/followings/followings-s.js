@@ -12,74 +12,70 @@ import FollowSectionEnd from '../../../others/follow/follow-section-end'
 import classNames from 'classnames'
 
 class Followings extends Component {
-
   state = {
-    loading: true
+    loading: true,
   }
 
   componentDidMount = () => {
-    let { dispatch, ud: { id } } = this.props
+    let {
+      dispatch,
+      ud: { id },
+    } = this.props
     dispatch(getFollowings(id))
   }
 
-  componentWillReceiveProps = () =>
-    this.setState({ loading: false })
+  componentWillReceiveProps = () => this.setState({ loading: false })
 
   componentDidUpdate = () => bottomScroll()
 
   render() {
-    let
-      { followings, param: username } = this.props,
+    let { followings, param: username } = this.props,
       { loading } = this.state,
       len = followings.length,
-      map_followings = followings.map(f =>
+      map_followings = followings.map(f => (
         <FollowingsList key={f.follow_id} {...f} />
-      )
+      ))
 
     return (
       <div>
-
         <Title value={`@${username}'s followings`} />
 
-        <FadeIn duration='300ms'>
-
+        <FadeIn duration="300ms">
           <IsLoading loading={loading} />
 
           <div
-            className = {classNames('senapati', 'pro_senapati', cLoading(loading))}
+            className={classNames(
+              'senapati',
+              'pro_senapati',
+              cLoading(loading)
+            )}
           >
-            <div className={classNames({
-              m_div: len != 0,
-              m_no_div: len == 0
-            })} >
+            <div
+              className={classNames({
+                m_div: len != 0,
+                m_no_div: len == 0,
+              })}
+            >
               <MonHeader len={len} forWhat={'following'} />
 
-              <div className='m_wrapper'>
-                { len != 0 && map_followings }
-              </div>
+              <div className="m_wrapper">{len != 0 && map_followings}</div>
             </div>
-
           </div>
 
-          <FollowSectionEnd
-            len={len}
-            loading={loading}
-            when='followings'
-          />
+          <FollowSectionEnd len={len} loading={loading} when="followings" />
         </FadeIn>
-
       </div>
     )
   }
 }
 
 Followings.propTypes = {
-  param: PropTypes.string.isRequired
+  param: PropTypes.string.isRequired,
 }
 
 const mapStateToProps = store => ({
   ud: store.User.user_details,
-  followings: store.Follow.followings
+  followings: store.Follow.followings,
 })
 
 export default connect(mapStateToProps)(Followings)

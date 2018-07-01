@@ -12,48 +12,46 @@ import ShowPost from './show-post'
 import { cLoading } from '../../../utils/utils'
 
 class ViewPost extends Component {
-
   state = {
-    loading: true
+    loading: true,
   }
 
   componentDidMount = () => {
     let {
-      match: { params: { post_id } },
-      dispatch
+      match: {
+        params: { post_id },
+      },
+      dispatch,
     } = this.props
     post_id ? dispatch(getPost(post_id)) : null
     dispatch(getUnreadNotifications())
     dispatch(getUnreadMessages())
   }
 
-  componentWillReceiveProps = () =>
-    this.setState({ loading: false })
+  componentWillReceiveProps = () => this.setState({ loading: false })
 
   render() {
     let { loading } = this.state
 
     return (
       <div>
-        <Title value='View post' />
+        <Title value="View post" />
 
-        <FadeIn duration='300ms'>
-
-          <div className='senapati view_senapati'>
-            <div className='prajkumar'>
+        <FadeIn duration="300ms">
+          <div className="senapati view_senapati">
+            <div className="prajkumar">
               <IsLoading loading={loading} />
 
-              <div className={cLoading(loading)} >
-                <ShowPost/>
+              <div className={cLoading(loading)}>
+                <ShowPost />
               </div>
             </div>
 
-            <div className='srajkumar'>
+            <div className="srajkumar">
               <Suggested />
-              <CreateGroup/>
+              <CreateGroup />
             </div>
           </div>
-
         </FadeIn>
       </div>
     )
@@ -61,7 +59,7 @@ class ViewPost extends Component {
 }
 
 const mapStateToProps = store => ({
-  store
+  store,
 })
 
 export default connect(mapStateToProps)(ViewPost)

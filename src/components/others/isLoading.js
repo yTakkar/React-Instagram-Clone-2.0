@@ -5,21 +5,17 @@ import Loading from './loading'
 
 const IsLoading = ({ loading, when }) => (
   <Fragment>
-    {
-      loading
-        ? when == 'page' ? <Loading/> : <Spinner/>
-        : null
-    }
+    {loading ? when == 'page' ? <Loading /> : <Spinner /> : null}
   </Fragment>
 )
 
 IsLoading.defaultProps = {
-  when: 'component'
+  when: 'component',
 }
 
 IsLoading.propTypes = {
   loading: PropTypes.bool.isRequired,
-  when: PropTypes.oneOf([ 'component', 'page' ])
+  when: PropTypes.oneOf(['component', 'page']),
 }
 
 export default IsLoading

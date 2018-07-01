@@ -13,23 +13,23 @@ import GroupRoutes from './group-routes'
 import IsLoading from '../others/isLoading'
 
 class Group extends Component {
-
   state = {
-    loading: true
+    loading: true,
   }
 
-  inv_grp = () =>
-    this.props.history.push('/error/group')
+  inv_grp = () => this.props.history.push('/error/group')
 
   componentDidMount = () => {
     let {
       dispatch,
-      match: { params: { grp_id } }
+      match: {
+        params: { grp_id },
+      },
     } = this.props
     forGroup({
       grp_id,
       dispatch,
-      invalidGroup: this.inv_grp
+      invalidGroup: this.inv_grp,
     })
     dispatch(getUnreadNotifications())
     dispatch(getUnreadMessages())
@@ -40,7 +40,7 @@ class Group extends Component {
       forGroup({
         grp_id: match.params.grp_id,
         dispatch,
-        invalidGroup: this.inv_grp
+        invalidGroup: this.inv_grp,
       })
     }
     this.setState({ loading: false })
@@ -51,43 +51,41 @@ class Group extends Component {
     let {
       gd: { name, admin, group_type },
       joined,
-      match: { url, params: { grp_id } }
+      match: {
+        url,
+        params: { grp_id },
+      },
     } = this.props
     let showContent = Me(admin) || group_type == 'public' || joined || isAdmin()
 
     return (
       <div>
-
         <Title
           value={name}
           desc={`View ${name}'s posts, members and much more..`}
         />
 
         <div
-          className='group_details'
+          className="group_details"
           data-group-id={grp_id}
           data-group-name={name}
-        ></div>
+        />
 
-        <IsLoading loading={loading} when='page' />
+        <IsLoading loading={loading} when="page" />
 
-        <FadeIn duration='300ms' className={cLoading(loading)} >
-          <GroupBanner/>
-          {
-            showContent ?
-              <Fragment>
-                <GroupNav url={url} admin={admin} />
-                <GroupRoutes url={url} grp_id={grp_id} />
-              </Fragment>
-              :
-              <div style={{ marginTop: 85 }}>
-                <Nothing
-                  mssg={`${name} group is private. Join to connect!!`}
-                />
-              </div>
-          }
+        <FadeIn duration="300ms" className={cLoading(loading)}>
+          <GroupBanner />
+          {showContent ? (
+            <Fragment>
+              <GroupNav url={url} admin={admin} />
+              <GroupRoutes url={url} grp_id={grp_id} />
+            </Fragment>
+          ) : (
+            <div style={{ marginTop: 85 }}>
+              <Nothing mssg={`${name} group is private. Join to connect!!`} />
+            </div>
+          )}
         </FadeIn>
-
       </div>
     )
   }
@@ -95,7 +93,7 @@ class Group extends Component {
 
 const mapStateToProps = store => ({
   gd: store.Group.group_details,
-  joined: store.Group.joined
+  joined: store.Group.joined,
 })
 
 export default connect(mapStateToProps)(Group)

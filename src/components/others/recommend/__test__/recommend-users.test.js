@@ -7,10 +7,8 @@ import mockStore from '../../../../store/__mocks__/mockStore'
 describe('RecommendUsers Component', () => {
   const mockFn = jest.fn()
   const comp = (
-    <Provider store={mockStore} >
-      <RecommendUsers
-        back={mockFn}
-      />
+    <Provider store={mockStore}>
+      <RecommendUsers back={mockFn} />
     </Provider>
   )
 
@@ -18,5 +16,4 @@ describe('RecommendUsers Component', () => {
     const tree = create(comp).toJSON()
     expect(tree).toMatchSnapshot()
   })
-
 })

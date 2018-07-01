@@ -6,9 +6,8 @@ const app = require('express').Router()
 
 // REMOVE QUICK LOGIN
 app.post('/remove-quick-login', (req, res) => {
-  let
-    users = JSON.parse(req.cookies.users),
-    filtered = users.filter(u => u.id != req.body.id )
+  let users = JSON.parse(req.cookies.users),
+    filtered = users.filter(u => u.id != req.body.id)
 
   res.cookie('users', `${JSON.stringify(filtered)}`)
   res.json('Hello, World!!')

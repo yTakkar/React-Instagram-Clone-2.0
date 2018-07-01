@@ -9,7 +9,6 @@ import PrimaryButton from '../../others/button/primary-btn'
  */
 
 const Leave = ({ leaveDetails, leaved, updateGroups, dispatch }) => {
-
   let { user, group_id } = leaveDetails
 
   let leave = e => {
@@ -19,23 +18,23 @@ const Leave = ({ leaveDetails, leaved, updateGroups, dispatch }) => {
       group: group_id,
       updateGroups,
       dispatch,
-      done: () => leaved()
+      done: () => leaved(),
     })
   }
 
   return (
     <Fragment>
       <PrimaryButton
-        label='Leave group'
+        label="Leave group"
         onClick={leave}
-        extraClass='unfollow'
+        extraClass="unfollow"
       />
     </Fragment>
   )
 }
 
 Leave.defaultProps = {
-  updateGroups: false
+  updateGroups: false,
 }
 
 Leave.propTypes = {
@@ -43,7 +42,7 @@ Leave.propTypes = {
     user: number.isRequired,
     group_id: number.isRequired,
   }).isRequired,
-  leaved: func.isRequired
+  leaved: func.isRequired,
 }
 
 export default connect()(Leave)

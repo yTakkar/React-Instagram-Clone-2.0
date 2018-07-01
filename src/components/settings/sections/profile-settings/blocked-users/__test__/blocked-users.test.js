@@ -6,10 +6,9 @@ import { create } from 'react-test-renderer'
 import Setting from '../../../../../../store/__mocks__/reducers/Setting'
 
 describe('BlockedUsers Component', () => {
-
   const comp = (
     <Provider store={mockStore}>
-      <BlockedUsers/>
+      <BlockedUsers />
     </Provider>
   )
 
@@ -23,5 +22,4 @@ describe('BlockedUsers Component', () => {
     const tree = create(comp).toJSON()
     expect(tree).toMatchSnapshot()
   })
-
 })

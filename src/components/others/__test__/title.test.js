@@ -7,18 +7,12 @@ import { shallow } from 'enzyme'
 import mockStore from '../../../store/__mocks__/mockStore'
 
 describe('Title component', () => {
-
   it('should match snapshot', () => {
     const wrapper = shallow(
-      <Title
-        store={mockStore}
-        value='A title'
-        desc='A cool description'
-      />
+      <Title store={mockStore} value="A title" desc="A cool description" />
     )
 
     expect(wrapper.prop('value')).toBe('A title')
     expect(wrapper.prop('desc')).toEqual('A cool description')
   })
-
 })

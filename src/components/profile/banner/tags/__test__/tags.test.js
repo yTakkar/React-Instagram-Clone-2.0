@@ -12,18 +12,15 @@ describe('BannerTags Component', () => {
   it('should match snapshot', () => {
     const tree = create(
       <Provider store={mockStore}>
-        <BannerTags/>
+        <BannerTags />
       </Provider>
     ).toJSON()
     expect(tree).toMatchSnapshot()
   })
 
   it('should show tags when toggle icon is clicked', () => {
-    const wrapper = shallow(
-      <BannerTags/>
-    )
+    const wrapper = shallow(<BannerTags />)
     wrapper.find('.pro_exp_more').simulate('click')
     expect(wrapper.find('.pro_tags').exists()).toBe(true)
   })
-
 })

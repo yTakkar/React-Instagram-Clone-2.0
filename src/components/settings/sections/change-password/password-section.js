@@ -6,7 +6,7 @@ const PasswordSection = ({ label, value, change, autoFocus }) => (
   <div>
     <span>{label}</span>
     <TextInput
-      type='password'
+      type="password"
       placeholder={label}
       value={value}
       autoFocus={autoFocus}
@@ -16,14 +16,14 @@ const PasswordSection = ({ label, value, change, autoFocus }) => (
 )
 
 PasswordSection.defaultProps = {
-  autoFocus: false
+  autoFocus: false,
 }
 
 PasswordSection.propTypes = {
   label: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
   change: PropTypes.func.isRequired,
-  autoFocus: PropTypes.bool
+  autoFocus: PropTypes.bool,
 }
 
 export default PasswordSection

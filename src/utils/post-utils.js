@@ -1,9 +1,7 @@
 import { post } from 'axios'
 import Notify from 'handy-notification'
 import { addGroupPost, addUserPost } from '../actions/post'
-import {
-  imageCompressor, insta_notify, Me, uData, wait
-} from './utils'
+import { imageCompressor, insta_notify, Me, uData, wait } from './utils'
 import * as PostActions from '../actions/post'
 import d from './API/DOM'
 import Action from './API/Action'
@@ -24,9 +22,16 @@ import Action from './API/Action'
  * @param {String} options.tags.username
  */
 export const addPost = async options => {
-  let
-    {
-      dispatch, desc, targetFile, filter, location, type, group, group_name, tags
+  let {
+      dispatch,
+      desc,
+      targetFile,
+      filter,
+      location,
+      type,
+      group,
+      group_name,
+      tags,
     } = options,
     user = Number(uData('session')),
     username = uData('username'),
@@ -45,7 +50,7 @@ export const addPost = async options => {
   form.append('group', group)
 
   let {
-    data: { success, mssg, post_id, firstname, surname, filename }
+    data: { success, mssg, post_id, firstname, surname, filename },
   } = await post('/api/post-it', form)
   await post('/api/tag-post', { tags, post_id })
 
@@ -53,7 +58,7 @@ export const addPost = async options => {
     await insta_notify({
       to: t.user,
       type: 'tag',
-      post_id: post_id
+      post_id: post_id,
     })
   })
 
@@ -80,17 +85,21 @@ export const addPost = async options => {
     }
 
     type == 'user'
-      ? dispatch(addUserPost({
-        ...newPost,
-        when: 'feed'
-      }))
-      : dispatch(addGroupPost({
-        ...newPost,
-        group_id: group,
-        group_name,
-        type: 'group',
-        when: 'groupPosts'
-      }))
+      ? dispatch(
+          addUserPost({
+            ...newPost,
+            when: 'feed',
+          })
+        )
+      : dispatch(
+          addGroupPost({
+            ...newPost,
+            group_id: group,
+            group_name,
+            type: 'group',
+            when: 'groupPosts',
+          })
+        )
   }
 
   action.end()
@@ -108,11 +117,9 @@ export const addPost = async options => {
  * @param {Function} options.failed
  */
 export const editPost = async options => {
+  let { post_id, description, dispatch, done, failed } = options
   let {
-    post_id, description, dispatch, done, failed
-  } = options
-  let {
-    data: { success, mssg }
+    data: { success, mssg },
   } = await post('/api/edit-post', { description, post_id })
 
   if (success) {
@@ -139,7 +146,7 @@ export const deletePost = async options => {
   wait()
 
   let {
-    data: { success, mssg }
+    data: { success, mssg },
   } = await post('/api/delete-post', { post: post_id })
 
   if (success) {
@@ -160,24 +167,22 @@ export const deletePost = async options => {
 export const like = async options => {
   let { post_id, user, done } = options
   let {
-    data: { success, mssg }
+    data: { success, mssg },
   } = await post('/api/like-post', { post: post_id })
 
   if (success) {
     !Me(user)
       ? insta_notify({
-        to: user,
-        type: 'like',
-        post_id
-      })
+          to: user,
+          type: 'like',
+          post_id,
+        })
       : null
 
     done()
-
   } else {
     Notify({ value: mssg })
   }
-
 }
 
 /**
@@ -189,11 +194,9 @@ export const like = async options => {
 export const unlike = async options => {
   let { post_id, done } = options
   let {
-    data: { success, mssg }
+    data: { success, mssg },
   } = await post('/api/unlike-post', { post_id })
-  success
-    ? done()
-    : Notify({ value: mssg })
+  success ? done() : Notify({ value: mssg })
 }
 
 /**
@@ -205,7 +208,7 @@ export const unlike = async options => {
 export const bookmark = async options => {
   let { post_id, done } = options
   let {
-    data: { success, mssg }
+    data: { success, mssg },
   } = await post('/api/bookmark-post', { post_id })
 
   success ? done() : null
@@ -226,7 +229,7 @@ export const unbookmark = async options => {
   let session = uData('session')
 
   let {
-    data: { success, mssg }
+    data: { success, mssg },
   } = await post('/api/unbookmark-post', { post: post_id, user: session })
 
   if (success) {
@@ -235,7 +238,6 @@ export const unbookmark = async options => {
       Notify({ value: 'Post unbookmarked!!' })
     }
     done()
-
   } else {
     Notify({ value: mssg })
   }
@@ -254,21 +256,22 @@ export const share = async options => {
   new d('.share_btn').blur()
 
   let {
-    data: { mssg, success }
+    data: { mssg, success },
   } = await post('/api/share-post', { share_to: user, post_id })
 
   if (success) {
     insta_notify({
       to: user,
       type: 'share',
-      post_id
+      post_id,
     })
-    !Me(postOwner) ?
-      insta_notify({
-        to: postOwner,
-        type: 'shared_your_post',
-        post_id
-      }) : null
+    !Me(postOwner)
+      ? insta_notify({
+          to: postOwner,
+          type: 'shared_your_post',
+          post_id,
+        })
+      : null
 
     done()
   }
@@ -288,7 +291,7 @@ export const unshare = async options => {
   new d('.share_btn').blur()
 
   let {
-    data: { success, mssg }
+    data: { success, mssg },
   } = await post('/api/unshare-post', { unshare_to: user, post_id })
 
   success ? done() : null

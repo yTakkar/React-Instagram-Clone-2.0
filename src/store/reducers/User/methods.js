@@ -5,5 +5,4 @@ export const addTag = (tags, t) => {
   return uniqBy(tags, 'tag')
 }
 
-export const deleteTag = (tags, value) =>
-  tags.filter(t => t.tag != value)
+export const deleteTag = (tags, value) => tags.filter(t => t.tag != value)

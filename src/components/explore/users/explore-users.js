@@ -10,62 +10,50 @@ import { cLoading } from '../../../utils/utils'
 import classNames from 'classnames'
 
 class ExploreUsers extends Component {
-
   state = {
-    loading: true
+    loading: true,
   }
 
-  componentDidMount = () =>
-    this.props.dispatch(getUsersToExplore())
+  componentDidMount = () => this.props.dispatch(getUsersToExplore())
 
-  componentWillReceiveProps = () =>
-    this.setState({ loading: false })
+  componentWillReceiveProps = () => this.setState({ loading: false })
 
   render() {
-    let
-      { users } = this.props,
+    let { users } = this.props,
       { loading } = this.state,
       len = users.length,
-      map_users = users.map(u =>
-        <ExploreUsersList key={u.id} {...u} />
-      )
+      map_users = users.map(u => <ExploreUsersList key={u.id} {...u} />)
 
     return (
       <div>
-        <Title value='Explore users' />
+        <Title value="Explore users" />
 
-        <FadeIn duration='300ms'>
-
+        <FadeIn duration="300ms">
           <IsLoading loading={loading} />
 
           <div
             className={classNames('m_div', cLoading(loading))}
             style={{ marginTop: 0 }}
           >
-            <div
-              className='m_wrapper'
-              style={{ width: len == 0 ? 500 : null }}
-            >
-              {
-                len == 0 ?
-                  <div style={{ width: '100%' }} >
-                    <Nothing mssg='Sorry, no users to explore!!' />
-                  </div>
-                  : map_users
-              }
+            <div className="m_wrapper" style={{ width: len == 0 ? 500 : null }}>
+              {len == 0 ? (
+                <div style={{ width: '100%' }}>
+                  <Nothing mssg="Sorry, no users to explore!!" />
+                </div>
+              ) : (
+                map_users
+              )}
             </div>
           </div>
-
         </FadeIn>
-
       </div>
     )
   }
 }
 
-const mapStateToProps = store => (
-  { users: store.Explore.users }
-)
+const mapStateToProps = store => ({
+  users: store.Explore.users,
+})
 
 export default connect(mapStateToProps)(ExploreUsers)
 export { ExploreUsers as PureExploreUsers }

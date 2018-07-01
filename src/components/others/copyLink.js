@@ -4,7 +4,6 @@ import Copy from 'handy-copy'
 import PropTypes from 'prop-types'
 
 const CopyLink = ({ url, label, done }) => {
-
   let copyLink = e => {
     e.preventDefault()
     Copy({
@@ -12,17 +11,15 @@ const CopyLink = ({ url, label, done }) => {
       done: () => {
         Notify({ value: 'Link copied!!' })
         done()
-      }
+      },
     })
   }
 
   return (
     <li>
-      <a
-        href='#'
-        className='p_copy_link'
-        onClick={copyLink}
-      >{label}</a>
+      <a href="#" className="p_copy_link" onClick={copyLink}>
+        {label}
+      </a>
     </li>
   )
 }
@@ -30,7 +27,7 @@ const CopyLink = ({ url, label, done }) => {
 CopyLink.propTypes = {
   url: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
-  done: PropTypes.func.isRequired
+  done: PropTypes.func.isRequired,
 }
 
 export default CopyLink

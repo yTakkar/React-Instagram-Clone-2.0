@@ -14,7 +14,7 @@ describe('Tagged Component', () => {
   it('should match snapshot', () => {
     const tree = create(
       <Provider store={mockStore}>
-        <Tagged param='takkar' />
+        <Tagged param="takkar" />
       </Provider>
     ).toJSON()
     expect(tree).toMatchSnapshot()
@@ -24,7 +24,7 @@ describe('Tagged Component', () => {
     const wrapper = shallow(
       <PureTagged
         dispatch={jest.fn()}
-        param='ghalib'
+        param="ghalib"
         ud={User.user_details}
         tagged={Post.tagged}
       />
@@ -32,5 +32,4 @@ describe('Tagged Component', () => {
     wrapper.setState({ loading: false })
     expect(wrapper.find('IsLoading').prop('loading')).toBe(false)
   })
-
 })

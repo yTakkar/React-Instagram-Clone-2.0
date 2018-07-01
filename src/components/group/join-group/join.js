@@ -4,7 +4,6 @@ import { shape, number, func } from 'prop-types'
 import PrimaryButton from '../../others/button/primary-btn'
 
 const Join = ({ joinDetails, joined }) => {
-
   let { user, addedBy, group_id } = joinDetails
 
   let join = e => {
@@ -13,17 +12,13 @@ const Join = ({ joinDetails, joined }) => {
       user,
       added_by: addedBy,
       group: group_id,
-      done: () => joined()
+      done: () => joined(),
     })
   }
 
   return (
     <Fragment>
-      <PrimaryButton
-        label='Join group'
-        onClick={join}
-        extraClass='follow'
-      />
+      <PrimaryButton label="Join group" onClick={join} extraClass="follow" />
     </Fragment>
   )
 }
@@ -32,7 +27,7 @@ Join.propTypes = {
   joinDetails: shape({
     user: number.isRequired,
     addedBy: number.isRequired,
-    group_id: number.isRequired
+    group_id: number.isRequired,
   }).isRequired,
   joined: func.isRequired,
 }

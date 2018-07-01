@@ -3,10 +3,7 @@ import ToTags from '../toTags'
 import { create } from 'react-test-renderer'
 
 describe('ToTags Component', () => {
-
-  const comp = str => (
-    <ToTags str={str} />
-  )
+  const comp = str => <ToTags str={str} />
 
   it('should match snapshot with simple hashtag string', () => {
     const str = 'A very #good morning'
@@ -27,9 +24,9 @@ describe('ToTags Component', () => {
   })
 
   it('should match snapshot with link string', () => {
-    const str = 'Hey @ghalib, #checkout https://github.com/yTakkar/React-Instagram-Clone-2.0'
+    const str =
+      'Hey @ghalib, #checkout https://github.com/yTakkar/React-Instagram-Clone-2.0'
     const tree = create(comp(str)).toJSON()
     expect(tree).toMatchSnapshot()
   })
-
 })

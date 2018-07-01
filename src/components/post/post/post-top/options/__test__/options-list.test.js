@@ -12,10 +12,10 @@ describe('PostOptionsList Component', () => {
       post_id: 11,
       user: 24,
       when: 'feed',
-      description: 'aa'
+      description: 'aa',
     },
     toggleOptions: mockFn,
-    updateDescription: mockFn
+    updateDescription: mockFn,
   }
 
   MockDataElement()
@@ -23,12 +23,9 @@ describe('PostOptionsList Component', () => {
   it('should match snapshot', () => {
     const tree = create(
       <Provider store={mockStore}>
-        <PostOptionLists
-          {...props}
-        />
+        <PostOptionLists {...props} />
       </Provider>
     ).toJSON()
     expect(tree).toMatchSnapshot()
   })
-
 })

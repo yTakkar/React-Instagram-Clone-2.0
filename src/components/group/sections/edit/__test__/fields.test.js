@@ -10,26 +10,19 @@ describe('EditGroupFields Component', () => {
     fields: {
       name: 'group name',
       bio: 'group bio',
-      isPrivate: false
+      isPrivate: false,
     },
     changeValue: jest.fn(),
-    admin: 24
+    admin: 24,
   }
 
   it('should match snapshot', () => {
-    const tree = create(
-      <PureEditGroupFields {...props} />
-    ).toJSON()
+    const tree = create(<PureEditGroupFields {...props} />).toJSON()
     expect(tree).toMatchSnapshot()
   })
 
   it('should match snapshot and disabled inputs', () => {
-    const tree = create(
-      <PureEditGroupFields
-        {...props}
-        admin={7}
-      />
-    ).toJSON()
+    const tree = create(<PureEditGroupFields {...props} admin={7} />).toJSON()
     expect(tree).toMatchSnapshot()
   })
 })

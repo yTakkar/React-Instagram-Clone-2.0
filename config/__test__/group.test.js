@@ -4,10 +4,9 @@ const Group = require('../Group')
 const { grpID, user1 } = require('./test.config')
 
 describe('Group config files', () => {
-
   test('should return type of group', async () => {
     let type = await Group.getWhatOfGrp('group_type', grpID)
-    expect(type).toBeOneOf([ 'private', 'public' ])
+    expect(type).toBeOneOf(['private', 'public'])
   })
 
   test('should return whether user joined group or not', async () => {
@@ -22,10 +21,9 @@ describe('Group config files', () => {
       expect(mutuals).toContainEqual(
         expect.objectContaining({
           user: expect.any(Number),
-          username: expect.any(String)
+          username: expect.any(String),
         })
       )
     }
   })
-
 })

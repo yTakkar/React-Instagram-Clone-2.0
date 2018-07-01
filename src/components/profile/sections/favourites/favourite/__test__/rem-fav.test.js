@@ -11,7 +11,7 @@ describe('RemoveFav Component', () => {
   MockDataElement()
   const props = {
     fav_id: 45,
-    username: 'ghalib'
+    username: 'ghalib',
   }
 
   it('should match snapshot', () => {
@@ -24,14 +24,9 @@ describe('RemoveFav Component', () => {
   })
 
   it('should mock remove action', () => {
-    const wrapper = shallow(
-      <PureRemoveFav
-        {...props}
-        id={24}
-      />
-    )
+    const wrapper = shallow(<PureRemoveFav {...props} id={24} />)
     wrapper.find('SecondaryButton').simulate('click', {
-      preventDefault() {}
+      preventDefault() {},
     })
   })
 
@@ -44,5 +39,4 @@ describe('RemoveFav Component', () => {
     ).toJSON()
     expect(tree).toMatchSnapshot()
   })
-
 })

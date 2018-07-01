@@ -7,8 +7,8 @@ import { mount } from 'enzyme'
 
 describe('RefreshExplores Component', () => {
   const comp = (
-    <Provider store={mockStore} >
-      <RefreshExplores url='/explore' />
+    <Provider store={mockStore}>
+      <RefreshExplores url="/explore" />
     </Provider>
   )
 
@@ -19,10 +19,6 @@ describe('RefreshExplores Component', () => {
 
   it('should mock refresh action when clicked', () => {
     const wrapper = mount(comp)
-    wrapper.find('a.exp_refresh').simulate(
-      'click',
-      { preventDefault() {} }
-    )
+    wrapper.find('a.exp_refresh').simulate('click', { preventDefault() {} })
   })
-
 })

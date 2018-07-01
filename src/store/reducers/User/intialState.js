@@ -25,5 +25,5 @@ export default {
     lastOnline: '',
   },
   tags: [],
-  mutualUsers: []
+  mutualUsers: [],
 }

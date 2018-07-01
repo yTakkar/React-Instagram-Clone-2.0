@@ -5,31 +5,26 @@ import { string, bool } from 'prop-types'
 import MaterialIcon from '../icons/material-icon'
 
 const ImageTheatreInfo = props => {
-  let {
-    showInfo, username, time, link
-  } = props
+  let { showInfo, username, time, link } = props
 
-  let ago = TimeAgo(time)
-    ? TimeAgo(time).replace(' ago', '')
-    : null
+  let ago = TimeAgo(time) ? TimeAgo(time).replace(' ago', '') : null
 
   let imgBy = `by ${username} (${ago})`
 
   return (
     <Fragment>
-      {
-        showInfo ?
-          <div className='img_s_bottom'>
-            <span className='img_s_by'>{imgBy}</span>
-            <AppLink
-              url={link}
-              className='img_s_window'
-              data-tip='Open separately'
-            ><MaterialIcon icon='open_in_new' />
-            </AppLink>
-          </div>
-          : null
-      }
+      {showInfo ? (
+        <div className="img_s_bottom">
+          <span className="img_s_by">{imgBy}</span>
+          <AppLink
+            url={link}
+            className="img_s_window"
+            data-tip="Open separately"
+          >
+            <MaterialIcon icon="open_in_new" />
+          </AppLink>
+        </div>
+      ) : null}
     </Fragment>
   )
 }

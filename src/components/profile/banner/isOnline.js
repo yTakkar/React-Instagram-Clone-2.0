@@ -8,26 +8,25 @@ const IsOnline = ({ ud }) => {
 
   return (
     <Fragment>
-      {
-        (!Me(id) && isOnline) &&
-          <span className='grp_admin user_online'>
-            <span className='user_online_circle'></span>
+      {!Me(id) &&
+        isOnline && (
+          <span className="grp_admin user_online">
+            <span className="user_online_circle" />
             <span>online</span>
           </span>
-      }
+        )}
 
-      {
-        (!Me(id) && !isOnline && lastOnline) &&
-          <span className='last_online' >
-            Last active {TimeAgo(lastOnline)}
-          </span>
-      }
+      {!Me(id) &&
+        !isOnline &&
+        lastOnline && (
+          <span className="last_online">Last active {TimeAgo(lastOnline)}</span>
+        )}
     </Fragment>
   )
 }
 
-const mapStateToProps = state => (
-  { ud: state.User.user_details }
-)
+const mapStateToProps = state => ({
+  ud: state.User.user_details,
+})
 
 export default connect(mapStateToProps)(IsOnline)

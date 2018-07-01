@@ -4,26 +4,19 @@ import PropTypes from 'prop-types'
 import AppLink from '../../link/link'
 
 const GroupSearch = props => {
-  let {
-    group_id, name, membersCount, mutualMembersCount, clicked
-  } = props
+  let { group_id, name, membersCount, mutualMembersCount, clicked } = props
 
   return (
-    <div className='s_d_peo' onClick={clicked} >
-      <AppLink
-        className='s_d_p'
-        url={`/group/${group_id}`}
-      >
+    <div className="s_d_peo" onClick={clicked}>
+      <AppLink className="s_d_p" url={`/group/${group_id}`}>
         <Fragment>
           <img src={`/groups/${group_id}/avatar.jpg`} />
-          <div className='s_d_c'>
-            <span className='s_d_username'>{ name }</span>
+          <div className="s_d_c">
+            <span className="s_d_username">{name}</span>
             <span>
-              {
-                mutualMembersCount == 0
-                  ? humanReadable(membersCount, 'member')
-                  : humanReadable(mutualMembersCount, 'mutual member')
-              }
+              {mutualMembersCount == 0
+                ? humanReadable(membersCount, 'member')
+                : humanReadable(mutualMembersCount, 'mutual member')}
             </span>
           </div>
         </Fragment>
@@ -37,7 +30,7 @@ GroupSearch.propTypes = {
   name: PropTypes.string.isRequired,
   membersCount: PropTypes.number.isRequired,
   mutualMembersCount: PropTypes.number.isRequired,
-  clicked: PropTypes.func.isRequired
+  clicked: PropTypes.func.isRequired,
 }
 
 export default GroupSearch

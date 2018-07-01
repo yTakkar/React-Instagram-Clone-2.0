@@ -6,32 +6,37 @@ import PostTags from './post-tags'
 import classNames from 'classnames'
 
 export default class PostImage extends Component {
-
   state = {
-    showImage: false
+    showImage: false,
   }
 
-  _toggle = what =>
-    this.setState({ [what]: !this.state[what] })
+  _toggle = what => this.setState({ [what]: !this.state[what] })
 
   render() {
     let {
       postDetails: {
-        post_id, post_time, description, imgSrc, filter, username, tags_count
+        post_id,
+        post_time,
+        description,
+        imgSrc,
+        filter,
+        username,
+        tags_count,
       },
     } = this.props
     let { showImage } = this.state
 
     return (
       <div>
-        <div className='p_o'>
-
-          <div className='p_actual' spellCheck='false'>
+        <div className="p_o">
+          <div className="p_actual" spellCheck="false">
             <div
-              className='p_abt'
+              className="p_abt"
               style={{ marginBottom: description ? '10px' : null }}
             >
-              <p><ToTags str={`${description}`} /></p>
+              <p>
+                <ToTags str={`${description}`} />
+              </p>
             </div>
 
             <img
@@ -40,26 +45,20 @@ export default class PostImage extends Component {
               onClick={() => this._toggle('showImage')}
             />
 
-            <PostTags
-              post_id={post_id}
-              tags_count={tags_count}
-            />
+            <PostTags post_id={post_id} tags_count={tags_count} />
           </div>
-
         </div>
 
-        {
-          showImage &&
-            <ImageTheatre
-              imgSrc={`/posts/${imgSrc}`}
-              filter={filter}
-              username={username}
-              time={post_time}
-              link={`/post/${post_id}`}
-              back={() => this._toggle('showImage')}
-            />
-        }
-
+        {showImage && (
+          <ImageTheatre
+            imgSrc={`/posts/${imgSrc}`}
+            filter={filter}
+            username={username}
+            time={post_time}
+            link={`/post/${post_id}`}
+            back={() => this._toggle('showImage')}
+          />
+        )}
       </div>
     )
   }

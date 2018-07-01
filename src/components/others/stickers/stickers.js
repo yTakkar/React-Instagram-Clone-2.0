@@ -14,18 +14,17 @@ import Overlay from '../overlay'
 import classNames from 'classnames'
 
 export default class Stickers extends Component {
-
   state = {
     stickers: [],
     loading: true,
-    selectedSticker: ''
+    selectedSticker: '',
   }
 
   componentDidMount = async () => {
     let { data: stickers } = await post('/api/get-stickers')
     this.setState({
       stickers,
-      loading: false
+      loading: false,
     })
   }
 
@@ -56,34 +55,33 @@ export default class Stickers extends Component {
 
     return (
       <Fragment>
-        <Overlay/>
+        <Overlay />
 
-        <div className='stickers_modal modal modal_big' >
+        <div className="stickers_modal modal modal_big">
+          <FadeIn duration="300ms">
+            <ModalHeader title="Choose a sticker" />
 
-          <FadeIn duration='300ms' >
-            <ModalHeader title='Choose a sticker' />
-
-            <Scrollbars style={{ height: 450 }} className='modal_middle' >
-
+            <Scrollbars style={{ height: 450 }} className="modal_middle">
               <IsLoading loading={loading} />
 
               <div className={classNames('modal_main', cLoading(loading))}>
-                <MapStickers stickers={stickers} selectSticker={this.selectSticker} />
+                <MapStickers
+                  stickers={stickers}
+                  selectSticker={this.selectSticker}
+                />
               </div>
-
             </Scrollbars>
 
-            <div className='modal_bottom'>
-              <ModalBack back={back} btnType='secondary' />
+            <div className="modal_bottom">
+              <ModalBack back={back} btnType="secondary" />
               <PrimaryButton
-                label='Choose'
+                label="Choose"
                 onClick={this.chooseSticker}
-                extraClass='btn_select_sticker'
+                extraClass="btn_select_sticker"
                 disabled={loading}
               />
             </div>
           </FadeIn>
-
         </div>
       </Fragment>
     )
@@ -92,5 +90,5 @@ export default class Stickers extends Component {
 
 Stickers.propTypes = {
   back: PropTypes.func.isRequired,
-  stickerSelected: PropTypes.func
+  stickerSelected: PropTypes.func,
 }

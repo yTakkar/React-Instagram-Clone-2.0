@@ -11,7 +11,7 @@ describe('BannerAddTagsLink Component', () => {
 
   const comp = (
     <Provider store={mockStore}>
-      <BannerAddTagsLink/>
+      <BannerAddTagsLink />
     </Provider>
   )
 
@@ -25,5 +25,4 @@ describe('BannerAddTagsLink Component', () => {
     const tree = create(comp).toJSON()
     expect(tree).toMatchSnapshot()
   })
-
 })

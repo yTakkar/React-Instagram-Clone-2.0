@@ -5,7 +5,6 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
 class UnsendMessages extends Component {
-
   state = {
     unsend: false,
   }
@@ -34,37 +33,35 @@ class UnsendMessages extends Component {
 
     return (
       <Fragment>
-        {
-          (messages.length != 0)  &&
-            <li><a
-              href='#'
-              className='dlt_mssgs'
-              onClick={this.showPrompt}
-            >Unsend your mssgs</a></li>
-        }
+        {messages.length != 0 && (
+          <li>
+            <a href="#" className="dlt_mssgs" onClick={this.showPrompt}>
+              Unsend your mssgs
+            </a>
+          </li>
+        )}
 
-        {
-          unsend &&
-            <Prompt
-              title='Unsend all your messages'
-              content="All your messages will be deleted. There's no undo so you won't be able to find it."
-              actionText='Delete'
-              action={this.unsendAllMssgs}
-              back={this.modalBack}
-            />
-        }
+        {unsend && (
+          <Prompt
+            title="Unsend all your messages"
+            content="All your messages will be deleted. There's no undo so you won't be able to find it."
+            actionText="Delete"
+            action={this.unsendAllMssgs}
+            back={this.modalBack}
+          />
+        )}
       </Fragment>
     )
   }
 }
 
 UnsendMessages.propTypes = {
-  toggleOptions: PropTypes.func.isRequired
+  toggleOptions: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = store => ({
   con_id: store.Message.conDetails.con_id,
-  messages: store.Message.messages
+  messages: store.Message.messages,
 })
 
 export default connect(mapStateToProps)(UnsendMessages)

@@ -4,7 +4,6 @@ import { resend_vl } from '../../utils/edit-profile-utils'
 import SecondaryButton from '../others/button/secondary-btn'
 
 const ResendVL = () => {
-
   let resend = e => {
     e.preventDefault()
     resend_vl()
@@ -12,14 +11,13 @@ const ResendVL = () => {
 
   return (
     <Fragment>
-      {
-        !e_v()
-          && <SecondaryButton
-            label='Resend verification link'
-            onClick={resend}
-            extraClass='resend_vl'
-          />
-      }
+      {!e_v() && (
+        <SecondaryButton
+          label="Resend verification link"
+          onClick={resend}
+          extraClass="resend_vl"
+        />
+      )}
     </Fragment>
   )
 }

@@ -11,10 +11,9 @@ describe('Banner Component', () => {
   it('should match snapshot', () => {
     const tree = create(
       <Provider store={mockStore}>
-        <Banner/>
+        <Banner />
       </Provider>
     ).toJSON()
     expect(tree).toMatchSnapshot()
   })
-
 })

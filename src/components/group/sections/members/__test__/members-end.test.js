@@ -6,12 +6,9 @@ import MembersEnd from '../Members-end'
 import Group from '../../../../../store/__mocks__/reducers/Group'
 
 describe('MembersEnd Component', () => {
-
   const comp = (
     <Provider store={mockStore}>
-      <MembersEnd
-        loading={false}
-      />
+      <MembersEnd loading={false} />
     </Provider>
   )
 
@@ -25,5 +22,4 @@ describe('MembersEnd Component', () => {
     const tree = create(comp).toJSON()
     expect(tree).toMatchSnapshot()
   })
-
 })

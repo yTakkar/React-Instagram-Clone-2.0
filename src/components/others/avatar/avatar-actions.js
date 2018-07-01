@@ -16,25 +16,22 @@ const AvatarActions = props => {
   let changeAvatar = async e => {
     e.preventDefault()
     let {
-      data: { success, mssg }
+      data: { success, mssg },
     } = await post('/api/change-avatar', { avatar, of, group })
     Notify({
       value: mssg,
-      done: () => success ? location.reload() : null
+      done: () => (success ? location.reload() : null),
     })
   }
 
   return (
-    <div className='pro_ava_bottom_act'>
-      <SecondaryButton
-        label='Cancel'
-        onClick={b}
-      />
+    <div className="pro_ava_bottom_act">
+      <SecondaryButton label="Cancel" onClick={b} />
       <PrimaryButton
-        label='Apply'
+        label="Apply"
         onClick={changeAvatar}
         disabled={loading}
-        extraClass='btn_select_avatar'
+        extraClass="btn_select_avatar"
       />
     </div>
   )
@@ -44,8 +41,8 @@ AvatarActions.propTypes = {
   loading: PropTypes.bool.isRequired,
   back: PropTypes.func.isRequired,
   avatar: PropTypes.string.isRequired,
-  of: PropTypes.oneOf([ 'user', 'group' ]).isRequired,
-  group: PropTypes.number
+  of: PropTypes.oneOf(['user', 'group']).isRequired,
+  group: PropTypes.number,
 }
 
 export default AvatarActions

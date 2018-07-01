@@ -5,16 +5,12 @@ import { create } from 'react-test-renderer'
 describe('TextInput Component', () => {
   const props = {
     value: 'a value',
-    valueChange: jest.fn()
+    valueChange: jest.fn(),
   }
 
   it('should match snapshot with input type text', () => {
     const tree = create(
-      <TextInput
-        {...props}
-        placeholder='Enter username'
-        maxLength='32'
-      />
+      <TextInput {...props} placeholder="Enter username" maxLength="32" />
     ).toJSON()
 
     expect(tree).toMatchSnapshot()
@@ -22,11 +18,7 @@ describe('TextInput Component', () => {
 
   it('should match snapshot with input type password', () => {
     const tree = create(
-      <TextInput
-        {...props}
-        type='password'
-        placeholder='Enter password'
-      />
+      <TextInput {...props} type="password" placeholder="Enter password" />
     ).toJSON()
 
     expect(tree).toMatchSnapshot()
@@ -34,15 +26,9 @@ describe('TextInput Component', () => {
 
   it('should match snapshot with input type email', () => {
     const tree = create(
-      <TextInput
-        {...props}
-        type='email'
-        placeholder='Enter email'
-        disabled
-      />
+      <TextInput {...props} type="email" placeholder="Enter email" disabled />
     ).toJSON()
 
     expect(tree).toMatchSnapshot()
   })
-
 })

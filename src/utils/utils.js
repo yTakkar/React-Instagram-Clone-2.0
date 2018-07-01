@@ -7,7 +7,7 @@ import axios, { post } from 'axios'
 import Notify from 'handy-notification'
 import { getUserDetails, getMutualUsers } from '../actions/user'
 import { isFollowing, getUserStats } from '../actions/follow'
-import { getUserPosts, getGroupPosts, } from '../actions/post'
+import { getUserPosts, getGroupPosts } from '../actions/post'
 import { getGroupDetails, joinedGroup } from '../actions/group'
 import Compress from 'image-compressor.js'
 import d from './API/DOM'
@@ -18,13 +18,14 @@ import d from './API/DOM'
  * @param {Number} length
  */
 export const shortener = (what, length) => {
-  let
-    parse = parseInt(length),
+  let parse = parseInt(length),
     len = what.length
-  if (!parse) { return }
-  return (len >= parse)
+  if (!parse) {
+    return
+  }
+  return len >= parse
     ? `${what.substr(0, length - 2)}..`
-    : (len < parse)
+    : len < parse
       ? what
       : null
 }
@@ -33,17 +34,17 @@ export const shortener = (what, length) => {
  * Returns data stored in dataset
  * @param {String} what Which data
  */
-export const uData = what =>
-  new d('.data').data(what)
+export const uData = what => new d('.data').data(what)
 
 /**
  * Returns unique string, useful for key
  */
 export const uniq = () =>
-  Math.random().toString(5).slice(2)
+  Math.random()
+    .toString(5)
+    .slice(2)
 
-export const randNum = () =>
-  Math.random() * 200
+export const randNum = () => Math.random() * 200
 
 /**
  * Returns human-readable text
@@ -53,9 +54,7 @@ export const randNum = () =>
  */
 export const humanReadable = (value, text) => {
   let hr =
-    value == 0 ? `No ${text}s`
-      : value == 1 ? `1 ${text}`
-        : `${value} ${text}s`
+    value == 0 ? `No ${text}s` : value == 1 ? `1 ${text}` : `${value} ${text}s`
   return hr
 }
 
@@ -65,17 +64,14 @@ export const humanReadable = (value, text) => {
  */
 export const toggle = el => {
   let style = el.style.display
-  style === 'none'
-    ? el.style.display = 'block'
-    : el.style.display = 'none'
+  style === 'none' ? (el.style.display = 'block') : (el.style.display = 'none')
 }
 
 /**
  * Capitalizes str
  * @param {String} str
  */
-export const c_first = str =>
-  str.charAt(0).toUpperCase() + str.substr(1)
+export const c_first = str => str.charAt(0).toUpperCase() + str.substr(1)
 
 /**
  * Removes hr of last element of modal
@@ -84,9 +80,11 @@ export const llr = () => {
   let elements = Array.from(new d('.modal_items').toAll())
   let element = elements[elements.length - 1]
 
-  element ? Array.from(element.children).map(child =>
-    child.nodeName == 'HR' ? child.remove() : null
-  ) : null
+  element
+    ? Array.from(element.children).map(
+        child => (child.nodeName == 'HR' ? child.remove() : null)
+      )
+    : null
 }
 
 /**
@@ -110,13 +108,11 @@ export const viewPassword = ({ input, icon }) => {
 
 /**
  * For replacing illegal characters
-*/
+ */
 export const replacer = (el, filter) => {
   let elem = new d(el)
   let regex =
-    filter == 'normal' ? /[^a-z0-9_.@$#]/i
-      : filter == 'bio'
-        ? /[<>]/i : null
+    filter == 'normal' ? /[^a-z0-9_.@$#]/i : filter == 'bio' ? /[<>]/i : null
 
   elem.on('keyup', e => {
     let value = e.currentTarget.value
@@ -127,8 +123,7 @@ export const replacer = (el, filter) => {
 /**
  * Returns whether it's me
  */
-export const Me = user =>
-  user == uData('session') ? true : false
+export const Me = user => (user == uData('session') ? true : false)
 
 /**
  * Returns whether email is verified
@@ -143,9 +138,7 @@ export const e_v = () => {
  */
 export const isPrivate = (user, isFollowing, accountType) => {
   let sprivate =
-    !Me(user) && !isFollowing && accountType == 'private'
-      ? true
-      : false
+    !Me(user) && !isFollowing && accountType == 'private' ? true : false
   return sprivate
 }
 
@@ -156,9 +149,9 @@ export const isPrivate = (user, isFollowing, accountType) => {
 export const imageCompressor = file => {
   return new Promise(resolve => {
     new Compress(file, {
-      quality: .6,
+      quality: 0.6,
       success: file => resolve(file),
-      error: err => console.log(err.message)
+      error: err => console.log(err.message),
     })
   })
 }
@@ -167,15 +160,13 @@ export const imageCompressor = file => {
  * For profile
  */
 export const forProfile = async options => {
-  let
-    { username, dispatch, invalidUser } = options,
+  let { username, dispatch, invalidUser } = options,
     { data: valid } = await post('/api/is-user-valid', { username }),
     s_username = uData('username')
 
   if (!valid) {
     invalidUser()
   } else {
-
     if (username != s_username) {
       dispatch(isFollowing(username))
       dispatch(getMutualUsers(username))
@@ -185,7 +176,6 @@ export const forProfile = async options => {
     dispatch(getUserDetails(username))
     dispatch(getUserStats(username))
     dispatch(getUserPosts(username))
-
   }
 }
 
@@ -193,8 +183,7 @@ export const forProfile = async options => {
  * For group
  */
 export const forGroup = async options => {
-  let
-    { grp_id, dispatch, invalidGroup } = options,
+  let { grp_id, dispatch, invalidGroup } = options,
     { data: valid } = await post('/api/is-group-valid', { grp_id })
 
   if (!valid) {
@@ -209,8 +198,7 @@ export const forGroup = async options => {
 /**
  * Scrolls down to 380
  */
-export const bottomScroll = () =>
-  new d('html, body').toDOM().scrollTop = 380
+export const bottomScroll = () => (new d('html, body').toDOM().scrollTop = 380)
 
 /**
  * Notifies user [on the notification page]
@@ -222,19 +210,22 @@ export const bottomScroll = () =>
  * @param {Number} options.user
  */
 export const insta_notify = async options => {
-  let
-    defaults = {
+  let defaults = {
       to: null,
       type: '',
       post_id: 0,
       group_id: 0,
-      user: 0
+      user: 0,
     },
     obj = { ...defaults, ...options },
     { to, type, post_id, group_id, user } = obj
 
   await post('/api/notify', {
-    to, type, post_id, group_id, user
+    to,
+    type,
+    post_id,
+    group_id,
+    user,
   })
 }
 
@@ -245,7 +236,7 @@ export const insta_notify = async options => {
  * @param {String} url /api/URL to get data from
  * @param {Object} data data requested with the url
  */
-export const dispatchHelper = (type, url, data={}) => {
+export const dispatchHelper = (type, url, data = {}) => {
   return dispatch =>
     post(`/api/${url}`, data)
       .then(p => dispatch({ type, payload: p.data }))
@@ -259,11 +250,7 @@ export const dispatchHelper = (type, url, data={}) => {
  * @returns { String } Individual string message
  */
 export const ObjectMssg = mssg => {
-  return typeof(mssg) == 'object'
-    ? mssg.length > 0
-      ? mssg[0]
-      : mssg
-    : mssg
+  return typeof mssg == 'object' ? (mssg.length > 0 ? mssg[0] : mssg) : mssg
 }
 
 /**
@@ -277,9 +264,7 @@ export const wait = () => {
  * If loading, then add 'cLoading' class to the specified component which hides it until it is loaded
  * @param {Boolean} loading
  */
-export const cLoading = loading =>
-  `${loading ? 'cLoading' : ''}`
-
+export const cLoading = loading => `${loading ? 'cLoading' : ''}`
 
 /**
  * Request a response from an API endpoint.
@@ -287,7 +272,7 @@ export const cLoading = loading =>
  * @param {Object} data Optional data to pass
  * @param {String} method Method type. Default is post
  */
-export const APIRequest = (url, data={}, method='post') => {
+export const APIRequest = (url, data = {}, method = 'post') => {
   return new Promise((resolve, reject) => {
     axios[method](url, data)
       .then(resp => resolve(resp))

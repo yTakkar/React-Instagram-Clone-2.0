@@ -4,20 +4,15 @@ import PropTypes from 'prop-types'
 import MutualMembersDiv from './mutualsDiv'
 
 const MutualMembers = ({ group, len }) => (
-  <Fragment>
-    {
-      len != 0 &&
-        <MutualMembersDiv group={group} />
-    }
-  </Fragment>
+  <Fragment>{len != 0 && <MutualMembersDiv group={group} />}</Fragment>
 )
 
 MutualMembers.propTypes = {
-  group: PropTypes.number
+  group: PropTypes.number,
 }
 
-const mapStateToProps = state => (
-  { len: state.Group.mutualMembers.length }
-)
+const mapStateToProps = state => ({
+  len: state.Group.mutualMembers.length,
+})
 
 export default connect(mapStateToProps)(MutualMembers)

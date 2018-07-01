@@ -8,18 +8,14 @@ import { MemoryRouter } from 'react-router-dom'
 jest.unmock('react-router-dom')
 
 describe('Explore Component', () => {
-
   it('should match snapshot', () => {
     const tree = create(
-      <Provider store={mockStore} >
+      <Provider store={mockStore}>
         <MemoryRouter>
-          <Explore
-            match={{ url: '/explore' }}
-          />
+          <Explore match={{ url: '/explore' }} />
         </MemoryRouter>
       </Provider>
     ).toJSON()
     expect(tree).toMatchSnapshot()
   })
-
 })

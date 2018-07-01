@@ -1,7 +1,6 @@
 // ALL RECOMMENDATION-RELATED ROUTES ARE HANDLED BY THIS FILE
 
-const
-  app = require('express').Router(),
+const app = require('express').Router(),
   db = require('../../../config/db'),
   User = require('../../../config/User')
 
@@ -9,7 +8,7 @@ const
 app.post('/get-users-to-recommend', async (req, res) => {
   let users = await db.query(
     'SELECT follow_system.follow_id, follow_system.follow_to, follow_system.follow_to_username AS username, users.firstname, users.surname FROM follow_system, users WHERE follow_system.follow_by=? AND follow_system.follow_to = users.id AND follow_system.follow_to <> ? ORDER BY follow_system.follow_time DESC',
-    [ req.session.id, req.body.user ]
+    [req.session.id, req.body.user]
   )
   res.json(users)
 })
@@ -19,8 +18,7 @@ app.post('/recommend-user', async (req, res) => {
   let respObj = {}
 
   try {
-    let
-      { user, recommend_to } = req.body,
+    let { user, recommend_to } = req.body,
       { id: recommend_by } = req.session,
       isBlocked = await User.isBlocked(user, recommend_by),
       isBlockedTwo = await User.isBlocked(recommend_to, recommend_by),
@@ -28,7 +26,7 @@ app.post('/recommend-user', async (req, res) => {
         recommend_by,
         recommend_to,
         recommend_of: user,
-        recommend_time: new Date().getTime()
+        recommend_time: new Date().getTime(),
       }
 
     if (!isBlocked && !isBlockedTwo) {
@@ -38,13 +36,11 @@ app.post('/recommend-user', async (req, res) => {
       let recommend_to_username = await User.getWhat('username', recommend_to)
       respObj = {
         success: true,
-        mssg: `Recommended ${username} to ${recommend_to_username}!!`
+        mssg: `Recommended ${username} to ${recommend_to_username}!!`,
       }
-
     } else {
       respObj = { mssg: 'Could not recommend!!' }
     }
-
   } catch (error) {
     console.log(error)
     respObj = { mssg: 'An error occured!!' }
@@ -55,10 +51,9 @@ app.post('/recommend-user', async (req, res) => {
 
 // REMOVE RECOMMENDATION [REQ = RECOMMEND_ID]
 app.post('/remove-recommendation', async (req, res) => {
-  await db.query(
-    'DELETE FROM recommendations WHERE recommend_id=?',
-    [ req.body.recommend_id ]
-  )
+  await db.query('DELETE FROM recommendations WHERE recommend_id=?', [
+    req.body.recommend_id,
+  ])
   res.json('Hello, World!!')
 })
 

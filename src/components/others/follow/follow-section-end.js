@@ -10,17 +10,15 @@ const FollowSectionEnd = ({ loading, len, when, ud }) => {
 
   return (
     <Fragment>
-      {
-        !loading && len == 0
-          ? <Nothing
-            mssg={Me(id)
-              ? `You have no ${when}!!`
-              : `${username} have no ${when}!!`
-            } />
-          : !loading && len != 0
-            ? <End/>
-            : null
-      }
+      {!loading && len == 0 ? (
+        <Nothing
+          mssg={
+            Me(id) ? `You have no ${when}!!` : `${username} have no ${when}!!`
+          }
+        />
+      ) : !loading && len != 0 ? (
+        <End />
+      ) : null}
     </Fragment>
   )
 }
@@ -28,11 +26,11 @@ const FollowSectionEnd = ({ loading, len, when, ud }) => {
 FollowSectionEnd.propTypes = {
   loading: PropTypes.bool.isRequired,
   len: PropTypes.number.isRequired,
-  when: PropTypes.oneOf([ 'followers', 'followings' ]).isRequired
+  when: PropTypes.oneOf(['followers', 'followings']).isRequired,
 }
 
-const mapStateToProps = state => (
-  { ud: state.User.user_details }
-)
+const mapStateToProps = state => ({
+  ud: state.User.user_details,
+})
 
 export default connect(mapStateToProps)(FollowSectionEnd)

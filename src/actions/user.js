@@ -6,14 +6,14 @@ export const getUserDetails = username =>
 export const deleteTag = tag => {
   return {
     type: 'DELETE_TAG',
-    payload: tag
+    payload: tag,
   }
 }
 
 export const addTag = tag => {
   return {
     type: 'ADD_TAG',
-    payload: tag
+    payload: tag,
   }
 }
 

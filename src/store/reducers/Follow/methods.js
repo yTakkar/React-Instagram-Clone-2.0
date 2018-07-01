@@ -14,8 +14,7 @@ export const following = (followings, n) => {
 export const unfollowing = (followings, n) =>
   followings.filter(ff => ff.follow_to !== parseInt(n))
 
-export const remFav = (favs, fav_id) =>
-  favs.filter(f => f.fav_id != fav_id)
+export const remFav = (favs, fav_id) => favs.filter(f => f.fav_id != fav_id)
 
 export const remRec = (recommends, recommend_id) =>
   recommends.filter(r => r.recommend_id != parseInt(recommend_id))

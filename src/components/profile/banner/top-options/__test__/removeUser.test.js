@@ -13,21 +13,16 @@ describe('BannerRemoveUser Component', () => {
   it('should match snapshot', () => {
     const tree = create(
       <Provider store={mockStore}>
-        <BannerRemoveUser/>
+        <BannerRemoveUser />
       </Provider>
     ).toJSON()
     expect(tree).toMatchSnapshot()
   })
 
   it('should mock removeUser action when option is clicked', () => {
-    const wrapper = shallow(
-      <PureBannerRemoveUser
-        id={7}
-      />
-    )
+    const wrapper = shallow(<PureBannerRemoveUser id={7} />)
     wrapper.find('li > a').simulate('click', {
-      preventDefault() {}
+      preventDefault() {},
     })
   })
-
 })

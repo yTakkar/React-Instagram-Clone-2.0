@@ -9,24 +9,20 @@ const ShowPost = ({ post }) => {
 
   return (
     <Fragment>
-      {
-        post_id ?
-          <Fragment>
-            <Post
-              key={post_id}
-              {...post}
-              when='viewPost'
-            />
-            <End/>
-          </Fragment>
-          : <Nothing mssg='No such post found!!' />
-      }
+      {post_id ? (
+        <Fragment>
+          <Post key={post_id} {...post} when="viewPost" />
+          <End />
+        </Fragment>
+      ) : (
+        <Nothing mssg="No such post found!!" />
+      )}
     </Fragment>
   )
 }
 
-const mapStateToProps = state => (
-  { post: state.Post.viewPost }
-)
+const mapStateToProps = state => ({
+  post: state.Post.viewPost,
+})
 
 export default connect(mapStateToProps)(ShowPost)

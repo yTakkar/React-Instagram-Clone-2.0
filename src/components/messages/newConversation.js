@@ -7,7 +7,6 @@ import FAIcon from '../others/icons/font-awesome-icon'
 import PrimaryButton from '../others/button/primary-btn'
 
 class NewConversation extends Component {
-
   state = {
     getUsersForNewCon: false,
   }
@@ -15,7 +14,7 @@ class NewConversation extends Component {
   _toggle = e => {
     e.preventDefault()
     this.setState({
-      getUsersForNewCon: !this.state.getUsersForNewCon
+      getUsersForNewCon: !this.state.getUsersForNewCon,
     })
   }
 
@@ -26,14 +25,13 @@ class NewConversation extends Component {
       username,
       dispatch,
       updateConversations: true,
-      done: () =>
-        this.setState({ getUsersForNewCon: false })
+      done: () => this.setState({ getUsersForNewCon: false }),
     })
   }
 
   btnLabel = () => (
     <Fragment>
-      <FAIcon icon='plus' />
+      <FAIcon icon="plus" />
       <span>New conversation</span>
     </Fragment>
   )
@@ -43,23 +41,17 @@ class NewConversation extends Component {
 
     return (
       <Fragment>
-        <PrimaryButton
-          onClick={this._toggle}
-          label={this.btnLabel}
-        />
+        <PrimaryButton onClick={this._toggle} label={this.btnLabel} />
 
-        {
-          getUsersForNewCon &&
-            <FadeIn duration='300ms' >
-              <SearchFollowings
-                placeholder='Search to message'
-                when='new_con'
-                done={(user, username) =>
-                  this.createConversation(user, username)
-                }
-              />
-            </FadeIn>
-        }
+        {getUsersForNewCon && (
+          <FadeIn duration="300ms">
+            <SearchFollowings
+              placeholder="Search to message"
+              when="new_con"
+              done={(user, username) => this.createConversation(user, username)}
+            />
+          </FadeIn>
+        )}
       </Fragment>
     )
   }

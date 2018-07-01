@@ -11,54 +11,43 @@ describe('PostActions Component', () => {
     when: 'feed',
     user: 7,
     likes_count: 1,
-    shares_count: 1
+    shares_count: 1,
   }
 
   it('should match snapshot', () => {
     const tree = create(
       <Provider store={mockStore}>
-        <PostActions
-          postDetails={postDetails}
-        />
+        <PostActions postDetails={postDetails} />
       </Provider>
     ).toJSON()
     expect(tree).toMatchSnapshot()
   })
 
   it('should increments counts', () => {
-    const wrapper = shallow(
-      <PostActions
-        postDetails={postDetails}
-      />
-    )
+    const wrapper = shallow(<PostActions postDetails={postDetails} />)
     expect(wrapper.state()).toContainEntries([
       ['likes_count', 1],
-      ['shares_count', 1]
+      ['shares_count', 1],
     ])
     wrapper.instance().incrementWhat('likes_count')
     wrapper.instance().incrementWhat('shares_count')
     expect(wrapper.state()).toContainEntries([
       ['likes_count', 2],
-      ['shares_count', 2]
+      ['shares_count', 2],
     ])
   })
 
   it('should increments counts', () => {
-    const wrapper = shallow(
-      <PostActions
-        postDetails={postDetails}
-      />
-    )
+    const wrapper = shallow(<PostActions postDetails={postDetails} />)
     expect(wrapper.state()).toContainEntries([
       ['likes_count', 1],
-      ['shares_count', 1]
+      ['shares_count', 1],
     ])
     wrapper.instance().decrementWhat('likes_count')
     wrapper.instance().decrementWhat('shares_count')
     expect(wrapper.state()).toContainEntries([
       ['likes_count', 0],
-      ['shares_count', 0]
+      ['shares_count', 0],
     ])
   })
-
 })

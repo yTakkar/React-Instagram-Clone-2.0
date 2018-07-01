@@ -1,7 +1,7 @@
 import PostItIntialState from './postit-initial-state'
 
 export const addPost = (posts, post) => {
-  posts = [ post, ...posts ]
+  posts = [post, ...posts]
   return posts
 }
 
@@ -31,18 +31,16 @@ export const removeShare = (sharers, share_id) =>
 export const comment = (post, comment) => {
   post = {
     ...post,
-    comments: [ comment, ...post.comments ]
+    comments: [comment, ...post.comments],
   }
   return post
 }
 
 export const deleteComment = (post, comment_id) => {
-  let comments = post.comments.filter(c =>
-    c.comment_id != comment_id
-  )
+  let comments = post.comments.filter(c => c.comment_id != comment_id)
   return {
     ...post,
-    comments
+    comments,
   }
 }
 
@@ -56,7 +54,7 @@ export const editComment = (post, { comment_id, comment }) => {
 
   return {
     ...post,
-    comments
+    comments,
   }
 }
 
@@ -67,7 +65,7 @@ export const changePostIt = (postIt, pyOptions) => {
   let { what, value } = pyOptions
   let updated = {
     ...postIt,
-    [what]: value
+    [what]: value,
   }
   return updated
 }

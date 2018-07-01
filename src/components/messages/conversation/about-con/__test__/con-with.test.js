@@ -8,7 +8,7 @@ import Message from '../../../../../store/__mocks__/reducers/Message'
 describe('ConversationWith Component', () => {
   const comp = (
     <Provider store={mockStore}>
-      <ConversationWith/>
+      <ConversationWith />
     </Provider>
   )
 
@@ -22,5 +22,4 @@ describe('ConversationWith Component', () => {
     const tree = create(comp).toJSON()
     expect(tree).toMatchSnapshot()
   })
-
 })

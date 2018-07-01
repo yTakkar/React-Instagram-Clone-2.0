@@ -8,18 +8,13 @@ describe('GroupTopOptions Component', () => {
   MockDataElement()
 
   it('should match snapshot', () => {
-    const tree = create(
-      <GroupTopOptions/>
-    ).toJSON()
+    const tree = create(<GroupTopOptions />).toJSON()
     expect(tree).toMatchSnapshot()
   })
 
   it('should show options when icon is clicked', () => {
-    const wraper = shallow(
-      <GroupTopOptions/>
-    )
+    const wraper = shallow(<GroupTopOptions />)
     wraper.find('.pro_more_horiz').simulate('click')
     expect(wraper.find('.pro_banner_options').exists()).toBe(true)
   })
-
 })

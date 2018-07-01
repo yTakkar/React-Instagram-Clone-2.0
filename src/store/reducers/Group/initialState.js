@@ -15,5 +15,5 @@ export default {
   newestMembers: [],
   userGroups: [],
   usersToInvite: [],
-  usersToMakeAdmin: []
+  usersToMakeAdmin: [],
 }

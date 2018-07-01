@@ -1,14 +1,15 @@
 import React, { Fragment } from 'react'
 import ToolTip from 'react-tooltip'
 import {
-  getUsersToExplore, getPhotosToExplore, getGroupsToExplore
+  getUsersToExplore,
+  getPhotosToExplore,
+  getGroupsToExplore,
 } from '../../actions/explore'
 import { connect } from 'react-redux'
 import FAIcon from '../others/icons/font-awesome-icon'
 import { string } from 'prop-types'
 
 const RefreshExplores = ({ url, dispatch }) => {
-
   let refresh = e => {
     e.preventDefault()
 
@@ -25,21 +26,16 @@ const RefreshExplores = ({ url, dispatch }) => {
 
   return (
     <Fragment>
-      <a
-        href='#'
-        className='exp_refresh'
-        data-tip='Refresh'
-        onClick={refresh}
-      >
-        <FAIcon icon='sync-alt' />
+      <a href="#" className="exp_refresh" data-tip="Refresh" onClick={refresh}>
+        <FAIcon icon="sync-alt" />
       </a>
-      <ToolTip/>
+      <ToolTip />
     </Fragment>
   )
 }
 
 RefreshExplores.propTypes = {
-  url: string.isRequired
+  url: string.isRequired,
 }
 
 export default connect()(RefreshExplores)

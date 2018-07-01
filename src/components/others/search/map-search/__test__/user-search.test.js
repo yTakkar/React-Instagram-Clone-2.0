@@ -9,27 +9,18 @@ describe('User-Search Component', () => {
     firstname: 'Mirza',
     surname: 'Ghalib',
     mutualFollowersCount: 0,
-    clicked() {}
+    clicked() {},
   }
 
   it('should match snapshot', () => {
-    const tree = create(
-      <UserSearch
-        {...props}
-      />
-    ).toJSON()
+    const tree = create(<UserSearch {...props} />).toJSON()
     expect(tree).toMatchSnapshot()
   })
 
   it('should match snapshot with mutual followers also hiding firstname & surname', () => {
     const tree = create(
-      <UserSearch
-        {...props}
-        mutualFollowersCount={3}
-      />
+      <UserSearch {...props} mutualFollowersCount={3} />
     ).toJSON()
     expect(tree).toMatchSnapshot()
   })
-
-
 })

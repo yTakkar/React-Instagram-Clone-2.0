@@ -4,13 +4,8 @@ import PostTopDetails from '../top-details'
 import posts from '../../../../../store/__mocks__/reducers/posts'
 
 describe('PostTopDetails Component', () => {
-
   it('should match snapshot', () => {
-    const tree = create(
-      <PostTopDetails
-        details={{...posts[0]}}
-      />
-    ).toJSON()
+    const tree = create(<PostTopDetails details={{ ...posts[0] }} />).toJSON()
     expect(tree).toMatchSnapshot()
   })
 
@@ -21,7 +16,7 @@ describe('PostTopDetails Component', () => {
           ...posts[0],
           type: 'group',
           group_id: 11,
-          group_name: 'cool group'
+          group_name: 'cool group',
         }}
       />
     ).toJSON()
@@ -33,11 +28,10 @@ describe('PostTopDetails Component', () => {
       <PostTopDetails
         details={{
           ...posts[0],
-          location: ''
+          location: '',
         }}
       />
     ).toJSON()
     expect(tree).toMatchSnapshot()
   })
-
 })

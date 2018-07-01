@@ -8,12 +8,12 @@ import Follow from '../../../others/follow/follow'
 import Unfollow from '../../../others/follow/unfollow'
 
 export default class NotificationActionType extends Component {
-
   state = { isFollowing: false }
 
-  componentDidMount = () => this.setState({
-    isFollowing: this.props.details.isFollowing
-  })
+  componentDidMount = () =>
+    this.setState({
+      isFollowing: this.props.details.isFollowing,
+    })
 
   componentWillReceiveProps = ({ details: { isFollowing } }) =>
     this.setState({ isFollowing })
@@ -21,16 +21,20 @@ export default class NotificationActionType extends Component {
   render() {
     let {
       details: {
-        type, user_username, group_id, post_id, notify_by, notify_by_username
-      }
+        type,
+        user_username,
+        group_id,
+        post_id,
+        notify_by,
+        notify_by_username,
+      },
     } = this.props
     let { isFollowing } = this.state
 
     return (
       <Fragment>
-        <div className='noti_right follow_noti_right'>
-          {
-            /* eslint-disable indent */
+        <div className="noti_right follow_noti_right">
+          {/* eslint-disable */
 
             // show follow button if..
             type == 'follow'
@@ -75,7 +79,7 @@ export default class NotificationActionType extends Component {
             // else null
             : null
 
-            /* eslint-enable indent */
+            /* eslint-enable */
           }
         </div>
       </Fragment>
@@ -91,6 +95,6 @@ NotificationActionType.propTypes = {
     notify_by_username: PropTypes.string.isRequired,
     post_id: PropTypes.number.isRequired,
     group_id: PropTypes.number.isRequired,
-    isFollowing: PropTypes.bool.isRequired
+    isFollowing: PropTypes.bool.isRequired,
   }).isRequired,
 }

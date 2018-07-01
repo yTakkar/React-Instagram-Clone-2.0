@@ -4,7 +4,7 @@ import { number, func, oneOfType, string } from 'prop-types'
 const RangeInput = ({ value, min, max, onChange, ...props }) => (
   <Fragment>
     <input
-      type='range'
+      type="range"
       min={min}
       max={max}
       value={value}
@@ -20,13 +20,10 @@ RangeInput.defaultProps = {
 }
 
 RangeInput.propTypes = {
-  value: oneOfType([
-    string,
-    number
-  ]).isRequired,
+  value: oneOfType([string, number]).isRequired,
   min: number.isRequired,
   max: number.isRequired,
-  onChange: func.isRequired
+  onChange: func.isRequired,
 }
 
 export default RangeInput

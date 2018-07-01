@@ -14,7 +14,6 @@ import Overlay from '../../../others/overlay'
 import { string, func, number } from 'prop-types'
 
 class EditComment extends Component {
-
   state = {
     comment: '',
     ogComment: '',
@@ -24,7 +23,7 @@ class EditComment extends Component {
     let { comment } = this.props
     this.setState({
       comment,
-      ogComment:comment
+      ogComment: comment,
     })
   }
 
@@ -55,51 +54,48 @@ class EditComment extends Component {
 
     return (
       <div>
-        <Overlay/>
+        <Overlay />
 
-        <div className='edit_post modal'>
-          <FadeIn duration='300ms'>
-            <ModalHeader title='Edit comment' />
+        <div className="edit_post modal">
+          <FadeIn duration="300ms">
+            <ModalHeader title="Edit comment" />
 
-            <div className='e_p_middle modal_middle'>
+            <div className="e_p_middle modal_middle">
               <TextArea
-                placeholder='Comment..'
-                className='e_c_textarea'
+                placeholder="Comment.."
+                className="e_c_textarea"
                 autoFocus
                 value={comment}
                 valueChange={this.descChange}
               />
             </div>
 
-            <div className='e_p_bottom modal_bottom'>
+            <div className="e_p_bottom modal_bottom">
               <AddEmojis
                 position={{
-                  top: -30, left: -217
+                  top: -30,
+                  left: -217,
                 }}
-                textArea='.e_c_textarea'
-                updateTextArea={value =>
-                  this.setState({ comment: value })
-                }
+                textArea=".e_c_textarea"
+                updateTextArea={value => this.setState({ comment: value })}
                 recenterEmojis
               />
 
               <ModalBack
                 back={this.back}
-                btnType='secondary'
+                btnType="secondary"
                 disabled={!comment}
               />
 
               <PrimaryButton
-                label='Update'
+                label="Update"
                 onClick={this.updateComment}
                 disabled={!comment}
-                extraClass='e_p_update'
+                extraClass="e_p_update"
               />
             </div>
-
           </FadeIn>
         </div>
-
       </div>
     )
   }
@@ -109,7 +105,7 @@ EditComment.propTypes = {
   comment: string.isRequired,
   comment_id: number.isRequired,
   back: func.isRequired,
-  updateComment: func.isRequired
+  updateComment: func.isRequired,
 }
 
 export default connect()(EditComment)

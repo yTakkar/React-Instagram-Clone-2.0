@@ -11,10 +11,9 @@ describe('Recommendations Component', () => {
   it('should match snapshot', () => {
     const tree = create(
       <Provider store={mockStore}>
-        <Recommendations param='takkar' />
+        <Recommendations param="takkar" />
       </Provider>
     ).toJSON()
     expect(tree).toMatchSnapshot()
   })
-
 })

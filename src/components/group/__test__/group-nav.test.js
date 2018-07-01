@@ -7,23 +7,12 @@ describe('GroupNav Component', () => {
   MockDataElement()
 
   it('should match snapshot', () => {
-    const tree = create(
-      <GroupNav
-        url='/group/11'
-        admin={7}
-      />
-    ).toJSON()
+    const tree = create(<GroupNav url="/group/11" admin={7} />).toJSON()
     expect(tree).toMatchSnapshot()
   })
 
   it('should match snapshot and show edit & add-member links also', () => {
-    const tree = create(
-      <GroupNav
-        url='/group/11'
-        admin={24}
-      />
-    ).toJSON()
+    const tree = create(<GroupNav url="/group/11" admin={24} />).toJSON()
     expect(tree).toMatchSnapshot()
   })
-
 })

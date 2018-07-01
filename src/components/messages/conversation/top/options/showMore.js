@@ -3,9 +3,8 @@ import AboutConversation from '../../about-con/about-con'
 import PropTypes from 'prop-types'
 
 export default class ConversationShowMore extends Component {
-
   state = {
-    showMore: false
+    showMore: false,
   }
 
   show = e => {
@@ -23,23 +22,18 @@ export default class ConversationShowMore extends Component {
 
     return (
       <Fragment>
-        <li><a
-          href='#'
-          className='m_m_info'
-          onClick={this.show}
-        >More</a></li>
+        <li>
+          <a href="#" className="m_m_info" onClick={this.show}>
+            More
+          </a>
+        </li>
 
-        {
-          showMore &&
-            <AboutConversation
-              back={this.modalBack}
-            />
-        }
+        {showMore && <AboutConversation back={this.modalBack} />}
       </Fragment>
     )
   }
 }
 
 ConversationShowMore.propTypes = {
-  toggleOptions: PropTypes.func.isRequired
+  toggleOptions: PropTypes.func.isRequired,
 }

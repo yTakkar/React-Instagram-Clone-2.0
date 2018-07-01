@@ -4,11 +4,8 @@ import CommentTypeImage from '../type-image'
 import { shallow } from 'enzyme'
 
 describe('CommentTypeImage Component', () => {
-
   const comp = (
-    <CommentTypeImage
-      commentSrc='instagram_comment_1518972851259.jpg'
-    />
+    <CommentTypeImage commentSrc="instagram_comment_1518972851259.jpg" />
   )
 
   it('should match snapshot', () => {
@@ -21,5 +18,4 @@ describe('CommentTypeImage Component', () => {
     wrapper.find('.comments_img').simulate('click')
     expect(wrapper.find('ImageTheatre').exists()).toBe(true)
   })
-
 })

@@ -5,7 +5,6 @@ import { deactivateAccount } from '../../../../utils/setting-utils'
 import TextInput from '../../../others/input/text'
 
 export default class DeactivateForm extends Component {
-
   state = {
     showPrompt: false,
   }
@@ -18,9 +17,7 @@ export default class DeactivateForm extends Component {
   deactivate = async e => {
     e.preventDefault()
     let { password } = this.props
-    deactivateAccount(password, () =>
-      this.setState({ showPrompt: false })
-    )
+    deactivateAccount(password, () => this.setState({ showPrompt: false }))
   }
 
   render() {
@@ -29,29 +26,28 @@ export default class DeactivateForm extends Component {
 
     return (
       <Fragment>
-        <form className='dlt_acc_form' onSubmit={this.showPrompt} >
+        <form className="dlt_acc_form" onSubmit={this.showPrompt}>
           <TextInput
-            type='password'
-            placeholder='Your password..'
+            type="password"
+            placeholder="Your password.."
             autoFocus
             required
             value={password}
             valueChange={change}
           />
-          <input type='submit' value='Deactivate' disabled={!password} />
+          <input type="submit" value="Deactivate" disabled={!password} />
         </form>
 
-        {
-          showPrompt &&
-            <Prompt
-              title='Deactivate account'
-              content="Are you sure, you wanna permanently deactivate your account? There's no undo so you won't be able login with this account."
-              actionText= 'Deactivate'
-              action={this.deactivate}
-              back={() => this.setState({ showPrompt: false })}
-              blurred
-            />
-        }
+        {showPrompt && (
+          <Prompt
+            title="Deactivate account"
+            content="Are you sure, you wanna permanently deactivate your account? There's no undo so you won't be able login with this account."
+            actionText="Deactivate"
+            action={this.deactivate}
+            back={() => this.setState({ showPrompt: false })}
+            blurred
+          />
+        )}
       </Fragment>
     )
   }

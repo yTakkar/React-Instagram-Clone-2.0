@@ -1,7 +1,6 @@
 // HANDY METHODS FOR GROUP ROUTES
 
-const
-  db = require('./db'),
+const db = require('./db'),
   { rmdir } = require('fs'),
   { promisify } = require('util'),
   root = process.cwd(),
@@ -15,7 +14,7 @@ const
  * @param {Number} group Group ID
  */
 const getWhatOfGrp = async (what, group) => {
-  let s = await db.query(`SELECT ${what} FROM groups WHERE group_id=?`, [ group ])
+  let s = await db.query(`SELECT ${what} FROM groups WHERE group_id=?`, [group])
   return s.length == 0 ? '' : s[0][what]
 }
 
@@ -24,17 +23,18 @@ const getWhatOfGrp = async (what, group) => {
  * @param {Number} group GroupID
  */
 const deleteGroup = async group => {
-  let
-    posts = await db.query('SELECT post_id FROM posts WHERE group_id=?', [ group ]),
+  let posts = await db.query('SELECT post_id FROM posts WHERE group_id=?', [
+      group,
+    ]),
     dltDir = promisify(rmdir)
 
   for (let p of posts) {
     await deletePost({ post: p.post_id, when: 'group' })
   }
 
-  await db.query('DELETE FROM notifications WHERE group_id=?', [ group ])
-  await db.query('DELETE FROM group_members WHERE group_id=?', [ group ])
-  await db.query('DELETE FROM groups WHERE group_id=?', [ group ])
+  await db.query('DELETE FROM notifications WHERE group_id=?', [group])
+  await db.query('DELETE FROM group_members WHERE group_id=?', [group])
+  await db.query('DELETE FROM groups WHERE group_id=?', [group])
 
   DeleteAllOfFolder(`${root}/dist/groups/${group}/`)
   await dltDir(`${root}/dist/groups/${group}`)
@@ -48,7 +48,7 @@ const deleteGroup = async group => {
 const joinedGroup = async (user, group) => {
   let is = await db.query(
     'SELECT COUNT(grp_member_id) AS joined FROM group_members WHERE member=? AND group_id=? LIMIT 1',
-    [ user, group ]
+    [user, group]
   )
   return db.tf(is[0].joined)
 }
@@ -59,14 +59,13 @@ const joinedGroup = async (user, group) => {
  * @param {Number} group GroupID
  */
 const mutualGroupMembers = async (user, group) => {
-  let
-    myFollowings = await db.query(
+  let myFollowings = await db.query(
       'SELECT follow_system.follow_to AS user, follow_system.follow_to_username AS username FROM follow_system WHERE follow_system.follow_by=?',
-      [ user ]
+      [user]
     ),
     grpMembers = await db.query(
       'SELECT group_members.member AS user, users.username AS username FROM group_members, users WHERE group_id = ? AND group_members.member = users.id ORDER BY group_members.joined_group DESC',
-      [ group ]
+      [group]
     ),
     mutuals = intersectionBy(myFollowings, grpMembers, 'user')
 
@@ -77,5 +76,5 @@ module.exports = {
   getWhatOfGrp,
   deleteGroup,
   joinedGroup,
-  mutualGroupMembers
+  mutualGroupMembers,
 }

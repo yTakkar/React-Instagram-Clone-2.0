@@ -12,9 +12,7 @@ describe('MapConversations Component', () => {
   it('should match snapshot', () => {
     const tree = create(
       <Provider store={mockStore}>
-        <MapConversations
-          showConversation={mockFn}
-        />
+        <MapConversations showConversation={mockFn} />
       </Provider>
     ).toJSON()
     expect(tree).toMatchSnapshot()
@@ -28,11 +26,8 @@ describe('MapConversations Component', () => {
         conversations={Message.conversations}
       />
     )
-    expect(
-      wrapper.find('.con_count').text()
-    ).toEqual('No conversations')
+    expect(wrapper.find('.con_count').text()).toEqual('No conversations')
 
     expect(wrapper.find('Nothing').exists()).toBe(true)
   })
-
 })

@@ -11,7 +11,6 @@ import IsLoading from '../../../others/isLoading'
 import classNames from 'classnames'
 
 class Gallery extends Component {
-
   state = {
     loading: true,
   }
@@ -22,17 +21,14 @@ class Gallery extends Component {
   }
 
   componentWillReceiveProps = ({ dispatch, ud }) => {
-    this.props.ud != ud
-      ? dispatch(getPhotos(ud.id))
-      : null
+    this.props.ud != ud ? dispatch(getPhotos(ud.id)) : null
     this.setState({ loading: false })
   }
 
   componentDidUpdate = () => bottomScroll()
 
   render() {
-    let
-      { loading } = this.state,
+    let { loading } = this.state,
       { param: username, photos } = this.props,
       len = photos.length
 
@@ -40,20 +36,20 @@ class Gallery extends Component {
       <div>
         <Title value={`${username}'s gallery`} />
 
-        <FadeIn duration='300ms'>
-
+        <FadeIn duration="300ms">
           <IsLoading loading={loading} />
 
           <div
             className={classNames(
-              'pro_senapati', 'photos_senapati', cLoading(loading)
+              'pro_senapati',
+              'photos_senapati',
+              cLoading(loading)
             )}
           >
-            <UserPhotos/>
+            <UserPhotos />
           </div>
 
-          { (!loading && len != 0) && <End/> }
-
+          {!loading && len != 0 && <End />}
         </FadeIn>
       </div>
     )
@@ -61,12 +57,12 @@ class Gallery extends Component {
 }
 
 Gallery.propTypes = {
-  param: PropTypes.string.isRequired
+  param: PropTypes.string.isRequired,
 }
 
 const mapStateToProps = store => ({
   ud: store.User.user_details,
-  photos: store.Post.photos
+  photos: store.Post.photos,
 })
 
 export default connect(mapStateToProps)(Gallery)

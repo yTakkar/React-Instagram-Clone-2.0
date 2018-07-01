@@ -14,14 +14,13 @@ import { cLoading } from '../../utils/utils'
 import classNames from 'classnames'
 
 class Messages extends Component {
-
   state = {
     loading: true,
     showConversation: false,
     selectedCon: {
       con_id: null,
-      unreadMssgs: 0  // for updating total unread mssgs
-    }
+      unreadMssgs: 0, // for updating total unread mssgs
+    },
   }
 
   componentDidMount = () => {
@@ -30,28 +29,25 @@ class Messages extends Component {
     dispatch(getConversations())
   }
 
-  componentWillReceiveProps = () =>
-    this.setState({ loading: false })
+  componentWillReceiveProps = () => this.setState({ loading: false })
 
   render() {
     let { loading, showConversation, selectedCon } = this.state
 
     return (
       <div>
-        <IsLoading loading={loading} when='page' />
+        <IsLoading loading={loading} when="page" />
 
-        <Title value='Messages' />
+        <Title value="Messages" />
 
         <FadeIn
-          duration='300ms'
+          duration="300ms"
           className={classNames('messages_senapati', cLoading(loading))}
         >
-
-          <div className='mssg_left'>
-
-            <div className='mssg_new'>
-              <OnlineUsersButton/>
-              <NewConversation/>
+          <div className="mssg_left">
+            <div className="mssg_new">
+              <OnlineUsersButton />
+              <NewConversation />
             </div>
 
             {/* CONVERSATIONS */}
@@ -59,31 +55,27 @@ class Messages extends Component {
               showConversation={con => {
                 this.setState({
                   selectedCon: con,
-                  showConversation: true
+                  showConversation: true,
                 })
               }}
             />
-
           </div>
 
-          <div className='mssg_right'>
-
+          <div className="mssg_right">
             {/* SHOW CONVERSATION */}
-            {
-              showConversation ?
-                <Conversation
-                  con={selectedCon}
-                  hideConversation={() =>
-                    this.setState({ showConversation: false })
-                  }
-                />
-                : <div style={{ marginTop: 77 }} >
-                  <Nothing mssg='Please select a conversation' />
-                </div>
-            }
-
+            {showConversation ? (
+              <Conversation
+                con={selectedCon}
+                hideConversation={() =>
+                  this.setState({ showConversation: false })
+                }
+              />
+            ) : (
+              <div style={{ marginTop: 77 }}>
+                <Nothing mssg="Please select a conversation" />
+              </div>
+            )}
           </div>
-
         </FadeIn>
       </div>
     )
@@ -91,7 +83,7 @@ class Messages extends Component {
 }
 
 const mapStateToProps = store => ({
-  store
+  store,
 })
 
 export default connect(mapStateToProps)(Messages)

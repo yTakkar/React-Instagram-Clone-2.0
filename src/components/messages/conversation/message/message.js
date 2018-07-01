@@ -7,17 +7,14 @@ import PropTypes from 'prop-types'
 import classNames from 'classnames'
 
 export default class Message extends Component {
-
   state = {
     message: '',
-    showTools: false
+    showTools: false,
   }
 
-  componentDidMount = () =>
-    this.setState({ message: this.props.message })
+  componentDidMount = () => this.setState({ message: this.props.message })
 
-  toggleTools = () =>
-    this.setState({ showTools: !this.state.showTools })
+  toggleTools = () => this.setState({ showTools: !this.state.showTools })
 
   render() {
     let { message, showTools } = this.state
@@ -26,37 +23,24 @@ export default class Message extends Component {
 
     return (
       <div>
-
-        <div
-          className={classNames('m_m_divs', mssgStyle)}
-        >
-          <div
-            className='toggle_mssg_tools'
-            onClick={this.toggleTools}
-          >
-            <MessageType
-              messageDetails={{ message, type, message_time }}
-            />
+        <div className={classNames('m_m_divs', mssgStyle)}>
+          <div className="toggle_mssg_tools" onClick={this.toggleTools}>
+            <MessageType messageDetails={{ message, type, message_time }} />
           </div>
 
-          <span className='m_m_time'>
-            { TimeAgo(message_time).replace(' ago', '') }
+          <span className="m_m_time">
+            {TimeAgo(message_time).replace(' ago', '')}
           </span>
 
-          {
-            showTools &&
-              <div className='m_m_tools' >
-                <MessageTools
-                  messageDetails={{ message_id, message, type, mssg_by }}
-                  updateMessage={message =>
-                    this.setState({ message })
-                  }
-                />
-              </div>
-          }
-
+          {showTools && (
+            <div className="m_m_tools">
+              <MessageTools
+                messageDetails={{ message_id, message, type, mssg_by }}
+                updateMessage={message => this.setState({ message })}
+              />
+            </div>
+          )}
         </div>
-
       </div>
     )
   }
@@ -69,6 +53,6 @@ Message.propTypes = {
   message_time: PropTypes.string.isRequired,
   mssg_by: PropTypes.number.isRequired,
   mssg_to: PropTypes.number.isRequired,
-  status: PropTypes.oneOf([ 'read', 'unread' ]).isRequired,
-  type: PropTypes.oneOf([ 'text', 'image', 'sticker' ]).isRequired
+  status: PropTypes.oneOf(['read', 'unread']).isRequired,
+  type: PropTypes.oneOf(['text', 'image', 'sticker']).isRequired,
 }

@@ -15,7 +15,6 @@ import SideBar from './others/sidebar/sidebar'
 import AppRoutes from './App-routes'
 
 class App extends Component {
-
   componentDidMount = () => {
     let { dispatch } = this.props
     dispatch(getUnreadNotifications())
@@ -27,14 +26,11 @@ class App extends Component {
 
     return (
       <Router>
-        <div className='app'>
-          <Header/>
+        <div className="app">
+          <Header />
           <NotiSpeak un={unreadNotifications} />
-          <SideBar
-            un={unreadNotifications}
-            uc={unreadMessages}
-          />
-          <AppRoutes/>
+          <SideBar un={unreadNotifications} uc={unreadMessages} />
+          <AppRoutes />
         </div>
       </Router>
     )
@@ -43,7 +39,7 @@ class App extends Component {
 
 const mapStateToProps = store => ({
   unreadNotifications: store.Notification.unreadNotifications,
-  unreadMessages: store.Message.unreadMessages
+  unreadMessages: store.Message.unreadMessages,
 })
 
 export default connect(mapStateToProps)(App)

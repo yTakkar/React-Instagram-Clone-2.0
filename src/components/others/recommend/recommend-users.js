@@ -12,17 +12,13 @@ import ModalMiddle from '../modal/modal-middle'
 import IsLoading from '../isLoading'
 import Overlay from '../overlay'
 
-@connect(store => (
-  {
-    users: store.Follow.usersToRecommend,
-    ud: store.User.user_details
-  }
-))
-
+@connect(store => ({
+  users: store.Follow.usersToRecommend,
+  ud: store.User.user_details,
+}))
 export default class RecommendUsers extends Component {
-
   state = {
-    loading: true
+    loading: true,
   }
 
   componentDidMount = () => {
@@ -30,42 +26,34 @@ export default class RecommendUsers extends Component {
     dispatch(getUsersToRecommend(ud.id))
   }
 
-  componentWillReceiveProps = () =>
-    this.setState({ loading: false })
+  componentWillReceiveProps = () => this.setState({ loading: false })
 
   componentDidUpdate = () => llr()
 
   render() {
-    let
-      { loading } = this.state,
+    let { loading } = this.state,
       { users, back } = this.props,
-      map_users = users.map(u =>
-        <RecommendUsersList
-          key={u.follow_id}
-          {...u}
-          back={back}
-        />
-      )
+      map_users = users.map(u => (
+        <RecommendUsersList key={u.follow_id} {...u} back={back} />
+      ))
 
     return (
       <Fragment>
-        <Overlay/>
+        <Overlay />
 
-        <div className='likes modal modal_big' >
+        <div className="likes modal modal_big">
+          <FadeIn duration="300ms">
+            <ModalHeader title="Recommend" />
 
-          <FadeIn duration='300ms' >
-            <ModalHeader title='Recommend' />
-
-            <Scrollbars style={{ height: 450 }} className='modal_middle' >
+            <Scrollbars style={{ height: 450 }} className="modal_middle">
               <IsLoading loading={loading} />
               <ModalMiddle loading={loading} list={map_users} />
             </Scrollbars>
 
-            <div className='modal_bottom' >
+            <div className="modal_bottom">
               <ModalBack back={back} />
             </div>
           </FadeIn>
-
         </div>
       </Fragment>
     )
@@ -73,5 +61,5 @@ export default class RecommendUsers extends Component {
 }
 
 RecommendUsers.propTypes = {
-  back: PropTypes.func.isRequired
+  back: PropTypes.func.isRequired,
 }

@@ -9,22 +9,22 @@ import BannerFollow from './follow'
 import BannerTopOptions from './top-options/top-options'
 
 const Banner = () => (
-  <div className='pro_banner'>
-    <div className='pro_top'>
-      <BannerTopOptions/>
-      <BannerFollow/>
+  <div className="pro_banner">
+    <div className="pro_top">
+      <BannerTopOptions />
+      <BannerFollow />
     </div>
 
-    <BannerAvatar/>
-    <BannerInfo/>
-    <BannerTags/>
+    <BannerAvatar />
+    <BannerInfo />
+    <BannerTags />
 
-    <hr/>
+    <hr />
 
-    <IsOnline/>
-    <BannerStats/>
+    <IsOnline />
+    <BannerStats />
 
-    <ToolTip/>
+    <ToolTip />
   </div>
 )
 
