@@ -64,7 +64,7 @@ Note: Many improvements were done after recording this video.
     ```
     
 # Todo
-- [x] More filters
+- [x] More image filters
 - [x] Search
 - [x] Block members
 - [x] Hashtag feature
@@ -76,8 +76,11 @@ Note: Many improvements were done after recording this video.
 - [x] Description with react-helmet for SEO
 - [x] Some serious code refactoring
 - [x] Crush some bugs
-- [x] Don't need jQuery
+- [x] Remove jQuery
 - [x] UI testing
+- [ ] Folder restructuring
+- [ ] Code Splitting
+- [ ] Image Lazy Load
 - [ ] Express routes testing
 - [ ] Like comments
 - [ ] Upgrade to React v16.3.0
