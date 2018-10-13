@@ -83,7 +83,7 @@ Note: Many improvements were done after recording this video.
 - [ ] Image Lazy Load
 - [ ] Express routes testing
 - [ ] Like comments
-- [ ] Upgrade to React v16.3.0
+- [ ] Upgrade packages
 - [ ] Story feature
 - [ ] Upload multiple photos
 - [ ] Show mutual likes, comments & shares
