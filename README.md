@@ -79,13 +79,11 @@ Note: Many improvements were done after recording this video.
 - [x] Remove jQuery
 - [x] UI testing
 - [ ] Folder restructuring
-- [ ] Code Splitting
-- [ ] Image Lazy Load
+- [ ] Performance optimization (Code Splitting, Image Lazyload, etc.)
 - [ ] Express routes testing
 - [ ] Like comments
 - [ ] Upgrade packages
 - [ ] Story feature
-- [ ] Upload multiple photos
 - [ ] Show mutual likes, comments & shares
 
 # Contribute
