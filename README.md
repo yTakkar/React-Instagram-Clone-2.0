@@ -1,6 +1,8 @@
 # React-Instagram-Clone-2.0
 A reactive Single-Page Instagram-Clone with some new features!! 
 
+**No longer maintained. But it works**
+
 # Another Version
 **[PHP Version](https://github.com/yTakkar/Instagram-Clone)**
 
