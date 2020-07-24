@@ -1,6 +1,8 @@
 # React-Instagram-Clone-2.0
 A reactive Single-Page Instagram-Clone with some new features!! 
 
+[![HitCount](http://hits.dwyl.com/yTakkar/React-Instagram-Clone-20.svg)](http://hits.dwyl.com/yTakkar/React-Instagram-Clone-20)
+
 React-Instagram-Clone-2.0 is being sponsored by the following tool; please help to support us by taking a look and signing up to a free trial”
 
 <a href="https://tracking.gitads.io/?repo=React-Instagram-Clone-2.0"> <img src="https://images.gitads.io/React-Instagram-Clone-2.0" alt="GitAds"/> </a>
