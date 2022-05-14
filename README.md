@@ -48,8 +48,8 @@ Note: Many improvements were done after recording this video.
     MYSQL_USER="user"
     MYSQL_PASSWORD="password"
     MYSQL_DATABASE="db"
-    MAIL="your-email-for-sending email-verification-link"
-    MAIL_PASSWORD="password-for-email"
+    EMAIL="your-email-for-sending email-verification-link"
+    EMAIL_PASSWORD="password-for-email"
     GOOGLE_GEOLOCATION_KEY='google-geolocation-key'
     ADMIN_PASSWORD='password-for-admin'
     ```
