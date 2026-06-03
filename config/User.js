@@ -8,7 +8,7 @@ const db = require('./db'),
   root = process.cwd(),
   { promisify } = require('util'),
   { rmdir } = require('fs'),
-  { DeleteAllOfFolder } = require('handy-image-processor'),
+  { DeleteAllOfFolder } = require('./ImageProcessor'),
   { intersectionBy } = require('lodash'),
   catchify = require('catchify')
 
@@ -21,7 +21,7 @@ const getId = async username => {
   let s = await db.query('SELECT id FROM users WHERE username=? LIMIT 1', [
     username,
   ])
-  return s ? s[0].id : null
+  return s && s.length > 0 ? s[0].id : null
 }
 
 /**
@@ -109,46 +109,57 @@ const isBlocked = async (block_by, user) => {
 }
 
 /**
+ * Returns whether two users are friends (accepted request)
+ * @param {Number} user1 User ID
+ * @param {Number} user2 User ID
+ */
+const isFriend = async (user1, user2) => {
+  let s = await db.query(
+    'SELECT COUNT(request_id) AS friend_count FROM friend_requests WHERE ((from_user=? AND to_user=?) OR (from_user=? AND to_user=?)) AND status=? LIMIT 1',
+    [user1, user2, user2, user1, 'accepted']
+  )
+  return db.tf(s[0].friend_count)
+}
+
+/**
  * Deactivates user
  * @param {user} user User to deactivate
  * @param {Object} req Express' Req object
  * @param {Object} res Express' Res Object
  */
 const deactivate = async (user, req, res) => {
-  let posts = await db.query('SELECT post_id FROM posts WHERE user=?', [user]),
-    groups = await db.query('SELECT group_id FROM groups WHERE admin=?', [
-      user,
-    ]),
-    cons = await db.query(
-      'SELECT con_id FROM conversations WHERE user_one=? OR user_two=?',
-      [user, user]
-    ),
-    dltDir = promisify(rmdir),
-    QLusers = JSON.parse(req.cookies.users),
-    filtered = QLusers.filter(u => u.id != user)
+  await catchify(
+    db.query('UPDATE users SET account_status=? WHERE id=?', ['deleted', user])
+  )
+  let posts = await db.query('SELECT post_id FROM posts WHERE user=?', [user])
+  let groups = await db.query('SELECT group_id FROM \`groups\` WHERE admin=?', [
+    user,
+  ])
+  let cons = await db.query(
+    'SELECT con_id FROM conversations WHERE user_one=? OR user_two=?',
+    [user, user]
+  )
+  let dltDir = promisify(rmdir)
 
-  // DELETE ALL POSTS
-  posts.map(async p => {
-    await deletePost({
-      post: p.post_id,
-      user,
-      when: 'user',
-    })
-  })
+  // Best-effort cleanup of dependent records
+  await Promise.allSettled(
+    posts.map(p =>
+      deletePost({
+        post: p.post_id,
+        user,
+        when: 'user',
+      })
+    )
+  )
 
-  // DELETE ALL GROUPS
-  groups.map(async g => {
-    await deleteGroup(g.group_id)
-  })
+  await Promise.allSettled(groups.map(g => deleteGroup(g.group_id)))
+
   await db.query('DELETE FROM group_members WHERE member=? OR added_by=?', [
     user,
     user,
   ])
 
-  // DELETE ALL CONVERSATIONS
-  cons.map(async c => {
-    await deleteCon(c.con_id)
-  })
+  await Promise.allSettled(cons.map(c => deleteCon(c.con_id)))
 
   await db.query('DELETE FROM tags WHERE user=?', [user])
   await db.query('DELETE FROM favourites WHERE fav_by=? OR user=?', [
@@ -173,13 +184,28 @@ const deactivate = async (user, req, res) => {
   )
   await db.query('DELETE FROM hashtags WHERE user=?', [user])
 
-  DeleteAllOfFolder(`${root}/dist/users/${user}/`)
-  await dltDir(`${root}/dist/users/${user}`)
+  try {
+    DeleteAllOfFolder(`${root}/dist/users/${user}/`)
+    await dltDir(`${root}/dist/users/${user}`)
+  } catch (error) {
+    // Ignore file-system cleanup errors to ensure account deletion completes
+  }
 
   await db.query('DELETE FROM users WHERE id=?', [user])
 
-  res.cookie('users', `${JSON.stringify(filtered)}`)
-  req.session.reset()
+  if (res && req && req.cookies && req.cookies.users) {
+    try {
+      let QLusers = JSON.parse(req.cookies.users)
+      let filtered = QLusers.filter(u => u.id != user)
+      res.cookie('users', `${JSON.stringify(filtered)}`)
+    } catch (error) {
+      // Ignore cookie parse errors
+    }
+  }
+
+  if (req && req.session && typeof req.session.reset == 'function') {
+    req.session.reset()
+  }
 }
 
 /**
@@ -236,6 +262,45 @@ const mentionUsers = async (str, session, post, when) => {
   }
 }
 
+/**
+ * Returns the role of a user
+ * @param {Number} id User ID
+ * @returns {String} 'user' or 'admin'
+ */
+const getRole = async (id) => {
+  let s = await db.query('SELECT role FROM users WHERE id=? LIMIT 1', [id])
+  return s && s[0] ? s[0].role : 'user'
+}
+
+/**
+ * Returns whether user is an admin
+ * @param {Number} id User ID
+ * @returns {Boolean} true if admin
+ */
+const isUserAdmin = async (id) => {
+  let role = await getRole(id)
+  return role === 'admin'
+}
+
+/**
+ * Updates account status (active, locked, deleted)
+ * @param {Number} id User ID
+ * @param {String} status New status
+ */
+const updateAccountStatus = async (id, status) => {
+  await db.query('UPDATE users SET account_status=? WHERE id=?', [status, id])
+}
+
+/**
+ * Gets account status
+ * @param {Number} id User ID
+ * @returns {String} account status
+ */
+const getAccountStatus = async (id) => {
+  let s = await db.query('SELECT account_status FROM users WHERE id=? LIMIT 1', [id])
+  return s && s[0] ? s[0].account_status : 'active'
+}
+
 module.exports = {
   getId,
   getWhat,
@@ -245,7 +310,12 @@ module.exports = {
   isFollowing,
   favouriteOrNot,
   isBlocked,
+  isFriend,
   deactivate,
   mutualUsers,
   mentionUsers,
+  getRole,
+  isUserAdmin,
+  updateAccountStatus,
+  getAccountStatus,
 }

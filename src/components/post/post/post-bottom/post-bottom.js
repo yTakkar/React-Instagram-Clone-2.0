@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { humanReadable } from '../../../../utils/utils'
 import Comments from '../../comment/comments/comments'
 import ImageComment from '../../comment/image-comment/imageComment'
 import StickerComment from '../../comment/sticker-comment/stickerComment'
 import TextComment from '../../comment/text-comment/text-comment'
 import { shape, number, string, array } from 'prop-types'
 import AppLink from '../../../others/link/link'
+import { t } from '../../../../utils/translation'
 
 class PostBottom extends Component {
   state = {
@@ -29,6 +29,7 @@ class PostBottom extends Component {
       postDetails,
       postDetails: { post_id, when, comments },
       session,
+      lang
     } = this.props
 
     let childProps = {
@@ -41,7 +42,12 @@ class PostBottom extends Component {
         <AppLink
           url={`/post/${post_id}`}
           className="p_comments"
-          label={humanReadable(comments_count, 'comment')}
+          label={comments_count == 0 
+            ? t(lang, 'post', 'noComments')
+            : comments_count == 1
+              ? `1 ${t(lang, 'post', 'comment')}`
+              : `${comments_count} ${t(lang, 'post', 'comments')}`
+          }
         />
         <div className="p_cit">
           <div className="p_cit_img">
@@ -82,6 +88,7 @@ PostBottom.propTypes = {
 
 const mapStateToProps = store => ({
   session: store.User.session.id,
+  lang: store.Language.language
 })
 
 export default connect(mapStateToProps)(PostBottom)

@@ -25,7 +25,7 @@ describe('ToTags Component', () => {
 
   it('should match snapshot with link string', () => {
     const str =
-      'Hey @ghalib, #checkout https://github.com/yTakkar/React-Instagram-Clone-2.0'
+      'Hey @ghalib, #checkout https://github.com/Vsocial/React-Instagram-Clone-2.0'
     const tree = create(comp(str)).toJSON()
     expect(tree).toMatchSnapshot()
   })

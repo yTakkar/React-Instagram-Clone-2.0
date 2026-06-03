@@ -10,7 +10,7 @@ exports[`AboutSection Component should match snapshot 1`] = `
   <span
     className="a_info"
   >
-    takkar
+    vsocial
   </span>
 </div>
 `;
@@ -24,10 +24,10 @@ exports[`AboutSection Component should match snapshot with isLink prop 1`] = `
   </span>
   <a
     className="a_info"
-    href="https://www.github.com/yTakkar"
+    href="https://www.github.com/Vsocial"
     target="_blank"
   >
-    https://www.github.com/yTakkar
+    https://www.github.com/Vsocial
   </a>
 </div>
 `;

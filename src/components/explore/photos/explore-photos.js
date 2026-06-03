@@ -7,6 +7,7 @@ import ExplorePhotoGallery from './photo-gallery'
 import IsLoading from '../../others/isLoading'
 import { cLoading } from '../../../utils/utils'
 import classNames from 'classnames'
+import { t } from '../../../utils/translation'
 
 class ExpPhotos extends Component {
   state = {
@@ -19,10 +20,11 @@ class ExpPhotos extends Component {
 
   render() {
     let { loading } = this.state
+    let { lang } = this.props
 
     return (
       <div>
-        <Title value="Explore photos" />
+        <Title value={t(lang, 'explore', 'explorePhotos')} />
 
         <FadeIn duration="300ms">
           <IsLoading loading={loading} />
@@ -39,7 +41,10 @@ class ExpPhotos extends Component {
   }
 }
 
-const mapStateToProps = store => ({ store })
+const mapStateToProps = store => ({
+  store,
+  lang: store.Language.language
+})
 
 export default connect(mapStateToProps)(ExpPhotos)
 export { ExpPhotos as PureExpPhotos }

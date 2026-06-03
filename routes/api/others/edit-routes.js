@@ -5,7 +5,7 @@ const app = require('express').Router(),
   mail = require('../../../config/Mail')
 
 // RETURNS THE COUNT OF A GIVEN FIELD SUCH.
-// EG. POST('/api/what-exists', { what: 'username', value: 'Takkar' })
+// EG. POST('/api/what-exists', { what: 'username', value: 'Vsocial' })
 app.post('/what-exists', async (req, res) => {
   let { what, value } = req.body
   let s = await db.query(
@@ -21,6 +21,7 @@ app.post('/edit-profile', async (req, res) => {
     username,
     firstname,
     surname,
+    nickname,
     email,
     bio,
     twitter,
@@ -55,11 +56,12 @@ app.post('/edit-profile', async (req, res) => {
     req.session.username = username
 
     await db.query(
-      'UPDATE users SET username=?, firstname=?, surname=?, email=?, bio=?, instagram=?, twitter=?, github=?, facebook=?, website=?, phone=? WHERE id=?',
+      'UPDATE users SET username=?, firstname=?, surname=?, nickname=?, email=?, bio=?, instagram=?, twitter=?, github=?, facebook=?, website=?, phone=? WHERE id=?',
       [
         username,
         firstname,
         surname,
+        nickname || '',
         email,
         bio,
         instagram,

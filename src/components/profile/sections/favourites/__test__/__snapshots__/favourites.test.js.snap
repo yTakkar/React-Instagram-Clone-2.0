@@ -67,7 +67,7 @@ exports[`Favourites Component should match snapshot 1`] = `
                 href="#"
                 onClick={[Function]}
               >
-                Follow
+                follow
               </a>
             </div>
           </div>

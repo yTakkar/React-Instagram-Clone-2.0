@@ -18,7 +18,7 @@ exports[`Suggested-List Component should match snapshot with AdvancedFollow comp
       ghalib
     </Link>
     <span>
-      1 mutual follower
+      1 mutualFollower
     </span>
   </div>
   <div
@@ -29,7 +29,7 @@ exports[`Suggested-List Component should match snapshot with AdvancedFollow comp
       href="#"
       onClick={[Function]}
     >
-      Follow
+      follow
     </a>
   </div>
 </div>

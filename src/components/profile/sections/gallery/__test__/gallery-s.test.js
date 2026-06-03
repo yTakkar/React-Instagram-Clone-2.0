@@ -6,7 +6,7 @@ import User from '../../../../../store/__mocks__/reducers/User'
 
 describe('Gallery Component', () => {
   const props = {
-    param: 'takkar',
+    param: 'vsocial',
     photos: Post.photos,
     ud: User.user_details,
   }

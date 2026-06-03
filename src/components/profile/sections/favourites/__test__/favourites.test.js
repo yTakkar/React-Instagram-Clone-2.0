@@ -11,7 +11,7 @@ describe('Favourites Component', () => {
   it('should match snapshot', () => {
     const tree = create(
       <Provider store={mockStore}>
-        <Favourites param="takkar" />
+        <Favourites param="vsocial" />
       </Provider>
     ).toJSON()
     expect(tree).toMatchSnapshot()

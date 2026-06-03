@@ -6,7 +6,7 @@ exports[`Profile Navlink should match snapshot 1`] = `
     activeClassName="pro_nav_active"
     className="inst_nav"
     exact={true}
-    to="/profile/takkar/bookmarks"
+    to="/profile/vsocial/bookmarks"
   >
     Bookmarks
   </NavLink>

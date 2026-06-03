@@ -14,7 +14,7 @@ describe('RecommendList Component', () => {
   it('should match snapshot', () => {
     const tree = create(
       <Provider store={mockStore}>
-        <RecommendList param="takkar" {...Follow.recommendations[0]} />
+        <RecommendList param="vsocial" {...Follow.recommendations[0]} />
       </Provider>
     ).toJSON()
     expect(tree).toMatchSnapshot()
@@ -23,7 +23,7 @@ describe('RecommendList Component', () => {
   it('should mock removeRecommendation action', () => {
     const wrapper = shallow(
       <PureRecommendList
-        param="takkar"
+        param="vsocial"
         {...Follow.recommendations[0]}
         ud={User.user_details}
       />

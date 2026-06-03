@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { FadeIn } from 'animate-components'
 import { messageScroll } from '../../../utils/message-utils'
 import { connect } from 'react-redux'
@@ -51,11 +51,11 @@ class Conversation extends Component {
     let { hideConversation } = this.props
 
     return (
-      <div>
+      <Fragment>
         <IsLoading loading={loading} />
 
         <div className={classNames('mssg_messages', cLoading(loading))}>
-          <FadeIn duration="300ms">
+          <FadeIn duration="300ms" style={{ display: 'flex', flexDirection: 'column', height: '100%', width: '100%' }}>
             <ConversationTop hideConversation={hideConversation} />
             <MapMessages />
 
@@ -64,7 +64,7 @@ class Conversation extends Component {
             </div>
           </FadeIn>
         </div>
-      </div>
+      </Fragment>
     )
   }
 }

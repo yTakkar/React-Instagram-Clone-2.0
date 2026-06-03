@@ -1,40 +1,77 @@
 {{> nHeader }}
 
-<div class="notes_wrapper">
-
-  <div class="log_sign">
-    <a href="/login" class="pri_btn">Already have an account?</a>
-  </div>
-
-  <div class="register cua ">
-    <div class="display_text">
-      <span>Get started now and let the fun begins</span>
+<div class="notes_wrapper signup_page_wrapper">
+  
+  <div class="signup_new_card animate_scale">
+    <!-- Left Column: Background Image & CTA to Login -->
+    <div class="signup_left_col">
+      <div class="signup_left_bg"></div>
+      <div class="signup_left_overlay"></div>
+      <div class="signup_left_content">
+        <h2>Already have an account?</h2>
+        <p>Log in now to catch up with your friends and check your recent notifications!</p>
+        <a href="/login" class="pri_btn login_cta_btn">LOGIN TO CONTINUE</a>
+      </div>
     </div>
-    <form class="form_register">
-      <input type="text" name="username" value="" class="s_username filter_illegal" autofocus spellcheck="false" autocomplete='false' placeholder='Username' required>
-      <div class="username_checker">
-        <span class="checker_text">username not available</span>
-        <span class="checker_icon">
-          <i class="far fa-frown"></i>
-        </span>
+
+    <!-- Right Column: Signup Form -->
+    <div class="signup_right_col">
+      <div class="signup_form_container">
+        <h2 class="signup_title">SIGN UP</h2>
+        
+        <form class="form_register">
+          <div class="input_field_container username_wrapper">
+            <input type="text" name="username" value="" class="s_username filter_illegal" autofocus spellcheck="false" autocomplete='false' placeholder='Username' required>
+            <div class="username_checker">
+              <span class="checker_text">username not available</span>
+              <span class="checker_icon">
+                <i class="far fa-frown"></i>
+              </span>
+            </div>
+          </div>
+          
+          <div class="name_fields_row">
+            <div class="input_field_container half_width">
+              <input type="text" name="first_name" value="" autocomplete="off" placeholder="First name" class="s_firstname filter_illegal" spellcheck="false" maxlength="20" required>
+            </div>
+            <div class="input_field_container half_width">
+              <input type="text" name="surname" value="" autocomplete="off" placeholder="Surname" class="s_surname filter_illegal" spellcheck="false" maxlength="20" required>
+            </div>
+          </div>
+
+          <div class="input_field_container">
+            <input type="email" name="email" value="" class="s_email" spellcheck="false" autocomplete='false' placeholder='Email' required>
+          </div>
+          
+          <div class="input_field_container password_container">
+            <input type="password" name="password" value="" id='s_password' class="s_password" placeholder='Password' required>
+            <span class="show_psswrd s_p_s">
+              <i class="fas fa-lock"></i>
+            </span>
+          </div>
+
+          <div class="input_field_container">
+            <input type="password" name="admin_password" value="" id='s_admin_password' class="s_admin_password" placeholder='Admin Password (optional)'>
+          </div>
+
+          <div class="terms_container">
+            <input type="checkbox" id="s_terms" name="s_terms" class="s_terms inst_checkbox" required>
+            <label for="s_terms" class="terms">I agree to
+              <a href="/terms" class="a_pri">Vsocial Terms</a>
+            </label>
+          </div>
+          
+          <input type="submit" name="" value="Signup For Free" class="s_submit">
+        </form>
+
+        <div class="signup_links">
+          <span class="login_text_mobile">Already have an account? <a href="/login" class="a_pri">Login</a></span>
+        </div>
       </div>
-      <input type="text" name="first_name" value="" autocomplete="off" placeholder="First name" class="s_firstname small_input filter_illegal" spellcheck="false" maxlength="20" required>
-      <input type="text" name="surname" value="" autocomplete="off" placeholder="Surname" class="s_surname small_input filter_illegal" spellcheck="false" maxlength="20" required>
-      <input type="email" name="email" value="" class="s_email" spellcheck="false" autocomplete='false' placeholder='Email' required>
-      <input type="password" name="password" value="" id='s_password' class="s_password" placeholder='Password' required>
-      <span class="show_psswrd s_p_s">
-        <i class="fas fa-lock"></i>
-      </span>
-      <div class="terms_div">
-        <input type="checkbox" id="s_terms" name="s_terms" class="s_terms" required>
-        <label for="s_terms" class="terms">I agree to
-          <a href="/terms" class="a_pri">Instagram Terms</a>
-        </label>
-      </div>
-      <input type="submit" name="" value="Signup For Free" class="s_submit">
-    </form>
+    </div>
   </div>
 
 </div>
 
 {{> footer }}
+

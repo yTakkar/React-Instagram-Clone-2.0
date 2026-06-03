@@ -25,7 +25,7 @@ describe('MembersList Component', () => {
     const tree = create(
       comp({
         member: 24,
-        username: 'takkar',
+        username: 'vsocial',
       })
     ).toJSON()
     expect(tree).toMatchSnapshot()

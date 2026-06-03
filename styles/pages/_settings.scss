@@ -14,14 +14,16 @@
       & a {
         display: block;
         font-size: 14px;
-        color: #3d464d;
-        background: white;
-        padding: 10px 10px;
+        color: $d_light;
+        background: transparent;
+        padding: 10px 15px;
         outline: none;
+        transition: all 0.2s ease-in-out;
+        border-bottom: 1px solid $ee;
 
         &:hover{
-          background: #fffafa;
-          color: $dark;
+          background: $second_border;
+          color: $pric;
         }
 
         &:first-of-type{
@@ -29,9 +31,18 @@
           border-top-right-radius: 3px;
         }
 
+        &:last-of-type{
+          border-bottom: none;
+          border-bottom-left-radius: 3px;
+          border-bottom-right-radius: 3px;
+        }
+
         &.settings_nav_active{
           color: $dark !important;
+          background: $second_border;
           font-weight: 600 !important;
+          border-left: 3px solid $pric;
+          padding-left: 12px;
         }
 
       }
@@ -174,7 +185,7 @@
 
             & .blocked_username{
               font-weight: 600;
-              color: #3d464d;
+              color: $dark;
 
               &:hover{
                 text-decoration: underline;

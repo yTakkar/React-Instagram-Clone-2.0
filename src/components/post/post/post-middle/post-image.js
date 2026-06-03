@@ -22,9 +22,12 @@ export default class PostImage extends Component {
         filter,
         username,
         tags_count,
+        isNSFW,
       },
     } = this.props
-    let { showImage } = this.state
+    let { showImage, unblurNSFW } = this.state
+
+    let shouldBlur = isNSFW && !unblurNSFW
 
     return (
       <div>
@@ -39,11 +42,32 @@ export default class PostImage extends Component {
               </p>
             </div>
 
-            <img
-              src={`/posts/${imgSrc}`}
-              className={classNames('p_img', filter)}
-              onClick={() => this._toggle('showImage')}
-            />
+            {imgSrc ? (
+              <div style={{ position: 'relative' }}>
+                {imgSrc.match(/\.(mp4|webm|mov|ogg|mkv)$/i) ? (
+                  <video
+                    src={`/posts/${imgSrc}`}
+                    className={classNames('p_img', filter)}
+                    controls={!shouldBlur}
+                    controlsList="nodownload"
+                    style={{ filter: shouldBlur ? 'blur(20px)' : 'none', pointerEvents: shouldBlur ? 'none' : 'auto' }}
+                  />
+                ) : (
+                  <img
+                    src={`/posts/${imgSrc}`}
+                    className={classNames('p_img', filter)}
+                    onClick={() => { if (!shouldBlur) this._toggle('showImage') }}
+                    style={{ filter: shouldBlur ? 'blur(20px)' : 'none', cursor: shouldBlur ? 'default' : 'pointer' }}
+                  />
+                )}
+                {shouldBlur && (
+                  <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', background: 'rgba(0,0,0,0.3)', color: 'white' }}>
+                    <span style={{ fontSize: '18px', fontWeight: 'bold', marginBottom: '10px' }}>Sensitive Content</span>
+                    <button className="sec_btn" onClick={() => this._toggle('unblurNSFW')} style={{ padding: '8px 15px' }}>Click to view</button>
+                  </div>
+                )}
+              </div>
+            ) : null}
 
             <PostTags post_id={post_id} tags_count={tags_count} />
           </div>

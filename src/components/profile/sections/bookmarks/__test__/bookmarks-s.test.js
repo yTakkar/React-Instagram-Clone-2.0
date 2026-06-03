@@ -14,7 +14,7 @@ describe('Bookmarks Component', () => {
   it('should match snapshot', () => {
     const tree = create(
       <Provider store={mockStore}>
-        <Bookmarks param="takkar" />
+        <Bookmarks param="vsocial" />
       </Provider>
     ).toJSON()
     expect(tree).toMatchSnapshot()

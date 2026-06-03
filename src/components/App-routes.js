@@ -14,6 +14,7 @@ import Messages from './messages/messages'
 import Hashtag from './hashtag/hashtag/hashtag'
 import AdminLogin from './admin/admin-login'
 import IsAdmin from './admin/is-admin'
+import AdminDashboard from './admin/admin-dashboard'
 import Error from './error/error'
 
 const AppRoutes = () => (
@@ -33,6 +34,7 @@ const AppRoutes = () => (
       <Route path="/hashtag/:hashtag" component={Hashtag} />
       <Route path="/admin-login" component={AdminLogin} />
       <Route path="/is-admin" component={IsAdmin} />
+      <Route path="/admin-dashboard" component={AdminDashboard} />
       <Route component={Error} />
     </Switch>
   </div>

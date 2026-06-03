@@ -5,7 +5,7 @@ import AboutSection from '../section'
 describe('AboutSection Component', () => {
   it('should match snapshot', () => {
     const tree = create(
-      <AboutSection label="Username" value="takkar" />
+      <AboutSection label="Username" value="vsocial" />
     ).toJSON()
     expect(tree).toMatchSnapshot()
   })
@@ -14,7 +14,7 @@ describe('AboutSection Component', () => {
     const tree = create(
       <AboutSection
         label="Github"
-        value="https://www.github.com/yTakkar"
+        value="https://www.github.com/Vsocial"
         isLink
       />
     ).toJSON()

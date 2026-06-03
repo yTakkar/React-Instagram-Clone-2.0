@@ -88,7 +88,7 @@ exports[`Shared Component should match snapshot 1`] = `
                       ghalib
                     </Link>
                     <span>
-                      1 mutual follower
+                      1 mutualFollower
                     </span>
                   </div>
                   <div
@@ -99,7 +99,7 @@ exports[`Shared Component should match snapshot 1`] = `
                       href="#"
                       onClick={[Function]}
                     >
-                      Follow
+                      follow
                     </a>
                   </div>
                 </div>
@@ -131,7 +131,7 @@ exports[`Shared Component should match snapshot 1`] = `
                       href="#"
                       onClick={[Function]}
                     >
-                      Follow
+                      follow
                     </a>
                   </div>
                 </div>
@@ -165,9 +165,9 @@ exports[`Shared Component should match snapshot 1`] = `
             >
               by 
               <Link
-                to="/profile/takkar"
+                to="/profile/vsocial"
               >
-                takkar
+                vsocial
               </Link>
               <span>
                 a month ago
@@ -193,10 +193,10 @@ exports[`Shared Component should match snapshot 1`] = `
                   }
                 >
                   <Link
-                    title="takkar"
-                    to="/profile/takkar"
+                    title="vsocial"
+                    to="/profile/vsocial"
                   >
-                    takkar
+                    vsocial
                   </Link>
                   <span
                     className="p_i_1_title"
@@ -286,11 +286,25 @@ exports[`Shared Component should match snapshot 1`] = `
                       </span>
                     </p>
                   </div>
-                  <img
-                    className="p_img filter-ashby"
-                    onClick={[Function]}
-                    src="/posts/instagram_1518972814710.jpg"
-                  />
+                  <div
+                    style={
+                      Object {
+                        "position": "relative",
+                      }
+                    }
+                  >
+                    <img
+                      className="p_img filter-ashby"
+                      onClick={[Function]}
+                      src="/posts/instagram_1518972814710.jpg"
+                      style={
+                        Object {
+                          "cursor": "pointer",
+                          "filter": "none",
+                        }
+                      }
+                    />
+                  </div>
                   <div>
                     <div>
                       <span

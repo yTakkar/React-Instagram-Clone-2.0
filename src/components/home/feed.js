@@ -3,13 +3,13 @@ import { connect } from 'react-redux'
 import End from '../others/end'
 import Post from '../post/post/post'
 import MapPosts from '../post/map-posts/map-posts'
+import { t } from '../../utils/translation'
 
-const Feed = ({ feed }) => {
+const Feed = ({ feed, lang }) => {
   let len = feed.length
   let map_feed = feed.map(f => <Post key={f.post_id} {...f} when="feed" />)
 
-  let nothingMssg =
-    "Looks like you're new, Follow some to fill up your feed or post from above options!!"
+  let nothingMssg = t(lang, 'home', 'noPosts')
 
   return (
     <Fragment>
@@ -24,6 +24,7 @@ const Feed = ({ feed }) => {
 
 const mapStateToProps = state => ({
   feed: state.Post.feed,
+  lang: state.Language.language
 })
 
 export default connect(mapStateToProps)(Feed)

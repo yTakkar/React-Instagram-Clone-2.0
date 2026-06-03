@@ -11,7 +11,7 @@ exports[`PostItHeader Component should match snapshot with location 1`] = `
       src="/users/24/avatar.jpg"
     />
     <span>
-      takkar
+      vsocial
     </span>
   </div>
   <span
@@ -34,7 +34,7 @@ exports[`PostItHeader Component should match snapshot with text "Fetching locati
       src="/users/24/avatar.jpg"
     />
     <span>
-      takkar
+      vsocial
     </span>
   </div>
   <span

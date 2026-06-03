@@ -3,16 +3,22 @@
 .messages_senapati {
   display: flex;
   justify-content: space-between;
+  height: calc(100vh - 102px); /* Fill the available viewport height minus header padding */
+  gap: 20px;
+  overflow: hidden;
 
   & .mssg_left {
-    width: 310px;
-    margin-bottom: 30px;
+    flex: 0 0 320px;
+    display: flex;
+    flex-direction: column;
     position: relative;
+    border-right: 1px solid $ee;
+    padding-right: 15px;
 
     & .mssg_new{
       margin-bottom: 10px;
-      text-align: left;
       text-align: center;
+      flex-shrink: 0;
 
       & > a{
         display: inline-block;
@@ -61,47 +67,67 @@
       position: relative;
       display: block;
       margin-bottom: 10px;
+      flex-shrink: 0;
+    }
+
+    /* Container for the conversations list */
+    & > div:last-child {
+      flex: 1;
+      overflow-y: auto;
+      padding-right: 5px; /* Prevent scrollbar hiding content */
+      
+      /* Webkit Scrollbar styling for the list */
+      &::-webkit-scrollbar {
+        width: 6px;
+      }
+      &::-webkit-scrollbar-thumb {
+        background: $d_light;
+        border-radius: 3px;
+      }
     }
 
     // CONVERSATION TEASER
     & .mssg_sr {
       @include inst;
-      height: 40px;
       position: relative;
-      padding: 7px;
+      padding: 10px;
       margin-bottom: 5px;
-      border-radius: 3px;
+      border-radius: 8px;
       cursor: pointer;
+      display: flex;
+      align-items: center;
 
       &:hover {
-        background: $fb;
+        background: $ee;
       }
 
       & > img{
-        height: 40px;
-        width: 40px;
+        height: 44px;
+        width: 44px;
         border-radius: 50%;
+        object-fit: cover;
       }
 
       & .m_sr_content{
-        display: inline-block;
-        position: relative;
-        top: -6px;
-        margin-left: 5px;
-        width: 65%;
+        margin-left: 12px;
+        flex: 1;
+        overflow: hidden;
 
         & .m_sr_username{
           display: block;
           font-weight: 600;
           font-size: 14px;
-          width: 100%;
+          white-space: nowrap;
+          text-overflow: ellipsis;
           overflow: hidden;
         }
 
         & .m_sr_light{
           color: $d_light;
-          display: inline-block;
-          word-break: break-all;
+          display: block;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
 
           & .camera {
             margin-left: 3px;
@@ -112,97 +138,107 @@
           }
 
           & .mssg_sent{
-            position: relative;
-            display: inline-block;
             color: $d_light;
-            top: 3px;
             margin-right: 3px;
-
-            & i {
-              font-size: 14px;
-            }
+            & i { font-size: 12px; }
           }
-
         }
-
       }
 
       & .m_sr_time{
         position: absolute;
-        top: 4px;
-        right: 7px;
-        color: $dark;
+        top: 10px;
+        right: 10px;
+        color: $d_light;
+        font-size: 12px;
       }
 
       & .m_sr_unread{
+        background: $oo;
+        color: #fff;
+        padding: 2px 6px;
+        border-radius: 12px;
+        font-size: 12px;
+        font-weight: bold;
         position: absolute;
-        background: #54BBFF;
-        color: $ff;
-        padding: 0px 6px;
-        border-radius: 3px;
-        font-size: 13px;
-        right: 12px;
-        bottom: 8px;
+        right: 10px;
+        bottom: 10px;
       }
 
     }
 
      & .mssg_sr_toggle{
-      background: $fb;
+      background: $ee;
       animation: pro_active 0.1s ease-in-out;
     }
 
   }
 
   & .mssg_right {
-    width: 475px;
-    height: 565px;
+    flex: 1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    & .mssg_nothing {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+    }
 
     & .spinner {
-      left: 650px;
-      top: 150px;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
     }
 
     // CONVERSATION
     & .mssg_messages {
-      height: 565px;
-      position: fixed;
-      z-index: 2;
-      border: 1px solid $header_border;
-      border-radius: 3px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid $ee;
+      border-radius: 8px;
       background: $ff;
-      width: 473px;
-      top: 62px;
-      border-bottom: none;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+
+      /* The FadeIn wrapper */
+      & > div {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+      }
 
       & .m_m_top{
-        background: #f6f7f9;
-        height: 35px;
-        padding: 10px;
+        background: $fb;
+        padding: 12px 15px;
         position: relative;
-        border-bottom: 1px solid #edf0f5;
+        border-bottom: 1px solid $ee;
+        display: flex;
+        align-items: center;
+        flex-shrink: 0;
 
         & img.con_with_avatar {
-          height: 35px;
-          width: 35px;
+          height: 40px;
+          width: 40px;
           border-radius: 50%;
+          object-fit: cover;
         }
 
         & .m_m_t_c{
-          display: inline-block;
-          position: relative;
-          top: -3px;
-          margin-left: 5px;
-          width: 82%;
+          margin-left: 12px;
+          flex: 1;
 
           & .con_name{
-            position: relative;
-            font-size: 14px;
+            display: block;
+            font-size: 16px;
             font-weight: 600;
             color: $dark;
-            outline: none;
-            height: 19px;
-            overflow: hidden;
+            text-decoration: none;
 
             &:hover {
               text-decoration: underline;
@@ -212,32 +248,32 @@
           & .m_m_t_useless {
             display: block;
             color: $d_light;
+            font-size: 13px;
           }
 
         }
 
         & .m_m_exp {
-          display: inline-block;
-          height: 24px;
-          position: absolute;
-          right: 13px;
-          top: 13px;
-          border-radius: 2px;
-          padding: 1px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 30px;
+          width: 30px;
+          border-radius: 50%;
           cursor: pointer;
           color: $d_light;
-          border: 1px solid #f6f7f9;
+          transition: 0.2s;
 
           &:hover{
-            background: #e6f9f9;
-            border: 1px solid $ee;
+            background: $ee;
             color: $dark;
           }
         }
 
         & .mssg_options{
-          left: 299px;
+          right: 10px;
           top: 55px;
+          left: auto;
 
           & ul li a,
           & ul li label{
@@ -263,135 +299,119 @@
       }
 
       & .m_m_wrapper {
-        position: relative;
-        padding-bottom: 10px;
-
+        flex: 1;
+        /* Scrollbars component manages overflow */
+        
         & .m_m_main {
-          position: relative;
-          padding: 10px 15px 0px 10px;
+          display: flex;
+          flex-direction: column;
+          padding: 15px;
+          box-sizing: border-box;
+          width: 100%;
+          overflow-x: hidden;
 
           // MESSAGE
           & .m_m_divs {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 12px;
             width: 100%;
-            display: inline-block;
-            margin-bottom: 13px;
 
             & .m_m {
-              padding: 10px;
+              padding: 10px 14px;
               display: inline-block;
-              font-size: 14px;
-              border-radius: 5px;
+              font-size: 14.5px;
+              border-radius: 18px;
               position: relative;
-              cursor: pointer;
-              outline: none;
+              max-width: 70%;
+              line-height: 1.4;
 
               & .m_m_img{
-                width: 200px;
+                width: 220px;
+                border-radius: 8px;
+                margin-top: 5px;
               }
 
               & .m_m_sticker {
-                width: 64px;
+                width: 80px;
               }
 
-            }
-
-            & .mssg_sr_toggle{
-              background: $fb;
-              animation: pro_active 0.1s ease-in-out;
             }
 
             & .m_m_time {
               display: block;
-              font-size: 12px;
-              color: #aab8c2;
-              margin-left: 12px;
-              margin-top: 1px;
-              margin-right: 12px;
+              font-size: 11px;
+              color: $d_light;
+              margin-top: 4px;
             }
 
             & .m_m_tools {
-              margin-top: 3px;
+              display: flex;
+              gap: 8px;
+              margin-top: 4px;
 
               & > div > span {
-                display: inline-block;
-                height: 17px;
-                color: #aab8c2;
-                margin-right: 4px;
+                color: $d_light;
                 cursor: pointer;
-
-                &:first-of-type{
-                  margin-left: 10px;
-                }
+                transition: 0.2s;
 
                 &:hover{
                   color: $d_light;
                 }
 
                 & i{
-                  font-size: 17px;
+                  font-size: 15px;
                 }
-
               }
-
             }
 
           }
 
           & .my_mm_div {
-            text-align: right;
+            align-items: flex-end;
 
             & .m_m {
-              background: #1da1f2;
-              color: $ff;
-              text-align: left;
-              margin-right: 10px;
-
-              &::after {
-                content: "";
-                width: 12px;
-                height: 12px;
-                position: absolute;
-                background: #1da1f2;
-                border: 1px solid #1da1f2;
-                right: -7px;
-                top: 11px;
-                transform: rotate(45deg);
-              }
+              background: $oo;
+              color: #fff;
+              border-bottom-right-radius: 4px;
 
               & .hashtag {
-                color: $ff;
+                color: #fff;
+                text-decoration: underline;
               }
             }
-
+            
+            & .m_m_time {
+              margin-right: 5px;
+            }
+            
+            & .m_m_tools {
+              margin-right: 5px;
+            }
           }
 
           & .not_my_mm_div {
-            text-align: left;
+            align-items: flex-start;
 
             & .m_m {
-              background: #EFF3F6;
-              margin-left: 8px;
-              text-align: left;
-
-              &::before {
-                content: "";
-                width: 13px;
-                height: 13px;
-                position: absolute;
-                background: #EFF3F6;
-                border: 1px solid #EFF3F6;
-                left: -8px;
-                top: 11px;
-                transform: rotate(45deg);
-              }
+              background: $ee;
+              color: $dark;
+              border-bottom-left-radius: 4px;
             }
 
+            & .m_m_time {
+              margin-left: 5px;
+            }
+            
+            & .m_m_tools {
+              margin-left: 5px;
+            }
           }
 
           & .mssg_end {
             display: block;
             width: 100%;
-            height: 1px;
+            height: 10px;
           }
 
         }
@@ -399,30 +419,72 @@
       }
 
       & .m_m_bottom {
-        padding: 10px 8px 8px 10px;
-        background: #f6f7f9;
-        border: 1px solid #eee;
+        padding: 15px;
+        background: $fb;
+        border-top: 1px solid $ee;
+        flex-shrink: 0;
+
+        /* TextMessage component wrapper */
+        & form.add_mssg_form {
+          display: flex;
+          align-items: flex-end;
+          gap: 10px;
+          position: relative;
+          width: 100%;
+        }
 
         & textarea {
-          width: 96%;
-          padding: 7px;
-          height: 35px;
-          margin-bottom: 2px;
+          flex: 1;
+          padding: 10px 40px 10px 15px; /* right padding for emoji icon */
+          height: 44px;
+          min-height: 44px;
+          max-height: 120px;
+          border-radius: 22px;
+          border: 1px solid $ee;
+          background: $fb;
+          color: $dark;
+          resize: none;
+          font-family: inherit;
+          line-height: 1.4;
+          outline: none;
+          box-sizing: border-box;
+          
+          &:focus {
+            border-color: $oo;
+          }
         }
 
         & input[type='submit'] {
-          padding: 7px 12px;
+          padding: 0 20px;
+          height: 44px;
           font-size: 14px;
-          position: relative;
-          left: 390px;
+          font-weight: 600;
+          border-radius: 22px;
+          background: $oo;
+          color: white;
+          border: none;
+          cursor: pointer;
+          transition: opacity 0.2s;
+
+          &:hover {
+            opacity: 0.9;
+          }
+          
+          &:disabled {
+            background: $ee;
+            color: $d_light;
+            cursor: not-allowed;
+          }
         }
 
         & .mssg_emoji_btn {
           position: absolute;
-          color: #aab8c2;
-          display: inline-block;
-          right: 80px;
-          bottom: 15px;
+          color: $d_light;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          right: 90px; /* Space from the right, before the submit button */
+          bottom: 11px; /* Vertically center within the 44px high box */
           height: 22px;
           cursor: pointer;
 
@@ -431,7 +493,7 @@
           }
 
           & i {
-            font-size: 22px;
+            font-size: 20px;
           }
         }
 
@@ -441,7 +503,7 @@
 
     // ABOUT CONVERSATION
     .about_con {
-      padding: 10px;
+      padding: 15px;
 
       & > div{
         margin-top: 20px;
@@ -461,19 +523,18 @@
 
         & .sli_with{
           margin-top: 5px;
+          display: flex;
+          align-items: center;
 
           & img{
-            width: 40px;
-            display: inline-block;
+            width: 44px;
+            height: 44px;
             border-radius: 50%;
+            object-fit: cover;
           }
 
           & .sli_with_cont{
-            display: inline-block;
-            position: relative;
-            top: -5px;
-            width: 87%;
-            margin-left: 6px;
+            margin-left: 10px;
 
             & > a{
               font-weight: 600;
@@ -487,8 +548,7 @@
             & span.sli_w{
               display: block;
               font-size: 13px;
-              position: relative;
-              top: -3px;
+              color: #666;
             }
 
           }
@@ -504,9 +564,10 @@
         }
 
         & .sli_media_img{
-          width: 120px;
-          height: 120px;
-          border-radius: 3px;
+          width: 80px;
+          height: 80px;
+          object-fit: cover;
+          border-radius: 4px;
           margin-right: 5px;
           margin-bottom: 5px;
           cursor: pointer;

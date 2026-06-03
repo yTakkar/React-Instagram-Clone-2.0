@@ -21,7 +21,7 @@ exports[`MembersEnd Component should match snapshot and show <Nothing/> when mem
   }
 >
   <img
-    src="/images/large.jpg"
+    src="/images/large.svg"
   />
   <span
     className="nothingMssg"

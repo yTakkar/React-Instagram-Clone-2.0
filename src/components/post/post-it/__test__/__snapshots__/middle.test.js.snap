@@ -5,17 +5,43 @@ exports[`PostItMiddle Component should match snapshot when fileChanged = false 1
   className="i_p_main p_main"
   style={
     Object {
+      "display": "flex",
+      "flexDirection": "column",
       "height": 296,
     }
   }
 >
+  <div
+    className="i_p_ta"
+    style={
+      Object {
+        "flexShrink": 0,
+      }
+    }
+  >
+    <textarea
+      className="t_p_ta"
+      onChange={[Function]}
+      placeholder="What's new with you, @vsocial?"
+      spellCheck="false"
+      value=""
+    />
+  </div>
   <form
     className="post_img_form"
     encType="multipart/formdata"
     method="post"
+    style={
+      Object {
+        "alignItems": "center",
+        "display": "flex",
+        "flexGrow": 1,
+        "justifyContent": "center",
+      }
+    }
   >
     <input
-      accept="image/*"
+      accept="image/*,video/*"
       id="file_input"
       onChange={[Function]}
       type="file"
@@ -25,9 +51,45 @@ exports[`PostItMiddle Component should match snapshot when fileChanged = false 1
       className="pri_btn"
       htmlFor="file_input"
     >
-      Choose an image
+      Choose an image or video
     </label>
   </form>
+  <div
+    style={
+      Object {
+        "alignItems": "center",
+        "display": "flex",
+        "flexShrink": 0,
+        "justifyContent": "flex-start",
+        "padding": "10px",
+      }
+    }
+  >
+    <input
+      id="isNSFW"
+      onChange={[Function]}
+      style={
+        Object {
+          "cursor": "pointer",
+          "marginRight": "8px",
+        }
+      }
+      type="checkbox"
+    />
+    <label
+      htmlFor="isNSFW"
+      style={
+        Object {
+          "color": "#e74c3c",
+          "cursor": "pointer",
+          "fontSize": "13px",
+          "fontWeight": "bold",
+        }
+      }
+    >
+      Mark as NSFW (Sensitive Content)
+    </label>
+  </div>
 </div>
 `;
 
@@ -36,30 +98,84 @@ exports[`PostItMiddle Component should match snapshot when fileChanged = false 2
   className="i_p_main p_main"
   style={
     Object {
+      "display": "flex",
+      "flexDirection": "column",
       "height": 296,
     }
   }
 >
-  <div>
-    <div
-      className="i_p_ta"
+  <div
+    className="i_p_ta"
+    style={
+      Object {
+        "flexShrink": 0,
+      }
+    }
+  >
+    <textarea
+      className="t_p_ta"
+      onChange={[Function]}
+      placeholder="What's new with you, @vsocial?"
+      spellCheck="false"
+      value=""
+    />
+  </div>
+  <div
+    className="i_p_img"
+    style={
+      Object {
+        "flexGrow": 1,
+        "overflow": "hidden",
+      }
+    }
+  >
+    <img
+      className="filter-normal"
+      src="/images/location.jpg"
+      style={
+        Object {
+          "height": "100%",
+          "objectFit": "cover",
+          "width": "100%",
+        }
+      }
+    />
+  </div>
+  <div
+    style={
+      Object {
+        "alignItems": "center",
+        "display": "flex",
+        "flexShrink": 0,
+        "justifyContent": "flex-start",
+        "padding": "10px",
+      }
+    }
+  >
+    <input
+      id="isNSFW"
+      onChange={[Function]}
+      style={
+        Object {
+          "cursor": "pointer",
+          "marginRight": "8px",
+        }
+      }
+      type="checkbox"
+    />
+    <label
+      htmlFor="isNSFW"
+      style={
+        Object {
+          "color": "#e74c3c",
+          "cursor": "pointer",
+          "fontSize": "13px",
+          "fontWeight": "bold",
+        }
+      }
     >
-      <textarea
-        className="t_p_ta"
-        onChange={[Function]}
-        placeholder="What's new with you, @takkar?"
-        spellCheck="false"
-        value=""
-      />
-    </div>
-    <div
-      className="i_p_img"
-    >
-      <img
-        className="filter-normal"
-        src="/images/location.jpg"
-      />
-    </div>
+      Mark as NSFW (Sensitive Content)
+    </label>
   </div>
 </div>
 `;

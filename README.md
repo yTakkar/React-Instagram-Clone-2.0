@@ -8,7 +8,7 @@ A reactive Single-Page Instagram-Clone with some new features!!
 ---
 
 # Another Version
-**[PHP Version](https://github.com/yTakkar/Instagram-Clone)**
+**[PHP Version](https://github.com/Vsocial/Instagram-Clone)**
 
 # Quick liks
 1. [Requirements](#requirements)
@@ -107,7 +107,7 @@ Many images used in the project belong to their respective creators/authors. No 
 ### Code Contributors
 
 This project exists thanks to all the people who contribute. [[Contribute](CONTRIBUTING.md)].
-<a href="https://github.com/yTakkar/React-Instagram-Clone-2.0/graphs/contributors"><img src="https://opencollective.com/react-instagram-clone-20/contributors.svg?width=890&button=false" /></a>
+<a href="https://github.com/Vsocial/React-Instagram-Clone-2.0/graphs/contributors"><img src="https://opencollective.com/react-instagram-clone-20/contributors.svg?width=890&button=false" /></a>
 
 ### Financial Contributors
 

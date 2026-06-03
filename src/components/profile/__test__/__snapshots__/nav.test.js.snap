@@ -10,7 +10,7 @@ exports[`ProfileNav Component should match snapshot 1`] = `
         activeClassName="pro_nav_active"
         className="inst_nav"
         exact={true}
-        to="/profile/takkar"
+        to="/profile/vsocial"
       >
         Posts
       </NavLink>
@@ -20,7 +20,7 @@ exports[`ProfileNav Component should match snapshot 1`] = `
         activeClassName="pro_nav_active"
         className="inst_nav"
         exact={true}
-        to="/profile/takkar/tagged"
+        to="/profile/vsocial/tagged"
       >
         Tagged
       </NavLink>
@@ -30,7 +30,7 @@ exports[`ProfileNav Component should match snapshot 1`] = `
         activeClassName="pro_nav_active"
         className="inst_nav"
         exact={true}
-        to="/profile/takkar/shared"
+        to="/profile/vsocial/shared"
       >
         Shared
       </NavLink>
@@ -40,7 +40,7 @@ exports[`ProfileNav Component should match snapshot 1`] = `
         activeClassName="pro_nav_active"
         className="inst_nav"
         exact={true}
-        to="/profile/takkar/gallery"
+        to="/profile/vsocial/gallery"
       >
         Gallery
       </NavLink>
@@ -50,7 +50,7 @@ exports[`ProfileNav Component should match snapshot 1`] = `
         activeClassName="pro_nav_active"
         className="inst_nav"
         exact={true}
-        to="/profile/takkar/bookmarks"
+        to="/profile/vsocial/bookmarks"
       >
         Bookmarks
       </NavLink>
@@ -60,7 +60,17 @@ exports[`ProfileNav Component should match snapshot 1`] = `
         activeClassName="pro_nav_active"
         className="inst_nav"
         exact={true}
-        to="/profile/takkar/groups"
+        to="/profile/vsocial/friends"
+      >
+        Friends
+      </NavLink>
+    </li>
+    <li>
+      <NavLink
+        activeClassName="pro_nav_active"
+        className="inst_nav"
+        exact={true}
+        to="/profile/vsocial/groups"
       >
         Groups
       </NavLink>
@@ -70,7 +80,7 @@ exports[`ProfileNav Component should match snapshot 1`] = `
         activeClassName="pro_nav_active"
         className="inst_nav"
         exact={true}
-        to="/profile/takkar/about"
+        to="/profile/vsocial/about"
       >
         About
       </NavLink>
@@ -122,6 +132,16 @@ exports[`ProfileNav Component should match snapshot when profile is not mine 1`]
         to="/profile/ghalib/gallery"
       >
         Gallery
+      </NavLink>
+    </li>
+    <li>
+      <NavLink
+        activeClassName="pro_nav_active"
+        className="inst_nav"
+        exact={true}
+        to="/profile/ghalib/friends"
+      >
+        Friends
       </NavLink>
     </li>
     <li>

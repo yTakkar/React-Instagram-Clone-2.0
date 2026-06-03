@@ -6,7 +6,7 @@ describe('CopyLink Component', () => {
   it('should match snapshot', () => {
     const tree = create(
       <CopyLink
-        url="https://github.com/yTakkar/React-Instagram-Clone-2.0"
+        url="https://github.com/Vsocial/React-Instagram-Clone-2.0"
         label="Copy Link"
         done={jest.fn()}
       />

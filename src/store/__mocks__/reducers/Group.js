@@ -4,7 +4,7 @@ export default {
     name: 'a groupss',
     bio: '#random group',
     admin: 24,
-    admin_username: 'takkar',
+    admin_username: 'vsocial',
     created: '1480114098767',
     group_type: 'public',
   },
@@ -51,7 +51,7 @@ export default {
   members: [
     {
       added_by: 24,
-      added_by_username: 'takkar',
+      added_by_username: 'vsocial',
       firstname: 'Mirza',
       group_id: 11,
       grp_member_id: 58,

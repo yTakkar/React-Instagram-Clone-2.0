@@ -11,6 +11,7 @@ import Gallery from './sections/gallery/gallery-s'
 import Bookmarks from './sections/bookmarks/bookmarks-s'
 import Followers from './sections/followers/followers-s'
 import Followings from './sections/followings/followings-s'
+import Friends from './sections/friends/friends-s'
 import Favourites from './sections/favourites/favourites-s'
 import Recommendations from './sections/recommends/recommends-s'
 import PeopleYouKnow from './sections/people-you-know/puk'
@@ -52,6 +53,10 @@ const ProfileRoutes = ({ url, param: username }) => (
       <Route
         path={`${url}/followings`}
         component={() => <Followings param={username} />}
+      />
+      <Route
+        path={`${url}/friends`}
+        component={() => <Friends param={username} />}
       />
       <Route
         path={`${url}/favourites`}

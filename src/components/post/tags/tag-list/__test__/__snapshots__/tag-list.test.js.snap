@@ -37,7 +37,7 @@ exports[`TagItems Component should match snapshot and show <AdvancedFollow/> 1`]
         href="#"
         onClick={[Function]}
       >
-        Follow
+        follow
       </a>
     </div>
   </div>
@@ -82,7 +82,7 @@ exports[`TagItems Component should match snapshot and show <AdvancedUnfollow/> 1
         href="#"
         onClick={[Function]}
       >
-        Unfollow
+        unfollow
       </a>
     </div>
   </div>

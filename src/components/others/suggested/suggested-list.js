@@ -4,15 +4,17 @@ import PropTypes from 'prop-types'
 import AdvancedFollow from '../follow/advancedFollow'
 import AdvancedUnfollow from '../follow/advancedUnfollow'
 import AppLink from '../link/link'
+import { connect } from 'react-redux'
+import { t } from '../../../utils/translation'
 
-export default class SuggestedList extends Component {
+class SuggestedList extends Component {
   state = {
     isFollowing: false,
   }
 
   render() {
     let { isFollowing } = this.state
-    let { id, username, firstname, surname, mutualUsersCount } = this.props
+    let { id, username, firstname, surname, mutualUsersCount, lang } = this.props
 
     return (
       <div className="recomms">
@@ -26,7 +28,9 @@ export default class SuggestedList extends Component {
           <span>
             {mutualUsersCount == 0
               ? `${firstname} ${surname}`
-              : humanReadable(mutualUsersCount, 'mutual follower')}
+              : mutualUsersCount == 1
+                ? `1 ${t(lang, 'actions', 'mutualFollower')}`
+                : `${mutualUsersCount} ${t(lang, 'actions', 'mutualFollowers')}`}
           </span>
         </div>
         <div className="recomms_ff">
@@ -60,3 +64,9 @@ SuggestedList.propTypes = {
   when: PropTypes.oneOf(['home', 'profile']),
   mutualUsersCount: PropTypes.number.isRequired,
 }
+
+const mapStateToProps = state => ({
+  lang: state.Language.language
+})
+
+export default connect(mapStateToProps)(SuggestedList)

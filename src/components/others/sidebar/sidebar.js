@@ -7,8 +7,11 @@ import PropTypes from 'prop-types'
 import SidebarBottom from './bottom'
 import SidebarLink from './link'
 import { uData } from '../../../utils/utils'
+import { connect } from 'react-redux'
+import { t } from '../../../utils/translation'
+import { setLanguage } from '../../../actions/language'
 
-const SideBar = ({ uc, un }) => {
+const SideBar = ({ uc, un, lang, dispatch }) => {
   let username = uData('username')
   let profile = `/profile/${username}`
 
@@ -16,7 +19,7 @@ const SideBar = ({ uc, un }) => {
     e.preventDefault()
     await post('/api/admin-logout')
     Notify({
-      value: 'Logged out as admin',
+      value: t(lang, 'sidebar', 'adminLogout'),
       done: () => location.reload(),
     })
   }
@@ -26,34 +29,37 @@ const SideBar = ({ uc, un }) => {
       <div className="m_n">
         <ul className="m_n_ul">
           <SidebarLink link={profile} label={`@${username}`} />
-          <SidebarLink link="/" label="Home" />
-          <SidebarLink link="/explore" label="Explore" />
+          <SidebarLink link="/" label={t(lang, 'sidebar', 'home')} />
+          <SidebarLink link="/explore" label={t(lang, 'sidebar', 'explore')} />
           <SidebarLink
             link="/notifications"
-            label="Notifications"
+            label={t(lang, 'sidebar', 'notifications')}
             showNumbers
             numbers={un}
           />
           <SidebarLink
             link="/messages"
-            label="Messages"
+            label={t(lang, 'sidebar', 'messages')}
             showNumbers
             numbers={uc}
           />
-          <SidebarLink link={`${profile}/bookmarks`} label="Bookmarks" />
-          <SidebarLink link={`${profile}/gallery`} label="Gallery" />
-          <SidebarLink link={`${profile}/favourites`} label="Favourites" />
-          <SidebarLink link={`${profile}/groups`} label="Groups" />
+          <SidebarLink link={`${profile}/bookmarks`} label={t(lang, 'sidebar', 'bookmarks')} />
+          <SidebarLink link={`${profile}/gallery`} label={t(lang, 'sidebar', 'gallery')} />
+          <SidebarLink link={`${profile}/favourites`} label={t(lang, 'sidebar', 'favourites')} />
+          <SidebarLink link={`${profile}/groups`} label={t(lang, 'sidebar', 'groups')} />
           <SidebarLink
             link={`${profile}/recommendations`}
-            label="Recommendations"
+            label={t(lang, 'sidebar', 'recommendations')}
           />
-          <SidebarLink link="/edit-profile" label="Edit profile" />
-          <SidebarLink link="/settings" label="Settings" />
+          <SidebarLink link="/edit-profile" label={t(lang, 'sidebar', 'editProfile')} />
+          <SidebarLink link="/settings" label={t(lang, 'sidebar', 'settings')} />
+          {isAdmin() && (
+            <SidebarLink link="/admin-dashboard" label={t(lang, 'sidebar', 'adminDashboard')} />
+          )}
           <li>
-            {isAdmin() ? (
+             {isAdmin() ? (
               <a href="#" className="admin-logout" onClick={adminLogout}>
-                Log out as admin
+                {t(lang, 'sidebar', 'adminLogout')}
               </a>
             ) : (
               <NavLink
@@ -77,4 +83,8 @@ SideBar.propTypes = {
   uc: PropTypes.number.isRequired,
 }
 
-export default SideBar
+const mapStateToProps = state => ({
+  lang: state.Language.language
+})
+
+export default connect(mapStateToProps)(SideBar)

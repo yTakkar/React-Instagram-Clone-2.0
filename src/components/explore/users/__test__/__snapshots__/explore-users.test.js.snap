@@ -65,7 +65,7 @@ exports[`ExpUsers Component should match snapshot 1`] = `
               href="#"
               onClick={[Function]}
             >
-              Follow
+              follow
             </a>
           </div>
         </div>
@@ -101,7 +101,7 @@ exports[`ExpUsers Component should match snapshot 1`] = `
               href="#"
               onClick={[Function]}
             >
-              Follow
+              follow
             </a>
           </div>
         </div>
@@ -160,7 +160,7 @@ exports[`ExpUsers Component should match snapshot and show <Nothing/> when users
             }
           >
             <img
-              src="/images/large.jpg"
+              src="/images/large.svg"
             />
             <span
               className="nothingMssg"

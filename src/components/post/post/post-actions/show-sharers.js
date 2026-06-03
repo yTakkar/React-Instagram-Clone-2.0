@@ -1,9 +1,10 @@
 import React, { Component, Fragment } from 'react'
-import { humanReadable } from '../../../../utils/utils'
 import Sharers from '../../sharers/sharers'
 import { number, func } from 'prop-types'
+import { connect } from 'react-redux'
+import { t } from '../../../../utils/translation'
 
-export default class ShowSharers extends Component {
+class ShowSharers extends Component {
   state = {
     showSharers: false,
   }
@@ -11,13 +12,18 @@ export default class ShowSharers extends Component {
   toggleShares = () => this.setState({ showSharers: !this.state.showSharers })
 
   render() {
-    let { post_id, shares_count, decrementSharers } = this.props
+    let { post_id, shares_count, decrementSharers, lang } = this.props
     let { showSharers } = this.state
 
     return (
       <Fragment>
         <span className="p_comm" onClick={this.toggleShares}>
-          {humanReadable(shares_count, 'share')}
+          {shares_count == 0 
+            ? t(lang, 'post', 'noShares')
+            : shares_count == 1
+              ? `1 ${t(lang, 'post', 'share')}`
+              : `${shares_count} ${t(lang, 'post', 'shares')}`
+          }
         </span>
 
         {showSharers && (
@@ -37,3 +43,9 @@ ShowSharers.propTypes = {
   shares_count: number.isRequired,
   decrementSharers: func.isRequired,
 }
+
+const mapStateToProps = state => ({
+  lang: state.Language.language
+})
+
+export default connect(mapStateToProps)(ShowSharers)

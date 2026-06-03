@@ -1,8 +1,10 @@
 import React, { Component, Fragment } from 'react'
 import SidebarOptions from './options'
 import MaterialIcon from '../icons/material-icon'
+import { connect } from 'react-redux'
+import { setLanguage } from '../../../actions/language'
 
-export default class SidebarBottom extends Component {
+export class SidebarBottom extends Component {
   state = {
     showOptions: false,
   }
@@ -11,6 +13,7 @@ export default class SidebarBottom extends Component {
 
   render() {
     let { showOptions } = this.state
+    let { lang, dispatch } = this.props
 
     return (
       <Fragment>
@@ -31,6 +34,12 @@ export default class SidebarBottom extends Component {
                 <MaterialIcon icon="more_horiz" />
               </a>
             </li>
+            <li style={{ paddingLeft: '10px', display: 'flex', gap: '5px', alignItems: 'center' }}>
+              <span style={{ color: '#ccc' }}>|</span>
+              <a href="#" style={{ fontWeight: lang === 'en' ? 'bold' : 'normal', margin: 0, padding: 0 }} onClick={e => { e.preventDefault(); dispatch(setLanguage('en')) }}>EN</a>
+              <span style={{ color: '#ccc' }}>|</span>
+              <a href="#" style={{ fontWeight: lang === 'vi' ? 'bold' : 'normal', margin: 0, padding: 0 }} onClick={e => { e.preventDefault(); dispatch(setLanguage('vi')) }}>VI</a>
+            </li>
           </ul>
         </div>
 
@@ -39,3 +48,9 @@ export default class SidebarBottom extends Component {
     )
   }
 }
+
+const mapStateToProps = state => ({
+  lang: state.Language.language
+})
+
+export default connect(mapStateToProps)(SidebarBottom)

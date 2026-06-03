@@ -104,7 +104,7 @@ exports[`BlockedUsers Component should match snapshot and show when blockedUsers
     }
   >
     <img
-      src="/images/large.jpg"
+      src="/images/large.svg"
     />
     <span
       className="nothingMssg"

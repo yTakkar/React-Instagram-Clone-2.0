@@ -5,7 +5,8 @@ exports[`MemberAddedBy Component should match snapshot 1`] = `
   className="recommend_by"
 >
   <div>
-    by 
+    by
+     
     <Link
       to="/profile/ghalib"
     >

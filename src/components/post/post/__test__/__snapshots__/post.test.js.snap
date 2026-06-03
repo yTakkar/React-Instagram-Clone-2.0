@@ -24,10 +24,10 @@ exports[`Post Component should match snapshot 1`] = `
         }
       >
         <Link
-          title="takkar"
-          to="/profile/takkar"
+          title="vsocial"
+          to="/profile/vsocial"
         >
-          takkar
+          vsocial
         </Link>
         <span
           className="p_i_1_title"
@@ -117,11 +117,25 @@ exports[`Post Component should match snapshot 1`] = `
             </span>
           </p>
         </div>
-        <img
-          className="p_img filter-ashby"
-          onClick={[Function]}
-          src="/posts/instagram_1518972814710.jpg"
-        />
+        <div
+          style={
+            Object {
+              "position": "relative",
+            }
+          }
+        >
+          <img
+            className="p_img filter-ashby"
+            onClick={[Function]}
+            src="/posts/instagram_1518972814710.jpg"
+            style={
+              Object {
+                "cursor": "pointer",
+                "filter": "none",
+              }
+            }
+          />
+        </div>
         <div>
           <div>
             <span
@@ -331,10 +345,10 @@ exports[`Post Component should match snapshot with comments 1`] = `
         }
       >
         <Link
-          title="takkar"
-          to="/profile/takkar"
+          title="vsocial"
+          to="/profile/vsocial"
         >
-          takkar
+          vsocial
         </Link>
         <span
           className="p_i_1_title"
@@ -424,11 +438,25 @@ exports[`Post Component should match snapshot with comments 1`] = `
             </span>
           </p>
         </div>
-        <img
-          className="p_img filter-ashby"
-          onClick={[Function]}
-          src="/posts/instagram_1518972814710.jpg"
-        />
+        <div
+          style={
+            Object {
+              "position": "relative",
+            }
+          }
+        >
+          <img
+            className="p_img filter-ashby"
+            onClick={[Function]}
+            src="/posts/instagram_1518972814710.jpg"
+            style={
+              Object {
+                "cursor": "pointer",
+                "filter": "none",
+              }
+            }
+          />
+        </div>
         <div>
           <div>
             <span
@@ -715,9 +743,9 @@ exports[`Post Component should match snapshot with comments 1`] = `
             >
               <Link
                 className="comments_user"
-                to="/profile/takkar"
+                to="/profile/vsocial"
               >
-                takkar
+                vsocial
               </Link>
               <img
                 className="comments_sticker"

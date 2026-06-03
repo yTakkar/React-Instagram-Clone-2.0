@@ -1,14 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Conversation Component should match snapshot 1`] = `
-<div>
+Array [
   <div
     className="spinner"
   >
     <span />
     <span />
     <span />
-  </div>
+  </div>,
   <div
     className="mssg_messages cLoading"
   >
@@ -17,6 +17,10 @@ exports[`Conversation Component should match snapshot 1`] = `
         Object {
           "animation": "bcCCNc 300ms ease 0s 1 normal none running",
           "backfaceVisibility": "visible",
+          "display": "flex",
+          "flexDirection": "column",
+          "height": "100%",
+          "width": "100%",
         }
       }
     >
@@ -60,7 +64,8 @@ exports[`Conversation Component should match snapshot 1`] = `
         className="m_m_wrapper"
         style={
           Object {
-            "height": 390,
+            "flex": 1,
+            "height": "100%",
             "overflow": "hidden",
             "position": "relative",
             "width": "100%",
@@ -292,6 +297,6 @@ exports[`Conversation Component should match snapshot 1`] = `
         </form>
       </div>
     </div>
-  </div>
-</div>
+  </div>,
+]
 `;

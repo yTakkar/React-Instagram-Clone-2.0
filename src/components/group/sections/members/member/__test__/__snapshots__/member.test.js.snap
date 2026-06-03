@@ -32,9 +32,10 @@ exports[`MembersList Component should match snapshot with <RemoveMember/> 1`] = 
       className="recommend_by"
     >
       <div>
-        by 
+        by
+         
         <Link
-          to="/profile/takkar"
+          to="/profile/vsocial"
         >
           You
         </Link>
@@ -67,9 +68,9 @@ exports[`MembersList Component should match snapshot with profile link 1`] = `
       className="m_top_right"
     >
       <Link
-        to="/profile/takkar"
+        to="/profile/vsocial"
       >
-        takkar
+        vsocial
       </Link>
       <span
         className="grp_admin"
@@ -89,7 +90,7 @@ exports[`MembersList Component should match snapshot with profile link 1`] = `
     />
     <Link
       className="sec_btn"
-      to="/profile/takkar"
+      to="/profile/vsocial"
     >
       Profile
     </Link>

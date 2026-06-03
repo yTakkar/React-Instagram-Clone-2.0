@@ -21,6 +21,9 @@ exports[`Explore Component should match snapshot 1`] = `
             href="/explore"
             onClick={[Function]}
           >
+            <i
+              className="fas fa-users"
+            />
             Users
           </a>
         </li>
@@ -31,6 +34,9 @@ exports[`Explore Component should match snapshot 1`] = `
             href="/explore/explore-photos"
             onClick={[Function]}
           >
+            <i
+              className="fas fa-images"
+            />
             Photos
           </a>
         </li>
@@ -41,6 +47,9 @@ exports[`Explore Component should match snapshot 1`] = `
             href="/explore/explore-groups"
             onClick={[Function]}
           >
+            <i
+              className="fas fa-layer-group"
+            />
             Groups
           </a>
         </li>

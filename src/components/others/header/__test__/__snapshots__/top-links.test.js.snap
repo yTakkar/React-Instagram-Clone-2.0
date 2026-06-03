@@ -16,11 +16,6 @@ Array [
         notifications_none
       </i>
     </span>
-    <span
-      className="links_span"
-    >
-      Notifications
-    </span>
   </NavLink>,
   <NavLink
     activeClassName="ha_active"

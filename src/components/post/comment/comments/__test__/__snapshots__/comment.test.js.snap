@@ -57,9 +57,9 @@ exports[`Comment Component should match snapshot with type sticker 1`] = `
     >
       <Link
         className="comments_user"
-        to="/profile/takkar"
+        to="/profile/vsocial"
       >
-        takkar
+        vsocial
       </Link>
       <img
         className="comments_sticker"

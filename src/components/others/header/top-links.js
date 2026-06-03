@@ -17,7 +17,6 @@ const HeaderTopLinks = () => {
         <span className="notification_span nav_icon">
           <MaterialIcon icon="notifications_none" />
         </span>
-        <span className="links_span">Notifications</span>
       </NavLink>
 
       <NavLink

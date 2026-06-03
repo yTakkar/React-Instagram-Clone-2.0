@@ -8,6 +8,7 @@ import IsLoading from '../isLoading'
 import { cLoading } from '../../../utils/utils'
 import FAIcon from '../icons/font-awesome-icon'
 import AppLink from '../link/link'
+import { t } from '../../../utils/translation'
 
 class Suggested extends Component {
   state = {
@@ -30,7 +31,7 @@ class Suggested extends Component {
 
   render() {
     let { loading } = this.state,
-      { suggested, when } = this.props,
+      { suggested, when, lang } = this.props,
       len = suggested.length,
       map_suggested = suggested.map(s => (
         <SuggestedList key={s.id} {...s} when={when} />
@@ -40,7 +41,7 @@ class Suggested extends Component {
       <div>
         <div className="recomm">
           <div className="recomm_top">
-            <span>Suggested</span>
+            <span>{t(lang, 'home', 'suggested')}</span>
             <a
               href="#"
               className="recomm_refresh"
@@ -79,6 +80,7 @@ Suggested.propTypes = {
 
 const mapStateToProps = store => ({
   suggested: store.Explore.suggested,
+  lang: store.Language.language
 })
 
 export default connect(mapStateToProps)(Suggested)

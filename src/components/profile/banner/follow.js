@@ -5,6 +5,7 @@ import { toggleFollow } from '../../../actions/follow'
 import Unfollow from '../../others/follow/unfollow'
 import Follow from '../../others/follow/follow'
 import AppLink from '../../others/link/link'
+import BannerFriend from './friend'
 
 const BannerFollow = ({ ud, isFollowing, dispatch }) => {
   let { id, username } = ud
@@ -14,6 +15,7 @@ const BannerFollow = ({ ud, isFollowing, dispatch }) => {
 
   return (
     <div className="pro_ff">
+      <BannerFriend />
       {Me(id) ? (
         <AppLink
           url="/edit-profile"

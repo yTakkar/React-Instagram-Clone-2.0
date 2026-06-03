@@ -8,6 +8,7 @@ import ExploreGroupsList from './explore-groups-list'
 import IsLoading from '../../others/isLoading'
 import { cLoading } from '../../../utils/utils'
 import classNames from 'classnames'
+import { t } from '../../../utils/translation'
 
 class ExploreGroups extends Component {
   state = {
@@ -19,7 +20,7 @@ class ExploreGroups extends Component {
   componentWillReceiveProps = () => this.setState({ loading: false })
 
   render() {
-    let { groups } = this.props,
+    let { groups, lang } = this.props,
       { loading } = this.state,
       len = groups.length,
       map_groups = groups.map(g => (
@@ -28,7 +29,7 @@ class ExploreGroups extends Component {
 
     return (
       <div>
-        <Title value="Explore groups" />
+        <Title value={t(lang, 'explore', 'exploreGroups')} />
 
         <FadeIn duration="300ms">
           <IsLoading loading={loading} />
@@ -40,7 +41,7 @@ class ExploreGroups extends Component {
             <div className="m_wrapper" style={{ width: len == 0 ? 500 : null }}>
               {len == 0 ? (
                 <div style={{ width: '100%' }}>
-                  <Nothing mssg="Sorry, no groups to explore!!" />
+                  <Nothing mssg={t(lang, 'explore', 'noGroups')} />
                 </div>
               ) : (
                 map_groups
@@ -55,6 +56,7 @@ class ExploreGroups extends Component {
 
 const mapStateToProps = store => ({
   groups: store.Explore.groups,
+  lang: store.Language.language
 })
 
 export default connect(mapStateToProps)(ExploreGroups)

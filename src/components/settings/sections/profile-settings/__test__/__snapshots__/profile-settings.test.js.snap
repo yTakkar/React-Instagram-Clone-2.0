@@ -32,7 +32,8 @@ exports[`ProfileSettings Component should match snapshot 1`] = `
             Change account type
           </span>
           <span>
-            Select your account type, currently it's 
+            Select your account type, currently it's
+             
             <span
               className="type_indicator"
             >
@@ -65,13 +66,16 @@ exports[`ProfileSettings Component should match snapshot 1`] = `
             Note:
           </span>
           <span>
-            When account is 
+            When account is
+             
             <span
               className="bold"
             >
               private only your followers can interact with with your profile.
             </span>
-             Others would have to follow you first to interact. This is the 
+             
+            Others would have to follow you first to interact. This is the
+             
             <span
               className="bold"
             >
@@ -80,7 +84,8 @@ exports[`ProfileSettings Component should match snapshot 1`] = `
              option as only people you know would interact with your profile.
           </span>
           <span>
-            And when account is public 
+            And when account is public
+             
             <span
               className="bold"
             >

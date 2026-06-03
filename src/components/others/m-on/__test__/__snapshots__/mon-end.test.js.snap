@@ -21,7 +21,7 @@ exports[`Mon-End Component should match snapshot with Nothing component 1`] = `
   }
 >
   <img
-    src="/images/large.jpg"
+    src="/images/large.svg"
   />
   <span
     className="nothingMssg"

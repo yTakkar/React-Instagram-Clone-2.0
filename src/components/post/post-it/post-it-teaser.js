@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PostIt from './post-it'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+import { t } from '../../../utils/translation'
 
 class PostItTeaser extends Component {
   state = {
@@ -20,6 +21,7 @@ class PostItTeaser extends Component {
       group,
       disabled,
       session: { id, username },
+      lang
     } = this.props
 
     return (
@@ -34,7 +36,7 @@ class PostItTeaser extends Component {
               className="p_whats_new"
               onClick={disabled ? null : this.togglePostIt}
             >
-              What's new with you, @{username}? #cool
+              {t(lang, 'home', 'whatsNew')}{username}? #cool
             </span>
           </div>
         </div>
@@ -59,6 +61,7 @@ PostItTeaser.propTypes = {
 
 const mapStateToProps = store => ({
   session: store.User.session,
+  lang: store.Language.language
 })
 
 export default connect(mapStateToProps)(PostItTeaser)

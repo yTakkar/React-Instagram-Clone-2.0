@@ -181,7 +181,7 @@ exports[`GroupPosts Component should match snapshot 1`] = `
           className="recomm_teaser"
         >
           <span>
-            Explore more groups from all around Instagram.
+            Explore more groups from all around Vsocial.
           </span>
           <Link
             className="sec_btn"
@@ -225,10 +225,10 @@ exports[`GroupPosts Component should match snapshot 1`] = `
                   }
                 >
                   <Link
-                    title="takkar"
-                    to="/profile/takkar"
+                    title="vsocial"
+                    to="/profile/vsocial"
                   >
-                    takkar
+                    vsocial
                   </Link>
                   <span
                     className="p_i_1_title"
@@ -318,11 +318,25 @@ exports[`GroupPosts Component should match snapshot 1`] = `
                       </span>
                     </p>
                   </div>
-                  <img
-                    className="p_img filter-ashby"
-                    onClick={[Function]}
-                    src="/posts/instagram_1518972814710.jpg"
-                  />
+                  <div
+                    style={
+                      Object {
+                        "position": "relative",
+                      }
+                    }
+                  >
+                    <img
+                      className="p_img filter-ashby"
+                      onClick={[Function]}
+                      src="/posts/instagram_1518972814710.jpg"
+                      style={
+                        Object {
+                          "cursor": "pointer",
+                          "filter": "none",
+                        }
+                      }
+                    />
+                  </div>
                   <div>
                     <div>
                       <span
@@ -529,16 +543,16 @@ exports[`GroupPosts Component should match snapshot 1`] = `
                   }
                 >
                   <Link
-                    title="takkar"
-                    to="/profile/takkar"
+                    title="vsocial"
+                    to="/profile/vsocial"
                   >
-                    takkar
+                    vsocial
                   </Link>
                   <span
                     className="p_i_1_title"
                     title={null}
                   >
-                    iam_ takkar
+                    iam_ vsocial
                   </span>
                 </div>
                 <div>
@@ -597,9 +611,9 @@ exports[`GroupPosts Component should match snapshot 1`] = `
                         </Link>
                         <Link
                           className="hashtag"
-                          to="/profile/takkar"
+                          to="/profile/vsocial"
                         >
-                          @takkar 
+                          @vsocial 
                         </Link>
                         <Link
                           className="hashtag"
@@ -610,11 +624,25 @@ exports[`GroupPosts Component should match snapshot 1`] = `
                       </span>
                     </p>
                   </div>
-                  <img
-                    className="p_img filter-normal"
-                    onClick={[Function]}
-                    src="/posts/instagram_1518945386167.jpg"
-                  />
+                  <div
+                    style={
+                      Object {
+                        "position": "relative",
+                      }
+                    }
+                  >
+                    <img
+                      className="p_img filter-normal"
+                      onClick={[Function]}
+                      src="/posts/instagram_1518945386167.jpg"
+                      style={
+                        Object {
+                          "cursor": "pointer",
+                          "filter": "none",
+                        }
+                      }
+                    />
+                  </div>
                   <div />
                 </div>
               </div>
@@ -974,7 +1002,7 @@ exports[`GroupPosts Component should match snapshot and hide postItTeaser when j
           className="recomm_teaser"
         >
           <span>
-            Explore more groups from all around Instagram.
+            Explore more groups from all around Vsocial.
           </span>
           <Link
             className="sec_btn"
@@ -1018,10 +1046,10 @@ exports[`GroupPosts Component should match snapshot and hide postItTeaser when j
                   }
                 >
                   <Link
-                    title="takkar"
-                    to="/profile/takkar"
+                    title="vsocial"
+                    to="/profile/vsocial"
                   >
-                    takkar
+                    vsocial
                   </Link>
                   <span
                     className="p_i_1_title"
@@ -1111,11 +1139,25 @@ exports[`GroupPosts Component should match snapshot and hide postItTeaser when j
                       </span>
                     </p>
                   </div>
-                  <img
-                    className="p_img filter-ashby"
-                    onClick={[Function]}
-                    src="/posts/instagram_1518972814710.jpg"
-                  />
+                  <div
+                    style={
+                      Object {
+                        "position": "relative",
+                      }
+                    }
+                  >
+                    <img
+                      className="p_img filter-ashby"
+                      onClick={[Function]}
+                      src="/posts/instagram_1518972814710.jpg"
+                      style={
+                        Object {
+                          "cursor": "pointer",
+                          "filter": "none",
+                        }
+                      }
+                    />
+                  </div>
                   <div>
                     <div>
                       <span
@@ -1322,16 +1364,16 @@ exports[`GroupPosts Component should match snapshot and hide postItTeaser when j
                   }
                 >
                   <Link
-                    title="takkar"
-                    to="/profile/takkar"
+                    title="vsocial"
+                    to="/profile/vsocial"
                   >
-                    takkar
+                    vsocial
                   </Link>
                   <span
                     className="p_i_1_title"
                     title={null}
                   >
-                    iam_ takkar
+                    iam_ vsocial
                   </span>
                 </div>
                 <div>
@@ -1390,9 +1432,9 @@ exports[`GroupPosts Component should match snapshot and hide postItTeaser when j
                         </Link>
                         <Link
                           className="hashtag"
-                          to="/profile/takkar"
+                          to="/profile/vsocial"
                         >
-                          @takkar 
+                          @vsocial 
                         </Link>
                         <Link
                           className="hashtag"
@@ -1403,11 +1445,25 @@ exports[`GroupPosts Component should match snapshot and hide postItTeaser when j
                       </span>
                     </p>
                   </div>
-                  <img
-                    className="p_img filter-normal"
-                    onClick={[Function]}
-                    src="/posts/instagram_1518945386167.jpg"
-                  />
+                  <div
+                    style={
+                      Object {
+                        "position": "relative",
+                      }
+                    }
+                  >
+                    <img
+                      className="p_img filter-normal"
+                      onClick={[Function]}
+                      src="/posts/instagram_1518945386167.jpg"
+                      style={
+                        Object {
+                          "cursor": "pointer",
+                          "filter": "none",
+                        }
+                      }
+                    />
+                  </div>
                   <div />
                 </div>
               </div>

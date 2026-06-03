@@ -19,7 +19,7 @@ exports[`BannerStats Component should match snapshot with favourites stat 1`] = 
     </span>
   </div>
   <Link
-    to="/profile/takkar/followers"
+    to="/profile/vsocial/followers"
   >
     <span
       className="pro_hg"
@@ -33,7 +33,7 @@ exports[`BannerStats Component should match snapshot with favourites stat 1`] = 
     </span>
   </Link>
   <Link
-    to="/profile/takkar/followings"
+    to="/profile/vsocial/followings"
   >
     <span
       className="pro_hg"
@@ -47,7 +47,7 @@ exports[`BannerStats Component should match snapshot with favourites stat 1`] = 
     </span>
   </Link>
   <Link
-    to="/profile/takkar/favourites"
+    to="/profile/vsocial/favourites"
   >
     <span
       className="pro_hg"
@@ -96,7 +96,7 @@ exports[`BannerStats Component should match snapshot with recommendation stat 1`
     </span>
   </div>
   <Link
-    to="/profile/takkar/followers"
+    to="/profile/vsocial/followers"
   >
     <span
       className="pro_hg"
@@ -110,7 +110,7 @@ exports[`BannerStats Component should match snapshot with recommendation stat 1`
     </span>
   </Link>
   <Link
-    to="/profile/takkar/followings"
+    to="/profile/vsocial/followings"
   >
     <span
       className="pro_hg"
@@ -124,7 +124,7 @@ exports[`BannerStats Component should match snapshot with recommendation stat 1`
     </span>
   </Link>
   <Link
-    to="/profile/takkar/recommendations"
+    to="/profile/vsocial/recommendations"
   >
     <span
       className="pro_hg"

@@ -1,8 +1,10 @@
 import React, { Fragment } from 'react'
 import { NavLink } from 'react-router-dom'
 import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import { t } from '../../utils/translation'
 
-const ExploreNav = ({ url }) => {
+const ExploreNav = ({ url, lang }) => {
   let commonProps = {
     activeClassName: 'exp_nav_active',
     className: 'exp_nav_link',
@@ -13,17 +15,20 @@ const ExploreNav = ({ url }) => {
       <ul>
         <li>
           <NavLink to={`${url}`} exact {...commonProps}>
-            Users
+            <i className="fas fa-users" />
+            {t(lang, 'explore', 'users')}
           </NavLink>
         </li>
         <li>
           <NavLink to={`${url}/explore-photos`} {...commonProps}>
-            Photos
+            <i className="fas fa-images" />
+            {t(lang, 'explore', 'photos')}
           </NavLink>
         </li>
         <li>
           <NavLink to={`${url}/explore-groups`} {...commonProps}>
-            Groups
+            <i className="fas fa-layer-group" />
+            {t(lang, 'explore', 'groups')}
           </NavLink>
         </li>
       </ul>
@@ -35,4 +40,8 @@ ExploreNav.propTypes = {
   url: PropTypes.string.isRequired,
 }
 
-export default ExploreNav
+const mapStateToProps = state => ({
+  lang: state.Language.language
+})
+
+export default connect(mapStateToProps)(ExploreNav)

@@ -1,15 +1,69 @@
 {{> nHeader }}
 
-<div class="notes_wrapper">
-  <div class="welcome_div">
-    <img src="/images/omg.png" alt="">
-  </div>
-</div>
+<div class="notes_wrapper welcome_page_wrapper">
+  
+  <!-- Hero Section -->
+  <section class="welcome_hero animate_scale">
+    <div class="hero_glow"></div>
+    <div class="hero_content">
+      <h1 class="hero_title">Capture & Share Your World</h1>
+      <p class="hero_subtitle">Join Vsocial to capture your finest moments, share your stories, explore active communities, and stay connected with the people you care about most.</p>
+      
+      <div class="hero_actions">
+        <a href="/signup" class="pri_btn hero_btn_signup">GET STARTED NOW</a>
+        <a href="/login" class="sec_btn hero_btn_login">LOG IN</a>
+      </div>
+    </div>
+    
+    <div class="hero_visual">
+      <div class="visual_mockup">
+        <img src="/images/omg.png" alt="Vsocial Mockup" class="mockup_image">
+        <div class="visual_glow"></div>
+      </div>
+    </div>
+  </section>
 
-<div class="github-stats">
-  <iframe src="https://ghbtns.com/github-btn.html?user=yTakkar&type=follow&count=false&size=large" frameborder="0" scrolling="0" width="180px" height="30px"></iframe>
-  <iframe src="https://ghbtns.com/github-btn.html?user=yTakkar&repo=React-Instagram-Clone-2.0&type=fork&count=true&size=large" frameborder="0" scrolling="0" width="125px" height="30px"></iframe>
-  <iframe src="https://ghbtns.com/github-btn.html?user=yTakkar&repo=React-Instagram-Clone-2.0&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
+  <!-- Features Section -->
+  <section class="welcome_features">
+    <h2 class="section_title">Packed with Amazing Features</h2>
+    
+    <div class="features_grid">
+      <div class="feature_card">
+        <div class="feature_icon"><i class="fas fa-camera"></i></div>
+        <h3>Share Moments</h3>
+        <p>Post high-quality photos, apply filters, and customize your feed to tell your story your way.</p>
+      </div>
+
+      <div class="feature_card">
+        <div class="feature_icon"><i class="fas fa-comments"></i></div>
+        <h3>Direct Messaging</h3>
+        <p>Chat with your friends in real-time, share images, stickers, emojis, and much more.</p>
+      </div>
+
+      <div class="feature_card">
+        <div class="feature_icon"><i class="fas fa-users"></i></div>
+        <h3>Groups & Communities</h3>
+        <p>Create or join private/public groups, share posts, and interact with like-minded members.</p>
+      </div>
+
+      <div class="feature_card">
+        <div class="feature_icon"><i class="fas fa-bell"></i></div>
+        <h3>Instant Notifications</h3>
+        <p>Never miss a beat. Receive instant updates when people follow, like, or comment on your posts.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action Section -->
+  <section class="welcome_cta">
+    <div class="cta_container">
+      <h2>Ready to start your journey?</h2>
+      <p>Creating an account takes less than a minute. Let's make connections happen.</p>
+      <a href="/signup" class="pri_btn cta_btn">SIGN UP FOR FREE</a>
+    </div>
+  </section>
+
 </div>
 
 {{> footer }}
+

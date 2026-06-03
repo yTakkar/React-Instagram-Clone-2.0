@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import CreateGroupModal from './cg-modal'
 import SecondaryButton from '../../others/button/secondary-btn'
+import { connect } from 'react-redux'
+import { t } from '../../../utils/translation'
 
-export default class CreateGroup extends Component {
+class CreateGroup extends Component {
   state = {
     createGroup: false,
   }
@@ -14,17 +16,17 @@ export default class CreateGroup extends Component {
 
   render() {
     let { createGroup } = this.state
+    let { lang } = this.props
 
     return (
       <div>
         <div className="recomm_teaser">
           <span>
-            Create public or private group of your interest with people you
-            know.
+            {t(lang, 'home', 'createGroupText')}
           </span>
 
           <SecondaryButton
-            label="Create group"
+            label={t(lang, 'home', 'createGroupBtn')}
             onClick={this.toggleCreateGroup}
           />
         </div>
@@ -34,3 +36,9 @@ export default class CreateGroup extends Component {
     )
   }
 }
+
+const mapStateToProps = state => ({
+  lang: state.Language.language
+})
+
+export default connect(mapStateToProps)(CreateGroup)

@@ -9,7 +9,7 @@ exports[`App Component should match snapshot 1`] = `
     <Connect(NotiSpeak)
       un={1}
     />
-    <SideBar
+    <Connect(SideBar)
       uc={0}
       un={1}
     />

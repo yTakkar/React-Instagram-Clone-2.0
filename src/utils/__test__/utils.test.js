@@ -24,8 +24,8 @@ describe('utils tests', () => {
     expect(util.humanReadable(10, 'like')).toEqual('10 likes')
   })
 
-  it('should capitalize the string takkar', () =>
-    expect(util.c_first('takkar')).toEqual('Takkar'))
+  it('should capitalize the string vsocial', () =>
+    expect(util.c_first('vsocial')).toEqual('Vsocial'))
 
   it('should return whether session id me or not', () =>
     expect(util.Me(24)).toBeBoolean())

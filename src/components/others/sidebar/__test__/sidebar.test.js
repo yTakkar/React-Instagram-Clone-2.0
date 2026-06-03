@@ -2,10 +2,23 @@ import React from 'react'
 import SideBar from '../sidebar'
 import { create } from 'react-test-renderer'
 import { mount } from 'enzyme'
+import { Provider } from 'react-redux'
+import configureStore from 'redux-mock-store'
+import thunk from 'redux-thunk'
 import MockDataElement from '../../../../utils/__mocks__/mock-dataElement'
 
+const mockStore = configureStore([thunk])({
+  Language: {
+    language: 'en',
+  },
+})
+
 describe('SideBar Component', () => {
-  const comp = <SideBar uc={0} un={4} />
+  const comp = (
+    <Provider store={mockStore}>
+      <SideBar uc={0} un={4} />
+    </Provider>
+  )
   let dataElement
 
   beforeAll(() => (dataElement = MockDataElement()))

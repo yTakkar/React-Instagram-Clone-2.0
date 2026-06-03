@@ -14,7 +14,7 @@ describe('Shared Component', () => {
   it('should match snapshot', () => {
     const tree = create(
       <Provider store={mockStore}>
-        <Shared param="takkar" />
+        <Shared param="vsocial" />
       </Provider>
     ).toJSON()
     expect(tree).toMatchSnapshot()

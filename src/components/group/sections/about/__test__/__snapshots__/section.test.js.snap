@@ -9,9 +9,9 @@ exports[`GrpAboutSection Component should match snapshot with type link 1`] = `
   </span>
   <Link
     className="a_info"
-    to="/profile/takkar"
+    to="/profile/vsocial"
   >
-    takkar
+    vsocial
   </Link>
 </div>
 `;

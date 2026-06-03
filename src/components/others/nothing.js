@@ -6,7 +6,7 @@ const Nothing = props => {
 
   return (
     <div className="home_last_mssg" style={{ border: !showMssg ? 'none' : '' }}>
-      <img src={`/images/${conPage ? 'elephant-march.png' : 'large.jpg'}`} />
+      <img src={`/images/${conPage ? 'elephant-march.png' : 'large.svg'}`} />
       {showMssg ? <span className="nothingMssg">{mssg}</span> : null}
       <span className="secondMssg">{secondMssg}</span>
     </div>

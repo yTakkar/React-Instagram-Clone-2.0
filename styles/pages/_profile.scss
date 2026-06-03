@@ -4,7 +4,7 @@
 .pro_banner{
   @include inst;
   position: relative;
-  top: 73px;
+  margin-top: 80px;
   padding: 10px;
 
   & .pro_top{
@@ -72,6 +72,10 @@
         font-weight: 600;
       }
 
+      & a + a{
+        margin-left: 8px;
+      }
+
     }
 
   }
@@ -80,7 +84,8 @@
     position: absolute;
     top: -75px;
     border-radius: 50%;
-    left: 320px;
+    left: 50%;
+    transform: translateX(-50%);
     height: 150px;
     padding: 6px;
     background: $ff;
@@ -126,7 +131,7 @@
 
   & .pro_info {
     position: relative;
-    margin-top: 69px;
+    margin-top: 85px;
 
     & div{
       text-align: center;
@@ -134,24 +139,31 @@
 
     & .pro_username{
       margin-bottom: 4px;
-      font-size: 16px;
+      font-size: 18px;
 
       & a{
-        font-weight: 600;
-        color: #1b2733;
+        font-weight: 700;
+        color: $dark;
         outline: none;
+        letter-spacing: 0.3px;
+
+        &:hover {
+          text-decoration: underline;
+        }
       }
     }
 
     & .pro_name{
       margin-bottom: 12px;
       font-size: 14px;
-      color: #66757f;
+      color: $d_light;
     }
 
     & .pro_bio{
       font-size: 14px;
-      word-break: break-all;
+      color: $dark;
+      line-height: 1.6;
+      word-break: break-word;
     }
 
   }
@@ -164,11 +176,11 @@
     & span{
       position: relative;
       display: inline-block;
-      color: #66757f;
+      color: $d_light;
       cursor: pointer;
 
       &:hover{
-        color: #1b2733;
+        color: $dark;
       }
 
       & i{
@@ -184,16 +196,17 @@
     margin-left: 80px;
 
     & a.tags{
-      background: $second_border;
+      background: $ee;
       padding: 3px 10px;
       text-align: center;
-      color: #1b2733;
-      border-radius: 3px;
+      color: $dark;
+      border-radius: 6px;
       display: inline-block;
       margin-right: 6px;
       margin-top: 6px;
       border: 1px solid $ee;
       outline: none;
+      transition: all 0.2s ease;
 
       &:hover{
         background: $fb;
@@ -214,11 +227,14 @@
       border-radius: 2px !important;
       background: transparent !important;
       outline: none;
-      color: #3d464d;
-      border: 1px solid #dccccc !important;
+      color: $d_light;
+      border: 1px solid $ee !important;
+      transition: all 0.2s ease;
 
       &:hover{
         background: $fb !important;
+        color: $dark;
+        border-color: $pric !important;
       }
 
     }
@@ -297,7 +313,7 @@
 .pro_nav{
   @include inst;
   cursor: default;
-  margin-top: 88px;
+  margin-top: 20px;
   text-align: center;
 
   & ul{
@@ -324,16 +340,18 @@
 
   & a{
     font-size: 14px;
-    color: $dark;
+    color: $d_light;
     padding: 7px 23px;
     top: 2px;
     position: relative;
-    background: $ff;
-    border-radius: 3px;
-    border: 2px solid $ff;
+    background: $fb;
+    border-radius: 6px;
+    border: 2px solid $ee;
+    transition: all 0.2s ease;
 
     &:hover{
-      background: $second_border;
+      background: $ee;
+      color: $dark;
     }
 
     &:focus{
@@ -344,8 +362,9 @@
 
   // active link
   & .pro_nav_active{
-    background: #f7f9fa !important;
-    border: 2px solid #a3c5fc !important;
+    background: $oo !important;
+    border: 2px solid $oo !important;
+    color: #fff !important;
   }
 
 }

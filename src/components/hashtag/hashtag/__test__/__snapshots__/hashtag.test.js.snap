@@ -36,7 +36,7 @@ exports[`Hashtag Component should match snapshot 1`] = `
       >
         <Connect(PopularHashtags) />
         <Connect(UserHashtags)
-          username="takkar"
+          username="vsocial"
         />
       </div>
     </div>

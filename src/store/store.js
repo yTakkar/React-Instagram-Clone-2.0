@@ -1,8 +1,3 @@
-/**
- * @author Faiyaz Shaikh <www.shtakkar@gmail.com>
- * GitHub repo: https://github.com/yTakkar/React-Instagram-Clone-2.0
- */
-
 import { applyMiddleware, combineReducers, createStore } from 'redux'
 import thunk from 'redux-thunk'
 import logger from 'redux-logger'
@@ -17,6 +12,8 @@ import Group from './reducers/Group/Group'
 import Message from './reducers/Message/Message'
 import Setting from './reducers/Setting/Setting'
 import Hashtag from './reducers/Hashtag/hashtag'
+import Friend from './reducers/Friend/Friend'
+import Language from './reducers/Language/Language'
 
 const reducers = combineReducers({
   User,
@@ -28,6 +25,8 @@ const reducers = combineReducers({
   Message,
   Setting,
   Hashtag,
+  Friend,
+  Language,
 })
 
 const middlwares = applyMiddleware(thunk, logger)

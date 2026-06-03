@@ -2,29 +2,28 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 const NotificationType = ({ type, user_username }) => {
-  return (
-    <span>
-      {/* eslint-disable */
+  let text = ''
+  switch (type) {
+    case 'follow': text = ' started following you'; break;
+    case 'tag': text = ' tagged you in a post'; break;
+    case 'like': text = ' liked your post'; break;
+    case 'share': text = ' shared you a post'; break;
+    case 'shared_your_post': text = ' shared your post'; break;
+    case 'comment': text = ' commented on your post'; break;
+    case 'favourites': text = ' added you to favourites'; break;
+    case 'friend_request': text = ' sent you a friend request'; break;
+    case 'friend_accept': text = ' accepted your friend request'; break;
+    case 'recommend': text = ` recommended ${user_username} to you`; break;
+    case 'add_grp_member': text = ' added you to a group'; break;
+    case 'invite': text = ' invited to a group'; break;
+    case 'change_admin': text = ' made you admin of a group'; break;
+    case 'new_con': text = ' created a conversation with you'; break;
+    case 'mention_post': text = ' mentioned you in a post'; break;
+    case 'mention_comment': text = ' mentioned you in a comment'; break;
+    default: text = ` [${type}]`; break;
+  }
 
-        type == 'follow' ? ' started following you'
-        : type == 'tag' ? ' tagged you in a post'
-        : type == 'like' ? ' liked your post'
-        : type == 'share' ? ' shared you a post'
-        : type == 'shared_your_post' ? ' shared your post'
-        : type == 'comment' ? ' commented on your post'
-        : type == 'favourites' ? ' added you to favourites'
-        : type == 'recommend' ? ` recommended ${user_username} to you`
-        : type == 'add_grp_member' ? ' added you to a group'
-        : type == 'invite' ? ' invited to a group'
-        : type == 'change_admin' ? ' made you admin of a group'
-        : type == 'new_con' ? ' created a conversation with you'
-        : type == 'mention_post' ? ' mentioned you in a post'
-        : type == 'mention_comment' ? ' mentioned you in a comment'
-        : null
-        /** eslint-enable */
-      }
-    </span>
-  )
+  return <span>{text}</span>
 }
 
 NotificationType.propTypes = {

@@ -67,7 +67,7 @@ Array [
                 ghalib
               </Link>
               <span>
-                1 mutual follower
+                1 mutualFollower
               </span>
             </div>
             <div
@@ -78,7 +78,7 @@ Array [
                 href="#"
                 onClick={[Function]}
               >
-                Follow
+                follow
               </a>
             </div>
           </div>
@@ -110,7 +110,7 @@ Array [
                 href="#"
                 onClick={[Function]}
               >
-                Follow
+                follow
               </a>
             </div>
           </div>
@@ -271,7 +271,7 @@ Array [
                 ghalib
               </Link>
               <span>
-                1 mutual follower
+                1 mutualFollower
               </span>
             </div>
             <div
@@ -282,7 +282,7 @@ Array [
                 href="#"
                 onClick={[Function]}
               >
-                Follow
+                follow
               </a>
             </div>
           </div>
@@ -314,7 +314,7 @@ Array [
                 href="#"
                 onClick={[Function]}
               >
-                Follow
+                follow
               </a>
             </div>
           </div>
@@ -407,7 +407,8 @@ Array [
     <span>
       Wanna message 
       ghalib
-      ? Create a private conversation with 
+      ? Create a private conversation with
+       
       ghalib
       .
     </span>

@@ -36,6 +36,8 @@ class GroupPhotos extends Component {
     let PHOTO_SET = []
 
     for (let f of photos) {
+      if (!f.imgsrc || f.imgsrc.match(/\.(mp4|webm|mov|ogg|mkv)$/i)) continue;
+
       PHOTO_SET.push({
         ...f,
         src: `/posts/${f.imgsrc}`,

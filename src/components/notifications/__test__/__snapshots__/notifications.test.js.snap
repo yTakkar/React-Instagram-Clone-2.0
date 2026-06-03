@@ -87,7 +87,7 @@ exports[`Notifications Component should match snapshot 1`] = `
             href="#"
             onClick={[Function]}
           >
-            Follow
+            follow
           </a>
         </div>
       </div>
@@ -256,7 +256,7 @@ exports[`Notifications Component should match snapshot when notifications.length
         }
       >
         <img
-          src="/images/large.jpg"
+          src="/images/large.svg"
         />
         <span
           className="nothingMssg"

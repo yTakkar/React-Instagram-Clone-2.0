@@ -2,10 +2,10 @@
 .post{
   position: fixed;
   top: 50%;
-  left: 42%;
+  left: 50%;
   transform: translate(-50%, -50%);
   background: $ff;
-  width: 400px;
+  width: 500px;
   border-radius: 3px;
   z-index: 3;
   transition: all .1s ease-in-out;
@@ -128,9 +128,6 @@
     }
 
     & label {
-      position: relative;
-      top: 140px;
-      left: 126px;
       padding: 6px 18px;
       font-size: 14px;
     }

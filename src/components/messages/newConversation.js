@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import { FadeIn } from 'animate-components'
 import FAIcon from '../others/icons/font-awesome-icon'
 import PrimaryButton from '../others/button/primary-btn'
+import { t } from '../../utils/translation'
 
 class NewConversation extends Component {
   state = {
@@ -29,12 +30,15 @@ class NewConversation extends Component {
     })
   }
 
-  btnLabel = () => (
-    <Fragment>
-      <FAIcon icon="plus" />
-      <span>New conversation</span>
-    </Fragment>
-  )
+  btnLabel = () => {
+    let { lang } = this.props
+    return (
+      <Fragment>
+        <FAIcon icon="plus" />
+        <span>{t(lang, 'messages', 'newConversation')}</span>
+      </Fragment>
+    )
+  }
 
   render() {
     let { getUsersForNewCon } = this.state
@@ -57,5 +61,9 @@ class NewConversation extends Component {
   }
 }
 
-export default connect()(NewConversation)
+const mapStateToProps = state => ({
+  lang: state.Language.language
+})
+
+export default connect(mapStateToProps)(NewConversation)
 export { NewConversation as PureNewConversation }

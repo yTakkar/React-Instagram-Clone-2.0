@@ -52,7 +52,7 @@ exports[`NoUserGroups Component should match snapshot and show <End/> when group
       }
     >
       <img
-        src="/images/large.jpg"
+        src="/images/large.svg"
       />
       <span
         className="nothingMssg"

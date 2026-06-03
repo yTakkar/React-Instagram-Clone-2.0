@@ -3,6 +3,7 @@ import { textMessage } from '../../../../utils/message-utils'
 import { connect } from 'react-redux'
 import ConversationAddEmojis from './add-emojis'
 import TextArea from '../../../others/input/textArea'
+import { t } from '../../../../utils/translation'
 
 class TextMessage extends Component {
   state = {
@@ -29,12 +30,13 @@ class TextMessage extends Component {
 
   render() {
     let { messageValue } = this.state
+    let { lang } = this.props
 
     return (
       <Fragment>
         <form className="add_mssg_form" onSubmit={this.message}>
           <TextArea
-            placeholder="Send message.."
+            placeholder={t(lang, 'messages', 'sendMessage')}
             className="send_mssg"
             required
             value={messageValue}
@@ -43,7 +45,7 @@ class TextMessage extends Component {
           <ConversationAddEmojis
             updateMssgValue={value => this.setState({ messageValue: value })}
           />
-          <input type="submit" value="Send" className="pri_btn mssg_send" />
+          <input type="submit" value={t(lang, 'messages', 'send')} className="pri_btn mssg_send" />
         </form>
       </Fragment>
     )
@@ -52,6 +54,7 @@ class TextMessage extends Component {
 
 const mapStateToProps = store => ({
   cd: store.Message.conDetails,
+  lang: store.Language.language
 })
 
 export default connect(mapStateToProps)(TextMessage)

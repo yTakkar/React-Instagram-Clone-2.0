@@ -10,7 +10,7 @@ exports[`Nothing component should match snapshot with default behaviour 1`] = `
   }
 >
   <img
-    src="/images/large.jpg"
+    src="/images/large.svg"
   />
   <span
     className="nothingMssg"
@@ -60,7 +60,7 @@ exports[`Nothing component should return component only with an image (used by m
   }
 >
   <img
-    src="/images/large.jpg"
+    src="/images/large.svg"
   />
   <span
     className="secondMssg"

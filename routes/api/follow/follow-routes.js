@@ -180,7 +180,7 @@ app.post('/get-user-stats', async (req, res) => {
 // SEARCH FOLLOWINGS
 app.post('/search-followings', async (req, res) => {
   let data = await db.query(
-    'SELECT DISTINCT follow_to, follow_to_username FROM follow_system WHERE follow_by=? ORDER BY follow_time DESC',
+    'SELECT follow_to, follow_to_username FROM follow_system WHERE follow_by=? GROUP BY follow_to, follow_to_username ORDER BY MAX(follow_time) DESC',
     [req.session.id]
   )
   res.json(data)

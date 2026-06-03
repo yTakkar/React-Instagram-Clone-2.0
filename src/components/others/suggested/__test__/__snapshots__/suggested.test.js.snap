@@ -66,7 +66,7 @@ exports[`Suggested Component should match snapshot 1`] = `
               ghalib
             </Link>
             <span>
-              1 mutual follower
+              1 mutualFollower
             </span>
           </div>
           <div
@@ -77,7 +77,7 @@ exports[`Suggested Component should match snapshot 1`] = `
               href="#"
               onClick={[Function]}
             >
-              Follow
+              follow
             </a>
           </div>
         </div>
@@ -109,7 +109,7 @@ exports[`Suggested Component should match snapshot 1`] = `
               href="#"
               onClick={[Function]}
             >
-              Follow
+              follow
             </a>
           </div>
         </div>

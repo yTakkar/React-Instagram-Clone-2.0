@@ -33,7 +33,7 @@ exports[`ExploreUsersList Component should match snapshot 1`] = `
       href="#"
       onClick={[Function]}
     >
-      Follow
+      follow
     </a>
   </div>
 </div>
@@ -72,7 +72,7 @@ exports[`ExploreUsersList Component should match snapshot when mutualUsersCount 
       href="#"
       onClick={[Function]}
     >
-      Follow
+      follow
     </a>
   </div>
 </div>

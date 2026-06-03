@@ -1,5 +1,5 @@
 import React from 'react'
-import SidebarBottom from '../bottom'
+import { SidebarBottom } from '../bottom'
 import { create } from 'react-test-renderer'
 import { shallow } from 'enzyme'
 

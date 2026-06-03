@@ -6,7 +6,7 @@ import { CPP } from '../../../actions/post'
 
 const PostItMiddle = ({ postIt, session, dispatch }) => {
   let { username } = session
-  let { fileChanged, desc, previewImg, filter, fileInput } = postIt
+  let { fileChanged, desc, previewImg, filter, fileInput, isNSFW } = postIt
 
   let dp = (...args) => dispatch(CPP(...args))
 
@@ -25,38 +25,56 @@ const PostItMiddle = ({ postIt, session, dispatch }) => {
 
   let valueChange = e => dp('desc', e.target.value)
 
+  let isVideo = previewImg && previewImg.startsWith('data:video/')
+
   return (
-    <div className="i_p_main p_main" style={{ height: 296 }}>
-      {// Show if image/file is selected
-      fileChanged ? (
-        <div>
-          <div className="i_p_ta">
-            <TextArea
-              placeholder={`What's new with you, @${username}?`}
-              value={desc}
-              valueChange={valueChange}
-              className="t_p_ta"
-            />
-          </div>
-          <div className="i_p_img">
-            <img src={previewImg} className={filter} />
-          </div>
+    <div className="i_p_main p_main" style={{ height: 296, display: 'flex', flexDirection: 'column' }}>
+      <div className="i_p_ta" style={{ flexShrink: 0 }}>
+        <TextArea
+          placeholder={`What's new with you, @${username}?`}
+          value={desc}
+          valueChange={valueChange}
+          className="t_p_ta"
+        />
+      </div>
+
+      {fileChanged ? (
+        <div className="i_p_img" style={{ flexGrow: 1, overflow: 'hidden' }}>
+          {isVideo ? (
+            <video src={previewImg} className={filter} controls style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+          ) : (
+            <img src={previewImg} className={filter} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+          )}
         </div>
       ) : (
-        // If not show button to select
         <form
           className="post_img_form"
           method="post"
           encType="multipart/formdata"
+          style={{ flexGrow: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}
         >
           <FileInput
             value={fileInput}
             fileChange={fileChange}
-            label="Choose an image"
+            label="Choose an image or video"
             labelClass="pri_btn"
+            accept="image/*,video/*"
           />
         </form>
       )}
+
+      <div style={{ padding: '10px', display: 'flex', alignItems: 'center', justifyContent: 'flex-start', flexShrink: 0 }}>
+        <input 
+          type="checkbox" 
+          id="isNSFW" 
+          checked={isNSFW} 
+          onChange={(e) => dp('isNSFW', e.target.checked)} 
+          style={{ marginRight: '8px', cursor: 'pointer' }}
+        />
+        <label htmlFor="isNSFW" style={{ cursor: 'pointer', fontSize: '13px', fontWeight: 'bold', color: '#e74c3c' }}>
+          Mark as NSFW (Sensitive Content)
+        </label>
+      </div>
     </div>
   )
 }

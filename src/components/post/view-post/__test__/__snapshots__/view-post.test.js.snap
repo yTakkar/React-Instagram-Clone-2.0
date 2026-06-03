@@ -49,10 +49,10 @@ exports[`ViewPost Component should match snapshot 1`] = `
                   }
                 >
                   <Link
-                    title="takkar"
-                    to="/profile/takkar"
+                    title="vsocial"
+                    to="/profile/vsocial"
                   >
-                    takkar
+                    vsocial
                   </Link>
                   <span
                     className="p_i_1_title"
@@ -142,11 +142,25 @@ exports[`ViewPost Component should match snapshot 1`] = `
                       </span>
                     </p>
                   </div>
-                  <img
-                    className="p_img filter-ashby"
-                    onClick={[Function]}
-                    src="/posts/instagram_1518972814710.jpg"
-                  />
+                  <div
+                    style={
+                      Object {
+                        "position": "relative",
+                      }
+                    }
+                  >
+                    <img
+                      className="p_img filter-ashby"
+                      onClick={[Function]}
+                      src="/posts/instagram_1518972814710.jpg"
+                      style={
+                        Object {
+                          "cursor": "pointer",
+                          "filter": "none",
+                        }
+                      }
+                    />
+                  </div>
                   <div>
                     <div>
                       <span
@@ -433,9 +447,9 @@ exports[`ViewPost Component should match snapshot 1`] = `
                       >
                         <Link
                           className="comments_user"
-                          to="/profile/takkar"
+                          to="/profile/vsocial"
                         >
-                          takkar
+                          vsocial
                         </Link>
                         <img
                           className="comments_sticker"
@@ -541,7 +555,7 @@ exports[`ViewPost Component should match snapshot 1`] = `
                       ghalib
                     </Link>
                     <span>
-                      1 mutual follower
+                      1 mutualFollower
                     </span>
                   </div>
                   <div
@@ -552,7 +566,7 @@ exports[`ViewPost Component should match snapshot 1`] = `
                       href="#"
                       onClick={[Function]}
                     >
-                      Follow
+                      follow
                     </a>
                   </div>
                 </div>
@@ -584,7 +598,7 @@ exports[`ViewPost Component should match snapshot 1`] = `
                       href="#"
                       onClick={[Function]}
                     >
-                      Follow
+                      follow
                     </a>
                   </div>
                 </div>

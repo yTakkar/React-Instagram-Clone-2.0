@@ -5,7 +5,9 @@ Array [
   <span
     className="con_count"
   >
-    2 conversations
+    2
+     
+    conversations
   </span>,
   <div
     style={

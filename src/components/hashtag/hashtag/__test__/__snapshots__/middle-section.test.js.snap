@@ -6,7 +6,7 @@ exports[`HashtagMiddleSection Component should match snapshot 1`] = `
     nothingMssg="No post with #travel tag found!!"
     posts={
       Array [
-        <Post
+        <Connect(Post)
           comments_count={2}
           description="he @nobita, @doraemon #checkout, #dd #fgf"
           filter="filter-ashby"
@@ -19,16 +19,16 @@ exports[`HashtagMiddleSection Component should match snapshot 1`] = `
           post_id={89}
           post_time="1480114098767"
           shares_count={3}
-          surname="takkar"
+          surname="vsocial"
           tags_count={1}
           type="user"
           user={24}
-          username="takkar"
+          username="vsocial"
           when="hashtag"
         />,
-        <Post
+        <Connect(Post)
           comments_count={3}
-          description="Hello @ghalib @takkar #checkout"
+          description="Hello @ghalib @vsocial #checkout"
           filter="filter-normal"
           firstname="iam_"
           group_id={0}
@@ -39,11 +39,11 @@ exports[`HashtagMiddleSection Component should match snapshot 1`] = `
           post_id={88}
           post_time="1480114098767"
           shares_count={1}
-          surname="takkar"
+          surname="vsocial"
           tags_count={0}
           type="user"
           user={24}
-          username="takkar"
+          username="vsocial"
           when="hashtag"
         />,
       ]
@@ -76,7 +76,7 @@ exports[`HashtagMiddleSection Component should show <Instagram/> loader when loa
     nothingMssg="No post with #travel tag found!!"
     posts={
       Array [
-        <Post
+        <Connect(Post)
           comments_count={2}
           description="he @nobita, @doraemon #checkout, #dd #fgf"
           filter="filter-ashby"
@@ -89,16 +89,16 @@ exports[`HashtagMiddleSection Component should show <Instagram/> loader when loa
           post_id={89}
           post_time="1480114098767"
           shares_count={3}
-          surname="takkar"
+          surname="vsocial"
           tags_count={1}
           type="user"
           user={24}
-          username="takkar"
+          username="vsocial"
           when="hashtag"
         />,
-        <Post
+        <Connect(Post)
           comments_count={3}
-          description="Hello @ghalib @takkar #checkout"
+          description="Hello @ghalib @vsocial #checkout"
           filter="filter-normal"
           firstname="iam_"
           group_id={0}
@@ -109,11 +109,11 @@ exports[`HashtagMiddleSection Component should show <Instagram/> loader when loa
           post_id={88}
           post_time="1480114098767"
           shares_count={1}
-          surname="takkar"
+          surname="vsocial"
           tags_count={0}
           type="user"
           user={24}
-          username="takkar"
+          username="vsocial"
           when="hashtag"
         />,
       ]

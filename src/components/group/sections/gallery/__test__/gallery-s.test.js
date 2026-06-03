@@ -6,7 +6,7 @@ import Group from '../../../../../store/__mocks__/reducers/Group'
 
 describe('GroupGallery Component', () => {
   const props = {
-    param: 'takkar',
+    param: 'vsocial',
     photos: Post.photos,
     gd: Group.group_details,
   }

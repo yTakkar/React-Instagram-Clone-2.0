@@ -14,10 +14,12 @@ app.get('/forgot-password', mw.NotLoggedIn, (req, res) => {
 // RETRIVE PASSWORD
 app.post('/user/password-retrieve', async (req, res) => {
   let { email } = req.body,
-    [{ emailExists, id, username, email_verified }] = await db.query(
-      'SELECT COUNT(email) AS emailExists, id, username, email_verified FROM users WHERE email=?',
+    rows = await db.query(
+      'SELECT id, username, email_verified FROM users WHERE email=?',
       [email]
-    )
+    ),
+    emailExists = rows.length > 0,
+    { id, username, email_verified } = emailExists ? rows[0] : {}
 
   req.checkBody('email', 'Email is empty!!').notEmpty()
   req.checkBody('email', 'Invalid email!!').isEmail()

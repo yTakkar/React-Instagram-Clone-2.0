@@ -3,6 +3,7 @@ import { follow } from '../../../utils/user-interact-utils'
 import { shape, number, string, func, bool } from 'prop-types'
 import { connect } from 'react-redux'
 import PrimaryButton from '../button/primary-btn'
+import { t } from '../../../utils/translation'
 
 /**
  * If there's no need to update store, then only provide user, username (within userDetails) & followed arguements.
@@ -16,6 +17,7 @@ const Follow = ({
   updateFollowings,
   updateFollowers,
   dispatch,
+  lang
 }) => {
   let { user, username, firstname, surname } = userDetails
 
@@ -36,7 +38,7 @@ const Follow = ({
 
   return (
     <Fragment>
-      <PrimaryButton label="Follow" onClick={followUser} extraClass="follow" />
+      <PrimaryButton label={t(lang, 'actions', 'follow')} onClick={followUser} extraClass="follow" />
     </Fragment>
   )
 }
@@ -58,4 +60,8 @@ Follow.propTypes = {
   updateFollowers: bool,
 }
 
-export default connect()(Follow)
+const mapStateToProps = state => ({
+  lang: state.Language.language
+})
+
+export default connect(mapStateToProps)(Follow)

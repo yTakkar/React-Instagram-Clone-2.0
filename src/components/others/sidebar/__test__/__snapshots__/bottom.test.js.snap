@@ -32,6 +32,61 @@ exports[`SideBarBottom Component should match snapshot 1`] = `
         </i>
       </a>
     </li>
+    <li
+      style={
+        Object {
+          "alignItems": "center",
+          "display": "flex",
+          "gap": "5px",
+          "paddingLeft": "10px",
+        }
+      }
+    >
+      <span
+        style={
+          Object {
+            "color": "#ccc",
+          }
+        }
+      >
+        |
+      </span>
+      <a
+        href="#"
+        onClick={[Function]}
+        style={
+          Object {
+            "fontWeight": "normal",
+            "margin": 0,
+            "padding": 0,
+          }
+        }
+      >
+        EN
+      </a>
+      <span
+        style={
+          Object {
+            "color": "#ccc",
+          }
+        }
+      >
+        |
+      </span>
+      <a
+        href="#"
+        onClick={[Function]}
+        style={
+          Object {
+            "fontWeight": "normal",
+            "margin": 0,
+            "padding": 0,
+          }
+        }
+      >
+        VI
+      </a>
+    </li>
   </ul>
 </div>
 `;

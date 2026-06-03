@@ -4,7 +4,8 @@ const app = require('express').Router(),
   db = require('../../config/db'),
   User = require('../../config/User'),
   mw = require('../../config/Middlewares'),
-  { uniqBy } = require('lodash')
+  { uniqBy } = require('lodash'),
+  { generateToken } = require('../../config/JWT')
 
 // USER LOGIN GET ROUTE
 app.get('/login', mw.NotLoggedIn, (req, res) => {
@@ -32,14 +33,24 @@ app.post('/user/login', async (req, res) => {
       errors.array().forEach(e => array.push(e.msg))
       res.json({ mssg: array })
     } else {
-      let [{ userCount, id, password, email_verified }] = await db.query(
-        'SELECT COUNT(id) as userCount, id, password, email_verified from users WHERE username=? LIMIT 1',
+      let result = await db.query(
+        'SELECT id, password, email_verified, role, account_status from users WHERE username=? LIMIT 1',
         [rusername]
       )
 
-      if (userCount == 0) {
+      if (!result || result.length == 0) {
         res.json({ mssg: 'User not found!!' })
       } else {
+        let [{ id, password, email_verified, role, account_status }] = result
+
+        // Check account status
+        if (account_status === 'locked') {
+          return res.json({ mssg: 'Your account has been locked by admin. Please contact support.' })
+        }
+        if (account_status === 'deleted') {
+          return res.json({ mssg: 'This account has been deleted.' })
+        }
+
         let same = User.comparePassword(rpassword, password)
         if (!same) {
           res.json({ mssg: 'Wrong password!!' })
@@ -47,13 +58,19 @@ app.post('/user/login', async (req, res) => {
           session.id = id
           session.username = rusername
           session.email_verified = email_verified
-          session.isadmin = false
+          session.isadmin = role === 'admin'
+          session.role = role || 'user'
 
           await db.query('UPDATE users SET isOnline=? WHERE id=?', ['yes', id])
+
+          // Generate JWT token
+          const token = generateToken({ id, username: rusername, role: role || 'user' })
 
           res.json({
             mssg: `Welcome ${rusername}!!`,
             success: true,
+            token,
+            role: role || 'user',
           })
         }
       }

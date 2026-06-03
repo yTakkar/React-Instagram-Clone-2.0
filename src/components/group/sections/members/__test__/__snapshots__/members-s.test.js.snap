@@ -64,9 +64,10 @@ exports[`GroupMembers Component should match snapshot 1`] = `
                 className="recommend_by"
               >
                 <div>
-                  by 
+                  by
+                   
                   <Link
-                    to="/profile/takkar"
+                    to="/profile/vsocial"
                   >
                     You
                   </Link>

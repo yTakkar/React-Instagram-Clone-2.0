@@ -1,9 +1,12 @@
 // POSTS
 .posts{
   position: relative;
-  margin-top: 10px;
-  padding: 12px 10px 10px 10px;
-  @include inst;
+  margin-top: 16px;
+  padding: 24px;
+  background: $fb;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+  border: 1px solid $second_border;
 
   & .post_share_info {
     border-bottom: 1px solid $ee;
@@ -40,9 +43,10 @@
       float: left;
 
       & > img{
-        width: 40px;
-        height: 40px;
+        width: 44px;
+        height: 44px;
         border-radius: 50%;
+        object-fit: cover;
       }
     }
 
@@ -166,12 +170,16 @@
 
       & .p_abt {
         word-break: break-word;
-        width: 97%;
-        font-size: 14px;
+        width: 100%;
+        font-size: 15px;
+        line-height: 1.6;
+        margin-bottom: 16px;
       }
 
       & .p_img{
-        max-width: 468px;
+        max-width: 100%;
+        width: 100%;
+        border-radius: 8px;
         cursor: pointer;
       }
 
@@ -281,17 +289,20 @@
   & .p_comments{
     position: relative;
     display: block;
-    margin-top: 10px;
-    border-radius: 3px;
-    padding: 5px;
-    color: $d_light;
+    margin-top: 16px;
+    border-radius: 8px;
+    padding: 10px;
+    color: $oo;
+    font-weight: 500;
     text-align: center;
     border: 1px solid $ee;
     cursor: pointer;
+    background: transparent;
+    transition: all $transition-speed ease;
 
     &:hover{
-      background: $fb;
-      border: 1px solid $ee;
+      background: $ee;
+      border-color: $ee;
     }
 
   }
@@ -321,9 +332,9 @@
       position: relative;
       width: 100%;
       border: 1px solid $ee;
-      margin-left: 7px;
-      padding: 5px 5px 5px 8px;
-      border-radius: 2px;
+      margin-left: 12px;
+      padding: 8px 12px;
+      border-radius: 24px;
 
       & .p_cit_teaser {
         cursor: text;
@@ -468,12 +479,13 @@
 
     & .my_comment::before{
       content: "";
-      width: 2px;
-      height: 31px;
+      width: 3px;
+      height: 100%;
       position: absolute;
-      background: blue;
-      left: -10px;
+      background: $oo;
+      left: -12px;
       top: 0px;
+      border-radius: 2px;
     }
 
   }

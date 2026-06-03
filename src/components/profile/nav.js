@@ -17,6 +17,7 @@ const ProfileNav = ({ url, user }) => {
         {Me(user) && (
           <ProfileNavLink url={`${url}/bookmarks`} label="Bookmarks" />
         )}
+        <ProfileNavLink url={`${url}/friends`} label="Friends" />
         <ProfileNavLink url={`${url}/groups`} label="Groups" />
         <ProfileNavLink url={`${url}/about`} label="About" />
       </ul>

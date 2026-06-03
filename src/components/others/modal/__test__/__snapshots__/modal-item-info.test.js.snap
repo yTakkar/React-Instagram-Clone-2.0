@@ -6,14 +6,14 @@ exports[`ModalItemInfo Component should match snapshot 1`] = `
 >
   <Link
     className="modal_it_username"
-    to="/profile/takkar"
+    to="/profile/vsocial"
   >
-    takkar
+    vsocial
   </Link>
   <span
     className="modal_it_light"
   >
-    faiyaz shaikh
+    Vsocial shaikh
   </span>
 </div>
 `;

@@ -9,7 +9,7 @@ import User from '../../../../../store/__mocks__/reducers/User'
 describe('UserPostsLeftSection Component', () => {
   MockDataElement()
 
-  const comp = (username = 'takkar') => (
+  const comp = (username = 'vsocial') => (
     <Provider store={mockStore}>
       <UserPostsLeftSection username={username} />
     </Provider>

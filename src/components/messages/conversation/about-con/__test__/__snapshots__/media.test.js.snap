@@ -12,7 +12,7 @@ exports[`ConversationMedia Component should match snapshot 1`] = `
   <img
     className="sli_media_img"
     src="/messages/instagram_message_1528278864884.jpg"
-    title="By takkar"
+    title="By vsocial"
   />
 </div>
 `;

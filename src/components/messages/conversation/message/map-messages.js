@@ -11,7 +11,7 @@ const MapMessages = ({ messages }) => {
 
   return (
     <Fragment>
-      <Scrollbars className="m_m_wrapper" style={{ height: 390 }}>
+      <Scrollbars className="m_m_wrapper" style={{ flex: 1, width: '100%', height: '100%' }}>
         <div className="m_m_main">
           {len == 0 ? (
             <Nothing showMssg={false} />

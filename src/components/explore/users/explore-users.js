@@ -8,6 +8,7 @@ import Nothing from '../../others/nothing'
 import IsLoading from '../../others/isLoading'
 import { cLoading } from '../../../utils/utils'
 import classNames from 'classnames'
+import { t } from '../../../utils/translation'
 
 class ExploreUsers extends Component {
   state = {
@@ -19,14 +20,14 @@ class ExploreUsers extends Component {
   componentWillReceiveProps = () => this.setState({ loading: false })
 
   render() {
-    let { users } = this.props,
+    let { users, lang } = this.props,
       { loading } = this.state,
       len = users.length,
       map_users = users.map(u => <ExploreUsersList key={u.id} {...u} />)
 
     return (
       <div>
-        <Title value="Explore users" />
+        <Title value={t(lang, 'explore', 'exploreUsers')} />
 
         <FadeIn duration="300ms">
           <IsLoading loading={loading} />
@@ -38,7 +39,7 @@ class ExploreUsers extends Component {
             <div className="m_wrapper" style={{ width: len == 0 ? 500 : null }}>
               {len == 0 ? (
                 <div style={{ width: '100%' }}>
-                  <Nothing mssg="Sorry, no users to explore!!" />
+                  <Nothing mssg={t(lang, 'explore', 'noUsers')} />
                 </div>
               ) : (
                 map_users
@@ -53,6 +54,7 @@ class ExploreUsers extends Component {
 
 const mapStateToProps = store => ({
   users: store.Explore.users,
+  lang: store.Language.language
 })
 
 export default connect(mapStateToProps)(ExploreUsers)

@@ -11,7 +11,7 @@ Array [
     <span
       className="a_info"
     >
-      takkar
+      vsocial
     </span>
   </div>,
   <div>
@@ -23,7 +23,7 @@ Array [
     <span
       className="a_info"
     >
-      iam_ takkar
+      iam_ vsocial
     </span>
   </div>,
   <div>
@@ -35,7 +35,7 @@ Array [
     <span
       className="a_info"
     >
-      takkar@gmail.com
+      vsocial@gmail.com
     </span>
   </div>,
   <div>
@@ -58,10 +58,10 @@ Array [
     </span>
     <a
       className="a_info"
-      href="https://www.instagram.com/_faiyaz_shaikh"
+      href="https://www.instagram.com/_Vsocial_shaikh"
       target="_blank"
     >
-      https://www.instagram.com/_faiyaz_shaikh
+      https://www.instagram.com/_Vsocial_shaikh
     </a>
   </div>,
   <div>
@@ -72,10 +72,10 @@ Array [
     </span>
     <a
       className="a_info"
-      href="https://github.com/yTakkar/"
+      href="https://github.com/Vsocial/"
       target="_blank"
     >
-      https://github.com/yTakkar/
+      https://github.com/Vsocial/
     </a>
   </div>,
   <div>

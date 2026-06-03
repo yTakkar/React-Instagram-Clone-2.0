@@ -1,25 +1,44 @@
 {{> nHeader }}
 
-<div class="notes_wrapper">
-
-  <div class="log_sign">
-    <a href="/signup" class="pri_btn">Need an account?</a>
-  </div>
-
-  <div class="register cua">
-    <div class="display_text">
-      <span>Get started again</span>
+<div class="notes_wrapper login_page_wrapper">
+  
+  <div class="login_new_card animate_scale">
+    <!-- Left Column: Background Image & CTA to Sign Up -->
+    <div class="login_left_col">
+      <div class="login_left_bg"></div>
+      <div class="login_left_overlay"></div>
+      <div class="login_left_content">
+        <h2>Don't have an account?</h2>
+        <p>Register now to capture, follow, like and share the world's moments in a better way!</p>
+        <a href="/signup" class="pri_btn register_cta_btn">REGISTER AN ACCOUNT</a>
+      </div>
     </div>
-    <form class="form_login">
-      <input type="text" name="username" value="" class="l_username" autofocus required spellcheck="false" autocomplete='false' placeholder='Username'>
-      <input type="password" name="password" value="" class="l_password" id='l_password' required placeholder='Password'>
-      <span class="show_psswrd s_p_l">
-        <i class="fas fa-lock"></i>
-      </span>
-      <input type="submit" name="" value="Login To Continue" class="l_submit">
-    </form>
-    <div class="forgot_psswrd">
-      <a href="forgot-password" class="a_pri" alt="Forgot your password">Forgot your password?</a>
+
+    <!-- Right Column: Login Form -->
+    <div class="login_right_col">
+      <div class="login_form_container">
+        <h2 class="login_title">LOGIN</h2>
+        
+        <form class="form_login">
+          <div class="input_field_container">
+            <input type="text" name="username" value="" class="l_username" autofocus required spellcheck="false" autocomplete='false' placeholder='Username'>
+          </div>
+          
+          <div class="input_field_container password_container">
+            <input type="password" name="password" value="" class="l_password" id='l_password' required placeholder='Password'>
+            <span class="show_psswrd s_p_l">
+              <i class="fas fa-lock"></i>
+            </span>
+          </div>
+          
+          <input type="submit" name="" value="Login To Continue" class="l_submit">
+        </form>
+
+        <div class="login_links">
+          <a href="forgot-password" class="a_pri forgot_password_link">Forgot your password?</a>
+          <span class="signup_text_mobile">Don't have an account? <a href="/signup" class="a_pri">Register now</a></span>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -28,3 +47,4 @@
 {{> quickLogin}}
 
 {{> footer }}
+

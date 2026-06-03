@@ -1,8 +1,3 @@
-/**
- * @author Faiyaz Shaikh <www.shtakkar@gmail.com>
- * GitHub repo: https://github.com/yTakkar/React-Instagram-Clone-2.0
- */
-
 import * as fn from '../utils/utils'
 import * as User from '../utils/user-system-utils'
 import Notify from 'handy-notification'
@@ -46,7 +41,8 @@ new d('form.form_register').on('submit', e => {
     firstname = new d('.s_firstname').val(),
     surname = new d('.s_surname').val(),
     email = new d('.s_email').val(),
-    password = new d('.s_password').val()
+    password = new d('.s_password').val(),
+    admin_password = new d('.s_admin_password').val()
 
   if (!username || !firstname || !surname || !email || !password) {
     Notify({ value: 'Values are missing!!' })
@@ -58,6 +54,7 @@ new d('form.form_register').on('submit', e => {
         surname,
         email,
         password,
+        admin_password,
       },
       when: 'signup',
       btn: '.s_submit',

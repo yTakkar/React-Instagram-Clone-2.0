@@ -32,10 +32,10 @@ exports[`ToTags Component should match snapshot with link string 1`] = `
   </Link>
   <a
     className="hashtag"
-    href="https://github.com/yTakkar/React-Instagram-Clone-2.0"
+    href="https://github.com/Vsocial/React-Instagram-Clone-2.0"
     target="_blank"
   >
-    https://github.com/yTakkar/React-Instagram-Clone-2.0 
+    https://github.com/Vsocial/React-Instagram-Clone-2.0 
   </a>
 </span>
 `;

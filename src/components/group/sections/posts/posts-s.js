@@ -42,7 +42,7 @@ class GroupPosts extends Component {
               <CreateGroup />
 
               <div className="recomm_teaser">
-                <span>Explore more groups from all around Instagram.</span>
+                <span>Explore more groups from all around Vsocial.</span>
                 <AppLink
                   url="/explore/explore-groups"
                   className="sec_btn"

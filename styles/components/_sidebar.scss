@@ -1,155 +1,146 @@
 // SIDEBAR
 .m_n_wrapper{
   position: fixed;
-  top: 60px;
-  background: $fb;
-  left: 34px;
-  height: 88%;
+  top: 82px;
+  background: transparent;
+  left: 40px;
+  height: calc(100vh - 102px);
+  width: 240px;
+  display: flex;
+  flex-direction: column;
 
   & > .m_n {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding-bottom: 60px;
+    scrollbar-width: none; /* Firefox */
+    &::-webkit-scrollbar {
+      display: none; /* Safari and Chrome */
+    }
+
     & img {
-      width: 25px;
-      height: 25px;
+      width: 28px;
+      height: 28px;
       position: absolute;
       border-radius: 50%;
-      top: 8px;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 12px;
+      object-fit: cover;
     }
 
     & > ul > li > a{
-      display: block;
-      width: 170px;
+      display: flex;
+      align-items: center;
+      width: 100%;
       font-size: 14px;
-      padding: 7px 13px;
-      color: #66757f;
-      border-radius: 2px;
-      margin-top: 2px;
+      font-weight: 500;
+      padding: 8px 12px;
+      color: $d_light;
+      border-radius: 8px;
+      margin-bottom: 4px;
       position: relative;
       outline: none;
+      transition: all $transition-speed ease;
+      box-sizing: border-box;
 
-      &:hover{
-        background: #ebf4fd;
-        color: #1b2733;
-      }
-
-      &:focus{
-        background: #ebf4fd;
-        color: #1b2733;
+      &:hover, &:focus{
+        background: $second_border;
+        color: $oo;
       }
 
       & > span.m_n_text{
-        position: relative;
+        margin-left: 36px;
       }
 
       & > span.m_n_icon{
         position: absolute;
-        top: 8px;
+        left: 14px;
+        top: 50%;
+        transform: translateY(-50%);
+        display: flex;
+        align-items: center;
 
-        & > span.m_n_icon > i{
-          font-size: 23px;
+        & > i{
+          font-size: 20px;
         }
-
       }
 
       & > span.m_n_new{
-        font-size: 13px;
+        font-size: 12px;
         position: absolute;
         right: 12px;
-        background: #54BBFF;
+        background: $oo;
         color: $ff;
-        padding: 0px 6px;
-        border-radius: 50%;
+        padding: 2px 8px;
+        border-radius: 12px;
+        font-weight: 600;
       }
-
     }
 
     & .sidebar_active{
-      background: #ebf4fd;
-      color: $dark;
+      background: rgba(0, 0, 0, 0.04);
+      color: $oo;
+      font-weight: 600;
 
       &::before{
-        content: "";
-        width: 3px;
-        height: 33px;
-        position: absolute;
-        background: #0070e0;
-        z-index: 2;
-        left: 0px;
-        top: 0px;
-        border-top-left-radius: 1px;
-        border-bottom-left-radius: 1px;
+        display: none;
       }
-
     }
-
   }
 
   & > .m_n_bottom{
-    position: fixed;
-    bottom: 20px;
-    width: 226px;
-    text-align: center;
-    display: inline-block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding-bottom: 20px;
+    background: transparent;
+    z-index: 5;
 
     & ul{
-      position: relative;
-      display: inline-block;
-
-      & li{
-        float: left;
-        margin-right: 30px;
-
-        &:last-of-type::after{
-          content: "";
-          display: block;
-          clear: both;
-        }
-
-      }
-
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
     }
 
     & a{
-      font-size: 14px;
-      color: #66757f;
+      font-size: 13px;
+      color: $d_light;
       outline: none;
+      transition: color $transition-speed ease;
 
-      & a:hover{
-        color: #1b2733;
+      &:hover, &:focus{
+        color: $oo;
       }
-
-      & a:focus{
-        color: #1b2733;
-      }
-
-      &:last-of-type{
-        display: inline-block;
-      }
-
     }
-
   }
 
   & .nav_options{
     position: fixed;
-    left: 113px;
-    bottom: 65px;
+    left: 40px;
+    bottom: 60px;
+    background: $fb;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border: 1px solid $header_border;
+    padding: 8px 0;
 
     &::after{
-      content: "";
-      position: absolute;
-      background: white;
-      width: 11px;
-      height: 10px;
-      bottom: -6px;
-      border-bottom: 1px solid #DCDFE1;
-      transform: rotate(45deg);
-      -webkit-transform: rotate(45deg);
-      -moz-transform: rotate(45deg);
-      border-right: 1px solid #DCDFE1;
-      right: 7px;
-      z-index: -1;
+      display: none;
     }
 
-  }
+    & a{
+      display: block;
+      padding: 8px 24px;
+      color: $oo;
+      text-decoration: none;
+      font-size: 14px;
+      transition: background $transition-speed ease;
 
+      &:hover {
+        background: $ee;
+      }
+    }
+  }
 }

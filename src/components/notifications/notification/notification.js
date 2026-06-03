@@ -45,6 +45,7 @@ Notification.propTypes = {
   post_id: PropTypes.number.isRequired,
   group_id: PropTypes.number.isRequired,
   isFollowing: PropTypes.bool.isRequired,
+  request_id: PropTypes.number,
 }
 
 export default Notification

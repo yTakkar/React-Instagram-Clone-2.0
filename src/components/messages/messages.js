@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { t } from '../../utils/translation'
 import { FadeIn } from 'animate-components'
 import Title from '../others/title'
 import { getUnreadNotifications } from '../../actions/notification'
@@ -71,8 +72,8 @@ class Messages extends Component {
                 }
               />
             ) : (
-              <div style={{ marginTop: 77 }}>
-                <Nothing mssg="Please select a conversation" />
+              <div className="mssg_nothing">
+                <Nothing mssg={t(this.props.lang, 'messages', 'pleaseSelect')} />
               </div>
             )}
           </div>
@@ -84,6 +85,7 @@ class Messages extends Component {
 
 const mapStateToProps = store => ({
   store,
+  lang: store.Language.language
 })
 
 export default connect(mapStateToProps)(Messages)

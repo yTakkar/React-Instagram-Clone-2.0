@@ -49,7 +49,7 @@ exports[`About Component should match snapshot 1`] = `
             className="social_div inst"
           >
             <a
-              href="https://www.instagram.com/_faiyaz_shaikh"
+              href="https://www.instagram.com/_Vsocial_shaikh"
               target="_blank"
             >
               <i
@@ -58,7 +58,7 @@ exports[`About Component should match snapshot 1`] = `
             </a>
             
             <a
-              href="https://github.com/yTakkar/"
+              href="https://github.com/Vsocial/"
               target="_blank"
             >
               <i
@@ -108,7 +108,7 @@ exports[`About Component should match snapshot 1`] = `
             <span
               className="a_info"
             >
-              takkar
+              vsocial
             </span>
           </div>
           <div>
@@ -120,7 +120,7 @@ exports[`About Component should match snapshot 1`] = `
             <span
               className="a_info"
             >
-              iam_ takkar
+              iam_ vsocial
             </span>
           </div>
           <div>
@@ -132,7 +132,7 @@ exports[`About Component should match snapshot 1`] = `
             <span
               className="a_info"
             >
-              takkar@gmail.com
+              vsocial@gmail.com
             </span>
           </div>
           <div>
@@ -155,10 +155,10 @@ exports[`About Component should match snapshot 1`] = `
             </span>
             <a
               className="a_info"
-              href="https://www.instagram.com/_faiyaz_shaikh"
+              href="https://www.instagram.com/_Vsocial_shaikh"
               target="_blank"
             >
-              https://www.instagram.com/_faiyaz_shaikh
+              https://www.instagram.com/_Vsocial_shaikh
             </a>
           </div>
           <div>
@@ -169,10 +169,10 @@ exports[`About Component should match snapshot 1`] = `
             </span>
             <a
               className="a_info"
-              href="https://github.com/yTakkar/"
+              href="https://github.com/Vsocial/"
               target="_blank"
             >
-              https://github.com/yTakkar/
+              https://github.com/Vsocial/
             </a>
           </div>
           <div>

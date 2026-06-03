@@ -1,10 +1,3 @@
-/**
- * @author Faiyaz Shaikh <www.shtakkar@gmail.com>
- * GitHub repo: https://github.com/yTakkar/React-Instagram-Clone-2.0
- *
- * A library for DOM manipulation (inspired by jQuery) which also enables to chain mathods.
- */
-
 import { toggle } from '../utils'
 
 class DOM {

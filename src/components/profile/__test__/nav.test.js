@@ -7,7 +7,7 @@ describe('ProfileNav Component', () => {
   MockDataElement()
 
   it('should match snapshot', () => {
-    const tree = create(<ProfileNav url="/profile/takkar" user={24} />).toJSON()
+    const tree = create(<ProfileNav url="/profile/vsocial" user={24} />).toJSON()
     expect(tree).toMatchSnapshot()
   })
 

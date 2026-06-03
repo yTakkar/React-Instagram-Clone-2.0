@@ -73,7 +73,7 @@ exports[`Notification Component should match snapshot with follow notification 1
       href="#"
       onClick={[Function]}
     >
-      Follow
+      follow
     </a>
   </div>
 </div>

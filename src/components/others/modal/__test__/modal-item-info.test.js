@@ -7,8 +7,8 @@ describe('ModalItemInfo Component', () => {
     const tree = create(
       <ModalItemInfo
         info={{
-          username: 'takkar',
-          firstname: 'faiyaz',
+          username: 'vsocial',
+          firstname: 'Vsocial',
           surname: 'shaikh',
         }}
       />

@@ -2,9 +2,10 @@
 
 const app = require('express').Router(),
   db = require('../../../config/db'),
-  User = require('../../../config/User')
+  User = require('../../../config/User'),
+  { emitNotification } = require('../../../config/Socket')
 
-// NTIFIES THE SPECIFIED USER [REQ = TO, TYPE, POST_ID, GROUP_ID, USER]
+// NOTIFIES THE SPECIFIED USER [REQ = TO, TYPE, POST_ID, GROUP_ID, USER]
 app.post('/notify', async (req, res) => {
   let { to, type, post_id, group_id, user } = req.body,
     insert = {
@@ -18,10 +19,24 @@ app.post('/notify', async (req, res) => {
     }
 
   await db.query('INSERT INTO notifications SET ?', insert)
+
+  // Emit realtime notification via Socket.io
+  let notify_by_username = await User.getWhat('username', req.session.id)
+  emitNotification(to, {
+    type,
+    notify_by: req.session.id,
+    notify_by_username,
+    post_id,
+    group_id,
+    user,
+    notify_time: insert.notify_time,
+  })
+
   res.json({ mssg: 'Notified!!' })
 })
 
 // RETURNS USER'S NOTIFICATIONS
+// Now includes friend_request, friend_accept, post_approved, post_rejected types
 app.post('/get-notifications', async (req, res) => {
   let { id } = req.session,
     notifications = await db.query(
@@ -34,11 +49,27 @@ app.post('/get-notifications', async (req, res) => {
     let isFollowing = await User.isFollowing(id, n.notify_by)
     let user_username =
       n.user != 0 ? await User.getWhat('username', n.user) : ''
+    let request_id = 0
+
+    if (n.type == 'friend_request') {
+      let [request] = await db.query(
+        'SELECT request_id FROM friend_requests WHERE from_user=? AND to_user=? AND status=? ORDER BY request_time DESC LIMIT 1',
+        [n.notify_by, id, 'pending']
+      )
+      request_id = request ? request.request_id : 0
+    } else if (n.type == 'friend_accept') {
+      let [request] = await db.query(
+        'SELECT request_id FROM friend_requests WHERE ((from_user=? AND to_user=?) OR (from_user=? AND to_user=?)) AND status=? ORDER BY response_time DESC LIMIT 1',
+        [n.notify_by, id, id, n.notify_by, 'accepted']
+      )
+      request_id = request ? request.request_id : 0
+    }
 
     array.push({
       ...n,
       isFollowing,
       user_username,
+      request_id,
     })
   }
 

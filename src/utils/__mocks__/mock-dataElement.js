@@ -6,7 +6,7 @@ const MockDataElement = () => {
   let dataElement = document.createElement('div')
   dataElement.setAttribute('class', 'data')
   dataElement.setAttribute('data-session', '24')
-  dataElement.setAttribute('data-username', 'takkar')
+  dataElement.setAttribute('data-username', 'vsocial')
   dataElement.setAttribute('data-email-verified', 'no')
   dataElement.setAttribute('data-isadmin', 'false')
   document.body.prepend(dataElement)

@@ -3,8 +3,10 @@ import { post } from 'axios'
 import MapSearch from './map-search/map-search'
 import FAIcon from '../icons/font-awesome-icon'
 import TextInput from '../input/text'
+import { connect } from 'react-redux'
+import { t } from '../../../utils/translation'
 
-export default class Search extends Component {
+class Search extends Component {
   state = {
     value: '',
     search: {
@@ -44,12 +46,13 @@ export default class Search extends Component {
       value,
       search: { users, groups, hashtags },
     } = this.state
+    let { lang } = this.props
 
     return (
       <div>
         <div className="search_box">
           <TextInput
-            placeholder="Search Instagram"
+            placeholder={t(lang, 'header', 'search')}
             autoFocus
             value={value}
             valueChange={this.search}
@@ -72,3 +75,9 @@ export default class Search extends Component {
     )
   }
 }
+
+const mapStateToProps = state => ({
+  lang: state.Language.language
+})
+
+export default connect(mapStateToProps)(Search)

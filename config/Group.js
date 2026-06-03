@@ -5,7 +5,7 @@ const db = require('./db'),
   { promisify } = require('util'),
   root = process.cwd(),
   { deletePost } = require('./Post'),
-  { DeleteAllOfFolder } = require('handy-image-processor'),
+  { DeleteAllOfFolder } = require('./ImageProcessor'),
   { intersectionBy } = require('lodash')
 
 /**
@@ -14,7 +14,7 @@ const db = require('./db'),
  * @param {Number} group Group ID
  */
 const getWhatOfGrp = async (what, group) => {
-  let s = await db.query(`SELECT ${what} FROM groups WHERE group_id=?`, [group])
+  let s = await db.query(`SELECT ${what} FROM \`groups\` WHERE group_id=?`, [group])
   return s.length == 0 ? '' : s[0][what]
 }
 
@@ -34,7 +34,7 @@ const deleteGroup = async group => {
 
   await db.query('DELETE FROM notifications WHERE group_id=?', [group])
   await db.query('DELETE FROM group_members WHERE group_id=?', [group])
-  await db.query('DELETE FROM groups WHERE group_id=?', [group])
+  await db.query('DELETE FROM \`groups\` WHERE group_id=?', [group])
 
   DeleteAllOfFolder(`${root}/dist/groups/${group}/`)
   await dltDir(`${root}/dist/groups/${group}`)
@@ -75,6 +75,6 @@ const mutualGroupMembers = async (user, group) => {
 module.exports = {
   getWhatOfGrp,
   deleteGroup,
-  joinedGroup,
+  joinedGroup, 
   mutualGroupMembers,
 }

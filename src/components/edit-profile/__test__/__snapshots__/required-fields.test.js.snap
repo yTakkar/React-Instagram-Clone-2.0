@@ -18,7 +18,7 @@ Array [
       placeholder="Username"
       spellCheck="false"
       type="text"
-      value="takkar"
+      value="vsocial"
     />
   </div>,
   <div
@@ -56,7 +56,7 @@ Array [
       placeholder="Surname"
       spellCheck="false"
       type="text"
-      value="Takkar"
+      value="Vsocial"
     />
   </div>,
   <div
@@ -75,7 +75,7 @@ Array [
       placeholder="Email"
       spellCheck="false"
       type="email"
-      value="takkar@gmail.com"
+      value="vsocial@gmail.com"
     />
   </div>,
 ]

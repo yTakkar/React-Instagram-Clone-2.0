@@ -5,7 +5,8 @@ exports[`MapMessages Component should match snapshot 1`] = `
   className="m_m_wrapper"
   style={
     Object {
-      "height": 390,
+      "flex": 1,
+      "height": "100%",
       "overflow": "hidden",
       "position": "relative",
       "width": "100%",
@@ -204,7 +205,8 @@ exports[`MapMessages Component should match snapshot and show <Nothing/> when me
   className="m_m_wrapper"
   style={
     Object {
-      "height": 390,
+      "flex": 1,
+      "height": "100%",
       "overflow": "hidden",
       "position": "relative",
       "width": "100%",
@@ -238,7 +240,7 @@ exports[`MapMessages Component should match snapshot and show <Nothing/> when me
         }
       >
         <img
-          src="/images/large.jpg"
+          src="/images/large.svg"
         />
         <span
           className="secondMssg"

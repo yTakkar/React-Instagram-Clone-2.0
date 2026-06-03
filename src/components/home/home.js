@@ -11,6 +11,7 @@ import { getUnreadMessages } from '../../actions/message'
 import PopularHashtags from '../hashtag/popular-hashtags'
 import { Instagram } from 'react-content-loader'
 import Feed from './feed'
+import { t } from '../../utils/translation'
 
 class Home extends Component {
   state = {
@@ -28,10 +29,11 @@ class Home extends Component {
 
   render() {
     let { loading } = this.state
+    let { lang } = this.props
 
     return (
       <div>
-        <Title value="Home" />
+        <Title value={t(lang, 'sidebar', 'home')} />
 
         <FadeIn duration="300ms">
           <div className="senapati home_senapati">
@@ -63,6 +65,7 @@ class Home extends Component {
 
 const mapStateToProps = store => ({
   store,
+  lang: store.Language.language
 })
 
 export default connect(mapStateToProps)(Home)

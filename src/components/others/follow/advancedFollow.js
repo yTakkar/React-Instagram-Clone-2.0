@@ -4,8 +4,9 @@ import { follow } from '../../../utils/user-interact-utils'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import PrimaryButton from '../button/primary-btn'
+import { t } from '../../../utils/translation'
 
-const AdvancedFollow = ({ userDetails, followed, ud, dispatch }) => {
+const AdvancedFollow = ({ userDetails, followed, ud, dispatch, lang }) => {
   let { user, username, firstname, surname } = userDetails
   let { id } = ud
 
@@ -41,7 +42,7 @@ const AdvancedFollow = ({ userDetails, followed, ud, dispatch }) => {
   }
 
   return (
-    <PrimaryButton label="Follow" onClick={followUser} extraClass="follow" />
+    <PrimaryButton label={t(lang, 'actions', 'follow')} onClick={followUser} extraClass="follow" />
   )
 }
 
@@ -57,6 +58,7 @@ AdvancedFollow.propTypes = {
 
 const mapStateToProps = state => ({
   ud: state.User.user_details,
+  lang: state.Language.language
 })
 
 export default connect(mapStateToProps)(AdvancedFollow)

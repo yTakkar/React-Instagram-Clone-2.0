@@ -5,7 +5,7 @@ import { create } from 'react-test-renderer'
 describe('Profile Navlink', () => {
   it('should match snapshot', () => {
     const tree = create(
-      <ProfileNavLink url="/profile/takkar/bookmarks" label="Bookmarks" />
+      <ProfileNavLink url="/profile/vsocial/bookmarks" label="Bookmarks" />
     ).toJSON()
     expect(tree).toMatchSnapshot()
   })

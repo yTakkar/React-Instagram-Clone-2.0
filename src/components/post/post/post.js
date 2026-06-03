@@ -6,8 +6,10 @@ import PostImage from './post-middle/post-image'
 import PostActions from './post-actions/post-actions'
 import PostBottom from './post-bottom/post-bottom'
 import AppLink from '../../others/link/link'
+import { connect } from 'react-redux'
+import { translateTime } from '../../../utils/translation'
 
-export default class Post extends Component {
+class Post extends Component {
   state = {
     description: '',
   }
@@ -16,19 +18,19 @@ export default class Post extends Component {
     this.setState({ description: this.props.description })
 
   render() {
-    let { when, share_by_username, share_time } = this.props
+    let { when, share_by_username, share_time, lang } = this.props
     let { description } = this.state
 
     return (
       <div className="posts">
         {when == 'shared' && (
           <div className="post_share_info">
-            by{' '}
+            {lang === 'vi' ? 'bởi ' : 'by '}
             <AppLink
               url={`/profile/${share_by_username}`}
               label={share_by_username}
             />
-            <span>{share_time ? TimeAgo(share_time) : null}</span>
+            <span>{share_time ? translateTime(TimeAgo(share_time), lang) : null}</span>
           </div>
         )}
 
@@ -88,3 +90,9 @@ Post.propTypes = {
   tags_count: PropTypes.number.isRequired,
   comments: PropTypes.array,
 }
+
+const mapStateToProps = state => ({
+  lang: state.Language.language
+})
+
+export default connect(mapStateToProps)(Post)

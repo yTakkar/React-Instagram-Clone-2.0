@@ -14,15 +14,21 @@
 body{
   font-family: $family;
   background: $fb;
-  font-size: 13px;
-  color: #3d464d;
+  font-size: 15px;
+  color: $oo;
   font-weight: normal;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
 }
 
 a{
   text-decoration: none;
   color: $a;
   outline: none;
+  transition: color $transition-speed ease, opacity $transition-speed ease;
+  &:hover {
+    opacity: 0.7;
+  }
 }
 
 i{
@@ -31,7 +37,7 @@ i{
 
 hr{
   border: 0;
-  border-top: 1px solid #c1c7cd;
+  border-top: 1px solid $second_border;
 }
 
 li{
@@ -41,7 +47,7 @@ li{
 .a_pri{ color: $a; }
 
 .hashtag {
-  color: #3d464d;
+  color: $a;
   font-weight: 600;
 }
 

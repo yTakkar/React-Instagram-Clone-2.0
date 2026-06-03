@@ -8,31 +8,63 @@ const app = require('express').Router(),
   upload = require('multer')({
     dest: `${root}/dist/temp/`,
   }),
-  { ProcessImage, DeleteAllOfFolder } = require('handy-image-processor')
+  { ProcessImage, DeleteAllOfFolder } = require('../../../config/ImageProcessor')
+
+// NSFW keyword filter
+const NSFW_KEYWORDS = [
+  'nsfw', 'xxx', 'porn', 'nude', 'naked', 'explicit',
+  'gore', 'violence', 'abuse', 'drug', 'illegal',
+]
+
+const checkNSFW = (text) => {
+  if (!text) return { isNSFW: false, flaggedWords: [] }
+  const lower = text.toLowerCase()
+  const flaggedWords = NSFW_KEYWORDS.filter(word => lower.includes(word))
+  return { isNSFW: flaggedWords.length > 0, flaggedWords }
+}
 
 // POST [REQ = DESC, FILTER, LOCATION, TYPE, GROUP, IMAGE(FILE) ]
 app.post('/post-it', upload.single('image'), async (req, res) => {
   try {
     let { id } = req.session,
-      { desc, filter, location, type, group } = req.body,
-      filename = `instagram_${new Date().getTime()}.jpg`,
-      obj = {
+      { desc, filter, location, type, group, isNSFW: isNSFWStr } = req.body,
+      isNSFWClient = isNSFWStr === 'true',
+      groupId = group === 'undefined' || !group ? 0 : parseInt(group, 10),
+      ext = req.file ? require('path').extname(req.file.originalname).toLowerCase() : '',
+      filename = req.file ? `instagram_${new Date().getTime()}${ext || '.jpg'}` : '',
+      obj = req.file ? {
         srcFile: req.file.path,
         destFile: `${root}/dist/posts/${filename}`,
-      },
-      insert = {
+      } : null
+
+    // Check for NSFW content
+    const nsfwResult = checkNSFW(desc)
+    const finalIsNSFW = isNSFWClient || nsfwResult.isNSFW
+    const postStatus = 'pending'
+    const rejectionReason = finalIsNSFW ? `NSFW Review needed: ${nsfwResult.flaggedWords.join(', ')} (User Tagged: ${isNSFWClient})` : ''
+    if (finalIsNSFW) {
+      desc = desc ? `${desc} #nsfw` : '#nsfw'
+    }
+
+    let insert = {
         user: id,
         description: desc,
         imgSrc: filename,
         filter,
         location,
         type,
-        group_id: group,
+        group_id: groupId,
         post_time: new Date().getTime(),
+        status: postStatus,
+        rejection_reason: rejectionReason,
+        isNSFW: finalIsNSFW ? 1 : 0,
+        nsfwTaggedByAuthor: isNSFWClient ? 1 : 0,
       }
 
-    await ProcessImage(obj)
-    DeleteAllOfFolder(`${root}/dist/temp/`)
+    if (obj) {
+      await ProcessImage(obj)
+      DeleteAllOfFolder(`${root}/dist/temp/`)
+    }
 
     let { insertId } = await db.query('INSERT INTO posts SET ?', insert),
       firstname = await User.getWhat('firstname', id),
@@ -41,13 +73,19 @@ app.post('/post-it', upload.single('image'), async (req, res) => {
     await db.toHashtag(desc, id, insertId)
     await User.mentionUsers(desc, id, insertId, 'post')
 
+    let responseMsg = finalIsNSFW
+      ? 'Posted! Your post is flagged as NSFW and is pending admin review.'
+      : 'Posted! Your post is pending admin approval.'
+
     res.json({
       success: true,
-      mssg: 'Posted!!',
+      mssg: responseMsg,
       post_id: insertId,
       firstname,
       surname,
       filename,
+      status: postStatus,
+      nsfw_flagged: nsfwResult.isNSFW,
     })
   } catch (error) {
     db.catchError(error, res)

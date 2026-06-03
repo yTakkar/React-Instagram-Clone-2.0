@@ -3,6 +3,7 @@ import NotificationTypeProfile from './profile'
 import NotificationTypeGroup from './group'
 import NotificationTypeCon from './conversation'
 import NotificationTypePost from './post'
+import NotificationTypeFriendRequest from './friend-request'
 import PropTypes from 'prop-types'
 import Follow from '../../../others/follow/follow'
 import Unfollow from '../../../others/follow/unfollow'
@@ -27,6 +28,7 @@ export default class NotificationActionType extends Component {
         post_id,
         notify_by,
         notify_by_username,
+        request_id,
       },
     } = this.props
     let { isFollowing } = this.state
@@ -63,6 +65,14 @@ export default class NotificationActionType extends Component {
             || type == 'mention_comment'
             ? <NotificationTypePost post_id={post_id} />
 
+            // show friend request button if..
+            : type == 'friend_request'
+            ? <NotificationTypeFriendRequest request_id={request_id} />
+
+            // show profile button if..
+            : type == 'friend_accept'
+            ? <NotificationTypeProfile user_username={notify_by_username} />
+
             // show profile button if..
             : type == 'recommend'
             ? <NotificationTypeProfile user_username={user_username} />
@@ -96,5 +106,6 @@ NotificationActionType.propTypes = {
     post_id: PropTypes.number.isRequired,
     group_id: PropTypes.number.isRequired,
     isFollowing: PropTypes.bool.isRequired,
+    request_id: PropTypes.number,
   }).isRequired,
 }

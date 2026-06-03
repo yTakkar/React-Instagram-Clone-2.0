@@ -7,7 +7,8 @@ exports[`NewConTeaser Component should match snapshot 1`] = `
   <span>
     Wanna message 
     ghalib
-    ? Create a private conversation with 
+    ? Create a private conversation with
+     
     ghalib
     .
   </span>

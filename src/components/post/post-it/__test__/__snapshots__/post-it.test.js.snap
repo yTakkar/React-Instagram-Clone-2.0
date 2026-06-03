@@ -38,7 +38,7 @@ exports[`PostIt Component should match snapshot with type group 1`] = `
             src="/users/24/avatar.jpg"
           />
           <span>
-            takkar
+            vsocial
           </span>
         </div>
         <span
@@ -52,17 +52,43 @@ exports[`PostIt Component should match snapshot with type group 1`] = `
         className="i_p_main p_main"
         style={
           Object {
+            "display": "flex",
+            "flexDirection": "column",
             "height": 296,
           }
         }
       >
+        <div
+          className="i_p_ta"
+          style={
+            Object {
+              "flexShrink": 0,
+            }
+          }
+        >
+          <textarea
+            className="t_p_ta"
+            onChange={[Function]}
+            placeholder="What's new with you, @vsocial?"
+            spellCheck="false"
+            value=""
+          />
+        </div>
         <form
           className="post_img_form"
           encType="multipart/formdata"
           method="post"
+          style={
+            Object {
+              "alignItems": "center",
+              "display": "flex",
+              "flexGrow": 1,
+              "justifyContent": "center",
+            }
+          }
         >
           <input
-            accept="image/*"
+            accept="image/*,video/*"
             id="file_input"
             onChange={[Function]}
             type="file"
@@ -72,9 +98,45 @@ exports[`PostIt Component should match snapshot with type group 1`] = `
             className="pri_btn"
             htmlFor="file_input"
           >
-            Choose an image
+            Choose an image or video
           </label>
         </form>
+        <div
+          style={
+            Object {
+              "alignItems": "center",
+              "display": "flex",
+              "flexShrink": 0,
+              "justifyContent": "flex-start",
+              "padding": "10px",
+            }
+          }
+        >
+          <input
+            id="isNSFW"
+            onChange={[Function]}
+            style={
+              Object {
+                "cursor": "pointer",
+                "marginRight": "8px",
+              }
+            }
+            type="checkbox"
+          />
+          <label
+            htmlFor="isNSFW"
+            style={
+              Object {
+                "color": "#e74c3c",
+                "cursor": "pointer",
+                "fontSize": "13px",
+                "fontWeight": "bold",
+              }
+            }
+          >
+            Mark as NSFW (Sensitive Content)
+          </label>
+        </div>
       </div>
       <div
         className="p_tagging"
@@ -205,7 +267,7 @@ exports[`PostIt Component should match snapshot with type user 1`] = `
             src="/users/24/avatar.jpg"
           />
           <span>
-            takkar
+            vsocial
           </span>
         </div>
         <span
@@ -219,17 +281,43 @@ exports[`PostIt Component should match snapshot with type user 1`] = `
         className="i_p_main p_main"
         style={
           Object {
+            "display": "flex",
+            "flexDirection": "column",
             "height": 296,
           }
         }
       >
+        <div
+          className="i_p_ta"
+          style={
+            Object {
+              "flexShrink": 0,
+            }
+          }
+        >
+          <textarea
+            className="t_p_ta"
+            onChange={[Function]}
+            placeholder="What's new with you, @vsocial?"
+            spellCheck="false"
+            value=""
+          />
+        </div>
         <form
           className="post_img_form"
           encType="multipart/formdata"
           method="post"
+          style={
+            Object {
+              "alignItems": "center",
+              "display": "flex",
+              "flexGrow": 1,
+              "justifyContent": "center",
+            }
+          }
         >
           <input
-            accept="image/*"
+            accept="image/*,video/*"
             id="file_input"
             onChange={[Function]}
             type="file"
@@ -239,9 +327,45 @@ exports[`PostIt Component should match snapshot with type user 1`] = `
             className="pri_btn"
             htmlFor="file_input"
           >
-            Choose an image
+            Choose an image or video
           </label>
         </form>
+        <div
+          style={
+            Object {
+              "alignItems": "center",
+              "display": "flex",
+              "flexShrink": 0,
+              "justifyContent": "flex-start",
+              "padding": "10px",
+            }
+          }
+        >
+          <input
+            id="isNSFW"
+            onChange={[Function]}
+            style={
+              Object {
+                "cursor": "pointer",
+                "marginRight": "8px",
+              }
+            }
+            type="checkbox"
+          />
+          <label
+            htmlFor="isNSFW"
+            style={
+              Object {
+                "color": "#e74c3c",
+                "cursor": "pointer",
+                "fontSize": "13px",
+                "fontWeight": "bold",
+              }
+            }
+          >
+            Mark as NSFW (Sensitive Content)
+          </label>
+        </div>
       </div>
       <div
         className="p_tagging"

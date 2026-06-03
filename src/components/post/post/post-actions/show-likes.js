@@ -1,9 +1,10 @@
 import React, { Component, Fragment } from 'react'
-import { humanReadable } from '../../../../utils/utils'
 import Likes from '../../like/likes/likes'
 import { number, func } from 'prop-types'
+import { connect } from 'react-redux'
+import { t } from '../../../../utils/translation'
 
-export default class ShowLikes extends Component {
+class ShowLikes extends Component {
   state = {
     showLikes: false,
   }
@@ -11,13 +12,18 @@ export default class ShowLikes extends Component {
   toggleLikes = () => this.setState({ showLikes: !this.state.showLikes })
 
   render() {
-    let { post_id, likes_count, decrementLikes } = this.props
+    let { post_id, likes_count, decrementLikes, lang } = this.props
     let { showLikes } = this.state
 
     return (
       <Fragment>
         <span className="p_likes likes" onClick={this.toggleLikes}>
-          {humanReadable(likes_count, 'like')}
+          {likes_count == 0 
+            ? t(lang, 'post', 'noLikes')
+            : likes_count == 1
+              ? `1 ${t(lang, 'post', 'like')}`
+              : `${likes_count} ${t(lang, 'post', 'likes')}`
+          }
         </span>
 
         {showLikes && (
@@ -37,3 +43,9 @@ ShowLikes.propTypes = {
   likes_count: number.isRequired,
   decrementLikes: func.isRequired,
 }
+
+const mapStateToProps = state => ({
+  lang: state.Language.language
+})
+
+export default connect(mapStateToProps)(ShowLikes)

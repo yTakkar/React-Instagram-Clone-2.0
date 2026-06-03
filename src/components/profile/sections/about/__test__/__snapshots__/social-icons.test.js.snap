@@ -5,7 +5,7 @@ exports[`SocialIcons Component should match snapshot 1`] = `
   className="social_div inst"
 >
   <a
-    href="https://www.instagram.com/_faiyaz_shaikh"
+    href="https://www.instagram.com/_Vsocial_shaikh"
     target="_blank"
   >
     <i
@@ -14,7 +14,7 @@ exports[`SocialIcons Component should match snapshot 1`] = `
   </a>
   
   <a
-    href="https://github.com/yTakkar/"
+    href="https://github.com/Vsocial/"
     target="_blank"
   >
     <i

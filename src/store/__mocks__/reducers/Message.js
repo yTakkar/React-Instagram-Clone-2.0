@@ -60,7 +60,7 @@ export default {
       {
         imgSrc: 'instagram_message_1528278864884.jpg',
         mssg_by: 24,
-        mssg_by_username: 'takkar',
+        mssg_by_username: 'vsocial',
       },
     ],
     con_time: '1480114098767',

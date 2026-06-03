@@ -5,7 +5,7 @@ const app = require('express').Router(),
   Group = require('../../../config/Group'),
   User = require('../../../config/User'),
   root = process.cwd(),
-  { createReadStream, createWriteStream, mkdir } = require('fs'),
+  { createReadStream, createWriteStream, mkdir, existsSync } = require('fs'),
   { promisify } = require('util')
 
 // CREATE GROUP [REQ = NAME, BIO]
@@ -29,15 +29,18 @@ app.post('/create-group', async (req, res) => {
         created: new Date().getTime(),
       },
       { affectedRows, insertId } = await db.query(
-        'INSERT INTO groups SET ?',
+        'INSERT INTO `groups` SET ?',
         group
       ),
       makeDir = promisify(mkdir)
 
     if (affectedRows == 1) {
-      await makeDir(`${root}/dist/groups/${insertId}`)
+      let groupDir = `${root}/dist/groups/${insertId}`
+      if (!existsSync(groupDir)) {
+        await makeDir(groupDir)
+      }
       createReadStream(`${root}/dist/images/wheel.jpg`).pipe(
-        createWriteStream(`${root}/dist/groups/${insertId}/avatar.jpg`)
+        createWriteStream(`${groupDir}/avatar.jpg`)
       )
 
       let member = {
@@ -65,7 +68,7 @@ app.post('/edit-group', async (req, res) => {
   try {
     let { name, bio, group_type, group } = req.body
     await db.query(
-      'UPDATE groups SET name=?, bio=?, group_type=? WHERE group_id=?',
+      'UPDATE \`groups\` SET name=?, bio=?, group_type=? WHERE group_id=?',
       [name, bio, group_type, group]
     )
     res.json({
@@ -80,7 +83,7 @@ app.post('/edit-group', async (req, res) => {
 // CHECK IF GROUP IS VALID [REQ = GRP_ID]
 app.post('/is-group-valid', async (req, res) => {
   let [{ groupCount }] = await db.query(
-    'SELECT COUNT(group_id) AS groupCount FROM groups WHERE group_id=? LIMIT 1',
+    'SELECT COUNT(group_id) AS groupCount FROM \`groups\` WHERE group_id=? LIMIT 1',
     [req.body.grp_id]
   )
   res.json(groupCount == 1 ? true : false)
@@ -90,11 +93,11 @@ app.post('/is-group-valid', async (req, res) => {
 app.post('/get-group-details', async (req, res) => {
   let { grp_id } = req.body,
     _details = await db.query(
-      'SELECT groups.group_id, groups.name, groups.bio, groups.admin, users.username AS admin_username, groups.group_type, groups.created FROM groups, users WHERE groups.group_id=? AND groups.admin = users.id',
+      'SELECT g.group_id, g.name, g.bio, g.admin, u.username AS admin_username, g.group_type, g.created FROM \`groups\` g, users u WHERE g.group_id=? AND g.admin = u.id',
       [grp_id]
     ),
     [{ postsCount }] = await db.query(
-      'SELECT COUNT(post_id) AS postsCount FROM posts WHERE group_id=?',
+      "SELECT COUNT(post_id) AS postsCount FROM posts WHERE group_id=? AND status='approved'",
       [grp_id]
     )
 
@@ -206,7 +209,7 @@ app.post('/change-admin', async (req, res) => {
     let { user, group } = req.body
     let username = await User.getWhat('username', user)
 
-    await db.query('UPDATE groups SET admin=? WHERE group_id=?', [user, group])
+    await db.query('UPDATE \`groups\` SET admin=? WHERE group_id=?', [user, group])
     res.json({
       success: true,
       mssg: `${username} is now admin of this group!!`,

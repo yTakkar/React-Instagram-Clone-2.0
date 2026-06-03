@@ -7,7 +7,7 @@ const app = require('express').Router(),
   upload = require('multer')({
     dest: `${root}/dist/temp/`,
   }),
-  { ProcessImage, DeleteAllOfFolder } = require('handy-image-processor'),
+  { ProcessImage, DeleteAllOfFolder } = require('../../../config/ImageProcessor'),
   { unlinkSync, createReadStream, createWriteStream } = require('fs')
 
 // COMMENT TEXT [REQ = POST, TEST]
@@ -18,6 +18,7 @@ app.post('/comment-text', async (req, res) => {
       comment = {
         type: 'text',
         text,
+        commentSrc: '',
         comment_by: id,
         post_id,
         comment_time: new Date().getTime(),
@@ -47,6 +48,7 @@ app.post('/comment-image', upload.single('commentImage'), async (req, res) => {
       },
       insert = {
         type: 'image',
+        text: '',
         commentSrc: filename,
         comment_by: id,
         post_id: post,
@@ -77,6 +79,7 @@ app.post('/comment-sticker', async (req, res) => {
       filename = `instagram_comment_${new Date().getTime()}.jpg`,
       comment = {
         type: 'sticker',
+        text: '',
         commentSrc: filename,
         comment_by: id,
         post_id: post,

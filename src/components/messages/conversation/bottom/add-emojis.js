@@ -27,7 +27,7 @@ export default class ConversationAddEmojis extends Component {
 
         {showEmojis && (
           <Emojis
-            position={{ top: 308, left: 750 }}
+            position={{ position: 'absolute', top: 'auto', left: 'auto', bottom: '40px', right: '90px' }}
             textArea=".send_mssg"
             updateStateValue={value => updateMssgValue(value)}
           />

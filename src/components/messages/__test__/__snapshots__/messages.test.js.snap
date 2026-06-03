@@ -56,7 +56,9 @@ exports[`Messages Component should match snapshot 1`] = `
       <span
         className="con_count"
       >
-        2 conversations
+        2
+         
+        conversations
       </span>
       <div
         style={
@@ -122,11 +124,7 @@ exports[`Messages Component should match snapshot 1`] = `
       className="mssg_right"
     >
       <div
-        style={
-          Object {
-            "marginTop": 77,
-          }
-        }
+        className="mssg_nothing"
       >
         <div
           className="home_last_mssg"
@@ -137,7 +135,7 @@ exports[`Messages Component should match snapshot 1`] = `
           }
         >
           <img
-            src="/images/large.jpg"
+            src="/images/large.svg"
           />
           <span
             className="nothingMssg"

@@ -4,8 +4,9 @@ import { unfollow } from '../../../utils/user-interact-utils'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import PrimaryButton from '../button/primary-btn'
+import { t } from '../../../utils/translation'
 
-const AdvancedUnfollow = ({ user, unfollowed, ud, dispatch }) => {
+const AdvancedUnfollow = ({ user, unfollowed, ud, dispatch, lang }) => {
   let { id } = ud
 
   let unfollowUser = e => {
@@ -34,7 +35,7 @@ const AdvancedUnfollow = ({ user, unfollowed, ud, dispatch }) => {
 
   return (
     <PrimaryButton
-      label="Unfollow"
+      label={t(lang, 'actions', 'unfollow')}
       onClick={unfollowUser}
       extraClass="unfollow"
     />
@@ -48,6 +49,7 @@ AdvancedUnfollow.propTypes = {
 
 const mapStateToProps = state => ({
   ud: state.User.user_details,
+  lang: state.Language.language
 })
 
 export default connect(mapStateToProps)(AdvancedUnfollow)

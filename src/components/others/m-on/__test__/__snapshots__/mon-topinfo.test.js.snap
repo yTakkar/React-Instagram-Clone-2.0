@@ -11,14 +11,14 @@ exports[`Mon-TopInfo Component should match snapshot 1`] = `
     className="m_top_right"
   >
     <Link
-      to="/profile/takkar"
+      to="/profile/vsocial"
     >
-      takkar
+      vsocial
     </Link>
     <span>
       iam
        
-      _takkar
+      _vsocial
     </span>
   </div>
 </div>
@@ -35,9 +35,9 @@ exports[`Mon-TopInfo Component should match snapshot with basedOnMutuals prop 1`
     className="m_top_right"
   >
     <Link
-      to="/profile/takkar"
+      to="/profile/vsocial"
     >
-      takkar
+      vsocial
     </Link>
     <span>
       3 mutual followers

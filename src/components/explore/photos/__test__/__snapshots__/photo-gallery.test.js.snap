@@ -17,7 +17,7 @@ exports[`ExplorePhotoGallery Component should match snapshot 1`] = `
       photos={
         Array [
           Object {
-            "className": "filter-normal",
+            "className": "g_photo filter-normal",
             "filter": "filter-normal",
             "firstname": "Thomas",
             "height": 15,

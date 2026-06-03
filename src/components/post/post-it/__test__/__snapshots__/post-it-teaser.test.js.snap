@@ -22,7 +22,7 @@ exports[`PostItTeaser Component should match snapshot 1`] = `
         onClick={[Function]}
       >
         What's new with you, @
-        takkar
+        vsocial
         ? #cool
       </span>
     </div>
@@ -52,7 +52,7 @@ exports[`PostItTeaser Component should match snapshot with disabled prop 1`] = `
         onClick={null}
       >
         What's new with you, @
-        takkar
+        vsocial
         ? #cool
       </span>
     </div>

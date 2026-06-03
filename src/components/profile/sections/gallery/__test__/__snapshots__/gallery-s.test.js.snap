@@ -3,7 +3,7 @@
 exports[`Gallery Component should match snapshot 1`] = `
 <div>
   <Connect(Title)
-    value="takkar's gallery"
+    value="vsocial's gallery"
   />
   <FadeIn
     as="div"

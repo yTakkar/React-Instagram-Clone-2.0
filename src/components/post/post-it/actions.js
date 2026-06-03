@@ -43,7 +43,7 @@ const PostItActions = props => {
       <PrimaryButton
         label="Post"
         onClick={postIt}
-        disabled={!fileChanged}
+        disabled={!fileChanged && !rest.desc.trim()}
         extraClass="p_post"
       />
     </div>

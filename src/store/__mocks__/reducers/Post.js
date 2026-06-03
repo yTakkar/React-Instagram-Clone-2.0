@@ -8,7 +8,7 @@ export default {
     {
       ...posts[0],
       share_id: 445,
-      share_by_username: 'takkar',
+      share_by_username: 'vsocial',
       share_time: '1480114098767',
     },
   ],
@@ -54,7 +54,7 @@ export default {
         text: '',
         commentSrc: 'instagram_comment_1527447929485.jpg',
         comment_by: 24,
-        comment_by_username: 'takkar',
+        comment_by_username: 'vsocial',
         post_id: 43,
         comment_time: '1480114098767',
       },

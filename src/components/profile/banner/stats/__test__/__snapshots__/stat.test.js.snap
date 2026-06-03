@@ -2,7 +2,7 @@
 
 exports[`BannerStat Component should match snapshot 1`] = `
 <Link
-  to="/profile/takkar/followers"
+  to="/profile/vsocial/followers"
 >
   <span
     className="pro_hg"

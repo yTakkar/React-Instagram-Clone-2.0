@@ -8,7 +8,8 @@ const app = require('express').Router(),
   fs = require('fs'),
   { promisify } = require('util'),
   { success } = require('handy-log'),
-  mw = require('../../config/Middlewares')
+  mw = require('../../config/Middlewares'),
+  { generateToken } = require('../../config/JWT')
 
 // USER SIGNUP GET ROUTE
 app.get('/signup', mw.NotLoggedIn, (req, res) => {
@@ -16,12 +17,15 @@ app.get('/signup', mw.NotLoggedIn, (req, res) => {
   res.render('signup', { options })
 })
 
-const sendMailAndcreateDir = async (insertId, username, email, res) => {
+const sendMailAndcreateDir = async (insertId, username, email, res, token, role) => {
   let mkdir = promisify(fs.mkdir)
+  let userDir = `${dir}/dist/users/${insertId}`
 
-  await mkdir(`${dir}/dist/users/${insertId}`)
+  if (!fs.existsSync(userDir)) {
+    await mkdir(userDir)
+  }
   fs.createReadStream(`${dir}/dist/images/spacecraft.jpg`).pipe(
-    fs.createWriteStream(`${dir}/dist/users/${insertId}/avatar.jpg`)
+    fs.createWriteStream(`${userDir}/avatar.jpg`)
   )
 
   let url = `http://localhost:${
@@ -40,11 +44,15 @@ const sendMailAndcreateDir = async (insertId, username, email, res) => {
     res.json({
       mssg: `Hello, ${username}!!`,
       success: true,
+      token,
+      role,
     })
   } catch (error) {
     res.json({
       mssg: `Hello, ${username}. Mail could not be sent!!`,
       success: true,
+      token,
+      role,
     })
   }
 }
@@ -53,7 +61,7 @@ const sendMailAndcreateDir = async (insertId, username, email, res) => {
 app.post('/user/signup', async (req, res) => {
   try {
     let {
-      body: { username, firstname, surname, email, password },
+      body: { username, firstname, surname, email, password, admin_password },
       session,
     } = req
 
@@ -85,15 +93,34 @@ app.post('/user/signup', async (req, res) => {
       } else if (emailCount == 1) {
         res.json({ mssg: 'Email already exists!!' })
       } else {
+        let role = 'user'
+        if (admin_password && admin_password === process.env.ADMIN_PASSWORD) {
+          role = 'admin'
+        } else if (admin_password && admin_password !== process.env.ADMIN_PASSWORD) {
+          return res.json({ mssg: 'Invalid Admin Password!!' })
+        }
+
         let newUser = {
           username,
           firstname,
           surname,
+          nickname: '',
           email,
           password,
-          joined: new Date().getTime(),
+          bio: '',
+          instagram: '',
+          twitter: '',
+          facebook: '',
+          github: '',
+          website: '',
+          phone: '',
+          joined: new Date().getTime().toString(),
           email_verified: 'no',
           isOnline: 'yes',
+          lastOnline: '',
+          role,
+          cover_image: '',
+          account_status: 'active',
         }
         let { insertId, affectedRows } = await User.create_user(newUser)
 
@@ -101,8 +128,12 @@ app.post('/user/signup', async (req, res) => {
           session.id = insertId
           session.username = username
           session.email_verified = 'no'
+          session.role = role
 
-          await sendMailAndcreateDir(insertId, username, email, res)
+          // Generate JWT token
+          const token = generateToken({ id: insertId, username, role })
+
+          await sendMailAndcreateDir(insertId, username, email, res, token, role)
         } else {
           res.json({ mssg: 'An error occured creating your account!!' })
         }

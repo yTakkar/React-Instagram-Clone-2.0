@@ -32,7 +32,7 @@ exports[`Error Component should match snapshot with no param 1`] = `
       >
         <Link
           className="sec_btn error_home"
-          to="/profile/takkar"
+          to="/profile/vsocial"
         >
           View profile
         </Link>
@@ -80,7 +80,7 @@ exports[`Error Component should match snapshot with no-post error 1`] = `
       >
         <Link
           className="sec_btn error_home"
-          to="/profile/takkar"
+          to="/profile/vsocial"
         >
           View profile
         </Link>
@@ -128,7 +128,7 @@ exports[`Error Component should match snapshot with no-user error 1`] = `
       >
         <Link
           className="sec_btn error_home"
-          to="/profile/takkar"
+          to="/profile/vsocial"
         >
           View profile
         </Link>

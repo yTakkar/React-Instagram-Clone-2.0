@@ -1,8 +1,10 @@
 import React, { Component, Fragment } from 'react'
 import TextCommentModal from './comment-modal'
 import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import { t } from '../../../../utils/translation'
 
-export default class TextComment extends Component {
+class TextComment extends Component {
   state = {
     comment: false,
   }
@@ -12,6 +14,7 @@ export default class TextComment extends Component {
     let {
       postDetails: { post_id, user, when },
       incrementComments,
+      lang
     } = this.props
 
     return (
@@ -20,7 +23,7 @@ export default class TextComment extends Component {
           className="p_cit_teaser"
           onClick={() => this.setState({ comment: true })}
         >
-          <span>Wanna comment?</span>
+          <span>{t(lang, 'post', 'wannaComment')}</span>
         </div>
 
         {comment && (
@@ -45,3 +48,9 @@ TextComment.propTypes = {
   }).isRequired,
   incrementComments: PropTypes.func.isRequired,
 }
+
+const mapStateToProps = state => ({
+  lang: state.Language.language
+})
+
+export default connect(mapStateToProps)(TextComment)

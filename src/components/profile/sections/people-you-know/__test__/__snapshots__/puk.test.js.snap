@@ -3,7 +3,7 @@
 exports[`PeopleYouKnow Component should match snapshot 1`] = `
 <div>
   <Redirect
-    to="/profile/takkar"
+    to="/profile/vsocial"
   />
   <div
     style={
@@ -59,7 +59,7 @@ exports[`PeopleYouKnow Component should match snapshot 1`] = `
                 href="#"
                 onClick={[Function]}
               >
-                Follow
+                follow
               </a>
             </div>
           </div>

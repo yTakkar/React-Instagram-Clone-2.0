@@ -25,10 +25,10 @@ Array [
           }
         >
           <Link
-            title="takkar"
-            to="/profile/takkar"
+            title="vsocial"
+            to="/profile/vsocial"
           >
-            takkar
+            vsocial
           </Link>
           <span
             className="p_i_1_title"
@@ -118,11 +118,25 @@ Array [
               </span>
             </p>
           </div>
-          <img
-            className="p_img filter-ashby"
-            onClick={[Function]}
-            src="/posts/instagram_1518972814710.jpg"
-          />
+          <div
+            style={
+              Object {
+                "position": "relative",
+              }
+            }
+          >
+            <img
+              className="p_img filter-ashby"
+              onClick={[Function]}
+              src="/posts/instagram_1518972814710.jpg"
+              style={
+                Object {
+                  "cursor": "pointer",
+                  "filter": "none",
+                }
+              }
+            />
+          </div>
           <div>
             <div>
               <span
@@ -409,9 +423,9 @@ Array [
               >
                 <Link
                   className="comments_user"
-                  to="/profile/takkar"
+                  to="/profile/vsocial"
                 >
-                  takkar
+                  vsocial
                 </Link>
                 <img
                   className="comments_sticker"
@@ -460,7 +474,7 @@ exports[`ShowPost Component should match snapshot when no post 1`] = `
   }
 >
   <img
-    src="/images/large.jpg"
+    src="/images/large.svg"
   />
   <span
     className="nothingMssg"

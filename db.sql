@@ -159,6 +159,21 @@ CREATE TABLE `follow_system` (
   `follow_time` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `friend_requests`
+--
+
+CREATE TABLE `friend_requests` (
+  `request_id` int(11) NOT NULL,
+  `from_user` int(11) NOT NULL,
+  `to_user` int(11) NOT NULL,
+  `status` enum('pending','accepted','rejected') COLLATE utf8mb4_bin NOT NULL DEFAULT 'pending',
+  `request_time` varchar(100) COLLATE utf8mb4_bin NOT NULL,
+  `response_time` varchar(100) COLLATE utf8mb4_bin NOT NULL DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+
 --
 -- Dumping data for table `follow_system`
 --
@@ -359,7 +374,7 @@ CREATE TABLE `notifications` (
   `notify_to` int(11) NOT NULL,
   `post_id` int(11) NOT NULL,
   `group_id` int(11) NOT NULL,
-  `type` enum('follow','tag','like','share','shared_your_post','comment','favourites','recommend','add_grp_member','invite','change_admin','new_con','mention_post','mention_comment') NOT NULL,
+  `type` enum('follow','tag','like','share','shared_your_post','comment','favourites','recommend','add_grp_member','invite','change_admin','new_con','mention_post','mention_comment','friend_request','friend_accept','post_approved','post_rejected') NOT NULL,
   `user` int(11) NOT NULL,
   `notify_time` varchar(100) NOT NULL,
   `status` enum('read','unread') NOT NULL DEFAULT 'unread'
@@ -513,42 +528,46 @@ CREATE TABLE `posts` (
   `location` mediumtext COLLATE utf8mb4_bin NOT NULL,
   `type` enum('user','group') COLLATE utf8mb4_bin NOT NULL DEFAULT 'user',
   `group_id` int(11) NOT NULL,
-  `post_time` varchar(100) COLLATE utf8mb4_bin NOT NULL
+  `post_time` varchar(100) COLLATE utf8mb4_bin NOT NULL,
+  `isNSFW` tinyint(1) DEFAULT 0,
+  `nsfwTaggedByAuthor` tinyint(1) DEFAULT 0,
+  `status` enum('pending','approved','rejected') COLLATE utf8mb4_bin NOT NULL DEFAULT 'approved',
+  `rejection_reason` varchar(500) COLLATE utf8mb4_bin NOT NULL DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 --
 -- Dumping data for table `posts`
 --
 
-INSERT INTO `posts` (`post_id`, `user`, `description`, `imgSrc`, `filter`, `location`, `type`, `group_id`, `post_time`) VALUES
-(22, 12, '', 'instagram_1516522776339.jpg', 'filter-normal', 'A-301, 90 Feet Road, Dharavi, Mumbai, Maharashtra 400017, India', 'user', 0, '1516522776339'),
-(23, 11, '', 'instagram_1516523468369.jpg', 'filter-normal', '', 'user', 0, '1516523468369'),
-(24, 13, '@ghalib #travel', 'instagram_1516523813005.jpg', 'filter-normal', '', 'user', 0, '1516523813006'),
-(25, 14, '', 'instagram_1516524010087.jpg', 'filter-normal', '', 'user', 0, '1516524010087'),
-(26, 14, '', 'instagram_1516524031664.jpg', 'filter-normal', '', 'user', 0, '1516524031664'),
-(27, 14, '', 'instagram_1516524056911.jpg', 'filter-normal', '', 'user', 0, '1516524056911'),
-(28, 14, '', 'instagram_1516524098767.jpg', 'filter-normal', '', 'user', 0, '1516524098767'),
-(29, 14, '', 'instagram_1516524133694.jpg', 'filter-normal', '', 'user', 0, '1516524133694'),
-(30, 14, '', 'instagram_1516524190576.jpg', 'filter-normal', '', 'user', 0, '1516524190576'),
-(31, 15, '', 'instagram_1516524753923.jpg', 'filter-normal', '', 'user', 0, '1516524753923'),
-(32, 10, '', 'instagram_1516524981153.jpg', 'filter-normal', '', 'user', 0, '1516524981153'),
-(33, 10, '', 'instagram_1516525040077.jpg', 'filter-normal', '', 'user', 0, '1516525040077'),
-(34, 16, '', 'instagram_1516525129889.jpg', 'filter-normal', '', 'user', 0, '1516525129889'),
-(35, 17, '', 'instagram_1516525289046.jpg', 'filter-normal', '', 'user', 0, '1516525289046'),
-(36, 18, '', 'instagram_1516525555814.jpg', 'filter-normal', '', 'user', 0, '1516525555814'),
-(37, 18, '', 'instagram_1516525648412.jpg', 'filter-normal', '', 'user', 0, '1516525648412'),
-(38, 18, '', 'instagram_1516525703299.jpg', 'filter-normal', '', 'user', 0, '1516525703299'),
-(39, 19, '', 'instagram_1516527391527.jpg', 'filter-normal', '', 'user', 0, '1516527391527'),
-(40, 19, '', 'instagram_1516527403042.jpg', 'filter-normal', '', 'user', 0, '1516527403042'),
-(41, 20, '', 'instagram_1516527804372.jpg', 'filter-normal', '', 'user', 0, '1516527804372'),
-(43, 18, '', 'instagram_1516528062094.jpg', 'filter-normal', '', 'user', 0, '1516528062094'),
-(57, 24, 'm', 'instagram_1518016704834.jpg', 'filter-normal', '', 'user', 0, '1518016704834'),
-(61, 27, '', 'instagram_1518018358758.jpg', 'filter-normal', 'Progresive Building, 90 Feet Road, Dharavi, Mumbai, Maharashtra 400017, India', 'user', 0, '1518018358758'),
-(63, 30, 'mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm', 'instagram_1518510077635.jpg', 'filter-normal', '', 'user', 0, '1518510077635'),
-(69, 24, 'That''s a #nice place to #travel', 'instagram_1518854775824.jpg', 'filter-normal', '', 'user', 0, '1518854775824'),
-(71, 24, '#travel', 'instagram_1518857912246.jpg', 'filter-normal', '', 'group', 11, '1518857912246'),
-(88, 24, 'Hello @ghalib @takkar #checkout', 'instagram_1518945386167.jpg', 'filter-normal', '', 'user', 0, '1518945386167'),
-(89, 24, 'he @nobita, @doraemon #checkout, #dd #fgf', 'instagram_1518972814710.jpg', 'filter-ashby', 'A-301, 90 Feet Road, Dharavi, Mumbai, Maharashtra 400017, India', 'user', 0, '1518972814710');
+INSERT INTO `posts` (`post_id`, `user`, `description`, `imgSrc`, `filter`, `location`, `type`, `group_id`, `post_time`, `status`, `rejection_reason`) VALUES
+(22, 12, '', 'instagram_1516522776339.jpg', 'filter-normal', 'A-301, 90 Feet Road, Dharavi, Mumbai, Maharashtra 400017, India', 'user', 0, '1516522776339', 'approved', ''),
+(23, 11, '', 'instagram_1516523468369.jpg', 'filter-normal', '', 'user', 0, '1516523468369', 'approved', ''),
+(24, 13, '@ghalib #travel', 'instagram_1516523813005.jpg', 'filter-normal', '', 'user', 0, '1516523813006', 'approved', ''),
+(25, 14, '', 'instagram_1516524010087.jpg', 'filter-normal', '', 'user', 0, '1516524010087', 'approved', ''),
+(26, 14, '', 'instagram_1516524031664.jpg', 'filter-normal', '', 'user', 0, '1516524031664', 'approved', ''),
+(27, 14, '', 'instagram_1516524056911.jpg', 'filter-normal', '', 'user', 0, '1516524056911', 'approved', ''),
+(28, 14, '', 'instagram_1516524098767.jpg', 'filter-normal', '', 'user', 0, '1516524098767', 'approved', ''),
+(29, 14, '', 'instagram_1516524133694.jpg', 'filter-normal', '', 'user', 0, '1516524133694', 'approved', ''),
+(30, 14, '', 'instagram_1516524190576.jpg', 'filter-normal', '', 'user', 0, '1516524190576', 'approved', ''),
+(31, 15, '', 'instagram_1516524753923.jpg', 'filter-normal', '', 'user', 0, '1516524753923', 'approved', ''),
+(32, 10, '', 'instagram_1516524981153.jpg', 'filter-normal', '', 'user', 0, '1516524981153', 'approved', ''),
+(33, 10, '', 'instagram_1516525040077.jpg', 'filter-normal', '', 'user', 0, '1516525040077', 'approved', ''),
+(34, 16, '', 'instagram_1516525129889.jpg', 'filter-normal', '', 'user', 0, '1516525129889', 'approved', ''),
+(35, 17, '', 'instagram_1516525289046.jpg', 'filter-normal', '', 'user', 0, '1516525289046', 'approved', ''),
+(36, 18, '', 'instagram_1516525555814.jpg', 'filter-normal', '', 'user', 0, '1516525555814', 'approved', ''),
+(37, 18, '', 'instagram_1516525648412.jpg', 'filter-normal', '', 'user', 0, '1516525648412', 'approved', ''),
+(38, 18, '', 'instagram_1516525703299.jpg', 'filter-normal', '', 'user', 0, '1516525703299', 'approved', ''),
+(39, 19, '', 'instagram_1516527391527.jpg', 'filter-normal', '', 'user', 0, '1516527391527', 'approved', ''),
+(40, 19, '', 'instagram_1516527403042.jpg', 'filter-normal', '', 'user', 0, '1516527403042', 'approved', ''),
+(41, 20, '', 'instagram_1516527804372.jpg', 'filter-normal', '', 'user', 0, '1516527804372', 'approved', ''),
+(43, 18, '', 'instagram_1516528062094.jpg', 'filter-normal', '', 'user', 0, '1516528062094', 'approved', ''),
+(57, 24, 'm', 'instagram_1518016704834.jpg', 'filter-normal', '', 'user', 0, '1518016704834', 'approved', ''),
+(61, 27, '', 'instagram_1518018358758.jpg', 'filter-normal', 'Progresive Building, 90 Feet Road, Dharavi, Mumbai, Maharashtra 400017, India', 'user', 0, '1518018358758', 'approved', ''),
+(63, 30, 'mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm', 'instagram_1518510077635.jpg', 'filter-normal', '', 'user', 0, '1518510077635', 'approved', ''),
+(69, 24, 'That''s a #nice place to #travel', 'instagram_1518854775824.jpg', 'filter-normal', '', 'user', 0, '1518854775824', 'approved', ''),
+(71, 24, '#travel', 'instagram_1518857912246.jpg', 'filter-normal', '', 'group', 11, '1518857912246', 'approved', ''),
+(88, 24, 'Hello @ghalib @takkar #checkout', 'instagram_1518945386167.jpg', 'filter-normal', '', 'user', 0, '1518945386167', 'approved', ''),
+(89, 24, 'he @nobita, @doraemon #checkout, #dd #fgf', 'instagram_1518972814710.jpg', 'filter-ashby', 'A-301, 90 Feet Road, Dharavi, Mumbai, Maharashtra 400017, India', 'user', 0, '1518972814710', 'approved', '');
 
 -- --------------------------------------------------------
 
@@ -922,6 +941,7 @@ CREATE TABLE `users` (
   `username` varchar(32) COLLATE utf8mb4_bin NOT NULL,
   `firstname` varchar(32) COLLATE utf8mb4_bin NOT NULL,
   `surname` varchar(32) COLLATE utf8mb4_bin NOT NULL,
+  `nickname` varchar(64) COLLATE utf8mb4_bin NOT NULL DEFAULT '',
   `email` varchar(255) COLLATE utf8mb4_bin NOT NULL,
   `password` varchar(255) COLLATE utf8mb4_bin NOT NULL,
   `bio` varchar(1000) COLLATE utf8mb4_bin NOT NULL,
@@ -935,32 +955,35 @@ CREATE TABLE `users` (
   `website` varchar(500) COLLATE utf8mb4_bin NOT NULL,
   `phone` varchar(20) COLLATE utf8mb4_bin NOT NULL,
   `isOnline` enum('yes','no') COLLATE utf8mb4_bin NOT NULL DEFAULT 'no',
-  `lastOnline` varchar(100) COLLATE utf8mb4_bin NOT NULL
+  `lastOnline` varchar(100) COLLATE utf8mb4_bin NOT NULL,
+  `cover_image` varchar(500) COLLATE utf8mb4_bin NOT NULL DEFAULT '',
+  `account_status` enum('active','locked','deleted') COLLATE utf8mb4_bin NOT NULL DEFAULT 'active',
+  `role` enum('user','admin') COLLATE utf8mb4_bin NOT NULL DEFAULT 'user'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `firstname`, `surname`, `email`, `password`, `bio`, `joined`, `email_verified`, `account_type`, `instagram`, `twitter`, `facebook`, `github`, `website`, `phone`, `isOnline`, `lastOnline`) VALUES
-(7, 'ghalib', 'Mirza', 'Ghalib', 'ghalib@gmail.com', '$2a$10$E3ZgkSwaa6rUopG1CBUm8OoCMKVqzSwv79bfuUrICV0eLOqTlqR/m', '', '1514718748562', 'yes', 'private', '', '', '', '', '', '', 'no', '1527942645296'),
-(8, 'coldplay', 'cold', 'play', 'coldplay@gmail.com', '$2a$10$zVPMDJKlOY00UnSlrLEUfuaeTwXkZ.VD4ixp.q1x2RjX/LbezoqPO', '', '1515918435853', 'no', 'public', '', '', '', '', '', '', 'no', ''),
-(10, 'noddy', 'your', 'noddy', 'noddy@gmail.com', '$2a$10$/FlxKj904j7TnMo.9gJJTe5cwFakoJc4/w9kba3LeAdP0hTWGCzCG', '', '1516454412744', 'no', 'public', '', '', '', '', '', '', 'no', ''),
-(11, 'nobita', 'nobita', 'nobi', 'nobita@gmail.com', '$2a$10$nzMI2G054StCufuo4fzkEOWhpwUWKqZwV67jbPqaqqSNDNnF5led2', '', '1516522466189', 'no', 'public', '', '', '', '', '', '', 'no', '1524499561897'),
-(12, 'pikachu', 'your', 'pikachu', 'pikachu@gmail.com', '$2a$10$j/buNE/iwJquKzzyBsOhLe4dEVVXKs56KTet8E4arAjcjsQ87BZt2', '', '1516522598741', 'no', 'public', '', '', '', '', '', '', 'no', ''),
-(13, 'iamsrk', 'Shahrukh', 'Khan', 'iamsrk@gmail.com', '$2a$10$Xn99377.3Ns8.QoneTP4qeMuERyvNR2Ki86eRjpmHCsj01xvFoFIq', '', '1516523593107', 'no', 'public', '', '', '', '', '', '', 'no', ''),
-(14, 'kinkade', 'Thomas', 'Kinkade', 'kinkade@gmail.com', '$2a$10$IvK3CBxFh/dnkWZtRMh9k.S2/WIdQbd6adF78Bb16.G.62nrSUgcG', '', '1516523852488', 'no', 'public', '', '', '', '', '', '', 'no', ''),
-(15, 'suniyo', 'suniyo', 'honekawa', 'suniyo@gmail.com', '$2a$10$60TUnK2JiH8RoloKA/IdB.ZG07o.bc8FpHqu9Euc2kEXc28PslceS', '', '1516524667640', 'no', 'public', '', '', '', '', '', '', 'no', ''),
-(16, 'zayn', 'Zayn', 'Malik', 'zayn@gmail.com', '$2a$10$ktjq/vo/8nBxlOnixyTpQuN6gyXc5vN4.rslSVRt4eM6vhq7ftaxS', '', '1516525072573', 'no', 'private', '', '', '', '', '', '', 'yes', '1526663478084'),
-(17, 'nfak', 'Nusratfateh', 'Alikhan', 'nfak@gmail.com', '$2a$10$TAzl3pUYIs/HRb8LPhvZdOclk/TSfnmicUVgHEGyUwnUxm7j7Z.Ie', '', '1516525201164', 'no', 'public', '', '', '', '', '', '', 'no', ''),
-(18, 'ragnar', 'Ragnar', 'Lothbrok', 'ragnar@gmail.com', '$2a$10$M7lx4wF.PUhAjSJVxb7bW.nk2G6zxeCjhXBnKTyFz3JNq8NQbQQ8m', '', '1516525343645', 'no', 'public', '', '', '', '', '', '', 'no', '1525866681046'),
-(19, 'jonsnow', 'jon_', 'snow', 'jonsnow@gmail.com', '$2a$10$9Nb4hFjgg.MKKLLTeXMuWehralT21UCoeWsPq3./VWMkUnu19JpzS', '', '1516527326858', 'no', 'public', '', '', '', '', '', '', 'no', ''),
-(20, 'gian', 'Takeshi', 'Gauda', 'gian@gmail.com', '$2a$10$K3ijpio/4HIOKJhQ5yq3DOQ4IW5Oee4O5hwogEQtB/FBuNJRvd9T2', '', '1516527534985', 'no', 'public', '', '', '', '', '', '', 'no', ''),
-(24, 'takkar', 'iam_', 'takkar', 'takkar@gmail.com', '$2a$10$R/iWFCwEDgmOvg7mCB3wreerTC0hRuYyZflDN2Gyr3YV/ppMMNgJu', 'Hello #world', '1518016437193', 'no', 'private', '', '', 'm', '', '', 'gg', 'yes', '1528490530271'),
-(27, 'taylor_swift', 'taylor', 'swift', 'taylor_swift@gmail.com', '$2a$10$rnQRsp0iWCdV8b6AD24mJ.7rL5XQ31ejULlOQMVkBpjxD7RlRxqKK', '', '1518018283428', 'no', 'public', '', '', '', '', '', '', 'no', '1526387270500'),
-(28, 'selena', 'selena', 'gomez', 'selenagomez@gmail.com', '$2a$10$.ifdYlKQdt/acrXtn09NLuENJylSfZIJq2U4tqzZNqeRWaUG0nnQq', '', '1518018409165', 'no', 'public', 'mmmm', '', '', '', '', '', 'no', '1528534503389'),
-(29, 'steve_jobs', 'steve', 'jobs', 'steve_jobs@gmail.com', '$2a$10$B05HNF3/pnK.8fU7kCJHpuaU5LpVxwao9Wmkn3Md2sAPc5GINiU6O', '', '1518018498672', 'no', 'public', '', '', '', '', '', '', 'no', ''),
-(30, 'doraemon', 'iam_', 'doraemon', 'doraemon@gmail.com', '$2a$10$OjZg/mosNPOT297skkotUetzYL7mIEFDVxVPP2lsBAv4F0LSyK18m', '', '1518454660501', 'no', 'public', '', '', '', '', '', '', 'no', '1525801713580');
+INSERT INTO `users` (`id`, `username`, `firstname`, `surname`, `nickname`, `email`, `password`, `bio`, `joined`, `email_verified`, `account_type`, `instagram`, `twitter`, `facebook`, `github`, `website`, `phone`, `isOnline`, `lastOnline`, `cover_image`, `account_status`, `role`) VALUES
+(7, 'ghalib', 'Mirza', 'Ghalib', '', 'ghalib@gmail.com', '$2a$10$E3ZgkSwaa6rUopG1CBUm8OoCMKVqzSwv79bfuUrICV0eLOqTlqR/m', '', '1514718748562', 'yes', 'private', '', '', '', '', '', '', 'no', '1527942645296', '', 'active', 'user'),
+(8, 'coldplay', 'cold', 'play', '', 'coldplay@gmail.com', '$2a$10$zVPMDJKlOY00UnSlrLEUfuaeTwXkZ.VD4ixp.q1x2RjX/LbezoqPO', '', '1515918435853', 'no', 'public', '', '', '', '', '', '', 'no', '', '', 'active', 'user'),
+(10, 'noddy', 'your', 'noddy', '', 'noddy@gmail.com', '$2a$10$/FlxKj904j7TnMo.9gJJTe5cwFakoJc4/w9kba3LeAdP0hTWGCzCG', '', '1516454412744', 'no', 'public', '', '', '', '', '', '', 'no', '', '', 'active', 'user'),
+(11, 'nobita', 'nobita', 'nobi', '', 'nobita@gmail.com', '$2a$10$nzMI2G054StCufuo4fzkEOWhpwUWKqZwV67jbPqaqqSNDNnF5led2', '', '1516522466189', 'no', 'public', '', '', '', '', '', '', 'no', '1524499561897', '', 'active', 'user'),
+(12, 'pikachu', 'your', 'pikachu', '', 'pikachu@gmail.com', '$2a$10$j/buNE/iwJquKzzyBsOhLe4dEVVXKs56KTet8E4arAjcjsQ87BZt2', '', '1516522598741', 'no', 'public', '', '', '', '', '', '', 'no', '', '', 'active', 'user'),
+(13, 'iamsrk', 'Shahrukh', 'Khan', '', 'iamsrk@gmail.com', '$2a$10$Xn99377.3Ns8.QoneTP4qeMuERyvNR2Ki86eRjpmHCsj01xvFoFIq', '', '1516523593107', 'no', 'public', '', '', '', '', '', '', 'no', '', '', 'active', 'user'),
+(14, 'kinkade', 'Thomas', 'Kinkade', '', 'kinkade@gmail.com', '$2a$10$IvK3CBxFh/dnkWZtRMh9k.S2/WIdQbd6adF78Bb16.G.62nrSUgcG', '', '1516523852488', 'no', 'public', '', '', '', '', '', '', 'no', '', '', 'active', 'user'),
+(15, 'suniyo', 'suniyo', 'honekawa', '', 'suniyo@gmail.com', '$2a$10$60TUnK2JiH8RoloKA/IdB.ZG07o.bc8FpHqu9Euc2kEXc28PslceS', '', '1516524667640', 'no', 'public', '', '', '', '', '', '', 'no', '', '', 'active', 'user'),
+(16, 'zayn', 'Zayn', 'Malik', '', 'zayn@gmail.com', '$2a$10$ktjq/vo/8nBxlOnixyTpQuN6gyXc5vN4.rslSVRt4eM6vhq7ftaxS', '', '1516525072573', 'no', 'private', '', '', '', '', '', '', 'yes', '1526663478084', '', 'active', 'user'),
+(17, 'nfak', 'Nusratfateh', 'Alikhan', '', 'nfak@gmail.com', '$2a$10$TAzl3pUYIs/HRb8LPhvZdOclk/TSfnmicUVgHEGyUwnUxm7j7Z.Ie', '', '1516525201164', 'no', 'public', '', '', '', '', '', '', 'no', '', '', 'active', 'user'),
+(18, 'ragnar', 'Ragnar', 'Lothbrok', '', 'ragnar@gmail.com', '$2a$10$M7lx4wF.PUhAjSJVxb7bW.nk2G6zxeCjhXBnKTyFz3JNq8NQbQQ8m', '', '1516525343645', 'no', 'public', '', '', '', '', '', '', 'no', '1525866681046', '', 'active', 'user'),
+(19, 'jonsnow', 'jon_', 'snow', '', 'jonsnow@gmail.com', '$2a$10$9Nb4hFjgg.MKKLLTeXMuWehralT21UCoeWsPq3./VWMkUnu19JpzS', '', '1516527326858', 'no', 'public', '', '', '', '', '', '', 'no', '', '', 'active', 'user'),
+(20, 'gian', 'Takeshi', 'Gauda', '', 'gian@gmail.com', '$2a$10$K3ijpio/4HIOKJhQ5yq3DOQ4IW5Oee4O5hwogEQtB/FBuNJRvd9T2', '', '1516527534985', 'no', 'public', '', '', '', '', '', '', 'no', '', '', 'active', 'user'),
+(24, 'takkar', 'iam_', 'takkar', '', 'takkar@gmail.com', '$2a$10$R/iWFCwEDgmOvg7mCB3wreerTC0hRuYyZflDN2Gyr3YV/ppMMNgJu', 'Hello #world', '1518016437193', 'no', 'private', '', '', 'm', '', '', 'gg', 'yes', '1528490530271', '', 'active', 'user'),
+(27, 'taylor_swift', 'taylor', 'swift', '', 'taylor_swift@gmail.com', '$2a$10$rnQRsp0iWCdV8b6AD24mJ.7rL5XQ31ejULlOQMVkBpjxD7RlRxqKK', '', '1518018283428', 'no', 'public', '', '', '', '', '', '', 'no', '1526387270500', '', 'active', 'user'),
+(28, 'selena', 'selena', 'gomez', '', 'selenagomez@gmail.com', '$2a$10$.ifdYlKQdt/acrXtn09NLuENJylSfZIJq2U4tqzZNqeRWaUG0nnQq', '', '1518018409165', 'no', 'public', 'mmmm', '', '', '', '', '', 'no', '1528534503389', '', 'active', 'user'),
+(29, 'steve_jobs', 'steve', 'jobs', '', 'steve_jobs@gmail.com', '$2a$10$B05HNF3/pnK.8fU7kCJHpuaU5LpVxwao9Wmkn3Md2sAPc5GINiU6O', '', '1518018498672', 'no', 'public', '', '', '', '', '', '', 'no', '', '', 'active', 'user'),
+(30, 'doraemon', 'iam_', 'doraemon', '', 'doraemon@gmail.com', '$2a$10$OjZg/mosNPOT297skkotUetzYL7mIEFDVxVPP2lsBAv4F0LSyK18m', '', '1518454660501', 'no', 'public', '', '', '', '', '', '', 'no', '1525801713580', '', 'active', 'user');
 
 --
 -- Indexes for dumped tables
@@ -1035,14 +1058,26 @@ ALTER TABLE `messages`
 --
 -- Indexes for table `notifications`
 --
-ALTER TABLE `notifications`
-  ADD PRIMARY KEY (`notify_id`);
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_account_status` (`account_status`),
+  ADD KEY `idx_user_role` (`role`);
+
+--
+-- Indexes for table `friend_requests`
+--
+ALTER TABLE `friend_requests`
+  ADD PRIMARY KEY (`request_id`),
+  ADD KEY `idx_from_user` (`from_user`),
+  ADD KEY `idx_to_user` (`to_user`),
+  ADD KEY `idx_status` (`status`);
 
 --
 -- Indexes for table `posts`
 --
 ALTER TABLE `posts`
-  ADD PRIMARY KEY (`post_id`);
+  ADD PRIMARY KEY (`post_id`),
+  ADD KEY `idx_post_status` (`status`);
 
 --
 -- Indexes for table `post_tags`
@@ -1179,6 +1214,12 @@ ALTER TABLE `tags`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+
+--
+-- AUTO_INCREMENT for table `friend_requests`
+--
+ALTER TABLE `friend_requests`
+  MODIFY `request_id` int(11) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

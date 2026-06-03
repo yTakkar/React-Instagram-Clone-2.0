@@ -17,7 +17,7 @@ exports[`Social-Inputs Component should match snapshot 1`] = `
     placeholder="Instagram"
     spellCheck="false"
     type="text"
-    value="https://www.instagram.com/_faiyaz_shaikh"
+    value="https://www.instagram.com/_Vsocial_shaikh"
   />
   <input
     autoComplete="false"
@@ -27,7 +27,7 @@ exports[`Social-Inputs Component should match snapshot 1`] = `
     placeholder="Github"
     spellCheck="false"
     type="text"
-    value="https://github.com/yTakkar/"
+    value="https://github.com/Vsocial/"
   />
   <input
     autoComplete="false"
@@ -37,7 +37,7 @@ exports[`Social-Inputs Component should match snapshot 1`] = `
     placeholder="Twitter"
     spellCheck="false"
     type="text"
-    value="https://twitter.com/shtakkar"
+    value="https://twitter.com/shvsocial"
   />
   <input
     autoComplete="false"

@@ -1,8 +1,3 @@
-/**
- * @author Faiyaz Shaikh <www.shtakkar@gmail.com>
- * GitHub repo: https://github.com/yTakkar/React-Instagram-Clone-2.0
- */
-
 // FOR LOGGEDIN USER
 import React from 'react'
 import ReactDOM from 'react-dom'

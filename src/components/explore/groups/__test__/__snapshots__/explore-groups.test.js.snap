@@ -160,7 +160,7 @@ exports[`ExpGroups Component should match snapshot and show <Nothing/> when grou
             }
           >
             <img
-              src="/images/large.jpg"
+              src="/images/large.svg"
             />
             <span
               className="nothingMssg"

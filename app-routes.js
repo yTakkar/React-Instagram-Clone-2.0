@@ -12,12 +12,16 @@ const postR = require('./routes/api/post/post-routes'),
   getPostR = require('./routes/api/post/get-posts'),
   commentR = require('./routes/api/post/comment-routes'),
   shareR = require('./routes/api/post/share-routes'),
-  likesR = require('./routes/api/post/likes-routes')
+  likesR = require('./routes/api/post/likes-routes'),
+  postModR = require('./routes/api/post/post-moderation-routes')
 
 // Follow routes
 const followR = require('./routes/api/follow/follow-routes'),
   favR = require('./routes/api/follow/favourite-routes'),
   recommendR = require('./routes/api/follow/recommend-routes')
+
+// Friend request routes
+const friendReqR = require('./routes/api/friend-request/friend-request-routes')
 
 // Conversation routes
 const conR = require('./routes/api/conversation/con-routes'),
@@ -35,6 +39,7 @@ const notifyR = require('./routes/api/others/notification-routes'),
   settingsR = require('./routes/api/others/settings-routes'),
   hashtagR = require('./routes/api/others/hashtag-routes'),
   adminR = require('./routes/api/others/admin-routes'),
+  adminDashR = require('./routes/api/others/admin-dashboard-routes'),
   apiR = require('./routes/api/api-routes')
 
 // Main route
@@ -57,6 +62,9 @@ const AppRoutes = app => {
   app.use('/api', commentR)
   app.use('/api', shareR)
   app.use('/api', likesR)
+  app.use('/api', postModR)
+
+  app.use('/api', friendReqR)
 
   app.use('/api', groupR)
   app.use('/api', groupSections)
@@ -71,6 +79,7 @@ const AppRoutes = app => {
   app.use('/api', settingsR)
   app.use('/api', hashtagR)
   app.use('/api', adminR)
+  app.use('/api', adminDashR)
   app.use('/api', apiR)
 
   app.use('/', mainR)

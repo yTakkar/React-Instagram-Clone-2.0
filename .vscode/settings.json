@@ -1,6 +1,6 @@
 {
   "editor.tabSize": 2,
-  "editor.autoIndent": false,
+  "editor.autoIndent": "advanced",
   "git.ignoreLimitWarning": true,
   "codemetrics.nodeconfiguration.JsxSelfClosingElement": 0,
   "complexityAnalysis.exclude": [

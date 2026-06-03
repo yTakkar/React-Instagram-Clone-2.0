@@ -21,12 +21,12 @@ exports[`Follow-Section-End Component should match snapshot and show Nothing com
   }
 >
   <img
-    src="/images/large.jpg"
+    src="/images/large.svg"
   />
   <span
     className="nothingMssg"
   >
-    takkar have no followers!!
+    vsocial have no followers!!
   </span>
   <span
     className="secondMssg"

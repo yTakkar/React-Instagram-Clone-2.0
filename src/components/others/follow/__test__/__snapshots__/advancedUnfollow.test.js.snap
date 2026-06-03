@@ -6,6 +6,6 @@ exports[`AdvancedUnfollow Component should match snapshot 1`] = `
   href="#"
   onClick={[Function]}
 >
-  Unfollow
+  unfollow
 </a>
 `;

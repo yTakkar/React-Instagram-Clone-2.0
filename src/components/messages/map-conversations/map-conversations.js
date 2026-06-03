@@ -3,11 +3,11 @@ import { connect } from 'react-redux'
 import ConversationTeaser from './conversation-teaser'
 import { FadeIn } from 'animate-components'
 import Nothing from '../../others/nothing'
-import { humanReadable } from '../../../utils/utils'
 import PropTypes from 'prop-types'
 import d from '../../../utils/API/DOM'
+import { t } from '../../../utils/translation'
 
-const MapConversations = ({ showConversation, conversations }) => {
+const MapConversations = ({ showConversation, conversations, lang }) => {
   let selectConversation = con => {
     new d('.mssg_sr').removeClass('mssg_sr_toggle')
     new d(`.mt_${con.con_id}`).addClass('mssg_sr_toggle')
@@ -30,10 +30,10 @@ const MapConversations = ({ showConversation, conversations }) => {
 
   return (
     <Fragment>
-      <span className="con_count">{humanReadable(conLen, 'conversation')}</span>
+      <span className="con_count">{conLen} {t(lang, 'messages', 'conversations')}</span>
 
       {conLen == 0 ? (
-        <Nothing conPage mssg="No conversations" />
+        <Nothing conPage mssg={t(lang, 'messages', 'noConversations')} />
       ) : (
         <FadeIn duration="300ms">{map_conversations}</FadeIn>
       )}
@@ -47,6 +47,7 @@ MapConversations.propTypes = {
 
 const mapStateToProps = state => ({
   conversations: state.Message.conversations,
+  lang: state.Language.language
 })
 
 export default connect(mapStateToProps)(MapConversations)

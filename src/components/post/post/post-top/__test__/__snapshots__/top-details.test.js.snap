@@ -18,10 +18,10 @@ Array [
     }
   >
     <Link
-      title="takkar"
-      to="/profile/takkar"
+      title="vsocial"
+      to="/profile/vsocial"
     >
-      takkar
+      vsocial
     </Link>
     <span
       className="p_i_1_title"
@@ -51,16 +51,16 @@ Array [
     }
   >
     <Link
-      title="takkar"
-      to="/profile/takkar"
+      title="vsocial"
+      to="/profile/vsocial"
     >
-      takkar
+      vsocial
     </Link>
     <span
       className="p_i_1_title"
       title={null}
     >
-      iam_ takkar
+      iam_ vsocial
     </span>
   </div>,
 ]
@@ -84,10 +84,10 @@ Array [
     }
   >
     <Link
-      title="takkar"
-      to="/profile/takkar"
+      title="vsocial"
+      to="/profile/vsocial"
     >
-      takkar
+      vsocial
     </Link>
     <div
       className="its_grp_post"
